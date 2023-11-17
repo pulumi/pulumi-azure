@@ -139,6 +139,8 @@ export class Account extends pulumi.CustomResource {
     public readonly createMode!: pulumi.Output<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     *
+     * > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
      */
     public readonly defaultIdentityType!: pulumi.Output<string | undefined>;
     /**
@@ -202,7 +204,13 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly mongoServerVersion!: pulumi.Output<string>;
     /**
-     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+     *
+     * > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+     *
+     * > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+     *
+     * > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -473,6 +481,8 @@ export interface AccountState {
     createMode?: pulumi.Input<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     *
+     * > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
@@ -536,7 +546,13 @@ export interface AccountState {
      */
     mongoServerVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+     *
+     * > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+     *
+     * > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+     *
+     * > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -675,6 +691,8 @@ export interface AccountArgs {
     createMode?: pulumi.Input<string>;
     /**
      * The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+     *
+     * > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
      */
     defaultIdentityType?: pulumi.Input<string>;
     /**
@@ -734,7 +752,13 @@ export interface AccountArgs {
      */
     mongoServerVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+     *
+     * > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+     *
+     * > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+     *
+     * > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
      */
     name?: pulumi.Input<string>;
     /**

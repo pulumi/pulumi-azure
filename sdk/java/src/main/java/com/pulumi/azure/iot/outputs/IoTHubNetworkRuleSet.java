@@ -15,31 +15,33 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IoTHubNetworkRuleSet {
     /**
-     * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+     * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
      * 
      */
     private @Nullable Boolean applyToBuiltinEventhubEndpoint;
     /**
-     * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * @return Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
      * 
      */
     private @Nullable String defaultAction;
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
+     * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
+     * 
      */
     private @Nullable List<IoTHubNetworkRuleSetIpRule> ipRules;
 
     private IoTHubNetworkRuleSet() {}
     /**
-     * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+     * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
      * 
      */
     public Optional<Boolean> applyToBuiltinEventhubEndpoint() {
         return Optional.ofNullable(this.applyToBuiltinEventhubEndpoint);
     }
     /**
-     * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * @return Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
      * 
      */
     public Optional<String> defaultAction() {
@@ -47,6 +49,8 @@ public final class IoTHubNetworkRuleSet {
     }
     /**
      * @return One or more `ip_rule` blocks as defined below.
+     * 
+     * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
      * 
      */
     public List<IoTHubNetworkRuleSetIpRule> ipRules() {

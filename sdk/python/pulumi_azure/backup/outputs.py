@@ -40,7 +40,7 @@ class PolicyFileShareBackup(dict):
                  hourly: Optional['outputs.PolicyFileShareBackupHourly'] = None,
                  time: Optional[str] = None):
         """
-        :param str frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+        :param str frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`.
                
                > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         :param 'PolicyFileShareBackupHourlyArgs' hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
@@ -58,7 +58,7 @@ class PolicyFileShareBackup(dict):
     @pulumi.getter
     def frequency(self) -> str:
         """
-        Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+        Sets the backup frequency. Possible values are `Daily` and `Hourly`.
 
         > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         """

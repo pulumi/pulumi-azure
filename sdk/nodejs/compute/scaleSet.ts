@@ -274,7 +274,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.ScaleSetIdentity>;
     /**
-     * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
@@ -490,7 +490,7 @@ export interface ScaleSetState {
      */
     identity?: pulumi.Input<inputs.compute.ScaleSetIdentity>;
     /**
-     * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      */
     licenseType?: pulumi.Input<string>;
     /**
@@ -612,7 +612,7 @@ export interface ScaleSetArgs {
      */
     identity?: pulumi.Input<inputs.compute.ScaleSetIdentity>;
     /**
-     * (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+     * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      */
     licenseType?: pulumi.Input<string>;
     /**

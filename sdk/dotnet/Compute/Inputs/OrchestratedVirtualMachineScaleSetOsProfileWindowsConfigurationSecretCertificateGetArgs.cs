@@ -13,13 +13,19 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The certificate store on the Virtual Machine where the certificate should be added.
+        /// The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
         /// </summary>
         [Input("store", required: true)]
         public Input<string> Store { get; set; } = null!;
 
         /// <summary>
         /// The Secret URL of a Key Vault Certificate.
+        /// 
+        /// 
+        /// `url` - (Required) The Secret URL of a Key Vault Certificate.
+        /// 
+        /// 
+        /// `url` - (Required) The Secret URL of a Key Vault Certificate.
         /// 
         /// &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
         /// </summary>

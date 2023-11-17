@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         public readonly string? CertificateStatus;
         public readonly string? Expiry;
         /// <summary>
-        /// The Hostname to use for the corresponding endpoint.
+        /// The Hostname to use for the API Proxy Endpoint.
         /// </summary>
         public readonly string HostName;
         /// <summary>

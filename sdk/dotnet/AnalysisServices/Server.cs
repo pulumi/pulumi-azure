@@ -99,7 +99,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the firewall rule.
+        /// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the firewall rule.
+        /// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.AnalysisServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the firewall rule.
+        /// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -80,12 +80,16 @@ public final class AnalyticsSolutionState extends com.pulumi.resources.ResourceA
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `plan` block includes:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `plan` block includes:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -239,6 +243,8 @@ public final class AnalyticsSolutionState extends com.pulumi.resources.ResourceA
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * A `plan` block includes:
+         * 
          * @return builder
          * 
          */
@@ -249,6 +255,8 @@ public final class AnalyticsSolutionState extends com.pulumi.resources.ResourceA
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * A `plan` block includes:
          * 
          * @return builder
          * 

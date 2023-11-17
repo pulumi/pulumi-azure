@@ -34,14 +34,14 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the security rule.
+     * @return Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      * 
      */
     public Optional<Output<String>> name() {
@@ -85,12 +85,16 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `security_rule` block support:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `security_rule` block support:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -147,7 +151,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the security rule.
+         * @param name Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
          * 
          * @return builder
          * 
@@ -158,7 +162,7 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the security rule.
+         * @param name Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
          * 
          * @return builder
          * 
@@ -228,6 +232,8 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * A `security_rule` block support:
+         * 
          * @return builder
          * 
          */
@@ -238,6 +244,8 @@ public final class NetworkSecurityGroupState extends com.pulumi.resources.Resour
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * A `security_rule` block support:
          * 
          * @return builder
          * 

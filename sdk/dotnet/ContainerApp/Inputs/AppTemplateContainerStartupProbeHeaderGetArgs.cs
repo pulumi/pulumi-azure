@@ -13,13 +13,19 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class AppTemplateContainerStartupProbeHeaderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTTP Header Name.
+        /// The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The HTTP Header value.
+        /// 
+        /// 
+        /// `value` - (Required) The HTTP Header value.
+        /// 
+        /// 
+        /// `value` - (Required) The HTTP Header value.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

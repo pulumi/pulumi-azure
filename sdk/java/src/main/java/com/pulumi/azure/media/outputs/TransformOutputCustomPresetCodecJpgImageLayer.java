@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputCustomPresetCodecJpgImageLayer {
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     private @Nullable String height;
     /**
-     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
      * 
      */
     private @Nullable String label;
@@ -28,21 +28,21 @@ public final class TransformOutputCustomPresetCodecJpgImageLayer {
      */
     private @Nullable Integer quality;
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     private @Nullable String width;
 
     private TransformOutputCustomPresetCodecJpgImageLayer() {}
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<String> height() {
         return Optional.ofNullable(this.height);
     }
     /**
-     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
      * 
      */
     public Optional<String> label() {
@@ -56,7 +56,7 @@ public final class TransformOutputCustomPresetCodecJpgImageLayer {
         return Optional.ofNullable(this.quality);
     }
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<String> width() {

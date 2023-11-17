@@ -30,12 +30,20 @@ public final class GetAccountSASResourceTypes extends com.pulumi.resources.Invok
     /**
      * Should permission be granted only to a specific object?
      * 
+     * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+     * 
+     * A `services` block contains:
+     * 
      */
     @Import(name="object", required=true)
     private Boolean object;
 
     /**
      * @return Should permission be granted only to a specific object?
+     * 
+     * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+     * 
+     * A `services` block contains:
      * 
      */
     public Boolean object() {
@@ -96,6 +104,10 @@ public final class GetAccountSASResourceTypes extends com.pulumi.resources.Invok
 
         /**
          * @param object Should permission be granted only to a specific object?
+         * 
+         * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+         * 
+         * A `services` block contains:
          * 
          * @return builder
          * 

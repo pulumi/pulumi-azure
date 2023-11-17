@@ -10,12 +10,16 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
     /**
-     * @return The certificate store on the Virtual Machine where the certificate should be added.
+     * @return The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
      * 
      */
     private String store;
     /**
      * @return The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
      * 
      * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
@@ -24,7 +28,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate() {}
     /**
-     * @return The certificate store on the Virtual Machine where the certificate should be added.
+     * @return The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
      * 
      */
     public String store() {
@@ -32,6 +36,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     }
     /**
      * @return The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
      * 
      * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 

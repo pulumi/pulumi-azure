@@ -14,14 +14,14 @@ public final class AppTemplateContainerLivenessProbeHeaderArgs extends com.pulum
     public static final AppTemplateContainerLivenessProbeHeaderArgs Empty = new AppTemplateContainerLivenessProbeHeaderArgs();
 
     /**
-     * The HTTP Header Name.
+     * The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The HTTP Header Name.
+     * @return The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
      * 
      */
     public Output<String> name() {
@@ -31,12 +31,20 @@ public final class AppTemplateContainerLivenessProbeHeaderArgs extends com.pulum
     /**
      * The HTTP Header value.
      * 
+     * `value` - (Required) The HTTP Header value.
+     * 
+     * `value` - (Required) The HTTP Header value.
+     * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
      * @return The HTTP Header value.
+     * 
+     * `value` - (Required) The HTTP Header value.
+     * 
+     * `value` - (Required) The HTTP Header value.
      * 
      */
     public Output<String> value() {
@@ -69,7 +77,7 @@ public final class AppTemplateContainerLivenessProbeHeaderArgs extends com.pulum
         }
 
         /**
-         * @param name The HTTP Header Name.
+         * @param name The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
          * 
          * @return builder
          * 
@@ -80,7 +88,7 @@ public final class AppTemplateContainerLivenessProbeHeaderArgs extends com.pulum
         }
 
         /**
-         * @param name The HTTP Header Name.
+         * @param name The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
          * 
          * @return builder
          * 
@@ -92,6 +100,10 @@ public final class AppTemplateContainerLivenessProbeHeaderArgs extends com.pulum
         /**
          * @param value The HTTP Header value.
          * 
+         * `value` - (Required) The HTTP Header value.
+         * 
+         * `value` - (Required) The HTTP Header value.
+         * 
          * @return builder
          * 
          */
@@ -102,6 +114,10 @@ public final class AppTemplateContainerLivenessProbeHeaderArgs extends com.pulum
 
         /**
          * @param value The HTTP Header value.
+         * 
+         * `value` - (Required) The HTTP Header value.
+         * 
+         * `value` - (Required) The HTTP Header value.
          * 
          * @return builder
          * 

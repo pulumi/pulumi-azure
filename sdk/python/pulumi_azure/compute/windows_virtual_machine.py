@@ -102,7 +102,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
@@ -576,7 +576,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -929,7 +929,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -1380,7 +1380,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1906,7 +1906,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -2262,7 +2262,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
@@ -2568,7 +2568,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

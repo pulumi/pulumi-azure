@@ -67,14 +67,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -318,7 +318,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.
+         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.
+         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
          * 
          * @return builder
          * 

@@ -91,7 +91,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly dapr!: pulumi.Output<outputs.containerapp.AppDapr | undefined>;
     /**
-     * An `identity` block as detailed below.
+     * An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      */
     public readonly identity!: pulumi.Output<outputs.containerapp.AppIdentity | undefined>;
     /**
@@ -111,7 +111,7 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
     /**
-     * The name for this Container App. Changing this forces a new resource to be created.
+     * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -227,7 +227,7 @@ export interface AppState {
      */
     dapr?: pulumi.Input<inputs.containerapp.AppDapr>;
     /**
-     * An `identity` block as detailed below.
+     * An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      */
     identity?: pulumi.Input<inputs.containerapp.AppIdentity>;
     /**
@@ -247,7 +247,7 @@ export interface AppState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name for this Container App. Changing this forces a new resource to be created.
+     * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      */
     name?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface AppArgs {
      */
     dapr?: pulumi.Input<inputs.containerapp.AppDapr>;
     /**
-     * An `identity` block as detailed below.
+     * An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      */
     identity?: pulumi.Input<inputs.containerapp.AppIdentity>;
     /**
@@ -301,7 +301,7 @@ export interface AppArgs {
      */
     ingress?: pulumi.Input<inputs.containerapp.AppIngress>;
     /**
-     * The name for this Container App. Changing this forces a new resource to be created.
+     * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      */
     name?: pulumi.Input<string>;
     /**

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
     public sealed class AppRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        /// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }

@@ -34,6 +34,8 @@ public final class HadoopClusterStorageAccount {
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
+     * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
      */
     private @Nullable String storageResourceId;
 
@@ -65,6 +67,8 @@ public final class HadoopClusterStorageAccount {
     }
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> storageResourceId() {

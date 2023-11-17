@@ -19,18 +19,14 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
     public static final BackendServiceFabricClusterArgs Empty = new BackendServiceFabricClusterArgs();
 
     /**
-     * The client certificate resource id for the management endpoint.
-     * 
-     * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+     * The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
      * 
      */
     @Import(name="clientCertificateId")
     private @Nullable Output<String> clientCertificateId;
 
     /**
-     * @return The client certificate resource id for the management endpoint.
-     * 
-     * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+     * @return The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
      * 
      */
     public Optional<Output<String>> clientCertificateId() {
@@ -142,9 +138,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clientCertificateId The client certificate resource id for the management endpoint.
-         * 
-         * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+         * @param clientCertificateId The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
          * 
          * @return builder
          * 
@@ -155,9 +149,7 @@ public final class BackendServiceFabricClusterArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param clientCertificateId The client certificate resource id for the management endpoint.
-         * 
-         * &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
+         * @param clientCertificateId The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
          * 
          * @return builder
          * 

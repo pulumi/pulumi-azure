@@ -51,7 +51,7 @@ class KeyVaultArgs:
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days.
@@ -253,7 +253,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? 
+        Is Purge Protection enabled for this Key Vault?
 
         !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
@@ -326,7 +326,7 @@ class _KeyVaultState:
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -501,7 +501,7 @@ class _KeyVaultState:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? 
+        Is Purge Protection enabled for this Key Vault?
 
         !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
@@ -666,7 +666,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -836,7 +836,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[pulumi.InputType['KeyVaultNetworkAclsArgs']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -959,7 +959,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? 
+        Is Purge Protection enabled for this Key Vault?
 
         !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """

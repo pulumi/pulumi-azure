@@ -31,6 +31,11 @@ namespace Pulumi.Azure.NotificationHub.Outputs
         public readonly string TeamId;
         /// <summary>
         /// The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `gcm_credential` block contains:
         /// </summary>
         public readonly string Token;
 

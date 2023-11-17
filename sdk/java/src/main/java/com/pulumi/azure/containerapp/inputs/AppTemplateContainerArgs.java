@@ -155,14 +155,14 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the container
+     * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the container
+     * @return The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     public Output<String> name() {
@@ -470,7 +470,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the container
+         * @param name The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the container
+         * @param name The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
          * 
          * @return builder
          * 

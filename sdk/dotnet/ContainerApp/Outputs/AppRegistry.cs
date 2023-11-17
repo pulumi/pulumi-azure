@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppRegistry
     {
         /// <summary>
-        /// Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        /// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
         public readonly string? Identity;
         /// <summary>

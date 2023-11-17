@@ -14,11 +14,17 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplateContainerReadinessProbeHeader
     {
         /// <summary>
-        /// The HTTP Header Name.
+        /// The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// The HTTP Header value.
+        /// 
+        /// 
+        /// `value` - (Required) The HTTP Header value.
+        /// 
+        /// 
+        /// `value` - (Required) The HTTP Header value.
         /// </summary>
         public readonly string Value;
 

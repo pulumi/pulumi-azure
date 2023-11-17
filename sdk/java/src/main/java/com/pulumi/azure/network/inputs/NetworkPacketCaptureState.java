@@ -22,12 +22,16 @@ public final class NetworkPacketCaptureState extends com.pulumi.resources.Resour
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * A `storage_location` block contains:
+     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<NetworkPacketCaptureFilterArgs>> filters;
 
     /**
      * @return One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * A `storage_location` block contains:
      * 
      */
     public Optional<Output<List<NetworkPacketCaptureFilterArgs>>> filters() {
@@ -193,6 +197,8 @@ public final class NetworkPacketCaptureState extends com.pulumi.resources.Resour
         /**
          * @param filters One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
          * 
+         * A `storage_location` block contains:
+         * 
          * @return builder
          * 
          */
@@ -204,6 +210,8 @@ public final class NetworkPacketCaptureState extends com.pulumi.resources.Resour
         /**
          * @param filters One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
          * 
+         * A `storage_location` block contains:
+         * 
          * @return builder
          * 
          */
@@ -213,6 +221,8 @@ public final class NetworkPacketCaptureState extends com.pulumi.resources.Resour
 
         /**
          * @param filters One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * A `storage_location` block contains:
          * 
          * @return builder
          * 

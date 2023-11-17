@@ -1060,11 +1060,14 @@ class StandardSiteConfigIpRestrictionArgs:
                  service_tag: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+               
+               
+               `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
-        :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
@@ -1089,7 +1092,7 @@ class StandardSiteConfigIpRestrictionArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -1102,6 +1105,9 @@ class StandardSiteConfigIpRestrictionArgs:
     def headers(self) -> Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
+
+
+        `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -1125,7 +1131,7 @@ class StandardSiteConfigIpRestrictionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for this IP Restriction.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -1137,7 +1143,7 @@ class StandardSiteConfigIpRestrictionArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
@@ -1254,11 +1260,14 @@ class StandardSiteConfigScmIpRestrictionArgs:
                  service_tag: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+               
+               
+               `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
-        :param pulumi.Input[str] name: The name for this IP Restriction.
-        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
+        :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param pulumi.Input[str] service_tag: The Service Tag used for this IP Restriction.
         :param pulumi.Input[str] virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
@@ -1283,7 +1292,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -1296,6 +1305,9 @@ class StandardSiteConfigScmIpRestrictionArgs:
     def headers(self) -> Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']]:
         """
         The headers for this specific `ip_restriction` as defined below.
+
+
+        `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -1319,7 +1331,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for this IP Restriction.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -1331,7 +1343,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 

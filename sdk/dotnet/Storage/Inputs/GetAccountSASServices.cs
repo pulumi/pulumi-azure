@@ -20,6 +20,11 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// Should permission be granted to `file` services within this storage account?
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `permissions` block contains:
         /// </summary>
         [Input("file", required: true)]
         public bool File { get; set; }

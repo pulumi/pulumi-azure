@@ -29,14 +29,18 @@ public final class HBaseClusterRolesWorkerNode {
      */
     private @Nullable List<HBaseClusterRolesWorkerNodeScriptAction> scriptActions;
     /**
-     * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
      */
     private @Nullable List<String> sshKeys;
     /**
-     * @return The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String subnetId;
@@ -51,7 +55,9 @@ public final class HBaseClusterRolesWorkerNode {
      */
     private String username;
     /**
-     * @return The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * 
+     * `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String virtualNetworkId;
@@ -82,7 +88,11 @@ public final class HBaseClusterRolesWorkerNode {
         return this.scriptActions == null ? List.of() : this.scriptActions;
     }
     /**
-     * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
@@ -91,7 +101,7 @@ public final class HBaseClusterRolesWorkerNode {
         return this.sshKeys == null ? List.of() : this.sshKeys;
     }
     /**
-     * @return The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> subnetId() {
@@ -112,7 +122,9 @@ public final class HBaseClusterRolesWorkerNode {
         return this.username;
     }
     /**
-     * @return The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * 
+     * `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> virtualNetworkId() {

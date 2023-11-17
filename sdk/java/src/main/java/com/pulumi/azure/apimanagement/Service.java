@@ -96,14 +96,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalLocations);
     }
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      * 
      */
     @Export(name="certificates", refs={List.class,ServiceCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCertificate>> certificates;
 
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      * 
      */
     public Output<Optional<List<ServiceCertificate>>> certificates() {
@@ -152,14 +152,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.developerPortalUrl;
     }
     /**
-     * Disable the gateway in main region? This is only supported when `additional_location` is set.
+     * Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      * 
      */
     @Export(name="gatewayDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> gatewayDisabled;
 
     /**
-     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.
+     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      * 
      */
     public Output<Optional<Boolean>> gatewayDisabled() {
@@ -496,7 +496,7 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.signUp;
     }
     /**
-     * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
@@ -507,7 +507,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     private Output<String> skuName;
 
     /**
-     * @return `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * @return is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
@@ -546,32 +546,28 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.tenantAccess;
     }
     /**
-     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     @Export(name="virtualNetworkConfiguration", refs={ServiceVirtualNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceVirtualNetworkConfiguration> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     public Output<Optional<ServiceVirtualNetworkConfiguration>> virtualNetworkConfiguration() {
         return Codegen.optional(this.virtualNetworkConfiguration);
     }
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * 
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     @Export(name="virtualNetworkType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkType;
 
     /**
-     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * 
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     public Output<Optional<String>> virtualNetworkType() {

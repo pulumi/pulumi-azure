@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     private String clientId;
 
     private LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2() {}
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public String clientId() {

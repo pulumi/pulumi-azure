@@ -71,18 +71,18 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
     }
 
     /**
-     * The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+     * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     @Import(name="defaultProvider")
     private @Nullable Output<String> defaultProvider;
 
     /**
-     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -184,14 +184,14 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
     }
 
     /**
-     * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+     * The RuntimeVersion of the Authentication / Authorization feature in use.
      * 
      */
     @Import(name="runtimeVersion")
     private @Nullable Output<String> runtimeVersion;
 
     /**
-     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+     * @return The RuntimeVersion of the Authentication / Authorization feature in use.
      * 
      */
     public Optional<Output<String>> runtimeVersion() {
@@ -370,9 +370,9 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+         * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          * 
-         * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 
@@ -383,9 +383,9 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultProvider The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+         * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          * 
-         * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param runtimeVersion The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * @param runtimeVersion The RuntimeVersion of the Authentication / Authorization feature in use.
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param runtimeVersion The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * @param runtimeVersion The RuntimeVersion of the Authentication / Authorization feature in use.
          * 
          * @return builder
          * 

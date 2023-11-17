@@ -50,7 +50,7 @@ export namespace advisor {
 export namespace analysisservices {
     export interface ServerIpv4FirewallRule {
         /**
-         * Specifies the name of the firewall rule.
+         * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -915,10 +915,7 @@ export namespace apimanagement {
 
     export interface BackendServiceFabricCluster {
         /**
-         * The client certificate resource id for the management endpoint.
-         *
-         * > **Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
-         * >
+         * The client certificate resource id for the management endpoint.**Note:** At least one of `clientCertificateThumbprint`, and `clientCertificateId` must be set.
          */
         clientCertificateId: string;
         /**
@@ -949,7 +946,7 @@ export namespace apimanagement {
          */
         issuerCertificateThumbprint: string;
         /**
-         * The name of the API Management backend. Changing this forces a new resource to be created.
+         * The common name of the certificate.
          */
         name: string;
     }
@@ -978,7 +975,7 @@ export namespace apimanagement {
         certificateStatus: string;
         expiry: string;
         /**
-         * The Hostname to use for the corresponding endpoint.
+         * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: string;
         /**
@@ -1050,7 +1047,7 @@ export namespace apimanagement {
         certificateStatus: string;
         expiry: string;
         /**
-         * The Hostname to use for the corresponding endpoint.
+         * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: string;
         /**
@@ -1084,7 +1081,7 @@ export namespace apimanagement {
         certificateStatus: string;
         expiry: string;
         /**
-         * The Hostname to use for the corresponding endpoint.
+         * The Hostname to use for the API Proxy Endpoint.
          */
         hostName: string;
         /**
@@ -1583,7 +1580,7 @@ export namespace apimanagement {
          */
         capacity: number;
         /**
-         * Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+         * Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
          */
         gatewayDisabled?: boolean;
         /**
@@ -1609,7 +1606,7 @@ export namespace apimanagement {
          */
         publicIpAddresses: string[];
         /**
-         * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+         * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
          */
         virtualNetworkConfiguration?: outputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration;
         /**
@@ -1696,62 +1693,13 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfigurationDeveloperPortal {
         /**
-         * One or more (up to 10) `certificate` blocks as defined below.
-         */
-        certificate?: string;
-        /**
-         * The password for the certificate.
-         */
-        certificatePassword?: string;
-        /**
-         * The source of the certificate.
-         */
-        certificateSource: string;
-        /**
-         * The status of the certificate.
-         */
-        certificateStatus: string;
-        /**
-         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
-         */
-        expiry: string;
-        /**
-         * The Hostname to use for the Management API.
-         */
-        hostName: string;
-        /**
-         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-         *
-         * > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-         */
-        keyVaultId?: string;
-        /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-         */
-        negotiateClientCertificate?: boolean;
-        /**
-         * System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
-         *
-         * > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
-         */
-        sslKeyvaultIdentityClientId?: string;
-        /**
-         * The subject of the certificate.
-         */
-        subject: string;
-        /**
-         * The thumbprint of the certificate.
-         */
-        thumbprint: string;
-    }
-
-    export interface ServiceHostnameConfigurationManagement {
-        /**
-         * The Base64 Encoded Certificate.
+         * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
          * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.`certificatePassword` - (Optional) The password associated with the certificate provided above.
          *
          * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
@@ -1775,17 +1723,20 @@ export namespace apimanagement {
         /**
          * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
          *
-         * > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+         * > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiateClientCertificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         /**
          * System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
          *
          * > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+         *
+         *
+         * `sslKeyvaultIdentityClientId` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          */
         sslKeyvaultIdentityClientId?: string;
         /**
@@ -1798,13 +1749,17 @@ export namespace apimanagement {
         thumbprint: string;
     }
 
-    export interface ServiceHostnameConfigurationPortal {
+    export interface ServiceHostnameConfigurationManagement {
         /**
-         * One or more (up to 10) `certificate` blocks as defined below.
+         * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
-         * The password for the certificate.
+         * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.`certificatePassword` - (Optional) The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
         certificatePassword?: string;
         /**
@@ -1826,17 +1781,78 @@ export namespace apimanagement {
         /**
          * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
          *
-         * > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+         * > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiateClientCertificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         /**
          * System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
          *
          * > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+         *
+         *
+         * `sslKeyvaultIdentityClientId` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+         */
+        sslKeyvaultIdentityClientId?: string;
+        /**
+         * The subject of the certificate.
+         */
+        subject: string;
+        /**
+         * The thumbprint of the certificate.
+         */
+        thumbprint: string;
+    }
+
+    export interface ServiceHostnameConfigurationPortal {
+        /**
+         * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
+         */
+        certificate?: string;
+        /**
+         * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.`certificatePassword` - (Optional) The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+         */
+        certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
+        certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
+        certificateStatus: string;
+        /**
+         * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
+         */
+        expiry: string;
+        /**
+         * The Hostname to use for the Management API.
+         */
+        hostName: string;
+        /**
+         * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         *
+         * > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+         */
+        keyVaultId?: string;
+        /**
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiateClientCertificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         */
+        negotiateClientCertificate?: boolean;
+        /**
+         * System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         *
+         * > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+         *
+         *
+         * `sslKeyvaultIdentityClientId` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          */
         sslKeyvaultIdentityClientId?: string;
         /**
@@ -1851,11 +1867,13 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfigurationProxy {
         /**
-         * The Base64 Encoded Certificate.
+         * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
          * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.`certificatePassword` - (Optional) The password associated with the certificate provided above.
          *
          * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
@@ -1887,11 +1905,16 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiateClientCertificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         /**
-         * The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+         * System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+         *
+         * > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+         *
+         *
+         * `sslKeyvaultIdentityClientId` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          */
         sslKeyvaultIdentityClientId?: string;
         /**
@@ -1906,11 +1929,15 @@ export namespace apimanagement {
 
     export interface ServiceHostnameConfigurationScm {
         /**
-         * One or more (up to 10) `certificate` blocks as defined below.
+         * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          */
         certificate?: string;
         /**
-         * The password for the certificate.
+         * The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.`certificatePassword` - (Optional) The password associated with the certificate provided above.
+         *
+         * > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
          */
         certificatePassword?: string;
         /**
@@ -1936,13 +1963,16 @@ export namespace apimanagement {
          */
         keyVaultId?: string;
         /**
-         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiateClientCertificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          */
         negotiateClientCertificate?: boolean;
         /**
          * System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
          *
          * > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+         *
+         *
+         * `sslKeyvaultIdentityClientId` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          */
         sslKeyvaultIdentityClientId?: string;
         /**
@@ -2092,7 +2122,7 @@ export namespace apimanagement {
          */
         tlsRsaWithAes256GcmSha384CiphersEnabled?: boolean;
         /**
-         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
          *
          * > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
          */
@@ -2178,11 +2208,16 @@ export namespace appconfiguration {
 
     export interface ConfigurationFeatureTargetingFilterGroup {
         /**
-         * The name of the group.
+         * The name of the App Configuration Feature. Changing this forces a new resource to be created.
          */
         name: string;
         /**
          * Rollout percentage of the group.
+         *
+         *
+         *
+         *
+         * A `timewindowFilter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
          */
         rolloutPercentage: number;
     }
@@ -3719,6 +3754,11 @@ export namespace appservice {
         azureBlobStorage?: outputs.appservice.AppServiceLogsApplicationLogsAzureBlobStorage;
         /**
          * Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+         *
+         *
+         *
+         *
+         * An `httpLogs` block supports *one* of the following:
          */
         fileSystemLevel?: string;
     }
@@ -3889,7 +3929,7 @@ export namespace appservice {
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -3924,11 +3964,14 @@ export namespace appservice {
 
     export interface AppServiceSiteConfigIpRestriction {
         /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
          * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.AppServiceSiteConfigIpRestrictionHeaders;
         /**
@@ -3936,11 +3979,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -3976,11 +4019,14 @@ export namespace appservice {
 
     export interface AppServiceSiteConfigScmIpRestriction {
         /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
-         * The headers for this specific `scmIpRestriction` as defined below.
+         * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.AppServiceSiteConfigScmIpRestrictionHeaders;
         /**
@@ -3988,11 +4034,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -4438,7 +4484,7 @@ export namespace appservice {
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -4469,11 +4515,14 @@ export namespace appservice {
 
     export interface FunctionAppSiteConfigIpRestriction {
         /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
          * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.FunctionAppSiteConfigIpRestrictionHeaders;
         /**
@@ -4481,11 +4530,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -4521,11 +4570,14 @@ export namespace appservice {
 
     export interface FunctionAppSiteConfigScmIpRestriction {
         /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
-         * The headers for this specific `scmIpRestriction` as defined below.
+         * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.FunctionAppSiteConfigScmIpRestrictionHeaders;
         /**
@@ -4533,11 +4585,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -4855,11 +4907,14 @@ export namespace appservice {
 
     export interface FunctionAppSlotSiteConfigIpRestriction {
         /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
          * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.FunctionAppSlotSiteConfigIpRestrictionHeaders;
         /**
@@ -4867,11 +4922,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -4907,11 +4962,14 @@ export namespace appservice {
 
     export interface FunctionAppSlotSiteConfigScmIpRestriction {
         /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
-         * The headers for this specific `scmIpRestriction` as defined below.
+         * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.FunctionAppSlotSiteConfigScmIpRestrictionHeaders;
         /**
@@ -4919,11 +4977,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -9499,9 +9557,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -9531,7 +9589,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxFunctionAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion: string;
         /**
@@ -9569,6 +9627,9 @@ export namespace appservice {
         clientSecret?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
     }
@@ -9684,6 +9745,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -9692,9 +9754,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.LinuxFunctionAppAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -9748,7 +9810,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion?: string;
         /**
@@ -9769,7 +9831,10 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -9781,7 +9846,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -9792,6 +9857,9 @@ export namespace appservice {
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
         /**
@@ -9818,22 +9886,39 @@ export namespace appservice {
 
     export interface LinuxFunctionAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -9852,11 +9937,14 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -9901,22 +9989,53 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -9925,19 +10044,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -9995,19 +10134,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -10465,9 +10624,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -10497,7 +10656,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
          */
         runtimeVersion: string;
         /**
@@ -10534,7 +10693,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName?: string;
     }
@@ -10650,6 +10809,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -10658,9 +10818,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -10714,7 +10874,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
          */
         runtimeVersion?: string;
         /**
@@ -10733,9 +10893,12 @@ export namespace appservice {
          */
         allowedApplications?: string[];
         /**
-         * an `allowedAudiences` block as detailed below.
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -10747,7 +10910,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -10757,7 +10920,7 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -10784,22 +10947,36 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -10818,11 +10995,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
@@ -10867,43 +11044,88 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxFunctionAppSlotAuthSettingsV2GoogleV2 {
         /**
-         * an `allowedAudiences` block as detailed below.
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -10959,21 +11181,38 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2 {
         /**
-         * an `allowedAudiences` block as detailed below.
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -11508,9 +11747,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -11540,7 +11779,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxWebAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion: string;
         /**
@@ -11578,6 +11817,9 @@ export namespace appservice {
         clientSecret?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
     }
@@ -11691,7 +11933,8 @@ export namespace appservice {
          */
         azureStaticWebAppV2?: outputs.appservice.LinuxWebAppAuthSettingsV2AzureStaticWebAppV2;
         /**
-         * The path to the App Auth settings. 
+         * The path to the App Auth settings.
+         *
          *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
@@ -11701,9 +11944,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.LinuxWebAppAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -11757,7 +12000,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion?: string;
         /**
@@ -11778,7 +12021,10 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -11790,7 +12036,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -11801,6 +12047,9 @@ export namespace appservice {
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
         /**
@@ -11827,22 +12076,39 @@ export namespace appservice {
 
     export interface LinuxWebAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface LinuxWebAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -11861,11 +12127,14 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -11907,22 +12176,53 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -11931,26 +12231,46 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppAuthSettingsV2Login {
         /**
-         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends. 
+         * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
          *
          * > **Note:** URLs within the current domain are always implicitly allowed.
          */
@@ -12001,19 +12321,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -12615,9 +12955,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -12647,7 +12987,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.LinuxWebAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion: string;
         /**
@@ -12685,6 +13025,9 @@ export namespace appservice {
         clientSecret?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
     }
@@ -12800,6 +13143,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -12808,9 +13152,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.LinuxWebAppSlotAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -12864,7 +13208,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
          */
         runtimeVersion?: string;
         /**
@@ -12885,7 +13229,10 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -12897,7 +13244,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -12908,6 +13255,9 @@ export namespace appservice {
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
         /**
@@ -12934,22 +13284,39 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -12968,11 +13335,14 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -13014,22 +13384,53 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface LinuxWebAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -13038,19 +13439,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -13108,19 +13529,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -13982,6 +14423,11 @@ export namespace appservice {
     export interface SlotLogsApplicationLogs {
         /**
          * An `azureBlobStorage` block as defined below.
+         *
+         *
+         *
+         *
+         * An `httpLogs` block supports *one* of the following:
          */
         azureBlobStorage?: outputs.appservice.SlotLogsApplicationLogsAzureBlobStorage;
         /**
@@ -14156,7 +14602,7 @@ export namespace appservice {
          */
         scmType: string;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -14188,11 +14634,14 @@ export namespace appservice {
 
     export interface SlotSiteConfigIpRestriction {
         /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
          * The headers for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.SlotSiteConfigIpRestrictionHeaders;
         /**
@@ -14200,11 +14649,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -14240,11 +14689,14 @@ export namespace appservice {
 
     export interface SlotSiteConfigScmIpRestriction {
         /**
-         * Allow or Deny access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
-         * The headers for this specific `scmIpRestriction` as defined below.
+         * The headers for this specific `ipRestriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `scmIpRestriction` as defined below.
          */
         headers: outputs.appservice.SlotSiteConfigScmIpRestrictionHeaders;
         /**
@@ -14252,11 +14704,11 @@ export namespace appservice {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -14453,9 +14905,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -14485,7 +14937,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsFunctionAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
          */
         runtimeVersion: string;
         /**
@@ -14523,6 +14975,9 @@ export namespace appservice {
         clientSecret?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
     }
@@ -14638,6 +15093,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -14646,9 +15102,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.WindowsFunctionAppAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -14702,7 +15158,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
          */
         runtimeVersion?: string;
         /**
@@ -14723,7 +15179,10 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -14735,7 +15194,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -14746,6 +15205,9 @@ export namespace appservice {
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
         /**
@@ -14772,22 +15234,39 @@ export namespace appservice {
 
     export interface WindowsFunctionAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -14806,11 +15285,14 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -14855,22 +15337,53 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -14879,19 +15392,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -14949,19 +15482,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -15378,9 +15931,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -15410,7 +15963,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
          */
         runtimeVersion: string;
         /**
@@ -15447,7 +16000,7 @@ export namespace appservice {
          */
         clientSecret?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName?: string;
     }
@@ -15563,6 +16116,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -15571,9 +16125,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -15627,7 +16181,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use.
          */
         runtimeVersion?: string;
         /**
@@ -15646,9 +16200,12 @@ export namespace appservice {
          */
         allowedApplications?: string[];
         /**
-         * an `allowedAudiences` block as detailed below.
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -15660,7 +16217,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -15670,7 +16227,7 @@ export namespace appservice {
          */
         clientSecretCertificateThumbprint?: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName?: string;
         /**
@@ -15697,22 +16254,36 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -15731,11 +16302,11 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
@@ -15780,43 +16351,88 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsFunctionAppSlotAuthSettingsV2GoogleV2 {
         /**
-         * an `allowedAudiences` block as detailed below.
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -15872,21 +16488,38 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
         /**
-         * an `allowedAudiences` block as detailed below.
+         * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
-         * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         * The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`clientSecretSettingName` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -16378,9 +17011,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -16410,7 +17043,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsWebAppAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
          */
         runtimeVersion: string;
         /**
@@ -16448,6 +17081,9 @@ export namespace appservice {
         clientSecret?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
     }
@@ -16563,6 +17199,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -16571,9 +17208,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.WindowsWebAppAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -16627,7 +17264,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
          */
         runtimeVersion?: string;
         /**
@@ -16648,7 +17285,10 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -16660,7 +17300,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -16671,6 +17311,9 @@ export namespace appservice {
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
         /**
@@ -16697,22 +17340,39 @@ export namespace appservice {
 
     export interface WindowsWebAppAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface WindowsWebAppAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -16731,11 +17391,14 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -16780,22 +17443,53 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsWebAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -16804,19 +17498,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -16874,19 +17588,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -17249,7 +17983,7 @@ export namespace appservice {
          */
         javaEmbeddedServerEnabled: boolean;
         /**
-         * The version of Java to use when `currentStack` is set to `java`. 
+         * The version of Java to use when `currentStack` is set to `java`.
          *
          * > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
          */
@@ -17565,9 +18299,9 @@ export namespace appservice {
          */
         allowedExternalRedirectUrls: string[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider: string;
         /**
@@ -17597,7 +18331,7 @@ export namespace appservice {
          */
         microsoft?: outputs.appservice.WindowsWebAppSlotAuthSettingsMicrosoft;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
          */
         runtimeVersion: string;
         /**
@@ -17635,6 +18369,9 @@ export namespace appservice {
         clientSecret?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
     }
@@ -17750,6 +18487,7 @@ export namespace appservice {
         /**
          * The path to the App Auth settings.
          *
+         *
          * * > **Note:** Relative Paths are evaluated from the Site Root directory.
          */
         configFilePath?: string;
@@ -17758,9 +18496,9 @@ export namespace appservice {
          */
         customOidcV2s?: outputs.appservice.WindowsWebAppSlotAuthSettingsV2CustomOidcV2[];
         /**
-         * The Default Authentication Provider to use when the `unauthenticatedAction` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `customOidcV2` provider.
+         * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          *
-         * > **NOTE:** Whilst any value will be accepted by the API for `defaultProvider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or customOidc name) as it is used to build the auth endpoint URI.
+         * > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticatedClientAction` is set to "RedirectToLoginPage".
          */
         defaultProvider?: string;
         /**
@@ -17814,7 +18552,7 @@ export namespace appservice {
          */
         requireHttps?: boolean;
         /**
-         * The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+         * The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
          */
         runtimeVersion?: string;
         /**
@@ -17835,7 +18573,10 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
@@ -17847,7 +18588,7 @@ export namespace appservice {
          */
         allowedIdentities?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
@@ -17858,6 +18599,9 @@ export namespace appservice {
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName?: string;
         /**
@@ -17884,22 +18628,39 @@ export namespace appservice {
 
     export interface WindowsWebAppSlotAuthSettingsV2AppleV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes: string[];
     }
 
     export interface WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
     }
@@ -17918,11 +18679,14 @@ export namespace appservice {
          */
         clientCredentialMethod: string;
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
@@ -17964,22 +18728,53 @@ export namespace appservice {
          */
         graphApiVersion: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
 
     export interface WindowsWebAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -17988,19 +18783,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -18008,6 +18823,7 @@ export namespace appservice {
     export interface WindowsWebAppSlotAuthSettingsV2Login {
         /**
          * External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+         *
          *
          * * > **Note:** URLs within the current domain are always implicitly allowed.
          */
@@ -18058,19 +18874,39 @@ export namespace appservice {
         /**
          * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          *
-         * > **Note:** The `clientId` value is always considered an allowed audience, so should not be included.
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowedAudiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
          */
         allowedAudiences?: string[];
         /**
-         * The ID of the Client to use to authenticate with Azure Active Directory.
+         * The ID of the Client to use to authenticate with the Custom OIDC.
          */
         clientId: string;
         /**
          * The App Setting name that contains the client secret of the Client. Cannot be used with `clientSecret`.
+         *
+         *
+         * `clientSecretSettingName` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          */
         clientSecretSettingName: string;
         /**
-         * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * A list of Login Scopes provided by this Authentication Provider.
+         *
+         * > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         *
+         *
+         * `loginScopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         *
+         *
+         * `loginScopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          */
         loginScopes?: string[];
     }
@@ -20035,7 +20871,7 @@ export namespace avs {
 export namespace backup {
     export interface PolicyFileShareBackup {
         /**
-         * Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+         * Sets the backup frequency. Possible values are `Daily` and `Hourly`.
          *
          * > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          */
@@ -22517,7 +23353,7 @@ export namespace cdn {
          */
         action: string;
         /**
-         * Is the managed rule override enabled or disabled. Defaults to `false`
+         * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
          */
         enabled?: boolean;
         /**
@@ -22662,11 +23498,16 @@ export namespace cdn {
          */
         headerAction: string;
         /**
-         * The name of the header to modify.
+         * The name of the header to modify.`headerName` - (Required) The name of the header to modify.
          */
         headerName: string;
         /**
          * The value to append or overwrite.
+         *
+         * ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
+         *
+         *
+         * `value` - (Optional) The value to append or overwrite.
          *
          * ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
          */
@@ -22681,11 +23522,16 @@ export namespace cdn {
          */
         headerAction: string;
         /**
-         * The name of the header to modify.
+         * The name of the header to modify.`headerName` - (Required) The name of the header to modify.
          */
         headerName: string;
         /**
          * The value to append or overwrite.
+         *
+         * ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
+         *
+         *
+         * `value` - (Optional) The value to append or overwrite.
          *
          * ->**NOTE:** `value` is required if the `headerAction` is set to `Append` or `Overwrite`.
          */
@@ -23110,7 +23956,7 @@ export namespace cdn {
          */
         matchValues?: string[];
         /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negateCondition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
          */
         negateCondition?: boolean;
         /**
@@ -23163,7 +24009,7 @@ export namespace cdn {
          */
         matchValues?: string[];
         /**
-         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negateCondition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
          */
         negateCondition?: boolean;
         /**
@@ -24335,7 +25181,7 @@ export namespace compute {
          */
         diskSizeGb: number;
         /**
-         * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+         * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -24486,6 +25332,11 @@ export namespace compute {
         ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         *
+         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         *
+         *
+         * `writeAcceleratorEnabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          *
          * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
@@ -24669,6 +25520,9 @@ export namespace compute {
         subnetId?: string;
         /**
          * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         *
+         *
+         * `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
@@ -24697,7 +25551,10 @@ export namespace compute {
          */
         publicIpPrefixId?: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         *
+         *
+         * `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
@@ -24755,7 +25612,12 @@ export namespace compute {
          */
         storageAccountType: string;
         /**
-         * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         *
+         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         *
+         *
+         * `writeAcceleratorEnabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          *
          * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
@@ -25325,16 +26187,18 @@ export namespace compute {
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
+         * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.`patchAssessmentMode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         *
          * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
         patchAssessmentMode?: string;
         patchMode?: string;
         /**
-         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provisionVmAgent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
          */
         provisionVmAgent?: boolean;
         /**
-         * One or more `secret` blocks as defined below.
+         * One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
          */
         secrets?: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret[];
     }
@@ -25369,6 +26233,12 @@ export namespace compute {
         /**
          * The Secret URL of a Key Vault Certificate.
          *
+         *
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         *
+         *
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         *
          * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         url: string;
@@ -25395,21 +26265,18 @@ export namespace compute {
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
+         * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.`patchAssessmentMode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         *
          * > **NOTE:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
          */
         patchAssessmentMode?: string;
-        /**
-         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-         *
-         * > **NOTE:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
-         */
         patchMode?: string;
         /**
-         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provisionVmAgent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
          */
         provisionVmAgent?: boolean;
         /**
-         * One or more `secret` blocks as defined below.
+         * One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
          */
         secrets?: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret[];
         /**
@@ -25437,11 +26304,17 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
         /**
-         * The certificate store on the Virtual Machine where the certificate should be added.
+         * The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
          */
         store: string;
         /**
          * The Secret URL of a Key Vault Certificate.
+         *
+         *
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         *
+         *
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
          *
          * > **NOTE:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
@@ -25549,6 +26422,11 @@ export namespace compute {
          * The ID of the storage account where the packet capture sessions should be saved to.
          *
          * > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+         *
+         *
+         *
+         *
+         * A `filter` block contains:
          */
         storageAccountId?: string;
         /**
@@ -25791,14 +26669,14 @@ export namespace compute {
          */
         sourceVaultId: string;
         /**
-         * (Required, on Windows machines) One or more `vaultCertificates` blocks as defined below.
+         * One or more `vaultCertificates` blocks as defined below.
          */
         vaultCertificates?: outputs.compute.ScaleSetOsProfileSecretVaultCertificate[];
     }
 
     export interface ScaleSetOsProfileSecretVaultCertificate {
         /**
-         * (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+         * Specifies the certificate store on the Virtual Machine where the certificate should be added to.
          */
         certificateStore?: string;
         /**
@@ -25875,6 +26753,11 @@ export namespace compute {
         remoteIpAddress?: string;
         /**
          * The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+         *
+         *
+         *
+         *
+         * A `machineScope` block contains:
          */
         remotePort?: string;
     }
@@ -25899,6 +26782,11 @@ export namespace compute {
          * The ID of the storage account to save the packet capture session
          *
          * > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+         *
+         *
+         *
+         *
+         * A `filter` block contains:
          */
         storageAccountId?: string;
         /**
@@ -26208,7 +27096,7 @@ export namespace compute {
 
     export interface VirtualMachineOsProfile {
         /**
-         * (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+         * The password associated with the local administrator account.
          *
          * > **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `osProfileLinuxConfig` block) instead of password authentication.
          */
@@ -26266,7 +27154,7 @@ export namespace compute {
 
     export interface VirtualMachineOsProfileSecretVaultCertificate {
         /**
-         * (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
+         * Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
          */
         certificateStore?: string;
         /**
@@ -26383,13 +27271,15 @@ export namespace compute {
         /**
          * Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `createOption` must be set to `Attach`.
          *
-         * The following properties apply when using Unmanaged Disks:
+         * The following properties apply when using Unmanaged Disks:`managedDiskId` - (Optional) Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
          */
         managedDiskId: string;
         /**
          * Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
          *
-         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.
+         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.`managedDiskType` - (Optional) Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+         *
+         * The following properties apply when using Unmanaged Disks:
          */
         managedDiskType: string;
         /**
@@ -26398,6 +27288,9 @@ export namespace compute {
         name: string;
         /**
          * Specifies the URI of the VHD file backing this Unmanaged Data Disk.
+         *
+         *
+         * `vhdUri` - (Optional) Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
          */
         vhdUri?: string;
         /**
@@ -26451,11 +27344,15 @@ export namespace compute {
          */
         imageUri?: string;
         /**
-         * Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
+         * Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `createOption` must be set to `Attach`.
+         *
+         * The following properties apply when using Unmanaged Disks:`managedDiskId` - (Optional) Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `createOption` must be set to `Attach`. Changing this forces a new resource to be created.
          */
         managedDiskId: string;
         /**
-         * Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
+         * Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
+         *
+         * > **Note:** `managedDiskType` of type `UltraSSD_LRS` is currently in preview and are not available to subscriptions that have not [requested](https://aka.ms/UltraSSDPreviewSignUp) onboarding to `Azure Ultra Disk Storage` preview. `Azure Ultra Disk Storage` is only available in `East US 2`, `North Europe`, and `Southeast Asia` regions. For more information see the `Azure Ultra Disk Storage` [product documentation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-enable-ultra-ssd), [product blog](https://azure.microsoft.com/en-us/blog/announcing-the-general-availability-of-azure-ultra-disk-storage/) and [FAQ](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#ultra-disks). You must also set `additional_capabilities.ultra_ssd_enabled` to `true`.`managedDiskType` - (Optional) Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
          *
          * The following properties apply when using Unmanaged Disks:
          */
@@ -26469,7 +27366,10 @@ export namespace compute {
          */
         osType: string;
         /**
-         * Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
+         * Specifies the URI of the VHD file backing this Unmanaged Data Disk.
+         *
+         *
+         * `vhdUri` - (Optional) Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
          */
         vhdUri?: string;
         /**
@@ -26571,7 +27471,7 @@ export namespace compute {
          */
         diskSizeGb: number;
         /**
-         * The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+         * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -26722,6 +27622,11 @@ export namespace compute {
         ultraSsdDiskMbpsReadWrite: number;
         /**
          * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         *
+         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         *
+         *
+         * `writeAcceleratorEnabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          *
          * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
@@ -26905,6 +27810,9 @@ export namespace compute {
         subnetId?: string;
         /**
          * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         *
+         *
+         * `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
@@ -26933,7 +27841,10 @@ export namespace compute {
          */
         publicIpPrefixId?: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+         * The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         *
+         *
+         * `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
@@ -26991,7 +27902,12 @@ export namespace compute {
          */
         storageAccountType: string;
         /**
-         * Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         * Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         *
+         * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
+         *
+         *
+         * `writeAcceleratorEnabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          *
          * > **NOTE:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
          */
@@ -28078,7 +28994,7 @@ export namespace containerapp {
 
     export interface AppRegistry {
         /**
-         * Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+         * An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
          */
         identity?: string;
         /**
@@ -28189,7 +29105,7 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
          *
          * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
          */
@@ -28199,7 +29115,7 @@ export namespace containerapp {
          */
         envs?: outputs.containerapp.AppTemplateContainerEnv[];
         /**
-         * The amount of ephemeral storage available to the Container App. 
+         * The amount of ephemeral storage available to the Container App.
          *
          * > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
          */
@@ -28213,13 +29129,13 @@ export namespace containerapp {
          */
         livenessProbes?: outputs.containerapp.AppTemplateContainerLivenessProbe[];
         /**
-         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+         * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
          *
          * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          */
         memory: string;
         /**
-         * The name of the container
+         * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
          */
         name: string;
         /**
@@ -28298,11 +29214,17 @@ export namespace containerapp {
 
     export interface AppTemplateContainerLivenessProbeHeader {
         /**
-         * The HTTP Header Name.
+         * The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
          */
         name: string;
         /**
          * The HTTP Header value.
+         *
+         *
+         * `value` - (Required) The HTTP Header value.
+         *
+         *
+         * `value` - (Required) The HTTP Header value.
          */
         value: string;
     }
@@ -28348,11 +29270,17 @@ export namespace containerapp {
 
     export interface AppTemplateContainerReadinessProbeHeader {
         /**
-         * The HTTP Header Name.
+         * The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
          */
         name: string;
         /**
          * The HTTP Header value.
+         *
+         *
+         * `value` - (Required) The HTTP Header value.
+         *
+         *
+         * `value` - (Required) The HTTP Header value.
          */
         value: string;
     }
@@ -28398,11 +29326,17 @@ export namespace containerapp {
 
     export interface AppTemplateContainerStartupProbeHeader {
         /**
-         * The HTTP Header Name.
+         * The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
          */
         name: string;
         /**
          * The HTTP Header value.
+         *
+         *
+         * `value` - (Required) The HTTP Header value.
+         *
+         *
+         * `value` - (Required) The HTTP Header value.
          */
         value: string;
     }
@@ -30367,7 +31301,7 @@ export namespace containerservice {
          */
         minCount?: number;
         /**
-         * The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+         * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
          */
         name: string;
         /**
@@ -30431,7 +31365,7 @@ export namespace containerservice {
          */
         snapshotId?: string;
         /**
-         * A mapping of tags to assign to the Node Pool.
+         * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
          *
          * > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
          */
@@ -32693,7 +33627,13 @@ export namespace cosmosdb {
 
     export interface AccountCapability {
         /**
-         * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+         * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+         *
+         * > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+         *
+         * > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+         *
+         * > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
          */
         name: string;
     }
@@ -32760,6 +33700,11 @@ export namespace cosmosdb {
         location: string;
         /**
          * Should zone redundancy be enabled for this region? Defaults to `false`.
+         *
+         *
+         *
+         *
+         * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
          */
         zoneRedundant?: boolean;
     }
@@ -33718,9 +34663,7 @@ export namespace datadog {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-         *
-         * > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+         * Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
          */
         type: string;
     }
@@ -33731,9 +34674,7 @@ export namespace datadog {
          */
         aadLogEnabled?: boolean;
         /**
-         * A `filter` block as defined below.
-         *
-         * > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+         * A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
          */
         filters?: outputs.datadog.MonitorTagRuleLogFilter[];
         /**
@@ -33763,9 +34704,7 @@ export namespace datadog {
 
     export interface MonitorTagRuleMetric {
         /**
-         * A `filter` block as defined below.
-         *
-         * > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+         * A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
          */
         filters?: outputs.datadog.MonitorTagRuleMetricFilter[];
     }
@@ -38371,6 +39310,11 @@ export namespace eventhub {
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          *
          * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         *
+         *
+         *
+         *
+         * > **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
          */
         identityIds?: string[];
         /**
@@ -39239,11 +40183,15 @@ export namespace hdinsight {
         /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -39251,7 +40199,10 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -39288,13 +40239,17 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesWorkerNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -39306,7 +40261,10 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -39360,13 +40318,17 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesZookeeperNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -39374,7 +40336,10 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -39448,6 +40413,9 @@ export namespace hdinsight {
         storageContainerId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId?: string;
     }
@@ -39471,6 +40439,9 @@ export namespace hdinsight {
         managedIdentityResourceId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId: string;
     }
@@ -39736,16 +40707,26 @@ export namespace hdinsight {
         password?: string;
         /**
          * The script action which will run on the cluster. Changing this forces a new resource to be created.
+         *
+         *
+         * `scriptActions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         *
+         *
+         * `scriptActions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesHeadNodeScriptAction[];
         /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -39753,7 +40734,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -39790,16 +40771,26 @@ export namespace hdinsight {
         password?: string;
         /**
          * The script action which will run on the cluster. Changing this forces a new resource to be created.
+         *
+         *
+         * `scriptActions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         *
+         *
+         * `scriptActions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesWorkerNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -39811,7 +40802,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -39894,16 +40885,26 @@ export namespace hdinsight {
         password?: string;
         /**
          * The script action which will run on the cluster. Changing this forces a new resource to be created.
+         *
+         *
+         * `scriptActions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         *
+         *
+         * `scriptActions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesZookeeperNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -39911,7 +40912,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -39985,6 +40986,9 @@ export namespace hdinsight {
         storageContainerId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId?: string;
     }
@@ -40008,6 +41012,9 @@ export namespace hdinsight {
         managedIdentityResourceId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId: string;
     }
@@ -40188,6 +41195,8 @@ export namespace hdinsight {
         /**
          * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
          *
+         * > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).`password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         *
          * > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
          */
         password?: string;
@@ -40198,11 +41207,15 @@ export namespace hdinsight {
         /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40210,7 +41223,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40242,7 +41255,9 @@ export namespace hdinsight {
          */
         autoscale?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeAutoscale;
         /**
-         * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+         * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).`password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
          */
@@ -40252,13 +41267,17 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40270,7 +41289,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40350,13 +41369,17 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesZookeeperNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40364,7 +41387,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40438,6 +41461,9 @@ export namespace hdinsight {
         storageContainerId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId?: string;
     }
@@ -40461,6 +41487,9 @@ export namespace hdinsight {
         managedIdentityResourceId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId: string;
     }
@@ -40670,11 +41699,17 @@ export namespace hdinsight {
         /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+         *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40683,6 +41718,15 @@ export namespace hdinsight {
         username: string;
         /**
          * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40718,13 +41762,19 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesKafkaManagementNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40732,7 +41782,16 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40772,13 +41831,19 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesWorkerNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40790,7 +41855,16 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40826,13 +41900,19 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesZookeeperNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -40840,7 +41920,16 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         *
+         *
+         * `virtualNetworkId` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -40914,6 +42003,9 @@ export namespace hdinsight {
         storageContainerId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId?: string;
     }
@@ -40937,6 +42029,9 @@ export namespace hdinsight {
         managedIdentityResourceId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId: string;
     }
@@ -41127,11 +42222,15 @@ export namespace hdinsight {
         /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -41139,7 +42238,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -41179,13 +42278,17 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesWorkerNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -41197,7 +42300,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -41283,13 +42386,17 @@ export namespace hdinsight {
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesZookeeperNodeScriptAction[];
         /**
-         * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         *
+         * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.`sshKeys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          *
          * > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
          */
         sshKeys?: string[];
         /**
-         * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnetId` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         subnetId?: string;
         /**
@@ -41297,7 +42404,7 @@ export namespace hdinsight {
          */
         username: string;
         /**
-         * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtualNetworkId` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          */
         virtualNetworkId?: string;
         /**
@@ -41371,6 +42478,9 @@ export namespace hdinsight {
         storageContainerId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId?: string;
     }
@@ -41394,6 +42504,9 @@ export namespace hdinsight {
         managedIdentityResourceId: string;
         /**
          * The ID of the Storage Account. Changing this forces a new resource to be created.
+         *
+         *
+         * `storageResourceId` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          */
         storageResourceId: string;
     }
@@ -42203,11 +43316,11 @@ export namespace iot {
          */
         batchFrequencyInSeconds?: number;
         /**
-         * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+         * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
          */
         connectionString?: string;
         /**
-         * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
          */
         containerName?: string;
         /**
@@ -42243,7 +43356,7 @@ export namespace iot {
          */
         name: string;
         /**
-         * The resource group in which the endpoint will be created.
+         * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
          */
         resourceGroupName?: string;
         /**
@@ -42292,11 +43405,11 @@ export namespace iot {
          */
         authenticationType?: string;
         /**
-         * The connection string for the Azure Storage account to which files are uploaded.
+         * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
          */
         connectionString: string;
         /**
-         * The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
+         * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
          */
         containerName: string;
         /**
@@ -42352,15 +43465,18 @@ export namespace iot {
 
     export interface IoTHubNetworkRuleSet {
         /**
-         * Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+         * Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`applyToBuiltinEventhubEndpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
          */
         applyToBuiltinEventhubEndpoint?: boolean;
         /**
-         * Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         * Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`defaultAction` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
          */
         defaultAction?: string;
         /**
          * One or more `ipRule` blocks as defined below.
+         *
+         *
+         * `ipRule` - (Optional) One or more `ipRule` blocks as defined below.
          */
         ipRules?: outputs.iot.IoTHubNetworkRuleSetIpRule[];
     }
@@ -42368,14 +43484,17 @@ export namespace iot {
     export interface IoTHubNetworkRuleSetIpRule {
         /**
          * The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+         *
+         *
+         * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
          */
         action?: string;
         /**
-         * The IP address range in CIDR notation for the ip rule.
+         * The IP address range in CIDR notation for the IP rule.`ipMask` - (Required) The IP address range in CIDR notation for the ip rule.
          */
         ipMask: string;
         /**
-         * The name of the ip rule.
+         * The name of the IP rule.`name` - (Required) The name of the ip rule.
          */
         name: string;
     }
@@ -42701,6 +43820,7 @@ export namespace keyvault {
          * > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
          *
          * To convert a private key to pkcs8 format with openssl use:
+         *
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * ```
@@ -42875,6 +43995,7 @@ export namespace keyvault {
          * > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
          *
          * To convert a private key to pkcs8 format with openssl use:
+         *
          * ```typescript
          * import * as pulumi from "@pulumi/pulumi";
          * ```
@@ -44456,11 +45577,14 @@ export namespace logicapps {
 
     export interface StandardSiteConfigIpRestriction {
         /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
          * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `ipRestriction` as defined below.
          */
         headers: outputs.logicapps.StandardSiteConfigIpRestrictionHeaders;
         /**
@@ -44468,11 +45592,11 @@ export namespace logicapps {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -44508,11 +45632,14 @@ export namespace logicapps {
 
     export interface StandardSiteConfigScmIpRestriction {
         /**
-         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          */
         action?: string;
         /**
          * The headers for this specific `ipRestriction` as defined below.
+         *
+         *
+         * `headers` - (Optional) The headers for this specific `ipRestriction` as defined below.
          */
         headers: outputs.logicapps.StandardSiteConfigScmIpRestrictionHeaders;
         /**
@@ -44520,11 +45647,11 @@ export namespace logicapps {
          */
         ipAddress?: string;
         /**
-         * The name for this IP Restriction.
+         * Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          */
         name: string;
         /**
-         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
          */
         priority?: number;
         /**
@@ -46440,11 +47567,11 @@ export namespace media {
 
     export interface TransformOutputCustomPresetCodecH264Video {
         /**
-         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
          */
         complexity?: string;
         /**
-         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
          */
         keyFrameInterval?: string;
         /**
@@ -46452,7 +47579,7 @@ export namespace media {
          */
         label?: string;
         /**
-         * One or more `layer` blocks as defined below.
+         * One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
          */
         layers?: outputs.media.TransformOutputCustomPresetCodecH264VideoLayer[];
         /**
@@ -46460,89 +47587,93 @@ export namespace media {
          */
         rateControlMode?: string;
         /**
-         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
          */
         sceneChangeDetectionEnabled?: boolean;
         /**
-         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
          */
         stretchMode?: string;
         /**
          * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         *
+         *
+         * `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
          */
         syncMode?: string;
     }
 
     export interface TransformOutputCustomPresetCodecH264VideoLayer {
         /**
-         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
          */
         adaptiveBFrameEnabled?: boolean;
         /**
-         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
          */
         bFrames: number;
         /**
-         * The average bitrate in bits per second at which to encode the input video when generating this layer.
+         * The bitrate of the audio in bits per second. Default to `128000`.
          */
         bitrate: number;
         /**
-         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
          */
         bufferWindow?: string;
         /**
-         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
          */
         crf?: number;
         /**
-         * The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+         * The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.`entropyMode` - (Optional) The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
          */
         entropyMode: string;
         /**
+         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional) 	
          * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
          */
         frameRate?: string;
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height: string;
         /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
          */
         label?: string;
         /**
-         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
          */
         level?: string;
         /**
-         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
          */
         maxBitrate: number;
         /**
-         * The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         * The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
          */
         profile?: string;
         /**
-         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
          */
         referenceFrames: number;
         /**
-         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
          */
         slices: number;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width: string;
     }
 
     export interface TransformOutputCustomPresetCodecH265Video {
         /**
-         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+         * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
          */
         complexity?: string;
         /**
-         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
          */
         keyFrameInterval?: string;
         /**
@@ -46550,78 +47681,82 @@ export namespace media {
          */
         label?: string;
         /**
-         * One or more `layer` blocks as defined below.
+         * One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
          */
         layers?: outputs.media.TransformOutputCustomPresetCodecH265VideoLayer[];
         /**
-         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+         * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
          */
         sceneChangeDetectionEnabled?: boolean;
         /**
-         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
          */
         stretchMode?: string;
         /**
          * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         *
+         *
+         * `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
          */
         syncMode?: string;
     }
 
     export interface TransformOutputCustomPresetCodecH265VideoLayer {
         /**
-         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+         * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
          */
         adaptiveBFrameEnabled?: boolean;
         /**
-         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+         * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
          */
         bFrames: number;
         /**
-         * The average bitrate in bits per second at which to encode the input video when generating this layer.
+         * The bitrate of the audio in bits per second. Default to `128000`.
          */
         bitrate: number;
         /**
-         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
          */
         bufferWindow?: string;
         /**
-         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+         * The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
          */
         crf?: number;
         /**
+         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional) 	
          * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
          */
         frameRate?: string;
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height: string;
         /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
          */
         label?: string;
         /**
-         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+         * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
          */
         level?: string;
         /**
-         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+         * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
          */
         maxBitrate: number;
         /**
-         * The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         * The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
          */
         profile?: string;
         /**
-         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+         * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
          */
         referenceFrames: number;
         /**
-         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+         * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
          */
         slices: number;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width: string;
     }
@@ -46632,7 +47767,7 @@ export namespace media {
          */
         keyFrameInterval?: string;
         /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         * Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
          */
         label?: string;
         /**
@@ -46667,11 +47802,11 @@ export namespace media {
 
     export interface TransformOutputCustomPresetCodecJpgImageLayer {
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height?: string;
         /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
          */
         label?: string;
         /**
@@ -46679,7 +47814,7 @@ export namespace media {
          */
         quality?: number;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width?: string;
     }
@@ -46690,7 +47825,7 @@ export namespace media {
          */
         keyFrameInterval?: string;
         /**
-         * Specifies the label for the codec. The label can be used to control muxing behavior.
+         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
          */
         label?: string;
         /**
@@ -46721,15 +47856,15 @@ export namespace media {
 
     export interface TransformOutputCustomPresetCodecPngImageLayer {
         /**
-         * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          */
         height?: string;
         /**
-         * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * Specifies the label for the codec. The label can be used to control muxing behavior.
          */
         label?: string;
         /**
-         * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
          */
         width?: string;
     }
@@ -49722,11 +50857,22 @@ export namespace monitoring {
          *
          * > **NOTE:** Not all resources have category groups available.
          *
+         * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.`categoryGroup` - (Optional) The name of a Diagnostic Log Category Group for this Resource.
+         *
+         * > **NOTE:** Not all resources have category groups available.
+         *
          * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
          */
         categoryGroup?: string;
         /**
          * A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retentionPolicy` - (Optional) A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         *
+         *
+         * `retentionPolicy` - (Optional) A `retentionPolicy` block as defined below.
          *
          * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          *
@@ -49738,7 +50884,6 @@ export namespace monitoring {
     export interface DiagnosticSettingEnabledLogRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
-         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -49761,15 +50906,29 @@ export namespace monitoring {
          *
          * > **NOTE:** Not all resources have category groups available.
          *
+         * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.`categoryGroup` - (Optional) The name of a Diagnostic Log Category Group for this Resource.
+         *
+         * > **NOTE:** Not all resources have category groups available.
+         *
          * > **NOTE:** Exactly one of `category` or `categoryGroup` must be specified.
          */
         categoryGroup?: string;
         /**
          * Is this Diagnostic Log enabled? Defaults to `true`.
+         *
+         *
+         * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
          * A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retentionPolicy` - (Optional) A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         *
+         *
+         * `retentionPolicy` - (Optional) A `retentionPolicy` block as defined below.
          *
          * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          *
@@ -49781,7 +50940,6 @@ export namespace monitoring {
     export interface DiagnosticSettingLogRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
-         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -49800,11 +50958,21 @@ export namespace monitoring {
          */
         category: string;
         /**
-         * Is this Diagnostic Metric enabled? Defaults to `true`.
+         * Is this Diagnostic Log enabled? Defaults to `true`.
+         *
+         *
+         * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
          */
         enabled?: boolean;
         /**
          * A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retentionPolicy` - (Optional) A `retentionPolicy` block as defined below.
+         *
+         * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         *
+         *
+         * `retentionPolicy` - (Optional) A `retentionPolicy` block as defined below.
          *
          * !> **NOTE:** `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          *
@@ -49816,7 +50984,6 @@ export namespace monitoring {
     export interface DiagnosticSettingMetricRetentionPolicy {
         /**
          * The number of days for which this Retention Policy should apply.
-         *
          *
          * > **NOTE:** Setting this to `0` will retain the events indefinitely.
          */
@@ -52248,6 +53415,11 @@ export namespace netapp {
         dataProtectionReplication?: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionReplication;
         /**
          * A `dataProtectionSnapshotPolicy` block as defined below.
+         *
+         *
+         *
+         *
+         * A `dataProtectionReplication` block is used when enabling the Cross-Region Replication (CRR) data protection option by deploying two Azure NetApp Files Volumes, one to be a primary volume and the other one will be the secondary, the secondary will have this block and will reference the primary volume, not all volume spec types are supported, please refer to  [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) for detauls. Each volume must be in a supported [region pair](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction#supported-region-pairs).
          */
         dataProtectionSnapshotPolicy?: outputs.netapp.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy;
         /**
@@ -52379,7 +53551,7 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Authentication Certificate.
+         * The Name of the Authentication Certificate to use.
          */
         name: string;
     }
@@ -52440,7 +53612,10 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Backend HTTP Settings Collection.
+         * The name of the Authentication Certificate.
+         *
+         *
+         * `name` - (Required) The name of the Backend HTTP Settings Collection.
          */
         name: string;
         /**
@@ -52483,7 +53658,7 @@ export namespace network {
          */
         id: string;
         /**
-         * The name of the Authentication Certificate.
+         * The Name of the Authentication Certificate to use.
          */
         name: string;
     }
@@ -52592,11 +53767,11 @@ export namespace network {
 
     export interface ApplicationGatewayHttpListener {
         /**
-         * One or more `customErrorConfiguration` blocks as defined below.
+         * One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
          */
         customErrorConfigurations?: outputs.network.ApplicationGatewayHttpListenerCustomErrorConfiguration[];
         /**
-         * The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+         * The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
          */
         firewallPolicyId?: string;
         /**
@@ -53076,12 +54251,16 @@ export namespace network {
         minProtocolVersion?: string;
         /**
          * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         *
+         * When using a `policyType` of `Custom` the following fields are supported:
          */
         policyName?: string;
         /**
          * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          *
          * > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
+         *
+         * When using a `policyType` of `Predefined` the following fields are supported:
          */
         policyType?: string;
     }
@@ -53130,12 +54309,16 @@ export namespace network {
         minProtocolVersion?: string;
         /**
          * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         *
+         * When using a `policyType` of `Custom` the following fields are supported:
          */
         policyName?: string;
         /**
          * The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          *
          * > **NOTE:** `policyType` is Required when `policyName` is set - cannot be set if `disabledProtocols` is set.
+         *
+         * When using a `policyType` of `Predefined` the following fields are supported:
          */
         policyType?: string;
     }
@@ -53350,17 +54533,27 @@ export namespace network {
          */
         microsoftPeering?: outputs.network.ExpressRouteCircuitPeeringIpv6MicrosoftPeering;
         /**
-         * A subnet for the primary link.
+         * A `/30` subnet for the primary link. Required when config for IPv4.`primaryPeerAddressPrefix` - (Required) A subnet for the primary link.
          */
         primaryPeerAddressPrefix: string;
         /**
          * The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
          *
+         *
+         *
+         *
+         * A `microsoftPeeringConfig` block contains:`routeFilterId` - (Optional) The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
+         *
          * > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+         *
+         *
+         *
+         *
+         * A `microsoftPeering` block contains:
          */
         routeFilterId?: string;
         /**
-         * A subnet for the secondary link.
+         * A `/30` subnet for the secondary link. Required when config for IPv4.`secondaryPeerAddressPrefix` - (Required) A subnet for the secondary link.
          */
         secondaryPeerAddressPrefix: string;
     }
@@ -53368,18 +54561,23 @@ export namespace network {
     export interface ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
         /**
          * The communities of Bgp Peering specified for microsoft peering.
+         *
+         *
+         *
+         *
+         * A `ipv6` block contains:`advertisedCommunities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
          */
         advertisedCommunities?: string[];
         /**
-         * A list of Advertised Public Prefixes.
+         * A list of Advertised Public Prefixes.`advertisedPublicPrefixes` - (Optional) A list of Advertised Public Prefixes.
          */
         advertisedPublicPrefixes?: string[];
         /**
-         * The CustomerASN of the peering. Defaults to `0`.
+         * The CustomerASN of the peering. Defaults to `0`.`customerAsn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
          */
         customerAsn?: number;
         /**
-         * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routingRegistryName` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          */
         routingRegistryName?: string;
     }
@@ -53387,18 +54585,23 @@ export namespace network {
     export interface ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         /**
          * The communities of Bgp Peering specified for microsoft peering.
+         *
+         *
+         *
+         *
+         * A `ipv6` block contains:`advertisedCommunities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
          */
         advertisedCommunities?: string[];
         /**
-         * A list of Advertised Public Prefixes.
+         * A list of Advertised Public Prefixes.`advertisedPublicPrefixes` - (Optional) A list of Advertised Public Prefixes.
          */
         advertisedPublicPrefixes: string[];
         /**
-         * The CustomerASN of the peering. Defaults to `0`.
+         * The CustomerASN of the peering. Defaults to `0`.`customerAsn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
          */
         customerAsn?: number;
         /**
-         * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routingRegistryName` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          */
         routingRegistryName?: string;
     }
@@ -53628,11 +54831,6 @@ export namespace network {
          * The private IP address associated with the Firewall.
          */
         privateIpAddress: string;
-        /**
-         * The ID of the Public IP Address associated with the firewall.
-         *
-         * > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-         */
         publicIpAddressId: string;
         /**
          * Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
@@ -55933,10 +57131,14 @@ export namespace network {
         name: string;
         /**
          * Is this the Primary IP Configuration? Must be `true` for the first `ipConfiguration` when multiple are specified. Defaults to `false`.
+         *
+         * When `privateIpAddressAllocation` is set to `Static` the following fields can be configured:
          */
         primary: boolean;
         /**
          * The Static IP Address which should be used.
+         *
+         * When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
          */
         privateIpAddress: string;
         /**
@@ -56073,6 +57275,11 @@ export namespace network {
          * The ID of the storage account to save the packet capture session
          *
          * > **NOTE:** At least one of `filePath` or `storageAccountId` must be specified.
+         *
+         *
+         *
+         *
+         * A `filter` block contains:
          */
         storageAccountId?: string;
         /**
@@ -56115,7 +57322,7 @@ export namespace network {
          */
         direction: string;
         /**
-         * The name of the security rule.
+         * Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
          */
         name: string;
         /**
@@ -56349,7 +57556,7 @@ export namespace network {
          */
         addressPrefix: string;
         /**
-         * The name of the route.
+         * The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
          */
         name: string;
         /**
@@ -57563,6 +58770,11 @@ export namespace notificationhub {
         teamId: string;
         /**
          * The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+         *
+         *
+         *
+         *
+         * A `gcmCredential` block contains:
          */
         token: string;
     }
@@ -57862,7 +59074,7 @@ export namespace paloalto {
          */
         port: number;
         /**
-         * The ID of the Public IP Address on which to receive traffic. 
+         * The ID of the Public IP Address on which to receive traffic.
          *
          * > **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
          */
@@ -59221,7 +60433,7 @@ export namespace securitycenter {
 
     export interface AutomationAction {
         /**
-         * (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+         * A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
          */
         connectionString?: string;
         /**
@@ -59229,7 +60441,7 @@ export namespace securitycenter {
          */
         resourceId: string;
         /**
-         * (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+         * The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
          */
         triggerUrl?: string;
         /**
@@ -60175,6 +61387,11 @@ export namespace servicebus {
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          *
          * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         *
+         *
+         *
+         *
+         * > **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
          */
         identityIds?: string[];
         /**
@@ -60811,7 +62028,14 @@ export namespace signalr {
          */
         allowedRequestTypes?: string[];
         /**
-         * The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         *
+         * > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+         *
+         * > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+         *
+         *
+         * `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          *
          * > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
          *
@@ -60833,6 +62057,13 @@ export namespace signalr {
         allowedRequestTypes?: string[];
         /**
          * The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+         *
+         * > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+         *
+         * > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+         *
+         *
+         * `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
          *
          * > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
          *
@@ -61085,7 +62316,7 @@ export namespace siterecovery {
          */
         recoveryPublicIpAddressId?: string;
         /**
-         * (Required if the networkInterface block is specified) Id source network interface.
+         * Id source network interface.
          */
         sourceNetworkInterfaceId: string;
         /**
@@ -62456,6 +63687,13 @@ export namespace storage {
         container: boolean;
         /**
          * Should permission be granted only to a specific object?
+         *
+         *
+         *
+         *
+         * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+         *
+         * A `services` block contains:
          */
         object: boolean;
         /**
@@ -62471,6 +63709,11 @@ export namespace storage {
         blob: boolean;
         /**
          * Should permission be granted to `file` services within this storage account?
+         *
+         *
+         *
+         *
+         * A `permissions` block contains:
          */
         file: boolean;
         /**

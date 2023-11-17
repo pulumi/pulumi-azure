@@ -48,14 +48,14 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     }
 
     /**
-     * A subnet for the primary link.
+     * A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
      * 
      */
     @Import(name="primaryPeerAddressPrefix", required=true)
     private Output<String> primaryPeerAddressPrefix;
 
     /**
-     * @return A subnet for the primary link.
+     * @return A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
      * 
      */
     public Output<String> primaryPeerAddressPrefix() {
@@ -65,7 +65,11 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     /**
      * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
+     * A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * 
      * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * 
+     * A `microsoft_peering` block contains:
      * 
      */
     @Import(name="routeFilterId")
@@ -74,7 +78,11 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
+     * A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * 
      * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * 
+     * A `microsoft_peering` block contains:
      * 
      */
     public Optional<Output<String>> routeFilterId() {
@@ -82,14 +90,14 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
     }
 
     /**
-     * A subnet for the secondary link.
+     * A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
      * 
      */
     @Import(name="secondaryPeerAddressPrefix", required=true)
     private Output<String> secondaryPeerAddressPrefix;
 
     /**
-     * @return A subnet for the secondary link.
+     * @return A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
      * 
      */
     public Output<String> secondaryPeerAddressPrefix() {
@@ -167,7 +175,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param primaryPeerAddressPrefix A subnet for the primary link.
+         * @param primaryPeerAddressPrefix A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
          * 
          * @return builder
          * 
@@ -178,7 +186,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param primaryPeerAddressPrefix A subnet for the primary link.
+         * @param primaryPeerAddressPrefix A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
          * 
          * @return builder
          * 
@@ -190,7 +198,11 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         /**
          * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
          * 
+         * A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+         * 
          * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * 
+         * A `microsoft_peering` block contains:
          * 
          * @return builder
          * 
@@ -203,7 +215,11 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         /**
          * @param routeFilterId The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
          * 
+         * A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+         * 
          * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+         * 
+         * A `microsoft_peering` block contains:
          * 
          * @return builder
          * 
@@ -213,7 +229,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param secondaryPeerAddressPrefix A subnet for the secondary link.
+         * @param secondaryPeerAddressPrefix A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
          * 
          * @return builder
          * 
@@ -224,7 +240,7 @@ public final class ExpressRouteCircuitPeeringIpv6Args extends com.pulumi.resourc
         }
 
         /**
-         * @param secondaryPeerAddressPrefix A subnet for the secondary link.
+         * @param secondaryPeerAddressPrefix A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
          * 
          * @return builder
          * 

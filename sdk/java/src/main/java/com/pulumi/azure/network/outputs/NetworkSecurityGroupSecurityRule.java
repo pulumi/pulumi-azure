@@ -54,7 +54,7 @@ public final class NetworkSecurityGroupSecurityRule {
      */
     private String direction;
     /**
-     * @return The name of the security rule.
+     * @return Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      * 
      */
     private String name;
@@ -152,7 +152,7 @@ public final class NetworkSecurityGroupSecurityRule {
         return this.direction;
     }
     /**
-     * @return The name of the security rule.
+     * @return Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      * 
      */
     public String name() {

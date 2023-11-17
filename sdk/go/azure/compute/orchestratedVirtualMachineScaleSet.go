@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Orchestrated Virtual Machine Scale Set.
@@ -132,6 +131,8 @@ type OrchestratedVirtualMachineScaleSet struct {
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
 	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
 	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
@@ -261,6 +262,8 @@ type orchestratedVirtualMachineScaleSetState struct {
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName *string `pulumi:"skuName"`
@@ -348,6 +351,8 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName pulumi.StringPtrInput
@@ -439,6 +444,8 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName *string `pulumi:"skuName"`
@@ -525,6 +532,8 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+	//
+	// > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The `name` of the SKU to be used by this Orcestrated Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 	SkuName pulumi.StringPtrInput
@@ -571,12 +580,6 @@ func (i *OrchestratedVirtualMachineScaleSet) ToOrchestratedVirtualMachineScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOutput)
 }
 
-func (i *OrchestratedVirtualMachineScaleSet) ToOutput(ctx context.Context) pulumix.Output[*OrchestratedVirtualMachineScaleSet] {
-	return pulumix.Output[*OrchestratedVirtualMachineScaleSet]{
-		OutputState: i.ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrchestratedVirtualMachineScaleSetArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetArray and OrchestratedVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetArrayInput` via:
 //
@@ -600,12 +603,6 @@ func (i OrchestratedVirtualMachineScaleSetArray) ToOrchestratedVirtualMachineSca
 
 func (i OrchestratedVirtualMachineScaleSetArray) ToOrchestratedVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetArrayOutput)
-}
-
-func (i OrchestratedVirtualMachineScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*OrchestratedVirtualMachineScaleSet] {
-	return pulumix.Output[[]*OrchestratedVirtualMachineScaleSet]{
-		OutputState: i.ToOrchestratedVirtualMachineScaleSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrchestratedVirtualMachineScaleSetMapInput is an input type that accepts OrchestratedVirtualMachineScaleSetMap and OrchestratedVirtualMachineScaleSetMapOutput values.
@@ -633,12 +630,6 @@ func (i OrchestratedVirtualMachineScaleSetMap) ToOrchestratedVirtualMachineScale
 	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetMapOutput)
 }
 
-func (i OrchestratedVirtualMachineScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet] {
-	return pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet]{
-		OutputState: i.ToOrchestratedVirtualMachineScaleSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrchestratedVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (OrchestratedVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -651,12 +642,6 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineSc
 
 func (o OrchestratedVirtualMachineScaleSetOutput) ToOrchestratedVirtualMachineScaleSetOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOutput {
 	return o
-}
-
-func (o OrchestratedVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*OrchestratedVirtualMachineScaleSet] {
-	return pulumix.Output[*OrchestratedVirtualMachineScaleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `additionalCapabilities` block as defined below.
@@ -819,6 +804,8 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ResourceGroupName() pulumi.Str
 }
 
 // Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+//
+// > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
 func (o OrchestratedVirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.SinglePlacementGroup }).(pulumi.BoolOutput)
 }
@@ -890,12 +877,6 @@ func (o OrchestratedVirtualMachineScaleSetArrayOutput) ToOrchestratedVirtualMach
 	return o
 }
 
-func (o OrchestratedVirtualMachineScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OrchestratedVirtualMachineScaleSet] {
-	return pulumix.Output[[]*OrchestratedVirtualMachineScaleSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrchestratedVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrchestratedVirtualMachineScaleSet {
 		return vs[0].([]*OrchestratedVirtualMachineScaleSet)[vs[1].(int)]
@@ -914,12 +895,6 @@ func (o OrchestratedVirtualMachineScaleSetMapOutput) ToOrchestratedVirtualMachin
 
 func (o OrchestratedVirtualMachineScaleSetMapOutput) ToOrchestratedVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetMapOutput {
 	return o
-}
-
-func (o OrchestratedVirtualMachineScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet] {
-	return pulumix.Output[map[string]*OrchestratedVirtualMachineScaleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrchestratedVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) OrchestratedVirtualMachineScaleSetOutput {

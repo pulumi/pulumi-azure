@@ -18,7 +18,10 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         /// 
-        /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// 
+        /// 
+        /// `allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         /// </summary>
         public InputList<string> AllowedAudiences
         {
@@ -27,13 +30,16 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The ID of the Client to use to authenticate with the Custom OIDC.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// 
+        /// 
+        /// `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         /// </summary>
         [Input("clientSecretSettingName", required: true)]
         public Input<string> ClientSecretSettingName { get; set; } = null!;
@@ -42,7 +48,21 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _loginScopes;
 
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// A list of Login Scopes provided by this Authentication Provider.
+        /// 
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
         /// </summary>
         public InputList<string> LoginScopes
         {

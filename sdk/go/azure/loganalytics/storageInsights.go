@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Storage Insights resource.
@@ -243,12 +242,6 @@ func (i *StorageInsights) ToStorageInsightsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsOutput)
 }
 
-func (i *StorageInsights) ToOutput(ctx context.Context) pulumix.Output[*StorageInsights] {
-	return pulumix.Output[*StorageInsights]{
-		OutputState: i.ToStorageInsightsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StorageInsightsArrayInput is an input type that accepts StorageInsightsArray and StorageInsightsArrayOutput values.
 // You can construct a concrete instance of `StorageInsightsArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i StorageInsightsArray) ToStorageInsightsArrayOutput() StorageInsightsArra
 
 func (i StorageInsightsArray) ToStorageInsightsArrayOutputWithContext(ctx context.Context) StorageInsightsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsArrayOutput)
-}
-
-func (i StorageInsightsArray) ToOutput(ctx context.Context) pulumix.Output[[]*StorageInsights] {
-	return pulumix.Output[[]*StorageInsights]{
-		OutputState: i.ToStorageInsightsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StorageInsightsMapInput is an input type that accepts StorageInsightsMap and StorageInsightsMapOutput values.
@@ -305,12 +292,6 @@ func (i StorageInsightsMap) ToStorageInsightsMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightsMapOutput)
 }
 
-func (i StorageInsightsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageInsights] {
-	return pulumix.Output[map[string]*StorageInsights]{
-		OutputState: i.ToStorageInsightsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageInsightsOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightsOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o StorageInsightsOutput) ToStorageInsightsOutput() StorageInsightsOutput {
 
 func (o StorageInsightsOutput) ToStorageInsightsOutputWithContext(ctx context.Context) StorageInsightsOutput {
 	return o
-}
-
-func (o StorageInsightsOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageInsights] {
-	return pulumix.Output[*StorageInsights]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The names of the blob containers that the workspace should read.
@@ -380,12 +355,6 @@ func (o StorageInsightsArrayOutput) ToStorageInsightsArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o StorageInsightsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StorageInsights] {
-	return pulumix.Output[[]*StorageInsights]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageInsightsArrayOutput) Index(i pulumi.IntInput) StorageInsightsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StorageInsights {
 		return vs[0].([]*StorageInsights)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o StorageInsightsMapOutput) ToStorageInsightsMapOutput() StorageInsightsMa
 
 func (o StorageInsightsMapOutput) ToStorageInsightsMapOutputWithContext(ctx context.Context) StorageInsightsMapOutput {
 	return o
-}
-
-func (o StorageInsightsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StorageInsights] {
-	return pulumix.Output[map[string]*StorageInsights]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageInsightsMapOutput) MapIndex(k pulumi.StringInput) StorageInsightsOutput {

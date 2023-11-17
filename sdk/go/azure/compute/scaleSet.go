@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a virtual machine scale set.
@@ -395,7 +394,7 @@ type ScaleSet struct {
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
 	// An `identity` block as defined below.
 	Identity ScaleSetIdentityOutput `pulumi:"identity"`
-	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -505,7 +504,7 @@ type scaleSetState struct {
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// An `identity` block as defined below.
 	Identity *ScaleSetIdentity `pulumi:"identity"`
-	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -568,7 +567,7 @@ type ScaleSetState struct {
 	HealthProbeId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ScaleSetIdentityPtrInput
-	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -635,7 +634,7 @@ type scaleSetArgs struct {
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// An `identity` block as defined below.
 	Identity *ScaleSetIdentity `pulumi:"identity"`
-	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -699,7 +698,7 @@ type ScaleSetArgs struct {
 	HealthProbeId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ScaleSetIdentityPtrInput
-	// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -770,12 +769,6 @@ func (i *ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetOutput)
 }
 
-func (i *ScaleSet) ToOutput(ctx context.Context) pulumix.Output[*ScaleSet] {
-	return pulumix.Output[*ScaleSet]{
-		OutputState: i.ToScaleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScaleSetArrayInput is an input type that accepts ScaleSetArray and ScaleSetArrayOutput values.
 // You can construct a concrete instance of `ScaleSetArrayInput` via:
 //
@@ -799,12 +792,6 @@ func (i ScaleSetArray) ToScaleSetArrayOutput() ScaleSetArrayOutput {
 
 func (i ScaleSetArray) ToScaleSetArrayOutputWithContext(ctx context.Context) ScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetArrayOutput)
-}
-
-func (i ScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScaleSet] {
-	return pulumix.Output[[]*ScaleSet]{
-		OutputState: i.ToScaleSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScaleSetMapInput is an input type that accepts ScaleSetMap and ScaleSetMapOutput values.
@@ -832,12 +819,6 @@ func (i ScaleSetMap) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSe
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetMapOutput)
 }
 
-func (i ScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScaleSet] {
-	return pulumix.Output[map[string]*ScaleSet]{
-		OutputState: i.ToScaleSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScaleSetOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetOutput) ElementType() reflect.Type {
@@ -850,12 +831,6 @@ func (o ScaleSetOutput) ToScaleSetOutput() ScaleSetOutput {
 
 func (o ScaleSetOutput) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutput {
 	return o
-}
-
-func (o ScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ScaleSet] {
-	return pulumix.Output[*ScaleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
@@ -890,7 +865,7 @@ func (o ScaleSetOutput) Identity() ScaleSetIdentityOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetIdentityOutput { return v.Identity }).(ScaleSetIdentityOutput)
 }
 
-// (Optional, when a Windows machine) Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 func (o ScaleSetOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
 }
@@ -1016,12 +991,6 @@ func (o ScaleSetArrayOutput) ToScaleSetArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o ScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScaleSet] {
-	return pulumix.Output[[]*ScaleSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScaleSetArrayOutput) Index(i pulumi.IntInput) ScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScaleSet {
 		return vs[0].([]*ScaleSet)[vs[1].(int)]
@@ -1040,12 +1009,6 @@ func (o ScaleSetMapOutput) ToScaleSetMapOutput() ScaleSetMapOutput {
 
 func (o ScaleSetMapOutput) ToScaleSetMapOutputWithContext(ctx context.Context) ScaleSetMapOutput {
 	return o
-}
-
-func (o ScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScaleSet] {
-	return pulumix.Output[map[string]*ScaleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScaleSetMapOutput) MapIndex(k pulumi.StringInput) ScaleSetOutput {

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AnalysisServices.Inputs
     public sealed class ServerIpv4FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the firewall rule.
+        /// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

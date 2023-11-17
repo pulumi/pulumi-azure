@@ -34,7 +34,7 @@ class ScalingPlanArgs:
         :param pulumi.Input[str] description: A description of the Scaling Plan.
         :param pulumi.Input[str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]] host_pools: One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
@@ -133,7 +133,7 @@ class ScalingPlanArgs:
     @pulumi.getter(name="hostPools")
     def host_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]:
         """
-        One or more `host_pool` blocks as defined below.
+        One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         """
         return pulumi.get(self, "host_pools")
 
@@ -196,7 +196,7 @@ class _ScalingPlanState:
         :param pulumi.Input[str] description: A description of the Scaling Plan.
         :param pulumi.Input[str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]] host_pools: One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
@@ -265,7 +265,7 @@ class _ScalingPlanState:
     @pulumi.getter(name="hostPools")
     def host_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]]:
         """
-        One or more `host_pool` blocks as defined below.
+        One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         """
         return pulumi.get(self, "host_pools")
 
@@ -468,7 +468,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the Scaling Plan.
         :param pulumi.Input[str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]] host_pools: One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
@@ -663,7 +663,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the Scaling Plan.
         :param pulumi.Input[str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]] host_pools: One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
@@ -715,7 +715,7 @@ class ScalingPlan(pulumi.CustomResource):
     @pulumi.getter(name="hostPools")
     def host_pools(self) -> pulumi.Output[Optional[Sequence['outputs.ScalingPlanHostPool']]]:
         """
-        One or more `host_pool` blocks as defined below.
+        One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         """
         return pulumi.get(self, "host_pools")
 

@@ -3419,6 +3419,13 @@ class GetAccountSASResourceTypesArgs:
         """
         :param bool container: Should permission be granted to the container?
         :param bool object: Should permission be granted only to a specific object?
+               
+               
+               
+               
+               `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+               
+               A `services` block contains:
         :param bool service: Should permission be granted to the entire service?
         """
         pulumi.set(__self__, "container", container)
@@ -3442,6 +3449,13 @@ class GetAccountSASResourceTypesArgs:
     def object(self) -> bool:
         """
         Should permission be granted only to a specific object?
+
+
+
+
+        `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+
+        A `services` block contains:
         """
         return pulumi.get(self, "object")
 
@@ -3472,6 +3486,11 @@ class GetAccountSASServicesArgs:
         """
         :param bool blob: Should permission be granted to `blob` services within this storage account?
         :param bool file: Should permission be granted to `file` services within this storage account?
+               
+               
+               
+               
+               A `permissions` block contains:
         :param bool queue: Should permission be granted to `queue` services within this storage account?
         :param bool table: Should permission be granted to `table` services within this storage account?
         """
@@ -3497,6 +3516,11 @@ class GetAccountSASServicesArgs:
     def file(self) -> bool:
         """
         Should permission be granted to `file` services within this storage account?
+
+
+
+
+        A `permissions` block contains:
         """
         return pulumi.get(self, "file")
 

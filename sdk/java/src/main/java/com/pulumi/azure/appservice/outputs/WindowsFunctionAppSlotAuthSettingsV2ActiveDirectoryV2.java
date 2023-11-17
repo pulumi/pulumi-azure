@@ -20,9 +20,11 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable List<String> allowedApplications;
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * `allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
      * 
      */
     private @Nullable List<String> allowedAudiences;
@@ -37,7 +39,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable List<String> allowedIdentities;
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     private String clientId;
@@ -49,7 +51,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`client_secret_setting_name` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -88,9 +90,11 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.allowedApplications == null ? List.of() : this.allowedApplications;
     }
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
-     * &gt; **Note:** The `client_id` value is always considered an allowed audience.
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * `allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
      * 
      */
     public List<String> allowedAudiences() {
@@ -111,7 +115,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.allowedIdentities == null ? List.of() : this.allowedIdentities;
     }
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public String clientId() {
@@ -127,7 +131,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`client_secret_setting_name` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

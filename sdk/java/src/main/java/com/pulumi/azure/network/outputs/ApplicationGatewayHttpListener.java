@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayHttpListener {
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations;
     /**
-     * @return The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+     * @return The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
     private @Nullable String firewallPolicyId;
@@ -99,14 +99,14 @@ public final class ApplicationGatewayHttpListener {
 
     private ApplicationGatewayHttpListener() {}
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations() {
         return this.customErrorConfigurations == null ? List.of() : this.customErrorConfigurations;
     }
     /**
-     * @return The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+     * @return The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
     public Optional<String> firewallPolicyId() {

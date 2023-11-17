@@ -46,14 +46,14 @@ public final class ApplicationGatewayAuthenticationCertificateArgs extends com.p
     }
 
     /**
-     * The name of the Authentication Certificate.
+     * The Name of the Authentication Certificate to use.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Authentication Certificate.
+     * @return The Name of the Authentication Certificate to use.
      * 
      */
     public Output<String> name() {
@@ -129,7 +129,7 @@ public final class ApplicationGatewayAuthenticationCertificateArgs extends com.p
         }
 
         /**
-         * @param name The name of the Authentication Certificate.
+         * @param name The Name of the Authentication Certificate to use.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ApplicationGatewayAuthenticationCertificateArgs extends com.p
         }
 
         /**
-         * @param name The name of the Authentication Certificate.
+         * @param name The Name of the Authentication Certificate to use.
          * 
          * @return builder
          * 

@@ -111,14 +111,18 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the Backend HTTP Settings Collection.
+     * The name of the Authentication Certificate.
+     * 
+     * `name` - (Required) The name of the Backend HTTP Settings Collection.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Backend HTTP Settings Collection.
+     * @return The name of the Authentication Certificate.
+     * 
+     * `name` - (Required) The name of the Backend HTTP Settings Collection.
      * 
      */
     public Output<String> name() {
@@ -420,7 +424,9 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param name The name of the Backend HTTP Settings Collection.
+         * @param name The name of the Authentication Certificate.
+         * 
+         * `name` - (Required) The name of the Backend HTTP Settings Collection.
          * 
          * @return builder
          * 
@@ -431,7 +437,9 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param name The name of the Backend HTTP Settings Collection.
+         * @param name The name of the Authentication Certificate.
+         * 
+         * `name` - (Required) The name of the Backend HTTP Settings Collection.
          * 
          * @return builder
          * 

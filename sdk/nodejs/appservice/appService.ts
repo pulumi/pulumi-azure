@@ -150,7 +150,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly logs!: pulumi.Output<outputs.appservice.AppServiceLogs>;
     /**
-     * Specifies the name of the App Service. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -344,7 +344,7 @@ export interface AppServiceState {
      */
     logs?: pulumi.Input<inputs.appservice.AppServiceLogs>;
     /**
-     * Specifies the name of the App Service. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**
@@ -450,7 +450,7 @@ export interface AppServiceArgs {
      */
     logs?: pulumi.Input<inputs.appservice.AppServiceLogs>;
     /**
-     * Specifies the name of the App Service. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**

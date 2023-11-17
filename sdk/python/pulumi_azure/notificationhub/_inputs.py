@@ -28,6 +28,11 @@ class HubApnsCredentialArgs:
         :param pulumi.Input[str] key_id: The Apple Push Notifications Service (APNS) Key.
         :param pulumi.Input[str] team_id: The ID of the team the Token.
         :param pulumi.Input[str] token: The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+               
+               
+               
+               
+               A `gcm_credential` block contains:
         """
         pulumi.set(__self__, "application_mode", application_mode)
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -88,6 +93,11 @@ class HubApnsCredentialArgs:
     def token(self) -> pulumi.Input[str]:
         """
         The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+
+
+
+
+        A `gcm_credential` block contains:
         """
         return pulumi.get(self, "token")
 

@@ -296,14 +296,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
         return this.primaryAzurePort;
     }
     /**
-     * A subnet for the primary link.
+     * A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
      * 
      */
     @Export(name="primaryPeerAddressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> primaryPeerAddressPrefix;
 
     /**
-     * @return A subnet for the primary link.
+     * @return A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
      * 
      */
     public Output<Optional<String>> primaryPeerAddressPrefix() {
@@ -326,7 +326,11 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     /**
      * The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
+     * A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * 
      * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * 
+     * A `microsoft_peering` block contains:
      * 
      */
     @Export(name="routeFilterId", refs={String.class}, tree="[0]")
@@ -335,7 +339,11 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
+     * A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+     * 
      * &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+     * 
+     * A `microsoft_peering` block contains:
      * 
      */
     public Output<Optional<String>> routeFilterId() {
@@ -356,14 +364,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
         return this.secondaryAzurePort;
     }
     /**
-     * A subnet for the secondary link.
+     * A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
      * 
      */
     @Export(name="secondaryPeerAddressPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secondaryPeerAddressPrefix;
 
     /**
-     * @return A subnet for the secondary link.
+     * @return A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
      * 
      */
     public Output<Optional<String>> secondaryPeerAddressPrefix() {

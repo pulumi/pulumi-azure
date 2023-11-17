@@ -95,6 +95,11 @@ export class AnalyticsSolution extends pulumi.CustomResource {
     public readonly solutionName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `plan` block includes:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -178,6 +183,11 @@ export interface AnalyticsSolutionState {
     solutionName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `plan` block includes:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -212,6 +222,11 @@ export interface AnalyticsSolutionArgs {
     solutionName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `plan` block includes:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

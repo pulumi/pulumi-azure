@@ -48,16 +48,16 @@ class ServiceArgs:
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[str] sku_name: is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
                > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input['ServiceDelegationArgs'] delegation: A `delegation` block as defined below.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -77,10 +77,8 @@ class ServiceArgs:
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input['ServiceTenantAccessArgs'] tenant_access: A `tenant_access` block as defined below.
-        :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-               
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
@@ -176,7 +174,7 @@ class ServiceArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
         > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
@@ -204,7 +202,7 @@ class ServiceArgs:
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificates")
 
@@ -240,7 +238,7 @@ class ServiceArgs:
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disable the gateway in main region? This is only supported when `additional_location` is set.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         """
         return pulumi.get(self, "gateway_disabled")
 
@@ -436,7 +434,7 @@ class ServiceArgs:
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]:
         """
-        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
@@ -448,9 +446,7 @@ class ServiceArgs:
     @pulumi.getter(name="virtualNetworkType")
     def virtual_network_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-
-        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         """
         return pulumi.get(self, "virtual_network_type")
 
@@ -514,11 +510,11 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input['ServiceDelegationArgs'] delegation: A `delegation` block as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input['ServiceHostnameConfigurationArgs'] hostname_configuration: A `hostname_configuration` block as defined below.
@@ -546,17 +542,15 @@ class _ServiceState:
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
-        :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[str] sku_name: is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
                > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input['ServiceTenantAccessArgs'] tenant_access: A `tenant_access` block as defined below.
-        :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-               
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
@@ -648,7 +642,7 @@ class _ServiceState:
     @pulumi.getter
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificates")
 
@@ -696,7 +690,7 @@ class _ServiceState:
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disable the gateway in main region? This is only supported when `additional_location` is set.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         """
         return pulumi.get(self, "gateway_disabled")
 
@@ -988,7 +982,7 @@ class _ServiceState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
         > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
@@ -1028,7 +1022,7 @@ class _ServiceState:
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']]:
         """
-        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
@@ -1040,9 +1034,7 @@ class _ServiceState:
     @pulumi.getter(name="virtualNetworkType")
     def virtual_network_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-
-        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         """
         return pulumi.get(self, "virtual_network_type")
 
@@ -1125,10 +1117,10 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input[pulumi.InputType['ServiceDelegationArgs']] delegation: A `delegation` block as defined below.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
@@ -1149,17 +1141,15 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceSignInArgs']] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
-        :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[str] sku_name: is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
                > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']] tenant_access: A `tenant_access` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-               
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
@@ -1341,11 +1331,11 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         :param pulumi.Input[pulumi.InputType['ServiceDelegationArgs']] delegation: A `delegation` block as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
-        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
+        :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
         :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
@@ -1373,17 +1363,15 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceSignInArgs']] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
-        :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        :param pulumi.Input[str] sku_name: is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
                > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']] tenant_access: A `tenant_access` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-               
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
@@ -1441,7 +1429,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceCertificate']]]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificates")
 
@@ -1473,7 +1461,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Disable the gateway in main region? This is only supported when `additional_location` is set.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         """
         return pulumi.get(self, "gateway_disabled")
 
@@ -1669,7 +1657,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+        is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
         > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
@@ -1697,7 +1685,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.ServiceVirtualNetworkConfiguration']]:
         """
-        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
@@ -1705,9 +1693,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkType")
     def virtual_network_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-
-        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         """
         return pulumi.get(self, "virtual_network_type")
 

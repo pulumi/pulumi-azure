@@ -18,12 +18,16 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
+     * In addition to the Arguments listed above - the following Attributes are exported:
+     * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
      * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * 
+     * In addition to the Arguments listed above - the following Attributes are exported:
      * 
      */
     public Optional<Output<String>> location() {
@@ -89,6 +93,8 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
          * 
+         * In addition to the Arguments listed above - the following Attributes are exported:
+         * 
          * @return builder
          * 
          */
@@ -99,6 +105,8 @@ public final class ManagedDatabaseArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * In addition to the Arguments listed above - the following Attributes are exported:
          * 
          * @return builder
          * 

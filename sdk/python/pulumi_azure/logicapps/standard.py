@@ -53,7 +53,7 @@ class StandardArgs:
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
@@ -258,7 +258,7 @@ class StandardArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Logic App Changing this forces a new resource to be created.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -379,7 +379,7 @@ class _StandardState:
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
@@ -606,7 +606,7 @@ class _StandardState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Logic App Changing this forces a new resource to be created.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -875,7 +875,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['StandardSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App
@@ -1110,7 +1110,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['StandardIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Logic App kind - will be `functionapp,workflowapp`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
@@ -1264,7 +1264,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Logic App Changing this forces a new resource to be created.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 

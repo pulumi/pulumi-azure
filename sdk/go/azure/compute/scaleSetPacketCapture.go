@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
@@ -155,6 +154,8 @@ type ScaleSetPacketCapture struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters ScaleSetPacketCaptureFilterArrayOutput `pulumi:"filters"`
 	// A `machineScope` block as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	MachineScope ScaleSetPacketCaptureMachineScopePtrOutput `pulumi:"machineScope"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket pulumi.IntPtrOutput `pulumi:"maximumBytesPerPacket"`
@@ -214,6 +215,8 @@ type scaleSetPacketCaptureState struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters []ScaleSetPacketCaptureFilter `pulumi:"filters"`
 	// A `machineScope` block as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	MachineScope *ScaleSetPacketCaptureMachineScope `pulumi:"machineScope"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket *int `pulumi:"maximumBytesPerPacket"`
@@ -235,6 +238,8 @@ type ScaleSetPacketCaptureState struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters ScaleSetPacketCaptureFilterArrayInput
 	// A `machineScope` block as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	MachineScope ScaleSetPacketCaptureMachineScopePtrInput
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket pulumi.IntPtrInput
@@ -260,6 +265,8 @@ type scaleSetPacketCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters []ScaleSetPacketCaptureFilter `pulumi:"filters"`
 	// A `machineScope` block as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	MachineScope *ScaleSetPacketCaptureMachineScope `pulumi:"machineScope"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket *int `pulumi:"maximumBytesPerPacket"`
@@ -282,6 +289,8 @@ type ScaleSetPacketCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 	Filters ScaleSetPacketCaptureFilterArrayInput
 	// A `machineScope` block as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	MachineScope ScaleSetPacketCaptureMachineScopePtrInput
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket pulumi.IntPtrInput
@@ -322,12 +331,6 @@ func (i *ScaleSetPacketCapture) ToScaleSetPacketCaptureOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPacketCaptureOutput)
 }
 
-func (i *ScaleSetPacketCapture) ToOutput(ctx context.Context) pulumix.Output[*ScaleSetPacketCapture] {
-	return pulumix.Output[*ScaleSetPacketCapture]{
-		OutputState: i.ToScaleSetPacketCaptureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScaleSetPacketCaptureArrayInput is an input type that accepts ScaleSetPacketCaptureArray and ScaleSetPacketCaptureArrayOutput values.
 // You can construct a concrete instance of `ScaleSetPacketCaptureArrayInput` via:
 //
@@ -351,12 +354,6 @@ func (i ScaleSetPacketCaptureArray) ToScaleSetPacketCaptureArrayOutput() ScaleSe
 
 func (i ScaleSetPacketCaptureArray) ToScaleSetPacketCaptureArrayOutputWithContext(ctx context.Context) ScaleSetPacketCaptureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPacketCaptureArrayOutput)
-}
-
-func (i ScaleSetPacketCaptureArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScaleSetPacketCapture] {
-	return pulumix.Output[[]*ScaleSetPacketCapture]{
-		OutputState: i.ToScaleSetPacketCaptureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScaleSetPacketCaptureMapInput is an input type that accepts ScaleSetPacketCaptureMap and ScaleSetPacketCaptureMapOutput values.
@@ -384,12 +381,6 @@ func (i ScaleSetPacketCaptureMap) ToScaleSetPacketCaptureMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ScaleSetPacketCaptureMapOutput)
 }
 
-func (i ScaleSetPacketCaptureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScaleSetPacketCapture] {
-	return pulumix.Output[map[string]*ScaleSetPacketCapture]{
-		OutputState: i.ToScaleSetPacketCaptureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScaleSetPacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (ScaleSetPacketCaptureOutput) ElementType() reflect.Type {
@@ -404,18 +395,14 @@ func (o ScaleSetPacketCaptureOutput) ToScaleSetPacketCaptureOutputWithContext(ct
 	return o
 }
 
-func (o ScaleSetPacketCaptureOutput) ToOutput(ctx context.Context) pulumix.Output[*ScaleSetPacketCapture] {
-	return pulumix.Output[*ScaleSetPacketCapture]{
-		OutputState: o.OutputState,
-	}
-}
-
 // One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
 func (o ScaleSetPacketCaptureOutput) Filters() ScaleSetPacketCaptureFilterArrayOutput {
 	return o.ApplyT(func(v *ScaleSetPacketCapture) ScaleSetPacketCaptureFilterArrayOutput { return v.Filters }).(ScaleSetPacketCaptureFilterArrayOutput)
 }
 
 // A `machineScope` block as defined below. Changing this forces a new resource to be created.
+//
+// A `storageLocation` block contains:
 func (o ScaleSetPacketCaptureOutput) MachineScope() ScaleSetPacketCaptureMachineScopePtrOutput {
 	return o.ApplyT(func(v *ScaleSetPacketCapture) ScaleSetPacketCaptureMachineScopePtrOutput { return v.MachineScope }).(ScaleSetPacketCaptureMachineScopePtrOutput)
 }
@@ -469,12 +456,6 @@ func (o ScaleSetPacketCaptureArrayOutput) ToScaleSetPacketCaptureArrayOutputWith
 	return o
 }
 
-func (o ScaleSetPacketCaptureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScaleSetPacketCapture] {
-	return pulumix.Output[[]*ScaleSetPacketCapture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScaleSetPacketCaptureArrayOutput) Index(i pulumi.IntInput) ScaleSetPacketCaptureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScaleSetPacketCapture {
 		return vs[0].([]*ScaleSetPacketCapture)[vs[1].(int)]
@@ -493,12 +474,6 @@ func (o ScaleSetPacketCaptureMapOutput) ToScaleSetPacketCaptureMapOutput() Scale
 
 func (o ScaleSetPacketCaptureMapOutput) ToScaleSetPacketCaptureMapOutputWithContext(ctx context.Context) ScaleSetPacketCaptureMapOutput {
 	return o
-}
-
-func (o ScaleSetPacketCaptureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScaleSetPacketCapture] {
-	return pulumix.Output[map[string]*ScaleSetPacketCapture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScaleSetPacketCaptureMapOutput) MapIndex(k pulumi.StringInput) ScaleSetPacketCaptureOutput {

@@ -16,14 +16,14 @@ public final class ScaleSetOsProfileSecretVaultCertificateArgs extends com.pulum
     public static final ScaleSetOsProfileSecretVaultCertificateArgs Empty = new ScaleSetOsProfileSecretVaultCertificateArgs();
 
     /**
-     * (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+     * Specifies the certificate store on the Virtual Machine where the certificate should be added to.
      * 
      */
     @Import(name="certificateStore")
     private @Nullable Output<String> certificateStore;
 
     /**
-     * @return (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+     * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to.
      * 
      */
     public Optional<Output<String>> certificateStore() {
@@ -71,7 +71,7 @@ public final class ScaleSetOsProfileSecretVaultCertificateArgs extends com.pulum
         }
 
         /**
-         * @param certificateStore (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+         * @param certificateStore Specifies the certificate store on the Virtual Machine where the certificate should be added to.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ScaleSetOsProfileSecretVaultCertificateArgs extends com.pulum
         }
 
         /**
-         * @param certificateStore (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to.
+         * @param certificateStore Specifies the certificate store on the Virtual Machine where the certificate should be added to.
          * 
          * @return builder
          * 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Load Balancer Rule.
@@ -99,12 +98,6 @@ func (o GetLBRuleResultOutput) ToGetLBRuleResultOutput() GetLBRuleResultOutput {
 
 func (o GetLBRuleResultOutput) ToGetLBRuleResultOutputWithContext(ctx context.Context) GetLBRuleResultOutput {
 	return o
-}
-
-func (o GetLBRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLBRuleResult] {
-	return pulumix.Output[GetLBRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A reference to a Backend Address Pool over which this Load Balancing Rule operates.

@@ -19,12 +19,16 @@ public final class FrontdoorRuleActionsResponseHeaderAction {
      */
     private String headerAction;
     /**
-     * @return The name of the header to modify.
+     * @return The name of the header to modify.`header_name` - (Required) The name of the header to modify.
      * 
      */
     private String headerName;
     /**
      * @return The value to append or overwrite.
+     * 
+     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * 
+     * `value` - (Optional) The value to append or overwrite.
      * 
      * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 
@@ -42,7 +46,7 @@ public final class FrontdoorRuleActionsResponseHeaderAction {
         return this.headerAction;
     }
     /**
-     * @return The name of the header to modify.
+     * @return The name of the header to modify.`header_name` - (Required) The name of the header to modify.
      * 
      */
     public String headerName() {
@@ -50,6 +54,10 @@ public final class FrontdoorRuleActionsResponseHeaderAction {
     }
     /**
      * @return The value to append or overwrite.
+     * 
+     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * 
+     * `value` - (Optional) The value to append or overwrite.
      * 
      * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 

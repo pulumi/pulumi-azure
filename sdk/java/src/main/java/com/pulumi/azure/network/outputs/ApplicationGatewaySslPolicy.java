@@ -32,12 +32,16 @@ public final class ApplicationGatewaySslPolicy {
     /**
      * @return The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
+     * When using a `policy_type` of `Custom` the following fields are supported:
+     * 
      */
     private @Nullable String policyName;
     /**
      * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+     * 
+     * When using a `policy_type` of `Predefined` the following fields are supported:
      * 
      */
     private @Nullable String policyType;
@@ -69,6 +73,8 @@ public final class ApplicationGatewaySslPolicy {
     /**
      * @return The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
+     * When using a `policy_type` of `Custom` the following fields are supported:
+     * 
      */
     public Optional<String> policyName() {
         return Optional.ofNullable(this.policyName);
@@ -77,6 +83,8 @@ public final class ApplicationGatewaySslPolicy {
      * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+     * 
+     * When using a `policy_type` of `Predefined` the following fields are supported:
      * 
      */
     public Optional<String> policyType() {

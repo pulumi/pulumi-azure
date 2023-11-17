@@ -169,12 +169,20 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
      * 
      * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
+     * `write_accelerator_enabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * 
      */
     @Import(name="writeAcceleratorEnabled")
     private @Nullable Output<Boolean> writeAcceleratorEnabled;
 
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+     * 
+     * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+     * 
+     * `write_accelerator_enabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
      * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
      * 
@@ -422,6 +430,10 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
          * 
          * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 
+         * `write_accelerator_enabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * 
          * @return builder
          * 
          */
@@ -432,6 +444,10 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
 
         /**
          * @param writeAcceleratorEnabled Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+         * 
+         * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+         * 
+         * `write_accelerator_enabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
          * 
          * &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
          * 

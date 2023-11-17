@@ -474,6 +474,7 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
     }
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
+     * *
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
@@ -481,6 +482,7 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Should public network access be enabled for the Function App. Defaults to `true`.
+     * *
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {

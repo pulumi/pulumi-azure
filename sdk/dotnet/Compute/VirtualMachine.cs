@@ -197,7 +197,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.VirtualMachineOsProfile?> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        /// An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Output("osProfileLinuxConfig")]
         public Output<Outputs.VirtualMachineOsProfileLinuxConfig?> OsProfileLinuxConfig { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.VirtualMachineOsProfileSecret>> OsProfileSecrets { get; private set; } = null!;
 
         /// <summary>
-        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        /// An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Output("osProfileWindowsConfig")]
         public Output<Outputs.VirtualMachineOsProfileWindowsConfig?> OsProfileWindowsConfig { get; private set; } = null!;
@@ -403,7 +403,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.VirtualMachineOsProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        /// An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigArgs>? OsProfileLinuxConfig { get; set; }
@@ -421,7 +421,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        /// An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigArgs>? OsProfileWindowsConfig { get; set; }
@@ -589,7 +589,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.VirtualMachineOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        /// An `os_profile_linux_config` block as defined below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.VirtualMachineOsProfileLinuxConfigGetArgs>? OsProfileLinuxConfig { get; set; }
@@ -607,7 +607,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        /// An `os_profile_windows_config` block as defined below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.VirtualMachineOsProfileWindowsConfigGetArgs>? OsProfileWindowsConfig { get; set; }

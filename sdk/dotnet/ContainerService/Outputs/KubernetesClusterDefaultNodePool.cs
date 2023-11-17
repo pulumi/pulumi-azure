@@ -76,7 +76,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? MinCount;
         /// <summary>
-        /// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+        /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
-        /// A mapping of tags to assign to the Node Pool.
+        /// A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
         /// 
         /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         /// </summary>

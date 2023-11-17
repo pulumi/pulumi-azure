@@ -101,6 +101,24 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret &gt; get' and 'Certificate &gt; get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureAD = Pulumi.AzureAD;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var microsoftWebApp = AzureAD.GetServicePrincipal.Invoke(new()
+        ///     {
+        ///         ApplicationId = "abfa0a7c-a6b6-4736-8310-5855508787cd",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Output("keyVaultSecretId")]
         public Output<string?> KeyVaultSecretId { get; private set; } = null!;
@@ -214,6 +232,24 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret &gt; get' and 'Certificate &gt; get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureAD = Pulumi.AzureAD;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var microsoftWebApp = AzureAD.GetServicePrincipal.Invoke(new()
+        ///     {
+        ///         ApplicationId = "abfa0a7c-a6b6-4736-8310-5855508787cd",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }
@@ -340,6 +376,24 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret &gt; get' and 'Certificate &gt; get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureAD = Pulumi.AzureAD;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var microsoftWebApp = AzureAD.GetServicePrincipal.Invoke(new()
+        ///     {
+        ///         ApplicationId = "abfa0a7c-a6b6-4736-8310-5855508787cd",
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         [Input("keyVaultSecretId")]
         public Input<string>? KeyVaultSecretId { get; set; }

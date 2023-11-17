@@ -85,10 +85,20 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
 
     /**
      * A `azureActiveDirectoryAuthentication` block as defined below.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
      */
     public readonly azureActiveDirectoryAuthentications!: pulumi.Output<outputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication[] | undefined>;
     /**
      * One or more `clientRevokedCertificate` blocks as defined below.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
      */
     public readonly clientRevokedCertificates!: pulumi.Output<outputs.network.VpnServerConfigurationClientRevokedCertificate[] | undefined>;
     /**
@@ -117,6 +127,11 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -183,10 +198,20 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
 export interface VpnServerConfigurationState {
     /**
      * A `azureActiveDirectoryAuthentication` block as defined below.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
      */
     azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[]>;
     /**
      * One or more `clientRevokedCertificate` blocks as defined below.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
      */
     clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[]>;
     /**
@@ -215,6 +240,11 @@ export interface VpnServerConfigurationState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -233,10 +263,20 @@ export interface VpnServerConfigurationState {
 export interface VpnServerConfigurationArgs {
     /**
      * A `azureActiveDirectoryAuthentication` block as defined below.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
      */
     azureActiveDirectoryAuthentications?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationAzureActiveDirectoryAuthentication>[]>;
     /**
      * One or more `clientRevokedCertificate` blocks as defined below.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
      */
     clientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.VpnServerConfigurationClientRevokedCertificate>[]>;
     /**
@@ -265,6 +305,11 @@ export interface VpnServerConfigurationArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

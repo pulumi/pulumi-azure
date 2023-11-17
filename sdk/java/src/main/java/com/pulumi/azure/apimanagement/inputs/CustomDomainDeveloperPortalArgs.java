@@ -68,14 +68,14 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
     }
 
     /**
-     * The Hostname to use for the corresponding endpoint.
+     * The Hostname to use for the API Proxy Endpoint.
      * 
      */
     @Import(name="hostName", required=true)
     private Output<String> hostName;
 
     /**
-     * @return The Hostname to use for the corresponding endpoint.
+     * @return The Hostname to use for the API Proxy Endpoint.
      * 
      */
     public Output<String> hostName() {
@@ -249,7 +249,7 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param hostName The Hostname to use for the corresponding endpoint.
+         * @param hostName The Hostname to use for the API Proxy Endpoint.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param hostName The Hostname to use for the corresponding endpoint.
+         * @param hostName The Hostname to use for the API Proxy Endpoint.
          * 
          * @return builder
          * 

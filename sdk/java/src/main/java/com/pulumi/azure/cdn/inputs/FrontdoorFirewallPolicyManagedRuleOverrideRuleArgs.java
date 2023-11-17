@@ -38,14 +38,14 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
     }
 
     /**
-     * Is the managed rule override enabled or disabled. Defaults to `false`
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is the managed rule override enabled or disabled. Defaults to `false`
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -135,7 +135,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         /**
-         * @param enabled Is the managed rule override enabled or disabled. Defaults to `false`
+         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs extends co
         }
 
         /**
-         * @param enabled Is the managed rule override enabled or disabled. Defaults to `false`
+         * @param enabled Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
          * 
          * @return builder
          * 

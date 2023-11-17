@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Notification Hub within a Notification Hub Namespace.
@@ -88,6 +87,8 @@ type Hub struct {
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `apnsCredential` block contains:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -144,6 +145,8 @@ type hubState struct {
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `apnsCredential` block contains:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -165,6 +168,8 @@ type HubState struct {
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `apnsCredential` block contains:
 	Tags pulumi.StringMapInput
 }
 
@@ -190,6 +195,8 @@ type hubArgs struct {
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `apnsCredential` block contains:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -212,6 +219,8 @@ type HubArgs struct {
 	// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `apnsCredential` block contains:
 	Tags pulumi.StringMapInput
 }
 
@@ -236,12 +245,6 @@ func (i *Hub) ToHubOutput() HubOutput {
 
 func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubOutput)
-}
-
-func (i *Hub) ToOutput(ctx context.Context) pulumix.Output[*Hub] {
-	return pulumix.Output[*Hub]{
-		OutputState: i.ToHubOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HubArrayInput is an input type that accepts HubArray and HubArrayOutput values.
@@ -269,12 +272,6 @@ func (i HubArray) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HubArrayOutput)
 }
 
-func (i HubArray) ToOutput(ctx context.Context) pulumix.Output[[]*Hub] {
-	return pulumix.Output[[]*Hub]{
-		OutputState: i.ToHubArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HubMapInput is an input type that accepts HubMap and HubMapOutput values.
 // You can construct a concrete instance of `HubMapInput` via:
 //
@@ -300,12 +297,6 @@ func (i HubMap) ToHubMapOutputWithContext(ctx context.Context) HubMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HubMapOutput)
 }
 
-func (i HubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Hub] {
-	return pulumix.Output[map[string]*Hub]{
-		OutputState: i.ToHubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HubOutput struct{ *pulumi.OutputState }
 
 func (HubOutput) ElementType() reflect.Type {
@@ -318,12 +309,6 @@ func (o HubOutput) ToHubOutput() HubOutput {
 
 func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
-}
-
-func (o HubOutput) ToOutput(ctx context.Context) pulumix.Output[*Hub] {
-	return pulumix.Output[*Hub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `apnsCredential` block as defined below.
@@ -361,6 +346,8 @@ func (o HubOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// A `apnsCredential` block contains:
 func (o HubOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -377,12 +364,6 @@ func (o HubArrayOutput) ToHubArrayOutput() HubArrayOutput {
 
 func (o HubArrayOutput) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutput {
 	return o
-}
-
-func (o HubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Hub] {
-	return pulumix.Output[[]*Hub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubArrayOutput) Index(i pulumi.IntInput) HubOutput {
@@ -403,12 +384,6 @@ func (o HubMapOutput) ToHubMapOutput() HubMapOutput {
 
 func (o HubMapOutput) ToHubMapOutputWithContext(ctx context.Context) HubMapOutput {
 	return o
-}
-
-func (o HubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Hub] {
-	return pulumix.Output[map[string]*Hub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HubMapOutput) MapIndex(k pulumi.StringInput) HubOutput {

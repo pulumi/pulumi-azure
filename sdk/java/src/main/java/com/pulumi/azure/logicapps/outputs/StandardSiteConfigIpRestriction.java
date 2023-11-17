@@ -14,12 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StandardSiteConfigIpRestriction {
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
      * 
      */
     private @Nullable String action;
     /**
      * @return The headers for this specific `ip_restriction` as defined below.
+     * 
+     * `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
      * 
      */
     private @Nullable StandardSiteConfigIpRestrictionHeaders headers;
@@ -29,12 +31,12 @@ public final class StandardSiteConfigIpRestriction {
      */
     private @Nullable String ipAddress;
     /**
-     * @return The name for this IP Restriction.
+     * @return Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
      * 
      */
     private @Nullable Integer priority;
@@ -53,7 +55,7 @@ public final class StandardSiteConfigIpRestriction {
 
     private StandardSiteConfigIpRestriction() {}
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<String> action() {
@@ -61,6 +63,8 @@ public final class StandardSiteConfigIpRestriction {
     }
     /**
      * @return The headers for this specific `ip_restriction` as defined below.
+     * 
+     * `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
      * 
      */
     public Optional<StandardSiteConfigIpRestrictionHeaders> headers() {
@@ -74,14 +78,14 @@ public final class StandardSiteConfigIpRestriction {
         return Optional.ofNullable(this.ipAddress);
     }
     /**
-     * @return The name for this IP Restriction.
+     * @return Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
      * 
      */
     public Optional<Integer> priority() {

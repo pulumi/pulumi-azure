@@ -181,7 +181,13 @@ class AccountCapability(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        :param str name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+               
+               > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+               
+               > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+               
+               > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
         """
         pulumi.set(__self__, "name", name)
 
@@ -189,7 +195,13 @@ class AccountCapability(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+
+        > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+
+        > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+
+        > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
         """
         return pulumi.get(self, "name")
 
@@ -415,6 +427,11 @@ class AccountGeoLocation(dict):
         :param str location: The name of the Azure region to host replicated data.
         :param str id: The ID of the virtual network subnet.
         :param bool zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
+               
+               
+               
+               
+               A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
         """
         pulumi.set(__self__, "failover_priority", failover_priority)
         pulumi.set(__self__, "location", location)
@@ -452,6 +469,11 @@ class AccountGeoLocation(dict):
     def zone_redundant(self) -> Optional[bool]:
         """
         Should zone redundancy be enabled for this region? Defaults to `false`.
+
+
+
+
+        A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
         """
         return pulumi.get(self, "zone_redundant")
 

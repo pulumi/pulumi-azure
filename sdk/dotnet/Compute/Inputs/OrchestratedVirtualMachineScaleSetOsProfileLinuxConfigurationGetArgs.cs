@@ -63,6 +63,8 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
         /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
@@ -72,7 +74,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? PatchMode { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -81,7 +83,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretGetArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretGetArgs> Secrets
         {

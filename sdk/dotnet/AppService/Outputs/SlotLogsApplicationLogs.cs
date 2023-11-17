@@ -15,6 +15,11 @@ namespace Pulumi.Azure.AppService.Outputs
     {
         /// <summary>
         /// An `azure_blob_storage` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// An `http_logs` block supports *one* of the following:
         /// </summary>
         public readonly Outputs.SlotLogsApplicationLogsAzureBlobStorage? AzureBlobStorage;
         /// <summary>

@@ -67,6 +67,8 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration 
     /**
      * @return The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
      * 
+     * `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+     * 
      */
     private @Nullable String version;
 
@@ -139,6 +141,8 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration 
     }
     /**
      * @return The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     * `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> version() {

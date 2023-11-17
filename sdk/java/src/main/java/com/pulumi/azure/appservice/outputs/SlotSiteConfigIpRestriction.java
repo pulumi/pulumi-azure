@@ -14,12 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SlotSiteConfigIpRestriction {
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     private @Nullable String action;
     /**
      * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * 
+     * `headers` - (Optional) The headers for this specific `scm_ip_restriction` as defined below.
      * 
      */
     private @Nullable SlotSiteConfigIpRestrictionHeaders headers;
@@ -29,12 +31,12 @@ public final class SlotSiteConfigIpRestriction {
      */
     private @Nullable String ipAddress;
     /**
-     * @return The name for this IP Restriction.
+     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     private @Nullable String name;
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
      * 
      */
     private @Nullable Integer priority;
@@ -53,7 +55,7 @@ public final class SlotSiteConfigIpRestriction {
 
     private SlotSiteConfigIpRestriction() {}
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<String> action() {
@@ -61,6 +63,8 @@ public final class SlotSiteConfigIpRestriction {
     }
     /**
      * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * 
+     * `headers` - (Optional) The headers for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<SlotSiteConfigIpRestrictionHeaders> headers() {
@@ -74,14 +78,14 @@ public final class SlotSiteConfigIpRestriction {
         return Optional.ofNullable(this.ipAddress);
     }
     /**
-     * @return The name for this IP Restriction.
+     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
      * 
      */
     public Optional<Integer> priority() {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
@@ -162,6 +161,8 @@ type PacketCapture struct {
 	pulumi.CustomResourceState
 
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	Filters PacketCaptureFilterArrayOutput `pulumi:"filters"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket pulumi.IntPtrOutput `pulumi:"maximumBytesPerPacket"`
@@ -219,6 +220,8 @@ func GetPacketCapture(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PacketCapture resources.
 type packetCaptureState struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	Filters []PacketCaptureFilter `pulumi:"filters"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket *int `pulumi:"maximumBytesPerPacket"`
@@ -238,6 +241,8 @@ type packetCaptureState struct {
 
 type PacketCaptureState struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	Filters PacketCaptureFilterArrayInput
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket pulumi.IntPtrInput
@@ -261,6 +266,8 @@ func (PacketCaptureState) ElementType() reflect.Type {
 
 type packetCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	Filters []PacketCaptureFilter `pulumi:"filters"`
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket *int `pulumi:"maximumBytesPerPacket"`
@@ -281,6 +288,8 @@ type packetCaptureArgs struct {
 // The set of arguments for constructing a PacketCapture resource.
 type PacketCaptureArgs struct {
 	// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+	//
+	// A `storageLocation` block contains:
 	Filters PacketCaptureFilterArrayInput
 	// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
 	MaximumBytesPerPacket pulumi.IntPtrInput
@@ -321,12 +330,6 @@ func (i *PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureOutput)
 }
 
-func (i *PacketCapture) ToOutput(ctx context.Context) pulumix.Output[*PacketCapture] {
-	return pulumix.Output[*PacketCapture]{
-		OutputState: i.ToPacketCaptureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PacketCaptureArrayInput is an input type that accepts PacketCaptureArray and PacketCaptureArrayOutput values.
 // You can construct a concrete instance of `PacketCaptureArrayInput` via:
 //
@@ -350,12 +353,6 @@ func (i PacketCaptureArray) ToPacketCaptureArrayOutput() PacketCaptureArrayOutpu
 
 func (i PacketCaptureArray) ToPacketCaptureArrayOutputWithContext(ctx context.Context) PacketCaptureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureArrayOutput)
-}
-
-func (i PacketCaptureArray) ToOutput(ctx context.Context) pulumix.Output[[]*PacketCapture] {
-	return pulumix.Output[[]*PacketCapture]{
-		OutputState: i.ToPacketCaptureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PacketCaptureMapInput is an input type that accepts PacketCaptureMap and PacketCaptureMapOutput values.
@@ -383,12 +380,6 @@ func (i PacketCaptureMap) ToPacketCaptureMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PacketCaptureMapOutput)
 }
 
-func (i PacketCaptureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PacketCapture] {
-	return pulumix.Output[map[string]*PacketCapture]{
-		OutputState: i.ToPacketCaptureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
@@ -403,13 +394,9 @@ func (o PacketCaptureOutput) ToPacketCaptureOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o PacketCaptureOutput) ToOutput(ctx context.Context) pulumix.Output[*PacketCapture] {
-	return pulumix.Output[*PacketCapture]{
-		OutputState: o.OutputState,
-	}
-}
-
 // One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+//
+// A `storageLocation` block contains:
 func (o PacketCaptureOutput) Filters() PacketCaptureFilterArrayOutput {
 	return o.ApplyT(func(v *PacketCapture) PacketCaptureFilterArrayOutput { return v.Filters }).(PacketCaptureFilterArrayOutput)
 }
@@ -463,12 +450,6 @@ func (o PacketCaptureArrayOutput) ToPacketCaptureArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o PacketCaptureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PacketCapture] {
-	return pulumix.Output[[]*PacketCapture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PacketCaptureArrayOutput) Index(i pulumi.IntInput) PacketCaptureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PacketCapture {
 		return vs[0].([]*PacketCapture)[vs[1].(int)]
@@ -487,12 +468,6 @@ func (o PacketCaptureMapOutput) ToPacketCaptureMapOutput() PacketCaptureMapOutpu
 
 func (o PacketCaptureMapOutput) ToPacketCaptureMapOutputWithContext(ctx context.Context) PacketCaptureMapOutput {
 	return o
-}
-
-func (o PacketCaptureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PacketCapture] {
-	return pulumix.Output[map[string]*PacketCapture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PacketCaptureMapOutput) MapIndex(k pulumi.StringInput) PacketCaptureOutput {

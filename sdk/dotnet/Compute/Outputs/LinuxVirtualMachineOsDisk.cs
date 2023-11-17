@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? DiskSizeGb;
         /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -19,6 +19,13 @@ namespace Pulumi.Azure.Storage.Outputs
         public readonly bool Container;
         /// <summary>
         /// Should permission be granted only to a specific object?
+        /// 
+        /// 
+        /// 
+        /// 
+        /// `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+        /// 
+        /// A `services` block contains:
         /// </summary>
         public readonly bool Object;
         /// <summary>

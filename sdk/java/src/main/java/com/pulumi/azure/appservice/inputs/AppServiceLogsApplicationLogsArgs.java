@@ -34,12 +34,16 @@ public final class AppServiceLogsApplicationLogsArgs extends com.pulumi.resource
     /**
      * Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
      * 
+     * An `http_logs` block supports *one* of the following:
+     * 
      */
     @Import(name="fileSystemLevel")
     private @Nullable Output<String> fileSystemLevel;
 
     /**
      * @return Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+     * 
+     * An `http_logs` block supports *one* of the following:
      * 
      */
     public Optional<Output<String>> fileSystemLevel() {
@@ -95,6 +99,8 @@ public final class AppServiceLogsApplicationLogsArgs extends com.pulumi.resource
         /**
          * @param fileSystemLevel Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
          * 
+         * An `http_logs` block supports *one* of the following:
+         * 
          * @return builder
          * 
          */
@@ -105,6 +111,8 @@ public final class AppServiceLogsApplicationLogsArgs extends com.pulumi.resource
 
         /**
          * @param fileSystemLevel Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+         * 
+         * An `http_logs` block supports *one* of the following:
          * 
          * @return builder
          * 

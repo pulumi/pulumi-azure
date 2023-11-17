@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AnalyzerIdentityArgs) ToAnalyzerIdentityOutput() AnalyzerIdentityOutput 
 
 func (i AnalyzerIdentityArgs) ToAnalyzerIdentityOutputWithContext(ctx context.Context) AnalyzerIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerIdentityOutput)
-}
-
-func (i AnalyzerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerIdentity] {
-	return pulumix.Output[AnalyzerIdentity]{
-		OutputState: i.ToAnalyzerIdentityOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AnalyzerIdentityArgs) ToAnalyzerIdentityPtrOutput() AnalyzerIdentityPtrOutput {
@@ -98,12 +91,6 @@ func (i *analyzerIdentityPtrType) ToAnalyzerIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerIdentityPtrOutput)
 }
 
-func (i *analyzerIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerIdentity] {
-	return pulumix.Output[*AnalyzerIdentity]{
-		OutputState: i.ToAnalyzerIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyzerIdentityOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerIdentityOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o AnalyzerIdentityOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx conte
 	}).(AnalyzerIdentityPtrOutput)
 }
 
-func (o AnalyzerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerIdentity] {
-	return pulumix.Output[AnalyzerIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
 func (o AnalyzerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -156,12 +137,6 @@ func (o AnalyzerIdentityPtrOutput) ToAnalyzerIdentityPtrOutput() AnalyzerIdentit
 
 func (o AnalyzerIdentityPtrOutput) ToAnalyzerIdentityPtrOutputWithContext(ctx context.Context) AnalyzerIdentityPtrOutput {
 	return o
-}
-
-func (o AnalyzerIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerIdentity] {
-	return pulumix.Output[*AnalyzerIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerIdentityPtrOutput) Elem() AnalyzerIdentityOutput {
@@ -231,12 +206,6 @@ func (i AnalyzerStorageAccountArgs) ToAnalyzerStorageAccountOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerStorageAccountOutput)
 }
 
-func (i AnalyzerStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerStorageAccount] {
-	return pulumix.Output[AnalyzerStorageAccount]{
-		OutputState: i.ToAnalyzerStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnalyzerStorageAccountArgs) ToAnalyzerStorageAccountPtrOutput() AnalyzerStorageAccountPtrOutput {
 	return i.ToAnalyzerStorageAccountPtrOutputWithContext(context.Background())
 }
@@ -278,12 +247,6 @@ func (i *analyzerStorageAccountPtrType) ToAnalyzerStorageAccountPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerStorageAccountPtrOutput)
 }
 
-func (i *analyzerStorageAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerStorageAccount] {
-	return pulumix.Output[*AnalyzerStorageAccount]{
-		OutputState: i.ToAnalyzerStorageAccountPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyzerStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerStorageAccountOutput) ElementType() reflect.Type {
@@ -308,12 +271,6 @@ func (o AnalyzerStorageAccountOutput) ToAnalyzerStorageAccountPtrOutputWithConte
 	}).(AnalyzerStorageAccountPtrOutput)
 }
 
-func (o AnalyzerStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerStorageAccount] {
-	return pulumix.Output[AnalyzerStorageAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
 func (o AnalyzerStorageAccountOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerStorageAccount) string { return v.Id }).(pulumi.StringOutput)
@@ -336,12 +293,6 @@ func (o AnalyzerStorageAccountPtrOutput) ToAnalyzerStorageAccountPtrOutput() Ana
 
 func (o AnalyzerStorageAccountPtrOutput) ToAnalyzerStorageAccountPtrOutputWithContext(ctx context.Context) AnalyzerStorageAccountPtrOutput {
 	return o
-}
-
-func (o AnalyzerStorageAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerStorageAccount] {
-	return pulumix.Output[*AnalyzerStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerStorageAccountPtrOutput) Elem() AnalyzerStorageAccountOutput {

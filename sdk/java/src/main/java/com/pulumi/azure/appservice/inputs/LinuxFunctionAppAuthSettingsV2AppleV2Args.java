@@ -17,14 +17,14 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
     public static final LinuxFunctionAppAuthSettingsV2AppleV2Args Empty = new LinuxFunctionAppAuthSettingsV2AppleV2Args();
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public Output<String> clientId() {
@@ -34,6 +34,8 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+     * 
      */
     @Import(name="clientSecretSettingName", required=true)
     private Output<String> clientSecretSettingName;
@@ -41,20 +43,42 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+     * 
      */
     public Output<String> clientSecretSettingName() {
         return this.clientSecretSettingName;
     }
 
     /**
-     * The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+     * 
+     * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     @Import(name="loginScopes")
     private @Nullable Output<List<String>> loginScopes;
 
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+     * 
+     * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -88,7 +112,7 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -99,7 +123,7 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -110,6 +134,8 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * 
+         * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          * 
          * @return builder
          * 
@@ -122,6 +148,8 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
+         * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+         * 
          * @return builder
          * 
          */
@@ -130,7 +158,17 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
+         * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         * 
+         * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         * 
+         * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         * 
+         * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          * 
          * @return builder
          * 
@@ -141,7 +179,17 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
+         * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         * 
+         * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         * 
+         * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         * 
+         * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          * 
          * @return builder
          * 
@@ -151,7 +199,17 @@ public final class LinuxFunctionAppAuthSettingsV2AppleV2Args extends com.pulumi.
         }
 
         /**
-         * @param loginScopes The list of Login scopes that should be requested as part of Microsoft Account authentication.
+         * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
+         * 
+         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * 
+         * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+         * 
+         * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+         * 
+         * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+         * 
+         * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
          * 
          * @return builder
          * 

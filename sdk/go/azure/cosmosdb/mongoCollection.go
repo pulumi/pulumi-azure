@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mongo Collection within a Cosmos DB Account.
@@ -256,12 +255,6 @@ func (i *MongoCollection) ToMongoCollectionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionOutput)
 }
 
-func (i *MongoCollection) ToOutput(ctx context.Context) pulumix.Output[*MongoCollection] {
-	return pulumix.Output[*MongoCollection]{
-		OutputState: i.ToMongoCollectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MongoCollectionArrayInput is an input type that accepts MongoCollectionArray and MongoCollectionArrayOutput values.
 // You can construct a concrete instance of `MongoCollectionArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i MongoCollectionArray) ToMongoCollectionArrayOutput() MongoCollectionArra
 
 func (i MongoCollectionArray) ToMongoCollectionArrayOutputWithContext(ctx context.Context) MongoCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionArrayOutput)
-}
-
-func (i MongoCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*MongoCollection] {
-	return pulumix.Output[[]*MongoCollection]{
-		OutputState: i.ToMongoCollectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MongoCollectionMapInput is an input type that accepts MongoCollectionMap and MongoCollectionMapOutput values.
@@ -318,12 +305,6 @@ func (i MongoCollectionMap) ToMongoCollectionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MongoCollectionMapOutput)
 }
 
-func (i MongoCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoCollection] {
-	return pulumix.Output[map[string]*MongoCollection]{
-		OutputState: i.ToMongoCollectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MongoCollectionOutput struct{ *pulumi.OutputState }
 
 func (MongoCollectionOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o MongoCollectionOutput) ToMongoCollectionOutput() MongoCollectionOutput {
 
 func (o MongoCollectionOutput) ToMongoCollectionOutputWithContext(ctx context.Context) MongoCollectionOutput {
 	return o
-}
-
-func (o MongoCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*MongoCollection] {
-	return pulumix.Output[*MongoCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
@@ -411,12 +386,6 @@ func (o MongoCollectionArrayOutput) ToMongoCollectionArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o MongoCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MongoCollection] {
-	return pulumix.Output[[]*MongoCollection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MongoCollectionArrayOutput) Index(i pulumi.IntInput) MongoCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MongoCollection {
 		return vs[0].([]*MongoCollection)[vs[1].(int)]
@@ -435,12 +404,6 @@ func (o MongoCollectionMapOutput) ToMongoCollectionMapOutput() MongoCollectionMa
 
 func (o MongoCollectionMapOutput) ToMongoCollectionMapOutputWithContext(ctx context.Context) MongoCollectionMapOutput {
 	return o
-}
-
-func (o MongoCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoCollection] {
-	return pulumix.Output[map[string]*MongoCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MongoCollectionMapOutput) MapIndex(k pulumi.StringInput) MongoCollectionOutput {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
-        /// Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        /// Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         /// </summary>
         public readonly bool? GatewayDisabled;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly ImmutableArray<string> PublicIpAddresses;
         /// <summary>
-        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         /// </summary>
         public readonly Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? VirtualNetworkConfiguration;
         /// <summary>

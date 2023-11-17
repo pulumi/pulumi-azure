@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputCustomPresetCodecH265Video {
     /**
-     * @return The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+     * @return The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
      * 
      */
     private @Nullable String complexity;
     /**
-     * @return The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+     * @return The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
      * 
      */
     private @Nullable String keyFrameInterval;
@@ -30,36 +30,38 @@ public final class TransformOutputCustomPresetCodecH265Video {
      */
     private @Nullable String label;
     /**
-     * @return One or more `layer` blocks as defined below.
+     * @return One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
      * 
      */
     private @Nullable List<TransformOutputCustomPresetCodecH265VideoLayer> layers;
     /**
-     * @return Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+     * @return Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
      * 
      */
     private @Nullable Boolean sceneChangeDetectionEnabled;
     /**
-     * @return Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+     * @return Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
      * 
      */
     private @Nullable String stretchMode;
     /**
      * @return Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
      * 
+     * `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+     * 
      */
     private @Nullable String syncMode;
 
     private TransformOutputCustomPresetCodecH265Video() {}
     /**
-     * @return The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+     * @return The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
      * 
      */
     public Optional<String> complexity() {
         return Optional.ofNullable(this.complexity);
     }
     /**
-     * @return The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+     * @return The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
      * 
      */
     public Optional<String> keyFrameInterval() {
@@ -73,21 +75,21 @@ public final class TransformOutputCustomPresetCodecH265Video {
         return Optional.ofNullable(this.label);
     }
     /**
-     * @return One or more `layer` blocks as defined below.
+     * @return One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
      * 
      */
     public List<TransformOutputCustomPresetCodecH265VideoLayer> layers() {
         return this.layers == null ? List.of() : this.layers;
     }
     /**
-     * @return Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+     * @return Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
      * 
      */
     public Optional<Boolean> sceneChangeDetectionEnabled() {
         return Optional.ofNullable(this.sceneChangeDetectionEnabled);
     }
     /**
-     * @return Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+     * @return Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
      * 
      */
     public Optional<String> stretchMode() {
@@ -95,6 +97,8 @@ public final class TransformOutputCustomPresetCodecH265Video {
     }
     /**
      * @return Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+     * 
+     * `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
      * 
      */
     public Optional<String> syncMode() {

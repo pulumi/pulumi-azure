@@ -98,6 +98,11 @@ namespace Pulumi.Azure.OperationalInsights
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `plan` block includes:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -189,6 +194,11 @@ namespace Pulumi.Azure.OperationalInsights
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `plan` block includes:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -245,6 +255,11 @@ namespace Pulumi.Azure.OperationalInsights
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `plan` block includes:
         /// </summary>
         public InputMap<string> Tags
         {

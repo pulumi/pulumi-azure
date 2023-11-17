@@ -98,7 +98,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? JavaEmbeddedServerEnabled { get; set; }
 
         /// <summary>
-        /// The version of Java to use when `current_stack` is set to `java`. 
+        /// The version of Java to use when `current_stack` is set to `java`.
         /// 
         /// &gt; **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
         /// </summary>

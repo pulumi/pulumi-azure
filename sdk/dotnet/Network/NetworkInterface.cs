@@ -166,6 +166,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The Static IP Address which should be used.
+        /// 
+        /// When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         /// </summary>
         [Output("privateIpAddress")]
         public Output<string> PrivateIpAddress { get; private set; } = null!;
@@ -456,6 +458,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// The Static IP Address which should be used.
+        /// 
+        /// When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }

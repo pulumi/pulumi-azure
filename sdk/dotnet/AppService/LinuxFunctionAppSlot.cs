@@ -231,6 +231,11 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// * 
+        ///   
+        ///   ```
+        ///   
+        ///   ```
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -472,6 +477,11 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// * 
+        ///   
+        ///   ```
+        ///   
+        ///   ```
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -755,6 +765,11 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Should public network access be enabled for the Function App. Defaults to `true`.
+        /// * 
+        ///   
+        ///   ```
+        ///   
+        ///   ```
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }

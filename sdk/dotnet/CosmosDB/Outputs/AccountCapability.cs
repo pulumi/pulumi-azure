@@ -14,7 +14,13 @@ namespace Pulumi.Azure.CosmosDB.Outputs
     public sealed class AccountCapability
     {
         /// <summary>
-        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+        /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+        /// 
+        /// &gt; **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+        /// 
+        /// &gt; **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+        /// 
+        /// &gt; **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
         /// </summary>
         public readonly string Name;
 

@@ -347,7 +347,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateFqdn!: pulumi.Output<string>;
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
      *
      * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
      *
@@ -389,7 +389,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly storageProfile!: pulumi.Output<outputs.containerservice.KubernetesClusterStorageProfile | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     *
+     * > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -851,7 +853,7 @@ export interface KubernetesClusterState {
      */
     privateFqdn?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
      *
      * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
      *
@@ -893,7 +895,9 @@ export interface KubernetesClusterState {
      */
     storageProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterStorageProfile>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     *
+     * > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -1155,7 +1159,7 @@ export interface KubernetesClusterArgs {
      */
     privateDnsZoneId?: pulumi.Input<string>;
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
      *
      * !> **Note:** `publicNetworkAccessEnabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `privateClusterEnabled` and `apiServerAccessProfile`.
      *
@@ -1197,7 +1201,9 @@ export interface KubernetesClusterArgs {
      */
     storageProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterStorageProfile>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     *
+     * > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

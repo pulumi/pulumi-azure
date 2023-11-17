@@ -39,7 +39,7 @@ class PolicyFileShareBackupArgs:
                  hourly: Optional[pulumi.Input['PolicyFileShareBackupHourlyArgs']] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+        :param pulumi.Input[str] frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`.
                
                > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         :param pulumi.Input['PolicyFileShareBackupHourlyArgs'] hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
@@ -57,7 +57,7 @@ class PolicyFileShareBackupArgs:
     @pulumi.getter
     def frequency(self) -> pulumi.Input[str]:
         """
-        Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+        Sets the backup frequency. Possible values are `Daily` and `Hourly`.
 
         > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         """

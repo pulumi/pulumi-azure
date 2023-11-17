@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
-        /// The name of the security rule.
+        /// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

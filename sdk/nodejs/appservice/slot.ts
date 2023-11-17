@@ -204,7 +204,7 @@ export class Slot extends pulumi.CustomResource {
      */
     public readonly logs!: pulumi.Output<outputs.appservice.SlotLogs>;
     /**
-     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -353,7 +353,7 @@ export interface SlotState {
      */
     logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
-     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**
@@ -431,7 +431,7 @@ export interface SlotArgs {
      */
     logs?: pulumi.Input<inputs.appservice.SlotLogs>;
     /**
-     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**

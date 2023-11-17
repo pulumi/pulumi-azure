@@ -25,10 +25,14 @@ public final class NetworkInterfaceIpConfiguration {
     /**
      * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
      * 
+     * When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
+     * 
      */
     private @Nullable Boolean primary;
     /**
      * @return The Static IP Address which should be used.
+     * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
      * 
      */
     private @Nullable String privateIpAddress;
@@ -75,12 +79,16 @@ public final class NetworkInterfaceIpConfiguration {
     /**
      * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
      * 
+     * When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
+     * 
      */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
     /**
      * @return The Static IP Address which should be used.
+     * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
      * 
      */
     public Optional<String> privateIpAddress() {

@@ -162,7 +162,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly osProfile!: pulumi.Output<outputs.compute.VirtualMachineOsProfile | undefined>;
     /**
-     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
+     * An `osProfileLinuxConfig` block as defined below.
      */
     public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
@@ -170,7 +170,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly osProfileSecrets!: pulumi.Output<outputs.compute.VirtualMachineOsProfileSecret[] | undefined>;
     /**
-     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
+     * An `osProfileWindowsConfig` block as defined below.
      */
     public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
@@ -354,7 +354,7 @@ export interface VirtualMachineState {
      */
     osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
-     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
+     * An `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
@@ -362,7 +362,7 @@ export interface VirtualMachineState {
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
-     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
+     * An `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
@@ -466,7 +466,7 @@ export interface VirtualMachineArgs {
      */
     osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
-     * (Required, when a Linux machine) An `osProfileLinuxConfig` block as defined below.
+     * An `osProfileLinuxConfig` block as defined below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
@@ -474,7 +474,7 @@ export interface VirtualMachineArgs {
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
-     * (Required, when a Windows machine) An `osProfileWindowsConfig` block as defined below.
+     * An `osProfileWindowsConfig` block as defined below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**

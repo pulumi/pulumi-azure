@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -64,7 +63,7 @@ type Service struct {
 
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations ServiceAdditionalLocationArrayOutput `pulumi:"additionalLocations"`
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
 	Certificates ServiceCertificateArrayOutput `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
@@ -72,7 +71,7 @@ type Service struct {
 	Delegation ServiceDelegationOutput `pulumi:"delegation"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringOutput `pulumi:"developerPortalUrl"`
-	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 	GatewayDisabled pulumi.BoolPtrOutput `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringOutput `pulumi:"gatewayRegionalUrl"`
@@ -124,7 +123,7 @@ type Service struct {
 	SignIn ServiceSignInOutput `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpOutput `pulumi:"signUp"`
-	// `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	// is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	//
 	// > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 	//
@@ -134,11 +133,9 @@ type Service struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `tenantAccess` block as defined below.
 	TenantAccess ServiceTenantAccessOutput `pulumi:"tenantAccess"`
-	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-	//
-	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
 	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	//
@@ -190,7 +187,7 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -198,7 +195,7 @@ type serviceState struct {
 	Delegation *ServiceDelegation `pulumi:"delegation"`
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl *string `pulumi:"developerPortalUrl"`
-	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
@@ -250,7 +247,7 @@ type serviceState struct {
 	SignIn *ServiceSignIn `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp *ServiceSignUp `pulumi:"signUp"`
-	// `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	// is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	//
 	// > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 	//
@@ -260,11 +257,9 @@ type serviceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `tenantAccess` block as defined below.
 	TenantAccess *ServiceTenantAccess `pulumi:"tenantAccess"`
-	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-	//
-	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	//
@@ -275,7 +270,7 @@ type serviceState struct {
 type ServiceState struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations ServiceAdditionalLocationArrayInput
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -283,7 +278,7 @@ type ServiceState struct {
 	Delegation ServiceDelegationPtrInput
 	// The URL for the Developer Portal associated with this API Management service.
 	DeveloperPortalUrl pulumi.StringPtrInput
-	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 	GatewayDisabled pulumi.BoolPtrInput
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput
@@ -335,7 +330,7 @@ type ServiceState struct {
 	SignIn ServiceSignInPtrInput
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpPtrInput
-	// `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	// is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	//
 	// > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 	//
@@ -345,11 +340,9 @@ type ServiceState struct {
 	Tags pulumi.StringMapInput
 	// A `tenantAccess` block as defined below.
 	TenantAccess ServiceTenantAccessPtrInput
-	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-	//
-	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType pulumi.StringPtrInput
 	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	//
@@ -364,13 +357,13 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// A `delegation` block as defined below.
 	Delegation *ServiceDelegation `pulumi:"delegation"`
-	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration *ServiceHostnameConfiguration `pulumi:"hostnameConfiguration"`
@@ -408,7 +401,7 @@ type serviceArgs struct {
 	SignIn *ServiceSignIn `pulumi:"signIn"`
 	// A `signUp` block as defined below.
 	SignUp *ServiceSignUp `pulumi:"signUp"`
-	// `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	// is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	//
 	// > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 	//
@@ -418,11 +411,9 @@ type serviceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `tenantAccess` block as defined below.
 	TenantAccess *ServiceTenantAccess `pulumi:"tenantAccess"`
-	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-	//
-	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	//
@@ -434,13 +425,13 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations ServiceAdditionalLocationArrayInput
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// A `delegation` block as defined below.
 	Delegation ServiceDelegationPtrInput
-	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+	// Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 	GatewayDisabled pulumi.BoolPtrInput
 	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration ServiceHostnameConfigurationPtrInput
@@ -478,7 +469,7 @@ type ServiceArgs struct {
 	SignIn ServiceSignInPtrInput
 	// A `signUp` block as defined below.
 	SignUp ServiceSignUpPtrInput
-	// `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+	// is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 	//
 	// > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 	//
@@ -488,11 +479,9 @@ type ServiceArgs struct {
 	Tags pulumi.StringMapInput
 	// A `tenantAccess` block as defined below.
 	TenantAccess ServiceTenantAccessPtrInput
-	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-	//
-	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType pulumi.StringPtrInput
 	// Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created.
 	//
@@ -523,12 +512,6 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
-	return pulumix.Output[*Service]{
-		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
@@ -552,12 +535,6 @@ func (i ServiceArray) ToServiceArrayOutput() ServiceArrayOutput {
 
 func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) ServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceArrayOutput)
-}
-
-func (i ServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
-	return pulumix.Output[[]*Service]{
-		OutputState: i.ToServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
@@ -585,12 +562,6 @@ func (i ServiceMap) ToServiceMapOutputWithContext(ctx context.Context) ServiceMa
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceMapOutput)
 }
 
-func (i ServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
-	return pulumix.Output[map[string]*Service]{
-		OutputState: i.ToServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -605,18 +576,12 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
-func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
-	return pulumix.Output[*Service]{
-		OutputState: o.OutputState,
-	}
-}
-
 // One or more `additionalLocation` blocks as defined below.
 func (o ServiceOutput) AdditionalLocations() ServiceAdditionalLocationArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceAdditionalLocationArrayOutput { return v.AdditionalLocations }).(ServiceAdditionalLocationArrayOutput)
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
 func (o ServiceOutput) Certificates() ServiceCertificateArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceCertificateArrayOutput { return v.Certificates }).(ServiceCertificateArrayOutput)
 }
@@ -636,7 +601,7 @@ func (o ServiceOutput) DeveloperPortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.DeveloperPortalUrl }).(pulumi.StringOutput)
 }
 
-// Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+// Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 func (o ServiceOutput) GatewayDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.GatewayDisabled }).(pulumi.BoolPtrOutput)
 }
@@ -760,7 +725,7 @@ func (o ServiceOutput) SignUp() ServiceSignUpOutput {
 	return o.ApplyT(func(v *Service) ServiceSignUpOutput { return v.SignUp }).(ServiceSignUpOutput)
 }
 
-// `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+// is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 //
 // > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 //
@@ -779,14 +744,12 @@ func (o ServiceOutput) TenantAccess() ServiceTenantAccessOutput {
 	return o.ApplyT(func(v *Service) ServiceTenantAccessOutput { return v.TenantAccess }).(ServiceTenantAccessOutput)
 }
 
-// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 func (o ServiceOutput) VirtualNetworkConfiguration() ServiceVirtualNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceVirtualNetworkConfigurationPtrOutput { return v.VirtualNetworkConfiguration }).(ServiceVirtualNetworkConfigurationPtrOutput)
 }
 
-// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-//
-// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 func (o ServiceOutput) VirtualNetworkType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.VirtualNetworkType }).(pulumi.StringPtrOutput)
 }
@@ -812,12 +775,6 @@ func (o ServiceArrayOutput) ToServiceArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Service] {
-	return pulumix.Output[[]*Service]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceArrayOutput) Index(i pulumi.IntInput) ServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Service {
 		return vs[0].([]*Service)[vs[1].(int)]
@@ -836,12 +793,6 @@ func (o ServiceMapOutput) ToServiceMapOutput() ServiceMapOutput {
 
 func (o ServiceMapOutput) ToServiceMapOutputWithContext(ctx context.Context) ServiceMapOutput {
 	return o
-}
-
-func (o ServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Service] {
-	return pulumix.Output[map[string]*Service]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceMapOutput) MapIndex(k pulumi.StringInput) ServiceOutput {

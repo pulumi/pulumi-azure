@@ -24,11 +24,6 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
-        /// <summary>
-        /// The ID of the Public IP Address associated with the firewall.
-        /// 
-        /// &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-        /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;
 

@@ -62,14 +62,14 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
     }
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public Output<String> clientId() {
@@ -79,12 +79,16 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
+     * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+     * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -271,7 +275,7 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -282,7 +286,7 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -294,6 +298,8 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
+         * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+         * 
          * @return builder
          * 
          */
@@ -304,6 +310,8 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.p
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+         * 
+         * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
          * 
          * @return builder
          * 

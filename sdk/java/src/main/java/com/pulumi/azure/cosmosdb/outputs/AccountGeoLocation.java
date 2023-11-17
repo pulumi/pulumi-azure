@@ -31,6 +31,8 @@ public final class AccountGeoLocation {
     /**
      * @return Should zone redundancy be enabled for this region? Defaults to `false`.
      * 
+     * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
+     * 
      */
     private @Nullable Boolean zoneRedundant;
 
@@ -58,6 +60,8 @@ public final class AccountGeoLocation {
     }
     /**
      * @return Should zone redundancy be enabled for this region? Defaults to `false`.
+     * 
+     * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
      * 
      */
     public Optional<Boolean> zoneRedundant() {

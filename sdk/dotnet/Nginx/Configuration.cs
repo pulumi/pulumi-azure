@@ -49,6 +49,11 @@ namespace Pulumi.Azure.Nginx
 
         /// <summary>
         /// Specify the root file path of this Nginx Configuration.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         /// </summary>
         [Output("rootFile")]
         public Output<string> RootFile { get; private set; } = null!;
@@ -137,6 +142,11 @@ namespace Pulumi.Azure.Nginx
 
         /// <summary>
         /// Specify the root file path of this Nginx Configuration.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         /// </summary>
         [Input("rootFile", required: true)]
         public Input<string> RootFile { get; set; } = null!;
@@ -187,6 +197,11 @@ namespace Pulumi.Azure.Nginx
 
         /// <summary>
         /// Specify the root file path of this Nginx Configuration.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         /// </summary>
         [Input("rootFile")]
         public Input<string>? RootFile { get; set; }

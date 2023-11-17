@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? Expiry { get; set; }
 
         /// <summary>
-        /// The Hostname to use for the corresponding endpoint.
+        /// The Hostname to use for the API Proxy Endpoint.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;

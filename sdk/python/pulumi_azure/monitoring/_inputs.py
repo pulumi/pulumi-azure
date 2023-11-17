@@ -6965,8 +6965,19 @@ class DiagnosticSettingEnabledLogArgs:
                
                > **NOTE:** Not all resources have category groups available.
                
+               > **NOTE:** Exactly one of `category` or `category_group` must be specified.`category_group` - (Optional) The name of a Diagnostic Log Category Group for this Resource.
+               
+               > **NOTE:** Not all resources have category groups available.
+               
                > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         :param pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+               
+               
+               `retention_policy` - (Optional) A `retention_policy` block as defined below.
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7002,6 +7013,10 @@ class DiagnosticSettingEnabledLogArgs:
 
         > **NOTE:** Not all resources have category groups available.
 
+        > **NOTE:** Exactly one of `category` or `category_group` must be specified.`category_group` - (Optional) The name of a Diagnostic Log Category Group for this Resource.
+
+        > **NOTE:** Not all resources have category groups available.
+
         > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         """
         return pulumi.get(self, "category_group")
@@ -7015,6 +7030,13 @@ class DiagnosticSettingEnabledLogArgs:
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgs']]:
         """
         A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+
+
+        `retention_policy` - (Optional) A `retention_policy` block as defined below.
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7036,7 +7058,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -7062,7 +7083,6 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
         """
         The number of days for which this Retention Policy should apply.
 
-
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
@@ -7087,9 +7107,23 @@ class DiagnosticSettingLogArgs:
                
                > **NOTE:** Not all resources have category groups available.
                
+               > **NOTE:** Exactly one of `category` or `category_group` must be specified.`category_group` - (Optional) The name of a Diagnostic Log Category Group for this Resource.
+               
+               > **NOTE:** Not all resources have category groups available.
+               
                > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
+               
+               
+               `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
         :param pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+               
+               
+               `retention_policy` - (Optional) A `retention_policy` block as defined below.
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7127,6 +7161,10 @@ class DiagnosticSettingLogArgs:
 
         > **NOTE:** Not all resources have category groups available.
 
+        > **NOTE:** Exactly one of `category` or `category_group` must be specified.`category_group` - (Optional) The name of a Diagnostic Log Category Group for this Resource.
+
+        > **NOTE:** Not all resources have category groups available.
+
         > **NOTE:** Exactly one of `category` or `category_group` must be specified.
         """
         return pulumi.get(self, "category_group")
@@ -7140,6 +7178,9 @@ class DiagnosticSettingLogArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Is this Diagnostic Log enabled? Defaults to `true`.
+
+
+        `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -7152,6 +7193,13 @@ class DiagnosticSettingLogArgs:
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']]:
         """
         A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+
+
+        `retention_policy` - (Optional) A `retention_policy` block as defined below.
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7173,7 +7221,6 @@ class DiagnosticSettingLogRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -7199,7 +7246,6 @@ class DiagnosticSettingLogRetentionPolicyArgs:
         """
         The number of days for which this Retention Policy should apply.
 
-
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
         return pulumi.get(self, "days")
@@ -7219,8 +7265,18 @@ class DiagnosticSettingMetricArgs:
         :param pulumi.Input[str] category: The name of a Diagnostic Metric Category for this Resource.
                
                > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
-        :param pulumi.Input[bool] enabled: Is this Diagnostic Metric enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
+               
+               
+               `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
         :param pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+               
+               !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+               
+               
+               `retention_policy` - (Optional) A `retention_policy` block as defined below.
                
                !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7251,7 +7307,10 @@ class DiagnosticSettingMetricArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is this Diagnostic Metric enabled? Defaults to `true`.
+        Is this Diagnostic Log enabled? Defaults to `true`.
+
+
+        `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -7264,6 +7323,13 @@ class DiagnosticSettingMetricArgs:
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']]:
         """
         A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+
+
+        `retention_policy` - (Optional) A `retention_policy` block as defined below.
 
         !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         """
@@ -7285,7 +7351,6 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
         """
         :param pulumi.Input[bool] enabled: Is this Retention Policy enabled?
         :param pulumi.Input[int] days: The number of days for which this Retention Policy should apply.
-               
                
                > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """
@@ -7310,7 +7375,6 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
     def days(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days for which this Retention Policy should apply.
-
 
         > **NOTE:** Setting this to `0` will retain the events indefinitely.
         """

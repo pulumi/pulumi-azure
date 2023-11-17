@@ -79,7 +79,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -98,6 +98,11 @@ export class RouteTable extends pulumi.CustomResource {
     public /*out*/ readonly subnets!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `route` block support:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -152,7 +157,7 @@ export interface RouteTableState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
      */
     name?: pulumi.Input<string>;
     /**
@@ -171,6 +176,11 @@ export interface RouteTableState {
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `route` block support:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -188,7 +198,7 @@ export interface RouteTableArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
      */
     name?: pulumi.Input<string>;
     /**
@@ -203,6 +213,11 @@ export interface RouteTableArgs {
     routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `route` block support:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

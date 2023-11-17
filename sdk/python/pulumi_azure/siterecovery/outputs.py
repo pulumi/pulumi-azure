@@ -426,7 +426,7 @@ class ReplicatedVMNetworkInterface(dict):
         :param str failover_test_static_ip: Static IP to assign when a test failover is done.
         :param str failover_test_subnet_name: Name of the subnet to to use when a test failover is done.
         :param str recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
-        :param str source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
+        :param str source_network_interface_id: Id source network interface.
         :param str target_static_ip: Static IP to assign when a failover is done.
         :param str target_subnet_name: Name of the subnet to to use when a failover is done.
         """
@@ -491,7 +491,7 @@ class ReplicatedVMNetworkInterface(dict):
     @pulumi.getter(name="sourceNetworkInterfaceId")
     def source_network_interface_id(self) -> Optional[str]:
         """
-        (Required if the network_interface block is specified) Id source network interface.
+        Id source network interface.
         """
         return pulumi.get(self, "source_network_interface_id")
 

@@ -53,7 +53,7 @@ class AppServiceArgs:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input['AppServiceSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A Source Control block as defined below
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -282,7 +282,7 @@ class AppServiceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the App Service. Changing this forces a new resource to be created.
+        Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -387,7 +387,7 @@ class _AppServiceState:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
@@ -650,7 +650,7 @@ class _AppServiceState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the App Service. Changing this forces a new resource to be created.
+        Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -870,7 +870,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A Source Control block as defined below
@@ -1067,7 +1067,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
@@ -1244,7 +1244,7 @@ class AppService(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the App Service. Changing this forces a new resource to be created.
+        Specifies the name of the App Service. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 

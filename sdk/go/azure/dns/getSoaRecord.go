@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetSoaRecord(ctx *pulumi.Context, args *GetSoaRecordArgs, opts ...pulumi.InvokeOption) (*GetSoaRecordResult, error) {
@@ -102,12 +101,6 @@ func (o GetSoaRecordResultOutput) ToGetSoaRecordResultOutput() GetSoaRecordResul
 
 func (o GetSoaRecordResultOutput) ToGetSoaRecordResultOutputWithContext(ctx context.Context) GetSoaRecordResultOutput {
 	return o
-}
-
-func (o GetSoaRecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSoaRecordResult] {
-	return pulumix.Output[GetSoaRecordResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email contact for the SOA record.

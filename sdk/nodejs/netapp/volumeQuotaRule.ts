@@ -137,7 +137,7 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
      */
     public readonly quotaSizeInKib!: pulumi.Output<number>;
     /**
-     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
      *
      * > **NOTE:** `quotaTarget ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      *
@@ -212,7 +212,7 @@ export interface VolumeQuotaRuleState {
      */
     quotaSizeInKib?: pulumi.Input<number>;
     /**
-     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
      *
      * > **NOTE:** `quotaTarget ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      *
@@ -246,7 +246,7 @@ export interface VolumeQuotaRuleArgs {
      */
     quotaSizeInKib: pulumi.Input<number>;
     /**
-     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
      *
      * > **NOTE:** `quotaTarget ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
      *

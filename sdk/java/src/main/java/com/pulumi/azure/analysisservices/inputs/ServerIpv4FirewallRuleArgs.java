@@ -14,14 +14,14 @@ public final class ServerIpv4FirewallRuleArgs extends com.pulumi.resources.Resou
     public static final ServerIpv4FirewallRuleArgs Empty = new ServerIpv4FirewallRuleArgs();
 
     /**
-     * Specifies the name of the firewall rule.
+     * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the firewall rule.
+     * @return The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -85,7 +85,7 @@ public final class ServerIpv4FirewallRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Specifies the name of the firewall rule.
+         * @param name The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class ServerIpv4FirewallRuleArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Specifies the name of the firewall rule.
+         * @param name The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

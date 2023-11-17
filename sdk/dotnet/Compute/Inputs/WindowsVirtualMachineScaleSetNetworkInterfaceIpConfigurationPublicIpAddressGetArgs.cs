@@ -51,7 +51,10 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? PublicIpPrefixId { get; set; }
 
         /// <summary>
-        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
+        /// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// 
+        /// 
+        /// `version` - (Optional) The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

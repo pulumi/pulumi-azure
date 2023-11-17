@@ -54,7 +54,12 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>
-        /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
+        /// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        /// 
+        /// 
+        /// `write_accelerator_enabled` - (Optional) Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         /// 
         /// &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         /// </summary>

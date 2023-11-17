@@ -172,7 +172,7 @@ class KubernetesClusterArgs:
                    opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
                
                !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[bool] role_based_access_control_enabled: Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
@@ -187,7 +187,9 @@ class KubernetesClusterArgs:
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+               
+               > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -905,7 +907,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
 
         !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
@@ -1000,7 +1002,9 @@ class KubernetesClusterArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+
+        > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         """
         return pulumi.get(self, "tags")
 
@@ -1239,7 +1243,7 @@ class _KubernetesClusterState:
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
                
                !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -1255,7 +1259,9 @@ class _KubernetesClusterState:
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input['KubernetesClusterStorageProfileArgs'] storage_profile: A `storage_profile` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+               
+               > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input['KubernetesClusterWebAppRoutingArgs'] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input['KubernetesClusterWindowsProfileArgs'] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs'] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -2103,7 +2109,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
 
         !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
@@ -2210,7 +2216,9 @@ class _KubernetesClusterState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+
+        > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         """
         return pulumi.get(self, "tags")
 
@@ -2471,7 +2479,7 @@ class KubernetesCluster(pulumi.CustomResource):
                    opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
                
                !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -2487,7 +2495,9 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+               
+               > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -2884,7 +2894,7 @@ class KubernetesCluster(pulumi.CustomResource):
                ```
         :param pulumi.Input[str] private_dns_zone_id: Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_fqdn: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
                
                !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
@@ -2900,7 +2910,9 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterStorageProfileArgs']] storage_profile: A `storage_profile` block as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+               
+               > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWebAppRoutingArgs']] web_app_routing: A `web_app_routing` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWindowsProfileArgs']] windows_profile: A `windows_profile` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterWorkloadAutoscalerProfileArgs']] workload_autoscaler_profile: A `workload_autoscaler_profile` block defined below.
@@ -3466,7 +3478,7 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
 
         !> **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         """
@@ -3541,7 +3553,9 @@ class KubernetesCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+
+        > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         """
         return pulumi.get(self, "tags")
 

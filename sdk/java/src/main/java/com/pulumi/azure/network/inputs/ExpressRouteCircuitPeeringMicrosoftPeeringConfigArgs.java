@@ -20,6 +20,8 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
     /**
      * The communities of Bgp Peering specified for microsoft peering.
      * 
+     * A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+     * 
      */
     @Import(name="advertisedCommunities")
     private @Nullable Output<List<String>> advertisedCommunities;
@@ -27,20 +29,22 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
     /**
      * @return The communities of Bgp Peering specified for microsoft peering.
      * 
+     * A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+     * 
      */
     public Optional<Output<List<String>>> advertisedCommunities() {
         return Optional.ofNullable(this.advertisedCommunities);
     }
 
     /**
-     * A list of Advertised Public Prefixes.
+     * A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
      * 
      */
     @Import(name="advertisedPublicPrefixes", required=true)
     private Output<List<String>> advertisedPublicPrefixes;
 
     /**
-     * @return A list of Advertised Public Prefixes.
+     * @return A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
      * 
      */
     public Output<List<String>> advertisedPublicPrefixes() {
@@ -48,14 +52,14 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
     }
 
     /**
-     * The CustomerASN of the peering. Defaults to `0`.
+     * The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
      * 
      */
     @Import(name="customerAsn")
     private @Nullable Output<Integer> customerAsn;
 
     /**
-     * @return The CustomerASN of the peering. Defaults to `0`.
+     * @return The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
      * 
      */
     public Optional<Output<Integer>> customerAsn() {
@@ -63,14 +67,14 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
     }
 
     /**
-     * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+     * The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     @Import(name="routingRegistryName")
     private @Nullable Output<String> routingRegistryName;
 
     /**
-     * @return The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+     * @return The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
      * 
      */
     public Optional<Output<String>> routingRegistryName() {
@@ -107,6 +111,8 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         /**
          * @param advertisedCommunities The communities of Bgp Peering specified for microsoft peering.
          * 
+         * A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+         * 
          * @return builder
          * 
          */
@@ -118,6 +124,8 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         /**
          * @param advertisedCommunities The communities of Bgp Peering specified for microsoft peering.
          * 
+         * A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+         * 
          * @return builder
          * 
          */
@@ -128,6 +136,8 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         /**
          * @param advertisedCommunities The communities of Bgp Peering specified for microsoft peering.
          * 
+         * A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+         * 
          * @return builder
          * 
          */
@@ -136,7 +146,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param advertisedPublicPrefixes A list of Advertised Public Prefixes.
+         * @param advertisedPublicPrefixes A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
          * 
          * @return builder
          * 
@@ -147,7 +157,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param advertisedPublicPrefixes A list of Advertised Public Prefixes.
+         * @param advertisedPublicPrefixes A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
          * 
          * @return builder
          * 
@@ -157,7 +167,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param advertisedPublicPrefixes A list of Advertised Public Prefixes.
+         * @param advertisedPublicPrefixes A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
          * 
          * @return builder
          * 
@@ -167,7 +177,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param customerAsn The CustomerASN of the peering. Defaults to `0`.
+         * @param customerAsn The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -178,7 +188,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param customerAsn The CustomerASN of the peering. Defaults to `0`.
+         * @param customerAsn The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -188,7 +198,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          * 
          * @return builder
          * 
@@ -199,7 +209,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs extends 
         }
 
         /**
-         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+         * @param routingRegistryName The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
          * 
          * @return builder
          * 

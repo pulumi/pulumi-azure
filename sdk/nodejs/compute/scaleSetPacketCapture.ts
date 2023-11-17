@@ -127,6 +127,11 @@ export class ScaleSetPacketCapture extends pulumi.CustomResource {
     public readonly filters!: pulumi.Output<outputs.compute.ScaleSetPacketCaptureFilter[] | undefined>;
     /**
      * A `machineScope` block as defined below. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * A `storageLocation` block contains:
      */
     public readonly machineScope!: pulumi.Output<outputs.compute.ScaleSetPacketCaptureMachineScope | undefined>;
     /**
@@ -216,6 +221,11 @@ export interface ScaleSetPacketCaptureState {
     filters?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetPacketCaptureFilter>[]>;
     /**
      * A `machineScope` block as defined below. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * A `storageLocation` block contains:
      */
     machineScope?: pulumi.Input<inputs.compute.ScaleSetPacketCaptureMachineScope>;
     /**
@@ -258,6 +268,11 @@ export interface ScaleSetPacketCaptureArgs {
     filters?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetPacketCaptureFilter>[]>;
     /**
      * A `machineScope` block as defined below. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * A `storageLocation` block contains:
      */
     machineScope?: pulumi.Input<inputs.compute.ScaleSetPacketCaptureMachineScope>;
     /**

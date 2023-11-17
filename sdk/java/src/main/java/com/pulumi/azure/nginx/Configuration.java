@@ -90,12 +90,16 @@ public class Configuration extends com.pulumi.resources.CustomResource {
     /**
      * Specify the root file path of this Nginx Configuration.
      * 
+     * &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
+     * 
      */
     @Export(name="rootFile", refs={String.class}, tree="[0]")
     private Output<String> rootFile;
 
     /**
      * @return Specify the root file path of this Nginx Configuration.
+     * 
+     * &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
      * 
      */
     public Output<String> rootFile() {

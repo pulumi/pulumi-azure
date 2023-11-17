@@ -213,14 +213,14 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.customRules);
     }
     /**
-     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     public Output<Optional<Boolean>> enabled() {

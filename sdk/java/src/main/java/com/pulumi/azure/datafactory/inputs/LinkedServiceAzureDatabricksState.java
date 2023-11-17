@@ -173,12 +173,16 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
     /**
      * Authenticate to ADB via managed service identity.
      * 
+     * You must specify exactly one of the following modes for cluster integration:
+     * 
      */
     @Import(name="msiWorkSpaceResourceId")
     private @Nullable Output<String> msiWorkSpaceResourceId;
 
     /**
      * @return Authenticate to ADB via managed service identity.
+     * 
+     * You must specify exactly one of the following modes for cluster integration:
      * 
      */
     public Optional<Output<String>> msiWorkSpaceResourceId() {
@@ -188,12 +192,16 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      * 
+     * You must specify exactly one of the following authentication blocks:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     * 
+     * You must specify exactly one of the following authentication blocks:
      * 
      */
     public Optional<Output<String>> name() {
@@ -490,6 +498,8 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
         /**
          * @param msiWorkSpaceResourceId Authenticate to ADB via managed service identity.
          * 
+         * You must specify exactly one of the following modes for cluster integration:
+         * 
          * @return builder
          * 
          */
@@ -501,6 +511,8 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
         /**
          * @param msiWorkSpaceResourceId Authenticate to ADB via managed service identity.
          * 
+         * You must specify exactly one of the following modes for cluster integration:
+         * 
          * @return builder
          * 
          */
@@ -510,6 +522,8 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
 
         /**
          * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+         * 
+         * You must specify exactly one of the following authentication blocks:
          * 
          * @return builder
          * 
@@ -521,6 +535,8 @@ public final class LinkedServiceAzureDatabricksState extends com.pulumi.resource
 
         /**
          * @param name Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+         * 
+         * You must specify exactly one of the following authentication blocks:
          * 
          * @return builder
          * 

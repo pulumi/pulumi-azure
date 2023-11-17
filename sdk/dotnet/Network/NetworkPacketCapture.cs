@@ -157,6 +157,11 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `storage_location` block contains:
         /// </summary>
         [Output("filters")]
         public Output<ImmutableArray<Outputs.NetworkPacketCaptureFilter>> Filters { get; private set; } = null!;
@@ -262,6 +267,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `storage_location` block contains:
         /// </summary>
         public InputList<Inputs.NetworkPacketCaptureFilterArgs> Filters
         {
@@ -332,6 +342,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `storage_location` block contains:
         /// </summary>
         public InputList<Inputs.NetworkPacketCaptureFilterGetArgs> Filters
         {

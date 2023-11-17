@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Interface.
@@ -125,6 +124,8 @@ type NetworkInterface struct {
 	// The name of the Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Static IP Address which should be used.
+	//
+	// When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// The private IP addresses of the network interface.
 	PrivateIpAddresses pulumi.StringArrayOutput `pulumi:"privateIpAddresses"`
@@ -209,6 +210,8 @@ type networkInterfaceState struct {
 	// The name of the Network Interface. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Static IP Address which should be used.
+	//
+	// When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// The private IP addresses of the network interface.
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
@@ -258,6 +261,8 @@ type NetworkInterfaceState struct {
 	// The name of the Network Interface. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Static IP Address which should be used.
+	//
+	// When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
 	PrivateIpAddress pulumi.StringPtrInput
 	// The private IP addresses of the network interface.
 	PrivateIpAddresses pulumi.StringArrayInput
@@ -371,12 +376,6 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
 }
 
-func (i *NetworkInterface) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
-	return pulumix.Output[*NetworkInterface]{
-		OutputState: i.ToNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkInterfaceArrayInput is an input type that accepts NetworkInterfaceArray and NetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceArrayInput` via:
 //
@@ -400,12 +399,6 @@ func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutput() NetworkInterfaceA
 
 func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutputWithContext(ctx context.Context) NetworkInterfaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceArrayOutput)
-}
-
-func (i NetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterface] {
-	return pulumix.Output[[]*NetworkInterface]{
-		OutputState: i.ToNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkInterfaceMapInput is an input type that accepts NetworkInterfaceMap and NetworkInterfaceMapOutput values.
@@ -433,12 +426,6 @@ func (i NetworkInterfaceMap) ToNetworkInterfaceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceMapOutput)
 }
 
-func (i NetworkInterfaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterface] {
-	return pulumix.Output[map[string]*NetworkInterface]{
-		OutputState: i.ToNetworkInterfaceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -451,12 +438,6 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutpu
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
 	return o
-}
-
-func (o NetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
-	return pulumix.Output[*NetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
@@ -535,6 +516,8 @@ func (o NetworkInterfaceOutput) Name() pulumi.StringOutput {
 }
 
 // The Static IP Address which should be used.
+//
+// When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
 func (o NetworkInterfaceOutput) PrivateIpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrivateIpAddress }).(pulumi.StringOutput)
 }
@@ -573,12 +556,6 @@ func (o NetworkInterfaceArrayOutput) ToNetworkInterfaceArrayOutputWithContext(ct
 	return o
 }
 
-func (o NetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterface] {
-	return pulumix.Output[[]*NetworkInterface]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkInterfaceArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterface {
 		return vs[0].([]*NetworkInterface)[vs[1].(int)]
@@ -597,12 +574,6 @@ func (o NetworkInterfaceMapOutput) ToNetworkInterfaceMapOutput() NetworkInterfac
 
 func (o NetworkInterfaceMapOutput) ToNetworkInterfaceMapOutputWithContext(ctx context.Context) NetworkInterfaceMapOutput {
 	return o
-}
-
-func (o NetworkInterfaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterface] {
-	return pulumix.Output[map[string]*NetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInterfaceMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceOutput {

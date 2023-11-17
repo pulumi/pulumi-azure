@@ -474,14 +474,14 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     public Output<String> resourceGroupName() {

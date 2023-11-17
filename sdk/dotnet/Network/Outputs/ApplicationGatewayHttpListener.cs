@@ -14,11 +14,11 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class ApplicationGatewayHttpListener
     {
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration> CustomErrorConfigurations;
         /// <summary>
-        /// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+        /// The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         public readonly string? FirewallPolicyId;
         /// <summary>

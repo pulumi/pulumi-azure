@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Build Deployment.
@@ -234,12 +233,6 @@ func (i *SpringCloudBuildDeployment) ToSpringCloudBuildDeploymentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentOutput)
 }
 
-func (i *SpringCloudBuildDeployment) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildDeployment] {
-	return pulumix.Output[*SpringCloudBuildDeployment]{
-		OutputState: i.ToSpringCloudBuildDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudBuildDeploymentArrayInput is an input type that accepts SpringCloudBuildDeploymentArray and SpringCloudBuildDeploymentArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuildDeploymentArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i SpringCloudBuildDeploymentArray) ToSpringCloudBuildDeploymentArrayOutput
 
 func (i SpringCloudBuildDeploymentArray) ToSpringCloudBuildDeploymentArrayOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentArrayOutput)
-}
-
-func (i SpringCloudBuildDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudBuildDeployment] {
-	return pulumix.Output[[]*SpringCloudBuildDeployment]{
-		OutputState: i.ToSpringCloudBuildDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudBuildDeploymentMapInput is an input type that accepts SpringCloudBuildDeploymentMap and SpringCloudBuildDeploymentMapOutput values.
@@ -296,12 +283,6 @@ func (i SpringCloudBuildDeploymentMap) ToSpringCloudBuildDeploymentMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildDeploymentMapOutput)
 }
 
-func (i SpringCloudBuildDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudBuildDeployment] {
-	return pulumix.Output[map[string]*SpringCloudBuildDeployment]{
-		OutputState: i.ToSpringCloudBuildDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudBuildDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuildDeploymentOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o SpringCloudBuildDeploymentOutput) ToSpringCloudBuildDeploymentOutput() S
 
 func (o SpringCloudBuildDeploymentOutput) ToSpringCloudBuildDeploymentOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentOutput {
 	return o
-}
-
-func (o SpringCloudBuildDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildDeployment] {
-	return pulumix.Output[*SpringCloudBuildDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
@@ -371,12 +346,6 @@ func (o SpringCloudBuildDeploymentArrayOutput) ToSpringCloudBuildDeploymentArray
 	return o
 }
 
-func (o SpringCloudBuildDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudBuildDeployment] {
-	return pulumix.Output[[]*SpringCloudBuildDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudBuildDeploymentArrayOutput) Index(i pulumi.IntInput) SpringCloudBuildDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudBuildDeployment {
 		return vs[0].([]*SpringCloudBuildDeployment)[vs[1].(int)]
@@ -395,12 +364,6 @@ func (o SpringCloudBuildDeploymentMapOutput) ToSpringCloudBuildDeploymentMapOutp
 
 func (o SpringCloudBuildDeploymentMapOutput) ToSpringCloudBuildDeploymentMapOutputWithContext(ctx context.Context) SpringCloudBuildDeploymentMapOutput {
 	return o
-}
-
-func (o SpringCloudBuildDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudBuildDeployment] {
-	return pulumix.Output[map[string]*SpringCloudBuildDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudBuildDeploymentMapOutput) MapIndex(k pulumi.StringInput) SpringCloudBuildDeploymentOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logz Sub Account Tag Rule.
@@ -237,12 +236,6 @@ func (i *LogzSubAccountTagRule) ToLogzSubAccountTagRuleOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountTagRuleOutput)
 }
 
-func (i *LogzSubAccountTagRule) ToOutput(ctx context.Context) pulumix.Output[*LogzSubAccountTagRule] {
-	return pulumix.Output[*LogzSubAccountTagRule]{
-		OutputState: i.ToLogzSubAccountTagRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogzSubAccountTagRuleArrayInput is an input type that accepts LogzSubAccountTagRuleArray and LogzSubAccountTagRuleArrayOutput values.
 // You can construct a concrete instance of `LogzSubAccountTagRuleArrayInput` via:
 //
@@ -266,12 +259,6 @@ func (i LogzSubAccountTagRuleArray) ToLogzSubAccountTagRuleArrayOutput() LogzSub
 
 func (i LogzSubAccountTagRuleArray) ToLogzSubAccountTagRuleArrayOutputWithContext(ctx context.Context) LogzSubAccountTagRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountTagRuleArrayOutput)
-}
-
-func (i LogzSubAccountTagRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogzSubAccountTagRule] {
-	return pulumix.Output[[]*LogzSubAccountTagRule]{
-		OutputState: i.ToLogzSubAccountTagRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogzSubAccountTagRuleMapInput is an input type that accepts LogzSubAccountTagRuleMap and LogzSubAccountTagRuleMapOutput values.
@@ -299,12 +286,6 @@ func (i LogzSubAccountTagRuleMap) ToLogzSubAccountTagRuleMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountTagRuleMapOutput)
 }
 
-func (i LogzSubAccountTagRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzSubAccountTagRule] {
-	return pulumix.Output[map[string]*LogzSubAccountTagRule]{
-		OutputState: i.ToLogzSubAccountTagRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzSubAccountTagRuleOutput struct{ *pulumi.OutputState }
 
 func (LogzSubAccountTagRuleOutput) ElementType() reflect.Type {
@@ -317,12 +298,6 @@ func (o LogzSubAccountTagRuleOutput) ToLogzSubAccountTagRuleOutput() LogzSubAcco
 
 func (o LogzSubAccountTagRuleOutput) ToLogzSubAccountTagRuleOutputWithContext(ctx context.Context) LogzSubAccountTagRuleOutput {
 	return o
-}
-
-func (o LogzSubAccountTagRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzSubAccountTagRule] {
-	return pulumix.Output[*LogzSubAccountTagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created.
@@ -364,12 +339,6 @@ func (o LogzSubAccountTagRuleArrayOutput) ToLogzSubAccountTagRuleArrayOutputWith
 	return o
 }
 
-func (o LogzSubAccountTagRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogzSubAccountTagRule] {
-	return pulumix.Output[[]*LogzSubAccountTagRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogzSubAccountTagRuleArrayOutput) Index(i pulumi.IntInput) LogzSubAccountTagRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogzSubAccountTagRule {
 		return vs[0].([]*LogzSubAccountTagRule)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o LogzSubAccountTagRuleMapOutput) ToLogzSubAccountTagRuleMapOutput() LogzS
 
 func (o LogzSubAccountTagRuleMapOutput) ToLogzSubAccountTagRuleMapOutputWithContext(ctx context.Context) LogzSubAccountTagRuleMapOutput {
 	return o
-}
-
-func (o LogzSubAccountTagRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzSubAccountTagRule] {
-	return pulumix.Output[map[string]*LogzSubAccountTagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzSubAccountTagRuleMapOutput) MapIndex(k pulumi.StringInput) LogzSubAccountTagRuleOutput {

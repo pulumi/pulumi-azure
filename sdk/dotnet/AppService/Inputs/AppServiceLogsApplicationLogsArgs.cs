@@ -20,6 +20,11 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// An `http_logs` block supports *one* of the following:
         /// </summary>
         [Input("fileSystemLevel")]
         public Input<string>? FileSystemLevel { get; set; }

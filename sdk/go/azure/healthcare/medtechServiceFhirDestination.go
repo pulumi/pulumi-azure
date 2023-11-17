@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Healthcare Med Tech Service Fhir Destination.
@@ -305,12 +304,6 @@ func (i *MedtechServiceFhirDestination) ToMedtechServiceFhirDestinationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceFhirDestinationOutput)
 }
 
-func (i *MedtechServiceFhirDestination) ToOutput(ctx context.Context) pulumix.Output[*MedtechServiceFhirDestination] {
-	return pulumix.Output[*MedtechServiceFhirDestination]{
-		OutputState: i.ToMedtechServiceFhirDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MedtechServiceFhirDestinationArrayInput is an input type that accepts MedtechServiceFhirDestinationArray and MedtechServiceFhirDestinationArrayOutput values.
 // You can construct a concrete instance of `MedtechServiceFhirDestinationArrayInput` via:
 //
@@ -334,12 +327,6 @@ func (i MedtechServiceFhirDestinationArray) ToMedtechServiceFhirDestinationArray
 
 func (i MedtechServiceFhirDestinationArray) ToMedtechServiceFhirDestinationArrayOutputWithContext(ctx context.Context) MedtechServiceFhirDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceFhirDestinationArrayOutput)
-}
-
-func (i MedtechServiceFhirDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MedtechServiceFhirDestination] {
-	return pulumix.Output[[]*MedtechServiceFhirDestination]{
-		OutputState: i.ToMedtechServiceFhirDestinationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MedtechServiceFhirDestinationMapInput is an input type that accepts MedtechServiceFhirDestinationMap and MedtechServiceFhirDestinationMapOutput values.
@@ -367,12 +354,6 @@ func (i MedtechServiceFhirDestinationMap) ToMedtechServiceFhirDestinationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceFhirDestinationMapOutput)
 }
 
-func (i MedtechServiceFhirDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedtechServiceFhirDestination] {
-	return pulumix.Output[map[string]*MedtechServiceFhirDestination]{
-		OutputState: i.ToMedtechServiceFhirDestinationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MedtechServiceFhirDestinationOutput struct{ *pulumi.OutputState }
 
 func (MedtechServiceFhirDestinationOutput) ElementType() reflect.Type {
@@ -385,12 +366,6 @@ func (o MedtechServiceFhirDestinationOutput) ToMedtechServiceFhirDestinationOutp
 
 func (o MedtechServiceFhirDestinationOutput) ToMedtechServiceFhirDestinationOutputWithContext(ctx context.Context) MedtechServiceFhirDestinationOutput {
 	return o
-}
-
-func (o MedtechServiceFhirDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*MedtechServiceFhirDestination] {
-	return pulumix.Output[*MedtechServiceFhirDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
@@ -437,12 +412,6 @@ func (o MedtechServiceFhirDestinationArrayOutput) ToMedtechServiceFhirDestinatio
 	return o
 }
 
-func (o MedtechServiceFhirDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MedtechServiceFhirDestination] {
-	return pulumix.Output[[]*MedtechServiceFhirDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MedtechServiceFhirDestinationArrayOutput) Index(i pulumi.IntInput) MedtechServiceFhirDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MedtechServiceFhirDestination {
 		return vs[0].([]*MedtechServiceFhirDestination)[vs[1].(int)]
@@ -461,12 +430,6 @@ func (o MedtechServiceFhirDestinationMapOutput) ToMedtechServiceFhirDestinationM
 
 func (o MedtechServiceFhirDestinationMapOutput) ToMedtechServiceFhirDestinationMapOutputWithContext(ctx context.Context) MedtechServiceFhirDestinationMapOutput {
 	return o
-}
-
-func (o MedtechServiceFhirDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedtechServiceFhirDestination] {
-	return pulumix.Output[map[string]*MedtechServiceFhirDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MedtechServiceFhirDestinationMapOutput) MapIndex(k pulumi.StringInput) MedtechServiceFhirDestinationOutput {

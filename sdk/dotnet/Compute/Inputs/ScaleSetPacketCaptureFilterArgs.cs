@@ -38,6 +38,11 @@ namespace Pulumi.Azure.Compute.Inputs
 
         /// <summary>
         /// The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `machine_scope` block contains:
         /// </summary>
         [Input("remotePort")]
         public Input<string>? RemotePort { get; set; }

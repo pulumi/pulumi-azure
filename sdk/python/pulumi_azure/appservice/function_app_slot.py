@@ -57,7 +57,7 @@ class FunctionAppSlotArgs:
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['FunctionAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
                > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
@@ -277,7 +277,7 @@ class FunctionAppSlotArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Function App. Changing this forces a new resource to be created.
+        Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -384,7 +384,7 @@ class _FunctionAppSlotState:
         :param pulumi.Input['FunctionAppSlotIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
                > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
@@ -613,7 +613,7 @@ class _FunctionAppSlotState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Function App. Changing this forces a new resource to be created.
+        Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -836,7 +836,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
                > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
@@ -1040,7 +1040,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionAppSlotIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
                > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
@@ -1198,7 +1198,7 @@ class FunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Function App. Changing this forces a new resource to be created.
+        Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 

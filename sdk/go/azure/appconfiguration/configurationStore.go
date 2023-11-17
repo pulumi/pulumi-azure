@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -469,12 +468,6 @@ func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreOutput)
 }
 
-func (i *ConfigurationStore) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationStore] {
-	return pulumix.Output[*ConfigurationStore]{
-		OutputState: i.ToConfigurationStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationStoreArrayInput is an input type that accepts ConfigurationStoreArray and ConfigurationStoreArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreArrayInput` via:
 //
@@ -498,12 +491,6 @@ func (i ConfigurationStoreArray) ToConfigurationStoreArrayOutput() Configuration
 
 func (i ConfigurationStoreArray) ToConfigurationStoreArrayOutputWithContext(ctx context.Context) ConfigurationStoreArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreArrayOutput)
-}
-
-func (i ConfigurationStoreArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationStore] {
-	return pulumix.Output[[]*ConfigurationStore]{
-		OutputState: i.ToConfigurationStoreArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationStoreMapInput is an input type that accepts ConfigurationStoreMap and ConfigurationStoreMapOutput values.
@@ -531,12 +518,6 @@ func (i ConfigurationStoreMap) ToConfigurationStoreMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreMapOutput)
 }
 
-func (i ConfigurationStoreMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationStore] {
-	return pulumix.Output[map[string]*ConfigurationStore]{
-		OutputState: i.ToConfigurationStoreMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStoreOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreOutput) ElementType() reflect.Type {
@@ -549,12 +530,6 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutput() ConfigurationStor
 
 func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx context.Context) ConfigurationStoreOutput {
 	return o
-}
-
-func (o ConfigurationStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationStore] {
-	return pulumix.Output[*ConfigurationStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `encryption` block as defined below.
@@ -666,12 +641,6 @@ func (o ConfigurationStoreArrayOutput) ToConfigurationStoreArrayOutputWithContex
 	return o
 }
 
-func (o ConfigurationStoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationStore] {
-	return pulumix.Output[[]*ConfigurationStore]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationStoreArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationStore {
 		return vs[0].([]*ConfigurationStore)[vs[1].(int)]
@@ -690,12 +659,6 @@ func (o ConfigurationStoreMapOutput) ToConfigurationStoreMapOutput() Configurati
 
 func (o ConfigurationStoreMapOutput) ToConfigurationStoreMapOutputWithContext(ctx context.Context) ConfigurationStoreMapOutput {
 	return o
-}
-
-func (o ConfigurationStoreMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationStore] {
-	return pulumix.Output[map[string]*ConfigurationStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStoreMapOutput) MapIndex(k pulumi.StringInput) ConfigurationStoreOutput {

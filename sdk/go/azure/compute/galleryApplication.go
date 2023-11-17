@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Gallery Application.
@@ -246,12 +245,6 @@ func (i *GalleryApplication) ToGalleryApplicationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationOutput)
 }
 
-func (i *GalleryApplication) ToOutput(ctx context.Context) pulumix.Output[*GalleryApplication] {
-	return pulumix.Output[*GalleryApplication]{
-		OutputState: i.ToGalleryApplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GalleryApplicationArrayInput is an input type that accepts GalleryApplicationArray and GalleryApplicationArrayOutput values.
 // You can construct a concrete instance of `GalleryApplicationArrayInput` via:
 //
@@ -275,12 +268,6 @@ func (i GalleryApplicationArray) ToGalleryApplicationArrayOutput() GalleryApplic
 
 func (i GalleryApplicationArray) ToGalleryApplicationArrayOutputWithContext(ctx context.Context) GalleryApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationArrayOutput)
-}
-
-func (i GalleryApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*GalleryApplication] {
-	return pulumix.Output[[]*GalleryApplication]{
-		OutputState: i.ToGalleryApplicationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GalleryApplicationMapInput is an input type that accepts GalleryApplicationMap and GalleryApplicationMapOutput values.
@@ -308,12 +295,6 @@ func (i GalleryApplicationMap) ToGalleryApplicationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationMapOutput)
 }
 
-func (i GalleryApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GalleryApplication] {
-	return pulumix.Output[map[string]*GalleryApplication]{
-		OutputState: i.ToGalleryApplicationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GalleryApplicationOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationOutput) ElementType() reflect.Type {
@@ -326,12 +307,6 @@ func (o GalleryApplicationOutput) ToGalleryApplicationOutput() GalleryApplicatio
 
 func (o GalleryApplicationOutput) ToGalleryApplicationOutputWithContext(ctx context.Context) GalleryApplicationOutput {
 	return o
-}
-
-func (o GalleryApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*GalleryApplication] {
-	return pulumix.Output[*GalleryApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the Gallery Application.
@@ -398,12 +373,6 @@ func (o GalleryApplicationArrayOutput) ToGalleryApplicationArrayOutputWithContex
 	return o
 }
 
-func (o GalleryApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GalleryApplication] {
-	return pulumix.Output[[]*GalleryApplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GalleryApplicationArrayOutput) Index(i pulumi.IntInput) GalleryApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GalleryApplication {
 		return vs[0].([]*GalleryApplication)[vs[1].(int)]
@@ -422,12 +391,6 @@ func (o GalleryApplicationMapOutput) ToGalleryApplicationMapOutput() GalleryAppl
 
 func (o GalleryApplicationMapOutput) ToGalleryApplicationMapOutputWithContext(ctx context.Context) GalleryApplicationMapOutput {
 	return o
-}
-
-func (o GalleryApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GalleryApplication] {
-	return pulumix.Output[map[string]*GalleryApplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GalleryApplicationMapOutput) MapIndex(k pulumi.StringInput) GalleryApplicationOutput {

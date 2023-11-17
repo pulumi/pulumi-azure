@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Function App Slot.
@@ -144,6 +143,7 @@ type LinuxFunctionAppSlot struct {
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
 	// Should public network access be enabled for the Function App. Defaults to `true`.
+	// *
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId pulumi.StringPtrOutput `pulumi:"servicePlanId"`
@@ -270,6 +270,7 @@ type linuxFunctionAppSlotState struct {
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
 	// Should public network access be enabled for the Function App. Defaults to `true`.
+	// *
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
@@ -352,6 +353,7 @@ type LinuxFunctionAppSlotState struct {
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
 	// Should public network access be enabled for the Function App. Defaults to `true`.
+	// *
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId pulumi.StringPtrInput
@@ -422,6 +424,7 @@ type linuxFunctionAppSlotArgs struct {
 	// Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Should public network access be enabled for the Function App. Defaults to `true`.
+	// *
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId *string `pulumi:"servicePlanId"`
@@ -487,6 +490,7 @@ type LinuxFunctionAppSlotArgs struct {
 	// Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Should public network access be enabled for the Function App. Defaults to `true`.
+	// *
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
 	ServicePlanId pulumi.StringPtrInput
@@ -536,12 +540,6 @@ func (i *LinuxFunctionAppSlot) ToLinuxFunctionAppSlotOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppSlotOutput)
 }
 
-func (i *LinuxFunctionAppSlot) ToOutput(ctx context.Context) pulumix.Output[*LinuxFunctionAppSlot] {
-	return pulumix.Output[*LinuxFunctionAppSlot]{
-		OutputState: i.ToLinuxFunctionAppSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinuxFunctionAppSlotArrayInput is an input type that accepts LinuxFunctionAppSlotArray and LinuxFunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `LinuxFunctionAppSlotArrayInput` via:
 //
@@ -565,12 +563,6 @@ func (i LinuxFunctionAppSlotArray) ToLinuxFunctionAppSlotArrayOutput() LinuxFunc
 
 func (i LinuxFunctionAppSlotArray) ToLinuxFunctionAppSlotArrayOutputWithContext(ctx context.Context) LinuxFunctionAppSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppSlotArrayOutput)
-}
-
-func (i LinuxFunctionAppSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxFunctionAppSlot] {
-	return pulumix.Output[[]*LinuxFunctionAppSlot]{
-		OutputState: i.ToLinuxFunctionAppSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinuxFunctionAppSlotMapInput is an input type that accepts LinuxFunctionAppSlotMap and LinuxFunctionAppSlotMapOutput values.
@@ -598,12 +590,6 @@ func (i LinuxFunctionAppSlotMap) ToLinuxFunctionAppSlotMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppSlotMapOutput)
 }
 
-func (i LinuxFunctionAppSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxFunctionAppSlot] {
-	return pulumix.Output[map[string]*LinuxFunctionAppSlot]{
-		OutputState: i.ToLinuxFunctionAppSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinuxFunctionAppSlotOutput struct{ *pulumi.OutputState }
 
 func (LinuxFunctionAppSlotOutput) ElementType() reflect.Type {
@@ -616,12 +602,6 @@ func (o LinuxFunctionAppSlotOutput) ToLinuxFunctionAppSlotOutput() LinuxFunction
 
 func (o LinuxFunctionAppSlotOutput) ToLinuxFunctionAppSlotOutputWithContext(ctx context.Context) LinuxFunctionAppSlotOutput {
 	return o
-}
-
-func (o LinuxFunctionAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxFunctionAppSlot] {
-	return pulumix.Output[*LinuxFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -757,6 +737,7 @@ func (o LinuxFunctionAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringO
 }
 
 // Should public network access be enabled for the Function App. Defaults to `true`.
+// *
 func (o LinuxFunctionAppSlotOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -830,12 +811,6 @@ func (o LinuxFunctionAppSlotArrayOutput) ToLinuxFunctionAppSlotArrayOutputWithCo
 	return o
 }
 
-func (o LinuxFunctionAppSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxFunctionAppSlot] {
-	return pulumix.Output[[]*LinuxFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinuxFunctionAppSlotArrayOutput) Index(i pulumi.IntInput) LinuxFunctionAppSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxFunctionAppSlot {
 		return vs[0].([]*LinuxFunctionAppSlot)[vs[1].(int)]
@@ -854,12 +829,6 @@ func (o LinuxFunctionAppSlotMapOutput) ToLinuxFunctionAppSlotMapOutput() LinuxFu
 
 func (o LinuxFunctionAppSlotMapOutput) ToLinuxFunctionAppSlotMapOutputWithContext(ctx context.Context) LinuxFunctionAppSlotMapOutput {
 	return o
-}
-
-func (o LinuxFunctionAppSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxFunctionAppSlot] {
-	return pulumix.Output[map[string]*LinuxFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinuxFunctionAppSlotMapOutput) MapIndex(k pulumi.StringInput) LinuxFunctionAppSlotOutput {

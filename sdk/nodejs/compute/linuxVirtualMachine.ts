@@ -219,7 +219,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly maxBidPrice!: pulumi.Output<number | undefined>;
     /**
-     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -599,7 +599,7 @@ export interface LinuxVirtualMachineState {
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
-     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -840,7 +840,7 @@ export interface LinuxVirtualMachineArgs {
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
-     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

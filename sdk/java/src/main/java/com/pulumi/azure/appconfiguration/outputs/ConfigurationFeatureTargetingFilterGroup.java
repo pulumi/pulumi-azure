@@ -11,19 +11,21 @@ import java.util.Objects;
 @CustomType
 public final class ConfigurationFeatureTargetingFilterGroup {
     /**
-     * @return The name of the group.
+     * @return The name of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     private String name;
     /**
      * @return Rollout percentage of the group.
      * 
+     * A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
+     * 
      */
     private Integer rolloutPercentage;
 
     private ConfigurationFeatureTargetingFilterGroup() {}
     /**
-     * @return The name of the group.
+     * @return The name of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
@@ -31,6 +33,8 @@ public final class ConfigurationFeatureTargetingFilterGroup {
     }
     /**
      * @return Rollout percentage of the group.
+     * 
+     * A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
      * 
      */
     public Integer rolloutPercentage() {

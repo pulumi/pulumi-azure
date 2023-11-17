@@ -410,14 +410,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+     * @return The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -1471,7 +1471,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         * @param name The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1482,7 +1482,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+         * @param name The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

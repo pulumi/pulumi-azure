@@ -28,12 +28,14 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2 {
      */
     private @Nullable String clientCredentialMethod;
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     private String clientId;
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -91,7 +93,7 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2 {
         return Optional.ofNullable(this.clientCredentialMethod);
     }
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public String clientId() {
@@ -99,6 +101,8 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2 {
     }
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * 
+     * `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

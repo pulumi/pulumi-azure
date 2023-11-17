@@ -41,7 +41,7 @@ public final class LinuxVirtualMachineOsDisk {
      */
     private @Nullable Integer diskSizeGb;
     /**
-     * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+     * @return The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String name;
@@ -110,7 +110,7 @@ public final class LinuxVirtualMachineOsDisk {
         return Optional.ofNullable(this.diskSizeGb);
     }
     /**
-     * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+     * @return The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> name() {

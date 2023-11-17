@@ -167,10 +167,20 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
     public readonly keyVaultPassword!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
     /**
      * Authenticate to ADB via managed service identity.
+     *
+     *
+     *
+     *
+     * You must specify exactly one of the following modes for cluster integration:
      */
     public readonly msiWorkSpaceResourceId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     *
+     *
+     *
+     *
+     * You must specify exactly one of the following authentication blocks:
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -285,10 +295,20 @@ export interface LinkedServiceAzureDatabricksState {
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
     /**
      * Authenticate to ADB via managed service identity.
+     *
+     *
+     *
+     *
+     * You must specify exactly one of the following modes for cluster integration:
      */
     msiWorkSpaceResourceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     *
+     *
+     *
+     *
+     * You must specify exactly one of the following authentication blocks:
      */
     name?: pulumi.Input<string>;
     /**
@@ -347,10 +367,20 @@ export interface LinkedServiceAzureDatabricksArgs {
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword>;
     /**
      * Authenticate to ADB via managed service identity.
+     *
+     *
+     *
+     *
+     * You must specify exactly one of the following modes for cluster integration:
      */
     msiWorkSpaceResourceId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+     *
+     *
+     *
+     *
+     * You must specify exactly one of the following authentication blocks:
      */
     name?: pulumi.Input<string>;
     /**

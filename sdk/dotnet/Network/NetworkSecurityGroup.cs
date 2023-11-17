@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the security rule.
+        /// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -98,6 +98,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `security_rule` block support:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -155,7 +160,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the security rule.
+        /// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -185,6 +190,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `security_rule` block support:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -207,7 +217,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the security rule.
+        /// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -237,6 +247,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `security_rule` block support:
         /// </summary>
         public InputMap<string> Tags
         {

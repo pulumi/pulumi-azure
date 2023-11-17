@@ -34,9 +34,9 @@ class AppArgs:
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
         :param pulumi.Input['AppTemplateArgs'] template: A `template` block as detailed below.
         :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
+        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
-        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
@@ -124,7 +124,7 @@ class AppArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
         """
-        An `identity` block as detailed below.
+        An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         """
         return pulumi.get(self, "identity")
 
@@ -148,7 +148,7 @@ class AppArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for this Container App. Changing this forces a new resource to be created.
+        The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         """
         return pulumi.get(self, "name")
 
@@ -217,12 +217,12 @@ class _AppState:
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
         :param pulumi.Input['AppDaprArgs'] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.
+        :param pulumi.Input['AppIdentityArgs'] identity: An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param pulumi.Input['AppIngressArgs'] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
         :param pulumi.Input[str] location: The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
-        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
         :param pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -304,7 +304,7 @@ class _AppState:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['AppIdentityArgs']]:
         """
-        An `identity` block as detailed below.
+        An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         """
         return pulumi.get(self, "identity")
 
@@ -364,7 +364,7 @@ class _AppState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name for this Container App. Changing this forces a new resource to be created.
+        The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         """
         return pulumi.get(self, "name")
 
@@ -519,9 +519,9 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppDaprArgs']] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param pulumi.Input[pulumi.InputType['AppIngressArgs']] ingress: An `ingress` block as detailed below.
-        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision_mode: The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
@@ -673,12 +673,12 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_domain_verification_id: The ID of the Custom Domain Verification for this Container App.
         :param pulumi.Input[pulumi.InputType['AppDaprArgs']] dapr: A `dapr` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['AppIdentityArgs']] identity: An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param pulumi.Input[pulumi.InputType['AppIngressArgs']] ingress: An `ingress` block as detailed below.
         :param pulumi.Input[str] latest_revision_fqdn: The FQDN of the Latest Revision of the Container App.
         :param pulumi.Input[str] latest_revision_name: The name of the latest Container Revision.
         :param pulumi.Input[str] location: The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
-        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_addresses: A list of the Public IP Addresses which the Container App uses for outbound network access.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppRegistryArgs']]]] registries: A `registry` block as detailed below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
@@ -737,7 +737,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.AppIdentity']]:
         """
-        An `identity` block as detailed below.
+        An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         """
         return pulumi.get(self, "identity")
 
@@ -777,7 +777,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name for this Container App. Changing this forces a new resource to be created.
+        The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         """
         return pulumi.get(self, "name")
 

@@ -17,6 +17,8 @@ public final class NamespaceIdentity {
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
+     * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
+     * 
      */
     private @Nullable List<String> identityIds;
     /**
@@ -40,6 +42,8 @@ public final class NamespaceIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
      * 
      */
     public List<String> identityIds() {

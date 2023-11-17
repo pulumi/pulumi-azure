@@ -30,7 +30,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectory {
      */
     private @Nullable String clientSecret;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`client_secret_setting_name` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -60,7 +60,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectory {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`client_secret_setting_name` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

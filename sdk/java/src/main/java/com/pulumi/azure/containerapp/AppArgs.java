@@ -54,14 +54,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `identity` block as detailed below.
+     * An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<AppIdentityArgs> identity;
 
     /**
-     * @return An `identity` block as detailed below.
+     * @return An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
     public Optional<Output<AppIdentityArgs>> identity() {
@@ -84,14 +84,14 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for this Container App. Changing this forces a new resource to be created.
+     * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for this Container App. Changing this forces a new resource to be created.
+     * @return The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     public Optional<Output<String>> name() {
@@ -265,7 +265,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity An `identity` block as detailed below.
+         * @param identity An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param identity An `identity` block as detailed below.
+         * @param identity An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for this Container App. Changing this forces a new resource to be created.
+         * @param name The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for this Container App. Changing this forces a new resource to be created.
+         * @param name The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
          * 
          * @return builder
          * 

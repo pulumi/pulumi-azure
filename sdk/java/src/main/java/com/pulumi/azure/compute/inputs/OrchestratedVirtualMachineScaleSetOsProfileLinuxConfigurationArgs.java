@@ -101,6 +101,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
@@ -109,6 +111,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
@@ -125,14 +129,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     }
 
     /**
-     * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      * 
      */
     @Import(name="provisionVmAgent")
     private @Nullable Output<Boolean> provisionVmAgent;
 
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> provisionVmAgent() {
@@ -140,14 +144,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     }
 
     /**
-     * One or more `secret` blocks as defined below.
+     * One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
      * 
      */
     @Import(name="secrets")
     private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>> secrets;
 
     /**
-     * @return One or more `secret` blocks as defined below.
+     * @return One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
      * 
      */
     public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs>>> secrets() {
@@ -308,6 +312,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
+         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * 
          * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
          * 
          * @return builder
@@ -320,6 +326,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * 
+         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
          * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
          * 
@@ -340,7 +348,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -351,7 +359,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * @param provisionVmAgent Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -361,7 +369,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param secrets One or more `secret` blocks as defined below.
+         * @param secrets One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
          * 
          * @return builder
          * 
@@ -372,7 +380,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param secrets One or more `secret` blocks as defined below.
+         * @param secrets One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
          * 
          * @return builder
          * 
@@ -382,7 +390,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param secrets One or more `secret` blocks as defined below.
+         * @param secrets One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
          * 
          * @return builder
          * 

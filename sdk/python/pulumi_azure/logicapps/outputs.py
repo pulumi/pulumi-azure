@@ -1052,11 +1052,14 @@ class StandardSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param 'StandardSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+               
+               
+               `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
-        :param str name: The name for this IP Restriction.
-        :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param str name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
+        :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
@@ -1081,7 +1084,7 @@ class StandardSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -1090,6 +1093,9 @@ class StandardSiteConfigIpRestriction(dict):
     def headers(self) -> Optional['outputs.StandardSiteConfigIpRestrictionHeaders']:
         """
         The headers for this specific `ip_restriction` as defined below.
+
+
+        `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -1105,7 +1111,7 @@ class StandardSiteConfigIpRestriction(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name for this IP Restriction.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -1113,7 +1119,7 @@ class StandardSiteConfigIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 
@@ -1246,11 +1252,14 @@ class StandardSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         :param 'StandardSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+               
+               
+               `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
-        :param str name: The name for this IP Restriction.
-        :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        :param str name: Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
+        :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         :param str service_tag: The Service Tag used for this IP Restriction.
         :param str virtual_network_subnet_id: The Virtual Network Subnet ID used for this IP Restriction.
                
@@ -1275,7 +1284,7 @@ class StandardSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -1284,6 +1293,9 @@ class StandardSiteConfigScmIpRestriction(dict):
     def headers(self) -> Optional['outputs.StandardSiteConfigScmIpRestrictionHeaders']:
         """
         The headers for this specific `ip_restriction` as defined below.
+
+
+        `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -1299,7 +1311,7 @@ class StandardSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name for this IP Restriction.
+        Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -1307,7 +1319,7 @@ class StandardSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         """
         return pulumi.get(self, "priority")
 

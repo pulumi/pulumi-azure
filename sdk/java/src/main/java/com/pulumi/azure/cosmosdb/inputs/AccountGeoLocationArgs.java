@@ -65,12 +65,16 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
     /**
      * Should zone redundancy be enabled for this region? Defaults to `false`.
      * 
+     * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
+     * 
      */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
      * @return Should zone redundancy be enabled for this region? Defaults to `false`.
+     * 
+     * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
      * 
      */
     public Optional<Output<Boolean>> zoneRedundant() {
@@ -170,6 +174,8 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zoneRedundant Should zone redundancy be enabled for this region? Defaults to `false`.
          * 
+         * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
+         * 
          * @return builder
          * 
          */
@@ -180,6 +186,8 @@ public final class AccountGeoLocationArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param zoneRedundant Should zone redundancy be enabled for this region? Defaults to `false`.
+         * 
+         * A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
          * 
          * @return builder
          * 

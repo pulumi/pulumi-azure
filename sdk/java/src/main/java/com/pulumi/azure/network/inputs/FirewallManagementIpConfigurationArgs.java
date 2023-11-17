@@ -45,21 +45,9 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
         return Optional.ofNullable(this.privateIpAddress);
     }
 
-    /**
-     * The ID of the Public IP Address associated with the firewall.
-     * 
-     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-     * 
-     */
     @Import(name="publicIpAddressId", required=true)
     private Output<String> publicIpAddressId;
 
-    /**
-     * @return The ID of the Public IP Address associated with the firewall.
-     * 
-     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-     * 
-     */
     public Output<String> publicIpAddressId() {
         return this.publicIpAddressId;
     }
@@ -152,27 +140,11 @@ public final class FirewallManagementIpConfigurationArgs extends com.pulumi.reso
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
-        /**
-         * @param publicIpAddressId The ID of the Public IP Address associated with the firewall.
-         * 
-         * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIpAddressId(Output<String> publicIpAddressId) {
             $.publicIpAddressId = publicIpAddressId;
             return this;
         }
 
-        /**
-         * @param publicIpAddressId The ID of the Public IP Address associated with the firewall.
-         * 
-         * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicIpAddressId(String publicIpAddressId) {
             return publicIpAddressId(Output.of(publicIpAddressId));
         }

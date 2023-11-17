@@ -102,12 +102,16 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
     /**
      * A `azure_active_directory_authentication` block as defined below.
      * 
+     * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
+     * 
      */
     @Export(name="azureActiveDirectoryAuthentications", refs={List.class,VpnServerConfigurationAzureActiveDirectoryAuthentication.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationAzureActiveDirectoryAuthentication>> azureActiveDirectoryAuthentications;
 
     /**
      * @return A `azure_active_directory_authentication` block as defined below.
+     * 
+     * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
      * 
      */
     public Output<Optional<List<VpnServerConfigurationAzureActiveDirectoryAuthentication>>> azureActiveDirectoryAuthentications() {
@@ -116,12 +120,16 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
     /**
      * One or more `client_revoked_certificate` blocks as defined below.
      * 
+     * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
+     * 
      */
     @Export(name="clientRevokedCertificates", refs={List.class,VpnServerConfigurationClientRevokedCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<VpnServerConfigurationClientRevokedCertificate>> clientRevokedCertificates;
 
     /**
      * @return One or more `client_revoked_certificate` blocks as defined below.
+     * 
+     * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
      * 
      */
     public Output<Optional<List<VpnServerConfigurationClientRevokedCertificate>>> clientRevokedCertificates() {
@@ -214,12 +222,16 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * When `vpn_authentication_types` contains `AAD` the following arguments are supported:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * When `vpn_authentication_types` contains `AAD` the following arguments are supported:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

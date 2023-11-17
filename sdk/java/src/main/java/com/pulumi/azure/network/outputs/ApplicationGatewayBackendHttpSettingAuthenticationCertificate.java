@@ -17,7 +17,7 @@ public final class ApplicationGatewayBackendHttpSettingAuthenticationCertificate
      */
     private @Nullable String id;
     /**
-     * @return The name of the Authentication Certificate.
+     * @return The Name of the Authentication Certificate to use.
      * 
      */
     private String name;
@@ -31,7 +31,7 @@ public final class ApplicationGatewayBackendHttpSettingAuthenticationCertificate
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the Authentication Certificate.
+     * @return The Name of the Authentication Certificate to use.
      * 
      */
     public String name() {

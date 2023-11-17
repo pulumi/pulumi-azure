@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Authentication Certificate.
+        /// The Name of the Authentication Certificate to use.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

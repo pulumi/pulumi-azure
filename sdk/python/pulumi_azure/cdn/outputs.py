@@ -2952,7 +2952,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
                
                ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
         :param str rule_id: Identifier for the managed rule.
-        :param bool enabled: Is the managed rule override enabled or disabled. Defaults to `false`
+        :param bool enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
@@ -2984,7 +2984,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Is the managed rule override enabled or disabled. Defaults to `false`
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -3491,8 +3491,13 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
         :param str header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
                
                > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
-        :param str header_name: The name of the header to modify.
+        :param str header_name: The name of the header to modify.`header_name` - (Required) The name of the header to modify.
         :param str value: The value to append or overwrite.
+               
+               ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+               
+               
+               `value` - (Optional) The value to append or overwrite.
                
                ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
@@ -3515,7 +3520,7 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
         """
-        The name of the header to modify.
+        The name of the header to modify.`header_name` - (Required) The name of the header to modify.
         """
         return pulumi.get(self, "header_name")
 
@@ -3524,6 +3529,11 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
     def value(self) -> Optional[str]:
         """
         The value to append or overwrite.
+
+        ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+
+
+        `value` - (Optional) The value to append or overwrite.
 
         ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
@@ -3559,8 +3569,13 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
         :param str header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
                
                > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
-        :param str header_name: The name of the header to modify.
+        :param str header_name: The name of the header to modify.`header_name` - (Required) The name of the header to modify.
         :param str value: The value to append or overwrite.
+               
+               ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+               
+               
+               `value` - (Optional) The value to append or overwrite.
                
                ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
@@ -3583,7 +3598,7 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
     @pulumi.getter(name="headerName")
     def header_name(self) -> str:
         """
-        The name of the header to modify.
+        The name of the header to modify.`header_name` - (Required) The name of the header to modify.
         """
         return pulumi.get(self, "header_name")
 
@@ -3592,6 +3607,11 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
     def value(self) -> Optional[str]:
         """
         The value to append or overwrite.
+
+        ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+
+
+        `value` - (Optional) The value to append or overwrite.
 
         ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
@@ -5193,7 +5213,7 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
         :param Sequence[str] match_values: Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
                
                ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
-        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param str operator: The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
                
                ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
@@ -5219,7 +5239,7 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
     @pulumi.getter(name="negateCondition")
     def negate_condition(self) -> Optional[bool]:
         """
-        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         """
         return pulumi.get(self, "negate_condition")
 
@@ -5398,7 +5418,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
         :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
                
                > **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
-        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param Sequence[str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
         pulumi.set(__self__, "operator", operator)
@@ -5431,7 +5451,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
     @pulumi.getter(name="negateCondition")
     def negate_condition(self) -> Optional[bool]:
         """
-        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         """
         return pulumi.get(self, "negate_condition")
 

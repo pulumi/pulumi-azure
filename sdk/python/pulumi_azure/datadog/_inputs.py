@@ -159,9 +159,7 @@ class MonitorIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-               
-               > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+        :param pulumi.Input[str] type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
         """
@@ -175,9 +173,7 @@ class MonitorIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-
-        > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
         """
         return pulumi.get(self, "type")
 
@@ -219,9 +215,7 @@ class MonitorTagRuleLogArgs:
                  subscription_log_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[bool] aad_log_enabled: Whether AAD logs should be sent for the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]] filters: A `filter` block as defined below.
-               
-               > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]] filters: A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param pulumi.Input[bool] resource_log_enabled: Whether Azure resource logs should be sent for the Monitor resource?
         :param pulumi.Input[bool] subscription_log_enabled: Whether Azure subscription logs should be sent for the Monitor resource?
         """
@@ -250,9 +244,7 @@ class MonitorTagRuleLogArgs:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]:
         """
-        A `filter` block as defined below.
-
-        > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filters")
 
@@ -342,9 +334,7 @@ class MonitorTagRuleMetricArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]] filters: A `filter` block as defined below.
-               
-               > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]] filters: A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -353,9 +343,7 @@ class MonitorTagRuleMetricArgs:
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]:
         """
-        A `filter` block as defined below.
-
-        > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filters")
 

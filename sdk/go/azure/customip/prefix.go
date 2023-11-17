@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a custom IPv4 prefix or custom IPv6 prefix.
@@ -244,12 +243,6 @@ func (i *Prefix) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixOutput)
 }
 
-func (i *Prefix) ToOutput(ctx context.Context) pulumix.Output[*Prefix] {
-	return pulumix.Output[*Prefix]{
-		OutputState: i.ToPrefixOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrefixArrayInput is an input type that accepts PrefixArray and PrefixArrayOutput values.
 // You can construct a concrete instance of `PrefixArrayInput` via:
 //
@@ -273,12 +266,6 @@ func (i PrefixArray) ToPrefixArrayOutput() PrefixArrayOutput {
 
 func (i PrefixArray) ToPrefixArrayOutputWithContext(ctx context.Context) PrefixArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixArrayOutput)
-}
-
-func (i PrefixArray) ToOutput(ctx context.Context) pulumix.Output[[]*Prefix] {
-	return pulumix.Output[[]*Prefix]{
-		OutputState: i.ToPrefixArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrefixMapInput is an input type that accepts PrefixMap and PrefixMapOutput values.
@@ -306,12 +293,6 @@ func (i PrefixMap) ToPrefixMapOutputWithContext(ctx context.Context) PrefixMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixMapOutput)
 }
 
-func (i PrefixMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Prefix] {
-	return pulumix.Output[map[string]*Prefix]{
-		OutputState: i.ToPrefixMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrefixOutput struct{ *pulumi.OutputState }
 
 func (PrefixOutput) ElementType() reflect.Type {
@@ -324,12 +305,6 @@ func (o PrefixOutput) ToPrefixOutput() PrefixOutput {
 
 func (o PrefixOutput) ToPrefixOutputWithContext(ctx context.Context) PrefixOutput {
 	return o
-}
-
-func (o PrefixOutput) ToOutput(ctx context.Context) pulumix.Output[*Prefix] {
-	return pulumix.Output[*Prefix]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
@@ -407,12 +382,6 @@ func (o PrefixArrayOutput) ToPrefixArrayOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o PrefixArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Prefix] {
-	return pulumix.Output[[]*Prefix]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrefixArrayOutput) Index(i pulumi.IntInput) PrefixOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Prefix {
 		return vs[0].([]*Prefix)[vs[1].(int)]
@@ -431,12 +400,6 @@ func (o PrefixMapOutput) ToPrefixMapOutput() PrefixMapOutput {
 
 func (o PrefixMapOutput) ToPrefixMapOutputWithContext(ctx context.Context) PrefixMapOutput {
 	return o
-}
-
-func (o PrefixMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Prefix] {
-	return pulumix.Output[map[string]*Prefix]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrefixMapOutput) MapIndex(k pulumi.StringInput) PrefixOutput {

@@ -121,6 +121,11 @@ export class ConfigurationFeature extends pulumi.CustomResource {
     public readonly targetingFilters!: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureTargetingFilter[] | undefined>;
     /**
      * A `timewindowFilter` block as defined below.
+     *
+     *
+     *
+     *
+     * A `targetingFilter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
      */
     public readonly timewindowFilters!: pulumi.Output<outputs.appconfiguration.ConfigurationFeatureTimewindowFilter[] | undefined>;
 
@@ -219,6 +224,11 @@ export interface ConfigurationFeatureState {
     targetingFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilter>[]>;
     /**
      * A `timewindowFilter` block as defined below.
+     *
+     *
+     *
+     *
+     * A `targetingFilter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
      */
     timewindowFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTimewindowFilter>[]>;
 }
@@ -270,6 +280,11 @@ export interface ConfigurationFeatureArgs {
     targetingFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTargetingFilter>[]>;
     /**
      * A `timewindowFilter` block as defined below.
+     *
+     *
+     *
+     *
+     * A `targetingFilter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
      */
     timewindowFilters?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationFeatureTimewindowFilter>[]>;
 }

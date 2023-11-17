@@ -465,7 +465,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> PrivateFqdn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
         /// 
         /// !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         /// </summary>
@@ -521,7 +521,9 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterStorageProfile?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+        /// 
+        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -955,7 +957,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? PrivateDnsZoneId { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
         /// 
         /// !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         /// </summary>
@@ -1014,7 +1016,9 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+        /// 
+        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1506,7 +1510,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? PrivateFqdn { get; set; }
 
         /// <summary>
-        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. 
+        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
         /// 
         /// !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
         /// </summary>
@@ -1565,7 +1569,9 @@ namespace Pulumi.Azure.ContainerService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+        /// 
+        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         /// </summary>
         public InputMap<string> Tags
         {

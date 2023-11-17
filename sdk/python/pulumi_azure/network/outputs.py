@@ -256,7 +256,7 @@ class ApplicationGatewayAuthenticationCertificate(dict):
                  id: Optional[str] = None):
         """
         :param str data: The contents of the Authentication Certificate which should be used.
-        :param str name: The name of the Authentication Certificate.
+        :param str name: The Name of the Authentication Certificate to use.
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "data", data)
@@ -276,7 +276,7 @@ class ApplicationGatewayAuthenticationCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Authentication Certificate.
+        The Name of the Authentication Certificate to use.
         """
         return pulumi.get(self, "name")
 
@@ -464,7 +464,10 @@ class ApplicationGatewayBackendHttpSetting(dict):
                  trusted_root_certificate_names: Optional[Sequence[str]] = None):
         """
         :param str cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        :param str name: The name of the Backend HTTP Settings Collection.
+        :param str name: The name of the Authentication Certificate.
+               
+               
+               `name` - (Required) The name of the Backend HTTP Settings Collection.
         :param int port: The port which should be used for this Backend HTTP Settings Collection.
         :param str protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param str affinity_cookie_name: The name of the affinity cookie.
@@ -518,7 +521,10 @@ class ApplicationGatewayBackendHttpSetting(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Backend HTTP Settings Collection.
+        The name of the Authentication Certificate.
+
+
+        `name` - (Required) The name of the Backend HTTP Settings Collection.
         """
         return pulumi.get(self, "name")
 
@@ -633,7 +639,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
                  name: str,
                  id: Optional[str] = None):
         """
-        :param str name: The name of the Authentication Certificate.
+        :param str name: The Name of the Authentication Certificate to use.
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "name", name)
@@ -644,7 +650,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Authentication Certificate.
+        The Name of the Authentication Certificate to use.
         """
         return pulumi.get(self, "name")
 
@@ -1104,8 +1110,8 @@ class ApplicationGatewayHttpListener(dict):
         :param str frontend_port_name: The Name of the Frontend Port use for this HTTP Listener.
         :param str name: The Name of the HTTP Listener.
         :param str protocol: The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
-        :param Sequence['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
-        :param str firewall_policy_id: The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+        :param Sequence['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs'] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
+        :param str firewall_policy_id: The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         :param str frontend_ip_configuration_id: The ID of the associated Frontend Configuration.
         :param str frontend_port_id: The ID of the associated Frontend Port.
         :param str host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
@@ -1184,7 +1190,7 @@ class ApplicationGatewayHttpListener(dict):
     @pulumi.getter(name="customErrorConfigurations")
     def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerCustomErrorConfiguration']]:
         """
-        One or more `custom_error_configuration` blocks as defined below.
+        One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
         """
         return pulumi.get(self, "custom_error_configurations")
 
@@ -1192,7 +1198,7 @@ class ApplicationGatewayHttpListener(dict):
     @pulumi.getter(name="firewallPolicyId")
     def firewall_policy_id(self) -> Optional[str]:
         """
-        The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+        The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         """
         return pulumi.get(self, "firewall_policy_id")
 
@@ -2745,9 +2751,13 @@ class ApplicationGatewaySslPolicy(dict):
                > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         :param str policy_name: The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+               
+               When using a `policy_type` of `Custom` the following fields are supported:
         :param str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
                > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+               
+               When using a `policy_type` of `Predefined` the following fields are supported:
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2791,6 +2801,8 @@ class ApplicationGatewaySslPolicy(dict):
     def policy_name(self) -> Optional[str]:
         """
         The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+
+        When using a `policy_type` of `Custom` the following fields are supported:
         """
         return pulumi.get(self, "policy_name")
 
@@ -2801,6 +2813,8 @@ class ApplicationGatewaySslPolicy(dict):
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
         > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+
+        When using a `policy_type` of `Predefined` the following fields are supported:
         """
         return pulumi.get(self, "policy_type")
 
@@ -2946,9 +2960,13 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
                > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param str min_protocol_version: The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
         :param str policy_name: The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+               
+               When using a `policy_type` of `Custom` the following fields are supported:
         :param str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
                > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+               
+               When using a `policy_type` of `Predefined` the following fields are supported:
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2992,6 +3010,8 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
     def policy_name(self) -> Optional[str]:
         """
         The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabled_protocols`.
+
+        When using a `policy_type` of `Custom` the following fields are supported:
         """
         return pulumi.get(self, "policy_name")
 
@@ -3002,6 +3022,8 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
         > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+
+        When using a `policy_type` of `Predefined` the following fields are supported:
         """
         return pulumi.get(self, "policy_type")
 
@@ -3759,13 +3781,23 @@ class ExpressRouteCircuitPeeringIpv6(dict):
                  microsoft_peering: Optional['outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering'] = None,
                  route_filter_id: Optional[str] = None):
         """
-        :param str primary_peer_address_prefix: A subnet for the primary link.
-        :param str secondary_peer_address_prefix: A subnet for the secondary link.
+        :param str primary_peer_address_prefix: A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
+        :param str secondary_peer_address_prefix: A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         :param bool enabled: A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
         :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs' microsoft_peering: A `microsoft_peering` block as defined below.
         :param str route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
                
+               
+               
+               
+               A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+               
                > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+               
+               
+               
+               
+               A `microsoft_peering` block contains:
         """
         pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
         pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
@@ -3780,7 +3812,7 @@ class ExpressRouteCircuitPeeringIpv6(dict):
     @pulumi.getter(name="primaryPeerAddressPrefix")
     def primary_peer_address_prefix(self) -> str:
         """
-        A subnet for the primary link.
+        A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
         """
         return pulumi.get(self, "primary_peer_address_prefix")
 
@@ -3788,7 +3820,7 @@ class ExpressRouteCircuitPeeringIpv6(dict):
     @pulumi.getter(name="secondaryPeerAddressPrefix")
     def secondary_peer_address_prefix(self) -> str:
         """
-        A subnet for the secondary link.
+        A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         """
         return pulumi.get(self, "secondary_peer_address_prefix")
 
@@ -3814,7 +3846,17 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
+
+
+
+        A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+
         > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+
+
+
+
+        A `microsoft_peering` block contains:
         """
         return pulumi.get(self, "route_filter_id")
 
@@ -3851,9 +3893,14 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
                  routing_registry_name: Optional[str] = None):
         """
         :param Sequence[str] advertised_communities: The communities of Bgp Peering specified for microsoft peering.
-        :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.
-        :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.
-        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+               
+               
+               
+               
+               A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+        :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
+        :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
+        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         if advertised_communities is not None:
             pulumi.set(__self__, "advertised_communities", advertised_communities)
@@ -3869,6 +3916,11 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     def advertised_communities(self) -> Optional[Sequence[str]]:
         """
         The communities of Bgp Peering specified for microsoft peering.
+
+
+
+
+        A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
         """
         return pulumi.get(self, "advertised_communities")
 
@@ -3876,7 +3928,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @pulumi.getter(name="advertisedPublicPrefixes")
     def advertised_public_prefixes(self) -> Optional[Sequence[str]]:
         """
-        A list of Advertised Public Prefixes.
+        A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
         """
         return pulumi.get(self, "advertised_public_prefixes")
 
@@ -3884,7 +3936,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @pulumi.getter(name="customerAsn")
     def customer_asn(self) -> Optional[int]:
         """
-        The CustomerASN of the peering. Defaults to `0`.
+        The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
         """
         return pulumi.get(self, "customer_asn")
 
@@ -3892,7 +3944,7 @@ class ExpressRouteCircuitPeeringIpv6MicrosoftPeering(dict):
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[str]:
         """
-        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -3928,10 +3980,15 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
                  customer_asn: Optional[int] = None,
                  routing_registry_name: Optional[str] = None):
         """
-        :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.
+        :param Sequence[str] advertised_public_prefixes: A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
         :param Sequence[str] advertised_communities: The communities of Bgp Peering specified for microsoft peering.
-        :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.
-        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+               
+               
+               
+               
+               A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
+        :param int customer_asn: The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
+        :param str routing_registry_name: The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
         if advertised_communities is not None:
@@ -3945,7 +4002,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @pulumi.getter(name="advertisedPublicPrefixes")
     def advertised_public_prefixes(self) -> Sequence[str]:
         """
-        A list of Advertised Public Prefixes.
+        A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
         """
         return pulumi.get(self, "advertised_public_prefixes")
 
@@ -3954,6 +4011,11 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     def advertised_communities(self) -> Optional[Sequence[str]]:
         """
         The communities of Bgp Peering specified for microsoft peering.
+
+
+
+
+        A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
         """
         return pulumi.get(self, "advertised_communities")
 
@@ -3961,7 +4023,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @pulumi.getter(name="customerAsn")
     def customer_asn(self) -> Optional[int]:
         """
-        The CustomerASN of the peering. Defaults to `0`.
+        The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
         """
         return pulumi.get(self, "customer_asn")
 
@@ -3969,7 +4031,7 @@ class ExpressRouteCircuitPeeringMicrosoftPeeringConfig(dict):
     @pulumi.getter(name="routingRegistryName")
     def routing_registry_name(self) -> Optional[str]:
         """
-        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         """
         return pulumi.get(self, "routing_registry_name")
 
@@ -4790,9 +4852,6 @@ class FirewallManagementIpConfiguration(dict):
                  private_ip_address: Optional[str] = None):
         """
         :param str name: Specifies the name of the IP Configuration.
-        :param str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
-               
-               > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
         :param str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
                
                > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
@@ -4815,11 +4874,6 @@ class FirewallManagementIpConfiguration(dict):
     @property
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> str:
-        """
-        The ID of the Public IP Address associated with the firewall.
-
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-        """
         return pulumi.get(self, "public_ip_address_id")
 
     @property
@@ -7304,7 +7358,11 @@ class NetworkInterfaceIpConfiguration(dict):
                > **Note:** `Dynamic` means "An IP is automatically assigned during creation of this Network Interface"; `Static` means "User supplied IP address will be used"
         :param str gateway_load_balancer_frontend_ip_configuration_id: The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
         :param bool primary: Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+               
+               When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
         :param str private_ip_address: The Static IP Address which should be used.
+               
+               When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         :param str private_ip_address_version: The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
         :param str public_ip_address_id: Reference to a Public IP Address to associate with this NIC
         :param str subnet_id: The ID of the Subnet where this Network Interface should be located in.
@@ -7357,6 +7415,8 @@ class NetworkInterfaceIpConfiguration(dict):
     def primary(self) -> Optional[bool]:
         """
         Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+
+        When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
         """
         return pulumi.get(self, "primary")
 
@@ -7365,6 +7425,8 @@ class NetworkInterfaceIpConfiguration(dict):
     def private_ip_address(self) -> Optional[str]:
         """
         The Static IP Address which should be used.
+
+        When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -7852,6 +7914,11 @@ class NetworkPacketCaptureStorageLocation(dict):
         :param str storage_account_id: The ID of the storage account to save the packet capture session
                
                > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+               
+               
+               
+               
+               A `filter` block contains:
         :param str storage_path: The URI of the storage path to save the packet capture.
         """
         if file_path is not None:
@@ -7876,6 +7943,11 @@ class NetworkPacketCaptureStorageLocation(dict):
         The ID of the storage account to save the packet capture session
 
         > **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+
+
+
+
+        A `filter` block contains:
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -7945,7 +8017,7 @@ class NetworkSecurityGroupSecurityRule(dict):
         """
         :param str access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param str direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        :param str name: The name of the security rule.
+        :param str name: Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         :param int priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param str protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         :param str description: A description for this rule. Restricted to 140 characters.
@@ -8008,7 +8080,7 @@ class NetworkSecurityGroupSecurityRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the security rule.
+        Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         """
         return pulumi.get(self, "name")
 
@@ -8875,7 +8947,7 @@ class RouteTableRoute(dict):
                  next_hop_in_ip_address: Optional[str] = None):
         """
         :param str address_prefix: The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        :param str name: The name of the route.
+        :param str name: The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
         :param str next_hop_type: The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         :param str next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
@@ -8897,7 +8969,7 @@ class RouteTableRoute(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the route.
+        The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
         """
         return pulumi.get(self, "name")
 

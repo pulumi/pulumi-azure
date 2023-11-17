@@ -72,12 +72,16 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
+     * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
      */
     @Import(name="storageResourceId")
     private @Nullable Output<String> storageResourceId;
 
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageResourceId() {
@@ -185,6 +189,8 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
          * 
+         * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -195,6 +201,8 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
 
         /**
          * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
+         * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

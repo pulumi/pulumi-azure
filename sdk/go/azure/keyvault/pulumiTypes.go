@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -22,6 +21,7 @@ type CertifiateCertificate struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
+	//
 	// ```go
 	// package main
 	//
@@ -59,6 +59,7 @@ type CertifiateCertificateArgs struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
+	//
 	// ```go
 	// package main
 	//
@@ -87,12 +88,6 @@ func (i CertifiateCertificateArgs) ToCertifiateCertificateOutput() CertifiateCer
 
 func (i CertifiateCertificateArgs) ToCertifiateCertificateOutputWithContext(ctx context.Context) CertifiateCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificateOutput)
-}
-
-func (i CertifiateCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificate] {
-	return pulumix.Output[CertifiateCertificate]{
-		OutputState: i.ToCertifiateCertificateOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CertifiateCertificateArgs) ToCertifiateCertificatePtrOutput() CertifiateCertificatePtrOutput {
@@ -136,12 +131,6 @@ func (i *certifiateCertificatePtrType) ToCertifiateCertificatePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePtrOutput)
 }
 
-func (i *certifiateCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificate] {
-	return pulumix.Output[*CertifiateCertificate]{
-		OutputState: i.ToCertifiateCertificatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificateOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificateOutput) ElementType() reflect.Type {
@@ -166,12 +155,6 @@ func (o CertifiateCertificateOutput) ToCertifiateCertificatePtrOutputWithContext
 	}).(CertifiateCertificatePtrOutput)
 }
 
-func (o CertifiateCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificate] {
-	return pulumix.Output[CertifiateCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The base64-encoded certificate contents.
 func (o CertifiateCertificateOutput) Contents() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificate) string { return v.Contents }).(pulumi.StringOutput)
@@ -182,6 +165,7 @@ func (o CertifiateCertificateOutput) Contents() pulumi.StringOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
+//
 // ```go
 // package main
 //
@@ -218,12 +202,6 @@ func (o CertifiateCertificatePtrOutput) ToCertifiateCertificatePtrOutputWithCont
 	return o
 }
 
-func (o CertifiateCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificate] {
-	return pulumix.Output[*CertifiateCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertifiateCertificatePtrOutput) Elem() CertifiateCertificateOutput {
 	return o.ApplyT(func(v *CertifiateCertificate) CertifiateCertificate {
 		if v != nil {
@@ -249,6 +227,7 @@ func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
+//
 // ```go
 // package main
 //
@@ -329,12 +308,6 @@ func (i CertifiateCertificateAttributeArgs) ToCertifiateCertificateAttributeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificateAttributeOutput)
 }
 
-func (i CertifiateCertificateAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificateAttribute] {
-	return pulumix.Output[CertifiateCertificateAttribute]{
-		OutputState: i.ToCertifiateCertificateAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertifiateCertificateAttributeArrayInput is an input type that accepts CertifiateCertificateAttributeArray and CertifiateCertificateAttributeArrayOutput values.
 // You can construct a concrete instance of `CertifiateCertificateAttributeArrayInput` via:
 //
@@ -360,12 +333,6 @@ func (i CertifiateCertificateAttributeArray) ToCertifiateCertificateAttributeArr
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificateAttributeArrayOutput)
 }
 
-func (i CertifiateCertificateAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]CertifiateCertificateAttribute] {
-	return pulumix.Output[[]CertifiateCertificateAttribute]{
-		OutputState: i.ToCertifiateCertificateAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificateAttributeOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificateAttributeOutput) ElementType() reflect.Type {
@@ -378,12 +345,6 @@ func (o CertifiateCertificateAttributeOutput) ToCertifiateCertificateAttributeOu
 
 func (o CertifiateCertificateAttributeOutput) ToCertifiateCertificateAttributeOutputWithContext(ctx context.Context) CertifiateCertificateAttributeOutput {
 	return o
-}
-
-func (o CertifiateCertificateAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificateAttribute] {
-	return pulumix.Output[CertifiateCertificateAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The create time of the Key Vault Certificate.
@@ -428,12 +389,6 @@ func (o CertifiateCertificateAttributeArrayOutput) ToCertifiateCertificateAttrib
 
 func (o CertifiateCertificateAttributeArrayOutput) ToCertifiateCertificateAttributeArrayOutputWithContext(ctx context.Context) CertifiateCertificateAttributeArrayOutput {
 	return o
-}
-
-func (o CertifiateCertificateAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertifiateCertificateAttribute] {
-	return pulumix.Output[[]CertifiateCertificateAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificateAttributeArrayOutput) Index(i pulumi.IntInput) CertifiateCertificateAttributeOutput {
@@ -491,12 +446,6 @@ func (i CertifiateCertificatePolicyArgs) ToCertifiateCertificatePolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyOutput)
 }
 
-func (i CertifiateCertificatePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicy] {
-	return pulumix.Output[CertifiateCertificatePolicy]{
-		OutputState: i.ToCertifiateCertificatePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertifiateCertificatePolicyArgs) ToCertifiateCertificatePolicyPtrOutput() CertifiateCertificatePolicyPtrOutput {
 	return i.ToCertifiateCertificatePolicyPtrOutputWithContext(context.Background())
 }
@@ -538,12 +487,6 @@ func (i *certifiateCertificatePolicyPtrType) ToCertifiateCertificatePolicyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyPtrOutput)
 }
 
-func (i *certifiateCertificatePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicy] {
-	return pulumix.Output[*CertifiateCertificatePolicy]{
-		OutputState: i.ToCertifiateCertificatePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyOutput) ElementType() reflect.Type {
@@ -566,12 +509,6 @@ func (o CertifiateCertificatePolicyOutput) ToCertifiateCertificatePolicyPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicy) *CertifiateCertificatePolicy {
 		return &v
 	}).(CertifiateCertificatePolicyPtrOutput)
-}
-
-func (o CertifiateCertificatePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicy] {
-	return pulumix.Output[CertifiateCertificatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `issuerParameters` block as defined below.
@@ -619,12 +556,6 @@ func (o CertifiateCertificatePolicyPtrOutput) ToCertifiateCertificatePolicyPtrOu
 
 func (o CertifiateCertificatePolicyPtrOutput) ToCertifiateCertificatePolicyPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyPtrOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicy] {
-	return pulumix.Output[*CertifiateCertificatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicyPtrOutput) Elem() CertifiateCertificatePolicyOutput {
@@ -720,12 +651,6 @@ func (i CertifiateCertificatePolicyIssuerParametersArgs) ToCertifiateCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyIssuerParametersOutput)
 }
 
-func (i CertifiateCertificatePolicyIssuerParametersArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[CertifiateCertificatePolicyIssuerParameters]{
-		OutputState: i.ToCertifiateCertificatePolicyIssuerParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertifiateCertificatePolicyIssuerParametersArgs) ToCertifiateCertificatePolicyIssuerParametersPtrOutput() CertifiateCertificatePolicyIssuerParametersPtrOutput {
 	return i.ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
 }
@@ -767,12 +692,6 @@ func (i *certifiateCertificatePolicyIssuerParametersPtrType) ToCertifiateCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyIssuerParametersPtrOutput)
 }
 
-func (i *certifiateCertificatePolicyIssuerParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[*CertifiateCertificatePolicyIssuerParameters]{
-		OutputState: i.ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyIssuerParametersOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyIssuerParametersOutput) ElementType() reflect.Type {
@@ -797,12 +716,6 @@ func (o CertifiateCertificatePolicyIssuerParametersOutput) ToCertifiateCertifica
 	}).(CertifiateCertificatePolicyIssuerParametersPtrOutput)
 }
 
-func (o CertifiateCertificatePolicyIssuerParametersOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[CertifiateCertificatePolicyIssuerParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicyIssuerParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyIssuerParameters) string { return v.Name }).(pulumi.StringOutput)
@@ -820,12 +733,6 @@ func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) ToCertifiateCertif
 
 func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) ToCertifiateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyIssuerParametersPtrOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[*CertifiateCertificatePolicyIssuerParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Elem() CertifiateCertificatePolicyIssuerParametersOutput {
@@ -897,12 +804,6 @@ func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToCertifiateCertificatePol
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyKeyPropertiesOutput)
 }
 
-func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyKeyProperties] {
-	return pulumix.Output[CertifiateCertificatePolicyKeyProperties]{
-		OutputState: i.ToCertifiateCertificatePolicyKeyPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertifiateCertificatePolicyKeyPropertiesArgs) ToCertifiateCertificatePolicyKeyPropertiesPtrOutput() CertifiateCertificatePolicyKeyPropertiesPtrOutput {
 	return i.ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
 }
@@ -944,12 +845,6 @@ func (i *certifiateCertificatePolicyKeyPropertiesPtrType) ToCertifiateCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
-func (i *certifiateCertificatePolicyKeyPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyKeyProperties] {
-	return pulumix.Output[*CertifiateCertificatePolicyKeyProperties]{
-		OutputState: i.ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyKeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyKeyPropertiesOutput) ElementType() reflect.Type {
@@ -972,12 +867,6 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToCertifiateCertificateP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyKeyProperties) *CertifiateCertificatePolicyKeyProperties {
 		return &v
 	}).(CertifiateCertificatePolicyKeyPropertiesPtrOutput)
-}
-
-func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyKeyProperties] {
-	return pulumix.Output[CertifiateCertificatePolicyKeyProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
@@ -1017,12 +906,6 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ToCertifiateCertifica
 
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ToCertifiateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyKeyPropertiesPtrOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyKeyProperties] {
-	return pulumix.Output[*CertifiateCertificatePolicyKeyProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertifiateCertificatePolicyKeyPropertiesOutput {
@@ -1122,12 +1005,6 @@ func (i CertifiateCertificatePolicyLifetimeActionArgs) ToCertifiateCertificatePo
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyLifetimeActionOutput)
 }
 
-func (i CertifiateCertificatePolicyLifetimeActionArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[CertifiateCertificatePolicyLifetimeAction]{
-		OutputState: i.ToCertifiateCertificatePolicyLifetimeActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertifiateCertificatePolicyLifetimeActionArrayInput is an input type that accepts CertifiateCertificatePolicyLifetimeActionArray and CertifiateCertificatePolicyLifetimeActionArrayOutput values.
 // You can construct a concrete instance of `CertifiateCertificatePolicyLifetimeActionArrayInput` via:
 //
@@ -1153,12 +1030,6 @@ func (i CertifiateCertificatePolicyLifetimeActionArray) ToCertifiateCertificateP
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyLifetimeActionArrayOutput)
 }
 
-func (i CertifiateCertificatePolicyLifetimeActionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertifiateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[[]CertifiateCertificatePolicyLifetimeAction]{
-		OutputState: i.ToCertifiateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyLifetimeActionOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyLifetimeActionOutput) ElementType() reflect.Type {
@@ -1171,12 +1042,6 @@ func (o CertifiateCertificatePolicyLifetimeActionOutput) ToCertifiateCertificate
 
 func (o CertifiateCertificatePolicyLifetimeActionOutput) ToCertifiateCertificatePolicyLifetimeActionOutputWithContext(ctx context.Context) CertifiateCertificatePolicyLifetimeActionOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyLifetimeActionOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[CertifiateCertificatePolicyLifetimeAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `action` block as defined below.
@@ -1205,12 +1070,6 @@ func (o CertifiateCertificatePolicyLifetimeActionArrayOutput) ToCertifiateCertif
 
 func (o CertifiateCertificatePolicyLifetimeActionArrayOutput) ToCertifiateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx context.Context) CertifiateCertificatePolicyLifetimeActionArrayOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyLifetimeActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertifiateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[[]CertifiateCertificatePolicyLifetimeAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.IntInput) CertifiateCertificatePolicyLifetimeActionOutput {
@@ -1252,12 +1111,6 @@ func (i CertifiateCertificatePolicyLifetimeActionActionArgs) ToCertifiateCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyLifetimeActionActionOutput)
 }
 
-func (i CertifiateCertificatePolicyLifetimeActionActionArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[CertifiateCertificatePolicyLifetimeActionAction]{
-		OutputState: i.ToCertifiateCertificatePolicyLifetimeActionActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyLifetimeActionActionOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyLifetimeActionActionOutput) ElementType() reflect.Type {
@@ -1270,12 +1123,6 @@ func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ToCertifiateCerti
 
 func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ToCertifiateCertificatePolicyLifetimeActionActionOutputWithContext(ctx context.Context) CertifiateCertificatePolicyLifetimeActionActionOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[CertifiateCertificatePolicyLifetimeActionAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
@@ -1320,12 +1167,6 @@ func (i CertifiateCertificatePolicyLifetimeActionTriggerArgs) ToCertifiateCertif
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyLifetimeActionTriggerOutput)
 }
 
-func (i CertifiateCertificatePolicyLifetimeActionTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[CertifiateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: i.ToCertifiateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyLifetimeActionTriggerOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyLifetimeActionTriggerOutput) ElementType() reflect.Type {
@@ -1338,12 +1179,6 @@ func (o CertifiateCertificatePolicyLifetimeActionTriggerOutput) ToCertifiateCert
 
 func (o CertifiateCertificatePolicyLifetimeActionTriggerOutput) ToCertifiateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx context.Context) CertifiateCertificatePolicyLifetimeActionTriggerOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyLifetimeActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[CertifiateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
@@ -1389,12 +1224,6 @@ func (i CertifiateCertificatePolicySecretPropertiesArgs) ToCertifiateCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicySecretPropertiesOutput)
 }
 
-func (i CertifiateCertificatePolicySecretPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicySecretProperties] {
-	return pulumix.Output[CertifiateCertificatePolicySecretProperties]{
-		OutputState: i.ToCertifiateCertificatePolicySecretPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertifiateCertificatePolicySecretPropertiesArgs) ToCertifiateCertificatePolicySecretPropertiesPtrOutput() CertifiateCertificatePolicySecretPropertiesPtrOutput {
 	return i.ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1436,12 +1265,6 @@ func (i *certifiateCertificatePolicySecretPropertiesPtrType) ToCertifiateCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
 }
 
-func (i *certifiateCertificatePolicySecretPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicySecretProperties] {
-	return pulumix.Output[*CertifiateCertificatePolicySecretProperties]{
-		OutputState: i.ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicySecretPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicySecretPropertiesOutput) ElementType() reflect.Type {
@@ -1466,12 +1289,6 @@ func (o CertifiateCertificatePolicySecretPropertiesOutput) ToCertifiateCertifica
 	}).(CertifiateCertificatePolicySecretPropertiesPtrOutput)
 }
 
-func (o CertifiateCertificatePolicySecretPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicySecretProperties] {
-	return pulumix.Output[CertifiateCertificatePolicySecretProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 func (o CertifiateCertificatePolicySecretPropertiesOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicySecretProperties) string { return v.ContentType }).(pulumi.StringOutput)
@@ -1489,12 +1306,6 @@ func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ToCertifiateCertif
 
 func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ToCertifiateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicySecretPropertiesPtrOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicySecretProperties] {
-	return pulumix.Output[*CertifiateCertificatePolicySecretProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) Elem() CertifiateCertificatePolicySecretPropertiesOutput {
@@ -1566,12 +1377,6 @@ func (i CertifiateCertificatePolicyX509CertificatePropertiesArgs) ToCertifiateCe
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyX509CertificatePropertiesOutput)
 }
 
-func (i CertifiateCertificatePolicyX509CertificatePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[CertifiateCertificatePolicyX509CertificateProperties]{
-		OutputState: i.ToCertifiateCertificatePolicyX509CertificatePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertifiateCertificatePolicyX509CertificatePropertiesArgs) ToCertifiateCertificatePolicyX509CertificatePropertiesPtrOutput() CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return i.ToCertifiateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(context.Background())
 }
@@ -1613,12 +1418,6 @@ func (i *certifiateCertificatePolicyX509CertificatePropertiesPtrType) ToCertifia
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput)
 }
 
-func (i *certifiateCertificatePolicyX509CertificatePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[*CertifiateCertificatePolicyX509CertificateProperties]{
-		OutputState: i.ToCertifiateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyX509CertificatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyX509CertificatePropertiesOutput) ElementType() reflect.Type {
@@ -1641,12 +1440,6 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ToCertifiate
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificateProperties {
 		return &v
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput)
-}
-
-func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[CertifiateCertificatePolicyX509CertificateProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
@@ -1688,12 +1481,6 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ToCertifi
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ToCertifiateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[*CertifiateCertificatePolicyX509CertificateProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() CertifiateCertificatePolicyX509CertificatePropertiesOutput {
@@ -1797,12 +1584,6 @@ func (i CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput)
 }
 
-func (i CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: i.ToCertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs) ToCertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return i.ToCertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(context.Background())
 }
@@ -1844,12 +1625,6 @@ func (i *certifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
-func (i *certifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[*CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: i.ToCertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
 
 func (CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) ElementType() reflect.Type {
@@ -1872,12 +1647,6 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return &v
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
-}
-
-func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) ToOutput(ctx context.Context) pulumix.Output[CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
@@ -1913,12 +1682,6 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) ToCertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o
-}
-
-func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[*CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Elem() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput {
@@ -1969,6 +1732,7 @@ type CertificateCertificate struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
+	//
 	// ```go
 	// package main
 	//
@@ -2006,6 +1770,7 @@ type CertificateCertificateArgs struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
+	//
 	// ```go
 	// package main
 	//
@@ -2034,12 +1799,6 @@ func (i CertificateCertificateArgs) ToCertificateCertificateOutput() Certificate
 
 func (i CertificateCertificateArgs) ToCertificateCertificateOutputWithContext(ctx context.Context) CertificateCertificateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificateOutput)
-}
-
-func (i CertificateCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificate] {
-	return pulumix.Output[CertificateCertificate]{
-		OutputState: i.ToCertificateCertificateOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CertificateCertificateArgs) ToCertificateCertificatePtrOutput() CertificateCertificatePtrOutput {
@@ -2083,12 +1842,6 @@ func (i *certificateCertificatePtrType) ToCertificateCertificatePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePtrOutput)
 }
 
-func (i *certificateCertificatePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificate] {
-	return pulumix.Output[*CertificateCertificate]{
-		OutputState: i.ToCertificateCertificatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificateOutput) ElementType() reflect.Type {
@@ -2113,12 +1866,6 @@ func (o CertificateCertificateOutput) ToCertificateCertificatePtrOutputWithConte
 	}).(CertificateCertificatePtrOutput)
 }
 
-func (o CertificateCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificate] {
-	return pulumix.Output[CertificateCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The base64-encoded certificate contents.
 func (o CertificateCertificateOutput) Contents() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificate) string { return v.Contents }).(pulumi.StringOutput)
@@ -2129,6 +1876,7 @@ func (o CertificateCertificateOutput) Contents() pulumi.StringOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
+//
 // ```go
 // package main
 //
@@ -2165,12 +1913,6 @@ func (o CertificateCertificatePtrOutput) ToCertificateCertificatePtrOutputWithCo
 	return o
 }
 
-func (o CertificateCertificatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificate] {
-	return pulumix.Output[*CertificateCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateCertificatePtrOutput) Elem() CertificateCertificateOutput {
 	return o.ApplyT(func(v *CertificateCertificate) CertificateCertificate {
 		if v != nil {
@@ -2196,6 +1938,7 @@ func (o CertificateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
+//
 // ```go
 // package main
 //
@@ -2276,12 +2019,6 @@ func (i CertificateCertificateAttributeArgs) ToCertificateCertificateAttributeOu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificateAttributeOutput)
 }
 
-func (i CertificateCertificateAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificateAttribute] {
-	return pulumix.Output[CertificateCertificateAttribute]{
-		OutputState: i.ToCertificateCertificateAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateCertificateAttributeArrayInput is an input type that accepts CertificateCertificateAttributeArray and CertificateCertificateAttributeArrayOutput values.
 // You can construct a concrete instance of `CertificateCertificateAttributeArrayInput` via:
 //
@@ -2307,12 +2044,6 @@ func (i CertificateCertificateAttributeArray) ToCertificateCertificateAttributeA
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificateAttributeArrayOutput)
 }
 
-func (i CertificateCertificateAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCertificateAttribute] {
-	return pulumix.Output[[]CertificateCertificateAttribute]{
-		OutputState: i.ToCertificateCertificateAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificateAttributeOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificateAttributeOutput) ElementType() reflect.Type {
@@ -2325,12 +2056,6 @@ func (o CertificateCertificateAttributeOutput) ToCertificateCertificateAttribute
 
 func (o CertificateCertificateAttributeOutput) ToCertificateCertificateAttributeOutputWithContext(ctx context.Context) CertificateCertificateAttributeOutput {
 	return o
-}
-
-func (o CertificateCertificateAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificateAttribute] {
-	return pulumix.Output[CertificateCertificateAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The create time of the Key Vault Certificate.
@@ -2375,12 +2100,6 @@ func (o CertificateCertificateAttributeArrayOutput) ToCertificateCertificateAttr
 
 func (o CertificateCertificateAttributeArrayOutput) ToCertificateCertificateAttributeArrayOutputWithContext(ctx context.Context) CertificateCertificateAttributeArrayOutput {
 	return o
-}
-
-func (o CertificateCertificateAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCertificateAttribute] {
-	return pulumix.Output[[]CertificateCertificateAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificateAttributeArrayOutput) Index(i pulumi.IntInput) CertificateCertificateAttributeOutput {
@@ -2438,12 +2157,6 @@ func (i CertificateCertificatePolicyArgs) ToCertificateCertificatePolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyOutput)
 }
 
-func (i CertificateCertificatePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicy] {
-	return pulumix.Output[CertificateCertificatePolicy]{
-		OutputState: i.ToCertificateCertificatePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateCertificatePolicyArgs) ToCertificateCertificatePolicyPtrOutput() CertificateCertificatePolicyPtrOutput {
 	return i.ToCertificateCertificatePolicyPtrOutputWithContext(context.Background())
 }
@@ -2485,12 +2198,6 @@ func (i *certificateCertificatePolicyPtrType) ToCertificateCertificatePolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyPtrOutput)
 }
 
-func (i *certificateCertificatePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicy] {
-	return pulumix.Output[*CertificateCertificatePolicy]{
-		OutputState: i.ToCertificateCertificatePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyOutput) ElementType() reflect.Type {
@@ -2513,12 +2220,6 @@ func (o CertificateCertificatePolicyOutput) ToCertificateCertificatePolicyPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicy) *CertificateCertificatePolicy {
 		return &v
 	}).(CertificateCertificatePolicyPtrOutput)
-}
-
-func (o CertificateCertificatePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicy] {
-	return pulumix.Output[CertificateCertificatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `issuerParameters` block as defined below.
@@ -2566,12 +2267,6 @@ func (o CertificateCertificatePolicyPtrOutput) ToCertificateCertificatePolicyPtr
 
 func (o CertificateCertificatePolicyPtrOutput) ToCertificateCertificatePolicyPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyPtrOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicy] {
-	return pulumix.Output[*CertificateCertificatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicyPtrOutput) Elem() CertificateCertificatePolicyOutput {
@@ -2667,12 +2362,6 @@ func (i CertificateCertificatePolicyIssuerParametersArgs) ToCertificateCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyIssuerParametersOutput)
 }
 
-func (i CertificateCertificatePolicyIssuerParametersArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[CertificateCertificatePolicyIssuerParameters]{
-		OutputState: i.ToCertificateCertificatePolicyIssuerParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateCertificatePolicyIssuerParametersArgs) ToCertificateCertificatePolicyIssuerParametersPtrOutput() CertificateCertificatePolicyIssuerParametersPtrOutput {
 	return i.ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(context.Background())
 }
@@ -2714,12 +2403,6 @@ func (i *certificateCertificatePolicyIssuerParametersPtrType) ToCertificateCerti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyIssuerParametersPtrOutput)
 }
 
-func (i *certificateCertificatePolicyIssuerParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[*CertificateCertificatePolicyIssuerParameters]{
-		OutputState: i.ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyIssuerParametersOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyIssuerParametersOutput) ElementType() reflect.Type {
@@ -2744,12 +2427,6 @@ func (o CertificateCertificatePolicyIssuerParametersOutput) ToCertificateCertifi
 	}).(CertificateCertificatePolicyIssuerParametersPtrOutput)
 }
 
-func (o CertificateCertificatePolicyIssuerParametersOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[CertificateCertificatePolicyIssuerParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicyIssuerParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyIssuerParameters) string { return v.Name }).(pulumi.StringOutput)
@@ -2767,12 +2444,6 @@ func (o CertificateCertificatePolicyIssuerParametersPtrOutput) ToCertificateCert
 
 func (o CertificateCertificatePolicyIssuerParametersPtrOutput) ToCertificateCertificatePolicyIssuerParametersPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyIssuerParametersPtrOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyIssuerParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyIssuerParameters] {
-	return pulumix.Output[*CertificateCertificatePolicyIssuerParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Elem() CertificateCertificatePolicyIssuerParametersOutput {
@@ -2844,12 +2515,6 @@ func (i CertificateCertificatePolicyKeyPropertiesArgs) ToCertificateCertificateP
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyKeyPropertiesOutput)
 }
 
-func (i CertificateCertificatePolicyKeyPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyKeyProperties] {
-	return pulumix.Output[CertificateCertificatePolicyKeyProperties]{
-		OutputState: i.ToCertificateCertificatePolicyKeyPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateCertificatePolicyKeyPropertiesArgs) ToCertificateCertificatePolicyKeyPropertiesPtrOutput() CertificateCertificatePolicyKeyPropertiesPtrOutput {
 	return i.ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(context.Background())
 }
@@ -2891,12 +2556,6 @@ func (i *certificateCertificatePolicyKeyPropertiesPtrType) ToCertificateCertific
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
 }
 
-func (i *certificateCertificatePolicyKeyPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyKeyProperties] {
-	return pulumix.Output[*CertificateCertificatePolicyKeyProperties]{
-		OutputState: i.ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyKeyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyKeyPropertiesOutput) ElementType() reflect.Type {
@@ -2919,12 +2578,6 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) ToCertificateCertificat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyKeyProperties) *CertificateCertificatePolicyKeyProperties {
 		return &v
 	}).(CertificateCertificatePolicyKeyPropertiesPtrOutput)
-}
-
-func (o CertificateCertificatePolicyKeyPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyKeyProperties] {
-	return pulumix.Output[CertificateCertificatePolicyKeyProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
@@ -2964,12 +2617,6 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ToCertificateCertifi
 
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ToCertificateCertificatePolicyKeyPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyKeyPropertiesPtrOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyKeyProperties] {
-	return pulumix.Output[*CertificateCertificatePolicyKeyProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertificateCertificatePolicyKeyPropertiesOutput {
@@ -3069,12 +2716,6 @@ func (i CertificateCertificatePolicyLifetimeActionArgs) ToCertificateCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyLifetimeActionOutput)
 }
 
-func (i CertificateCertificatePolicyLifetimeActionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[CertificateCertificatePolicyLifetimeAction]{
-		OutputState: i.ToCertificateCertificatePolicyLifetimeActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateCertificatePolicyLifetimeActionArrayInput is an input type that accepts CertificateCertificatePolicyLifetimeActionArray and CertificateCertificatePolicyLifetimeActionArrayOutput values.
 // You can construct a concrete instance of `CertificateCertificatePolicyLifetimeActionArrayInput` via:
 //
@@ -3100,12 +2741,6 @@ func (i CertificateCertificatePolicyLifetimeActionArray) ToCertificateCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyLifetimeActionArrayOutput)
 }
 
-func (i CertificateCertificatePolicyLifetimeActionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[[]CertificateCertificatePolicyLifetimeAction]{
-		OutputState: i.ToCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyLifetimeActionOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyLifetimeActionOutput) ElementType() reflect.Type {
@@ -3118,12 +2753,6 @@ func (o CertificateCertificatePolicyLifetimeActionOutput) ToCertificateCertifica
 
 func (o CertificateCertificatePolicyLifetimeActionOutput) ToCertificateCertificatePolicyLifetimeActionOutputWithContext(ctx context.Context) CertificateCertificatePolicyLifetimeActionOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyLifetimeActionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[CertificateCertificatePolicyLifetimeAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `action` block as defined below.
@@ -3152,12 +2781,6 @@ func (o CertificateCertificatePolicyLifetimeActionArrayOutput) ToCertificateCert
 
 func (o CertificateCertificatePolicyLifetimeActionArrayOutput) ToCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx context.Context) CertificateCertificatePolicyLifetimeActionArrayOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyLifetimeActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[[]CertificateCertificatePolicyLifetimeAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.IntInput) CertificateCertificatePolicyLifetimeActionOutput {
@@ -3199,12 +2822,6 @@ func (i CertificateCertificatePolicyLifetimeActionActionArgs) ToCertificateCerti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyLifetimeActionActionOutput)
 }
 
-func (i CertificateCertificatePolicyLifetimeActionActionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[CertificateCertificatePolicyLifetimeActionAction]{
-		OutputState: i.ToCertificateCertificatePolicyLifetimeActionActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyLifetimeActionActionOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyLifetimeActionActionOutput) ElementType() reflect.Type {
@@ -3217,12 +2834,6 @@ func (o CertificateCertificatePolicyLifetimeActionActionOutput) ToCertificateCer
 
 func (o CertificateCertificatePolicyLifetimeActionActionOutput) ToCertificateCertificatePolicyLifetimeActionActionOutputWithContext(ctx context.Context) CertificateCertificatePolicyLifetimeActionActionOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyLifetimeActionActionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[CertificateCertificatePolicyLifetimeActionAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
@@ -3267,12 +2878,6 @@ func (i CertificateCertificatePolicyLifetimeActionTriggerArgs) ToCertificateCert
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyLifetimeActionTriggerOutput)
 }
 
-func (i CertificateCertificatePolicyLifetimeActionTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[CertificateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: i.ToCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyLifetimeActionTriggerOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyLifetimeActionTriggerOutput) ElementType() reflect.Type {
@@ -3285,12 +2890,6 @@ func (o CertificateCertificatePolicyLifetimeActionTriggerOutput) ToCertificateCe
 
 func (o CertificateCertificatePolicyLifetimeActionTriggerOutput) ToCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx context.Context) CertificateCertificatePolicyLifetimeActionTriggerOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyLifetimeActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[CertificateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
@@ -3336,12 +2935,6 @@ func (i CertificateCertificatePolicySecretPropertiesArgs) ToCertificateCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicySecretPropertiesOutput)
 }
 
-func (i CertificateCertificatePolicySecretPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicySecretProperties] {
-	return pulumix.Output[CertificateCertificatePolicySecretProperties]{
-		OutputState: i.ToCertificateCertificatePolicySecretPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateCertificatePolicySecretPropertiesArgs) ToCertificateCertificatePolicySecretPropertiesPtrOutput() CertificateCertificatePolicySecretPropertiesPtrOutput {
 	return i.ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(context.Background())
 }
@@ -3383,12 +2976,6 @@ func (i *certificateCertificatePolicySecretPropertiesPtrType) ToCertificateCerti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicySecretPropertiesPtrOutput)
 }
 
-func (i *certificateCertificatePolicySecretPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicySecretProperties] {
-	return pulumix.Output[*CertificateCertificatePolicySecretProperties]{
-		OutputState: i.ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicySecretPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicySecretPropertiesOutput) ElementType() reflect.Type {
@@ -3413,12 +3000,6 @@ func (o CertificateCertificatePolicySecretPropertiesOutput) ToCertificateCertifi
 	}).(CertificateCertificatePolicySecretPropertiesPtrOutput)
 }
 
-func (o CertificateCertificatePolicySecretPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicySecretProperties] {
-	return pulumix.Output[CertificateCertificatePolicySecretProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
 func (o CertificateCertificatePolicySecretPropertiesOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicySecretProperties) string { return v.ContentType }).(pulumi.StringOutput)
@@ -3436,12 +3017,6 @@ func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ToCertificateCert
 
 func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ToCertificateCertificatePolicySecretPropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicySecretPropertiesPtrOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicySecretProperties] {
-	return pulumix.Output[*CertificateCertificatePolicySecretProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicySecretPropertiesPtrOutput) Elem() CertificateCertificatePolicySecretPropertiesOutput {
@@ -3513,12 +3088,6 @@ func (i CertificateCertificatePolicyX509CertificatePropertiesArgs) ToCertificate
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyX509CertificatePropertiesOutput)
 }
 
-func (i CertificateCertificatePolicyX509CertificatePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[CertificateCertificatePolicyX509CertificateProperties]{
-		OutputState: i.ToCertificateCertificatePolicyX509CertificatePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateCertificatePolicyX509CertificatePropertiesArgs) ToCertificateCertificatePolicyX509CertificatePropertiesPtrOutput() CertificateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return i.ToCertificateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(context.Background())
 }
@@ -3560,12 +3129,6 @@ func (i *certificateCertificatePolicyX509CertificatePropertiesPtrType) ToCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput)
 }
 
-func (i *certificateCertificatePolicyX509CertificatePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[*CertificateCertificatePolicyX509CertificateProperties]{
-		OutputState: i.ToCertificateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyX509CertificatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyX509CertificatePropertiesOutput) ElementType() reflect.Type {
@@ -3588,12 +3151,6 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ToCertifica
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificateProperties {
 		return &v
 	}).(CertificateCertificatePolicyX509CertificatePropertiesPtrOutput)
-}
-
-func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[CertificateCertificatePolicyX509CertificateProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
@@ -3635,12 +3192,6 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ToCertif
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ToCertificateCertificatePolicyX509CertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyX509CertificatePropertiesPtrOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyX509CertificateProperties] {
-	return pulumix.Output[*CertificateCertificatePolicyX509CertificateProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() CertificateCertificatePolicyX509CertificatePropertiesOutput {
@@ -3744,12 +3295,6 @@ func (i CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput)
 }
 
-func (i CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: i.ToCertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs) ToCertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return i.ToCertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(context.Background())
 }
@@ -3791,12 +3336,6 @@ func (i *certificateCertificatePolicyX509CertificatePropertiesSubjectAlternative
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
-func (i *certificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[*CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: i.ToCertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput struct{ *pulumi.OutputState }
 
 func (CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) ElementType() reflect.Type {
@@ -3819,12 +3358,6 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return &v
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
-}
-
-func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
@@ -3860,12 +3393,6 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) ToCertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o
-}
-
-func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames] {
-	return pulumix.Output[*CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Elem() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput {
@@ -3949,12 +3476,6 @@ func (i CertificateContactsContactArgs) ToCertificateContactsContactOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsContactOutput)
 }
 
-func (i CertificateContactsContactArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateContactsContact] {
-	return pulumix.Output[CertificateContactsContact]{
-		OutputState: i.ToCertificateContactsContactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateContactsContactArrayInput is an input type that accepts CertificateContactsContactArray and CertificateContactsContactArrayOutput values.
 // You can construct a concrete instance of `CertificateContactsContactArrayInput` via:
 //
@@ -3980,12 +3501,6 @@ func (i CertificateContactsContactArray) ToCertificateContactsContactArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateContactsContactArrayOutput)
 }
 
-func (i CertificateContactsContactArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateContactsContact] {
-	return pulumix.Output[[]CertificateContactsContact]{
-		OutputState: i.ToCertificateContactsContactArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateContactsContactOutput struct{ *pulumi.OutputState }
 
 func (CertificateContactsContactOutput) ElementType() reflect.Type {
@@ -3998,12 +3513,6 @@ func (o CertificateContactsContactOutput) ToCertificateContactsContactOutput() C
 
 func (o CertificateContactsContactOutput) ToCertificateContactsContactOutputWithContext(ctx context.Context) CertificateContactsContactOutput {
 	return o
-}
-
-func (o CertificateContactsContactOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateContactsContact] {
-	return pulumix.Output[CertificateContactsContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // E-mail address of the contact.
@@ -4033,12 +3542,6 @@ func (o CertificateContactsContactArrayOutput) ToCertificateContactsContactArray
 
 func (o CertificateContactsContactArrayOutput) ToCertificateContactsContactArrayOutputWithContext(ctx context.Context) CertificateContactsContactArrayOutput {
 	return o
-}
-
-func (o CertificateContactsContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateContactsContact] {
-	return pulumix.Output[[]CertificateContactsContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateContactsContactArrayOutput) Index(i pulumi.IntInput) CertificateContactsContactOutput {
@@ -4092,12 +3595,6 @@ func (i CertificateIssuerAdminArgs) ToCertificateIssuerAdminOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerAdminOutput)
 }
 
-func (i CertificateIssuerAdminArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateIssuerAdmin] {
-	return pulumix.Output[CertificateIssuerAdmin]{
-		OutputState: i.ToCertificateIssuerAdminOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateIssuerAdminArrayInput is an input type that accepts CertificateIssuerAdminArray and CertificateIssuerAdminArrayOutput values.
 // You can construct a concrete instance of `CertificateIssuerAdminArrayInput` via:
 //
@@ -4123,12 +3620,6 @@ func (i CertificateIssuerAdminArray) ToCertificateIssuerAdminArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerAdminArrayOutput)
 }
 
-func (i CertificateIssuerAdminArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateIssuerAdmin] {
-	return pulumix.Output[[]CertificateIssuerAdmin]{
-		OutputState: i.ToCertificateIssuerAdminArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateIssuerAdminOutput struct{ *pulumi.OutputState }
 
 func (CertificateIssuerAdminOutput) ElementType() reflect.Type {
@@ -4141,12 +3632,6 @@ func (o CertificateIssuerAdminOutput) ToCertificateIssuerAdminOutput() Certifica
 
 func (o CertificateIssuerAdminOutput) ToCertificateIssuerAdminOutputWithContext(ctx context.Context) CertificateIssuerAdminOutput {
 	return o
-}
-
-func (o CertificateIssuerAdminOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateIssuerAdmin] {
-	return pulumix.Output[CertificateIssuerAdmin]{
-		OutputState: o.OutputState,
-	}
 }
 
 // E-mail address of the admin.
@@ -4181,12 +3666,6 @@ func (o CertificateIssuerAdminArrayOutput) ToCertificateIssuerAdminArrayOutput()
 
 func (o CertificateIssuerAdminArrayOutput) ToCertificateIssuerAdminArrayOutputWithContext(ctx context.Context) CertificateIssuerAdminArrayOutput {
 	return o
-}
-
-func (o CertificateIssuerAdminArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateIssuerAdmin] {
-	return pulumix.Output[[]CertificateIssuerAdmin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) CertificateIssuerAdminOutput {
@@ -4236,12 +3715,6 @@ func (i KeyRotationPolicyArgs) ToKeyRotationPolicyOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyOutput)
 }
 
-func (i KeyRotationPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[KeyRotationPolicy] {
-	return pulumix.Output[KeyRotationPolicy]{
-		OutputState: i.ToKeyRotationPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KeyRotationPolicyArgs) ToKeyRotationPolicyPtrOutput() KeyRotationPolicyPtrOutput {
 	return i.ToKeyRotationPolicyPtrOutputWithContext(context.Background())
 }
@@ -4283,12 +3756,6 @@ func (i *keyRotationPolicyPtrType) ToKeyRotationPolicyPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyPtrOutput)
 }
 
-func (i *keyRotationPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*KeyRotationPolicy] {
-	return pulumix.Output[*KeyRotationPolicy]{
-		OutputState: i.ToKeyRotationPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyRotationPolicyOutput struct{ *pulumi.OutputState }
 
 func (KeyRotationPolicyOutput) ElementType() reflect.Type {
@@ -4311,12 +3778,6 @@ func (o KeyRotationPolicyOutput) ToKeyRotationPolicyPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyRotationPolicy) *KeyRotationPolicy {
 		return &v
 	}).(KeyRotationPolicyPtrOutput)
-}
-
-func (o KeyRotationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[KeyRotationPolicy] {
-	return pulumix.Output[KeyRotationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `automatic` block as defined below.
@@ -4346,12 +3807,6 @@ func (o KeyRotationPolicyPtrOutput) ToKeyRotationPolicyPtrOutput() KeyRotationPo
 
 func (o KeyRotationPolicyPtrOutput) ToKeyRotationPolicyPtrOutputWithContext(ctx context.Context) KeyRotationPolicyPtrOutput {
 	return o
-}
-
-func (o KeyRotationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyRotationPolicy] {
-	return pulumix.Output[*KeyRotationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyRotationPolicyPtrOutput) Elem() KeyRotationPolicyOutput {
@@ -4431,12 +3886,6 @@ func (i KeyRotationPolicyAutomaticArgs) ToKeyRotationPolicyAutomaticOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyAutomaticOutput)
 }
 
-func (i KeyRotationPolicyAutomaticArgs) ToOutput(ctx context.Context) pulumix.Output[KeyRotationPolicyAutomatic] {
-	return pulumix.Output[KeyRotationPolicyAutomatic]{
-		OutputState: i.ToKeyRotationPolicyAutomaticOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KeyRotationPolicyAutomaticArgs) ToKeyRotationPolicyAutomaticPtrOutput() KeyRotationPolicyAutomaticPtrOutput {
 	return i.ToKeyRotationPolicyAutomaticPtrOutputWithContext(context.Background())
 }
@@ -4478,12 +3927,6 @@ func (i *keyRotationPolicyAutomaticPtrType) ToKeyRotationPolicyAutomaticPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KeyRotationPolicyAutomaticPtrOutput)
 }
 
-func (i *keyRotationPolicyAutomaticPtrType) ToOutput(ctx context.Context) pulumix.Output[*KeyRotationPolicyAutomatic] {
-	return pulumix.Output[*KeyRotationPolicyAutomatic]{
-		OutputState: i.ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyRotationPolicyAutomaticOutput struct{ *pulumi.OutputState }
 
 func (KeyRotationPolicyAutomaticOutput) ElementType() reflect.Type {
@@ -4508,12 +3951,6 @@ func (o KeyRotationPolicyAutomaticOutput) ToKeyRotationPolicyAutomaticPtrOutputW
 	}).(KeyRotationPolicyAutomaticPtrOutput)
 }
 
-func (o KeyRotationPolicyAutomaticOutput) ToOutput(ctx context.Context) pulumix.Output[KeyRotationPolicyAutomatic] {
-	return pulumix.Output[KeyRotationPolicyAutomatic]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 func (o KeyRotationPolicyAutomaticOutput) TimeAfterCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyRotationPolicyAutomatic) *string { return v.TimeAfterCreation }).(pulumi.StringPtrOutput)
@@ -4536,12 +3973,6 @@ func (o KeyRotationPolicyAutomaticPtrOutput) ToKeyRotationPolicyAutomaticPtrOutp
 
 func (o KeyRotationPolicyAutomaticPtrOutput) ToKeyRotationPolicyAutomaticPtrOutputWithContext(ctx context.Context) KeyRotationPolicyAutomaticPtrOutput {
 	return o
-}
-
-func (o KeyRotationPolicyAutomaticPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyRotationPolicyAutomatic] {
-	return pulumix.Output[*KeyRotationPolicyAutomatic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyRotationPolicyAutomaticPtrOutput) Elem() KeyRotationPolicyAutomaticOutput {
@@ -4631,12 +4062,6 @@ func (i KeyVaultAccessPolicyArgs) ToKeyVaultAccessPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAccessPolicyOutput)
 }
 
-func (i KeyVaultAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[KeyVaultAccessPolicy] {
-	return pulumix.Output[KeyVaultAccessPolicy]{
-		OutputState: i.ToKeyVaultAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeyVaultAccessPolicyArrayInput is an input type that accepts KeyVaultAccessPolicyArray and KeyVaultAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `KeyVaultAccessPolicyArrayInput` via:
 //
@@ -4662,12 +4087,6 @@ func (i KeyVaultAccessPolicyArray) ToKeyVaultAccessPolicyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultAccessPolicyArrayOutput)
 }
 
-func (i KeyVaultAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]KeyVaultAccessPolicy] {
-	return pulumix.Output[[]KeyVaultAccessPolicy]{
-		OutputState: i.ToKeyVaultAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyVaultAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultAccessPolicyOutput) ElementType() reflect.Type {
@@ -4680,12 +4099,6 @@ func (o KeyVaultAccessPolicyOutput) ToKeyVaultAccessPolicyOutput() KeyVaultAcces
 
 func (o KeyVaultAccessPolicyOutput) ToKeyVaultAccessPolicyOutputWithContext(ctx context.Context) KeyVaultAccessPolicyOutput {
 	return o
-}
-
-func (o KeyVaultAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[KeyVaultAccessPolicy] {
-	return pulumix.Output[KeyVaultAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The object ID of an Application in Azure Active Directory.
@@ -4737,12 +4150,6 @@ func (o KeyVaultAccessPolicyArrayOutput) ToKeyVaultAccessPolicyArrayOutputWithCo
 	return o
 }
 
-func (o KeyVaultAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KeyVaultAccessPolicy] {
-	return pulumix.Output[[]KeyVaultAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyVaultAccessPolicyArrayOutput) Index(i pulumi.IntInput) KeyVaultAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyVaultAccessPolicy {
 		return vs[0].([]KeyVaultAccessPolicy)[vs[1].(int)]
@@ -4790,12 +4197,6 @@ func (i KeyVaultContactArgs) ToKeyVaultContactOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContactOutput)
 }
 
-func (i KeyVaultContactArgs) ToOutput(ctx context.Context) pulumix.Output[KeyVaultContact] {
-	return pulumix.Output[KeyVaultContact]{
-		OutputState: i.ToKeyVaultContactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KeyVaultContactArrayInput is an input type that accepts KeyVaultContactArray and KeyVaultContactArrayOutput values.
 // You can construct a concrete instance of `KeyVaultContactArrayInput` via:
 //
@@ -4821,12 +4222,6 @@ func (i KeyVaultContactArray) ToKeyVaultContactArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultContactArrayOutput)
 }
 
-func (i KeyVaultContactArray) ToOutput(ctx context.Context) pulumix.Output[[]KeyVaultContact] {
-	return pulumix.Output[[]KeyVaultContact]{
-		OutputState: i.ToKeyVaultContactArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyVaultContactOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultContactOutput) ElementType() reflect.Type {
@@ -4839,12 +4234,6 @@ func (o KeyVaultContactOutput) ToKeyVaultContactOutput() KeyVaultContactOutput {
 
 func (o KeyVaultContactOutput) ToKeyVaultContactOutputWithContext(ctx context.Context) KeyVaultContactOutput {
 	return o
-}
-
-func (o KeyVaultContactOutput) ToOutput(ctx context.Context) pulumix.Output[KeyVaultContact] {
-	return pulumix.Output[KeyVaultContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // E-mail address of the contact.
@@ -4874,12 +4263,6 @@ func (o KeyVaultContactArrayOutput) ToKeyVaultContactArrayOutput() KeyVaultConta
 
 func (o KeyVaultContactArrayOutput) ToKeyVaultContactArrayOutputWithContext(ctx context.Context) KeyVaultContactArrayOutput {
 	return o
-}
-
-func (o KeyVaultContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KeyVaultContact] {
-	return pulumix.Output[[]KeyVaultContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyVaultContactArrayOutput) Index(i pulumi.IntInput) KeyVaultContactOutput {
@@ -4933,12 +4316,6 @@ func (i KeyVaultNetworkAclsArgs) ToKeyVaultNetworkAclsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultNetworkAclsOutput)
 }
 
-func (i KeyVaultNetworkAclsArgs) ToOutput(ctx context.Context) pulumix.Output[KeyVaultNetworkAcls] {
-	return pulumix.Output[KeyVaultNetworkAcls]{
-		OutputState: i.ToKeyVaultNetworkAclsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KeyVaultNetworkAclsArgs) ToKeyVaultNetworkAclsPtrOutput() KeyVaultNetworkAclsPtrOutput {
 	return i.ToKeyVaultNetworkAclsPtrOutputWithContext(context.Background())
 }
@@ -4980,12 +4357,6 @@ func (i *keyVaultNetworkAclsPtrType) ToKeyVaultNetworkAclsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultNetworkAclsPtrOutput)
 }
 
-func (i *keyVaultNetworkAclsPtrType) ToOutput(ctx context.Context) pulumix.Output[*KeyVaultNetworkAcls] {
-	return pulumix.Output[*KeyVaultNetworkAcls]{
-		OutputState: i.ToKeyVaultNetworkAclsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyVaultNetworkAclsOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultNetworkAclsOutput) ElementType() reflect.Type {
@@ -5008,12 +4379,6 @@ func (o KeyVaultNetworkAclsOutput) ToKeyVaultNetworkAclsPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultNetworkAcls) *KeyVaultNetworkAcls {
 		return &v
 	}).(KeyVaultNetworkAclsPtrOutput)
-}
-
-func (o KeyVaultNetworkAclsOutput) ToOutput(ctx context.Context) pulumix.Output[KeyVaultNetworkAcls] {
-	return pulumix.Output[KeyVaultNetworkAcls]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
@@ -5048,12 +4413,6 @@ func (o KeyVaultNetworkAclsPtrOutput) ToKeyVaultNetworkAclsPtrOutput() KeyVaultN
 
 func (o KeyVaultNetworkAclsPtrOutput) ToKeyVaultNetworkAclsPtrOutputWithContext(ctx context.Context) KeyVaultNetworkAclsPtrOutput {
 	return o
-}
-
-func (o KeyVaultNetworkAclsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyVaultNetworkAcls] {
-	return pulumix.Output[*KeyVaultNetworkAcls]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyVaultNetworkAclsPtrOutput) Elem() KeyVaultNetworkAclsOutput {
@@ -5143,12 +4502,6 @@ func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToManagedHardwareSecurityM
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleNetworkAclsOutput)
 }
 
-func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedHardwareSecurityModuleNetworkAcls] {
-	return pulumix.Output[ManagedHardwareSecurityModuleNetworkAcls]{
-		OutputState: i.ToManagedHardwareSecurityModuleNetworkAclsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedHardwareSecurityModuleNetworkAclsArgs) ToManagedHardwareSecurityModuleNetworkAclsPtrOutput() ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
 	return i.ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(context.Background())
 }
@@ -5190,12 +4543,6 @@ func (i *managedHardwareSecurityModuleNetworkAclsPtrType) ToManagedHardwareSecur
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedHardwareSecurityModuleNetworkAclsPtrOutput)
 }
 
-func (i *managedHardwareSecurityModuleNetworkAclsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedHardwareSecurityModuleNetworkAcls] {
-	return pulumix.Output[*ManagedHardwareSecurityModuleNetworkAcls]{
-		OutputState: i.ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedHardwareSecurityModuleNetworkAclsOutput struct{ *pulumi.OutputState }
 
 func (ManagedHardwareSecurityModuleNetworkAclsOutput) ElementType() reflect.Type {
@@ -5220,12 +4567,6 @@ func (o ManagedHardwareSecurityModuleNetworkAclsOutput) ToManagedHardwareSecurit
 	}).(ManagedHardwareSecurityModuleNetworkAclsPtrOutput)
 }
 
-func (o ManagedHardwareSecurityModuleNetworkAclsOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedHardwareSecurityModuleNetworkAcls] {
-	return pulumix.Output[ManagedHardwareSecurityModuleNetworkAcls]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
 func (o ManagedHardwareSecurityModuleNetworkAclsOutput) Bypass() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedHardwareSecurityModuleNetworkAcls) string { return v.Bypass }).(pulumi.StringOutput)
@@ -5248,12 +4589,6 @@ func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) ToManagedHardwareSecu
 
 func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) ToManagedHardwareSecurityModuleNetworkAclsPtrOutputWithContext(ctx context.Context) ManagedHardwareSecurityModuleNetworkAclsPtrOutput {
 	return o
-}
-
-func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedHardwareSecurityModuleNetworkAcls] {
-	return pulumix.Output[*ManagedHardwareSecurityModuleNetworkAcls]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedHardwareSecurityModuleNetworkAclsPtrOutput) Elem() ManagedHardwareSecurityModuleNetworkAclsOutput {
@@ -5335,12 +4670,6 @@ func (i GetCertificateCertificatePolicyArgs) ToGetCertificateCertificatePolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyOutput)
 }
 
-func (i GetCertificateCertificatePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicy] {
-	return pulumix.Output[GetCertificateCertificatePolicy]{
-		OutputState: i.ToGetCertificateCertificatePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyArrayInput is an input type that accepts GetCertificateCertificatePolicyArray and GetCertificateCertificatePolicyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyArrayInput` via:
 //
@@ -5366,12 +4695,6 @@ func (i GetCertificateCertificatePolicyArray) ToGetCertificateCertificatePolicyA
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicy] {
-	return pulumix.Output[[]GetCertificateCertificatePolicy]{
-		OutputState: i.ToGetCertificateCertificatePolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyOutput) ElementType() reflect.Type {
@@ -5384,12 +4707,6 @@ func (o GetCertificateCertificatePolicyOutput) ToGetCertificateCertificatePolicy
 
 func (o GetCertificateCertificatePolicyOutput) ToGetCertificateCertificatePolicyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicy] {
-	return pulumix.Output[GetCertificateCertificatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `issuerParameters` block as defined below.
@@ -5441,12 +4758,6 @@ func (o GetCertificateCertificatePolicyArrayOutput) ToGetCertificateCertificateP
 	return o
 }
 
-func (o GetCertificateCertificatePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicy] {
-	return pulumix.Output[[]GetCertificateCertificatePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetCertificateCertificatePolicyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateCertificatePolicy {
 		return vs[0].([]GetCertificateCertificatePolicy)[vs[1].(int)]
@@ -5486,12 +4797,6 @@ func (i GetCertificateCertificatePolicyIssuerParameterArgs) ToGetCertificateCert
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyIssuerParameterOutput)
 }
 
-func (i GetCertificateCertificatePolicyIssuerParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyIssuerParameter] {
-	return pulumix.Output[GetCertificateCertificatePolicyIssuerParameter]{
-		OutputState: i.ToGetCertificateCertificatePolicyIssuerParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyIssuerParameterArrayInput is an input type that accepts GetCertificateCertificatePolicyIssuerParameterArray and GetCertificateCertificatePolicyIssuerParameterArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyIssuerParameterArrayInput` via:
 //
@@ -5517,12 +4822,6 @@ func (i GetCertificateCertificatePolicyIssuerParameterArray) ToGetCertificateCer
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyIssuerParameterArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyIssuerParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyIssuerParameter] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyIssuerParameter]{
-		OutputState: i.ToGetCertificateCertificatePolicyIssuerParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyIssuerParameterOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyIssuerParameterOutput) ElementType() reflect.Type {
@@ -5535,12 +4834,6 @@ func (o GetCertificateCertificatePolicyIssuerParameterOutput) ToGetCertificateCe
 
 func (o GetCertificateCertificatePolicyIssuerParameterOutput) ToGetCertificateCertificatePolicyIssuerParameterOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyIssuerParameterOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyIssuerParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyIssuerParameter] {
-	return pulumix.Output[GetCertificateCertificatePolicyIssuerParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Key Vault Certificate.
@@ -5560,12 +4853,6 @@ func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) ToGetCertific
 
 func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) ToGetCertificateCertificatePolicyIssuerParameterArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyIssuerParameterArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyIssuerParameter] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyIssuerParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyIssuerParameterArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyIssuerParameterOutput {
@@ -5621,12 +4908,6 @@ func (i GetCertificateCertificatePolicyKeyPropertyArgs) ToGetCertificateCertific
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyKeyPropertyOutput)
 }
 
-func (i GetCertificateCertificatePolicyKeyPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyKeyProperty] {
-	return pulumix.Output[GetCertificateCertificatePolicyKeyProperty]{
-		OutputState: i.ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyKeyPropertyArrayInput is an input type that accepts GetCertificateCertificatePolicyKeyPropertyArray and GetCertificateCertificatePolicyKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyKeyPropertyArrayInput` via:
 //
@@ -5652,12 +4933,6 @@ func (i GetCertificateCertificatePolicyKeyPropertyArray) ToGetCertificateCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyKeyPropertyArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyKeyPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyKeyProperty] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyKeyProperty]{
-		OutputState: i.ToGetCertificateCertificatePolicyKeyPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyKeyPropertyOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyKeyPropertyOutput) ElementType() reflect.Type {
@@ -5670,12 +4945,6 @@ func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToGetCertificateCertif
 
 func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToGetCertificateCertificatePolicyKeyPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyKeyPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyKeyProperty] {
-	return pulumix.Output[GetCertificateCertificatePolicyKeyProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyKeyPropertyOutput) Curve() pulumi.StringOutput {
@@ -5714,12 +4983,6 @@ func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) ToGetCertificateC
 
 func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) ToGetCertificateCertificatePolicyKeyPropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyKeyPropertyArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyKeyProperty] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyKeyProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyKeyPropertyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyKeyPropertyOutput {
@@ -5765,12 +5028,6 @@ func (i GetCertificateCertificatePolicyLifetimeActionArgs) ToGetCertificateCerti
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionOutput)
 }
 
-func (i GetCertificateCertificatePolicyLifetimeActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[GetCertificateCertificatePolicyLifetimeAction]{
-		OutputState: i.ToGetCertificateCertificatePolicyLifetimeActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyLifetimeActionArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionArray and GetCertificateCertificatePolicyLifetimeActionArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionArrayInput` via:
 //
@@ -5796,12 +5053,6 @@ func (i GetCertificateCertificatePolicyLifetimeActionArray) ToGetCertificateCert
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyLifetimeActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyLifetimeAction]{
-		OutputState: i.ToGetCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyLifetimeActionOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyLifetimeActionOutput) ElementType() reflect.Type {
@@ -5814,12 +5065,6 @@ func (o GetCertificateCertificatePolicyLifetimeActionOutput) ToGetCertificateCer
 
 func (o GetCertificateCertificatePolicyLifetimeActionOutput) ToGetCertificateCertificatePolicyLifetimeActionOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyLifetimeActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[GetCertificateCertificatePolicyLifetimeAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `action` block as defined below.
@@ -5848,12 +5093,6 @@ func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) ToGetCertifica
 
 func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyLifetimeAction] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyLifetimeAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyLifetimeActionOutput {
@@ -5895,12 +5134,6 @@ func (i GetCertificateCertificatePolicyLifetimeActionActionArgs) ToGetCertificat
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionActionOutput)
 }
 
-func (i GetCertificateCertificatePolicyLifetimeActionActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[GetCertificateCertificatePolicyLifetimeActionAction]{
-		OutputState: i.ToGetCertificateCertificatePolicyLifetimeActionActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyLifetimeActionActionArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionActionArray and GetCertificateCertificatePolicyLifetimeActionActionArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionActionArrayInput` via:
 //
@@ -5926,12 +5159,6 @@ func (i GetCertificateCertificatePolicyLifetimeActionActionArray) ToGetCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionActionArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyLifetimeActionActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionAction]{
-		OutputState: i.ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyLifetimeActionActionOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyLifetimeActionActionOutput) ElementType() reflect.Type {
@@ -5944,12 +5171,6 @@ func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ToGetCertific
 
 func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ToGetCertificateCertificatePolicyLifetimeActionActionOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionActionOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[GetCertificateCertificatePolicyLifetimeActionAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Type of action to be performed when the lifetime trigger is triggerec.
@@ -5969,12 +5190,6 @@ func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) ToGetCer
 
 func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionActionArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionActionArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionAction] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyLifetimeActionActionArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyLifetimeActionActionOutput {
@@ -6020,12 +5235,6 @@ func (i GetCertificateCertificatePolicyLifetimeActionTriggerArgs) ToGetCertifica
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionTriggerOutput)
 }
 
-func (i GetCertificateCertificatePolicyLifetimeActionTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[GetCertificateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: i.ToGetCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput is an input type that accepts GetCertificateCertificatePolicyLifetimeActionTriggerArray and GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyLifetimeActionTriggerArrayInput` via:
 //
@@ -6051,12 +5260,6 @@ func (i GetCertificateCertificatePolicyLifetimeActionTriggerArray) ToGetCertific
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyLifetimeActionTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: i.ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyLifetimeActionTriggerOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ElementType() reflect.Type {
@@ -6069,12 +5272,6 @@ func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ToGetCertifi
 
 func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ToGetCertificateCertificatePolicyLifetimeActionTriggerOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyLifetimeActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[GetCertificateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days before the Certificate expires that the action associated with this Trigger should run.
@@ -6099,12 +5296,6 @@ func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) ToGetCe
 
 func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) ToGetCertificateCertificatePolicyLifetimeActionTriggerArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionTrigger] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyLifetimeActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyLifetimeActionTriggerArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyLifetimeActionTriggerOutput {
@@ -6146,12 +5337,6 @@ func (i GetCertificateCertificatePolicySecretPropertyArgs) ToGetCertificateCerti
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicySecretPropertyOutput)
 }
 
-func (i GetCertificateCertificatePolicySecretPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicySecretProperty] {
-	return pulumix.Output[GetCertificateCertificatePolicySecretProperty]{
-		OutputState: i.ToGetCertificateCertificatePolicySecretPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicySecretPropertyArrayInput is an input type that accepts GetCertificateCertificatePolicySecretPropertyArray and GetCertificateCertificatePolicySecretPropertyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicySecretPropertyArrayInput` via:
 //
@@ -6177,12 +5362,6 @@ func (i GetCertificateCertificatePolicySecretPropertyArray) ToGetCertificateCert
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicySecretPropertyArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicySecretPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicySecretProperty] {
-	return pulumix.Output[[]GetCertificateCertificatePolicySecretProperty]{
-		OutputState: i.ToGetCertificateCertificatePolicySecretPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicySecretPropertyOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicySecretPropertyOutput) ElementType() reflect.Type {
@@ -6195,12 +5374,6 @@ func (o GetCertificateCertificatePolicySecretPropertyOutput) ToGetCertificateCer
 
 func (o GetCertificateCertificatePolicySecretPropertyOutput) ToGetCertificateCertificatePolicySecretPropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicySecretPropertyOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicySecretPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicySecretProperty] {
-	return pulumix.Output[GetCertificateCertificatePolicySecretProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Content-Type of the Certificate, for example `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
@@ -6220,12 +5393,6 @@ func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) ToGetCertifica
 
 func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) ToGetCertificateCertificatePolicySecretPropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicySecretPropertyArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicySecretProperty] {
-	return pulumix.Output[[]GetCertificateCertificatePolicySecretProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicySecretPropertyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicySecretPropertyOutput {
@@ -6283,12 +5450,6 @@ func (i GetCertificateCertificatePolicyX509CertificatePropertyArgs) ToGetCertifi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertyOutput)
 }
 
-func (i GetCertificateCertificatePolicyX509CertificatePropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyX509CertificateProperty] {
-	return pulumix.Output[GetCertificateCertificatePolicyX509CertificateProperty]{
-		OutputState: i.ToGetCertificateCertificatePolicyX509CertificatePropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyX509CertificatePropertyArrayInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertyArray and GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertyArrayInput` via:
 //
@@ -6314,12 +5475,6 @@ func (i GetCertificateCertificatePolicyX509CertificatePropertyArray) ToGetCertif
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyX509CertificatePropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyX509CertificateProperty] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyX509CertificateProperty]{
-		OutputState: i.ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyX509CertificatePropertyOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyX509CertificatePropertyOutput) ElementType() reflect.Type {
@@ -6332,12 +5487,6 @@ func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ToGetCerti
 
 func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ToGetCertificateCertificatePolicyX509CertificatePropertyOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertyOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyX509CertificatePropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyX509CertificateProperty] {
-	return pulumix.Output[GetCertificateCertificatePolicyX509CertificateProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Extended/Enhanced Key Usages.
@@ -6379,12 +5528,6 @@ func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) ToGet
 
 func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) ToGetCertificateCertificatePolicyX509CertificatePropertyArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyX509CertificateProperty] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyX509CertificateProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyX509CertificatePropertyArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyX509CertificatePropertyOutput {
@@ -6434,12 +5577,6 @@ func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternative
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput)
 }
 
-func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName] {
-	return pulumix.Output[GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName]{
-		OutputState: i.ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput is an input type that accepts GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray and GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput values.
 // You can construct a concrete instance of `GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayInput` via:
 //
@@ -6465,12 +5602,6 @@ func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternative
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput)
 }
 
-func (i GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName]{
-		OutputState: i.ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) ElementType() reflect.Type {
@@ -6483,12 +5614,6 @@ func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternative
 
 func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName] {
-	return pulumix.Output[GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of alternative DNS names (FQDNs) identified by the Certificate.
@@ -6524,12 +5649,6 @@ func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternative
 
 func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) ToGetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutputWithContext(ctx context.Context) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput {
 	return o
-}
-
-func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName] {
-	return pulumix.Output[[]GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArrayOutput) Index(i pulumi.IntInput) GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameOutput {
@@ -6583,12 +5702,6 @@ func (i GetCertificateIssuerAdminArgs) ToGetCertificateIssuerAdminOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateIssuerAdminOutput)
 }
 
-func (i GetCertificateIssuerAdminArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificateIssuerAdmin] {
-	return pulumix.Output[GetCertificateIssuerAdmin]{
-		OutputState: i.ToGetCertificateIssuerAdminOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificateIssuerAdminArrayInput is an input type that accepts GetCertificateIssuerAdminArray and GetCertificateIssuerAdminArrayOutput values.
 // You can construct a concrete instance of `GetCertificateIssuerAdminArrayInput` via:
 //
@@ -6614,12 +5727,6 @@ func (i GetCertificateIssuerAdminArray) ToGetCertificateIssuerAdminArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateIssuerAdminArrayOutput)
 }
 
-func (i GetCertificateIssuerAdminArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateIssuerAdmin] {
-	return pulumix.Output[[]GetCertificateIssuerAdmin]{
-		OutputState: i.ToGetCertificateIssuerAdminArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificateIssuerAdminOutput struct{ *pulumi.OutputState }
 
 func (GetCertificateIssuerAdminOutput) ElementType() reflect.Type {
@@ -6632,12 +5739,6 @@ func (o GetCertificateIssuerAdminOutput) ToGetCertificateIssuerAdminOutput() Get
 
 func (o GetCertificateIssuerAdminOutput) ToGetCertificateIssuerAdminOutputWithContext(ctx context.Context) GetCertificateIssuerAdminOutput {
 	return o
-}
-
-func (o GetCertificateIssuerAdminOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificateIssuerAdmin] {
-	return pulumix.Output[GetCertificateIssuerAdmin]{
-		OutputState: o.OutputState,
-	}
 }
 
 // E-mail address of the admin.
@@ -6672,12 +5773,6 @@ func (o GetCertificateIssuerAdminArrayOutput) ToGetCertificateIssuerAdminArrayOu
 
 func (o GetCertificateIssuerAdminArrayOutput) ToGetCertificateIssuerAdminArrayOutputWithContext(ctx context.Context) GetCertificateIssuerAdminArrayOutput {
 	return o
-}
-
-func (o GetCertificateIssuerAdminArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificateIssuerAdmin] {
-	return pulumix.Output[[]GetCertificateIssuerAdmin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) GetCertificateIssuerAdminOutput {
@@ -6725,12 +5820,6 @@ func (i GetCertificatesCertificateArgs) ToGetCertificatesCertificateOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificatesCertificateOutput)
 }
 
-func (i GetCertificatesCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetCertificatesCertificate] {
-	return pulumix.Output[GetCertificatesCertificate]{
-		OutputState: i.ToGetCertificatesCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCertificatesCertificateArrayInput is an input type that accepts GetCertificatesCertificateArray and GetCertificatesCertificateArrayOutput values.
 // You can construct a concrete instance of `GetCertificatesCertificateArrayInput` via:
 //
@@ -6756,12 +5845,6 @@ func (i GetCertificatesCertificateArray) ToGetCertificatesCertificateArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCertificatesCertificateArrayOutput)
 }
 
-func (i GetCertificatesCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificatesCertificate] {
-	return pulumix.Output[[]GetCertificatesCertificate]{
-		OutputState: i.ToGetCertificatesCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCertificatesCertificateOutput struct{ *pulumi.OutputState }
 
 func (GetCertificatesCertificateOutput) ElementType() reflect.Type {
@@ -6774,12 +5857,6 @@ func (o GetCertificatesCertificateOutput) ToGetCertificatesCertificateOutput() G
 
 func (o GetCertificatesCertificateOutput) ToGetCertificatesCertificateOutputWithContext(ctx context.Context) GetCertificatesCertificateOutput {
 	return o
-}
-
-func (o GetCertificatesCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetCertificatesCertificate] {
-	return pulumix.Output[GetCertificatesCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether this secret is enabled.
@@ -6808,12 +5885,6 @@ func (o GetCertificatesCertificateArrayOutput) ToGetCertificatesCertificateArray
 
 func (o GetCertificatesCertificateArrayOutput) ToGetCertificatesCertificateArrayOutputWithContext(ctx context.Context) GetCertificatesCertificateArrayOutput {
 	return o
-}
-
-func (o GetCertificatesCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCertificatesCertificate] {
-	return pulumix.Output[[]GetCertificatesCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCertificatesCertificateArrayOutput) Index(i pulumi.IntInput) GetCertificatesCertificateOutput {
@@ -6879,12 +5950,6 @@ func (i GetKeyVaultAccessPolicyArgs) ToGetKeyVaultAccessPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyVaultAccessPolicyOutput)
 }
 
-func (i GetKeyVaultAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetKeyVaultAccessPolicy] {
-	return pulumix.Output[GetKeyVaultAccessPolicy]{
-		OutputState: i.ToGetKeyVaultAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetKeyVaultAccessPolicyArrayInput is an input type that accepts GetKeyVaultAccessPolicyArray and GetKeyVaultAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `GetKeyVaultAccessPolicyArrayInput` via:
 //
@@ -6910,12 +5975,6 @@ func (i GetKeyVaultAccessPolicyArray) ToGetKeyVaultAccessPolicyArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyVaultAccessPolicyArrayOutput)
 }
 
-func (i GetKeyVaultAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyVaultAccessPolicy] {
-	return pulumix.Output[[]GetKeyVaultAccessPolicy]{
-		OutputState: i.ToGetKeyVaultAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetKeyVaultAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetKeyVaultAccessPolicyOutput) ElementType() reflect.Type {
@@ -6928,12 +5987,6 @@ func (o GetKeyVaultAccessPolicyOutput) ToGetKeyVaultAccessPolicyOutput() GetKeyV
 
 func (o GetKeyVaultAccessPolicyOutput) ToGetKeyVaultAccessPolicyOutputWithContext(ctx context.Context) GetKeyVaultAccessPolicyOutput {
 	return o
-}
-
-func (o GetKeyVaultAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyVaultAccessPolicy] {
-	return pulumix.Output[GetKeyVaultAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Object ID of a Azure Active Directory Application.
@@ -6985,12 +6038,6 @@ func (o GetKeyVaultAccessPolicyArrayOutput) ToGetKeyVaultAccessPolicyArrayOutput
 	return o
 }
 
-func (o GetKeyVaultAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyVaultAccessPolicy] {
-	return pulumix.Output[[]GetKeyVaultAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetKeyVaultAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetKeyVaultAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKeyVaultAccessPolicy {
 		return vs[0].([]GetKeyVaultAccessPolicy)[vs[1].(int)]
@@ -7034,12 +6081,6 @@ func (i GetKeyVaultNetworkAclArgs) ToGetKeyVaultNetworkAclOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyVaultNetworkAclOutput)
 }
 
-func (i GetKeyVaultNetworkAclArgs) ToOutput(ctx context.Context) pulumix.Output[GetKeyVaultNetworkAcl] {
-	return pulumix.Output[GetKeyVaultNetworkAcl]{
-		OutputState: i.ToGetKeyVaultNetworkAclOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetKeyVaultNetworkAclArrayInput is an input type that accepts GetKeyVaultNetworkAclArray and GetKeyVaultNetworkAclArrayOutput values.
 // You can construct a concrete instance of `GetKeyVaultNetworkAclArrayInput` via:
 //
@@ -7065,12 +6106,6 @@ func (i GetKeyVaultNetworkAclArray) ToGetKeyVaultNetworkAclArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetKeyVaultNetworkAclArrayOutput)
 }
 
-func (i GetKeyVaultNetworkAclArray) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyVaultNetworkAcl] {
-	return pulumix.Output[[]GetKeyVaultNetworkAcl]{
-		OutputState: i.ToGetKeyVaultNetworkAclArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetKeyVaultNetworkAclOutput struct{ *pulumi.OutputState }
 
 func (GetKeyVaultNetworkAclOutput) ElementType() reflect.Type {
@@ -7083,12 +6118,6 @@ func (o GetKeyVaultNetworkAclOutput) ToGetKeyVaultNetworkAclOutput() GetKeyVault
 
 func (o GetKeyVaultNetworkAclOutput) ToGetKeyVaultNetworkAclOutputWithContext(ctx context.Context) GetKeyVaultNetworkAclOutput {
 	return o
-}
-
-func (o GetKeyVaultNetworkAclOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyVaultNetworkAcl] {
-	return pulumix.Output[GetKeyVaultNetworkAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetKeyVaultNetworkAclOutput) Bypass() pulumi.StringOutput {
@@ -7119,12 +6148,6 @@ func (o GetKeyVaultNetworkAclArrayOutput) ToGetKeyVaultNetworkAclArrayOutput() G
 
 func (o GetKeyVaultNetworkAclArrayOutput) ToGetKeyVaultNetworkAclArrayOutputWithContext(ctx context.Context) GetKeyVaultNetworkAclArrayOutput {
 	return o
-}
-
-func (o GetKeyVaultNetworkAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetKeyVaultNetworkAcl] {
-	return pulumix.Output[[]GetKeyVaultNetworkAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetKeyVaultNetworkAclArrayOutput) Index(i pulumi.IntInput) GetKeyVaultNetworkAclOutput {
@@ -7174,12 +6197,6 @@ func (i GetSecretsSecretArgs) ToGetSecretsSecretOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretOutput)
 }
 
-func (i GetSecretsSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetSecretsSecret] {
-	return pulumix.Output[GetSecretsSecret]{
-		OutputState: i.ToGetSecretsSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSecretsSecretArrayInput is an input type that accepts GetSecretsSecretArray and GetSecretsSecretArrayOutput values.
 // You can construct a concrete instance of `GetSecretsSecretArrayInput` via:
 //
@@ -7205,12 +6222,6 @@ func (i GetSecretsSecretArray) ToGetSecretsSecretArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsSecretArrayOutput)
 }
 
-func (i GetSecretsSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretsSecret] {
-	return pulumix.Output[[]GetSecretsSecret]{
-		OutputState: i.ToGetSecretsSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSecretsSecretOutput struct{ *pulumi.OutputState }
 
 func (GetSecretsSecretOutput) ElementType() reflect.Type {
@@ -7223,12 +6234,6 @@ func (o GetSecretsSecretOutput) ToGetSecretsSecretOutput() GetSecretsSecretOutpu
 
 func (o GetSecretsSecretOutput) ToGetSecretsSecretOutputWithContext(ctx context.Context) GetSecretsSecretOutput {
 	return o
-}
-
-func (o GetSecretsSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecretsSecret] {
-	return pulumix.Output[GetSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether this secret is enabled.
@@ -7258,12 +6263,6 @@ func (o GetSecretsSecretArrayOutput) ToGetSecretsSecretArrayOutput() GetSecretsS
 
 func (o GetSecretsSecretArrayOutput) ToGetSecretsSecretArrayOutputWithContext(ctx context.Context) GetSecretsSecretArrayOutput {
 	return o
-}
-
-func (o GetSecretsSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSecretsSecret] {
-	return pulumix.Output[[]GetSecretsSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetSecretsSecretOutput {

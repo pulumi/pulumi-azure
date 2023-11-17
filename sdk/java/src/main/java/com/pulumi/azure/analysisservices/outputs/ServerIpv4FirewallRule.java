@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class ServerIpv4FirewallRule {
     /**
-     * @return Specifies the name of the firewall rule.
+     * @return The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -27,7 +27,7 @@ public final class ServerIpv4FirewallRule {
 
     private ServerIpv4FirewallRule() {}
     /**
-     * @return Specifies the name of the firewall rule.
+     * @return The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     public String name() {

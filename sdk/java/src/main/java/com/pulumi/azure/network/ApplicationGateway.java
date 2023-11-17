@@ -238,14 +238,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return this.backendHttpSettings;
     }
     /**
-     * One or more `custom_error_configuration` blocks as defined below.
+     * One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
      * 
      */
     @Export(name="customErrorConfigurations", refs={List.class,ApplicationGatewayCustomErrorConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewayCustomErrorConfiguration>> customErrorConfigurations;
 
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
      * 
      */
     public Output<Optional<List<ApplicationGatewayCustomErrorConfiguration>>> customErrorConfigurations() {
@@ -280,14 +280,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fipsEnabled);
     }
     /**
-     * The ID of the Web Application Firewall Policy.
+     * The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
     @Export(name="firewallPolicyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> firewallPolicyId;
 
     /**
-     * @return The ID of the Web Application Firewall Policy.
+     * @return The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
     public Output<Optional<String>> firewallPolicyId() {

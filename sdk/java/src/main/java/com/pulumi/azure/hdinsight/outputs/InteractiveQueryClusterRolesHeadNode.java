@@ -16,6 +16,8 @@ public final class InteractiveQueryClusterRolesHeadNode {
     /**
      * @return The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; `  \). `password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+     * 
      * &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
      * 
      */
@@ -28,12 +30,16 @@ public final class InteractiveQueryClusterRolesHeadNode {
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+     * 
      * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
      */
     private @Nullable List<String> sshKeys;
     /**
-     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String subnetId;
@@ -43,7 +49,7 @@ public final class InteractiveQueryClusterRolesHeadNode {
      */
     private String username;
     /**
-     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String virtualNetworkId;
@@ -58,6 +64,8 @@ public final class InteractiveQueryClusterRolesHeadNode {
     private InteractiveQueryClusterRolesHeadNode() {}
     /**
      * @return The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; `  \). `password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters &#39; &#34; ` \).
      * 
@@ -75,6 +83,10 @@ public final class InteractiveQueryClusterRolesHeadNode {
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+     * 
      * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
      */
@@ -82,7 +94,7 @@ public final class InteractiveQueryClusterRolesHeadNode {
         return this.sshKeys == null ? List.of() : this.sshKeys;
     }
     /**
-     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> subnetId() {
@@ -96,7 +108,7 @@ public final class InteractiveQueryClusterRolesHeadNode {
         return this.username;
     }
     /**
-     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> virtualNetworkId() {

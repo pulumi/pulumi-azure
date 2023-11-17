@@ -81,12 +81,22 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// A `azure_active_directory_authentication` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         /// </summary>
         [Output("azureActiveDirectoryAuthentications")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication>> AzureActiveDirectoryAuthentications { get; private set; } = null!;
 
         /// <summary>
         /// One or more `client_revoked_certificate` blocks as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         /// </summary>
         [Output("clientRevokedCertificates")]
         public Output<ImmutableArray<Outputs.VpnServerConfigurationClientRevokedCertificate>> ClientRevokedCertificates { get; private set; } = null!;
@@ -129,6 +139,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -196,6 +211,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A `azure_active_directory_authentication` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs> AzureActiveDirectoryAuthentications
         {
@@ -208,6 +228,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `client_revoked_certificate` blocks as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationClientRevokedCertificateArgs> ClientRevokedCertificates
         {
@@ -262,6 +287,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -306,6 +336,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A `azure_active_directory_authentication` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationAzureActiveDirectoryAuthenticationGetArgs> AzureActiveDirectoryAuthentications
         {
@@ -318,6 +353,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `client_revoked_certificate` blocks as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationClientRevokedCertificateGetArgs> ClientRevokedCertificates
         {
@@ -372,6 +412,11 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         /// </summary>
         public InputMap<string> Tags
         {

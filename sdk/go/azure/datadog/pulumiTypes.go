@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -75,12 +74,6 @@ func (i MonitorDatadogOrganizationArgs) ToMonitorDatadogOrganizationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorDatadogOrganizationOutput)
 }
 
-func (i MonitorDatadogOrganizationArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorDatadogOrganization] {
-	return pulumix.Output[MonitorDatadogOrganization]{
-		OutputState: i.ToMonitorDatadogOrganizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MonitorDatadogOrganizationArgs) ToMonitorDatadogOrganizationPtrOutput() MonitorDatadogOrganizationPtrOutput {
 	return i.ToMonitorDatadogOrganizationPtrOutputWithContext(context.Background())
 }
@@ -122,12 +115,6 @@ func (i *monitorDatadogOrganizationPtrType) ToMonitorDatadogOrganizationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorDatadogOrganizationPtrOutput)
 }
 
-func (i *monitorDatadogOrganizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorDatadogOrganization] {
-	return pulumix.Output[*MonitorDatadogOrganization]{
-		OutputState: i.ToMonitorDatadogOrganizationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorDatadogOrganizationOutput struct{ *pulumi.OutputState }
 
 func (MonitorDatadogOrganizationOutput) ElementType() reflect.Type {
@@ -150,12 +137,6 @@ func (o MonitorDatadogOrganizationOutput) ToMonitorDatadogOrganizationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorDatadogOrganization) *MonitorDatadogOrganization {
 		return &v
 	}).(MonitorDatadogOrganizationPtrOutput)
-}
-
-func (o MonitorDatadogOrganizationOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorDatadogOrganization] {
-	return pulumix.Output[MonitorDatadogOrganization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
@@ -210,12 +191,6 @@ func (o MonitorDatadogOrganizationPtrOutput) ToMonitorDatadogOrganizationPtrOutp
 
 func (o MonitorDatadogOrganizationPtrOutput) ToMonitorDatadogOrganizationPtrOutputWithContext(ctx context.Context) MonitorDatadogOrganizationPtrOutput {
 	return o
-}
-
-func (o MonitorDatadogOrganizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorDatadogOrganization] {
-	return pulumix.Output[*MonitorDatadogOrganization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorDatadogOrganizationPtrOutput) Elem() MonitorDatadogOrganizationOutput {
@@ -313,9 +288,7 @@ type MonitorIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-	//
-	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+	// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 	Type string `pulumi:"type"`
 }
 
@@ -335,9 +308,7 @@ type MonitorIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-	//
-	// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+	// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -351,12 +322,6 @@ func (i MonitorIdentityArgs) ToMonitorIdentityOutput() MonitorIdentityOutput {
 
 func (i MonitorIdentityArgs) ToMonitorIdentityOutputWithContext(ctx context.Context) MonitorIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorIdentityOutput)
-}
-
-func (i MonitorIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorIdentity] {
-	return pulumix.Output[MonitorIdentity]{
-		OutputState: i.ToMonitorIdentityOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i MonitorIdentityArgs) ToMonitorIdentityPtrOutput() MonitorIdentityPtrOutput {
@@ -400,12 +365,6 @@ func (i *monitorIdentityPtrType) ToMonitorIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorIdentityPtrOutput)
 }
 
-func (i *monitorIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorIdentity] {
-	return pulumix.Output[*MonitorIdentity]{
-		OutputState: i.ToMonitorIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorIdentityOutput struct{ *pulumi.OutputState }
 
 func (MonitorIdentityOutput) ElementType() reflect.Type {
@@ -430,12 +389,6 @@ func (o MonitorIdentityOutput) ToMonitorIdentityPtrOutputWithContext(ctx context
 	}).(MonitorIdentityPtrOutput)
 }
 
-func (o MonitorIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorIdentity] {
-	return pulumix.Output[MonitorIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
 func (o MonitorIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -446,9 +399,7 @@ func (o MonitorIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-//
-// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 func (o MonitorIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -465,12 +416,6 @@ func (o MonitorIdentityPtrOutput) ToMonitorIdentityPtrOutput() MonitorIdentityPt
 
 func (o MonitorIdentityPtrOutput) ToMonitorIdentityPtrOutputWithContext(ctx context.Context) MonitorIdentityPtrOutput {
 	return o
-}
-
-func (o MonitorIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorIdentity] {
-	return pulumix.Output[*MonitorIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorIdentityPtrOutput) Elem() MonitorIdentityOutput {
@@ -503,9 +448,7 @@ func (o MonitorIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-//
-// > **NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
 func (o MonitorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorIdentity) *string {
 		if v == nil {
@@ -518,9 +461,7 @@ func (o MonitorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type MonitorTagRuleLog struct {
 	// Whether AAD logs should be sent for the Monitor resource?
 	AadLogEnabled *bool `pulumi:"aadLogEnabled"`
-	// A `filter` block as defined below.
-	//
-	// > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	// A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters []MonitorTagRuleLogFilter `pulumi:"filters"`
 	// Whether Azure resource logs should be sent for the Monitor resource?
 	ResourceLogEnabled *bool `pulumi:"resourceLogEnabled"`
@@ -542,9 +483,7 @@ type MonitorTagRuleLogInput interface {
 type MonitorTagRuleLogArgs struct {
 	// Whether AAD logs should be sent for the Monitor resource?
 	AadLogEnabled pulumi.BoolPtrInput `pulumi:"aadLogEnabled"`
-	// A `filter` block as defined below.
-	//
-	// > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	// A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters MonitorTagRuleLogFilterArrayInput `pulumi:"filters"`
 	// Whether Azure resource logs should be sent for the Monitor resource?
 	ResourceLogEnabled pulumi.BoolPtrInput `pulumi:"resourceLogEnabled"`
@@ -562,12 +501,6 @@ func (i MonitorTagRuleLogArgs) ToMonitorTagRuleLogOutput() MonitorTagRuleLogOutp
 
 func (i MonitorTagRuleLogArgs) ToMonitorTagRuleLogOutputWithContext(ctx context.Context) MonitorTagRuleLogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogOutput)
-}
-
-func (i MonitorTagRuleLogArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleLog] {
-	return pulumix.Output[MonitorTagRuleLog]{
-		OutputState: i.ToMonitorTagRuleLogOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorTagRuleLogArrayInput is an input type that accepts MonitorTagRuleLogArray and MonitorTagRuleLogArrayOutput values.
@@ -595,12 +528,6 @@ func (i MonitorTagRuleLogArray) ToMonitorTagRuleLogArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogArrayOutput)
 }
 
-func (i MonitorTagRuleLogArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleLog] {
-	return pulumix.Output[[]MonitorTagRuleLog]{
-		OutputState: i.ToMonitorTagRuleLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorTagRuleLogOutput struct{ *pulumi.OutputState }
 
 func (MonitorTagRuleLogOutput) ElementType() reflect.Type {
@@ -615,20 +542,12 @@ func (o MonitorTagRuleLogOutput) ToMonitorTagRuleLogOutputWithContext(ctx contex
 	return o
 }
 
-func (o MonitorTagRuleLogOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleLog] {
-	return pulumix.Output[MonitorTagRuleLog]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether AAD logs should be sent for the Monitor resource?
 func (o MonitorTagRuleLogOutput) AadLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MonitorTagRuleLog) *bool { return v.AadLogEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `filter` block as defined below.
-//
-// > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+// A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resourceLogEnabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o MonitorTagRuleLogOutput) Filters() MonitorTagRuleLogFilterArrayOutput {
 	return o.ApplyT(func(v MonitorTagRuleLog) []MonitorTagRuleLogFilter { return v.Filters }).(MonitorTagRuleLogFilterArrayOutput)
 }
@@ -655,12 +574,6 @@ func (o MonitorTagRuleLogArrayOutput) ToMonitorTagRuleLogArrayOutput() MonitorTa
 
 func (o MonitorTagRuleLogArrayOutput) ToMonitorTagRuleLogArrayOutputWithContext(ctx context.Context) MonitorTagRuleLogArrayOutput {
 	return o
-}
-
-func (o MonitorTagRuleLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleLog] {
-	return pulumix.Output[[]MonitorTagRuleLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorTagRuleLogArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleLogOutput {
@@ -710,12 +623,6 @@ func (i MonitorTagRuleLogFilterArgs) ToMonitorTagRuleLogFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogFilterOutput)
 }
 
-func (i MonitorTagRuleLogFilterArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleLogFilter] {
-	return pulumix.Output[MonitorTagRuleLogFilter]{
-		OutputState: i.ToMonitorTagRuleLogFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorTagRuleLogFilterArrayInput is an input type that accepts MonitorTagRuleLogFilterArray and MonitorTagRuleLogFilterArrayOutput values.
 // You can construct a concrete instance of `MonitorTagRuleLogFilterArrayInput` via:
 //
@@ -741,12 +648,6 @@ func (i MonitorTagRuleLogFilterArray) ToMonitorTagRuleLogFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleLogFilterArrayOutput)
 }
 
-func (i MonitorTagRuleLogFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleLogFilter] {
-	return pulumix.Output[[]MonitorTagRuleLogFilter]{
-		OutputState: i.ToMonitorTagRuleLogFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorTagRuleLogFilterOutput struct{ *pulumi.OutputState }
 
 func (MonitorTagRuleLogFilterOutput) ElementType() reflect.Type {
@@ -759,12 +660,6 @@ func (o MonitorTagRuleLogFilterOutput) ToMonitorTagRuleLogFilterOutput() Monitor
 
 func (o MonitorTagRuleLogFilterOutput) ToMonitorTagRuleLogFilterOutputWithContext(ctx context.Context) MonitorTagRuleLogFilterOutput {
 	return o
-}
-
-func (o MonitorTagRuleLogFilterOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleLogFilter] {
-	return pulumix.Output[MonitorTagRuleLogFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allowed values Include or Exclude.
@@ -796,12 +691,6 @@ func (o MonitorTagRuleLogFilterArrayOutput) ToMonitorTagRuleLogFilterArrayOutput
 	return o
 }
 
-func (o MonitorTagRuleLogFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleLogFilter] {
-	return pulumix.Output[[]MonitorTagRuleLogFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorTagRuleLogFilterArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleLogFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorTagRuleLogFilter {
 		return vs[0].([]MonitorTagRuleLogFilter)[vs[1].(int)]
@@ -809,9 +698,7 @@ func (o MonitorTagRuleLogFilterArrayOutput) Index(i pulumi.IntInput) MonitorTagR
 }
 
 type MonitorTagRuleMetric struct {
-	// A `filter` block as defined below.
-	//
-	// > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	// A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters []MonitorTagRuleMetricFilter `pulumi:"filters"`
 }
 
@@ -827,9 +714,7 @@ type MonitorTagRuleMetricInput interface {
 }
 
 type MonitorTagRuleMetricArgs struct {
-	// A `filter` block as defined below.
-	//
-	// > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+	// A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 	Filters MonitorTagRuleMetricFilterArrayInput `pulumi:"filters"`
 }
 
@@ -843,12 +728,6 @@ func (i MonitorTagRuleMetricArgs) ToMonitorTagRuleMetricOutput() MonitorTagRuleM
 
 func (i MonitorTagRuleMetricArgs) ToMonitorTagRuleMetricOutputWithContext(ctx context.Context) MonitorTagRuleMetricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricOutput)
-}
-
-func (i MonitorTagRuleMetricArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleMetric] {
-	return pulumix.Output[MonitorTagRuleMetric]{
-		OutputState: i.ToMonitorTagRuleMetricOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorTagRuleMetricArrayInput is an input type that accepts MonitorTagRuleMetricArray and MonitorTagRuleMetricArrayOutput values.
@@ -876,12 +755,6 @@ func (i MonitorTagRuleMetricArray) ToMonitorTagRuleMetricArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricArrayOutput)
 }
 
-func (i MonitorTagRuleMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleMetric] {
-	return pulumix.Output[[]MonitorTagRuleMetric]{
-		OutputState: i.ToMonitorTagRuleMetricArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorTagRuleMetricOutput struct{ *pulumi.OutputState }
 
 func (MonitorTagRuleMetricOutput) ElementType() reflect.Type {
@@ -896,15 +769,7 @@ func (o MonitorTagRuleMetricOutput) ToMonitorTagRuleMetricOutputWithContext(ctx 
 	return o
 }
 
-func (o MonitorTagRuleMetricOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleMetric] {
-	return pulumix.Output[MonitorTagRuleMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
-// A `filter` block as defined below.
-//
-// > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+// A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
 func (o MonitorTagRuleMetricOutput) Filters() MonitorTagRuleMetricFilterArrayOutput {
 	return o.ApplyT(func(v MonitorTagRuleMetric) []MonitorTagRuleMetricFilter { return v.Filters }).(MonitorTagRuleMetricFilterArrayOutput)
 }
@@ -921,12 +786,6 @@ func (o MonitorTagRuleMetricArrayOutput) ToMonitorTagRuleMetricArrayOutput() Mon
 
 func (o MonitorTagRuleMetricArrayOutput) ToMonitorTagRuleMetricArrayOutputWithContext(ctx context.Context) MonitorTagRuleMetricArrayOutput {
 	return o
-}
-
-func (o MonitorTagRuleMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleMetric] {
-	return pulumix.Output[[]MonitorTagRuleMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorTagRuleMetricArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleMetricOutput {
@@ -976,12 +835,6 @@ func (i MonitorTagRuleMetricFilterArgs) ToMonitorTagRuleMetricFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricFilterOutput)
 }
 
-func (i MonitorTagRuleMetricFilterArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleMetricFilter] {
-	return pulumix.Output[MonitorTagRuleMetricFilter]{
-		OutputState: i.ToMonitorTagRuleMetricFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorTagRuleMetricFilterArrayInput is an input type that accepts MonitorTagRuleMetricFilterArray and MonitorTagRuleMetricFilterArrayOutput values.
 // You can construct a concrete instance of `MonitorTagRuleMetricFilterArrayInput` via:
 //
@@ -1007,12 +860,6 @@ func (i MonitorTagRuleMetricFilterArray) ToMonitorTagRuleMetricFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorTagRuleMetricFilterArrayOutput)
 }
 
-func (i MonitorTagRuleMetricFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleMetricFilter] {
-	return pulumix.Output[[]MonitorTagRuleMetricFilter]{
-		OutputState: i.ToMonitorTagRuleMetricFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorTagRuleMetricFilterOutput struct{ *pulumi.OutputState }
 
 func (MonitorTagRuleMetricFilterOutput) ElementType() reflect.Type {
@@ -1025,12 +872,6 @@ func (o MonitorTagRuleMetricFilterOutput) ToMonitorTagRuleMetricFilterOutput() M
 
 func (o MonitorTagRuleMetricFilterOutput) ToMonitorTagRuleMetricFilterOutputWithContext(ctx context.Context) MonitorTagRuleMetricFilterOutput {
 	return o
-}
-
-func (o MonitorTagRuleMetricFilterOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorTagRuleMetricFilter] {
-	return pulumix.Output[MonitorTagRuleMetricFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allowed values Include or Exclude.
@@ -1060,12 +901,6 @@ func (o MonitorTagRuleMetricFilterArrayOutput) ToMonitorTagRuleMetricFilterArray
 
 func (o MonitorTagRuleMetricFilterArrayOutput) ToMonitorTagRuleMetricFilterArrayOutputWithContext(ctx context.Context) MonitorTagRuleMetricFilterArrayOutput {
 	return o
-}
-
-func (o MonitorTagRuleMetricFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MonitorTagRuleMetricFilter] {
-	return pulumix.Output[[]MonitorTagRuleMetricFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorTagRuleMetricFilterArrayOutput) Index(i pulumi.IntInput) MonitorTagRuleMetricFilterOutput {
@@ -1115,12 +950,6 @@ func (i MonitorUserArgs) ToMonitorUserOutputWithContext(ctx context.Context) Mon
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorUserOutput)
 }
 
-func (i MonitorUserArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorUser] {
-	return pulumix.Output[MonitorUser]{
-		OutputState: i.ToMonitorUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MonitorUserArgs) ToMonitorUserPtrOutput() MonitorUserPtrOutput {
 	return i.ToMonitorUserPtrOutputWithContext(context.Background())
 }
@@ -1162,12 +991,6 @@ func (i *monitorUserPtrType) ToMonitorUserPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorUserPtrOutput)
 }
 
-func (i *monitorUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorUser] {
-	return pulumix.Output[*MonitorUser]{
-		OutputState: i.ToMonitorUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorUserOutput struct{ *pulumi.OutputState }
 
 func (MonitorUserOutput) ElementType() reflect.Type {
@@ -1190,12 +1013,6 @@ func (o MonitorUserOutput) ToMonitorUserPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorUser) *MonitorUser {
 		return &v
 	}).(MonitorUserPtrOutput)
-}
-
-func (o MonitorUserOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorUser] {
-	return pulumix.Output[MonitorUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
@@ -1225,12 +1042,6 @@ func (o MonitorUserPtrOutput) ToMonitorUserPtrOutput() MonitorUserPtrOutput {
 
 func (o MonitorUserPtrOutput) ToMonitorUserPtrOutputWithContext(ctx context.Context) MonitorUserPtrOutput {
 	return o
-}
-
-func (o MonitorUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorUser] {
-	return pulumix.Output[*MonitorUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorUserPtrOutput) Elem() MonitorUserOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account Blob Container.
@@ -107,6 +106,8 @@ type GetAccountBlobContainerSASArgs struct {
 	// The `Content-Language` response header that is sent when this SAS token is used.
 	ContentLanguage *string `pulumi:"contentLanguage"`
 	// The `Content-Type` response header that is sent when this SAS token is used.
+	//
+	// A `permissions` block contains:
 	ContentType *string `pulumi:"contentType"`
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	//
@@ -170,6 +171,8 @@ type GetAccountBlobContainerSASOutputArgs struct {
 	// The `Content-Language` response header that is sent when this SAS token is used.
 	ContentLanguage pulumi.StringPtrInput `pulumi:"contentLanguage"`
 	// The `Content-Type` response header that is sent when this SAS token is used.
+	//
+	// A `permissions` block contains:
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	//
@@ -202,12 +205,6 @@ func (o GetAccountBlobContainerSASResultOutput) ToGetAccountBlobContainerSASResu
 
 func (o GetAccountBlobContainerSASResultOutput) ToGetAccountBlobContainerSASResultOutputWithContext(ctx context.Context) GetAccountBlobContainerSASResultOutput {
 	return o
-}
-
-func (o GetAccountBlobContainerSASResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountBlobContainerSASResult] {
-	return pulumix.Output[GetAccountBlobContainerSASResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountBlobContainerSASResultOutput) CacheControl() pulumi.StringPtrOutput {

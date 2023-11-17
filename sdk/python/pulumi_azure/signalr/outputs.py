@@ -231,7 +231,14 @@ class ServiceNetworkAclPrivateEndpoint(dict):
         :param Sequence[str] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
                > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
-        :param Sequence[str] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        :param Sequence[str] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               
+               > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+               
+               
+               `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
                > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
                
@@ -265,7 +272,14 @@ class ServiceNetworkAclPrivateEndpoint(dict):
     @pulumi.getter(name="deniedRequestTypes")
     def denied_request_types(self) -> Optional[Sequence[str]]:
         """
-        The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+
+
+        `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
         > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
 
@@ -307,6 +321,13 @@ class ServiceNetworkAclPublicNetwork(dict):
                > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
                
                > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+               
+               
+               `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               
+               > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         """
         if allowed_request_types is not None:
             pulumi.set(__self__, "allowed_request_types", allowed_request_types)
@@ -328,6 +349,13 @@ class ServiceNetworkAclPublicNetwork(dict):
     def denied_request_types(self) -> Optional[Sequence[str]]:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+
+
+        `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
         > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
 

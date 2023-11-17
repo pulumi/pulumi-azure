@@ -219,8 +219,8 @@ class IoTHubEndpoint(dict):
         :param str type: The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         :param str authentication_type: The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param int batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
-        :param str connection_string: The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
-        :param str container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        :param str connection_string: The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
+        :param str container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
         :param str encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
         :param str endpoint_uri: URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
         :param str entity_path: Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
@@ -231,7 +231,7 @@ class IoTHubEndpoint(dict):
                
                > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
         :param int max_chunk_size_in_bytes: Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
-        :param str resource_group_name: The resource group in which the endpoint will be created.
+        :param str resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -294,7 +294,7 @@ class IoTHubEndpoint(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Optional[str]:
         """
-        The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+        The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
         """
         return pulumi.get(self, "connection_string")
 
@@ -302,7 +302,7 @@ class IoTHubEndpoint(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> Optional[str]:
         """
-        The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
         """
         return pulumi.get(self, "container_name")
 
@@ -362,7 +362,7 @@ class IoTHubEndpoint(dict):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[str]:
         """
-        The resource group in which the endpoint will be created.
+        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -540,8 +540,8 @@ class IoTHubFileUpload(dict):
                  notifications: Optional[bool] = None,
                  sas_ttl: Optional[str] = None):
         """
-        :param str connection_string: The connection string for the Azure Storage account to which files are uploaded.
-        :param str container_name: The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+        :param str connection_string: The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
+        :param str container_name: The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
         :param str authentication_type: The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         :param str default_ttl: The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
         :param str identity_id: The ID of the User Managed Identity used to authenticate against the storage account.
@@ -575,7 +575,7 @@ class IoTHubFileUpload(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> str:
         """
-        The connection string for the Azure Storage account to which files are uploaded.
+        The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
         """
         return pulumi.get(self, "connection_string")
 
@@ -583,7 +583,7 @@ class IoTHubFileUpload(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+        The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
         """
         return pulumi.get(self, "container_name")
 
@@ -755,9 +755,12 @@ class IoTHubNetworkRuleSet(dict):
                  default_action: Optional[str] = None,
                  ip_rules: Optional[Sequence['outputs.IoTHubNetworkRuleSetIpRule']] = None):
         """
-        :param bool apply_to_builtin_eventhub_endpoint: Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
-        :param str default_action: Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        :param bool apply_to_builtin_eventhub_endpoint: Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        :param str default_action: Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
         :param Sequence['IoTHubNetworkRuleSetIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+               
+               
+               `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
         """
         if apply_to_builtin_eventhub_endpoint is not None:
             pulumi.set(__self__, "apply_to_builtin_eventhub_endpoint", apply_to_builtin_eventhub_endpoint)
@@ -770,7 +773,7 @@ class IoTHubNetworkRuleSet(dict):
     @pulumi.getter(name="applyToBuiltinEventhubEndpoint")
     def apply_to_builtin_eventhub_endpoint(self) -> Optional[bool]:
         """
-        Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
         """
         return pulumi.get(self, "apply_to_builtin_eventhub_endpoint")
 
@@ -778,7 +781,7 @@ class IoTHubNetworkRuleSet(dict):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[str]:
         """
-        Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
         """
         return pulumi.get(self, "default_action")
 
@@ -787,6 +790,9 @@ class IoTHubNetworkRuleSet(dict):
     def ip_rules(self) -> Optional[Sequence['outputs.IoTHubNetworkRuleSetIpRule']]:
         """
         One or more `ip_rule` blocks as defined below.
+
+
+        `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -815,9 +821,12 @@ class IoTHubNetworkRuleSetIpRule(dict):
                  name: str,
                  action: Optional[str] = None):
         """
-        :param str ip_mask: The IP address range in CIDR notation for the ip rule.
-        :param str name: The name of the ip rule.
+        :param str ip_mask: The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
+        :param str name: The name of the IP rule.`name` - (Required) The name of the ip rule.
         :param str action: The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+               
+               
+               `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
         pulumi.set(__self__, "name", name)
@@ -828,7 +837,7 @@ class IoTHubNetworkRuleSetIpRule(dict):
     @pulumi.getter(name="ipMask")
     def ip_mask(self) -> str:
         """
-        The IP address range in CIDR notation for the ip rule.
+        The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
         """
         return pulumi.get(self, "ip_mask")
 
@@ -836,7 +845,7 @@ class IoTHubNetworkRuleSetIpRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the ip rule.
+        The name of the IP rule.`name` - (Required) The name of the ip rule.
         """
         return pulumi.get(self, "name")
 
@@ -845,6 +854,9 @@ class IoTHubNetworkRuleSetIpRule(dict):
     def action(self) -> Optional[str]:
         """
         The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+
+
+        `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 

@@ -30,7 +30,10 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         /// 
-        /// &gt; **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// 
+        /// 
+        /// `allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.`allowed_audiences` - (Optional) Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
         /// </summary>
         public InputList<string> AllowedAudiences
         {
@@ -63,7 +66,7 @@ namespace Pulumi.Azure.AppService.Inputs
         }
 
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The ID of the Client to use to authenticate with the Custom OIDC.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
@@ -78,6 +81,9 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// 
+        /// 
+        /// `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

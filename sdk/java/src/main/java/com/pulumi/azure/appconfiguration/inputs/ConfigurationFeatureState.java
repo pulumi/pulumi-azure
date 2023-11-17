@@ -181,12 +181,16 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
     /**
      * A `timewindow_filter` block as defined below.
      * 
+     * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
+     * 
      */
     @Import(name="timewindowFilters")
     private @Nullable Output<List<ConfigurationFeatureTimewindowFilterArgs>> timewindowFilters;
 
     /**
      * @return A `timewindow_filter` block as defined below.
+     * 
+     * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
      * 
      */
     public Optional<Output<List<ConfigurationFeatureTimewindowFilterArgs>>> timewindowFilters() {
@@ -460,6 +464,8 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
         /**
          * @param timewindowFilters A `timewindow_filter` block as defined below.
          * 
+         * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -471,6 +477,8 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
         /**
          * @param timewindowFilters A `timewindow_filter` block as defined below.
          * 
+         * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -480,6 +488,8 @@ public final class ConfigurationFeatureState extends com.pulumi.resources.Resour
 
         /**
          * @param timewindowFilters A `timewindow_filter` block as defined below.
+         * 
+         * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
          * 
          * @return builder
          * 

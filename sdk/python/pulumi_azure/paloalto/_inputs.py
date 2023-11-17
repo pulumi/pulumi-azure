@@ -961,7 +961,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
                  public_ip_address_id: pulumi.Input[str]):
         """
         :param pulumi.Input[int] port: The port on which to receive traffic.
-        :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address on which to receive traffic. 
+        :param pulumi.Input[str] public_ip_address_id: The ID of the Public IP Address on which to receive traffic.
                
                > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
         """
@@ -984,7 +984,7 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
     @pulumi.getter(name="publicIpAddressId")
     def public_ip_address_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Public IP Address on which to receive traffic. 
+        The ID of the Public IP Address on which to receive traffic.
 
         > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
         """

@@ -48,7 +48,7 @@ class SlotArgs:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['SlotLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input['SlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -245,7 +245,7 @@ class SlotArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -327,7 +327,7 @@ class _SlotState:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input['SlotLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input['SlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
@@ -533,7 +533,7 @@ class _SlotState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 
@@ -748,7 +748,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
@@ -984,7 +984,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
@@ -1124,7 +1124,7 @@ class Slot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+        Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         """
         return pulumi.get(self, "name")
 

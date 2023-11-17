@@ -1035,14 +1035,18 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -2516,7 +2520,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+         * 
+         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
          * 
          * @return builder
          * 
@@ -2527,7 +2533,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+         * 
+         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
          * 
          * @return builder
          * 

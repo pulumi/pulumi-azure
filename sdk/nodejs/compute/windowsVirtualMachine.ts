@@ -207,7 +207,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly maxBidPrice!: pulumi.Output<number | undefined>;
     /**
-     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -596,7 +596,7 @@ export interface WindowsVirtualMachineState {
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
-     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -837,7 +837,7 @@ export interface WindowsVirtualMachineArgs {
      */
     maxBidPrice?: pulumi.Input<number>;
     /**
-     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

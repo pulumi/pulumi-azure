@@ -21,12 +21,6 @@ public final class FirewallManagementIpConfiguration {
      * 
      */
     private @Nullable String privateIpAddress;
-    /**
-     * @return The ID of the Public IP Address associated with the firewall.
-     * 
-     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-     * 
-     */
     private String publicIpAddressId;
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
@@ -51,12 +45,6 @@ public final class FirewallManagementIpConfiguration {
     public Optional<String> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
-    /**
-     * @return The ID of the Public IP Address associated with the firewall.
-     * 
-     * &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-     * 
-     */
     public String publicIpAddressId() {
         return this.publicIpAddressId;
     }

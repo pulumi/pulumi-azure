@@ -98,6 +98,11 @@ namespace Pulumi.Azure.NotificationHub
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `apns_credential` block contains:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -193,6 +198,11 @@ namespace Pulumi.Azure.NotificationHub
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `apns_credential` block contains:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -253,6 +263,11 @@ namespace Pulumi.Azure.NotificationHub
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `apns_credential` block contains:
         /// </summary>
         public InputMap<string> Tags
         {

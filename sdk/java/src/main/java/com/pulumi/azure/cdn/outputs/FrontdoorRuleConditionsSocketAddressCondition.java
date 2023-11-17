@@ -21,7 +21,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
      */
     private @Nullable List<String> matchValues;
     /**
-     * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+     * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
      * 
      */
     private @Nullable Boolean negateCondition;
@@ -44,7 +44,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
         return this.matchValues == null ? List.of() : this.matchValues;
     }
     /**
-     * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+     * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
      * 
      */
     public Optional<Boolean> negateCondition() {

@@ -299,7 +299,7 @@ namespace Pulumi.Azure.Iot
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -485,7 +485,7 @@ namespace Pulumi.Azure.Iot
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -669,7 +669,7 @@ namespace Pulumi.Azure.Iot
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

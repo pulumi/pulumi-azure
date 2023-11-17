@@ -29,6 +29,9 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? ClientSecret;
         /// <summary>
         /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        /// 
+        /// 
+        /// `client_secret_setting_name` - The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
 

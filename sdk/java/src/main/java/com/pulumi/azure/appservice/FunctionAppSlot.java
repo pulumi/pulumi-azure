@@ -307,14 +307,14 @@ public class FunctionAppSlot extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     public Output<String> name() {

@@ -19,12 +19,12 @@ public final class IoTHubFileUpload {
      */
     private @Nullable String authenticationType;
     /**
-     * @return The connection string for the Azure Storage account to which files are uploaded.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     private String connectionString;
     /**
-     * @return The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     private String containerName;
@@ -72,14 +72,14 @@ public final class IoTHubFileUpload {
         return Optional.ofNullable(this.authenticationType);
     }
     /**
-     * @return The connection string for the Azure Storage account to which files are uploaded.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     public String connectionString() {
         return this.connectionString;
     }
     /**
-     * @return The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     public String containerName() {

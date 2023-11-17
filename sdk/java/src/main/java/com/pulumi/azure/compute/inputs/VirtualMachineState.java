@@ -203,14 +203,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * An `os_profile_linux_config` block as defined below.
      * 
      */
     @Import(name="osProfileLinuxConfig")
     private @Nullable Output<VirtualMachineOsProfileLinuxConfigArgs> osProfileLinuxConfig;
 
     /**
-     * @return (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * @return An `os_profile_linux_config` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileLinuxConfigArgs>> osProfileLinuxConfig() {
@@ -233,14 +233,14 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * An `os_profile_windows_config` block as defined below.
      * 
      */
     @Import(name="osProfileWindowsConfig")
     private @Nullable Output<VirtualMachineOsProfileWindowsConfigArgs> osProfileWindowsConfig;
 
     /**
-     * @return (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * @return An `os_profile_windows_config` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineOsProfileWindowsConfigArgs>> osProfileWindowsConfig() {
@@ -706,7 +706,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileLinuxConfig (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+         * @param osProfileLinuxConfig An `os_profile_linux_config` block as defined below.
          * 
          * @return builder
          * 
@@ -717,7 +717,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileLinuxConfig (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+         * @param osProfileLinuxConfig An `os_profile_linux_config` block as defined below.
          * 
          * @return builder
          * 
@@ -758,7 +758,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileWindowsConfig (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+         * @param osProfileWindowsConfig An `os_profile_windows_config` block as defined below.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class VirtualMachineState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param osProfileWindowsConfig (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+         * @param osProfileWindowsConfig An `os_profile_windows_config` block as defined below.
          * 
          * @return builder
          * 

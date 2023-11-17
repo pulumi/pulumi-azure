@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics (formally Operational Insights) Solution.
@@ -95,6 +94,8 @@ type AnalyticsSolution struct {
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName pulumi.StringOutput `pulumi:"solutionName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `plan` block includes:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringOutput `pulumi:"workspaceName"`
@@ -156,6 +157,8 @@ type analyticsSolutionState struct {
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName *string `pulumi:"solutionName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `plan` block includes:
 	Tags map[string]string `pulumi:"tags"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName *string `pulumi:"workspaceName"`
@@ -173,6 +176,8 @@ type AnalyticsSolutionState struct {
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `plan` block includes:
 	Tags pulumi.StringMapInput
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringPtrInput
@@ -194,6 +199,8 @@ type analyticsSolutionArgs struct {
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName string `pulumi:"solutionName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `plan` block includes:
 	Tags map[string]string `pulumi:"tags"`
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -212,6 +219,8 @@ type AnalyticsSolutionArgs struct {
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `plan` block includes:
 	Tags pulumi.StringMapInput
 	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName pulumi.StringInput
@@ -242,12 +251,6 @@ func (i *AnalyticsSolution) ToAnalyticsSolutionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionOutput)
 }
 
-func (i *AnalyticsSolution) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsSolution] {
-	return pulumix.Output[*AnalyticsSolution]{
-		OutputState: i.ToAnalyticsSolutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyticsSolutionArrayInput is an input type that accepts AnalyticsSolutionArray and AnalyticsSolutionArrayOutput values.
 // You can construct a concrete instance of `AnalyticsSolutionArrayInput` via:
 //
@@ -271,12 +274,6 @@ func (i AnalyticsSolutionArray) ToAnalyticsSolutionArrayOutput() AnalyticsSoluti
 
 func (i AnalyticsSolutionArray) ToAnalyticsSolutionArrayOutputWithContext(ctx context.Context) AnalyticsSolutionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionArrayOutput)
-}
-
-func (i AnalyticsSolutionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsSolution] {
-	return pulumix.Output[[]*AnalyticsSolution]{
-		OutputState: i.ToAnalyticsSolutionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AnalyticsSolutionMapInput is an input type that accepts AnalyticsSolutionMap and AnalyticsSolutionMapOutput values.
@@ -304,12 +301,6 @@ func (i AnalyticsSolutionMap) ToAnalyticsSolutionMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionMapOutput)
 }
 
-func (i AnalyticsSolutionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsSolution] {
-	return pulumix.Output[map[string]*AnalyticsSolution]{
-		OutputState: i.ToAnalyticsSolutionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyticsSolutionOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionOutput) ElementType() reflect.Type {
@@ -322,12 +313,6 @@ func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutput() AnalyticsSolutionOu
 
 func (o AnalyticsSolutionOutput) ToAnalyticsSolutionOutputWithContext(ctx context.Context) AnalyticsSolutionOutput {
 	return o
-}
-
-func (o AnalyticsSolutionOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsSolution] {
-	return pulumix.Output[*AnalyticsSolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -351,6 +336,8 @@ func (o AnalyticsSolutionOutput) SolutionName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// A `plan` block includes:
 func (o AnalyticsSolutionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnalyticsSolution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -379,12 +366,6 @@ func (o AnalyticsSolutionArrayOutput) ToAnalyticsSolutionArrayOutputWithContext(
 	return o
 }
 
-func (o AnalyticsSolutionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsSolution] {
-	return pulumix.Output[[]*AnalyticsSolution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalyticsSolutionArrayOutput) Index(i pulumi.IntInput) AnalyticsSolutionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsSolution {
 		return vs[0].([]*AnalyticsSolution)[vs[1].(int)]
@@ -403,12 +384,6 @@ func (o AnalyticsSolutionMapOutput) ToAnalyticsSolutionMapOutput() AnalyticsSolu
 
 func (o AnalyticsSolutionMapOutput) ToAnalyticsSolutionMapOutputWithContext(ctx context.Context) AnalyticsSolutionMapOutput {
 	return o
-}
-
-func (o AnalyticsSolutionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsSolution] {
-	return pulumix.Output[map[string]*AnalyticsSolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyticsSolutionMapOutput) MapIndex(k pulumi.StringInput) AnalyticsSolutionOutput {

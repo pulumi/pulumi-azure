@@ -19,6 +19,11 @@ namespace Pulumi.Azure.Storage.Outputs
         public readonly bool Blob;
         /// <summary>
         /// Should permission be granted to `file` services within this storage account?
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `permissions` block contains:
         /// </summary>
         public readonly bool File;
         /// <summary>

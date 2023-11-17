@@ -99,12 +99,16 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
+     * In addition to the Arguments listed above - the following Attributes are exported:
+     * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
      * @return Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     * 
+     * In addition to the Arguments listed above - the following Attributes are exported:
      * 
      */
     public Output<String> location() {

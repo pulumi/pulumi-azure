@@ -32,6 +32,11 @@ class ScaleSetPacketCaptureArgs:
         :param pulumi.Input[str] virtual_machine_scale_set_id: The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs'] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -106,6 +111,11 @@ class ScaleSetPacketCaptureArgs:
     def machine_scope(self) -> Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']]:
         """
         A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+
+
+
+
+        A `storage_location` block contains:
         """
         return pulumi.get(self, "machine_scope")
 
@@ -178,6 +188,11 @@ class _ScaleSetPacketCaptureState:
         Input properties used for looking up and filtering ScaleSetPacketCapture resources.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs'] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -222,6 +237,11 @@ class _ScaleSetPacketCaptureState:
     def machine_scope(self) -> Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']]:
         """
         A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+
+
+
+
+        A `storage_location` block contains:
         """
         return pulumi.get(self, "machine_scope")
 
@@ -413,6 +433,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -583,6 +608,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -619,6 +649,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def machine_scope(self) -> pulumi.Output[Optional['outputs.ScaleSetPacketCaptureMachineScope']]:
         """
         A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+
+
+
+
+        A `storage_location` block contains:
         """
         return pulumi.get(self, "machine_scope")
 

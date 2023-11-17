@@ -12,18 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitorTagRuleMetric {
     /**
-     * @return A `filter` block as defined below.
-     * 
-     * &gt; **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+     * @return A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
      * 
      */
     private @Nullable List<MonitorTagRuleMetricFilter> filters;
 
     private MonitorTagRuleMetric() {}
     /**
-     * @return A `filter` block as defined below.
-     * 
-     * &gt; **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+     * @return A `filter` block as defined below.**NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
      * 
      */
     public List<MonitorTagRuleMetricFilter> filters() {

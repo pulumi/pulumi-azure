@@ -19,14 +19,14 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     public static final ApplicationGatewayHttpListenerArgs Empty = new ApplicationGatewayHttpListenerArgs();
 
     /**
-     * One or more `custom_error_configuration` blocks as defined below.
+     * One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
      * 
      */
     @Import(name="customErrorConfigurations")
     private @Nullable Output<List<ApplicationGatewayHttpListenerCustomErrorConfigurationArgs>> customErrorConfigurations;
 
     /**
-     * @return One or more `custom_error_configuration` blocks as defined below.
+     * @return One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
      * 
      */
     public Optional<Output<List<ApplicationGatewayHttpListenerCustomErrorConfigurationArgs>>> customErrorConfigurations() {
@@ -34,14 +34,14 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
     }
 
     /**
-     * The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+     * The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
     @Import(name="firewallPolicyId")
     private @Nullable Output<String> firewallPolicyId;
 
     /**
-     * @return The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+     * @return The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
     public Optional<Output<String>> firewallPolicyId() {
@@ -302,7 +302,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.
+         * @param customErrorConfigurations One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param firewallPolicyId The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+         * @param firewallPolicyId The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class ApplicationGatewayHttpListenerArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param firewallPolicyId The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+         * @param firewallPolicyId The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
          * 
          * @return builder
          * 

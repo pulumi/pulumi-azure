@@ -173,12 +173,16 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `apns_credential` block contains:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `apns_credential` block contains:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -27,6 +27,15 @@ class CertificateArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+               
+               ```python
+               import pulumi
+               import pulumi_azuread as azuread
+               
+               microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+               ```
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
@@ -80,6 +89,15 @@ class CertificateArgs:
     def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
+
+        > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+
+        ```python
+        import pulumi
+        import pulumi_azuread as azuread
+
+        microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+        ```
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -179,6 +197,15 @@ class _CertificateState:
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+               
+               ```python
+               import pulumi
+               import pulumi_azuread as azuread
+               
+               microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+               ```
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
@@ -312,6 +339,15 @@ class _CertificateState:
     def key_vault_secret_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
+
+        > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+
+        ```python
+        import pulumi
+        import pulumi_azuread as azuread
+
+        microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+        ```
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -464,6 +500,15 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+               
+               ```python
+               import pulumi
+               import pulumi_azuread as azuread
+               
+               microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+               ```
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
@@ -600,6 +645,15 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] issue_date: The issue date for the certificate.
         :param pulumi.Input[str] issuer: The name of the certificate issuer.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+               
+               ```python
+               import pulumi
+               import pulumi_azuread as azuread
+               
+               microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+               ```
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
@@ -694,6 +748,15 @@ class Certificate(pulumi.CustomResource):
     def key_vault_secret_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
+
+        > **NOTE:** If using `key_vault_secret_id`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+
+        ```python
+        import pulumi
+        import pulumi_azuread as azuread
+
+        microsoft_web_app = azuread.get_service_principal(application_id="abfa0a7c-a6b6-4736-8310-5855508787cd")
+        ```
         """
         return pulumi.get(self, "key_vault_secret_id")
 

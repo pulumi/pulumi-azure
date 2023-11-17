@@ -76,12 +76,16 @@ public final class HubApnsCredentialArgs extends com.pulumi.resources.ResourceAr
     /**
      * The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
      * 
+     * A `gcm_credential` block contains:
+     * 
      */
     @Import(name="token", required=true)
     private Output<String> token;
 
     /**
      * @return The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+     * 
+     * A `gcm_credential` block contains:
      * 
      */
     public Output<String> token() {
@@ -203,6 +207,8 @@ public final class HubApnsCredentialArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param token The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
          * 
+         * A `gcm_credential` block contains:
+         * 
          * @return builder
          * 
          */
@@ -213,6 +219,8 @@ public final class HubApnsCredentialArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param token The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+         * 
+         * A `gcm_credential` block contains:
          * 
          * @return builder
          * 

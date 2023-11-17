@@ -14,11 +14,14 @@ namespace Pulumi.Azure.LogicApps.Outputs
     public sealed class StandardSiteConfigScmIpRestriction
     {
         /// <summary>
-        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>
         /// The headers for this specific `ip_restriction` as defined below.
+        /// 
+        /// 
+        /// `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
         /// </summary>
         public readonly Outputs.StandardSiteConfigScmIpRestrictionHeaders? Headers;
         /// <summary>
@@ -26,11 +29,11 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// The name for this IP Restriction.
+        /// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
         /// </summary>
         public readonly int? Priority;
         /// <summary>

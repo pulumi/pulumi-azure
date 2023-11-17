@@ -21,6 +21,8 @@ public final class NetworkPacketCaptureStorageLocation {
      * 
      * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
      * 
+     * A `filter` block contains:
+     * 
      */
     private @Nullable String storageAccountId;
     /**
@@ -41,6 +43,8 @@ public final class NetworkPacketCaptureStorageLocation {
      * @return The ID of the storage account to save the packet capture session
      * 
      * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+     * 
+     * A `filter` block contains:
      * 
      */
     public Optional<String> storageAccountId() {

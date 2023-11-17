@@ -76,7 +76,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly dockerBridgeCidr!: pulumi.Output<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The Subnet must have a `/21` or larger address space.
      */
@@ -197,7 +197,7 @@ export interface EnvironmentState {
      */
     dockerBridgeCidr?: pulumi.Input<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The Subnet must have a `/21` or larger address space.
      */
@@ -257,7 +257,7 @@ export interface EnvironmentArgs {
      */
     daprApplicationInsightsConnectionString?: pulumi.Input<string>;
     /**
-     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+     * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
      * > **NOTE:** The Subnet must have a `/21` or larger address space.
      */

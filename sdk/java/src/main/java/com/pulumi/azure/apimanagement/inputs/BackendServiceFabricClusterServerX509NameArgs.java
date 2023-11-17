@@ -29,14 +29,14 @@ public final class BackendServiceFabricClusterServerX509NameArgs extends com.pul
     }
 
     /**
-     * The name of the API Management backend. Changing this forces a new resource to be created.
+     * The common name of the certificate.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the API Management backend. Changing this forces a new resource to be created.
+     * @return The common name of the certificate.
      * 
      */
     public Output<String> name() {
@@ -90,7 +90,7 @@ public final class BackendServiceFabricClusterServerX509NameArgs extends com.pul
         }
 
         /**
-         * @param name The name of the API Management backend. Changing this forces a new resource to be created.
+         * @param name The common name of the certificate.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class BackendServiceFabricClusterServerX509NameArgs extends com.pul
         }
 
         /**
-         * @param name The name of the API Management backend. Changing this forces a new resource to be created.
+         * @param name The common name of the certificate.
          * 
          * @return builder
          * 

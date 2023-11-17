@@ -43,7 +43,17 @@ class LinkedServiceAzureDatabricksArgs:
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs'] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
+               
+               
+               
+               
+               You must specify exactly one of the following modes for cluster integration:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+               
+               
+               
+               
+               You must specify exactly one of the following authentication blocks:
         :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
@@ -199,6 +209,11 @@ class LinkedServiceAzureDatabricksArgs:
     def msi_work_space_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         Authenticate to ADB via managed service identity.
+
+
+
+
+        You must specify exactly one of the following modes for cluster integration:
         """
         return pulumi.get(self, "msi_work_space_resource_id")
 
@@ -211,6 +226,11 @@ class LinkedServiceAzureDatabricksArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+
+
+
+
+        You must specify exactly one of the following authentication blocks:
         """
         return pulumi.get(self, "name")
 
@@ -273,7 +293,17 @@ class _LinkedServiceAzureDatabricksState:
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs'] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
+               
+               
+               
+               
+               You must specify exactly one of the following modes for cluster integration:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+               
+               
+               
+               
+               You must specify exactly one of the following authentication blocks:
         :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
@@ -431,6 +461,11 @@ class _LinkedServiceAzureDatabricksState:
     def msi_work_space_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         Authenticate to ADB via managed service identity.
+
+
+
+
+        You must specify exactly one of the following modes for cluster integration:
         """
         return pulumi.get(self, "msi_work_space_resource_id")
 
@@ -443,6 +478,11 @@ class _LinkedServiceAzureDatabricksState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+
+
+
+
+        You must specify exactly one of the following authentication blocks:
         """
         return pulumi.get(self, "name")
 
@@ -593,7 +633,17 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
+               
+               
+               
+               
+               You must specify exactly one of the following modes for cluster integration:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+               
+               
+               
+               
+               You must specify exactly one of the following authentication blocks:
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
@@ -788,7 +838,17 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
+               
+               
+               
+               
+               You must specify exactly one of the following modes for cluster integration:
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+               
+               
+               
+               
+               You must specify exactly one of the following authentication blocks:
         :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
@@ -897,6 +957,11 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
     def msi_work_space_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
         Authenticate to ADB via managed service identity.
+
+
+
+
+        You must specify exactly one of the following modes for cluster integration:
         """
         return pulumi.get(self, "msi_work_space_resource_id")
 
@@ -905,6 +970,11 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+
+
+
+
+        You must specify exactly one of the following authentication blocks:
         """
         return pulumi.get(self, "name")
 

@@ -13,13 +13,18 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
     public sealed class ConfigurationFeatureTargetingFilterGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the group.
+        /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Rollout percentage of the group.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
         /// </summary>
         [Input("rolloutPercentage", required: true)]
         public Input<int> RolloutPercentage { get; set; } = null!;

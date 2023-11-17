@@ -15,14 +15,17 @@ namespace Pulumi.Azure.Iot.Outputs
     {
         /// <summary>
         /// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+        /// 
+        /// 
+        /// `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The IP address range in CIDR notation for the ip rule.
+        /// The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
         /// </summary>
         public readonly string IpMask;
         /// <summary>
-        /// The name of the ip rule.
+        /// The name of the IP rule.`name` - (Required) The name of the ip rule.
         /// </summary>
         public readonly string Name;
 

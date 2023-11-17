@@ -110,12 +110,16 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
     /**
      * The `Content-Type` response header that is sent when this SAS token is used.
      * 
+     * A `permissions` block contains:
+     * 
      */
     @Import(name="contentType")
     private @Nullable Output<String> contentType;
 
     /**
      * @return The `Content-Type` response header that is sent when this SAS token is used.
+     * 
+     * A `permissions` block contains:
      * 
      */
     public Optional<Output<String>> contentType() {
@@ -365,6 +369,8 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         /**
          * @param contentType The `Content-Type` response header that is sent when this SAS token is used.
          * 
+         * A `permissions` block contains:
+         * 
          * @return builder
          * 
          */
@@ -375,6 +381,8 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
 
         /**
          * @param contentType The `Content-Type` response header that is sent when this SAS token is used.
+         * 
+         * A `permissions` block contains:
          * 
          * @return builder
          * 

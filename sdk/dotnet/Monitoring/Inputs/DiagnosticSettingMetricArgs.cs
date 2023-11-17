@@ -21,13 +21,23 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Category { get; set; } = null!;
 
         /// <summary>
-        /// Is this Diagnostic Metric enabled? Defaults to `true`.
+        /// Is this Diagnostic Log enabled? Defaults to `true`.
+        /// 
+        /// 
+        /// `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// A `retention_policy` block as defined below.
+        /// 
+        /// !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+        /// 
+        /// !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+        /// 
+        /// 
+        /// `retention_policy` - (Optional) A `retention_policy` block as defined below.
         /// 
         /// !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
         /// </summary>

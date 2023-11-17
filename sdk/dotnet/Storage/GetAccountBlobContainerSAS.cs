@@ -203,6 +203,11 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The `Content-Type` response header that is sent when this SAS token is used.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `permissions` block contains:
         /// </summary>
         [Input("contentType")]
         public string? ContentType { get; set; }
@@ -295,6 +300,11 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The `Content-Type` response header that is sent when this SAS token is used.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `permissions` block contains:
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }

@@ -19,14 +19,14 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
     public static final TransformOutputCustomPresetCodecH265VideoArgs Empty = new TransformOutputCustomPresetCodecH265VideoArgs();
 
     /**
-     * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+     * The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
      * 
      */
     @Import(name="complexity")
     private @Nullable Output<String> complexity;
 
     /**
-     * @return The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+     * @return The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
      * 
      */
     public Optional<Output<String>> complexity() {
@@ -34,14 +34,14 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
     }
 
     /**
-     * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+     * The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
      * 
      */
     @Import(name="keyFrameInterval")
     private @Nullable Output<String> keyFrameInterval;
 
     /**
-     * @return The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+     * @return The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
      * 
      */
     public Optional<Output<String>> keyFrameInterval() {
@@ -64,14 +64,14 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
     }
 
     /**
-     * One or more `layer` blocks as defined below.
+     * One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
      * 
      */
     @Import(name="layers")
     private @Nullable Output<List<TransformOutputCustomPresetCodecH265VideoLayerArgs>> layers;
 
     /**
-     * @return One or more `layer` blocks as defined below.
+     * @return One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
      * 
      */
     public Optional<Output<List<TransformOutputCustomPresetCodecH265VideoLayerArgs>>> layers() {
@@ -79,14 +79,14 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
     }
 
     /**
-     * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+     * Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
      * 
      */
     @Import(name="sceneChangeDetectionEnabled")
     private @Nullable Output<Boolean> sceneChangeDetectionEnabled;
 
     /**
-     * @return Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+     * @return Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
      * 
      */
     public Optional<Output<Boolean>> sceneChangeDetectionEnabled() {
@@ -94,14 +94,14 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
     }
 
     /**
-     * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+     * Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
      * 
      */
     @Import(name="stretchMode")
     private @Nullable Output<String> stretchMode;
 
     /**
-     * @return Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+     * @return Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
      * 
      */
     public Optional<Output<String>> stretchMode() {
@@ -111,12 +111,16 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
     /**
      * Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
      * 
+     * `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+     * 
      */
     @Import(name="syncMode")
     private @Nullable Output<String> syncMode;
 
     /**
      * @return Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+     * 
+     * `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
      * 
      */
     public Optional<Output<String>> syncMode() {
@@ -154,7 +158,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param complexity The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+         * @param complexity The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
          * 
          * @return builder
          * 
@@ -165,7 +169,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param complexity The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+         * @param complexity The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
          * 
          * @return builder
          * 
@@ -175,7 +179,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param keyFrameInterval The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         * @param keyFrameInterval The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
          * 
          * @return builder
          * 
@@ -186,7 +190,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param keyFrameInterval The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+         * @param keyFrameInterval The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
          * 
          * @return builder
          * 
@@ -217,7 +221,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param layers One or more `layer` blocks as defined below.
+         * @param layers One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
          * 
          * @return builder
          * 
@@ -228,7 +232,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param layers One or more `layer` blocks as defined below.
+         * @param layers One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
          * 
          * @return builder
          * 
@@ -238,7 +242,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param layers One or more `layer` blocks as defined below.
+         * @param layers One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
          * 
          * @return builder
          * 
@@ -248,7 +252,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param sceneChangeDetectionEnabled Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+         * @param sceneChangeDetectionEnabled Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
          * 
          * @return builder
          * 
@@ -259,7 +263,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param sceneChangeDetectionEnabled Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+         * @param sceneChangeDetectionEnabled Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
          * 
          * @return builder
          * 
@@ -269,7 +273,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param stretchMode Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         * @param stretchMode Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
          * 
          * @return builder
          * 
@@ -280,7 +284,7 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         }
 
         /**
-         * @param stretchMode Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+         * @param stretchMode Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
          * 
          * @return builder
          * 
@@ -292,6 +296,8 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
         /**
          * @param syncMode Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
          * 
+         * `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         * 
          * @return builder
          * 
          */
@@ -302,6 +308,8 @@ public final class TransformOutputCustomPresetCodecH265VideoArgs extends com.pul
 
         /**
          * @param syncMode Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+         * 
+         * `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
          * 
          * @return builder
          * 

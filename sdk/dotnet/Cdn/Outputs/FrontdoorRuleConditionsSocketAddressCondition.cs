@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
-        /// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        /// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>

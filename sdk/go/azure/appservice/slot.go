@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Slot (within an App Service).
@@ -223,7 +222,7 @@ type Slot struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs SlotLogsOutput `pulumi:"logs"`
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -302,7 +301,7 @@ type slotState struct {
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs *SlotLogs `pulumi:"logs"`
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -343,7 +342,7 @@ type SlotState struct {
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs SlotLogsPtrInput
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -386,7 +385,7 @@ type slotArgs struct {
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs *SlotLogs `pulumi:"logs"`
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -424,7 +423,7 @@ type SlotArgs struct {
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs SlotLogsPtrInput
-	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+	// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -459,12 +458,6 @@ func (i *Slot) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotOutput)
 }
 
-func (i *Slot) ToOutput(ctx context.Context) pulumix.Output[*Slot] {
-	return pulumix.Output[*Slot]{
-		OutputState: i.ToSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SlotArrayInput is an input type that accepts SlotArray and SlotArrayOutput values.
 // You can construct a concrete instance of `SlotArrayInput` via:
 //
@@ -488,12 +481,6 @@ func (i SlotArray) ToSlotArrayOutput() SlotArrayOutput {
 
 func (i SlotArray) ToSlotArrayOutputWithContext(ctx context.Context) SlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotArrayOutput)
-}
-
-func (i SlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*Slot] {
-	return pulumix.Output[[]*Slot]{
-		OutputState: i.ToSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SlotMapInput is an input type that accepts SlotMap and SlotMapOutput values.
@@ -521,12 +508,6 @@ func (i SlotMap) ToSlotMapOutputWithContext(ctx context.Context) SlotMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotMapOutput)
 }
 
-func (i SlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Slot] {
-	return pulumix.Output[map[string]*Slot]{
-		OutputState: i.ToSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SlotOutput struct{ *pulumi.OutputState }
 
 func (SlotOutput) ElementType() reflect.Type {
@@ -539,12 +520,6 @@ func (o SlotOutput) ToSlotOutput() SlotOutput {
 
 func (o SlotOutput) ToSlotOutputWithContext(ctx context.Context) SlotOutput {
 	return o
-}
-
-func (o SlotOutput) ToOutput(ctx context.Context) pulumix.Output[*Slot] {
-	return pulumix.Output[*Slot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
@@ -612,7 +587,7 @@ func (o SlotOutput) Logs() SlotLogsOutput {
 	return o.ApplyT(func(v *Slot) SlotLogsOutput { return v.Logs }).(SlotLogsOutput)
 }
 
-// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+// Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 func (o SlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Slot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -656,12 +631,6 @@ func (o SlotArrayOutput) ToSlotArrayOutputWithContext(ctx context.Context) SlotA
 	return o
 }
 
-func (o SlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Slot] {
-	return pulumix.Output[[]*Slot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlotArrayOutput) Index(i pulumi.IntInput) SlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Slot {
 		return vs[0].([]*Slot)[vs[1].(int)]
@@ -680,12 +649,6 @@ func (o SlotMapOutput) ToSlotMapOutput() SlotMapOutput {
 
 func (o SlotMapOutput) ToSlotMapOutputWithContext(ctx context.Context) SlotMapOutput {
 	return o
-}
-
-func (o SlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Slot] {
-	return pulumix.Output[map[string]*Slot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SlotMapOutput) MapIndex(k pulumi.StringInput) SlotOutput {

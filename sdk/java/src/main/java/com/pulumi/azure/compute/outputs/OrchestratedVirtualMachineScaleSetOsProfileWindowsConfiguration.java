@@ -39,24 +39,20 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     private @Nullable String patchAssessmentMode;
-    /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-     * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
-     * 
-     */
     private @Nullable String patchMode;
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      * 
      */
     private @Nullable Boolean provisionVmAgent;
     /**
-     * @return One or more `secret` blocks as defined below.
+     * @return One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
      * 
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
@@ -106,30 +102,26 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
+     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
      * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     public Optional<String> patchAssessmentMode() {
         return Optional.ofNullable(this.patchAssessmentMode);
     }
-    /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-     * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
-     * 
-     */
     public Optional<String> patchMode() {
         return Optional.ofNullable(this.patchMode);
     }
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
      * 
      */
     public Optional<Boolean> provisionVmAgent() {
         return Optional.ofNullable(this.provisionVmAgent);
     }
     /**
-     * @return One or more `secret` blocks as defined below.
+     * @return One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets() {

@@ -1176,14 +1176,18 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.storageProfile);
     }
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
+     * 
+     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

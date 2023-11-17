@@ -237,12 +237,16 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     /**
      * The Static IP Address which should be used.
      * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
+     * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
      * @return The Static IP Address which should be used.
+     * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -678,6 +682,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         /**
          * @param privateIpAddress The Static IP Address which should be used.
          * 
+         * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
+         * 
          * @return builder
          * 
          */
@@ -688,6 +694,8 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param privateIpAddress The Static IP Address which should be used.
+         * 
+         * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
          * 
          * @return builder
          * 

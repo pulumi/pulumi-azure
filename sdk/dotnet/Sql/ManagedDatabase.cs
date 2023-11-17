@@ -84,6 +84,11 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// In addition to the Arguments listed above - the following Attributes are exported:
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -148,6 +153,11 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// In addition to the Arguments listed above - the following Attributes are exported:
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -174,6 +184,11 @@ namespace Pulumi.Azure.Sql
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// In addition to the Arguments listed above - the following Attributes are exported:
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

@@ -41,6 +41,11 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
+               
+               
+               
+               
+               A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         pulumi.set(__self__, "configuration_store_id", configuration_store_id)
         if description is not None:
@@ -200,6 +205,11 @@ class ConfigurationFeatureArgs:
     def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
         """
         A `timewindow_filter` block as defined below.
+
+
+
+
+        A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         return pulumi.get(self, "timewindow_filters")
 
@@ -236,6 +246,11 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
+               
+               
+               
+               
+               A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         if configuration_store_id is not None:
             pulumi.set(__self__, "configuration_store_id", configuration_store_id)
@@ -396,6 +411,11 @@ class _ConfigurationFeatureState:
     def timewindow_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]]:
         """
         A `timewindow_filter` block as defined below.
+
+
+
+
+        A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         return pulumi.get(self, "timewindow_filters")
 
@@ -476,6 +496,11 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
+               
+               
+               
+               
+               A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         ...
     @overload
@@ -614,6 +639,11 @@ class ConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTargetingFilterArgs']]]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationFeatureTimewindowFilterArgs']]]] timewindow_filters: A `timewindow_filter` block as defined below.
+               
+               
+               
+               
+               A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -723,6 +753,11 @@ class ConfigurationFeature(pulumi.CustomResource):
     def timewindow_filters(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationFeatureTimewindowFilter']]]:
         """
         A `timewindow_filter` block as defined below.
+
+
+
+
+        A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         """
         return pulumi.get(self, "timewindow_filters")
 

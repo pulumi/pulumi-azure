@@ -39,7 +39,7 @@ class ServerIpv4FirewallRule(dict):
                  range_end: str,
                  range_start: str):
         """
-        :param str name: Specifies the name of the firewall rule.
+        :param str name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param str range_end: End of the firewall rule range as IPv4 address.
         :param str range_start: Start of the firewall rule range as IPv4 address.
         """
@@ -51,7 +51,7 @@ class ServerIpv4FirewallRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Specifies the name of the firewall rule.
+        The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

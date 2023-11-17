@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -206,12 +205,6 @@ func (i *TenantTemplateDeployment) ToTenantTemplateDeploymentOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentOutput)
 }
 
-func (i *TenantTemplateDeployment) ToOutput(ctx context.Context) pulumix.Output[*TenantTemplateDeployment] {
-	return pulumix.Output[*TenantTemplateDeployment]{
-		OutputState: i.ToTenantTemplateDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TenantTemplateDeploymentArrayInput is an input type that accepts TenantTemplateDeploymentArray and TenantTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `TenantTemplateDeploymentArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i TenantTemplateDeploymentArray) ToTenantTemplateDeploymentArrayOutput() T
 
 func (i TenantTemplateDeploymentArray) ToTenantTemplateDeploymentArrayOutputWithContext(ctx context.Context) TenantTemplateDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentArrayOutput)
-}
-
-func (i TenantTemplateDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TenantTemplateDeployment] {
-	return pulumix.Output[[]*TenantTemplateDeployment]{
-		OutputState: i.ToTenantTemplateDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TenantTemplateDeploymentMapInput is an input type that accepts TenantTemplateDeploymentMap and TenantTemplateDeploymentMapOutput values.
@@ -268,12 +255,6 @@ func (i TenantTemplateDeploymentMap) ToTenantTemplateDeploymentMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TenantTemplateDeploymentMapOutput)
 }
 
-func (i TenantTemplateDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TenantTemplateDeployment] {
-	return pulumix.Output[map[string]*TenantTemplateDeployment]{
-		OutputState: i.ToTenantTemplateDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TenantTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (TenantTemplateDeploymentOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentOutput() Tenan
 
 func (o TenantTemplateDeploymentOutput) ToTenantTemplateDeploymentOutputWithContext(ctx context.Context) TenantTemplateDeploymentOutput {
 	return o
-}
-
-func (o TenantTemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*TenantTemplateDeployment] {
-	return pulumix.Output[*TenantTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -348,12 +323,6 @@ func (o TenantTemplateDeploymentArrayOutput) ToTenantTemplateDeploymentArrayOutp
 	return o
 }
 
-func (o TenantTemplateDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TenantTemplateDeployment] {
-	return pulumix.Output[[]*TenantTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TenantTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) TenantTemplateDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TenantTemplateDeployment {
 		return vs[0].([]*TenantTemplateDeployment)[vs[1].(int)]
@@ -372,12 +341,6 @@ func (o TenantTemplateDeploymentMapOutput) ToTenantTemplateDeploymentMapOutput()
 
 func (o TenantTemplateDeploymentMapOutput) ToTenantTemplateDeploymentMapOutputWithContext(ctx context.Context) TenantTemplateDeploymentMapOutput {
 	return o
-}
-
-func (o TenantTemplateDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TenantTemplateDeployment] {
-	return pulumix.Output[map[string]*TenantTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TenantTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) TenantTemplateDeploymentOutput {

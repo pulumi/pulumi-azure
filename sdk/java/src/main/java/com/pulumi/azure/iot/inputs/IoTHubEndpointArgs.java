@@ -47,14 +47,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     @Import(name="connectionString")
     private @Nullable Output<String> connectionString;
 
     /**
-     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     public Optional<Output<String>> connectionString() {
@@ -62,14 +62,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+     * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     @Import(name="containerName")
     private @Nullable Output<String> containerName;
 
     /**
-     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     public Optional<Output<String>> containerName() {
@@ -190,14 +190,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The resource group in which the endpoint will be created.
+     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The resource group in which the endpoint will be created.
+     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -298,7 +298,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerName The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * @param containerName The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
          * 
          * @return builder
          * 
@@ -330,7 +330,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param containerName The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+         * @param containerName The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The resource group in which the endpoint will be created.
+         * @param resourceGroupName The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
          * 
          * @return builder
          * 
@@ -506,7 +506,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceGroupName The resource group in which the endpoint will be created.
+         * @param resourceGroupName The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
          * 
          * @return builder
          * 

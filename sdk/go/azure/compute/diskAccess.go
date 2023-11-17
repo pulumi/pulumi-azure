@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Disk Access.
@@ -168,12 +167,6 @@ func (i *DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAcce
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessOutput)
 }
 
-func (i *DiskAccess) ToOutput(ctx context.Context) pulumix.Output[*DiskAccess] {
-	return pulumix.Output[*DiskAccess]{
-		OutputState: i.ToDiskAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiskAccessArrayInput is an input type that accepts DiskAccessArray and DiskAccessArrayOutput values.
 // You can construct a concrete instance of `DiskAccessArrayInput` via:
 //
@@ -197,12 +190,6 @@ func (i DiskAccessArray) ToDiskAccessArrayOutput() DiskAccessArrayOutput {
 
 func (i DiskAccessArray) ToDiskAccessArrayOutputWithContext(ctx context.Context) DiskAccessArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessArrayOutput)
-}
-
-func (i DiskAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiskAccess] {
-	return pulumix.Output[[]*DiskAccess]{
-		OutputState: i.ToDiskAccessArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DiskAccessMapInput is an input type that accepts DiskAccessMap and DiskAccessMapOutput values.
@@ -230,12 +217,6 @@ func (i DiskAccessMap) ToDiskAccessMapOutputWithContext(ctx context.Context) Dis
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessMapOutput)
 }
 
-func (i DiskAccessMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskAccess] {
-	return pulumix.Output[map[string]*DiskAccess]{
-		OutputState: i.ToDiskAccessMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiskAccessOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessOutput) ElementType() reflect.Type {
@@ -248,12 +229,6 @@ func (o DiskAccessOutput) ToDiskAccessOutput() DiskAccessOutput {
 
 func (o DiskAccessOutput) ToDiskAccessOutputWithContext(ctx context.Context) DiskAccessOutput {
 	return o
-}
-
-func (o DiskAccessOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskAccess] {
-	return pulumix.Output[*DiskAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created.
@@ -290,12 +265,6 @@ func (o DiskAccessArrayOutput) ToDiskAccessArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DiskAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiskAccess] {
-	return pulumix.Output[[]*DiskAccess]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DiskAccessArrayOutput) Index(i pulumi.IntInput) DiskAccessOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskAccess {
 		return vs[0].([]*DiskAccess)[vs[1].(int)]
@@ -314,12 +283,6 @@ func (o DiskAccessMapOutput) ToDiskAccessMapOutput() DiskAccessMapOutput {
 
 func (o DiskAccessMapOutput) ToDiskAccessMapOutputWithContext(ctx context.Context) DiskAccessMapOutput {
 	return o
-}
-
-func (o DiskAccessMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskAccess] {
-	return pulumix.Output[map[string]*DiskAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskAccessMapOutput) MapIndex(k pulumi.StringInput) DiskAccessOutput {

@@ -50,14 +50,14 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the route.
+     * @return The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
      * 
      */
     public Optional<Output<String>> name() {
@@ -101,12 +101,16 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `route` block support:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `route` block support:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -185,7 +189,7 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the route.
+         * @param name The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
          * 
          * @return builder
          * 
@@ -196,7 +200,7 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the route.
+         * @param name The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
          * 
          * @return builder
          * 
@@ -266,6 +270,8 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * A `route` block support:
+         * 
          * @return builder
          * 
          */
@@ -276,6 +282,8 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * A `route` block support:
          * 
          * @return builder
          * 

@@ -189,7 +189,14 @@ class ServiceNetworkAclPrivateEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_request_types: The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
                > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               
+               > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+               
+               
+               `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
                > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
                
@@ -231,7 +238,14 @@ class ServiceNetworkAclPrivateEndpointArgs:
     @pulumi.getter(name="deniedRequestTypes")
     def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+
+
+        `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
         > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
 
@@ -254,6 +268,13 @@ class ServiceNetworkAclPublicNetworkArgs:
                
                > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] denied_request_types: The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+               
+               > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+               
+               > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+               
+               
+               `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
                
                > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
                
@@ -283,6 +304,13 @@ class ServiceNetworkAclPublicNetworkArgs:
     def denied_request_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+
+
+        `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 
         > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
 

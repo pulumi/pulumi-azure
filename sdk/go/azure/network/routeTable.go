@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Route Table
@@ -79,7 +78,7 @@ type RouteTable struct {
 	DisableBgpRoutePropagation pulumi.BoolPtrOutput `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -90,6 +89,8 @@ type RouteTable struct {
 	// The collection of Subnets associated with this route table.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `route` block support:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -130,7 +131,7 @@ type routeTableState struct {
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -141,6 +142,8 @@ type routeTableState struct {
 	// The collection of Subnets associated with this route table.
 	Subnets []string `pulumi:"subnets"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `route` block support:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -149,7 +152,7 @@ type RouteTableState struct {
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -160,6 +163,8 @@ type RouteTableState struct {
 	// The collection of Subnets associated with this route table.
 	Subnets pulumi.StringArrayInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `route` block support:
 	Tags pulumi.StringMapInput
 }
 
@@ -172,7 +177,7 @@ type routeTableArgs struct {
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -181,6 +186,8 @@ type routeTableArgs struct {
 	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes []RouteTableRoute `pulumi:"routes"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `route` block support:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -190,7 +197,7 @@ type RouteTableArgs struct {
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -199,6 +206,8 @@ type RouteTableArgs struct {
 	// > **NOTE** Since `route` can be configured both inline and via the separate `network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	Routes RouteTableRouteArrayInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `route` block support:
 	Tags pulumi.StringMapInput
 }
 
@@ -223,12 +232,6 @@ func (i *RouteTable) ToRouteTableOutput() RouteTableOutput {
 
 func (i *RouteTable) ToRouteTableOutputWithContext(ctx context.Context) RouteTableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableOutput)
-}
-
-func (i *RouteTable) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
-	return pulumix.Output[*RouteTable]{
-		OutputState: i.ToRouteTableOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RouteTableArrayInput is an input type that accepts RouteTableArray and RouteTableArrayOutput values.
@@ -256,12 +259,6 @@ func (i RouteTableArray) ToRouteTableArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableArrayOutput)
 }
 
-func (i RouteTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTable] {
-	return pulumix.Output[[]*RouteTable]{
-		OutputState: i.ToRouteTableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RouteTableMapInput is an input type that accepts RouteTableMap and RouteTableMapOutput values.
 // You can construct a concrete instance of `RouteTableMapInput` via:
 //
@@ -287,12 +284,6 @@ func (i RouteTableMap) ToRouteTableMapOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableMapOutput)
 }
 
-func (i RouteTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTable] {
-	return pulumix.Output[map[string]*RouteTable]{
-		OutputState: i.ToRouteTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
@@ -307,12 +298,6 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
-func (o RouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTable] {
-	return pulumix.Output[*RouteTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
 func (o RouteTableOutput) DisableBgpRoutePropagation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.BoolPtrOutput { return v.DisableBgpRoutePropagation }).(pulumi.BoolPtrOutput)
@@ -323,7 +308,7 @@ func (o RouteTableOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the route.
+// The name of the route table. Changing this forces a new resource to be created.`name` - (Required) The name of the route.
 func (o RouteTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -346,6 +331,8 @@ func (o RouteTableOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// A `route` block support:
 func (o RouteTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -362,12 +349,6 @@ func (o RouteTableArrayOutput) ToRouteTableArrayOutput() RouteTableArrayOutput {
 
 func (o RouteTableArrayOutput) ToRouteTableArrayOutputWithContext(ctx context.Context) RouteTableArrayOutput {
 	return o
-}
-
-func (o RouteTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTable] {
-	return pulumix.Output[[]*RouteTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteTableArrayOutput) Index(i pulumi.IntInput) RouteTableOutput {
@@ -388,12 +369,6 @@ func (o RouteTableMapOutput) ToRouteTableMapOutput() RouteTableMapOutput {
 
 func (o RouteTableMapOutput) ToRouteTableMapOutputWithContext(ctx context.Context) RouteTableMapOutput {
 	return o
-}
-
-func (o RouteTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTable] {
-	return pulumix.Output[map[string]*RouteTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteTableMapOutput) MapIndex(k pulumi.StringInput) RouteTableOutput {

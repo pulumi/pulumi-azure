@@ -21,7 +21,7 @@ public final class ServiceAdditionalLocation {
      */
     private @Nullable Integer capacity;
     /**
-     * @return Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      * 
      */
     private @Nullable Boolean gatewayDisabled;
@@ -53,7 +53,7 @@ public final class ServiceAdditionalLocation {
      */
     private @Nullable List<String> publicIpAddresses;
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     private @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
@@ -72,7 +72,7 @@ public final class ServiceAdditionalLocation {
         return Optional.ofNullable(this.capacity);
     }
     /**
-     * @return Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      * 
      */
     public Optional<Boolean> gatewayDisabled() {
@@ -116,7 +116,7 @@ public final class ServiceAdditionalLocation {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
     }
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     public Optional<ServiceAdditionalLocationVirtualNetworkConfiguration> virtualNetworkConfiguration() {

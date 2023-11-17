@@ -32,6 +32,11 @@ namespace Pulumi.Azure.CosmosDB.Inputs
 
         /// <summary>
         /// Should zone redundancy be enabled for this region? Defaults to `false`.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `capabilities` block Configures the capabilities to be enabled for this Cosmos DB account:
         /// </summary>
         [Input("zoneRedundant")]
         public Input<bool>? ZoneRedundant { get; set; }

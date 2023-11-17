@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Linked Storage Account.
@@ -84,9 +83,7 @@ import (
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
 
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	//
-	// > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
 	DataSourceType pulumi.StringOutput `pulumi:"dataSourceType"`
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -138,9 +135,7 @@ func GetLinkedStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedStorageAccount resources.
 type linkedStorageAccountState struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	//
-	// > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
 	DataSourceType *string `pulumi:"dataSourceType"`
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -151,9 +146,7 @@ type linkedStorageAccountState struct {
 }
 
 type LinkedStorageAccountState struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	//
-	// > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
 	DataSourceType pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -168,9 +161,7 @@ func (LinkedStorageAccountState) ElementType() reflect.Type {
 }
 
 type linkedStorageAccountArgs struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	//
-	// > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
 	DataSourceType string `pulumi:"dataSourceType"`
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -182,9 +173,7 @@ type linkedStorageAccountArgs struct {
 
 // The set of arguments for constructing a LinkedStorageAccount resource.
 type LinkedStorageAccountArgs struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-	//
-	// > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
 	DataSourceType pulumi.StringInput
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName pulumi.StringInput
@@ -217,12 +206,6 @@ func (i *LinkedStorageAccount) ToLinkedStorageAccountOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountOutput)
 }
 
-func (i *LinkedStorageAccount) ToOutput(ctx context.Context) pulumix.Output[*LinkedStorageAccount] {
-	return pulumix.Output[*LinkedStorageAccount]{
-		OutputState: i.ToLinkedStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedStorageAccountArrayInput is an input type that accepts LinkedStorageAccountArray and LinkedStorageAccountArrayOutput values.
 // You can construct a concrete instance of `LinkedStorageAccountArrayInput` via:
 //
@@ -246,12 +229,6 @@ func (i LinkedStorageAccountArray) ToLinkedStorageAccountArrayOutput() LinkedSto
 
 func (i LinkedStorageAccountArray) ToLinkedStorageAccountArrayOutputWithContext(ctx context.Context) LinkedStorageAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountArrayOutput)
-}
-
-func (i LinkedStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedStorageAccount] {
-	return pulumix.Output[[]*LinkedStorageAccount]{
-		OutputState: i.ToLinkedStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedStorageAccountMapInput is an input type that accepts LinkedStorageAccountMap and LinkedStorageAccountMapOutput values.
@@ -279,12 +256,6 @@ func (i LinkedStorageAccountMap) ToLinkedStorageAccountMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedStorageAccountMapOutput)
 }
 
-func (i LinkedStorageAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedStorageAccount] {
-	return pulumix.Output[map[string]*LinkedStorageAccount]{
-		OutputState: i.ToLinkedStorageAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (LinkedStorageAccountOutput) ElementType() reflect.Type {
@@ -299,15 +270,7 @@ func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutputWithContext(ctx 
 	return o
 }
 
-func (o LinkedStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedStorageAccount] {
-	return pulumix.Output[*LinkedStorageAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-//
-// > **Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `dataSourceType` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
 func (o LinkedStorageAccountOutput) DataSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.DataSourceType }).(pulumi.StringOutput)
 }
@@ -341,12 +304,6 @@ func (o LinkedStorageAccountArrayOutput) ToLinkedStorageAccountArrayOutputWithCo
 	return o
 }
 
-func (o LinkedStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedStorageAccount] {
-	return pulumix.Output[[]*LinkedStorageAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedStorageAccountArrayOutput) Index(i pulumi.IntInput) LinkedStorageAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedStorageAccount {
 		return vs[0].([]*LinkedStorageAccount)[vs[1].(int)]
@@ -365,12 +322,6 @@ func (o LinkedStorageAccountMapOutput) ToLinkedStorageAccountMapOutput() LinkedS
 
 func (o LinkedStorageAccountMapOutput) ToLinkedStorageAccountMapOutputWithContext(ctx context.Context) LinkedStorageAccountMapOutput {
 	return o
-}
-
-func (o LinkedStorageAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedStorageAccount] {
-	return pulumix.Output[map[string]*LinkedStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedStorageAccountMapOutput) MapIndex(k pulumi.StringInput) LinkedStorageAccountOutput {

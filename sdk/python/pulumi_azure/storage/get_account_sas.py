@@ -211,6 +211,15 @@ def get_account_sas(connection_string: Optional[str] = None,
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
     :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
+           
+           
+           
+           
+           `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+           access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+           larger scope (affecting all sub-resources) than `object`.
+           
+           A `resource_types` block contains:
     :param pulumi.InputType['GetAccountSASResourceTypesArgs'] resource_types: A `resource_types` block as defined below.
     :param pulumi.InputType['GetAccountSASServicesArgs'] services: A `services` block as defined below.
     :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
@@ -316,6 +325,15 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
     :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
     :param pulumi.InputType['GetAccountSASPermissionsArgs'] permissions: A `permissions` block as defined below.
+           
+           
+           
+           
+           `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+           access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+           larger scope (affecting all sub-resources) than `object`.
+           
+           A `resource_types` block contains:
     :param pulumi.InputType['GetAccountSASResourceTypesArgs'] resource_types: A `resource_types` block as defined below.
     :param pulumi.InputType['GetAccountSASServicesArgs'] services: A `services` block as defined below.
     :param str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.

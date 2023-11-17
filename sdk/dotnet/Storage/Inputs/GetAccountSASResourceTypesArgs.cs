@@ -20,6 +20,13 @@ namespace Pulumi.Azure.Storage.Inputs
 
         /// <summary>
         /// Should permission be granted only to a specific object?
+        /// 
+        /// 
+        /// 
+        /// 
+        /// `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+        /// 
+        /// A `services` block contains:
         /// </summary>
         [Input("object", required: true)]
         public Input<bool> Object { get; set; } = null!;

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SQL Azure Managed Database.
@@ -99,6 +98,8 @@ type ManagedDatabase struct {
 	pulumi.CustomResourceState
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	//
+	// In addition to the Arguments listed above - the following Attributes are exported:
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -140,6 +141,8 @@ func GetManagedDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ManagedDatabase resources.
 type managedDatabaseState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	//
+	// In addition to the Arguments listed above - the following Attributes are exported:
 	Location *string `pulumi:"location"`
 	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -149,6 +152,8 @@ type managedDatabaseState struct {
 
 type ManagedDatabaseState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	//
+	// In addition to the Arguments listed above - the following Attributes are exported:
 	Location pulumi.StringPtrInput
 	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -162,6 +167,8 @@ func (ManagedDatabaseState) ElementType() reflect.Type {
 
 type managedDatabaseArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	//
+	// In addition to the Arguments listed above - the following Attributes are exported:
 	Location *string `pulumi:"location"`
 	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -172,6 +179,8 @@ type managedDatabaseArgs struct {
 // The set of arguments for constructing a ManagedDatabase resource.
 type ManagedDatabaseArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	//
+	// In addition to the Arguments listed above - the following Attributes are exported:
 	Location pulumi.StringPtrInput
 	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -202,12 +211,6 @@ func (i *ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseOutput)
 }
 
-func (i *ManagedDatabase) ToOutput(ctx context.Context) pulumix.Output[*ManagedDatabase] {
-	return pulumix.Output[*ManagedDatabase]{
-		OutputState: i.ToManagedDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedDatabaseArrayInput is an input type that accepts ManagedDatabaseArray and ManagedDatabaseArrayOutput values.
 // You can construct a concrete instance of `ManagedDatabaseArrayInput` via:
 //
@@ -231,12 +234,6 @@ func (i ManagedDatabaseArray) ToManagedDatabaseArrayOutput() ManagedDatabaseArra
 
 func (i ManagedDatabaseArray) ToManagedDatabaseArrayOutputWithContext(ctx context.Context) ManagedDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseArrayOutput)
-}
-
-func (i ManagedDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDatabase] {
-	return pulumix.Output[[]*ManagedDatabase]{
-		OutputState: i.ToManagedDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedDatabaseMapInput is an input type that accepts ManagedDatabaseMap and ManagedDatabaseMapOutput values.
@@ -264,12 +261,6 @@ func (i ManagedDatabaseMap) ToManagedDatabaseMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseMapOutput)
 }
 
-func (i ManagedDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDatabase] {
-	return pulumix.Output[map[string]*ManagedDatabase]{
-		OutputState: i.ToManagedDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseOutput) ElementType() reflect.Type {
@@ -284,13 +275,9 @@ func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ManagedDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedDatabase] {
-	return pulumix.Output[*ManagedDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+//
+// In addition to the Arguments listed above - the following Attributes are exported:
 func (o ManagedDatabaseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -319,12 +306,6 @@ func (o ManagedDatabaseArrayOutput) ToManagedDatabaseArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ManagedDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDatabase] {
-	return pulumix.Output[[]*ManagedDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedDatabaseArrayOutput) Index(i pulumi.IntInput) ManagedDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedDatabase {
 		return vs[0].([]*ManagedDatabase)[vs[1].(int)]
@@ -343,12 +324,6 @@ func (o ManagedDatabaseMapOutput) ToManagedDatabaseMapOutput() ManagedDatabaseMa
 
 func (o ManagedDatabaseMapOutput) ToManagedDatabaseMapOutputWithContext(ctx context.Context) ManagedDatabaseMapOutput {
 	return o
-}
-
-func (o ManagedDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDatabase] {
-	return pulumix.Output[map[string]*ManagedDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedDatabaseMapOutput) MapIndex(k pulumi.StringInput) ManagedDatabaseOutput {

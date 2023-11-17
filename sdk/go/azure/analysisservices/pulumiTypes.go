@@ -9,13 +9,12 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ServerIpv4FirewallRule struct {
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// End of the firewall rule range as IPv4 address.
 	RangeEnd string `pulumi:"rangeEnd"`
@@ -35,7 +34,7 @@ type ServerIpv4FirewallRuleInput interface {
 }
 
 type ServerIpv4FirewallRuleArgs struct {
-	// Specifies the name of the firewall rule.
+	// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// End of the firewall rule range as IPv4 address.
 	RangeEnd pulumi.StringInput `pulumi:"rangeEnd"`
@@ -53,12 +52,6 @@ func (i ServerIpv4FirewallRuleArgs) ToServerIpv4FirewallRuleOutput() ServerIpv4F
 
 func (i ServerIpv4FirewallRuleArgs) ToServerIpv4FirewallRuleOutputWithContext(ctx context.Context) ServerIpv4FirewallRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIpv4FirewallRuleOutput)
-}
-
-func (i ServerIpv4FirewallRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ServerIpv4FirewallRule] {
-	return pulumix.Output[ServerIpv4FirewallRule]{
-		OutputState: i.ToServerIpv4FirewallRuleOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerIpv4FirewallRuleArrayInput is an input type that accepts ServerIpv4FirewallRuleArray and ServerIpv4FirewallRuleArrayOutput values.
@@ -86,12 +79,6 @@ func (i ServerIpv4FirewallRuleArray) ToServerIpv4FirewallRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIpv4FirewallRuleArrayOutput)
 }
 
-func (i ServerIpv4FirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerIpv4FirewallRule] {
-	return pulumix.Output[[]ServerIpv4FirewallRule]{
-		OutputState: i.ToServerIpv4FirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerIpv4FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (ServerIpv4FirewallRuleOutput) ElementType() reflect.Type {
@@ -106,13 +93,7 @@ func (o ServerIpv4FirewallRuleOutput) ToServerIpv4FirewallRuleOutputWithContext(
 	return o
 }
 
-func (o ServerIpv4FirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ServerIpv4FirewallRule] {
-	return pulumix.Output[ServerIpv4FirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
-// Specifies the name of the firewall rule.
+// The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 func (o ServerIpv4FirewallRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerIpv4FirewallRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -139,12 +120,6 @@ func (o ServerIpv4FirewallRuleArrayOutput) ToServerIpv4FirewallRuleArrayOutput()
 
 func (o ServerIpv4FirewallRuleArrayOutput) ToServerIpv4FirewallRuleArrayOutputWithContext(ctx context.Context) ServerIpv4FirewallRuleArrayOutput {
 	return o
-}
-
-func (o ServerIpv4FirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerIpv4FirewallRule] {
-	return pulumix.Output[[]ServerIpv4FirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerIpv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) ServerIpv4FirewallRuleOutput {

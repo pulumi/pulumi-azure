@@ -14,11 +14,14 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class FunctionAppSiteConfigScmIpRestriction
     {
         /// <summary>
-        /// Allow or Deny access for this IP range. Defaults to `Allow`.
+        /// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Allow or Deny access for this IP range. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The headers for this specific `scm_ip_restriction` as defined below.
+        /// The headers for this specific `ip_restriction` as defined below.
+        /// 
+        /// 
+        /// `headers` - (Optional) The headers for this specific `scm_ip_restriction` as defined below.
         /// </summary>
         public readonly Outputs.FunctionAppSiteConfigScmIpRestrictionHeaders? Headers;
         /// <summary>
@@ -26,11 +29,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? IpAddress;
         /// <summary>
-        /// The name for this IP Restriction.
+        /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        /// The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
         /// </summary>
         public readonly int? Priority;
         /// <summary>

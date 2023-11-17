@@ -19,14 +19,14 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
     public static final IoTHubNetworkRuleSetArgs Empty = new IoTHubNetworkRuleSetArgs();
 
     /**
-     * Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+     * Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
      * 
      */
     @Import(name="applyToBuiltinEventhubEndpoint")
     private @Nullable Output<Boolean> applyToBuiltinEventhubEndpoint;
 
     /**
-     * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+     * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> applyToBuiltinEventhubEndpoint() {
@@ -34,14 +34,14 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
      * 
      */
     @Import(name="defaultAction")
     private @Nullable Output<String> defaultAction;
 
     /**
-     * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * @return Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
      * 
      */
     public Optional<Output<String>> defaultAction() {
@@ -51,12 +51,16 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
     /**
      * One or more `ip_rule` blocks as defined below.
      * 
+     * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
+     * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<IoTHubNetworkRuleSetIpRuleArgs>> ipRules;
 
     /**
      * @return One or more `ip_rule` blocks as defined below.
+     * 
+     * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
      * 
      */
     public Optional<Output<List<IoTHubNetworkRuleSetIpRuleArgs>>> ipRules() {
@@ -90,7 +94,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applyToBuiltinEventhubEndpoint Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+         * @param applyToBuiltinEventhubEndpoint Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -101,7 +105,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applyToBuiltinEventhubEndpoint Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+         * @param applyToBuiltinEventhubEndpoint Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`apply_to_builtin_eventhub_endpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -111,7 +115,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultAction Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         * @param defaultAction Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
          * 
          * @return builder
          * 
@@ -122,7 +126,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultAction Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         * @param defaultAction Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`default_action` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
          * 
          * @return builder
          * 
@@ -133,6 +137,8 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
+         * 
+         * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -145,6 +151,8 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
          * 
+         * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
+         * 
          * @return builder
          * 
          */
@@ -154,6 +162,8 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param ipRules One or more `ip_rule` blocks as defined below.
+         * 
+         * `ip_rule` - (Optional) One or more `ip_rule` blocks as defined below.
          * 
          * @return builder
          * 

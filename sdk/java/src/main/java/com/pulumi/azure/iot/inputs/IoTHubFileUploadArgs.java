@@ -33,14 +33,14 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The connection string for the Azure Storage account to which files are uploaded.
+     * The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     @Import(name="connectionString", required=true)
     private Output<String> connectionString;
 
     /**
-     * @return The connection string for the Azure Storage account to which files are uploaded.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     public Output<String> connectionString() {
@@ -48,14 +48,14 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+     * The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
     /**
-     * @return The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     public Output<String> containerName() {
@@ -214,7 +214,7 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionString The connection string for the Azure Storage account to which files are uploaded.
+         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param connectionString The connection string for the Azure Storage account to which files are uploaded.
+         * @param connectionString The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param containerName The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+         * @param containerName The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class IoTHubFileUploadArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param containerName The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+         * @param containerName The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
          * 
          * @return builder
          * 

@@ -156,6 +156,11 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `storage_location` block contains:
         /// </summary>
         [Output("machineScope")]
         public Output<Outputs.ScaleSetPacketCaptureMachineScope?> MachineScope { get; private set; } = null!;
@@ -262,6 +267,11 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `storage_location` block contains:
         /// </summary>
         [Input("machineScope")]
         public Input<Inputs.ScaleSetPacketCaptureMachineScopeArgs>? MachineScope { get; set; }
@@ -330,6 +340,11 @@ namespace Pulumi.Azure.Compute
 
         /// <summary>
         /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `storage_location` block contains:
         /// </summary>
         [Input("machineScope")]
         public Input<Inputs.ScaleSetPacketCaptureMachineScopeGetArgs>? MachineScope { get; set; }

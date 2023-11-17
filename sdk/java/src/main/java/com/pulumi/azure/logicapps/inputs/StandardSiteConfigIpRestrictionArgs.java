@@ -18,14 +18,14 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
     public static final StandardSiteConfigIpRestrictionArgs Empty = new StandardSiteConfigIpRestrictionArgs();
 
     /**
-     * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+     * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -35,12 +35,16 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
     /**
      * The headers for this specific `ip_restriction` as defined below.
      * 
+     * `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
+     * 
      */
     @Import(name="headers")
     private @Nullable Output<StandardSiteConfigIpRestrictionHeadersArgs> headers;
 
     /**
      * @return The headers for this specific `ip_restriction` as defined below.
+     * 
+     * `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
      * 
      */
     public Optional<Output<StandardSiteConfigIpRestrictionHeadersArgs>> headers() {
@@ -63,14 +67,14 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
     }
 
     /**
-     * The name for this IP Restriction.
+     * Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for this IP Restriction.
+     * @return Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +82,14 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
     }
 
     /**
-     * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+     * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -157,7 +161,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param action Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * @param action Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -168,7 +172,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param action Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+         * @param action Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.`action` - (Optional) Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -180,6 +184,8 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         /**
          * @param headers The headers for this specific `ip_restriction` as defined below.
          * 
+         * `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
+         * 
          * @return builder
          * 
          */
@@ -190,6 +196,8 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
 
         /**
          * @param headers The headers for this specific `ip_restriction` as defined below.
+         * 
+         * `headers` - (Optional) The headers for this specific `ip_restriction` as defined below.
          * 
          * @return builder
          * 
@@ -220,7 +228,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name for this IP Restriction.
+         * @param name Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          * 
          * @return builder
          * 
@@ -231,7 +239,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name for this IP Restriction.
+         * @param name Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          * 
          * @return builder
          * 
@@ -241,7 +249,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
          * 
          * @return builder
          * 
@@ -252,7 +260,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+         * @param priority The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.`priority` - (Optional) The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
          * 
          * @return builder
          * 

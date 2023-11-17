@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
@@ -188,8 +187,12 @@ type LinkedServiceAzureDatabricks struct {
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
 	// Authenticate to ADB via managed service identity.
+	//
+	// You must specify exactly one of the following modes for cluster integration:
 	MsiWorkSpaceResourceId pulumi.StringPtrOutput `pulumi:"msiWorkSpaceResourceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	//
+	// You must specify exactly one of the following authentication blocks:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrOutput `pulumi:"newClusterConfig"`
@@ -261,8 +264,12 @@ type linkedServiceAzureDatabricksState struct {
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword *LinkedServiceAzureDatabricksKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Authenticate to ADB via managed service identity.
+	//
+	// You must specify exactly one of the following modes for cluster integration:
 	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	//
+	// You must specify exactly one of the following authentication blocks:
 	Name *string `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
@@ -292,8 +299,12 @@ type LinkedServiceAzureDatabricksState struct {
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput
 	// Authenticate to ADB via managed service identity.
+	//
+	// You must specify exactly one of the following modes for cluster integration:
 	MsiWorkSpaceResourceId pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	//
+	// You must specify exactly one of the following authentication blocks:
 	Name pulumi.StringPtrInput
 	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
@@ -327,8 +338,12 @@ type linkedServiceAzureDatabricksArgs struct {
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword *LinkedServiceAzureDatabricksKeyVaultPassword `pulumi:"keyVaultPassword"`
 	// Authenticate to ADB via managed service identity.
+	//
+	// You must specify exactly one of the following modes for cluster integration:
 	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	//
+	// You must specify exactly one of the following authentication blocks:
 	Name *string `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig *LinkedServiceAzureDatabricksNewClusterConfig `pulumi:"newClusterConfig"`
@@ -359,8 +374,12 @@ type LinkedServiceAzureDatabricksArgs struct {
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput
 	// Authenticate to ADB via managed service identity.
+	//
+	// You must specify exactly one of the following modes for cluster integration:
 	MsiWorkSpaceResourceId pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+	//
+	// You must specify exactly one of the following authentication blocks:
 	Name pulumi.StringPtrInput
 	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
 	NewClusterConfig LinkedServiceAzureDatabricksNewClusterConfigPtrInput
@@ -391,12 +410,6 @@ func (i *LinkedServiceAzureDatabricks) ToLinkedServiceAzureDatabricksOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksOutput)
 }
 
-func (i *LinkedServiceAzureDatabricks) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureDatabricks] {
-	return pulumix.Output[*LinkedServiceAzureDatabricks]{
-		OutputState: i.ToLinkedServiceAzureDatabricksOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceAzureDatabricksArrayInput is an input type that accepts LinkedServiceAzureDatabricksArray and LinkedServiceAzureDatabricksArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureDatabricksArrayInput` via:
 //
@@ -420,12 +433,6 @@ func (i LinkedServiceAzureDatabricksArray) ToLinkedServiceAzureDatabricksArrayOu
 
 func (i LinkedServiceAzureDatabricksArray) ToLinkedServiceAzureDatabricksArrayOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksArrayOutput)
-}
-
-func (i LinkedServiceAzureDatabricksArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureDatabricks] {
-	return pulumix.Output[[]*LinkedServiceAzureDatabricks]{
-		OutputState: i.ToLinkedServiceAzureDatabricksArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceAzureDatabricksMapInput is an input type that accepts LinkedServiceAzureDatabricksMap and LinkedServiceAzureDatabricksMapOutput values.
@@ -453,12 +460,6 @@ func (i LinkedServiceAzureDatabricksMap) ToLinkedServiceAzureDatabricksMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureDatabricksMapOutput)
 }
 
-func (i LinkedServiceAzureDatabricksMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureDatabricks] {
-	return pulumix.Output[map[string]*LinkedServiceAzureDatabricks]{
-		OutputState: i.ToLinkedServiceAzureDatabricksMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceAzureDatabricksOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureDatabricksOutput) ElementType() reflect.Type {
@@ -471,12 +472,6 @@ func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksOutput
 
 func (o LinkedServiceAzureDatabricksOutput) ToLinkedServiceAzureDatabricksOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksOutput {
 	return o
-}
-
-func (o LinkedServiceAzureDatabricksOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureDatabricks] {
-	return pulumix.Output[*LinkedServiceAzureDatabricks]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Authenticate to ADB via an access token.
@@ -534,11 +529,15 @@ func (o LinkedServiceAzureDatabricksOutput) KeyVaultPassword() LinkedServiceAzur
 }
 
 // Authenticate to ADB via managed service identity.
+//
+// You must specify exactly one of the following modes for cluster integration:
 func (o LinkedServiceAzureDatabricksOutput) MsiWorkSpaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringPtrOutput { return v.MsiWorkSpaceResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
+//
+// You must specify exactly one of the following authentication blocks:
 func (o LinkedServiceAzureDatabricksOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -569,12 +568,6 @@ func (o LinkedServiceAzureDatabricksArrayOutput) ToLinkedServiceAzureDatabricksA
 	return o
 }
 
-func (o LinkedServiceAzureDatabricksArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureDatabricks] {
-	return pulumix.Output[[]*LinkedServiceAzureDatabricks]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceAzureDatabricksArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureDatabricksOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureDatabricks {
 		return vs[0].([]*LinkedServiceAzureDatabricks)[vs[1].(int)]
@@ -593,12 +586,6 @@ func (o LinkedServiceAzureDatabricksMapOutput) ToLinkedServiceAzureDatabricksMap
 
 func (o LinkedServiceAzureDatabricksMapOutput) ToLinkedServiceAzureDatabricksMapOutputWithContext(ctx context.Context) LinkedServiceAzureDatabricksMapOutput {
 	return o
-}
-
-func (o LinkedServiceAzureDatabricksMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureDatabricks] {
-	return pulumix.Output[map[string]*LinkedServiceAzureDatabricks]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceAzureDatabricksMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureDatabricksOutput {

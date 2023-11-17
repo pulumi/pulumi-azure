@@ -39,6 +39,10 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
     /**
      * The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
+     * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<HadoopClusterRolesZookeeperNodeScriptActionArgs>> scriptActions;
@@ -46,13 +50,21 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
     /**
      * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
      * 
+     * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
+     * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * 
      */
     public Optional<Output<List<HadoopClusterRolesZookeeperNodeScriptActionArgs>>> scriptActions() {
         return Optional.ofNullable(this.scriptActions);
     }
 
     /**
-     * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+     * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
@@ -61,7 +73,11 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
     private @Nullable Output<List<String>> sshKeys;
 
     /**
-     * @return A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+     * @return A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
      * 
@@ -71,14 +87,14 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
     }
 
     /**
-     * The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -101,14 +117,14 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
     }
 
     /**
-     * The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="virtualNetworkId")
     private @Nullable Output<String> virtualNetworkId;
 
     /**
-     * @return The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+     * @return The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> virtualNetworkId() {
@@ -188,6 +204,10 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         /**
          * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
          * 
+         * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -199,6 +219,10 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         /**
          * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
          * 
+         * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -209,6 +233,10 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         /**
          * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
          * 
+         * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
+         * `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -217,7 +245,11 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
          * 
@@ -230,7 +262,11 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
          * 
@@ -242,7 +278,11 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+         * @param sshKeys A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
          * 
@@ -254,7 +294,7 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetId The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * @param subnetId The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -265,7 +305,7 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetId The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * @param subnetId The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -296,7 +336,7 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param virtualNetworkId The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * @param virtualNetworkId The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -307,7 +347,7 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
         }
 
         /**
-         * @param virtualNetworkId The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+         * @param virtualNetworkId The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

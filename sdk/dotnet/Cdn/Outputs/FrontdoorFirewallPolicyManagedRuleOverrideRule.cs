@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Is the managed rule override enabled or disabled. Defaults to `false`
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

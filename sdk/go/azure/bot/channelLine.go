@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Line integration for a Bot Channel
@@ -203,12 +202,6 @@ func (i *ChannelLine) ToChannelLineOutputWithContext(ctx context.Context) Channe
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineOutput)
 }
 
-func (i *ChannelLine) ToOutput(ctx context.Context) pulumix.Output[*ChannelLine] {
-	return pulumix.Output[*ChannelLine]{
-		OutputState: i.ToChannelLineOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelLineArrayInput is an input type that accepts ChannelLineArray and ChannelLineArrayOutput values.
 // You can construct a concrete instance of `ChannelLineArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i ChannelLineArray) ToChannelLineArrayOutput() ChannelLineArrayOutput {
 
 func (i ChannelLineArray) ToChannelLineArrayOutputWithContext(ctx context.Context) ChannelLineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineArrayOutput)
-}
-
-func (i ChannelLineArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelLine] {
-	return pulumix.Output[[]*ChannelLine]{
-		OutputState: i.ToChannelLineArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ChannelLineMapInput is an input type that accepts ChannelLineMap and ChannelLineMapOutput values.
@@ -265,12 +252,6 @@ func (i ChannelLineMap) ToChannelLineMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLineMapOutput)
 }
 
-func (i ChannelLineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelLine] {
-	return pulumix.Output[map[string]*ChannelLine]{
-		OutputState: i.ToChannelLineMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelLineOutput struct{ *pulumi.OutputState }
 
 func (ChannelLineOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o ChannelLineOutput) ToChannelLineOutput() ChannelLineOutput {
 
 func (o ChannelLineOutput) ToChannelLineOutputWithContext(ctx context.Context) ChannelLineOutput {
 	return o
-}
-
-func (o ChannelLineOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLine] {
-	return pulumix.Output[*ChannelLine]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -325,12 +300,6 @@ func (o ChannelLineArrayOutput) ToChannelLineArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ChannelLineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelLine] {
-	return pulumix.Output[[]*ChannelLine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelLineArrayOutput) Index(i pulumi.IntInput) ChannelLineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelLine {
 		return vs[0].([]*ChannelLine)[vs[1].(int)]
@@ -349,12 +318,6 @@ func (o ChannelLineMapOutput) ToChannelLineMapOutput() ChannelLineMapOutput {
 
 func (o ChannelLineMapOutput) ToChannelLineMapOutputWithContext(ctx context.Context) ChannelLineMapOutput {
 	return o
-}
-
-func (o ChannelLineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelLine] {
-	return pulumix.Output[map[string]*ChannelLine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelLineMapOutput) MapIndex(k pulumi.StringInput) ChannelLineOutput {

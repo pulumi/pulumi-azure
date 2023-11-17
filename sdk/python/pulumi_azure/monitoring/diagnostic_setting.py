@@ -33,7 +33,7 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
-        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
@@ -59,7 +59,7 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. 
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
@@ -118,7 +118,7 @@ class DiagnosticSettingArgs:
     @pulumi.getter(name="eventhubAuthorizationRuleId")
     def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 
         > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 
@@ -235,7 +235,7 @@ class DiagnosticSettingArgs:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Storage Account where logs should be sent. 
+        The ID of the Storage Account where logs should be sent.
 
         > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
@@ -265,7 +265,7 @@ class _DiagnosticSettingState:
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
-        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
@@ -291,7 +291,7 @@ class _DiagnosticSettingState:
         :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. 
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -340,7 +340,7 @@ class _DiagnosticSettingState:
     @pulumi.getter(name="eventhubAuthorizationRuleId")
     def eventhub_authorization_rule_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 
         > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 
@@ -457,7 +457,7 @@ class _DiagnosticSettingState:
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Storage Account where logs should be sent. 
+        The ID of the Storage Account where logs should be sent.
 
         > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
@@ -550,7 +550,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
-        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
@@ -576,7 +576,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. 
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -714,7 +714,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **NOTE:** At least one `log`, `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
-        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
                
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
@@ -740,7 +740,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
-        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent. 
+        :param pulumi.Input[str] storage_account_id: The ID of the Storage Account where logs should be sent.
                
                > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
@@ -776,7 +776,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     @pulumi.getter(name="eventhubAuthorizationRuleId")
     def eventhub_authorization_rule_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+        Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
 
         > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 
@@ -861,7 +861,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Storage Account where logs should be sent. 
+        The ID of the Storage Account where logs should be sent.
 
         > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """

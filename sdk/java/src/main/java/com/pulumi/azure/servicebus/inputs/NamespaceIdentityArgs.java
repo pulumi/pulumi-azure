@@ -21,6 +21,8 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
+     * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
+     * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
@@ -29,6 +31,8 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * 
+     * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -112,6 +116,8 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
          * 
          * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
+         * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
+         * 
          * @return builder
          * 
          */
@@ -125,6 +131,8 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
          * 
          * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
+         * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
+         * 
          * @return builder
          * 
          */
@@ -136,6 +144,8 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          * 
          * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * 
+         * &gt; **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
          * 
          * @return builder
          * 

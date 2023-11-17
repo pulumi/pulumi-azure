@@ -17,6 +17,8 @@ public final class GetAccountSASServices {
     /**
      * @return Should permission be granted to `file` services within this storage account?
      * 
+     * A `permissions` block contains:
+     * 
      */
     private Boolean file;
     /**
@@ -40,6 +42,8 @@ public final class GetAccountSASServices {
     }
     /**
      * @return Should permission be granted to `file` services within this storage account?
+     * 
+     * A `permissions` block contains:
      * 
      */
     public Boolean file() {

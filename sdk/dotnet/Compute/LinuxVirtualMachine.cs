@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Compute
         public Output<double?> MaxBidPrice { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -699,7 +699,7 @@ namespace Pulumi.Azure.Compute
         public Input<double>? MaxBidPrice { get; set; }
 
         /// <summary>
-        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1064,7 +1064,7 @@ namespace Pulumi.Azure.Compute
         public Input<double>? MaxBidPrice { get; set; }
 
         /// <summary>
-        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
+        /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

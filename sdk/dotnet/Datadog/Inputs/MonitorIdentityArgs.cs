@@ -25,9 +25,7 @@ namespace Pulumi.Azure.Datadog.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-        /// 
-        /// &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+        /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

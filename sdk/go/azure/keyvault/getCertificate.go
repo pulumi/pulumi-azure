@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Key Vault Certificate.
@@ -147,12 +146,6 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupC
 
 func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
 	return o
-}
-
-func (o LookupCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCertificateResult] {
-	return pulumix.Output[LookupCertificateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The raw Key Vault Certificate data represented as a hexadecimal string.

@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class TransformOutputCustomPresetCodecPngImageLayer
     {
         /// <summary>
-        /// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        /// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         /// </summary>
         public readonly string? Height;
         /// <summary>
-        /// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        /// Specifies the label for the codec. The label can be used to control muxing behavior.
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        /// The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         /// </summary>
         public readonly string? Width;
 

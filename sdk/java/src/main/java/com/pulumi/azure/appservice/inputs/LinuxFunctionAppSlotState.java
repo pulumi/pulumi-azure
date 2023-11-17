@@ -419,6 +419,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
 
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
+     * *
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -426,6 +427,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
 
     /**
      * @return Should public network access be enabled for the Function App. Defaults to `true`.
+     * *
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -1224,6 +1226,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
 
         /**
          * @param publicNetworkAccessEnabled Should public network access be enabled for the Function App. Defaults to `true`.
+         * *
          * 
          * @return builder
          * 
@@ -1235,6 +1238,7 @@ public final class LinuxFunctionAppSlotState extends com.pulumi.resources.Resour
 
         /**
          * @param publicNetworkAccessEnabled Should public network access be enabled for the Function App. Defaults to `true`.
+         * *
          * 
          * @return builder
          * 

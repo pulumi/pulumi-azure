@@ -34,6 +34,8 @@ public final class ScaleSetPacketCaptureFilter {
     /**
      * @return The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
      * 
+     * A `machine_scope` block contains:
+     * 
      */
     private @Nullable String remotePort;
 
@@ -68,6 +70,8 @@ public final class ScaleSetPacketCaptureFilter {
     }
     /**
      * @return The remote port to be filtered on. Specify `80` for single port entry, `80-85` for a range and `80;443;` for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created.
+     * 
+     * A `machine_scope` block contains:
      * 
      */
     public Optional<String> remotePort() {

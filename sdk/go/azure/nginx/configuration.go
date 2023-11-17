@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the configuration for a Nginx Deployment.
@@ -36,6 +35,8 @@ type Configuration struct {
 	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles ConfigurationProtectedFileArrayOutput `pulumi:"protectedFiles"`
 	// Specify the root file path of this Nginx Configuration.
+	//
+	// > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
 	RootFile pulumi.StringOutput `pulumi:"rootFile"`
 }
 
@@ -84,6 +85,8 @@ type configurationState struct {
 	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles []ConfigurationProtectedFile `pulumi:"protectedFiles"`
 	// Specify the root file path of this Nginx Configuration.
+	//
+	// > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
 	RootFile *string `pulumi:"rootFile"`
 }
 
@@ -97,6 +100,8 @@ type ConfigurationState struct {
 	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles ConfigurationProtectedFileArrayInput
 	// Specify the root file path of this Nginx Configuration.
+	//
+	// > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
 	RootFile pulumi.StringPtrInput
 }
 
@@ -114,6 +119,8 @@ type configurationArgs struct {
 	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles []ConfigurationProtectedFile `pulumi:"protectedFiles"`
 	// Specify the root file path of this Nginx Configuration.
+	//
+	// > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
 	RootFile string `pulumi:"rootFile"`
 }
 
@@ -128,6 +135,8 @@ type ConfigurationArgs struct {
 	// One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
 	ProtectedFiles ConfigurationProtectedFileArrayInput
 	// Specify the root file path of this Nginx Configuration.
+	//
+	// > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
 	RootFile pulumi.StringInput
 }
 
@@ -152,12 +161,6 @@ func (i *Configuration) ToConfigurationOutput() ConfigurationOutput {
 
 func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationOutput)
-}
-
-func (i *Configuration) ToOutput(ctx context.Context) pulumix.Output[*Configuration] {
-	return pulumix.Output[*Configuration]{
-		OutputState: i.ToConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationArrayInput is an input type that accepts ConfigurationArray and ConfigurationArrayOutput values.
@@ -185,12 +188,6 @@ func (i ConfigurationArray) ToConfigurationArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationArrayOutput)
 }
 
-func (i ConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Configuration] {
-	return pulumix.Output[[]*Configuration]{
-		OutputState: i.ToConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationMapInput is an input type that accepts ConfigurationMap and ConfigurationMapOutput values.
 // You can construct a concrete instance of `ConfigurationMapInput` via:
 //
@@ -216,12 +213,6 @@ func (i ConfigurationMap) ToConfigurationMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationMapOutput)
 }
 
-func (i ConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Configuration] {
-	return pulumix.Output[map[string]*Configuration]{
-		OutputState: i.ToConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationOutput) ElementType() reflect.Type {
@@ -234,12 +225,6 @@ func (o ConfigurationOutput) ToConfigurationOutput() ConfigurationOutput {
 
 func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Context) ConfigurationOutput {
 	return o
-}
-
-func (o ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*Configuration] {
-	return pulumix.Output[*Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `configFile` blocks as defined below.
@@ -263,6 +248,8 @@ func (o ConfigurationOutput) ProtectedFiles() ConfigurationProtectedFileArrayOut
 }
 
 // Specify the root file path of this Nginx Configuration.
+//
+// > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
 func (o ConfigurationOutput) RootFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.RootFile }).(pulumi.StringOutput)
 }
@@ -279,12 +266,6 @@ func (o ConfigurationArrayOutput) ToConfigurationArrayOutput() ConfigurationArra
 
 func (o ConfigurationArrayOutput) ToConfigurationArrayOutputWithContext(ctx context.Context) ConfigurationArrayOutput {
 	return o
-}
-
-func (o ConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Configuration] {
-	return pulumix.Output[[]*Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationArrayOutput) Index(i pulumi.IntInput) ConfigurationOutput {
@@ -305,12 +286,6 @@ func (o ConfigurationMapOutput) ToConfigurationMapOutput() ConfigurationMapOutpu
 
 func (o ConfigurationMapOutput) ToConfigurationMapOutputWithContext(ctx context.Context) ConfigurationMapOutput {
 	return o
-}
-
-func (o ConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Configuration] {
-	return pulumix.Output[map[string]*Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationMapOutput) MapIndex(k pulumi.StringInput) ConfigurationOutput {

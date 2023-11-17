@@ -18,6 +18,8 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
     /**
      * The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
      * 
+     * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+     * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
@@ -25,20 +27,22 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
     /**
      * @return The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
      * 
+     * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+     * 
      */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
     /**
-     * The IP address range in CIDR notation for the ip rule.
+     * The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
      * 
      */
     @Import(name="ipMask", required=true)
     private Output<String> ipMask;
 
     /**
-     * @return The IP address range in CIDR notation for the ip rule.
+     * @return The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
      * 
      */
     public Output<String> ipMask() {
@@ -46,14 +50,14 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the ip rule.
+     * The name of the IP rule.`name` - (Required) The name of the ip rule.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the ip rule.
+     * @return The name of the IP rule.`name` - (Required) The name of the ip rule.
      * 
      */
     public Output<String> name() {
@@ -89,6 +93,8 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
         /**
          * @param action The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
          * 
+         * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+         * 
          * @return builder
          * 
          */
@@ -100,6 +106,8 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
         /**
          * @param action The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
          * 
+         * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+         * 
          * @return builder
          * 
          */
@@ -108,7 +116,7 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipMask The IP address range in CIDR notation for the ip rule.
+         * @param ipMask The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
          * 
          * @return builder
          * 
@@ -119,7 +127,7 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param ipMask The IP address range in CIDR notation for the ip rule.
+         * @param ipMask The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
          * 
          * @return builder
          * 
@@ -129,7 +137,7 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the ip rule.
+         * @param name The name of the IP rule.`name` - (Required) The name of the ip rule.
          * 
          * @return builder
          * 
@@ -140,7 +148,7 @@ public final class IoTHubNetworkRuleSetIpRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the ip rule.
+         * @param name The name of the IP rule.`name` - (Required) The name of the ip rule.
          * 
          * @return builder
          * 

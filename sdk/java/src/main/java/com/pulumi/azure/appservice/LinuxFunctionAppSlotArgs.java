@@ -298,6 +298,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
 
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
+     * *
      * 
      */
     @Import(name="publicNetworkAccessEnabled")
@@ -305,6 +306,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
 
     /**
      * @return Should public network access be enabled for the Function App. Defaults to `true`.
+     * *
      * 
      */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
@@ -891,6 +893,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param publicNetworkAccessEnabled Should public network access be enabled for the Function App. Defaults to `true`.
+         * *
          * 
          * @return builder
          * 
@@ -902,6 +905,7 @@ public final class LinuxFunctionAppSlotArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param publicNetworkAccessEnabled Should public network access be enabled for the Function App. Defaults to `true`.
+         * *
          * 
          * @return builder
          * 

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a Spring Cloud Application with a CosmosDB Account.
@@ -279,12 +278,6 @@ func (i *SpringCloudAppCosmosDBAssociation) ToSpringCloudAppCosmosDBAssociationO
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCosmosDBAssociationOutput)
 }
 
-func (i *SpringCloudAppCosmosDBAssociation) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppCosmosDBAssociation] {
-	return pulumix.Output[*SpringCloudAppCosmosDBAssociation]{
-		OutputState: i.ToSpringCloudAppCosmosDBAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudAppCosmosDBAssociationArrayInput is an input type that accepts SpringCloudAppCosmosDBAssociationArray and SpringCloudAppCosmosDBAssociationArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAppCosmosDBAssociationArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i SpringCloudAppCosmosDBAssociationArray) ToSpringCloudAppCosmosDBAssociat
 
 func (i SpringCloudAppCosmosDBAssociationArray) ToSpringCloudAppCosmosDBAssociationArrayOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCosmosDBAssociationArrayOutput)
-}
-
-func (i SpringCloudAppCosmosDBAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAppCosmosDBAssociation] {
-	return pulumix.Output[[]*SpringCloudAppCosmosDBAssociation]{
-		OutputState: i.ToSpringCloudAppCosmosDBAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudAppCosmosDBAssociationMapInput is an input type that accepts SpringCloudAppCosmosDBAssociationMap and SpringCloudAppCosmosDBAssociationMapOutput values.
@@ -341,12 +328,6 @@ func (i SpringCloudAppCosmosDBAssociationMap) ToSpringCloudAppCosmosDBAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAppCosmosDBAssociationMapOutput)
 }
 
-func (i SpringCloudAppCosmosDBAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAppCosmosDBAssociation] {
-	return pulumix.Output[map[string]*SpringCloudAppCosmosDBAssociation]{
-		OutputState: i.ToSpringCloudAppCosmosDBAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudAppCosmosDBAssociationOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAppCosmosDBAssociationOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o SpringCloudAppCosmosDBAssociationOutput) ToSpringCloudAppCosmosDBAssocia
 
 func (o SpringCloudAppCosmosDBAssociationOutput) ToSpringCloudAppCosmosDBAssociationOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationOutput {
 	return o
-}
-
-func (o SpringCloudAppCosmosDBAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAppCosmosDBAssociation] {
-	return pulumix.Output[*SpringCloudAppCosmosDBAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
@@ -435,12 +410,6 @@ func (o SpringCloudAppCosmosDBAssociationArrayOutput) ToSpringCloudAppCosmosDBAs
 	return o
 }
 
-func (o SpringCloudAppCosmosDBAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAppCosmosDBAssociation] {
-	return pulumix.Output[[]*SpringCloudAppCosmosDBAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudAppCosmosDBAssociationArrayOutput) Index(i pulumi.IntInput) SpringCloudAppCosmosDBAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAppCosmosDBAssociation {
 		return vs[0].([]*SpringCloudAppCosmosDBAssociation)[vs[1].(int)]
@@ -459,12 +428,6 @@ func (o SpringCloudAppCosmosDBAssociationMapOutput) ToSpringCloudAppCosmosDBAsso
 
 func (o SpringCloudAppCosmosDBAssociationMapOutput) ToSpringCloudAppCosmosDBAssociationMapOutputWithContext(ctx context.Context) SpringCloudAppCosmosDBAssociationMapOutput {
 	return o
-}
-
-func (o SpringCloudAppCosmosDBAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAppCosmosDBAssociation] {
-	return pulumix.Output[map[string]*SpringCloudAppCosmosDBAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudAppCosmosDBAssociationMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAppCosmosDBAssociationOutput {

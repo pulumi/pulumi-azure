@@ -3250,7 +3250,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
@@ -3290,7 +3290,7 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[str] snapshot_id: The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Node Pool.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
@@ -3388,7 +3388,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+        The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -3758,7 +3758,7 @@ class KubernetesClusterDefaultNodePoolArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the Node Pool.
+        A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
 
         > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         """

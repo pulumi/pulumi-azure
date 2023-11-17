@@ -246,14 +246,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * @return The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -479,7 +479,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * A mapping of tags to assign to the Node Pool.
+     * A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
@@ -488,7 +488,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the Node Pool.
+     * @return A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
@@ -1001,7 +1001,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+         * @param name The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1012,7 +1012,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+         * @param name The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1334,7 +1334,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param tags A mapping of tags to assign to the Node Pool.
+         * @param tags A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
          * 
          * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
          * 
@@ -1347,7 +1347,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param tags A mapping of tags to assign to the Node Pool.
+         * @param tags A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
          * 
          * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
          * 

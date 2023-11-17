@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AppRegistry {
     /**
-     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+     * @return An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
     private @Nullable String identity;
@@ -36,7 +36,7 @@ public final class AppRegistry {
 
     private AppRegistry() {}
     /**
-     * @return Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+     * @return An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
     public Optional<String> identity() {

@@ -46,14 +46,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      * 
      */
     @Import(name="certificates")
     private @Nullable Output<List<ServiceCertificateArgs>> certificates;
 
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      * 
      */
     public Optional<Output<List<ServiceCertificateArgs>>> certificates() {
@@ -106,14 +106,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Disable the gateway in main region? This is only supported when `additional_location` is set.
+     * Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      * 
      */
     @Import(name="gatewayDisabled")
     private @Nullable Output<Boolean> gatewayDisabled;
 
     /**
-     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.
+     * @return Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      * 
      */
     public Optional<Output<Boolean>> gatewayDisabled() {
@@ -474,7 +474,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
@@ -485,7 +485,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> skuName;
 
     /**
-     * @return `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * @return is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
      * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
@@ -527,14 +527,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     @Import(name="virtualNetworkConfiguration")
     private @Nullable Output<ServiceVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
 
     /**
-     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+     * @return A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
     public Optional<Output<ServiceVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
@@ -542,18 +542,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * 
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     @Import(name="virtualNetworkType")
     private @Nullable Output<String> virtualNetworkType;
 
     /**
-     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     * 
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     public Optional<Output<String>> virtualNetworkType() {
@@ -669,7 +665,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificates One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -680,7 +676,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificates One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -690,7 +686,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificates One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -763,7 +759,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayDisabled Disable the gateway in main region? This is only supported when `additional_location` is set.
+         * @param gatewayDisabled Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
          * 
          * @return builder
          * 
@@ -774,7 +770,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayDisabled Disable the gateway in main region? This is only supported when `additional_location` is set.
+         * @param gatewayDisabled Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
          * 
          * @return builder
          * 
@@ -1295,7 +1291,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+         * @param skuName is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
          * 
          * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
          * 
@@ -1310,7 +1306,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+         * @param skuName is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
          * 
          * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
          * 
@@ -1366,7 +1362,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
          * 
          * @return builder
          * 
@@ -1377,7 +1373,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+         * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
          * 
          * @return builder
          * 
@@ -1387,9 +1383,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-         * 
-         * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
          * 
          * @return builder
          * 
@@ -1400,9 +1394,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-         * 
-         * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
          * 
          * @return builder
          * 

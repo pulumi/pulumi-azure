@@ -13,10 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
     public sealed class BackendServiceFabricClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The client certificate resource id for the management endpoint.
-        /// 
-        /// &gt; **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-        /// &gt;
+        /// The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
         /// </summary>
         [Input("clientCertificateId")]
         public Input<string>? ClientCertificateId { get; set; }

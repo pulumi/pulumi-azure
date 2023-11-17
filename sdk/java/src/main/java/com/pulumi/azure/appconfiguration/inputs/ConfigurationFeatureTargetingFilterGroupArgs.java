@@ -15,14 +15,14 @@ public final class ConfigurationFeatureTargetingFilterGroupArgs extends com.pulu
     public static final ConfigurationFeatureTargetingFilterGroupArgs Empty = new ConfigurationFeatureTargetingFilterGroupArgs();
 
     /**
-     * The name of the group.
+     * The name of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the group.
+     * @return The name of the App Configuration Feature. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -32,12 +32,16 @@ public final class ConfigurationFeatureTargetingFilterGroupArgs extends com.pulu
     /**
      * Rollout percentage of the group.
      * 
+     * A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
+     * 
      */
     @Import(name="rolloutPercentage", required=true)
     private Output<Integer> rolloutPercentage;
 
     /**
      * @return Rollout percentage of the group.
+     * 
+     * A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
      * 
      */
     public Output<Integer> rolloutPercentage() {
@@ -70,7 +74,7 @@ public final class ConfigurationFeatureTargetingFilterGroupArgs extends com.pulu
         }
 
         /**
-         * @param name The name of the group.
+         * @param name The name of the App Configuration Feature. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -81,7 +85,7 @@ public final class ConfigurationFeatureTargetingFilterGroupArgs extends com.pulu
         }
 
         /**
-         * @param name The name of the group.
+         * @param name The name of the App Configuration Feature. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -93,6 +97,8 @@ public final class ConfigurationFeatureTargetingFilterGroupArgs extends com.pulu
         /**
          * @param rolloutPercentage Rollout percentage of the group.
          * 
+         * A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
+         * 
          * @return builder
          * 
          */
@@ -103,6 +109,8 @@ public final class ConfigurationFeatureTargetingFilterGroupArgs extends com.pulu
 
         /**
          * @param rolloutPercentage Rollout percentage of the group.
+         * 
+         * A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
          * 
          * @return builder
          * 

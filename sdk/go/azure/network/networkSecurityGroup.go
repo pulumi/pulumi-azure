@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
@@ -83,7 +82,7 @@ type NetworkSecurityGroup struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the security rule.
+	// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -92,6 +91,8 @@ type NetworkSecurityGroup struct {
 	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayOutput `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `securityRule` block support:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -130,7 +131,7 @@ func GetNetworkSecurityGroup(ctx *pulumi.Context,
 type networkSecurityGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the security rule.
+	// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -139,13 +140,15 @@ type networkSecurityGroupState struct {
 	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules []NetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `securityRule` block support:
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type NetworkSecurityGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the security rule.
+	// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -154,6 +157,8 @@ type NetworkSecurityGroupState struct {
 	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `securityRule` block support:
 	Tags pulumi.StringMapInput
 }
 
@@ -164,7 +169,7 @@ func (NetworkSecurityGroupState) ElementType() reflect.Type {
 type networkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the security rule.
+	// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -173,6 +178,8 @@ type networkSecurityGroupArgs struct {
 	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules []NetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
+	//
+	// A `securityRule` block support:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -180,7 +187,7 @@ type networkSecurityGroupArgs struct {
 type NetworkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the security rule.
+	// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -189,6 +196,8 @@ type NetworkSecurityGroupArgs struct {
 	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayInput
 	// A mapping of tags to assign to the resource.
+	//
+	// A `securityRule` block support:
 	Tags pulumi.StringMapInput
 }
 
@@ -213,12 +222,6 @@ func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGro
 
 func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx context.Context) NetworkSecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupOutput)
-}
-
-func (i *NetworkSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*NetworkSecurityGroup] {
-	return pulumix.Output[*NetworkSecurityGroup]{
-		OutputState: i.ToNetworkSecurityGroupOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkSecurityGroupArrayInput is an input type that accepts NetworkSecurityGroupArray and NetworkSecurityGroupArrayOutput values.
@@ -246,12 +249,6 @@ func (i NetworkSecurityGroupArray) ToNetworkSecurityGroupArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupArrayOutput)
 }
 
-func (i NetworkSecurityGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSecurityGroup] {
-	return pulumix.Output[[]*NetworkSecurityGroup]{
-		OutputState: i.ToNetworkSecurityGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSecurityGroupMapInput is an input type that accepts NetworkSecurityGroupMap and NetworkSecurityGroupMapOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupMapInput` via:
 //
@@ -277,12 +274,6 @@ func (i NetworkSecurityGroupMap) ToNetworkSecurityGroupMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityGroupMapOutput)
 }
 
-func (i NetworkSecurityGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSecurityGroup] {
-	return pulumix.Output[map[string]*NetworkSecurityGroup]{
-		OutputState: i.ToNetworkSecurityGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
@@ -297,18 +288,12 @@ func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
-func (o NetworkSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSecurityGroup] {
-	return pulumix.Output[*NetworkSecurityGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o NetworkSecurityGroupOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the security rule.
+// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
 func (o NetworkSecurityGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -326,6 +311,8 @@ func (o NetworkSecurityGroupOutput) SecurityRules() NetworkSecurityGroupSecurity
 }
 
 // A mapping of tags to assign to the resource.
+//
+// A `securityRule` block support:
 func (o NetworkSecurityGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -342,12 +329,6 @@ func (o NetworkSecurityGroupArrayOutput) ToNetworkSecurityGroupArrayOutput() Net
 
 func (o NetworkSecurityGroupArrayOutput) ToNetworkSecurityGroupArrayOutputWithContext(ctx context.Context) NetworkSecurityGroupArrayOutput {
 	return o
-}
-
-func (o NetworkSecurityGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSecurityGroup] {
-	return pulumix.Output[[]*NetworkSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSecurityGroupArrayOutput) Index(i pulumi.IntInput) NetworkSecurityGroupOutput {
@@ -368,12 +349,6 @@ func (o NetworkSecurityGroupMapOutput) ToNetworkSecurityGroupMapOutput() Network
 
 func (o NetworkSecurityGroupMapOutput) ToNetworkSecurityGroupMapOutputWithContext(ctx context.Context) NetworkSecurityGroupMapOutput {
 	return o
-}
-
-func (o NetworkSecurityGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSecurityGroup] {
-	return pulumix.Output[map[string]*NetworkSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSecurityGroupMapOutput) MapIndex(k pulumi.StringInput) NetworkSecurityGroupOutput {

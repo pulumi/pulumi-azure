@@ -154,7 +154,7 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
-     * One or more `hostPool` blocks as defined below.
+     * One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
      */
     public readonly hostPools!: pulumi.Output<outputs.desktopvirtualization.ScalingPlanHostPool[] | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface ScalingPlanState {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * One or more `hostPool` blocks as defined below.
+     * One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
      */
     hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[]>;
     /**
@@ -295,7 +295,7 @@ export interface ScalingPlanArgs {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * One or more `hostPool` blocks as defined below.
+     * One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
      */
     hostPools?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingPlanHostPool>[]>;
     /**

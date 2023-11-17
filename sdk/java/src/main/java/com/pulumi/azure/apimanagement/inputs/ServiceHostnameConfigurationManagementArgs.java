@@ -17,14 +17,14 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
     public static final ServiceHostnameConfigurationManagementArgs Empty = new ServiceHostnameConfigurationManagementArgs();
 
     /**
-     * The Base64 Encoded Certificate.
+     * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return The Base64 Encoded Certificate.
+     * @return One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -34,6 +34,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
     /**
      * The password associated with the certificate provided above.
      * 
+     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+     * 
      * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
@@ -42,6 +44,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
 
     /**
      * @return The password associated with the certificate provided above.
+     * 
+     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
      * 
      * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
@@ -113,7 +117,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
     /**
      * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
      * 
-     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
      * 
      */
     @Import(name="keyVaultId")
@@ -122,7 +126,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
      * 
-     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -130,14 +134,14 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
     }
 
     /**
-     * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+     * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     @Import(name="negotiateClientCertificate")
     private @Nullable Output<Boolean> negotiateClientCertificate;
 
     /**
-     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+     * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> negotiateClientCertificate() {
@@ -149,6 +153,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
      * 
      * &gt; **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
      * 
+     * `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+     * 
      */
     @Import(name="sslKeyvaultIdentityClientId")
     private @Nullable Output<String> sslKeyvaultIdentityClientId;
@@ -157,6 +163,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
      * @return System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
      * 
      * &gt; **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+     * 
+     * `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
      * 
      */
     public Optional<Output<String>> sslKeyvaultIdentityClientId() {
@@ -228,7 +236,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         }
 
         /**
-         * @param certificate The Base64 Encoded Certificate.
+         * @param certificate One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -239,7 +247,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         }
 
         /**
-         * @param certificate The Base64 Encoded Certificate.
+         * @param certificate One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
          * 
          * @return builder
          * 
@@ -250,6 +258,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
 
         /**
          * @param certificatePassword The password associated with the certificate provided above.
+         * 
+         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
          * 
          * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
          * 
@@ -263,6 +273,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
 
         /**
          * @param certificatePassword The password associated with the certificate provided above.
+         * 
+         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
          * 
          * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
          * 
@@ -360,7 +372,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         /**
          * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
          * 
-         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -373,7 +385,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         /**
          * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
          * 
-         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
          * 
          * @return builder
          * 
@@ -383,7 +395,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         }
 
         /**
-         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -394,7 +406,7 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         }
 
         /**
-         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+         * @param negotiateClientCertificate Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -408,6 +420,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
          * 
          * &gt; **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
          * 
+         * `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+         * 
          * @return builder
          * 
          */
@@ -420,6 +434,8 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
          * @param sslKeyvaultIdentityClientId System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
          * 
          * &gt; **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `azure.apimanagement.Service` within an `identity` block.
+         * 
+         * `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
          * 
          * @return builder
          * 

@@ -171,7 +171,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly customRules!: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyCustomRule[] | undefined>;
     /**
-     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -282,7 +282,7 @@ export interface FrontdoorFirewallPolicyState {
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[]>;
     /**
-     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -340,7 +340,7 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRule>[]>;
     /**
-     * Is the Front Door Firewall Policy enabled? Defaults to `true`.
+     * Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      */
     enabled?: pulumi.Input<boolean>;
     /**

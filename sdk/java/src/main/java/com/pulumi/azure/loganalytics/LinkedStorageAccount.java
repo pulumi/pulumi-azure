@@ -85,18 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:loganalytics/linkedStorageAccount:LinkedStorageAccount")
 public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-     * 
-     * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      * 
      */
     @Export(name="dataSourceType", refs={String.class}, tree="[0]")
     private Output<String> dataSourceType;
 
     /**
-     * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-     * 
-     * &gt; **Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
+     * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.**Note:** The `data_source_type` is case-insensitive in current 3.x version. And in 4.0 or later versions, Case-sensitivity will be required.
      * 
      */
     public Output<String> dataSourceType() {

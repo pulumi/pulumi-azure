@@ -10,19 +10,23 @@ import java.util.Objects;
 @CustomType
 public final class AppTemplateContainerReadinessProbeHeader {
     /**
-     * @return The HTTP Header Name.
+     * @return The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
      * 
      */
     private String name;
     /**
      * @return The HTTP Header value.
      * 
+     * `value` - (Required) The HTTP Header value.
+     * 
+     * `value` - (Required) The HTTP Header value.
+     * 
      */
     private String value;
 
     private AppTemplateContainerReadinessProbeHeader() {}
     /**
-     * @return The HTTP Header Name.
+     * @return The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
      * 
      */
     public String name() {
@@ -30,6 +34,10 @@ public final class AppTemplateContainerReadinessProbeHeader {
     }
     /**
      * @return The HTTP Header value.
+     * 
+     * `value` - (Required) The HTTP Header value.
+     * 
+     * `value` - (Required) The HTTP Header value.
      * 
      */
     public String value() {

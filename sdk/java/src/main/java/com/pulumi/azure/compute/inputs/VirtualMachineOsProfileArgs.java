@@ -16,7 +16,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     public static final VirtualMachineOsProfileArgs Empty = new VirtualMachineOsProfileArgs();
 
     /**
-     * (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+     * The password associated with the local administrator account.
      * 
      * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
      * 
@@ -25,7 +25,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
     private @Nullable Output<String> adminPassword;
 
     /**
-     * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+     * @return The password associated with the local administrator account.
      * 
      * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
      * 
@@ -107,7 +107,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param adminPassword (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+         * @param adminPassword The password associated with the local administrator account.
          * 
          * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
          * 
@@ -120,7 +120,7 @@ public final class VirtualMachineOsProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param adminPassword (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+         * @param adminPassword The password associated with the local administrator account.
          * 
          * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
          * 

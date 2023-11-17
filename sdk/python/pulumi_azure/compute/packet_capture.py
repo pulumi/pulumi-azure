@@ -30,6 +30,11 @@ class PacketCaptureArgs:
         :param pulumi.Input['PacketCaptureStorageLocationArgs'] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -90,6 +95,11 @@ class PacketCaptureArgs:
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]:
         """
         One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+
+
+
+
+        A `storage_location` block contains:
         """
         return pulumi.get(self, "filters")
 
@@ -160,6 +170,11 @@ class _PacketCaptureState:
         """
         Input properties used for looking up and filtering PacketCapture resources.
         :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -190,6 +205,11 @@ class _PacketCaptureState:
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]:
         """
         One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+
+
+
+
+        A `storage_location` block contains:
         """
         return pulumi.get(self, "filters")
 
@@ -383,6 +403,11 @@ class PacketCapture(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -553,6 +578,11 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               A `storage_location` block contains:
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
@@ -580,6 +610,11 @@ class PacketCapture(pulumi.CustomResource):
     def filters(self) -> pulumi.Output[Optional[Sequence['outputs.PacketCaptureFilter']]]:
         """
         One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+
+
+
+
+        A `storage_location` block contains:
         """
         return pulumi.get(self, "filters")
 

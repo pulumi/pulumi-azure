@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Gateway.
@@ -176,13 +175,13 @@ type ApplicationGateway struct {
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayOutput `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayOutput `pulumi:"backendHttpSettings"`
-	// One or more `customErrorConfiguration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayOutput `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrOutput `pulumi:"enableHttp2"`
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
-	// The ID of the Web Application Firewall Policy.
+	// The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId pulumi.StringPtrOutput `pulumi:"firewallPolicyId"`
 	// Is the Firewall Policy associated with the Application Gateway?
 	ForceFirewallPolicyAssociation pulumi.BoolPtrOutput `pulumi:"forceFirewallPolicyAssociation"`
@@ -305,13 +304,13 @@ type applicationGatewayState struct {
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings []ApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
-	// One or more `customErrorConfiguration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
-	// The ID of the Web Application Firewall Policy.
+	// The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// Is the Firewall Policy associated with the Application Gateway?
 	ForceFirewallPolicyAssociation *bool `pulumi:"forceFirewallPolicyAssociation"`
@@ -378,13 +377,13 @@ type ApplicationGatewayState struct {
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayInput
-	// One or more `customErrorConfiguration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled pulumi.BoolPtrInput
-	// The ID of the Web Application Firewall Policy.
+	// The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId pulumi.StringPtrInput
 	// Is the Firewall Policy associated with the Application Gateway?
 	ForceFirewallPolicyAssociation pulumi.BoolPtrInput
@@ -455,13 +454,13 @@ type applicationGatewayArgs struct {
 	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
 	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings []ApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
-	// One or more `customErrorConfiguration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
-	// The ID of the Web Application Firewall Policy.
+	// The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// Is the Firewall Policy associated with the Application Gateway?
 	ForceFirewallPolicyAssociation *bool `pulumi:"forceFirewallPolicyAssociation"`
@@ -527,13 +526,13 @@ type ApplicationGatewayArgs struct {
 	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
 	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings ApplicationGatewayBackendHttpSettingArrayInput
-	// One or more `customErrorConfiguration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 pulumi.BoolPtrInput
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled pulumi.BoolPtrInput
-	// The ID of the Web Application Firewall Policy.
+	// The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 	FirewallPolicyId pulumi.StringPtrInput
 	// Is the Firewall Policy associated with the Application Gateway?
 	ForceFirewallPolicyAssociation pulumi.BoolPtrInput
@@ -612,12 +611,6 @@ func (i *ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayOutput)
 }
 
-func (i *ApplicationGateway) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGateway] {
-	return pulumix.Output[*ApplicationGateway]{
-		OutputState: i.ToApplicationGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationGatewayArrayInput is an input type that accepts ApplicationGatewayArray and ApplicationGatewayArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayArrayInput` via:
 //
@@ -641,12 +634,6 @@ func (i ApplicationGatewayArray) ToApplicationGatewayArrayOutput() ApplicationGa
 
 func (i ApplicationGatewayArray) ToApplicationGatewayArrayOutputWithContext(ctx context.Context) ApplicationGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayArrayOutput)
-}
-
-func (i ApplicationGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationGateway] {
-	return pulumix.Output[[]*ApplicationGateway]{
-		OutputState: i.ToApplicationGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApplicationGatewayMapInput is an input type that accepts ApplicationGatewayMap and ApplicationGatewayMapOutput values.
@@ -674,12 +661,6 @@ func (i ApplicationGatewayMap) ToApplicationGatewayMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayMapOutput)
 }
 
-func (i ApplicationGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationGateway] {
-	return pulumix.Output[map[string]*ApplicationGateway]{
-		OutputState: i.ToApplicationGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationGatewayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayOutput) ElementType() reflect.Type {
@@ -692,12 +673,6 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutput() ApplicationGatewa
 
 func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
 	return o
-}
-
-func (o ApplicationGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGateway] {
-	return pulumix.Output[*ApplicationGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `authenticationCertificate` blocks as defined below.
@@ -728,7 +703,7 @@ func (o ApplicationGatewayOutput) BackendHttpSettings() ApplicationGatewayBacken
 	}).(ApplicationGatewayBackendHttpSettingArrayOutput)
 }
 
-// One or more `customErrorConfiguration` blocks as defined below.
+// One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
 func (o ApplicationGatewayOutput) CustomErrorConfigurations() ApplicationGatewayCustomErrorConfigurationArrayOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayCustomErrorConfigurationArrayOutput {
 		return v.CustomErrorConfigurations
@@ -745,7 +720,7 @@ func (o ApplicationGatewayOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationGateway) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Web Application Firewall Policy.
+// The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
 func (o ApplicationGatewayOutput) FirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -912,12 +887,6 @@ func (o ApplicationGatewayArrayOutput) ToApplicationGatewayArrayOutputWithContex
 	return o
 }
 
-func (o ApplicationGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationGateway] {
-	return pulumix.Output[[]*ApplicationGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationGatewayArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationGateway {
 		return vs[0].([]*ApplicationGateway)[vs[1].(int)]
@@ -936,12 +905,6 @@ func (o ApplicationGatewayMapOutput) ToApplicationGatewayMapOutput() Application
 
 func (o ApplicationGatewayMapOutput) ToApplicationGatewayMapOutputWithContext(ctx context.Context) ApplicationGatewayMapOutput {
 	return o
-}
-
-func (o ApplicationGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationGateway] {
-	return pulumix.Output[map[string]*ApplicationGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationGatewayMapOutput) MapIndex(k pulumi.StringInput) ApplicationGatewayOutput {

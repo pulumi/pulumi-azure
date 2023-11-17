@@ -175,7 +175,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `host_pool` blocks as defined below.
+        /// One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         /// </summary>
         [Output("hostPools")]
         public Output<ImmutableArray<Outputs.ScalingPlanHostPool>> HostPools { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         private InputList<Inputs.ScalingPlanHostPoolArgs>? _hostPools;
 
         /// <summary>
-        /// One or more `host_pool` blocks as defined below.
+        /// One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScalingPlanHostPoolArgs> HostPools
         {
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         private InputList<Inputs.ScalingPlanHostPoolGetArgs>? _hostPools;
 
         /// <summary>
-        /// One or more `host_pool` blocks as defined below.
+        /// One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ScalingPlanHostPoolGetArgs> HostPools
         {

@@ -4397,14 +4397,17 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
                  stretch_mode: Optional[pulumi.Input[str]] = None,
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
         :param pulumi.Input[str] rate_control_mode: The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
-        :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
-        :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         :param pulumi.Input[str] sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+               
+               
+               `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
         """
         if complexity is not None:
             pulumi.set(__self__, "complexity", complexity)
@@ -4427,7 +4430,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter
     def complexity(self) -> Optional[pulumi.Input[str]]:
         """
-        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         """
         return pulumi.get(self, "complexity")
 
@@ -4439,7 +4442,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         """
         return pulumi.get(self, "key_frame_interval")
 
@@ -4463,7 +4466,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter
     def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]]]:
         """
-        One or more `layer` blocks as defined below.
+        One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
         """
         return pulumi.get(self, "layers")
 
@@ -4487,7 +4490,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter(name="sceneChangeDetectionEnabled")
     def scene_change_detection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         """
         return pulumi.get(self, "scene_change_detection_enabled")
 
@@ -4499,7 +4502,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter(name="stretchMode")
     def stretch_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         """
         return pulumi.get(self, "stretch_mode")
 
@@ -4512,6 +4515,9 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     def sync_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+
+
+        `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
         """
         return pulumi.get(self, "sync_mode")
 
@@ -4539,21 +4545,22 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
                  slices: Optional[pulumi.Input[int]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer.
-        :param pulumi.Input[bool] adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
-        :param pulumi.Input[int] b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
-        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
-        :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
-        :param pulumi.Input[str] entropy_mode: The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
-        :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-        :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
-        :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-        :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
-        :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-        :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[int] bitrate: The bitrate of the audio in bits per second. Default to `128000`.
+        :param pulumi.Input[bool] adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        :param pulumi.Input[int] b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        :param pulumi.Input[str] entropy_mode: The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.`entropy_mode` - (Optional) The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional) 	
+               The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        :param pulumi.Input[str] profile: The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+        :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         pulumi.set(__self__, "bitrate", bitrate)
         if adaptive_b_frame_enabled is not None:
@@ -4589,7 +4596,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def bitrate(self) -> pulumi.Input[int]:
         """
-        The average bitrate in bits per second at which to encode the input video when generating this layer.
+        The bitrate of the audio in bits per second. Default to `128000`.
         """
         return pulumi.get(self, "bitrate")
 
@@ -4601,7 +4608,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="adaptiveBFrameEnabled")
     def adaptive_b_frame_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
         """
         return pulumi.get(self, "adaptive_b_frame_enabled")
 
@@ -4613,7 +4620,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="bFrames")
     def b_frames(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
         """
         return pulumi.get(self, "b_frames")
 
@@ -4625,7 +4632,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="bufferWindow")
     def buffer_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
         """
         return pulumi.get(self, "buffer_window")
 
@@ -4637,7 +4644,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def crf(self) -> Optional[pulumi.Input[float]]:
         """
-        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
         """
         return pulumi.get(self, "crf")
 
@@ -4649,7 +4656,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="entropyMode")
     def entropy_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.`entropy_mode` - (Optional) The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         """
         return pulumi.get(self, "entropy_mode")
 
@@ -4661,6 +4668,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="frameRate")
     def frame_rate(self) -> Optional[pulumi.Input[str]]:
         """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional) 	
         The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         """
         return pulumi.get(self, "frame_rate")
@@ -4673,7 +4681,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -4685,7 +4693,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        Specifies the label for the codec. The label can be used to control muxing behavior.
         """
         return pulumi.get(self, "label")
 
@@ -4697,7 +4705,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
         """
         return pulumi.get(self, "level")
 
@@ -4709,7 +4717,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -4721,7 +4729,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
         """
         return pulumi.get(self, "profile")
 
@@ -4733,7 +4741,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="referenceFrames")
     def reference_frames(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
         """
         return pulumi.get(self, "reference_frames")
 
@@ -4745,7 +4753,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def slices(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
         """
         return pulumi.get(self, "slices")
 
@@ -4757,7 +4765,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 
@@ -4777,13 +4785,16 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
                  stretch_mode: Optional[pulumi.Input[str]] = None,
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
-        :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
-        :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
+        :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        :param pulumi.Input[str] stretch_mode: Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         :param pulumi.Input[str] sync_mode: Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+               
+               
+               `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
         """
         if complexity is not None:
             pulumi.set(__self__, "complexity", complexity)
@@ -4804,7 +4815,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter
     def complexity(self) -> Optional[pulumi.Input[str]]:
         """
-        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
         """
         return pulumi.get(self, "complexity")
 
@@ -4816,7 +4827,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`key_frame_interval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
         """
         return pulumi.get(self, "key_frame_interval")
 
@@ -4840,7 +4851,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter
     def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]]]:
         """
-        One or more `layer` blocks as defined below.
+        One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
         """
         return pulumi.get(self, "layers")
 
@@ -4852,7 +4863,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter(name="sceneChangeDetectionEnabled")
     def scene_change_detection_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`scene_change_detection_enabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
         """
         return pulumi.get(self, "scene_change_detection_enabled")
 
@@ -4864,7 +4875,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter(name="stretchMode")
     def stretch_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretch_mode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
         """
         return pulumi.get(self, "stretch_mode")
 
@@ -4877,6 +4888,9 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     def sync_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+
+
+        `sync_mode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
         """
         return pulumi.get(self, "sync_mode")
 
@@ -4903,20 +4917,21 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
                  slices: Optional[pulumi.Input[int]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer.
-        :param pulumi.Input[bool] adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
-        :param pulumi.Input[int] b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
-        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
-        :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
-        :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-        :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
-        :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-        :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
-        :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
-        :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[int] bitrate: The bitrate of the audio in bits per second. Default to `128000`.
+        :param pulumi.Input[bool] adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        :param pulumi.Input[int] b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional) 	
+               The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        :param pulumi.Input[str] profile: The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+        :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         pulumi.set(__self__, "bitrate", bitrate)
         if adaptive_b_frame_enabled is not None:
@@ -4950,7 +4965,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def bitrate(self) -> pulumi.Input[int]:
         """
-        The average bitrate in bits per second at which to encode the input video when generating this layer.
+        The bitrate of the audio in bits per second. Default to `128000`.
         """
         return pulumi.get(self, "bitrate")
 
@@ -4962,7 +4977,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="adaptiveBFrameEnabled")
     def adaptive_b_frame_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
         """
         return pulumi.get(self, "adaptive_b_frame_enabled")
 
@@ -4974,7 +4989,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="bFrames")
     def b_frames(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
         """
         return pulumi.get(self, "b_frames")
 
@@ -4986,7 +5001,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="bufferWindow")
     def buffer_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
         """
         return pulumi.get(self, "buffer_window")
 
@@ -4998,7 +5013,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def crf(self) -> Optional[pulumi.Input[float]]:
         """
-        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
         """
         return pulumi.get(self, "crf")
 
@@ -5010,6 +5025,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="frameRate")
     def frame_rate(self) -> Optional[pulumi.Input[str]]:
         """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional) 	
         The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         """
         return pulumi.get(self, "frame_rate")
@@ -5022,7 +5038,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -5034,7 +5050,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        Specifies the label for the codec. The label can be used to control muxing behavior.
         """
         return pulumi.get(self, "label")
 
@@ -5046,7 +5062,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
         """
         return pulumi.get(self, "level")
 
@@ -5058,7 +5074,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -5070,7 +5086,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
         """
         return pulumi.get(self, "profile")
 
@@ -5082,7 +5098,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="referenceFrames")
     def reference_frames(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
         """
         return pulumi.get(self, "reference_frames")
 
@@ -5094,7 +5110,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def slices(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
         """
         return pulumi.get(self, "slices")
 
@@ -5106,7 +5122,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 
@@ -5130,7 +5146,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
         """
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
-        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param pulumi.Input[int] sprite_column: Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
@@ -5184,7 +5200,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the label for the codec. The label can be used to control muxing behavior.
+        Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         """
         return pulumi.get(self, "label")
 
@@ -5273,10 +5289,10 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
                  quality: Optional[pulumi.Input[int]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[int] quality: The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -5291,7 +5307,7 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -5303,7 +5319,7 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        Specifies the label for the codec. The label can be used to control muxing behavior.
         """
         return pulumi.get(self, "label")
 
@@ -5327,7 +5343,7 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 
@@ -5350,7 +5366,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
         """
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
-        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
         :param pulumi.Input[str] step: The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
@@ -5401,7 +5417,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the label for the codec. The label can be used to control muxing behavior.
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
         """
         return pulumi.get(self, "label")
 
@@ -5477,9 +5493,9 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
                  label: Optional[pulumi.Input[str]] = None,
                  width: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
-        :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
-        :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        :param pulumi.Input[str] height: The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         if height is not None:
             pulumi.set(__self__, "height", height)
@@ -5492,7 +5508,7 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[str]]:
         """
-        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "height")
 
@@ -5504,7 +5520,7 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
         """
-        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        Specifies the label for the codec. The label can be used to control muxing behavior.
         """
         return pulumi.get(self, "label")
 
@@ -5516,7 +5532,7 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[str]]:
         """
-        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
         """
         return pulumi.get(self, "width")
 

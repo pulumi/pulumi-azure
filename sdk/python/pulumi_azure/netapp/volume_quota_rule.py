@@ -27,7 +27,7 @@ class VolumeQuotaRuleArgs:
         :param pulumi.Input[str] volume_id: The NetApp volume ID where the Volume Quota Rule is assigned to.
         :param pulumi.Input[str] location: The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
-        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
                
                > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
@@ -107,7 +107,7 @@ class VolumeQuotaRuleArgs:
     @pulumi.getter(name="quotaTarget")
     def quota_target(self) -> Optional[pulumi.Input[str]]:
         """
-        Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
 
         > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
@@ -134,7 +134,7 @@ class _VolumeQuotaRuleState:
         :param pulumi.Input[str] location: The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[int] quota_size_in_kib: Quota size in kibibytes.
-        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
                
                > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
@@ -195,7 +195,7 @@ class _VolumeQuotaRuleState:
     @pulumi.getter(name="quotaTarget")
     def quota_target(self) -> Optional[pulumi.Input[str]]:
         """
-        Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
 
         > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
@@ -332,7 +332,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[int] quota_size_in_kib: Quota size in kibibytes.
-        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
                
                > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
@@ -497,7 +497,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[int] quota_size_in_kib: Quota size in kibibytes.
-        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        :param pulumi.Input[str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
                
                > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
@@ -545,7 +545,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
     @pulumi.getter(name="quotaTarget")
     def quota_target(self) -> pulumi.Output[Optional[str]]:
         """
-        Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
 
         > **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 

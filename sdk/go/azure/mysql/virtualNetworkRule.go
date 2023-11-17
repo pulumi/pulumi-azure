@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MySQL Virtual Network Rule.
@@ -106,10 +105,9 @@ type VirtualNetworkRule struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-	//
-	// 1. Contains only alphanumeric and hyphen characters
-	// 2. Cannot start with a number or hyphen
-	// 3. Cannot end with a hyphen
+	// . Contains only alphanumeric and hyphen characters
+	// . Cannot start with a number or hyphen
+	// . Cannot end with a hyphen
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -163,10 +161,9 @@ type virtualNetworkRuleState struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-	//
-	// 1. Contains only alphanumeric and hyphen characters
-	// 2. Cannot start with a number or hyphen
-	// 3. Cannot end with a hyphen
+	// . Contains only alphanumeric and hyphen characters
+	// . Cannot start with a number or hyphen
+	// . Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -182,10 +179,9 @@ type VirtualNetworkRuleState struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-	//
-	// 1. Contains only alphanumeric and hyphen characters
-	// 2. Cannot start with a number or hyphen
-	// 3. Cannot end with a hyphen
+	// . Contains only alphanumeric and hyphen characters
+	// . Cannot start with a number or hyphen
+	// . Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -205,10 +201,9 @@ type virtualNetworkRuleArgs struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-	//
-	// 1. Contains only alphanumeric and hyphen characters
-	// 2. Cannot start with a number or hyphen
-	// 3. Cannot end with a hyphen
+	// . Contains only alphanumeric and hyphen characters
+	// . Cannot start with a number or hyphen
+	// . Cannot end with a hyphen
 	Name *string `pulumi:"name"`
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -225,10 +220,9 @@ type VirtualNetworkRuleArgs struct {
 	// The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-	//
-	// 1. Contains only alphanumeric and hyphen characters
-	// 2. Cannot start with a number or hyphen
-	// 3. Cannot end with a hyphen
+	// . Contains only alphanumeric and hyphen characters
+	// . Cannot start with a number or hyphen
+	// . Cannot end with a hyphen
 	Name pulumi.StringPtrInput
 	// The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -263,12 +257,6 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
 }
 
-func (i *VirtualNetworkRule) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkRule] {
-	return pulumix.Output[*VirtualNetworkRule]{
-		OutputState: i.ToVirtualNetworkRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
@@ -292,12 +280,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutput() VirtualNetwor
 
 func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
-}
-
-func (i VirtualNetworkRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkRule] {
-	return pulumix.Output[[]*VirtualNetworkRule]{
-		OutputState: i.ToVirtualNetworkRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualNetworkRuleMapInput is an input type that accepts VirtualNetworkRuleMap and VirtualNetworkRuleMapOutput values.
@@ -325,12 +307,6 @@ func (i VirtualNetworkRuleMap) ToVirtualNetworkRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleMapOutput)
 }
 
-func (i VirtualNetworkRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkRule] {
-	return pulumix.Output[map[string]*VirtualNetworkRule]{
-		OutputState: i.ToVirtualNetworkRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -345,19 +321,12 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
-func (o VirtualNetworkRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkRule] {
-	return pulumix.Output[*VirtualNetworkRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 //
 // > **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-//
-// 1. Contains only alphanumeric and hyphen characters
-// 2. Cannot start with a number or hyphen
-// 3. Cannot end with a hyphen
+// . Contains only alphanumeric and hyphen characters
+// . Cannot start with a number or hyphen
+// . Cannot end with a hyphen
 func (o VirtualNetworkRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -393,12 +362,6 @@ func (o VirtualNetworkRuleArrayOutput) ToVirtualNetworkRuleArrayOutputWithContex
 	return o
 }
 
-func (o VirtualNetworkRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkRule] {
-	return pulumix.Output[[]*VirtualNetworkRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkRule {
 		return vs[0].([]*VirtualNetworkRule)[vs[1].(int)]
@@ -417,12 +380,6 @@ func (o VirtualNetworkRuleMapOutput) ToVirtualNetworkRuleMapOutput() VirtualNetw
 
 func (o VirtualNetworkRuleMapOutput) ToVirtualNetworkRuleMapOutputWithContext(ctx context.Context) VirtualNetworkRuleMapOutput {
 	return o
-}
-
-func (o VirtualNetworkRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkRule] {
-	return pulumix.Output[map[string]*VirtualNetworkRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualNetworkRuleMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkRuleOutput {

@@ -32,13 +32,28 @@ class VpnServerConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_authentication_types: A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRevokedCertificateArgs']]] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
         :param pulumi.Input['VpnServerConfigurationIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input['VpnServerConfigurationRadiusArgs'] radius: A `radius` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -91,6 +106,11 @@ class VpnServerConfigurationArgs:
     def azure_active_directory_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]:
         """
         A `azure_active_directory_authentication` block as defined below.
+
+
+
+
+        When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         """
         return pulumi.get(self, "azure_active_directory_authentications")
 
@@ -103,6 +123,11 @@ class VpnServerConfigurationArgs:
     def client_revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRevokedCertificateArgs']]]]:
         """
         One or more `client_revoked_certificate` blocks as defined below.
+
+
+
+
+        When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         """
         return pulumi.get(self, "client_revoked_certificates")
 
@@ -175,6 +200,11 @@ class VpnServerConfigurationArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         """
         return pulumi.get(self, "tags")
 
@@ -212,7 +242,17 @@ class _VpnServerConfigurationState:
         """
         Input properties used for looking up and filtering VpnServerConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRevokedCertificateArgs']]] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRootCertificateArgs']]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
         :param pulumi.Input['VpnServerConfigurationIpsecPolicyArgs'] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
@@ -220,6 +260,11 @@ class _VpnServerConfigurationState:
         :param pulumi.Input['VpnServerConfigurationRadiusArgs'] radius: A `radius` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_authentication_types: A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
@@ -251,6 +296,11 @@ class _VpnServerConfigurationState:
     def azure_active_directory_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]]:
         """
         A `azure_active_directory_authentication` block as defined below.
+
+
+
+
+        When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         """
         return pulumi.get(self, "azure_active_directory_authentications")
 
@@ -263,6 +313,11 @@ class _VpnServerConfigurationState:
     def client_revoked_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationClientRevokedCertificateArgs']]]]:
         """
         One or more `client_revoked_certificate` blocks as defined below.
+
+
+
+
+        When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         """
         return pulumi.get(self, "client_revoked_certificates")
 
@@ -347,6 +402,11 @@ class _VpnServerConfigurationState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         """
         return pulumi.get(self, "tags")
 
@@ -447,7 +507,17 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
@@ -455,6 +525,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']] radius: A `radius` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_authentication_types: A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
@@ -591,7 +666,17 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs']]]] azure_active_directory_authentications: A `azure_active_directory_authentication` block as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRevokedCertificateArgs']]]] client_revoked_certificates: One or more `client_revoked_certificate` blocks as defined below.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationClientRootCertificateArgs']]]] client_root_certificates: One or more `client_root_certificate` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationIpsecPolicyArgs']] ipsec_policy: A `ipsec_policy` block as defined below.
         :param pulumi.Input[str] location: The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
@@ -599,6 +684,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VpnServerConfigurationRadiusArgs']] radius: A `radius` block as defined below.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_authentication_types: A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         """
@@ -624,6 +714,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def azure_active_directory_authentications(self) -> pulumi.Output[Optional[Sequence['outputs.VpnServerConfigurationAzureActiveDirectoryAuthentication']]]:
         """
         A `azure_active_directory_authentication` block as defined below.
+
+
+
+
+        When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
         """
         return pulumi.get(self, "azure_active_directory_authentications")
 
@@ -632,6 +727,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def client_revoked_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.VpnServerConfigurationClientRevokedCertificate']]]:
         """
         One or more `client_revoked_certificate` blocks as defined below.
+
+
+
+
+        When `vpn_authentication_types` contains `Radius` the following arguments are supported:
         """
         return pulumi.get(self, "client_revoked_certificates")
 
@@ -688,6 +788,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        When `vpn_authentication_types` contains `AAD` the following arguments are supported:
         """
         return pulumi.get(self, "tags")
 

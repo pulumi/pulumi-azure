@@ -96,7 +96,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer minCount;
     /**
-     * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * @return The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      * 
      */
     private String name;
@@ -175,7 +175,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String snapshotId;
     /**
-     * @return A mapping of tags to assign to the Node Pool.
+     * @return A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 
@@ -336,7 +336,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.minCount);
     }
     /**
-     * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * @return The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      * 
      */
     public String name() {
@@ -445,7 +445,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.snapshotId);
     }
     /**
-     * @return A mapping of tags to assign to the Node Pool.
+     * @return A mapping of tags to assign to the resource.`tags` - (Optional) A mapping of tags to assign to the Node Pool.
      * 
      * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
      * 

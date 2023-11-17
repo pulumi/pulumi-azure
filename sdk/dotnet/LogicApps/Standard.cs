@@ -216,7 +216,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Logic App Changing this forces a new resource to be created.
+        /// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Logic App Changing this forces a new resource to be created.
+        /// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -582,7 +582,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Logic App Changing this forces a new resource to be created.
+        /// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

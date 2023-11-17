@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2GetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Client to use to authenticate with Azure Active Directory.
+        /// The ID of the Client to use to authenticate with the Custom OIDC.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;

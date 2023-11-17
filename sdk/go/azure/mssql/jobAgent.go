@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Elastic Job Agent.
@@ -193,12 +192,6 @@ func (i *JobAgent) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(JobAgentOutput)
 }
 
-func (i *JobAgent) ToOutput(ctx context.Context) pulumix.Output[*JobAgent] {
-	return pulumix.Output[*JobAgent]{
-		OutputState: i.ToJobAgentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobAgentArrayInput is an input type that accepts JobAgentArray and JobAgentArrayOutput values.
 // You can construct a concrete instance of `JobAgentArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i JobAgentArray) ToJobAgentArrayOutput() JobAgentArrayOutput {
 
 func (i JobAgentArray) ToJobAgentArrayOutputWithContext(ctx context.Context) JobAgentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobAgentArrayOutput)
-}
-
-func (i JobAgentArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobAgent] {
-	return pulumix.Output[[]*JobAgent]{
-		OutputState: i.ToJobAgentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // JobAgentMapInput is an input type that accepts JobAgentMap and JobAgentMapOutput values.
@@ -255,12 +242,6 @@ func (i JobAgentMap) ToJobAgentMapOutputWithContext(ctx context.Context) JobAgen
 	return pulumi.ToOutputWithContext(ctx, i).(JobAgentMapOutput)
 }
 
-func (i JobAgentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobAgent] {
-	return pulumix.Output[map[string]*JobAgent]{
-		OutputState: i.ToJobAgentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobAgentOutput struct{ *pulumi.OutputState }
 
 func (JobAgentOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o JobAgentOutput) ToJobAgentOutput() JobAgentOutput {
 
 func (o JobAgentOutput) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutput {
 	return o
-}
-
-func (o JobAgentOutput) ToOutput(ctx context.Context) pulumix.Output[*JobAgent] {
-	return pulumix.Output[*JobAgent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
@@ -315,12 +290,6 @@ func (o JobAgentArrayOutput) ToJobAgentArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o JobAgentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobAgent] {
-	return pulumix.Output[[]*JobAgent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobAgentArrayOutput) Index(i pulumi.IntInput) JobAgentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobAgent {
 		return vs[0].([]*JobAgent)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o JobAgentMapOutput) ToJobAgentMapOutput() JobAgentMapOutput {
 
 func (o JobAgentMapOutput) ToJobAgentMapOutputWithContext(ctx context.Context) JobAgentMapOutput {
 	return o
-}
-
-func (o JobAgentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobAgent] {
-	return pulumix.Output[map[string]*JobAgent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobAgentMapOutput) MapIndex(k pulumi.StringInput) JobAgentOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App (Standard / Single Tenant)
@@ -190,7 +189,7 @@ type Standard struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Logic App Changing this forces a new resource to be created.
+	// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
@@ -293,7 +292,7 @@ type standardState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Logic App Changing this forces a new resource to be created.
+	// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name *string `pulumi:"name"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
@@ -348,7 +347,7 @@ type StandardState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Logic App Changing this forces a new resource to be created.
+	// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringPtrInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses pulumi.StringPtrInput
@@ -401,7 +400,7 @@ type standardArgs struct {
 	Identity *StandardIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Logic App Changing this forces a new resource to be created.
+	// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -445,7 +444,7 @@ type StandardArgs struct {
 	Identity StandardIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Logic App Changing this forces a new resource to be created.
+	// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -488,12 +487,6 @@ func (i *Standard) ToStandardOutputWithContext(ctx context.Context) StandardOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StandardOutput)
 }
 
-func (i *Standard) ToOutput(ctx context.Context) pulumix.Output[*Standard] {
-	return pulumix.Output[*Standard]{
-		OutputState: i.ToStandardOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardArrayInput is an input type that accepts StandardArray and StandardArrayOutput values.
 // You can construct a concrete instance of `StandardArrayInput` via:
 //
@@ -517,12 +510,6 @@ func (i StandardArray) ToStandardArrayOutput() StandardArrayOutput {
 
 func (i StandardArray) ToStandardArrayOutputWithContext(ctx context.Context) StandardArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardArrayOutput)
-}
-
-func (i StandardArray) ToOutput(ctx context.Context) pulumix.Output[[]*Standard] {
-	return pulumix.Output[[]*Standard]{
-		OutputState: i.ToStandardArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StandardMapInput is an input type that accepts StandardMap and StandardMapOutput values.
@@ -550,12 +537,6 @@ func (i StandardMap) ToStandardMapOutputWithContext(ctx context.Context) Standar
 	return pulumi.ToOutputWithContext(ctx, i).(StandardMapOutput)
 }
 
-func (i StandardMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Standard] {
-	return pulumix.Output[map[string]*Standard]{
-		OutputState: i.ToStandardMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardOutput struct{ *pulumi.OutputState }
 
 func (StandardOutput) ElementType() reflect.Type {
@@ -568,12 +549,6 @@ func (o StandardOutput) ToStandardOutput() StandardOutput {
 
 func (o StandardOutput) ToStandardOutputWithContext(ctx context.Context) StandardOutput {
 	return o
-}
-
-func (o StandardOutput) ToOutput(ctx context.Context) pulumix.Output[*Standard] {
-	return pulumix.Output[*Standard]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Plan within which to create this Logic App
@@ -643,7 +618,7 @@ func (o StandardOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Logic App Changing this forces a new resource to be created.
+// Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 func (o StandardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -720,12 +695,6 @@ func (o StandardArrayOutput) ToStandardArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o StandardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Standard] {
-	return pulumix.Output[[]*Standard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StandardArrayOutput) Index(i pulumi.IntInput) StandardOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Standard {
 		return vs[0].([]*Standard)[vs[1].(int)]
@@ -744,12 +713,6 @@ func (o StandardMapOutput) ToStandardMapOutput() StandardMapOutput {
 
 func (o StandardMapOutput) ToStandardMapOutputWithContext(ctx context.Context) StandardMapOutput {
 	return o
-}
-
-func (o StandardMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Standard] {
-	return pulumix.Output[map[string]*Standard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardMapOutput) MapIndex(k pulumi.StringInput) StandardOutput {

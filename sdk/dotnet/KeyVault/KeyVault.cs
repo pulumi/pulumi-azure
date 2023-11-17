@@ -145,7 +145,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? 
+        /// Is Purge Protection enabled for this Key Vault?
         /// 
         /// !&gt; **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         /// </summary>
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? 
+        /// Is Purge Protection enabled for this Key Vault?
         /// 
         /// !&gt; **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         /// </summary>
@@ -443,7 +443,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? 
+        /// Is Purge Protection enabled for this Key Vault?
         /// 
         /// !&gt; **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         /// </summary>

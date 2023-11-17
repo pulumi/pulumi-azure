@@ -101,6 +101,11 @@ export interface GetAccountBlobContainerSASArgs {
     contentLanguage?: string;
     /**
      * The `Content-Type` response header that is sent when this SAS token is used.
+     *
+     *
+     *
+     *
+     * A `permissions` block contains:
      */
     contentType?: string;
     /**
@@ -232,6 +237,11 @@ export interface GetAccountBlobContainerSASOutputArgs {
     contentLanguage?: pulumi.Input<string>;
     /**
      * The `Content-Type` response header that is sent when this SAS token is used.
+     *
+     *
+     *
+     *
+     * A `permissions` block contains:
      */
     contentType?: pulumi.Input<string>;
     /**

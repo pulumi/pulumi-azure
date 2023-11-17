@@ -48,6 +48,10 @@ namespace Pulumi.Azure.HDInsight.Inputs
         /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         /// 
+        /// &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        /// 
         /// &gt; **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         /// </summary>
         public InputList<string> SshKeys
@@ -57,7 +61,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         }
 
         /// <summary>
-        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
@@ -69,7 +73,10 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<string> Username { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         /// </summary>
         [Input("virtualNetworkId")]
         public Input<string>? VirtualNetworkId { get; set; }

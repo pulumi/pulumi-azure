@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Desktop Scaling Plan.
@@ -174,7 +173,7 @@ type ScalingPlan struct {
 	ExclusionTag pulumi.StringPtrOutput `pulumi:"exclusionTag"`
 	// Friendly name of the Scaling Plan.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
-	// One or more `hostPool` blocks as defined below.
+	// One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
 	HostPools ScalingPlanHostPoolArrayOutput `pulumi:"hostPools"`
 	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -235,7 +234,7 @@ type scalingPlanState struct {
 	ExclusionTag *string `pulumi:"exclusionTag"`
 	// Friendly name of the Scaling Plan.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// One or more `hostPool` blocks as defined below.
+	// One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
 	HostPools []ScalingPlanHostPool `pulumi:"hostPools"`
 	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location *string `pulumi:"location"`
@@ -258,7 +257,7 @@ type ScalingPlanState struct {
 	ExclusionTag pulumi.StringPtrInput
 	// Friendly name of the Scaling Plan.
 	FriendlyName pulumi.StringPtrInput
-	// One or more `hostPool` blocks as defined below.
+	// One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
 	HostPools ScalingPlanHostPoolArrayInput
 	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location pulumi.StringPtrInput
@@ -285,7 +284,7 @@ type scalingPlanArgs struct {
 	ExclusionTag *string `pulumi:"exclusionTag"`
 	// Friendly name of the Scaling Plan.
 	FriendlyName *string `pulumi:"friendlyName"`
-	// One or more `hostPool` blocks as defined below.
+	// One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
 	HostPools []ScalingPlanHostPool `pulumi:"hostPools"`
 	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location *string `pulumi:"location"`
@@ -309,7 +308,7 @@ type ScalingPlanArgs struct {
 	ExclusionTag pulumi.StringPtrInput
 	// Friendly name of the Scaling Plan.
 	FriendlyName pulumi.StringPtrInput
-	// One or more `hostPool` blocks as defined below.
+	// One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
 	HostPools ScalingPlanHostPoolArrayInput
 	// The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
 	Location pulumi.StringPtrInput
@@ -348,12 +347,6 @@ func (i *ScalingPlan) ToScalingPlanOutputWithContext(ctx context.Context) Scalin
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanOutput)
 }
 
-func (i *ScalingPlan) ToOutput(ctx context.Context) pulumix.Output[*ScalingPlan] {
-	return pulumix.Output[*ScalingPlan]{
-		OutputState: i.ToScalingPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPlanArrayInput is an input type that accepts ScalingPlanArray and ScalingPlanArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanArrayInput` via:
 //
@@ -377,12 +370,6 @@ func (i ScalingPlanArray) ToScalingPlanArrayOutput() ScalingPlanArrayOutput {
 
 func (i ScalingPlanArray) ToScalingPlanArrayOutputWithContext(ctx context.Context) ScalingPlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanArrayOutput)
-}
-
-func (i ScalingPlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScalingPlan] {
-	return pulumix.Output[[]*ScalingPlan]{
-		OutputState: i.ToScalingPlanArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScalingPlanMapInput is an input type that accepts ScalingPlanMap and ScalingPlanMapOutput values.
@@ -410,12 +397,6 @@ func (i ScalingPlanMap) ToScalingPlanMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanMapOutput)
 }
 
-func (i ScalingPlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScalingPlan] {
-	return pulumix.Output[map[string]*ScalingPlan]{
-		OutputState: i.ToScalingPlanMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPlanOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanOutput) ElementType() reflect.Type {
@@ -428,12 +409,6 @@ func (o ScalingPlanOutput) ToScalingPlanOutput() ScalingPlanOutput {
 
 func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) ScalingPlanOutput {
 	return o
-}
-
-func (o ScalingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPlan] {
-	return pulumix.Output[*ScalingPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the Scaling Plan.
@@ -451,7 +426,7 @@ func (o ScalingPlanOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
-// One or more `hostPool` blocks as defined below.
+// One or more `hostPool` blocks as defined below.`hostPool` - (Optional) One or more `hostPool` blocks as defined below.
 func (o ScalingPlanOutput) HostPools() ScalingPlanHostPoolArrayOutput {
 	return o.ApplyT(func(v *ScalingPlan) ScalingPlanHostPoolArrayOutput { return v.HostPools }).(ScalingPlanHostPoolArrayOutput)
 }
@@ -500,12 +475,6 @@ func (o ScalingPlanArrayOutput) ToScalingPlanArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ScalingPlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScalingPlan] {
-	return pulumix.Output[[]*ScalingPlan]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPlanArrayOutput) Index(i pulumi.IntInput) ScalingPlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScalingPlan {
 		return vs[0].([]*ScalingPlan)[vs[1].(int)]
@@ -524,12 +493,6 @@ func (o ScalingPlanMapOutput) ToScalingPlanMapOutput() ScalingPlanMapOutput {
 
 func (o ScalingPlanMapOutput) ToScalingPlanMapOutputWithContext(ctx context.Context) ScalingPlanMapOutput {
 	return o
-}
-
-func (o ScalingPlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScalingPlan] {
-	return pulumix.Output[map[string]*ScalingPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPlanMapOutput) MapIndex(k pulumi.StringInput) ScalingPlanOutput {

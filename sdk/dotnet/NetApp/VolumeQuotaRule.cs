@@ -165,7 +165,7 @@ namespace Pulumi.Azure.NetApp
         public Output<int> QuotaSizeInKib { get; private set; } = null!;
 
         /// <summary>
-        /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
         /// 
         /// &gt; **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
         /// 
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.NetApp
         public Input<int> QuotaSizeInKib { get; set; } = null!;
 
         /// <summary>
-        /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
         /// 
         /// &gt; **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
         /// 
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.NetApp
         public Input<int>? QuotaSizeInKib { get; set; }
 
         /// <summary>
-        /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. 
+        /// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
         /// 
         /// &gt; **NOTE:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
         /// 

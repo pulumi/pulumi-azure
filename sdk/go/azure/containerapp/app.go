@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container App.
@@ -96,7 +95,7 @@ type App struct {
 	CustomDomainVerificationId pulumi.StringOutput `pulumi:"customDomainVerificationId"`
 	// A `dapr` block as detailed below.
 	Dapr AppDaprPtrOutput `pulumi:"dapr"`
-	// An `identity` block as detailed below.
+	// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity AppIdentityPtrOutput `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrOutput `pulumi:"ingress"`
@@ -106,7 +105,7 @@ type App struct {
 	LatestRevisionName pulumi.StringOutput `pulumi:"latestRevisionName"`
 	// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
 	OutboundIpAddresses pulumi.StringArrayOutput `pulumi:"outboundIpAddresses"`
@@ -180,7 +179,7 @@ type appState struct {
 	CustomDomainVerificationId *string `pulumi:"customDomainVerificationId"`
 	// A `dapr` block as detailed below.
 	Dapr *AppDapr `pulumi:"dapr"`
-	// An `identity` block as detailed below.
+	// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity *AppIdentity `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress *AppIngress `pulumi:"ingress"`
@@ -190,7 +189,7 @@ type appState struct {
 	LatestRevisionName *string `pulumi:"latestRevisionName"`
 	// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 	Location *string `pulumi:"location"`
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
 	Name *string `pulumi:"name"`
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
 	OutboundIpAddresses []string `pulumi:"outboundIpAddresses"`
@@ -215,7 +214,7 @@ type AppState struct {
 	CustomDomainVerificationId pulumi.StringPtrInput
 	// A `dapr` block as detailed below.
 	Dapr AppDaprPtrInput
-	// An `identity` block as detailed below.
+	// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity AppIdentityPtrInput
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrInput
@@ -225,7 +224,7 @@ type AppState struct {
 	LatestRevisionName pulumi.StringPtrInput
 	// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
 	Location pulumi.StringPtrInput
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
 	Name pulumi.StringPtrInput
 	// A list of the Public IP Addresses which the Container App uses for outbound network access.
 	OutboundIpAddresses pulumi.StringArrayInput
@@ -252,11 +251,11 @@ type appArgs struct {
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`
 	// A `dapr` block as detailed below.
 	Dapr *AppDapr `pulumi:"dapr"`
-	// An `identity` block as detailed below.
+	// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity *AppIdentity `pulumi:"identity"`
 	// An `ingress` block as detailed below.
 	Ingress *AppIngress `pulumi:"ingress"`
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
 	Name *string `pulumi:"name"`
 	// A `registry` block as detailed below.
 	Registries []AppRegistry `pulumi:"registries"`
@@ -278,11 +277,11 @@ type AppArgs struct {
 	ContainerAppEnvironmentId pulumi.StringInput
 	// A `dapr` block as detailed below.
 	Dapr AppDaprPtrInput
-	// An `identity` block as detailed below.
+	// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 	Identity AppIdentityPtrInput
 	// An `ingress` block as detailed below.
 	Ingress AppIngressPtrInput
-	// The name for this Container App. Changing this forces a new resource to be created.
+	// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
 	Name pulumi.StringPtrInput
 	// A `registry` block as detailed below.
 	Registries AppRegistryArrayInput
@@ -321,12 +320,6 @@ func (i *App) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppOutput)
 }
 
-func (i *App) ToOutput(ctx context.Context) pulumix.Output[*App] {
-	return pulumix.Output[*App]{
-		OutputState: i.ToAppOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppArrayInput is an input type that accepts AppArray and AppArrayOutput values.
 // You can construct a concrete instance of `AppArrayInput` via:
 //
@@ -350,12 +343,6 @@ func (i AppArray) ToAppArrayOutput() AppArrayOutput {
 
 func (i AppArray) ToAppArrayOutputWithContext(ctx context.Context) AppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppArrayOutput)
-}
-
-func (i AppArray) ToOutput(ctx context.Context) pulumix.Output[[]*App] {
-	return pulumix.Output[[]*App]{
-		OutputState: i.ToAppArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AppMapInput is an input type that accepts AppMap and AppMapOutput values.
@@ -383,12 +370,6 @@ func (i AppMap) ToAppMapOutputWithContext(ctx context.Context) AppMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppMapOutput)
 }
 
-func (i AppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*App] {
-	return pulumix.Output[map[string]*App]{
-		OutputState: i.ToAppMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppOutput struct{ *pulumi.OutputState }
 
 func (AppOutput) ElementType() reflect.Type {
@@ -401,12 +382,6 @@ func (o AppOutput) ToAppOutput() AppOutput {
 
 func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
-}
-
-func (o AppOutput) ToOutput(ctx context.Context) pulumix.Output[*App] {
-	return pulumix.Output[*App]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
@@ -424,7 +399,7 @@ func (o AppOutput) Dapr() AppDaprPtrOutput {
 	return o.ApplyT(func(v *App) AppDaprPtrOutput { return v.Dapr }).(AppDaprPtrOutput)
 }
 
-// An `identity` block as detailed below.
+// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
 func (o AppOutput) Identity() AppIdentityPtrOutput {
 	return o.ApplyT(func(v *App) AppIdentityPtrOutput { return v.Identity }).(AppIdentityPtrOutput)
 }
@@ -449,7 +424,7 @@ func (o AppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name for this Container App. Changing this forces a new resource to be created.
+// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
 func (o AppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -503,12 +478,6 @@ func (o AppArrayOutput) ToAppArrayOutputWithContext(ctx context.Context) AppArra
 	return o
 }
 
-func (o AppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*App] {
-	return pulumix.Output[[]*App]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppArrayOutput) Index(i pulumi.IntInput) AppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *App {
 		return vs[0].([]*App)[vs[1].(int)]
@@ -527,12 +496,6 @@ func (o AppMapOutput) ToAppMapOutput() AppMapOutput {
 
 func (o AppMapOutput) ToAppMapOutputWithContext(ctx context.Context) AppMapOutput {
 	return o
-}
-
-func (o AppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*App] {
-	return pulumix.Output[map[string]*App]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMapOutput) MapIndex(k pulumi.StringInput) AppOutput {

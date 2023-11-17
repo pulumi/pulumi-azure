@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Redis Linked Server (ie Geo Location)
@@ -244,12 +243,6 @@ func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) Link
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerOutput)
 }
 
-func (i *LinkedServer) ToOutput(ctx context.Context) pulumix.Output[*LinkedServer] {
-	return pulumix.Output[*LinkedServer]{
-		OutputState: i.ToLinkedServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServerArrayInput is an input type that accepts LinkedServerArray and LinkedServerArrayOutput values.
 // You can construct a concrete instance of `LinkedServerArrayInput` via:
 //
@@ -273,12 +266,6 @@ func (i LinkedServerArray) ToLinkedServerArrayOutput() LinkedServerArrayOutput {
 
 func (i LinkedServerArray) ToLinkedServerArrayOutputWithContext(ctx context.Context) LinkedServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerArrayOutput)
-}
-
-func (i LinkedServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServer] {
-	return pulumix.Output[[]*LinkedServer]{
-		OutputState: i.ToLinkedServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServerMapInput is an input type that accepts LinkedServerMap and LinkedServerMapOutput values.
@@ -306,12 +293,6 @@ func (i LinkedServerMap) ToLinkedServerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServerMapOutput)
 }
 
-func (i LinkedServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServer] {
-	return pulumix.Output[map[string]*LinkedServer]{
-		OutputState: i.ToLinkedServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
@@ -324,12 +305,6 @@ func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {
 
 func (o LinkedServerOutput) ToLinkedServerOutputWithContext(ctx context.Context) LinkedServerOutput {
 	return o
-}
-
-func (o LinkedServerOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServer] {
-	return pulumix.Output[*LinkedServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the linked Redis cache. Changing this forces a new Redis to be created.
@@ -376,12 +351,6 @@ func (o LinkedServerArrayOutput) ToLinkedServerArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o LinkedServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServer] {
-	return pulumix.Output[[]*LinkedServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServerArrayOutput) Index(i pulumi.IntInput) LinkedServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServer {
 		return vs[0].([]*LinkedServer)[vs[1].(int)]
@@ -400,12 +369,6 @@ func (o LinkedServerMapOutput) ToLinkedServerMapOutput() LinkedServerMapOutput {
 
 func (o LinkedServerMapOutput) ToLinkedServerMapOutputWithContext(ctx context.Context) LinkedServerMapOutput {
 	return o
-}
-
-func (o LinkedServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServer] {
-	return pulumix.Output[map[string]*LinkedServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServerMapOutput) MapIndex(k pulumi.StringInput) LinkedServerOutput {

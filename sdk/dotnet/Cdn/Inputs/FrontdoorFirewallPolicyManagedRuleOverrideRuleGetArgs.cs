@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Is the managed rule override enabled or disabled. Defaults to `false`
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

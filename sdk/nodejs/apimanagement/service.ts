@@ -64,7 +64,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly additionalLocations!: pulumi.Output<outputs.apimanagement.ServiceAdditionalLocation[] | undefined>;
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      */
     public readonly certificates!: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
     /**
-     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      */
     public readonly gatewayDisabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -180,7 +180,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
-     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      *
      * > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      *
@@ -196,13 +196,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly tenantAccess!: pulumi.Output<outputs.apimanagement.ServiceTenantAccess>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
     public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.apimanagement.ServiceVirtualNetworkConfiguration | undefined>;
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     *
-     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
     public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
     /**
@@ -324,7 +322,7 @@ export interface ServiceState {
      */
     additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
@@ -340,7 +338,7 @@ export interface ServiceState {
      */
     developerPortalUrl?: pulumi.Input<string>;
     /**
-     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      */
     gatewayDisabled?: pulumi.Input<boolean>;
     /**
@@ -440,7 +438,7 @@ export interface ServiceState {
      */
     signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      *
      * > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      *
@@ -456,13 +454,11 @@ export interface ServiceState {
      */
     tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     *
-     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**
@@ -482,7 +478,7 @@ export interface ServiceArgs {
      */
     additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
@@ -494,7 +490,7 @@ export interface ServiceArgs {
      */
     delegation?: pulumi.Input<inputs.apimanagement.ServiceDelegation>;
     /**
-     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.
+     * Disable the gateway in main region? This is only supported when `additionalLocation` is set.`gatewayDisabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
      */
     gatewayDisabled?: pulumi.Input<boolean>;
     /**
@@ -566,7 +562,7 @@ export interface ServiceArgs {
      */
     signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
-     * `skuName` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
+     * is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      *
      * > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      *
@@ -582,13 +578,11 @@ export interface ServiceArgs {
      */
     tenantAccess?: pulumi.Input<inputs.apimanagement.ServiceTenantAccess>;
     /**
-     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
+     * A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.`virtualNetworkConfiguration` - (Optional) A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
      */
     virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceVirtualNetworkConfiguration>;
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
-     *
-     * > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.**NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      */
     virtualNetworkType?: pulumi.Input<string>;
     /**

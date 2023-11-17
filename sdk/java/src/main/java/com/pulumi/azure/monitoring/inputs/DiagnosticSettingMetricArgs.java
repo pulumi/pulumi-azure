@@ -37,14 +37,18 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Is this Diagnostic Metric enabled? Defaults to `true`.
+     * Is this Diagnostic Log enabled? Defaults to `true`.
+     * 
+     * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
+     * @return Is this Diagnostic Log enabled? Defaults to `true`.
+     * 
+     * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -53,6 +57,12 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
 
     /**
      * A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+     * 
+     * `retention_policy` - (Optional) A `retention_policy` block as defined below.
      * 
      * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
      * 
@@ -66,6 +76,12 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
 
     /**
      * @return A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+     * 
+     * `retention_policy` - (Optional) A `retention_policy` block as defined below.
      * 
      * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
      * 
@@ -130,7 +146,9 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
+         * @param enabled Is this Diagnostic Log enabled? Defaults to `true`.
+         * 
+         * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -141,7 +159,9 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param enabled Is this Diagnostic Metric enabled? Defaults to `true`.
+         * @param enabled Is this Diagnostic Log enabled? Defaults to `true`.
+         * 
+         * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -152,6 +172,12 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
 
         /**
          * @param retentionPolicy A `retention_policy` block as defined below.
+         * 
+         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+         * 
+         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         * 
+         * `retention_policy` - (Optional) A `retention_policy` block as defined below.
          * 
          * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          * 
@@ -169,6 +195,12 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
 
         /**
          * @param retentionPolicy A `retention_policy` block as defined below.
+         * 
+         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+         * 
+         * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+         * 
+         * `retention_policy` - (Optional) A `retention_policy` block as defined below.
          * 
          * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
          * 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Site.
@@ -117,12 +116,6 @@ func (o LookupNetworkSiteResultOutput) ToLookupNetworkSiteResultOutput() LookupN
 
 func (o LookupNetworkSiteResultOutput) ToLookupNetworkSiteResultOutputWithContext(ctx context.Context) LookupNetworkSiteResultOutput {
 	return o
-}
-
-func (o LookupNetworkSiteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkSiteResult] {
-	return pulumix.Output[LookupNetworkSiteResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

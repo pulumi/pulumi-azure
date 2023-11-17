@@ -485,14 +485,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBidPrice);
     }
     /**
-     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+     * @return The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

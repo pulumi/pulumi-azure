@@ -16,6 +16,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * The Secret URL of a Key Vault Certificate.
      * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
      * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
@@ -24,6 +28,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
     /**
      * @return The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
      * 
      * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
@@ -59,6 +67,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         /**
          * @param url The Secret URL of a Key Vault Certificate.
          * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         * 
          * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
          * 
          * @return builder
@@ -71,6 +83,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
         /**
          * @param url The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
          * 
          * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
          * 

@@ -103,6 +103,15 @@ export interface GetAccountSASArgs {
     ipAddresses?: string;
     /**
      * A `permissions` block as defined below.
+     *
+     *
+     *
+     *
+     * `resourceTypes` is a set of `true`/`false` flags which define the storage account resource types that are granted
+     * access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+     * larger scope (affecting all sub-resources) than `object`.
+     *
+     * A `resourceTypes` block contains:
      */
     permissions: inputs.storage.GetAccountSASPermissions;
     /**
@@ -230,6 +239,15 @@ export interface GetAccountSASOutputArgs {
     ipAddresses?: pulumi.Input<string>;
     /**
      * A `permissions` block as defined below.
+     *
+     *
+     *
+     *
+     * `resourceTypes` is a set of `true`/`false` flags which define the storage account resource types that are granted
+     * access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+     * larger scope (affecting all sub-resources) than `object`.
+     *
+     * A `resourceTypes` block contains:
      */
     permissions: pulumi.Input<inputs.storage.GetAccountSASPermissionsArgs>;
     /**

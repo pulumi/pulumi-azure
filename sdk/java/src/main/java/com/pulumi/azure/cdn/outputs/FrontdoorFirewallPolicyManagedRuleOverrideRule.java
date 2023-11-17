@@ -22,7 +22,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
      */
     private String action;
     /**
-     * @return Is the managed rule override enabled or disabled. Defaults to `false`
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     private @Nullable Boolean enabled;
@@ -48,7 +48,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
         return this.action;
     }
     /**
-     * @return Is the managed rule override enabled or disabled. Defaults to `false`
+     * @return Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
     public Optional<Boolean> enabled() {

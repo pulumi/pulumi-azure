@@ -114,6 +114,11 @@ class NamespaceIdentity(dict):
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               
+               
+               
+               
+               > **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
@@ -140,6 +145,11 @@ class NamespaceIdentity(dict):
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
 
         > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+
+
+
+
+        > **Note:** Once customer-managed key encryption has been enabled, it cannot be disabled.
         """
         return pulumi.get(self, "identity_ids")
 

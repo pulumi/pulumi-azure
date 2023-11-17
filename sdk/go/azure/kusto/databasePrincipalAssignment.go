@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
@@ -275,12 +274,6 @@ func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentOutput)
 }
 
-func (i *DatabasePrincipalAssignment) ToOutput(ctx context.Context) pulumix.Output[*DatabasePrincipalAssignment] {
-	return pulumix.Output[*DatabasePrincipalAssignment]{
-		OutputState: i.ToDatabasePrincipalAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabasePrincipalAssignmentArrayInput is an input type that accepts DatabasePrincipalAssignmentArray and DatabasePrincipalAssignmentArrayOutput values.
 // You can construct a concrete instance of `DatabasePrincipalAssignmentArrayInput` via:
 //
@@ -304,12 +297,6 @@ func (i DatabasePrincipalAssignmentArray) ToDatabasePrincipalAssignmentArrayOutp
 
 func (i DatabasePrincipalAssignmentArray) ToDatabasePrincipalAssignmentArrayOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentArrayOutput)
-}
-
-func (i DatabasePrincipalAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatabasePrincipalAssignment] {
-	return pulumix.Output[[]*DatabasePrincipalAssignment]{
-		OutputState: i.ToDatabasePrincipalAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatabasePrincipalAssignmentMapInput is an input type that accepts DatabasePrincipalAssignmentMap and DatabasePrincipalAssignmentMapOutput values.
@@ -337,12 +324,6 @@ func (i DatabasePrincipalAssignmentMap) ToDatabasePrincipalAssignmentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentMapOutput)
 }
 
-func (i DatabasePrincipalAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabasePrincipalAssignment] {
-	return pulumix.Output[map[string]*DatabasePrincipalAssignment]{
-		OutputState: i.ToDatabasePrincipalAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabasePrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (DatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
@@ -355,12 +336,6 @@ func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutput()
 
 func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentOutput {
 	return o
-}
-
-func (o DatabasePrincipalAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabasePrincipalAssignment] {
-	return pulumix.Output[*DatabasePrincipalAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -427,12 +402,6 @@ func (o DatabasePrincipalAssignmentArrayOutput) ToDatabasePrincipalAssignmentArr
 	return o
 }
 
-func (o DatabasePrincipalAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatabasePrincipalAssignment] {
-	return pulumix.Output[[]*DatabasePrincipalAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatabasePrincipalAssignmentArrayOutput) Index(i pulumi.IntInput) DatabasePrincipalAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatabasePrincipalAssignment {
 		return vs[0].([]*DatabasePrincipalAssignment)[vs[1].(int)]
@@ -451,12 +420,6 @@ func (o DatabasePrincipalAssignmentMapOutput) ToDatabasePrincipalAssignmentMapOu
 
 func (o DatabasePrincipalAssignmentMapOutput) ToDatabasePrincipalAssignmentMapOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentMapOutput {
 	return o
-}
-
-func (o DatabasePrincipalAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatabasePrincipalAssignment] {
-	return pulumix.Output[map[string]*DatabasePrincipalAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabasePrincipalAssignmentMapOutput) MapIndex(k pulumi.StringInput) DatabasePrincipalAssignmentOutput {

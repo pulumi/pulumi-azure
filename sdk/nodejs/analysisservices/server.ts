@@ -92,7 +92,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the firewall rule.
+     * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export interface ServerState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the firewall rule.
+     * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the firewall rule.
+     * The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -100,14 +100,14 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the security rule.
+     * @return Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      * 
      */
     public Output<String> name() {
@@ -148,12 +148,16 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `security_rule` block support:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `security_rule` block support:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

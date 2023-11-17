@@ -20,11 +20,16 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string HeaderAction;
         /// <summary>
-        /// The name of the header to modify.
+        /// The name of the header to modify.`header_name` - (Required) The name of the header to modify.
         /// </summary>
         public readonly string HeaderName;
         /// <summary>
         /// The value to append or overwrite.
+        /// 
+        /// -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        /// 
+        /// 
+        /// `value` - (Optional) The value to append or overwrite.
         /// 
         /// -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         /// </summary>

@@ -35,6 +35,8 @@ public final class ScaleSetPacketCaptureStorageLocationArgs extends com.pulumi.r
      * 
      * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
      * 
+     * A `filter` block contains:
+     * 
      */
     @Import(name="storageAccountId")
     private @Nullable Output<String> storageAccountId;
@@ -43,6 +45,8 @@ public final class ScaleSetPacketCaptureStorageLocationArgs extends com.pulumi.r
      * @return The ID of the storage account to save the packet capture session
      * 
      * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+     * 
+     * A `filter` block contains:
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -116,6 +120,8 @@ public final class ScaleSetPacketCaptureStorageLocationArgs extends com.pulumi.r
          * 
          * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
          * 
+         * A `filter` block contains:
+         * 
          * @return builder
          * 
          */
@@ -128,6 +134,8 @@ public final class ScaleSetPacketCaptureStorageLocationArgs extends com.pulumi.r
          * @param storageAccountId The ID of the storage account to save the packet capture session
          * 
          * &gt; **NOTE:** At least one of `file_path` or `storage_account_id` must be specified.
+         * 
+         * A `filter` block contains:
          * 
          * @return builder
          * 

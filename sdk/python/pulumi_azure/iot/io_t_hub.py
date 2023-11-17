@@ -36,7 +36,7 @@ class IoTHubArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IoTHub resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
@@ -96,7 +96,7 @@ class IoTHubArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -364,7 +364,7 @@ class _IoTHubState:
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
@@ -670,7 +670,7 @@ class _IoTHubState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -894,7 +894,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -1155,7 +1155,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubNetworkRuleSetArgs']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
-        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubRouteArgs']]]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IoTHubSharedAccessPolicyArgs']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['IoTHubSkuArgs']] sku: A `sku` block as defined below.
@@ -1360,7 +1360,7 @@ class IoTHub(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
         """
         return pulumi.get(self, "resource_group_name")
 

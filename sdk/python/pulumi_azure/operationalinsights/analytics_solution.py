@@ -32,6 +32,11 @@ class AnalyticsSolutionArgs:
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `plan` block includes:
         """
         pulumi.set(__self__, "plan", plan)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -120,6 +125,11 @@ class AnalyticsSolutionArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        A `plan` block includes:
         """
         return pulumi.get(self, "tags")
 
@@ -145,6 +155,11 @@ class _AnalyticsSolutionState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `plan` block includes:
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         """
@@ -216,6 +231,11 @@ class _AnalyticsSolutionState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        A `plan` block includes:
         """
         return pulumi.get(self, "tags")
 
@@ -308,6 +328,11 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `plan` block includes:
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         """
@@ -434,6 +459,11 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `plan` block includes:
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         """
@@ -487,6 +517,11 @@ class AnalyticsSolution(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        A `plan` block includes:
         """
         return pulumi.get(self, "tags")
 

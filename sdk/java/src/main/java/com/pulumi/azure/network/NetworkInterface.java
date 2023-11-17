@@ -296,12 +296,16 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     /**
      * The Static IP Address which should be used.
      * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
+     * 
      */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
     /**
      * @return The Static IP Address which should be used.
+     * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
      * 
      */
     public Output<String> privateIpAddress() {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service certificate.
@@ -91,6 +90,29 @@ type Certificate struct {
 	// The name of the certificate issuer.
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+	// 			ApplicationId: pulumi.StringRef("abfa0a7c-a6b6-4736-8310-5855508787cd"),
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	KeyVaultSecretId pulumi.StringPtrOutput `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -171,6 +193,29 @@ type certificateState struct {
 	// The name of the certificate issuer.
 	Issuer *string `pulumi:"issuer"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+	// 			ApplicationId: pulumi.StringRef("abfa0a7c-a6b6-4736-8310-5855508787cd"),
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -208,6 +253,29 @@ type CertificateState struct {
 	// The name of the certificate issuer.
 	Issuer pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+	// 			ApplicationId: pulumi.StringRef("abfa0a7c-a6b6-4736-8310-5855508787cd"),
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -237,6 +305,29 @@ type certificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+	// 			ApplicationId: pulumi.StringRef("abfa0a7c-a6b6-4736-8310-5855508787cd"),
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -259,6 +350,29 @@ type CertificateArgs struct {
 	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		_, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+	// 			ApplicationId: pulumi.StringRef("abfa0a7c-a6b6-4736-8310-5855508787cd"),
+	// 		}, nil)
+	// 		if err != nil {
+	// 			return err
+	// 		}
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	KeyVaultSecretId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -299,12 +413,6 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-func (i *Certificate) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
-	return pulumix.Output[*Certificate]{
-		OutputState: i.ToCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
@@ -328,12 +436,6 @@ func (i CertificateArray) ToCertificateArrayOutput() CertificateArrayOutput {
 
 func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateArrayOutput)
-}
-
-func (i CertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
-	return pulumix.Output[[]*Certificate]{
-		OutputState: i.ToCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
@@ -361,12 +463,6 @@ func (i CertificateMap) ToCertificateMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateMapOutput)
 }
 
-func (i CertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
-	return pulumix.Output[map[string]*Certificate]{
-		OutputState: i.ToCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
@@ -379,12 +475,6 @@ func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
 
 func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
 	return o
-}
-
-func (o CertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
-	return pulumix.Output[*Certificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
@@ -423,6 +513,32 @@ func (o CertificateOutput) Issuer() pulumi.StringOutput {
 }
 
 // The ID of the Key Vault secret. Changing this forces a new resource to be created.
+//
+// > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//				ApplicationId: pulumi.StringRef("abfa0a7c-a6b6-4736-8310-5855508787cd"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o CertificateOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -483,12 +599,6 @@ func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o CertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
-	return pulumix.Output[[]*Certificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certificate {
 		return vs[0].([]*Certificate)[vs[1].(int)]
@@ -507,12 +617,6 @@ func (o CertificateMapOutput) ToCertificateMapOutput() CertificateMapOutput {
 
 func (o CertificateMapOutput) ToCertificateMapOutputWithContext(ctx context.Context) CertificateMapOutput {
 	return o
-}
-
-func (o CertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
-	return pulumix.Output[map[string]*Certificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateOutput {

@@ -248,12 +248,16 @@ public class ConfigurationFeature extends com.pulumi.resources.CustomResource {
     /**
      * A `timewindow_filter` block as defined below.
      * 
+     * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
+     * 
      */
     @Export(name="timewindowFilters", refs={List.class,ConfigurationFeatureTimewindowFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationFeatureTimewindowFilter>> timewindowFilters;
 
     /**
      * @return A `timewindow_filter` block as defined below.
+     * 
+     * A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
      * 
      */
     public Output<Optional<List<ConfigurationFeatureTimewindowFilter>>> timewindowFilters() {

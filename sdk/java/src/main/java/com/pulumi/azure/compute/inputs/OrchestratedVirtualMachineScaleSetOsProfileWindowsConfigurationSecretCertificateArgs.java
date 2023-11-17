@@ -14,14 +14,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs();
 
     /**
-     * The certificate store on the Virtual Machine where the certificate should be added.
+     * The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
      * 
      */
     @Import(name="store", required=true)
     private Output<String> store;
 
     /**
-     * @return The certificate store on the Virtual Machine where the certificate should be added.
+     * @return The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
      * 
      */
     public Output<String> store() {
@@ -31,6 +31,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * The Secret URL of a Key Vault Certificate.
      * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
      * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
@@ -39,6 +43,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     /**
      * @return The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
+     * 
+     * `url` - (Required) The Secret URL of a Key Vault Certificate.
      * 
      * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
      * 
@@ -73,7 +81,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param store The certificate store on the Virtual Machine where the certificate should be added.
+         * @param store The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
          * 
          * @return builder
          * 
@@ -84,7 +92,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param store The certificate store on the Virtual Machine where the certificate should be added.
+         * @param store The certificate store on the Virtual Machine where the certificate should be added.`store` - (Required) The certificate store on the Virtual Machine where the certificate should be added.
          * 
          * @return builder
          * 
@@ -95,6 +103,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
         /**
          * @param url The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
          * 
          * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
          * 
@@ -108,6 +120,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
         /**
          * @param url The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
+         * 
+         * `url` - (Required) The Secret URL of a Key Vault Certificate.
          * 
          * &gt; **NOTE:** This can be sourced from the `secret_id` field within the `azure.keyvault.Certificate` Resource.
          * 

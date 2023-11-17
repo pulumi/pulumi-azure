@@ -81,7 +81,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -96,6 +96,11 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     public readonly securityRules!: pulumi.Output<outputs.network.NetworkSecurityGroupSecurityRule[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `securityRule` block support:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -142,7 +147,7 @@ export interface NetworkSecurityGroupState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      */
     name?: pulumi.Input<string>;
     /**
@@ -157,6 +162,11 @@ export interface NetworkSecurityGroupState {
     securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `securityRule` block support:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -170,7 +180,7 @@ export interface NetworkSecurityGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
      */
     name?: pulumi.Input<string>;
     /**
@@ -185,6 +195,11 @@ export interface NetworkSecurityGroupArgs {
     securityRules?: pulumi.Input<pulumi.Input<inputs.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `securityRule` block support:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -22,9 +22,7 @@ public final class MonitorIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-     * 
-     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+     * @return Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
      * 
      */
     private String type;
@@ -45,9 +43,7 @@ public final class MonitorIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
-     * 
-     * &gt; **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+     * @return Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.**NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
      * 
      */
     public String type() {

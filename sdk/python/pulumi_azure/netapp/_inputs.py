@@ -562,6 +562,11 @@ class VolumeGroupSapHanaVolumeArgs:
         :param pulumi.Input[str] volume_spec_name: Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+               
+               
+               
+               
+               A `data_protection_replication` block is used when enabling the Cross-Region Replication (CRR) data protection option by deploying two Azure NetApp Files Volumes, one to be a primary volume and the other one will be the secondary, the secondary will have this block and will reference the primary volume, not all volume spec types are supported, please refer to  [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) for detauls. Each volume must be in a supported [region pair](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction#supported-region-pairs).
         :param pulumi.Input[str] id: The ID of the Application Volume Group.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Volume Group.
@@ -752,6 +757,11 @@ class VolumeGroupSapHanaVolumeArgs:
     def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]:
         """
         A `data_protection_snapshot_policy` block as defined below.
+
+
+
+
+        A `data_protection_replication` block is used when enabling the Cross-Region Replication (CRR) data protection option by deploying two Azure NetApp Files Volumes, one to be a primary volume and the other one will be the secondary, the secondary will have this block and will reference the primary volume, not all volume spec types are supported, please refer to  [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) for detauls. Each volume must be in a supported [region pair](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction#supported-region-pairs).
         """
         return pulumi.get(self, "data_protection_snapshot_policy")
 

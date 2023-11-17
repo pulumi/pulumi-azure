@@ -149,12 +149,16 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `plan` block includes:
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `plan` block includes:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

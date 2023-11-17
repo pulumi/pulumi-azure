@@ -25,12 +25,16 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
     /**
      * A `azure_active_directory_authentication` block as defined below.
      * 
+     * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
+     * 
      */
     @Import(name="azureActiveDirectoryAuthentications")
     private @Nullable Output<List<VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>> azureActiveDirectoryAuthentications;
 
     /**
      * @return A `azure_active_directory_authentication` block as defined below.
+     * 
+     * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
      * 
      */
     public Optional<Output<List<VpnServerConfigurationAzureActiveDirectoryAuthenticationArgs>>> azureActiveDirectoryAuthentications() {
@@ -40,12 +44,16 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
     /**
      * One or more `client_revoked_certificate` blocks as defined below.
      * 
+     * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
+     * 
      */
     @Import(name="clientRevokedCertificates")
     private @Nullable Output<List<VpnServerConfigurationClientRevokedCertificateArgs>> clientRevokedCertificates;
 
     /**
      * @return One or more `client_revoked_certificate` blocks as defined below.
+     * 
+     * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
      * 
      */
     public Optional<Output<List<VpnServerConfigurationClientRevokedCertificateArgs>>> clientRevokedCertificates() {
@@ -145,12 +153,16 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * When `vpn_authentication_types` contains `AAD` the following arguments are supported:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * When `vpn_authentication_types` contains `AAD` the following arguments are supported:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -224,6 +236,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         /**
          * @param azureActiveDirectoryAuthentications A `azure_active_directory_authentication` block as defined below.
          * 
+         * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -235,6 +249,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         /**
          * @param azureActiveDirectoryAuthentications A `azure_active_directory_authentication` block as defined below.
          * 
+         * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -245,6 +261,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         /**
          * @param azureActiveDirectoryAuthentications A `azure_active_directory_authentication` block as defined below.
          * 
+         * When `vpn_authentication_types` contains `Certificate` the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -254,6 +272,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
 
         /**
          * @param clientRevokedCertificates One or more `client_revoked_certificate` blocks as defined below.
+         * 
+         * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
          * 
          * @return builder
          * 
@@ -266,6 +286,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         /**
          * @param clientRevokedCertificates One or more `client_revoked_certificate` blocks as defined below.
          * 
+         * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -275,6 +297,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
 
         /**
          * @param clientRevokedCertificates One or more `client_revoked_certificate` blocks as defined below.
+         * 
+         * When `vpn_authentication_types` contains `Radius` the following arguments are supported:
          * 
          * @return builder
          * 
@@ -422,6 +446,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * When `vpn_authentication_types` contains `AAD` the following arguments are supported:
+         * 
          * @return builder
          * 
          */
@@ -432,6 +458,8 @@ public final class VpnServerConfigurationState extends com.pulumi.resources.Reso
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * When `vpn_authentication_types` contains `AAD` the following arguments are supported:
          * 
          * @return builder
          * 

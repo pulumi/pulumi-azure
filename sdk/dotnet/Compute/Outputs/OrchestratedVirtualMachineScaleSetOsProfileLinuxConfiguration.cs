@@ -38,16 +38,18 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
         /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         public readonly string? PatchAssessmentMode;
         public readonly string? PatchMode;
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         /// </summary>
         public readonly bool? ProvisionVmAgent;
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> Secrets;
 

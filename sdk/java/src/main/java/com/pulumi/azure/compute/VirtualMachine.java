@@ -309,14 +309,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osProfile);
     }
     /**
-     * (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * An `os_profile_linux_config` block as defined below.
      * 
      */
     @Export(name="osProfileLinuxConfig", refs={VirtualMachineOsProfileLinuxConfig.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
-     * @return (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+     * @return An `os_profile_linux_config` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineOsProfileLinuxConfig>> osProfileLinuxConfig() {
@@ -337,14 +337,14 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.osProfileSecrets);
     }
     /**
-     * (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * An `os_profile_windows_config` block as defined below.
      * 
      */
     @Export(name="osProfileWindowsConfig", refs={VirtualMachineOsProfileWindowsConfig.class}, tree="[0]")
     private Output</* @Nullable */ VirtualMachineOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
-     * @return (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+     * @return An `os_profile_windows_config` block as defined below.
      * 
      */
     public Output<Optional<VirtualMachineOsProfileWindowsConfig>> osProfileWindowsConfig() {

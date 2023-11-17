@@ -14,15 +14,17 @@ public final class IoTHubNetworkRuleSetIpRule {
     /**
      * @return The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
      * 
+     * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+     * 
      */
     private @Nullable String action;
     /**
-     * @return The IP address range in CIDR notation for the ip rule.
+     * @return The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
      * 
      */
     private String ipMask;
     /**
-     * @return The name of the ip rule.
+     * @return The name of the IP rule.`name` - (Required) The name of the ip rule.
      * 
      */
     private String name;
@@ -31,19 +33,21 @@ public final class IoTHubNetworkRuleSetIpRule {
     /**
      * @return The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
      * 
+     * `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+     * 
      */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The IP address range in CIDR notation for the ip rule.
+     * @return The IP address range in CIDR notation for the IP rule.`ip_mask` - (Required) The IP address range in CIDR notation for the ip rule.
      * 
      */
     public String ipMask() {
         return this.ipMask;
     }
     /**
-     * @return The name of the ip rule.
+     * @return The name of the IP rule.`name` - (Required) The name of the ip rule.
      * 
      */
     public String name() {

@@ -21,13 +21,18 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string> HeaderAction { get; set; } = null!;
 
         /// <summary>
-        /// The name of the header to modify.
+        /// The name of the header to modify.`header_name` - (Required) The name of the header to modify.
         /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
         /// <summary>
         /// The value to append or overwrite.
+        /// 
+        /// -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        /// 
+        /// 
+        /// `value` - (Optional) The value to append or overwrite.
         /// 
         /// -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         /// </summary>

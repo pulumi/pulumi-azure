@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a CosmosDB (formally DocumentDB) Account.
@@ -124,6 +123,8 @@ type Account struct {
 	// > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
 	CreateMode pulumi.StringOutput `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	//
+	// > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
 	DefaultIdentityType pulumi.StringPtrOutput `pulumi:"defaultIdentityType"`
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrOutput `pulumi:"enableAutomaticFailover"`
@@ -159,7 +160,13 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringOutput `pulumi:"mongoServerVersion"`
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+	//
+	// > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+	//
+	// > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+	//
+	// > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices pulumi.BoolPtrOutput `pulumi:"networkAclBypassForAzureServices"`
@@ -290,6 +297,8 @@ type accountState struct {
 	// > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	//
+	// > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
@@ -325,7 +334,13 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+	//
+	// > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+	//
+	// > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+	//
+	// > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
 	Name *string `pulumi:"name"`
 	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
@@ -399,6 +414,8 @@ type AccountState struct {
 	// > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	//
+	// > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
 	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
@@ -434,7 +451,13 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+	//
+	// > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+	//
+	// > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+	//
+	// > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
 	Name pulumi.StringPtrInput
 	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
@@ -510,6 +533,8 @@ type accountArgs struct {
 	// > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
 	CreateMode *string `pulumi:"createMode"`
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	//
+	// > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
 	DefaultIdentityType *string `pulumi:"defaultIdentityType"`
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
@@ -543,7 +568,13 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion *string `pulumi:"mongoServerVersion"`
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+	//
+	// > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+	//
+	// > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+	//
+	// > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
 	Name *string `pulumi:"name"`
 	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices *bool `pulumi:"networkAclBypassForAzureServices"`
@@ -588,6 +619,8 @@ type AccountArgs struct {
 	// > **NOTE:** `createMode` only works when `backup.type` is `Continuous`.
 	CreateMode pulumi.StringPtrInput
 	// The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+	//
+	// > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
 	DefaultIdentityType pulumi.StringPtrInput
 	// Enable automatic failover for this Cosmos DB account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
@@ -621,7 +654,13 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The Server Version of a MongoDB account. Possible values are `4.2`, `4.0`, `3.6`, and `3.2`.
 	MongoServerVersion pulumi.StringPtrInput
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+	//
+	// > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+	//
+	// > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+	//
+	// > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
 	Name pulumi.StringPtrInput
 	// If Azure services can bypass ACLs. Defaults to `false`.
 	NetworkAclBypassForAzureServices pulumi.BoolPtrInput
@@ -666,12 +705,6 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-func (i *Account) ToOutput(ctx context.Context) pulumix.Output[*Account] {
-	return pulumix.Output[*Account]{
-		OutputState: i.ToAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
 // You can construct a concrete instance of `AccountArrayInput` via:
 //
@@ -695,12 +728,6 @@ func (i AccountArray) ToAccountArrayOutput() AccountArrayOutput {
 
 func (i AccountArray) ToAccountArrayOutputWithContext(ctx context.Context) AccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountArrayOutput)
-}
-
-func (i AccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*Account] {
-	return pulumix.Output[[]*Account]{
-		OutputState: i.ToAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountMapInput is an input type that accepts AccountMap and AccountMapOutput values.
@@ -728,12 +755,6 @@ func (i AccountMap) ToAccountMapOutputWithContext(ctx context.Context) AccountMa
 	return pulumi.ToOutputWithContext(ctx, i).(AccountMapOutput)
 }
 
-func (i AccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Account] {
-	return pulumix.Output[map[string]*Account]{
-		OutputState: i.ToAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
@@ -746,12 +767,6 @@ func (o AccountOutput) ToAccountOutput() AccountOutput {
 
 func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOutput {
 	return o
-}
-
-func (o AccountOutput) ToOutput(ctx context.Context) pulumix.Output[*Account] {
-	return pulumix.Output[*Account]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is write operations on metadata resources (databases, containers, throughput) via account keys enabled? Defaults to `true`.
@@ -807,6 +822,8 @@ func (o AccountOutput) CreateMode() pulumi.StringOutput {
 }
 
 // The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
+//
+// > **NOTE:** When `defaultIdentityType` is a `UserAssignedIdentity` it must include the User Assigned Identity ID in the following format: `UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}`.
 func (o AccountOutput) DefaultIdentityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.DefaultIdentityType }).(pulumi.StringPtrOutput)
 }
@@ -884,7 +901,13 @@ func (o AccountOutput) MongoServerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.MongoServerVersion }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.`name` - (Required) The capability to enable - Possible values are `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableMongo`, `EnableMongo16MBDocumentSupport`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnablePartialUniqueIndex`, `EnableServerless`, `EnableTable`, `EnableTtlOnCustomPath`, `EnableUniqueCompoundNestedDocs`, `MongoDBv3.4` and `mongoEnableDocLevelTTL`.
+//
+// > **NOTE:** Setting `MongoDBv3.4` also requires setting `EnableMongo`.
+//
+// > **NOTE:** Only `AllowSelfServeUpgradeToMongo36`, `DisableRateLimitingResponses`, `EnableAggregationPipeline`, `MongoDBv3.4`, `EnableMongoRetryableWrites`, `EnableMongoRoleBasedAccessControl`, `EnableUniqueCompoundNestedDocs`, `EnableMongo16MBDocumentSupport`, `mongoEnableDocLevelTTL`, `EnableTtlOnCustomPath` and `EnablePartialUniqueIndex` can be added to an existing Cosmos DB account.
+//
+// > **NOTE:** Only `DisableRateLimitingResponses` and `EnableMongoRetryableWrites` can be removed from an existing Cosmos DB account.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -1015,12 +1038,6 @@ func (o AccountArrayOutput) ToAccountArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o AccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Account] {
-	return pulumix.Output[[]*Account]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountArrayOutput) Index(i pulumi.IntInput) AccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Account {
 		return vs[0].([]*Account)[vs[1].(int)]
@@ -1039,12 +1056,6 @@ func (o AccountMapOutput) ToAccountMapOutput() AccountMapOutput {
 
 func (o AccountMapOutput) ToAccountMapOutputWithContext(ctx context.Context) AccountMapOutput {
 	return o
-}
-
-func (o AccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Account] {
-	return pulumix.Output[map[string]*Account]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountMapOutput) MapIndex(k pulumi.StringInput) AccountOutput {

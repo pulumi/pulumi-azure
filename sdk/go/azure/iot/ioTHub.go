@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub
@@ -223,7 +222,7 @@ type IoTHub struct {
 	NetworkRuleSets IoTHubNetworkRuleSetArrayOutput `pulumi:"networkRuleSets"`
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `route` block as defined below.
 	Routes IoTHubRouteArrayOutput `pulumi:"routes"`
@@ -315,7 +314,7 @@ type ioTHubState struct {
 	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `route` block as defined below.
 	Routes []IoTHubRoute `pulumi:"routes"`
@@ -372,7 +371,7 @@ type IoTHubState struct {
 	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `route` block as defined below.
 	Routes IoTHubRouteArrayInput
@@ -421,7 +420,7 @@ type ioTHubArgs struct {
 	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `route` block as defined below.
 	Routes []IoTHubRoute `pulumi:"routes"`
@@ -463,7 +462,7 @@ type IoTHubArgs struct {
 	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
 	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName pulumi.StringInput
 	// A `route` block as defined below.
 	Routes IoTHubRouteArrayInput
@@ -496,12 +495,6 @@ func (i *IoTHub) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubOutput)
 }
 
-func (i *IoTHub) ToOutput(ctx context.Context) pulumix.Output[*IoTHub] {
-	return pulumix.Output[*IoTHub]{
-		OutputState: i.ToIoTHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IoTHubArrayInput is an input type that accepts IoTHubArray and IoTHubArrayOutput values.
 // You can construct a concrete instance of `IoTHubArrayInput` via:
 //
@@ -525,12 +518,6 @@ func (i IoTHubArray) ToIoTHubArrayOutput() IoTHubArrayOutput {
 
 func (i IoTHubArray) ToIoTHubArrayOutputWithContext(ctx context.Context) IoTHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubArrayOutput)
-}
-
-func (i IoTHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*IoTHub] {
-	return pulumix.Output[[]*IoTHub]{
-		OutputState: i.ToIoTHubArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IoTHubMapInput is an input type that accepts IoTHubMap and IoTHubMapOutput values.
@@ -558,12 +545,6 @@ func (i IoTHubMap) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubMapOutput)
 }
 
-func (i IoTHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IoTHub] {
-	return pulumix.Output[map[string]*IoTHub]{
-		OutputState: i.ToIoTHubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubOutput struct{ *pulumi.OutputState }
 
 func (IoTHubOutput) ElementType() reflect.Type {
@@ -576,12 +557,6 @@ func (o IoTHubOutput) ToIoTHubOutput() IoTHubOutput {
 
 func (o IoTHubOutput) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
 	return o
-}
-
-func (o IoTHubOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHub] {
-	return pulumix.Output[*IoTHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `cloudToDevice` block as defined below.
@@ -686,7 +661,7 @@ func (o IoTHubOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 func (o IoTHubOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -730,12 +705,6 @@ func (o IoTHubArrayOutput) ToIoTHubArrayOutputWithContext(ctx context.Context) I
 	return o
 }
 
-func (o IoTHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IoTHub] {
-	return pulumix.Output[[]*IoTHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IoTHubArrayOutput) Index(i pulumi.IntInput) IoTHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IoTHub {
 		return vs[0].([]*IoTHub)[vs[1].(int)]
@@ -754,12 +723,6 @@ func (o IoTHubMapOutput) ToIoTHubMapOutput() IoTHubMapOutput {
 
 func (o IoTHubMapOutput) ToIoTHubMapOutputWithContext(ctx context.Context) IoTHubMapOutput {
 	return o
-}
-
-func (o IoTHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IoTHub] {
-	return pulumix.Output[map[string]*IoTHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubMapOutput) MapIndex(k pulumi.StringInput) IoTHubOutput {

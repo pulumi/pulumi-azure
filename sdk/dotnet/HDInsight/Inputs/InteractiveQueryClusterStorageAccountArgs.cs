@@ -46,6 +46,9 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// 
+        /// 
+        /// `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageResourceId")]
         public Input<string>? StorageResourceId { get; set; }

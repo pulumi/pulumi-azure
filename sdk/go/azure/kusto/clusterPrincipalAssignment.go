@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto Cluster Principal Assignment.
@@ -251,12 +250,6 @@ func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentOutput)
 }
 
-func (i *ClusterPrincipalAssignment) ToOutput(ctx context.Context) pulumix.Output[*ClusterPrincipalAssignment] {
-	return pulumix.Output[*ClusterPrincipalAssignment]{
-		OutputState: i.ToClusterPrincipalAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterPrincipalAssignmentArrayInput is an input type that accepts ClusterPrincipalAssignmentArray and ClusterPrincipalAssignmentArrayOutput values.
 // You can construct a concrete instance of `ClusterPrincipalAssignmentArrayInput` via:
 //
@@ -280,12 +273,6 @@ func (i ClusterPrincipalAssignmentArray) ToClusterPrincipalAssignmentArrayOutput
 
 func (i ClusterPrincipalAssignmentArray) ToClusterPrincipalAssignmentArrayOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentArrayOutput)
-}
-
-func (i ClusterPrincipalAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterPrincipalAssignment] {
-	return pulumix.Output[[]*ClusterPrincipalAssignment]{
-		OutputState: i.ToClusterPrincipalAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterPrincipalAssignmentMapInput is an input type that accepts ClusterPrincipalAssignmentMap and ClusterPrincipalAssignmentMapOutput values.
@@ -313,12 +300,6 @@ func (i ClusterPrincipalAssignmentMap) ToClusterPrincipalAssignmentMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentMapOutput)
 }
 
-func (i ClusterPrincipalAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterPrincipalAssignment] {
-	return pulumix.Output[map[string]*ClusterPrincipalAssignment]{
-		OutputState: i.ToClusterPrincipalAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterPrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ClusterPrincipalAssignmentOutput) ElementType() reflect.Type {
@@ -331,12 +312,6 @@ func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutput() C
 
 func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentOutput {
 	return o
-}
-
-func (o ClusterPrincipalAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterPrincipalAssignment] {
-	return pulumix.Output[*ClusterPrincipalAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -398,12 +373,6 @@ func (o ClusterPrincipalAssignmentArrayOutput) ToClusterPrincipalAssignmentArray
 	return o
 }
 
-func (o ClusterPrincipalAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterPrincipalAssignment] {
-	return pulumix.Output[[]*ClusterPrincipalAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterPrincipalAssignmentArrayOutput) Index(i pulumi.IntInput) ClusterPrincipalAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterPrincipalAssignment {
 		return vs[0].([]*ClusterPrincipalAssignment)[vs[1].(int)]
@@ -422,12 +391,6 @@ func (o ClusterPrincipalAssignmentMapOutput) ToClusterPrincipalAssignmentMapOutp
 
 func (o ClusterPrincipalAssignmentMapOutput) ToClusterPrincipalAssignmentMapOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentMapOutput {
 	return o
-}
-
-func (o ClusterPrincipalAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterPrincipalAssignment] {
-	return pulumix.Output[map[string]*ClusterPrincipalAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterPrincipalAssignmentMapOutput) MapIndex(k pulumi.StringInput) ClusterPrincipalAssignmentOutput {

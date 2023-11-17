@@ -14,6 +14,11 @@ namespace Pulumi.Azure.AppService.Inputs
     {
         /// <summary>
         /// An `azure_blob_storage` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// An `http_logs` block supports *one* of the following:
         /// </summary>
         [Input("azureBlobStorage")]
         public Input<Inputs.SlotLogsApplicationLogsAzureBlobStorageArgs>? AzureBlobStorage { get; set; }

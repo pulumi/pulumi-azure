@@ -184,7 +184,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSetting>> BackendHttpSettings { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
         [Output("customErrorConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfiguration>> CustomErrorConfigurations { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> FipsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Web Application Firewall Policy.
+        /// The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         [Output("firewallPolicyId")]
         public Output<string?> FirewallPolicyId { get; private set; } = null!;
@@ -457,7 +457,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs>? _customErrorConfigurations;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs> CustomErrorConfigurations
         {
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the Web Application Firewall Policy.
+        /// The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }
@@ -785,7 +785,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs>? _customErrorConfigurations;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs> CustomErrorConfigurations
         {
@@ -806,7 +806,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
-        /// The ID of the Web Application Firewall Policy.
+        /// The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }

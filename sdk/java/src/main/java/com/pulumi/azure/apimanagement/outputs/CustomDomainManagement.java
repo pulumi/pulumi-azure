@@ -26,7 +26,7 @@ public final class CustomDomainManagement {
     private @Nullable String certificateStatus;
     private @Nullable String expiry;
     /**
-     * @return The Hostname to use for the corresponding endpoint.
+     * @return The Hostname to use for the API Proxy Endpoint.
      * 
      */
     private String hostName;
@@ -75,7 +75,7 @@ public final class CustomDomainManagement {
         return Optional.ofNullable(this.expiry);
     }
     /**
-     * @return The Hostname to use for the corresponding endpoint.
+     * @return The Hostname to use for the API Proxy Endpoint.
      * 
      */
     public String hostName() {

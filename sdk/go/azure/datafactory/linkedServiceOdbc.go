@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a Database and Azure Data Factory through ODBC protocol.
@@ -248,12 +247,6 @@ func (i *LinkedServiceOdbc) ToLinkedServiceOdbcOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdbcOutput)
 }
 
-func (i *LinkedServiceOdbc) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceOdbc] {
-	return pulumix.Output[*LinkedServiceOdbc]{
-		OutputState: i.ToLinkedServiceOdbcOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceOdbcArrayInput is an input type that accepts LinkedServiceOdbcArray and LinkedServiceOdbcArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceOdbcArrayInput` via:
 //
@@ -277,12 +270,6 @@ func (i LinkedServiceOdbcArray) ToLinkedServiceOdbcArrayOutput() LinkedServiceOd
 
 func (i LinkedServiceOdbcArray) ToLinkedServiceOdbcArrayOutputWithContext(ctx context.Context) LinkedServiceOdbcArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdbcArrayOutput)
-}
-
-func (i LinkedServiceOdbcArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceOdbc] {
-	return pulumix.Output[[]*LinkedServiceOdbc]{
-		OutputState: i.ToLinkedServiceOdbcArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceOdbcMapInput is an input type that accepts LinkedServiceOdbcMap and LinkedServiceOdbcMapOutput values.
@@ -310,12 +297,6 @@ func (i LinkedServiceOdbcMap) ToLinkedServiceOdbcMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOdbcMapOutput)
 }
 
-func (i LinkedServiceOdbcMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceOdbc] {
-	return pulumix.Output[map[string]*LinkedServiceOdbc]{
-		OutputState: i.ToLinkedServiceOdbcMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceOdbcOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOdbcOutput) ElementType() reflect.Type {
@@ -328,12 +309,6 @@ func (o LinkedServiceOdbcOutput) ToLinkedServiceOdbcOutput() LinkedServiceOdbcOu
 
 func (o LinkedServiceOdbcOutput) ToLinkedServiceOdbcOutputWithContext(ctx context.Context) LinkedServiceOdbcOutput {
 	return o
-}
-
-func (o LinkedServiceOdbcOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceOdbc] {
-	return pulumix.Output[*LinkedServiceOdbc]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service ODBC.
@@ -395,12 +370,6 @@ func (o LinkedServiceOdbcArrayOutput) ToLinkedServiceOdbcArrayOutputWithContext(
 	return o
 }
 
-func (o LinkedServiceOdbcArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceOdbc] {
-	return pulumix.Output[[]*LinkedServiceOdbc]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceOdbcArrayOutput) Index(i pulumi.IntInput) LinkedServiceOdbcOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceOdbc {
 		return vs[0].([]*LinkedServiceOdbc)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o LinkedServiceOdbcMapOutput) ToLinkedServiceOdbcMapOutput() LinkedService
 
 func (o LinkedServiceOdbcMapOutput) ToLinkedServiceOdbcMapOutputWithContext(ctx context.Context) LinkedServiceOdbcMapOutput {
 	return o
-}
-
-func (o LinkedServiceOdbcMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceOdbc] {
-	return pulumix.Output[map[string]*LinkedServiceOdbc]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceOdbcMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceOdbcOutput {

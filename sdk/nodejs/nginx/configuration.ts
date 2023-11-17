@@ -63,6 +63,11 @@ export class Configuration extends pulumi.CustomResource {
     public readonly protectedFiles!: pulumi.Output<outputs.nginx.ConfigurationProtectedFile[] | undefined>;
     /**
      * Specify the root file path of this Nginx Configuration.
+     *
+     *
+     *
+     *
+     * > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
      */
     public readonly rootFile!: pulumi.Output<string>;
 
@@ -125,6 +130,11 @@ export interface ConfigurationState {
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
     /**
      * Specify the root file path of this Nginx Configuration.
+     *
+     *
+     *
+     *
+     * > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
      */
     rootFile?: pulumi.Input<string>;
 }
@@ -151,6 +161,11 @@ export interface ConfigurationArgs {
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
     /**
      * Specify the root file path of this Nginx Configuration.
+     *
+     *
+     *
+     *
+     * > **NOTE:** Either `packageData` or `configFile` must be specified - but not both.
      */
     rootFile: pulumi.Input<string>;
 }

@@ -21,6 +21,11 @@ class ManagedDatabaseArgs:
         The set of arguments for constructing a ManagedDatabase resource.
         :param pulumi.Input[str] sql_managed_instance_id: The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               In addition to the Arguments listed above - the following Attributes are exported:
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "sql_managed_instance_id", sql_managed_instance_id)
@@ -46,6 +51,11 @@ class ManagedDatabaseArgs:
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+
+
+
+
+        In addition to the Arguments listed above - the following Attributes are exported:
         """
         return pulumi.get(self, "location")
 
@@ -75,6 +85,11 @@ class _ManagedDatabaseState:
         """
         Input properties used for looking up and filtering ManagedDatabase resources.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               In addition to the Arguments listed above - the following Attributes are exported:
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_managed_instance_id: The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
         """
@@ -90,6 +105,11 @@ class _ManagedDatabaseState:
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+
+
+
+
+        In addition to the Arguments listed above - the following Attributes are exported:
         """
         return pulumi.get(self, "location")
 
@@ -177,6 +197,11 @@ class ManagedDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               In addition to the Arguments listed above - the following Attributes are exported:
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_managed_instance_id: The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
         """
@@ -282,6 +307,11 @@ class ManagedDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+               
+               
+               
+               
+               In addition to the Arguments listed above - the following Attributes are exported:
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_managed_instance_id: The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
         """
@@ -299,6 +329,11 @@ class ManagedDatabase(pulumi.CustomResource):
     def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+
+
+
+
+        In addition to the Arguments listed above - the following Attributes are exported:
         """
         return pulumi.get(self, "location")
 

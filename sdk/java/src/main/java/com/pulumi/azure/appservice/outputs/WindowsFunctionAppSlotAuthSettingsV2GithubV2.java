@@ -12,38 +12,58 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsFunctionAppSlotAuthSettingsV2GithubV2 {
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     private String clientId;
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`client_secret_setting_name` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     private String clientSecretSettingName;
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+     * 
+     * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     private @Nullable List<String> loginScopes;
 
     private WindowsFunctionAppSlotAuthSettingsV2GithubV2() {}
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public String clientId() {
         return this.clientId;
     }
     /**
-     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+     * @return The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.`client_secret_setting_name` - (Optional) The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public String clientSecretSettingName() {
         return this.clientSecretSettingName;
     }
     /**
-     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
+     * @return A list of Login Scopes provided by this Authentication Provider.
+     * 
+     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * 
+     * `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+     * 
+     * `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+     * 
+     * `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     public List<String> loginScopes() {

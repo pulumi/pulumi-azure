@@ -23,12 +23,12 @@ public final class IoTHubEndpoint {
      */
     private @Nullable Integer batchFrequencyInSeconds;
     /**
-     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     private @Nullable String connectionString;
     /**
-     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     private @Nullable String containerName;
@@ -72,7 +72,7 @@ public final class IoTHubEndpoint {
      */
     private String name;
     /**
-     * @return The resource group in which the endpoint will be created.
+     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     private @Nullable String resourceGroupName;
@@ -98,14 +98,14 @@ public final class IoTHubEndpoint {
         return Optional.ofNullable(this.batchFrequencyInSeconds);
     }
     /**
-     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+     * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
      * 
      */
     public Optional<String> connectionString() {
         return Optional.ofNullable(this.connectionString);
     }
     /**
-     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+     * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
      * 
      */
     public Optional<String> containerName() {
@@ -165,7 +165,7 @@ public final class IoTHubEndpoint {
         return this.name;
     }
     /**
-     * @return The resource group in which the endpoint will be created.
+     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     public Optional<String> resourceGroupName() {

@@ -334,14 +334,14 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * @return The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -927,7 +927,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
          * 
          * @return builder
          * 
@@ -938,7 +938,7 @@ public final class IoTHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resource_group_name` - (Optional) The resource group in which the endpoint will be created.
          * 
          * @return builder
          * 

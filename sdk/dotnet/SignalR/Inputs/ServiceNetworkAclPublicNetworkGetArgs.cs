@@ -35,6 +35,13 @@ namespace Pulumi.Azure.SignalR.Inputs
         /// &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
         /// 
         /// &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+        /// 
+        /// 
+        /// `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+        /// 
+        /// &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        /// 
+        /// &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
         /// </summary>
         public InputList<string> DeniedRequestTypes
         {

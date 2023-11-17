@@ -14,14 +14,14 @@ public final class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args extends co
     public static final WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args Empty = new WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args();
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public Output<String> clientId() {
@@ -53,7 +53,7 @@ public final class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args extends co
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args extends co
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 

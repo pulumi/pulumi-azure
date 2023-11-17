@@ -98,10 +98,9 @@ namespace Pulumi.Azure.PostgreSql
         /// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-        /// 
-        /// 1. Contains only alphanumeric and hyphen characters
-        /// 2. Cannot start with a number or hyphen
-        /// 3. Cannot end with a hyphen
+        /// . Contains only alphanumeric and hyphen characters
+        /// . Cannot start with a number or hyphen
+        /// . Cannot end with a hyphen
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -180,10 +179,9 @@ namespace Pulumi.Azure.PostgreSql
         /// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-        /// 
-        /// 1. Contains only alphanumeric and hyphen characters
-        /// 2. Cannot start with a number or hyphen
-        /// 3. Cannot end with a hyphen
+        /// . Contains only alphanumeric and hyphen characters
+        /// . Cannot start with a number or hyphen
+        /// . Cannot end with a hyphen
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -224,10 +222,9 @@ namespace Pulumi.Azure.PostgreSql
         /// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below:
-        /// 
-        /// 1. Contains only alphanumeric and hyphen characters
-        /// 2. Cannot start with a number or hyphen
-        /// 3. Cannot end with a hyphen
+        /// . Contains only alphanumeric and hyphen characters
+        /// . Cannot start with a number or hyphen
+        /// . Cannot end with a hyphen
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

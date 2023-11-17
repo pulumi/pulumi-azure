@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a AWS CloudTrail Data Connector.
@@ -183,12 +182,6 @@ func (i *DataConnectorAwsCloudTrail) ToDataConnectorAwsCloudTrailOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsCloudTrailOutput)
 }
 
-func (i *DataConnectorAwsCloudTrail) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAwsCloudTrail] {
-	return pulumix.Output[*DataConnectorAwsCloudTrail]{
-		OutputState: i.ToDataConnectorAwsCloudTrailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorAwsCloudTrailArrayInput is an input type that accepts DataConnectorAwsCloudTrailArray and DataConnectorAwsCloudTrailArrayOutput values.
 // You can construct a concrete instance of `DataConnectorAwsCloudTrailArrayInput` via:
 //
@@ -212,12 +205,6 @@ func (i DataConnectorAwsCloudTrailArray) ToDataConnectorAwsCloudTrailArrayOutput
 
 func (i DataConnectorAwsCloudTrailArray) ToDataConnectorAwsCloudTrailArrayOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsCloudTrailArrayOutput)
-}
-
-func (i DataConnectorAwsCloudTrailArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAwsCloudTrail] {
-	return pulumix.Output[[]*DataConnectorAwsCloudTrail]{
-		OutputState: i.ToDataConnectorAwsCloudTrailArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorAwsCloudTrailMapInput is an input type that accepts DataConnectorAwsCloudTrailMap and DataConnectorAwsCloudTrailMapOutput values.
@@ -245,12 +232,6 @@ func (i DataConnectorAwsCloudTrailMap) ToDataConnectorAwsCloudTrailMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorAwsCloudTrailMapOutput)
 }
 
-func (i DataConnectorAwsCloudTrailMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAwsCloudTrail] {
-	return pulumix.Output[map[string]*DataConnectorAwsCloudTrail]{
-		OutputState: i.ToDataConnectorAwsCloudTrailMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorAwsCloudTrailOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorAwsCloudTrailOutput) ElementType() reflect.Type {
@@ -263,12 +244,6 @@ func (o DataConnectorAwsCloudTrailOutput) ToDataConnectorAwsCloudTrailOutput() D
 
 func (o DataConnectorAwsCloudTrailOutput) ToDataConnectorAwsCloudTrailOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailOutput {
 	return o
-}
-
-func (o DataConnectorAwsCloudTrailOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorAwsCloudTrail] {
-	return pulumix.Output[*DataConnectorAwsCloudTrail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
@@ -300,12 +275,6 @@ func (o DataConnectorAwsCloudTrailArrayOutput) ToDataConnectorAwsCloudTrailArray
 	return o
 }
 
-func (o DataConnectorAwsCloudTrailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorAwsCloudTrail] {
-	return pulumix.Output[[]*DataConnectorAwsCloudTrail]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorAwsCloudTrailArrayOutput) Index(i pulumi.IntInput) DataConnectorAwsCloudTrailOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorAwsCloudTrail {
 		return vs[0].([]*DataConnectorAwsCloudTrail)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o DataConnectorAwsCloudTrailMapOutput) ToDataConnectorAwsCloudTrailMapOutp
 
 func (o DataConnectorAwsCloudTrailMapOutput) ToDataConnectorAwsCloudTrailMapOutputWithContext(ctx context.Context) DataConnectorAwsCloudTrailMapOutput {
 	return o
-}
-
-func (o DataConnectorAwsCloudTrailMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorAwsCloudTrail] {
-	return pulumix.Output[map[string]*DataConnectorAwsCloudTrail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorAwsCloudTrailMapOutput) MapIndex(k pulumi.StringInput) DataConnectorAwsCloudTrailOutput {

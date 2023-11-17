@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
@@ -113,6 +112,12 @@ type GetAccountSASArgs struct {
 	// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
 	IpAddresses *string `pulumi:"ipAddresses"`
 	// A `permissions` block as defined below.
+	//
+	// `resourceTypes` is a set of `true`/`false` flags which define the storage account resource types that are granted
+	// access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+	// larger scope (affecting all sub-resources) than `object`.
+	//
+	// A `resourceTypes` block contains:
 	Permissions GetAccountSASPermissions `pulumi:"permissions"`
 	// A `resourceTypes` block as defined below.
 	ResourceTypes GetAccountSASResourceTypes `pulumi:"resourceTypes"`
@@ -167,6 +172,12 @@ type GetAccountSASOutputArgs struct {
 	// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
 	IpAddresses pulumi.StringPtrInput `pulumi:"ipAddresses"`
 	// A `permissions` block as defined below.
+	//
+	// `resourceTypes` is a set of `true`/`false` flags which define the storage account resource types that are granted
+	// access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+	// larger scope (affecting all sub-resources) than `object`.
+	//
+	// A `resourceTypes` block contains:
 	Permissions GetAccountSASPermissionsInput `pulumi:"permissions"`
 	// A `resourceTypes` block as defined below.
 	ResourceTypes GetAccountSASResourceTypesInput `pulumi:"resourceTypes"`
@@ -195,12 +206,6 @@ func (o GetAccountSASResultOutput) ToGetAccountSASResultOutput() GetAccountSASRe
 
 func (o GetAccountSASResultOutput) ToGetAccountSASResultOutputWithContext(ctx context.Context) GetAccountSASResultOutput {
 	return o
-}
-
-func (o GetAccountSASResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASResult] {
-	return pulumix.Output[GetAccountSASResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountSASResultOutput) ConnectionString() pulumi.StringOutput {

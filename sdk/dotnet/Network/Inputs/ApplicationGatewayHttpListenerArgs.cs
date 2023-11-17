@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayHttpListenerCustomErrorConfigurationArgs>? _customErrorConfigurations;
 
         /// <summary>
-        /// One or more `custom_error_configuration` blocks as defined below.
+        /// One or more `custom_error_configuration` blocks as defined below.`custom_error_configuration` - (Optional) One or more `custom_error_configuration` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayHttpListenerCustomErrorConfigurationArgs> CustomErrorConfigurations
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
+        /// The ID of the Web Application Firewall Policy.`firewall_policy_id` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
         /// </summary>
         [Input("firewallPolicyId")]
         public Input<string>? FirewallPolicyId { get; set; }

@@ -17,6 +17,10 @@ public final class GetAccountSASResourceTypes {
     /**
      * @return Should permission be granted only to a specific object?
      * 
+     * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+     * 
+     * A `services` block contains:
+     * 
      */
     private Boolean object;
     /**
@@ -35,6 +39,10 @@ public final class GetAccountSASResourceTypes {
     }
     /**
      * @return Should permission be granted only to a specific object?
+     * 
+     * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+     * 
+     * A `services` block contains:
      * 
      */
     public Boolean object() {

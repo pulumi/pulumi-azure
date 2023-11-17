@@ -52,21 +52,18 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
+        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.`patch_assessment_mode` - (Optional) Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        /// 
         /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
-        /// <summary>
-        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-        /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
-        /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.`provision_vm_agent` - (Optional) Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -75,7 +72,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more `secret` blocks as defined below.
+        /// One or more `secret` blocks as defined below.`secret` - (Optional) One or more `secret` blocks as defined below.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs> Secrets
         {

@@ -218,7 +218,6 @@ export class ManagedDisk extends pulumi.CustomResource {
      *
      * > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
      *
-     *
      * > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
      *
      * > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -492,7 +491,6 @@ export interface ManagedDiskState {
      *
      * > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
      *
-     *
      * > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
      *
      * > **NOTE:** `secureVmDiskEncryptionSetId` must be specified when `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -666,7 +664,6 @@ export interface ManagedDiskArgs {
      * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When `securityType` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `createOption` must be one of `FromImage` or `ImportSecure`.
-     *
      *
      * > **NOTE:** `securityType` cannot be specified when `trustedLaunchEnabled` is set to true.
      *

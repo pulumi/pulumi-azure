@@ -73,7 +73,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly ddosProtectionMode!: pulumi.Output<string | undefined>;
     /**
-     * The ID of DDoS protection plan associated with the public IP. 
+     * The ID of DDoS protection plan associated with the public IP.
      *
      * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */
@@ -233,7 +233,7 @@ export interface PublicIpState {
      */
     ddosProtectionMode?: pulumi.Input<string>;
     /**
-     * The ID of DDoS protection plan associated with the public IP. 
+     * The ID of DDoS protection plan associated with the public IP.
      *
      * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */
@@ -329,7 +329,7 @@ export interface PublicIpArgs {
      */
     ddosProtectionMode?: pulumi.Input<string>;
     /**
-     * The ID of DDoS protection plan associated with the public IP. 
+     * The ID of DDoS protection plan associated with the public IP.
      *
      * > **Note:** `ddosProtectionPlanId` can only be set when `ddosProtectionMode` is `Enabled`.
      */

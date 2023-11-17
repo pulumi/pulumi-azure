@@ -17,6 +17,11 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// The communities of Bgp Peering specified for microsoft peering.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `ipv6` block contains:`advertised_communities` - (Optional) The communities of Bgp Peering specified for microsoft peering.
         /// </summary>
         public InputList<string> AdvertisedCommunities
         {
@@ -28,7 +33,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<string>? _advertisedPublicPrefixes;
 
         /// <summary>
-        /// A list of Advertised Public Prefixes.
+        /// A list of Advertised Public Prefixes.`advertised_public_prefixes` - (Optional) A list of Advertised Public Prefixes.
         /// </summary>
         public InputList<string> AdvertisedPublicPrefixes
         {
@@ -37,13 +42,13 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
-        /// The CustomerASN of the peering. Defaults to `0`.
+        /// The CustomerASN of the peering. Defaults to `0`.`customer_asn` - (Optional) The CustomerASN of the peering. Defaults to `0`.
         /// </summary>
         [Input("customerAsn")]
         public Input<int>? CustomerAsn { get; set; }
 
         /// <summary>
-        /// The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
+        /// The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.`routing_registry_name` - (Optional) The Routing Registry against which the AS number and prefixes are registered. For example: `ARIN`, `RIPE`, `AFRINIC` etc. Defaults to `NONE`.
         /// </summary>
         [Input("routingRegistryName")]
         public Input<string>? RoutingRegistryName { get; set; }

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Static Site.
@@ -226,12 +225,6 @@ func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSi
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteOutput)
 }
 
-func (i *StaticSite) ToOutput(ctx context.Context) pulumix.Output[*StaticSite] {
-	return pulumix.Output[*StaticSite]{
-		OutputState: i.ToStaticSiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StaticSiteArrayInput is an input type that accepts StaticSiteArray and StaticSiteArrayOutput values.
 // You can construct a concrete instance of `StaticSiteArrayInput` via:
 //
@@ -255,12 +248,6 @@ func (i StaticSiteArray) ToStaticSiteArrayOutput() StaticSiteArrayOutput {
 
 func (i StaticSiteArray) ToStaticSiteArrayOutputWithContext(ctx context.Context) StaticSiteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteArrayOutput)
-}
-
-func (i StaticSiteArray) ToOutput(ctx context.Context) pulumix.Output[[]*StaticSite] {
-	return pulumix.Output[[]*StaticSite]{
-		OutputState: i.ToStaticSiteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StaticSiteMapInput is an input type that accepts StaticSiteMap and StaticSiteMapOutput values.
@@ -288,12 +275,6 @@ func (i StaticSiteMap) ToStaticSiteMapOutputWithContext(ctx context.Context) Sta
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteMapOutput)
 }
 
-func (i StaticSiteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticSite] {
-	return pulumix.Output[map[string]*StaticSite]{
-		OutputState: i.ToStaticSiteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StaticSiteOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteOutput) ElementType() reflect.Type {
@@ -306,12 +287,6 @@ func (o StaticSiteOutput) ToStaticSiteOutput() StaticSiteOutput {
 
 func (o StaticSiteOutput) ToStaticSiteOutputWithContext(ctx context.Context) StaticSiteOutput {
 	return o
-}
-
-func (o StaticSiteOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticSite] {
-	return pulumix.Output[*StaticSite]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
@@ -378,12 +353,6 @@ func (o StaticSiteArrayOutput) ToStaticSiteArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o StaticSiteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StaticSite] {
-	return pulumix.Output[[]*StaticSite]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StaticSiteArrayOutput) Index(i pulumi.IntInput) StaticSiteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticSite {
 		return vs[0].([]*StaticSite)[vs[1].(int)]
@@ -402,12 +371,6 @@ func (o StaticSiteMapOutput) ToStaticSiteMapOutput() StaticSiteMapOutput {
 
 func (o StaticSiteMapOutput) ToStaticSiteMapOutputWithContext(ctx context.Context) StaticSiteMapOutput {
 	return o
-}
-
-func (o StaticSiteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticSite] {
-	return pulumix.Output[map[string]*StaticSite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StaticSiteMapOutput) MapIndex(k pulumi.StringInput) StaticSiteOutput {

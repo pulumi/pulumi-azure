@@ -66,7 +66,7 @@ namespace Pulumi.Azure.MariaDB
     public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.MariaDB
     public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.MariaDB
     public sealed class FirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the End IP Address associated with this Firewall Rule. 
+        /// Specifies the End IP Address associated with this Firewall Rule.
         /// 
         /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
         /// </summary>

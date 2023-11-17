@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Scheduled Alert Rule.
@@ -421,12 +420,6 @@ func (i *AlertRuleScheduled) ToAlertRuleScheduledOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledOutput)
 }
 
-func (i *AlertRuleScheduled) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduled] {
-	return pulumix.Output[*AlertRuleScheduled]{
-		OutputState: i.ToAlertRuleScheduledOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertRuleScheduledArrayInput is an input type that accepts AlertRuleScheduledArray and AlertRuleScheduledArrayOutput values.
 // You can construct a concrete instance of `AlertRuleScheduledArrayInput` via:
 //
@@ -450,12 +443,6 @@ func (i AlertRuleScheduledArray) ToAlertRuleScheduledArrayOutput() AlertRuleSche
 
 func (i AlertRuleScheduledArray) ToAlertRuleScheduledArrayOutputWithContext(ctx context.Context) AlertRuleScheduledArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledArrayOutput)
-}
-
-func (i AlertRuleScheduledArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleScheduled] {
-	return pulumix.Output[[]*AlertRuleScheduled]{
-		OutputState: i.ToAlertRuleScheduledArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertRuleScheduledMapInput is an input type that accepts AlertRuleScheduledMap and AlertRuleScheduledMapOutput values.
@@ -483,12 +470,6 @@ func (i AlertRuleScheduledMap) ToAlertRuleScheduledMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledMapOutput)
 }
 
-func (i AlertRuleScheduledMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleScheduled] {
-	return pulumix.Output[map[string]*AlertRuleScheduled]{
-		OutputState: i.ToAlertRuleScheduledMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertRuleScheduledOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleScheduledOutput) ElementType() reflect.Type {
@@ -501,12 +482,6 @@ func (o AlertRuleScheduledOutput) ToAlertRuleScheduledOutput() AlertRuleSchedule
 
 func (o AlertRuleScheduledOutput) ToAlertRuleScheduledOutputWithContext(ctx context.Context) AlertRuleScheduledOutput {
 	return o
-}
-
-func (o AlertRuleScheduledOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleScheduled] {
-	return pulumix.Output[*AlertRuleScheduled]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `alertDetailsOverride` block as defined below.
@@ -650,12 +625,6 @@ func (o AlertRuleScheduledArrayOutput) ToAlertRuleScheduledArrayOutputWithContex
 	return o
 }
 
-func (o AlertRuleScheduledArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleScheduled] {
-	return pulumix.Output[[]*AlertRuleScheduled]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertRuleScheduledArrayOutput) Index(i pulumi.IntInput) AlertRuleScheduledOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleScheduled {
 		return vs[0].([]*AlertRuleScheduled)[vs[1].(int)]
@@ -674,12 +643,6 @@ func (o AlertRuleScheduledMapOutput) ToAlertRuleScheduledMapOutput() AlertRuleSc
 
 func (o AlertRuleScheduledMapOutput) ToAlertRuleScheduledMapOutputWithContext(ctx context.Context) AlertRuleScheduledMapOutput {
 	return o
-}
-
-func (o AlertRuleScheduledMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleScheduled] {
-	return pulumix.Output[map[string]*AlertRuleScheduled]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertRuleScheduledMapOutput) MapIndex(k pulumi.StringInput) AlertRuleScheduledOutput {

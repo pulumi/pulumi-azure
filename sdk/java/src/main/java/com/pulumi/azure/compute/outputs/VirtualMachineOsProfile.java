@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualMachineOsProfile {
     /**
-     * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+     * @return The password associated with the local administrator account.
      * 
      * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
      * 
@@ -36,7 +36,7 @@ public final class VirtualMachineOsProfile {
 
     private VirtualMachineOsProfile() {}
     /**
-     * @return (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+     * @return The password associated with the local administrator account.
      * 
      * &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
      * 

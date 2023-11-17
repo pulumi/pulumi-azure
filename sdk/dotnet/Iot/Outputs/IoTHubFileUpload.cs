@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? AuthenticationType;
         /// <summary>
-        /// The connection string for the Azure Storage account to which files are uploaded.
+        /// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.`connection_string` - (Required) The connection string for the Azure Storage account to which files are uploaded.
         /// </summary>
         public readonly string ConnectionString;
         /// <summary>
-        /// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+        /// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`container_name` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
         /// </summary>
         public readonly string ContainerName;
         /// <summary>

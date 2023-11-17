@@ -26,12 +26,16 @@ namespace Pulumi.Azure.Network.Inputs
 
         /// <summary>
         /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+        /// 
+        /// When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
         /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
         /// <summary>
         /// The Static IP Address which should be used.
+        /// 
+        /// When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }

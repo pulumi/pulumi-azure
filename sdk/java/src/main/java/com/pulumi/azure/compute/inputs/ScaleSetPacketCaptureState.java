@@ -38,12 +38,16 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
     /**
      * A `machine_scope` block as defined below. Changing this forces a new resource to be created.
      * 
+     * A `storage_location` block contains:
+     * 
      */
     @Import(name="machineScope")
     private @Nullable Output<ScaleSetPacketCaptureMachineScopeArgs> machineScope;
 
     /**
      * @return A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * A `storage_location` block contains:
      * 
      */
     public Optional<Output<ScaleSetPacketCaptureMachineScopeArgs>> machineScope() {
@@ -221,6 +225,8 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
         /**
          * @param machineScope A `machine_scope` block as defined below. Changing this forces a new resource to be created.
          * 
+         * A `storage_location` block contains:
+         * 
          * @return builder
          * 
          */
@@ -231,6 +237,8 @@ public final class ScaleSetPacketCaptureState extends com.pulumi.resources.Resou
 
         /**
          * @param machineScope A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * A `storage_location` block contains:
          * 
          * @return builder
          * 

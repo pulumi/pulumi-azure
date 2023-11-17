@@ -139,7 +139,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly backendHttpSettings!: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSetting[]>;
     /**
-     * One or more `customErrorConfiguration` blocks as defined below.
+     * One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
      */
     public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
     /**
@@ -151,7 +151,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The ID of the Web Application Firewall Policy.
+     * The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      */
     public readonly firewallPolicyId!: pulumi.Output<string | undefined>;
     /**
@@ -398,7 +398,7 @@ export interface ApplicationGatewayState {
      */
     backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
     /**
-     * One or more `customErrorConfiguration` blocks as defined below.
+     * One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
      */
     customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
     /**
@@ -410,7 +410,7 @@ export interface ApplicationGatewayState {
      */
     fipsEnabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Web Application Firewall Policy.
+     * The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      */
     firewallPolicyId?: pulumi.Input<string>;
     /**
@@ -542,7 +542,7 @@ export interface ApplicationGatewayArgs {
      */
     backendHttpSettings: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
     /**
-     * One or more `customErrorConfiguration` blocks as defined below.
+     * One or more `customErrorConfiguration` blocks as defined below.`customErrorConfiguration` - (Optional) One or more `customErrorConfiguration` blocks as defined below.
      */
     customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
     /**
@@ -554,7 +554,7 @@ export interface ApplicationGatewayArgs {
      */
     fipsEnabled?: pulumi.Input<boolean>;
     /**
-     * The ID of the Web Application Firewall Policy.
+     * The ID of the Web Application Firewall Policy.`firewallPolicyId` - (Optional) The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      */
     firewallPolicyId?: pulumi.Input<string>;
     /**

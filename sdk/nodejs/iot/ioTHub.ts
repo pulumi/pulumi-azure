@@ -236,7 +236,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -426,7 +426,7 @@ export interface IoTHubState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -514,7 +514,7 @@ export interface IoTHubArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+     * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

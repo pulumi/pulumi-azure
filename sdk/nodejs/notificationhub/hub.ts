@@ -95,6 +95,11 @@ export class Hub extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `apnsCredential` block contains:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -173,6 +178,11 @@ export interface HubState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `apnsCredential` block contains:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -211,6 +221,11 @@ export interface HubArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
+     *
+     *
+     *
+     *
+     * A `apnsCredential` block contains:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

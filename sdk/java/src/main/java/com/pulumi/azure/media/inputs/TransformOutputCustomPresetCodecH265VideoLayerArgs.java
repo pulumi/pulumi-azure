@@ -19,14 +19,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     public static final TransformOutputCustomPresetCodecH265VideoLayerArgs Empty = new TransformOutputCustomPresetCodecH265VideoLayerArgs();
 
     /**
-     * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+     * Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
      * 
      */
     @Import(name="adaptiveBFrameEnabled")
     private @Nullable Output<Boolean> adaptiveBFrameEnabled;
 
     /**
-     * @return Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+     * @return Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
      * 
      */
     public Optional<Output<Boolean>> adaptiveBFrameEnabled() {
@@ -34,14 +34,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+     * The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
      * 
      */
     @Import(name="bFrames")
     private @Nullable Output<Integer> bFrames;
 
     /**
-     * @return The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+     * @return The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
      * 
      */
     public Optional<Output<Integer>> bFrames() {
@@ -49,14 +49,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The average bitrate in bits per second at which to encode the input video when generating this layer.
+     * The bitrate of the audio in bits per second. Default to `128000`.
      * 
      */
     @Import(name="bitrate", required=true)
     private Output<Integer> bitrate;
 
     /**
-     * @return The average bitrate in bits per second at which to encode the input video when generating this layer.
+     * @return The bitrate of the audio in bits per second. Default to `128000`.
      * 
      */
     public Output<Integer> bitrate() {
@@ -64,14 +64,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+     * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
      * 
      */
     @Import(name="bufferWindow")
     private @Nullable Output<String> bufferWindow;
 
     /**
-     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
      * 
      */
     public Optional<Output<String>> bufferWindow() {
@@ -79,14 +79,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+     * The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
      * 
      */
     @Import(name="crf")
     private @Nullable Output<Double> crf;
 
     /**
-     * @return The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+     * @return The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
      * 
      */
     public Optional<Output<Double>> crf() {
@@ -94,6 +94,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
+     * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional)
      * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
      * 
      */
@@ -101,7 +102,8 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     private @Nullable Output<String> frameRate;
 
     /**
-     * @return The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+     * @return The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional)
+     * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
      * 
      */
     public Optional<Output<String>> frameRate() {
@@ -109,14 +111,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="height")
     private @Nullable Output<String> height;
 
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> height() {
@@ -124,14 +126,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+     * Specifies the label for the codec. The label can be used to control muxing behavior.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
      * 
      */
     public Optional<Output<String>> label() {
@@ -139,14 +141,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+     * The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
      * 
      */
     @Import(name="level")
     private @Nullable Output<String> level;
 
     /**
-     * @return The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+     * @return The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
      * 
      */
     public Optional<Output<String>> level() {
@@ -154,14 +156,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+     * The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
      * 
      */
     @Import(name="maxBitrate")
     private @Nullable Output<Integer> maxBitrate;
 
     /**
-     * @return The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+     * @return The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
      * 
      */
     public Optional<Output<Integer>> maxBitrate() {
@@ -169,14 +171,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+     * The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+     * @return The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -184,14 +186,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+     * The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
      * 
      */
     @Import(name="referenceFrames")
     private @Nullable Output<Integer> referenceFrames;
 
     /**
-     * @return The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+     * @return The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
      * 
      */
     public Optional<Output<Integer>> referenceFrames() {
@@ -199,14 +201,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+     * The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
      * 
      */
     @Import(name="slices")
     private @Nullable Output<Integer> slices;
 
     /**
-     * @return The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+     * @return The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
      * 
      */
     public Optional<Output<Integer>> slices() {
@@ -214,14 +216,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="width")
     private @Nullable Output<String> width;
 
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> width() {
@@ -266,7 +268,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param adaptiveBFrameEnabled Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+         * @param adaptiveBFrameEnabled Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
          * 
          * @return builder
          * 
@@ -277,7 +279,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param adaptiveBFrameEnabled Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+         * @param adaptiveBFrameEnabled Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptive_b_frame_enabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
          * 
          * @return builder
          * 
@@ -287,7 +289,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bFrames The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+         * @param bFrames The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
          * 
          * @return builder
          * 
@@ -298,7 +300,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bFrames The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+         * @param bFrames The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`b_frames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
          * 
          * @return builder
          * 
@@ -308,7 +310,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bitrate The average bitrate in bits per second at which to encode the input video when generating this layer.
+         * @param bitrate The bitrate of the audio in bits per second. Default to `128000`.
          * 
          * @return builder
          * 
@@ -319,7 +321,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bitrate The average bitrate in bits per second at which to encode the input video when generating this layer.
+         * @param bitrate The bitrate of the audio in bits per second. Default to `128000`.
          * 
          * @return builder
          * 
@@ -329,7 +331,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
          * 
          * @return builder
          * 
@@ -340,7 +342,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`buffer_window` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
          * 
          * @return builder
          * 
@@ -350,7 +352,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param crf The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+         * @param crf The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
          * 
          * @return builder
          * 
@@ -361,7 +363,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param crf The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+         * @param crf The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
          * 
          * @return builder
          * 
@@ -371,7 +373,8 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param frameRate The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+         * @param frameRate The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional)
+         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
          * 
          * @return builder
          * 
@@ -382,7 +385,8 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param frameRate The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+         * @param frameRate The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frame_rate` - (Optional)
+         * The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
          * 
          * @return builder
          * 
@@ -392,7 +396,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -403,7 +407,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -413,7 +417,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param label The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * @param label Specifies the label for the codec. The label can be used to control muxing behavior.
          * 
          * @return builder
          * 
@@ -424,7 +428,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param label The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * @param label Specifies the label for the codec. The label can be used to control muxing behavior.
          * 
          * @return builder
          * 
@@ -434,7 +438,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param level The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+         * @param level The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
          * 
          * @return builder
          * 
@@ -445,7 +449,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param level The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+         * @param level The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
          * 
          * @return builder
          * 
@@ -455,7 +459,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param maxBitrate The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+         * @param maxBitrate The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
          * 
          * @return builder
          * 
@@ -466,7 +470,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param maxBitrate The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+         * @param maxBitrate The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`max_bitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
          * 
          * @return builder
          * 
@@ -476,7 +480,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param profile The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         * @param profile The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
          * 
          * @return builder
          * 
@@ -487,7 +491,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param profile The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         * @param profile The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
          * 
          * @return builder
          * 
@@ -497,7 +501,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param referenceFrames The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+         * @param referenceFrames The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
          * 
          * @return builder
          * 
@@ -508,7 +512,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param referenceFrames The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+         * @param referenceFrames The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`reference_frames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
          * 
          * @return builder
          * 
@@ -518,7 +522,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param slices The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+         * @param slices The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
          * 
          * @return builder
          * 
@@ -529,7 +533,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param slices The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+         * @param slices The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
          * 
          * @return builder
          * 
@@ -539,7 +543,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -550,7 +554,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 

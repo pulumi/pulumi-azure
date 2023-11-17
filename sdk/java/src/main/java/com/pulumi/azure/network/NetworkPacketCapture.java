@@ -172,12 +172,16 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      * 
+     * A `storage_location` block contains:
+     * 
      */
     @Export(name="filters", refs={List.class,NetworkPacketCaptureFilter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NetworkPacketCaptureFilter>> filters;
 
     /**
      * @return One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     * A `storage_location` block contains:
      * 
      */
     public Output<Optional<List<NetworkPacketCaptureFilter>>> filters() {

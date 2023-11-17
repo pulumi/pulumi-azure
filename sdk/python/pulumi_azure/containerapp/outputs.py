@@ -498,7 +498,7 @@ class AppRegistry(dict):
         :param str server: The hostname for the Container Registry.
                
                The authentication details must also be supplied, `identity` and `username`/`password_secret_name` are mutually exclusive.
-        :param str identity: Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        :param str identity: An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
         :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
@@ -524,7 +524,7 @@ class AppRegistry(dict):
     @pulumi.getter
     def identity(self) -> Optional[str]:
         """
-        Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+        An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         """
         return pulumi.get(self, "identity")
 
@@ -880,18 +880,18 @@ class AppTemplateContainer(dict):
                  startup_probes: Optional[Sequence['outputs.AppTemplateContainerStartupProbe']] = None,
                  volume_mounts: Optional[Sequence['outputs.AppTemplateContainerVolumeMount']] = None):
         """
-        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
+        :param float cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
                
                > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param str image: The image to use to create the container.
-        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
                
                > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
-        :param str name: The name of the container
+        :param str name: The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         :param Sequence[str] args: A list of extra arguments to pass to the container.
         :param Sequence[str] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param Sequence['AppTemplateContainerEnvArgs'] envs: One or more `env` blocks as detailed below.
-        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App. 
+        :param str ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
                > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param Sequence['AppTemplateContainerLivenessProbeArgs'] liveness_probes: A `liveness_probe` block as detailed below.
@@ -924,7 +924,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def cpu(self) -> float:
         """
-        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
+        The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 
         > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
@@ -942,7 +942,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def memory(self) -> str:
         """
-        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
 
         > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
@@ -952,7 +952,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the container
+        The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         """
         return pulumi.get(self, "name")
 
@@ -984,7 +984,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[str]:
         """
-        The amount of ephemeral storage available to the Container App. 
+        The amount of ephemeral storage available to the Container App.
 
         > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
@@ -1240,8 +1240,14 @@ class AppTemplateContainerLivenessProbeHeader(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The HTTP Header Name.
+        :param str name: The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         :param str value: The HTTP Header value.
+               
+               
+               `value` - (Required) The HTTP Header value.
+               
+               
+               `value` - (Required) The HTTP Header value.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1250,7 +1256,7 @@ class AppTemplateContainerLivenessProbeHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The HTTP Header Name.
+        The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         """
         return pulumi.get(self, "name")
 
@@ -1259,6 +1265,12 @@ class AppTemplateContainerLivenessProbeHeader(dict):
     def value(self) -> str:
         """
         The HTTP Header value.
+
+
+        `value` - (Required) The HTTP Header value.
+
+
+        `value` - (Required) The HTTP Header value.
         """
         return pulumi.get(self, "value")
 
@@ -1403,8 +1415,14 @@ class AppTemplateContainerReadinessProbeHeader(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The HTTP Header Name.
+        :param str name: The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         :param str value: The HTTP Header value.
+               
+               
+               `value` - (Required) The HTTP Header value.
+               
+               
+               `value` - (Required) The HTTP Header value.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1413,7 +1431,7 @@ class AppTemplateContainerReadinessProbeHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The HTTP Header Name.
+        The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         """
         return pulumi.get(self, "name")
 
@@ -1422,6 +1440,12 @@ class AppTemplateContainerReadinessProbeHeader(dict):
     def value(self) -> str:
         """
         The HTTP Header value.
+
+
+        `value` - (Required) The HTTP Header value.
+
+
+        `value` - (Required) The HTTP Header value.
         """
         return pulumi.get(self, "value")
 
@@ -1566,8 +1590,14 @@ class AppTemplateContainerStartupProbeHeader(dict):
                  name: str,
                  value: str):
         """
-        :param str name: The HTTP Header Name.
+        :param str name: The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         :param str value: The HTTP Header value.
+               
+               
+               `value` - (Required) The HTTP Header value.
+               
+               
+               `value` - (Required) The HTTP Header value.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1576,7 +1606,7 @@ class AppTemplateContainerStartupProbeHeader(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The HTTP Header Name.
+        The HTTP Header Name.`name` - (Required) The HTTP Header Name.`name` - (Required) The HTTP Header Name.
         """
         return pulumi.get(self, "name")
 
@@ -1585,6 +1615,12 @@ class AppTemplateContainerStartupProbeHeader(dict):
     def value(self) -> str:
         """
         The HTTP Header value.
+
+
+        `value` - (Required) The HTTP Header value.
+
+
+        `value` - (Required) The HTTP Header value.
         """
         return pulumi.get(self, "value")
 

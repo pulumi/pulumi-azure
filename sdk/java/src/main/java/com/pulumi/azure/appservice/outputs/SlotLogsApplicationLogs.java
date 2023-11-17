@@ -15,6 +15,8 @@ public final class SlotLogsApplicationLogs {
     /**
      * @return An `azure_blob_storage` block as defined below.
      * 
+     * An `http_logs` block supports *one* of the following:
+     * 
      */
     private @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
     /**
@@ -26,6 +28,8 @@ public final class SlotLogsApplicationLogs {
     private SlotLogsApplicationLogs() {}
     /**
      * @return An `azure_blob_storage` block as defined below.
+     * 
+     * An `http_logs` block supports *one* of the following:
      * 
      */
     public Optional<SlotLogsApplicationLogsAzureBlobStorage> azureBlobStorage() {

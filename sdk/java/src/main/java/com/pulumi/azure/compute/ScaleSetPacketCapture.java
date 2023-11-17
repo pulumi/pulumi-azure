@@ -171,12 +171,16 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
     /**
      * A `machine_scope` block as defined below. Changing this forces a new resource to be created.
      * 
+     * A `storage_location` block contains:
+     * 
      */
     @Export(name="machineScope", refs={ScaleSetPacketCaptureMachineScope.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetPacketCaptureMachineScope> machineScope;
 
     /**
      * @return A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * A `storage_location` block contains:
      * 
      */
     public Output<Optional<ScaleSetPacketCaptureMachineScope>> machineScope() {

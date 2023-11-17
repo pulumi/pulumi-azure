@@ -81,12 +81,16 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specify the root file path of this Nginx Configuration.
      * 
+     * &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
+     * 
      */
     @Import(name="rootFile", required=true)
     private Output<String> rootFile;
 
     /**
      * @return Specify the root file path of this Nginx Configuration.
+     * 
+     * &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
      * 
      */
     public Output<String> rootFile() {
@@ -228,6 +232,8 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param rootFile Specify the root file path of this Nginx Configuration.
          * 
+         * &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
+         * 
          * @return builder
          * 
          */
@@ -238,6 +244,8 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param rootFile Specify the root file path of this Nginx Configuration.
+         * 
+         * &gt; **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
          * 
          * @return builder
          * 

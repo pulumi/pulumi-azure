@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cost Management Export for a Resource Group.
@@ -255,12 +254,6 @@ func (i *ResourceGroupCostManagementExport) ToResourceGroupCostManagementExportO
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportOutput)
 }
 
-func (i *ResourceGroupCostManagementExport) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementExport] {
-	return pulumix.Output[*ResourceGroupCostManagementExport]{
-		OutputState: i.ToResourceGroupCostManagementExportOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupCostManagementExportArrayInput is an input type that accepts ResourceGroupCostManagementExportArray and ResourceGroupCostManagementExportArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementExportArrayInput` via:
 //
@@ -284,12 +277,6 @@ func (i ResourceGroupCostManagementExportArray) ToResourceGroupCostManagementExp
 
 func (i ResourceGroupCostManagementExportArray) ToResourceGroupCostManagementExportArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportArrayOutput)
-}
-
-func (i ResourceGroupCostManagementExportArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupCostManagementExport] {
-	return pulumix.Output[[]*ResourceGroupCostManagementExport]{
-		OutputState: i.ToResourceGroupCostManagementExportArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGroupCostManagementExportMapInput is an input type that accepts ResourceGroupCostManagementExportMap and ResourceGroupCostManagementExportMapOutput values.
@@ -317,12 +304,6 @@ func (i ResourceGroupCostManagementExportMap) ToResourceGroupCostManagementExpor
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementExportMapOutput)
 }
 
-func (i ResourceGroupCostManagementExportMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupCostManagementExport] {
-	return pulumix.Output[map[string]*ResourceGroupCostManagementExport]{
-		OutputState: i.ToResourceGroupCostManagementExportMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupCostManagementExportOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementExportOutput) ElementType() reflect.Type {
@@ -335,12 +316,6 @@ func (o ResourceGroupCostManagementExportOutput) ToResourceGroupCostManagementEx
 
 func (o ResourceGroupCostManagementExportOutput) ToResourceGroupCostManagementExportOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportOutput {
 	return o
-}
-
-func (o ResourceGroupCostManagementExportOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementExport] {
-	return pulumix.Output[*ResourceGroupCostManagementExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is the cost management export active? Default is `true`.
@@ -401,12 +376,6 @@ func (o ResourceGroupCostManagementExportArrayOutput) ToResourceGroupCostManagem
 	return o
 }
 
-func (o ResourceGroupCostManagementExportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupCostManagementExport] {
-	return pulumix.Output[[]*ResourceGroupCostManagementExport]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGroupCostManagementExportArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementExportOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupCostManagementExport {
 		return vs[0].([]*ResourceGroupCostManagementExport)[vs[1].(int)]
@@ -425,12 +394,6 @@ func (o ResourceGroupCostManagementExportMapOutput) ToResourceGroupCostManagemen
 
 func (o ResourceGroupCostManagementExportMapOutput) ToResourceGroupCostManagementExportMapOutputWithContext(ctx context.Context) ResourceGroupCostManagementExportMapOutput {
 	return o
-}
-
-func (o ResourceGroupCostManagementExportMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupCostManagementExport] {
-	return pulumix.Output[map[string]*ResourceGroupCostManagementExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupCostManagementExportMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupCostManagementExportOutput {

@@ -132,6 +132,11 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
 
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * A `storageLocation` block contains:
      */
     public readonly filters!: pulumi.Output<outputs.network.NetworkPacketCaptureFilter[] | undefined>;
     /**
@@ -226,6 +231,11 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
 export interface NetworkPacketCaptureState {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * A `storageLocation` block contains:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.network.NetworkPacketCaptureFilter>[]>;
     /**
@@ -270,6 +280,11 @@ export interface NetworkPacketCaptureState {
 export interface NetworkPacketCaptureArgs {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * A `storageLocation` block contains:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.network.NetworkPacketCaptureFilter>[]>;
     /**

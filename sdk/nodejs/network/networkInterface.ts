@@ -137,6 +137,8 @@ export class NetworkInterface extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * The Static IP Address which should be used.
+     *
+     * When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
      */
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
     /**
@@ -287,6 +289,8 @@ export interface NetworkInterfaceState {
     name?: pulumi.Input<string>;
     /**
      * The Static IP Address which should be used.
+     *
+     * When `privateIpAddressVersion` is set to `IPv4` the following fields can be configured:
      */
     privateIpAddress?: pulumi.Input<string>;
     /**

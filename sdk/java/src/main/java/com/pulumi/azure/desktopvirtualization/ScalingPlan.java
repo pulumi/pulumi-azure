@@ -208,14 +208,14 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.friendlyName);
     }
     /**
-     * One or more `host_pool` blocks as defined below.
+     * One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
      * 
      */
     @Export(name="hostPools", refs={List.class,ScalingPlanHostPool.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScalingPlanHostPool>> hostPools;
 
     /**
-     * @return One or more `host_pool` blocks as defined below.
+     * @return One or more `host_pool` blocks as defined below.`host_pool` - (Optional) One or more `host_pool` blocks as defined below.
      * 
      */
     public Output<Optional<List<ScalingPlanHostPool>>> hostPools() {

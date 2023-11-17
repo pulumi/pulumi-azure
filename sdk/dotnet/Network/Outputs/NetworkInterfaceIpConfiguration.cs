@@ -23,10 +23,14 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string Name;
         /// <summary>
         /// Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+        /// 
+        /// When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
         /// The Static IP Address which should be used.
+        /// 
+        /// When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>

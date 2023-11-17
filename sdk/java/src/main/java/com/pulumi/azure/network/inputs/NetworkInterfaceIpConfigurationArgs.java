@@ -49,12 +49,16 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     /**
      * Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
      * 
+     * When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
+     * 
      */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
     /**
      * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
+     * 
+     * When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
      * 
      */
     public Optional<Output<Boolean>> primary() {
@@ -64,12 +68,16 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
     /**
      * The Static IP Address which should be used.
      * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
+     * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
      * @return The Static IP Address which should be used.
+     * 
+     * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -220,6 +228,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         /**
          * @param primary Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
          * 
+         * When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
+         * 
          * @return builder
          * 
          */
@@ -231,6 +241,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
         /**
          * @param primary Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
          * 
+         * When `private_ip_address_allocation` is set to `Static` the following fields can be configured:
+         * 
          * @return builder
          * 
          */
@@ -240,6 +252,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
 
         /**
          * @param privateIpAddress The Static IP Address which should be used.
+         * 
+         * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
          * 
          * @return builder
          * 
@@ -251,6 +265,8 @@ public final class NetworkInterfaceIpConfigurationArgs extends com.pulumi.resour
 
         /**
          * @param privateIpAddress The Static IP Address which should be used.
+         * 
+         * When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
          * 
          * @return builder
          * 

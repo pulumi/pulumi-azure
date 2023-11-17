@@ -187,7 +187,7 @@ namespace Pulumi.Azure.Network
         public Output<int> PeerAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// 
         /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Network
         public Output<string> PrimaryAzurePort { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet for the primary link.
+        /// A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
         /// </summary>
         [Output("primaryPeerAddressPrefix")]
         public Output<string?> PrimaryPeerAddressPrefix { get; private set; } = null!;
@@ -215,7 +215,17 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
         /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering` block contains:
         /// </summary>
         [Output("routeFilterId")]
         public Output<string?> RouteFilterId { get; private set; } = null!;
@@ -227,7 +237,7 @@ namespace Pulumi.Azure.Network
         public Output<string> SecondaryAzurePort { get; private set; } = null!;
 
         /// <summary>
-        /// A subnet for the secondary link.
+        /// A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         /// </summary>
         [Output("secondaryPeerAddressPrefix")]
         public Output<string?> SecondaryPeerAddressPrefix { get; private set; } = null!;
@@ -325,7 +335,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// 
         /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
@@ -333,7 +343,7 @@ namespace Pulumi.Azure.Network
         public Input<string> PeeringType { get; set; } = null!;
 
         /// <summary>
-        /// A subnet for the primary link.
+        /// A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
         /// </summary>
         [Input("primaryPeerAddressPrefix")]
         public Input<string>? PrimaryPeerAddressPrefix { get; set; }
@@ -347,13 +357,23 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
         /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering` block contains:
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }
 
         /// <summary>
-        /// A subnet for the secondary link.
+        /// A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         /// </summary>
         [Input("secondaryPeerAddressPrefix")]
         public Input<string>? SecondaryPeerAddressPrefix { get; set; }
@@ -428,7 +448,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? PeerAsn { get; set; }
 
         /// <summary>
-        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. 
+        /// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
         /// 
         /// &gt; **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
         /// </summary>
@@ -442,7 +462,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? PrimaryAzurePort { get; set; }
 
         /// <summary>
-        /// A subnet for the primary link.
+        /// A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
         /// </summary>
         [Input("primaryPeerAddressPrefix")]
         public Input<string>? PrimaryPeerAddressPrefix { get; set; }
@@ -456,7 +476,17 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
         /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering` block contains:
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }
@@ -468,7 +498,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? SecondaryAzurePort { get; set; }
 
         /// <summary>
-        /// A subnet for the secondary link.
+        /// A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         /// </summary>
         [Input("secondaryPeerAddressPrefix")]
         public Input<string>? SecondaryPeerAddressPrefix { get; set; }

@@ -36,6 +36,11 @@ class HubArgs:
         :param pulumi.Input[str] location: The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `apns_credential` block contains:
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -131,6 +136,11 @@ class HubArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        A `apns_credential` block contains:
         """
         return pulumi.get(self, "tags")
 
@@ -162,6 +172,11 @@ class _HubState:
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `apns_credential` block contains:
         """
         if apns_credential is not None:
             pulumi.set(__self__, "apns_credential", apns_credential)
@@ -259,6 +274,11 @@ class _HubState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        A `apns_credential` block contains:
         """
         return pulumi.get(self, "tags")
 
@@ -322,6 +342,11 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `apns_credential` block contains:
         """
         ...
     @overload
@@ -435,6 +460,11 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+               
+               
+               
+               
+               A `apns_credential` block contains:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,6 +536,11 @@ class Hub(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
+
+
+
+
+        A `apns_credential` block contains:
         """
         return pulumi.get(self, "tags")
 

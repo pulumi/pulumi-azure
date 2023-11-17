@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Server Configuration.
@@ -93,8 +92,12 @@ type VpnServerConfiguration struct {
 	pulumi.CustomResourceState
 
 	// A `azureActiveDirectoryAuthentication` block as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
 	AzureActiveDirectoryAuthentications VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput `pulumi:"azureActiveDirectoryAuthentications"`
 	// One or more `clientRevokedCertificate` blocks as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
 	ClientRevokedCertificates VpnServerConfigurationClientRevokedCertificateArrayOutput `pulumi:"clientRevokedCertificates"`
 	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates VpnServerConfigurationClientRootCertificateArrayOutput `pulumi:"clientRootCertificates"`
@@ -109,6 +112,8 @@ type VpnServerConfiguration struct {
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
 	VpnAuthenticationTypes pulumi.StringArrayOutput `pulumi:"vpnAuthenticationTypes"`
@@ -153,8 +158,12 @@ func GetVpnServerConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VpnServerConfiguration resources.
 type vpnServerConfigurationState struct {
 	// A `azureActiveDirectoryAuthentication` block as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
 	AzureActiveDirectoryAuthentications []VpnServerConfigurationAzureActiveDirectoryAuthentication `pulumi:"azureActiveDirectoryAuthentications"`
 	// One or more `clientRevokedCertificate` blocks as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
 	ClientRevokedCertificates []VpnServerConfigurationClientRevokedCertificate `pulumi:"clientRevokedCertificates"`
 	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates []VpnServerConfigurationClientRootCertificate `pulumi:"clientRootCertificates"`
@@ -169,6 +178,8 @@ type vpnServerConfigurationState struct {
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
 	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
@@ -178,8 +189,12 @@ type vpnServerConfigurationState struct {
 
 type VpnServerConfigurationState struct {
 	// A `azureActiveDirectoryAuthentication` block as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
 	AzureActiveDirectoryAuthentications VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput
 	// One or more `clientRevokedCertificate` blocks as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
 	ClientRevokedCertificates VpnServerConfigurationClientRevokedCertificateArrayInput
 	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates VpnServerConfigurationClientRootCertificateArrayInput
@@ -194,6 +209,8 @@ type VpnServerConfigurationState struct {
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
+	//
+	// When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
 	Tags pulumi.StringMapInput
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
 	VpnAuthenticationTypes pulumi.StringArrayInput
@@ -207,8 +224,12 @@ func (VpnServerConfigurationState) ElementType() reflect.Type {
 
 type vpnServerConfigurationArgs struct {
 	// A `azureActiveDirectoryAuthentication` block as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
 	AzureActiveDirectoryAuthentications []VpnServerConfigurationAzureActiveDirectoryAuthentication `pulumi:"azureActiveDirectoryAuthentications"`
 	// One or more `clientRevokedCertificate` blocks as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
 	ClientRevokedCertificates []VpnServerConfigurationClientRevokedCertificate `pulumi:"clientRevokedCertificates"`
 	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates []VpnServerConfigurationClientRootCertificate `pulumi:"clientRootCertificates"`
@@ -223,6 +244,8 @@ type vpnServerConfigurationArgs struct {
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
+	//
+	// When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
 	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
@@ -233,8 +256,12 @@ type vpnServerConfigurationArgs struct {
 // The set of arguments for constructing a VpnServerConfiguration resource.
 type VpnServerConfigurationArgs struct {
 	// A `azureActiveDirectoryAuthentication` block as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
 	AzureActiveDirectoryAuthentications VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayInput
 	// One or more `clientRevokedCertificate` blocks as defined below.
+	//
+	// When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
 	ClientRevokedCertificates VpnServerConfigurationClientRevokedCertificateArrayInput
 	// One or more `clientRootCertificate` blocks as defined below.
 	ClientRootCertificates VpnServerConfigurationClientRootCertificateArrayInput
@@ -249,6 +276,8 @@ type VpnServerConfigurationArgs struct {
 	// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
+	//
+	// When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
 	Tags pulumi.StringMapInput
 	// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
 	VpnAuthenticationTypes pulumi.StringArrayInput
@@ -279,12 +308,6 @@ func (i *VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationOutput)
 }
 
-func (i *VpnServerConfiguration) ToOutput(ctx context.Context) pulumix.Output[*VpnServerConfiguration] {
-	return pulumix.Output[*VpnServerConfiguration]{
-		OutputState: i.ToVpnServerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpnServerConfigurationArrayInput is an input type that accepts VpnServerConfigurationArray and VpnServerConfigurationArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationArrayInput` via:
 //
@@ -308,12 +331,6 @@ func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutput() VpnSe
 
 func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutputWithContext(ctx context.Context) VpnServerConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationArrayOutput)
-}
-
-func (i VpnServerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnServerConfiguration] {
-	return pulumix.Output[[]*VpnServerConfiguration]{
-		OutputState: i.ToVpnServerConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpnServerConfigurationMapInput is an input type that accepts VpnServerConfigurationMap and VpnServerConfigurationMapOutput values.
@@ -341,12 +358,6 @@ func (i VpnServerConfigurationMap) ToVpnServerConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationMapOutput)
 }
 
-func (i VpnServerConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnServerConfiguration] {
-	return pulumix.Output[map[string]*VpnServerConfiguration]{
-		OutputState: i.ToVpnServerConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpnServerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VpnServerConfigurationOutput) ElementType() reflect.Type {
@@ -361,13 +372,9 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(
 	return o
 }
 
-func (o VpnServerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnServerConfiguration] {
-	return pulumix.Output[*VpnServerConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `azureActiveDirectoryAuthentication` block as defined below.
+//
+// When `vpnAuthenticationTypes` contains `Certificate` the following arguments are supported:
 func (o VpnServerConfigurationOutput) AzureActiveDirectoryAuthentications() VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigurationAzureActiveDirectoryAuthenticationArrayOutput {
 		return v.AzureActiveDirectoryAuthentications
@@ -375,6 +382,8 @@ func (o VpnServerConfigurationOutput) AzureActiveDirectoryAuthentications() VpnS
 }
 
 // One or more `clientRevokedCertificate` blocks as defined below.
+//
+// When `vpnAuthenticationTypes` contains `Radius` the following arguments are supported:
 func (o VpnServerConfigurationOutput) ClientRevokedCertificates() VpnServerConfigurationClientRevokedCertificateArrayOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigurationClientRevokedCertificateArrayOutput {
 		return v.ClientRevokedCertificates
@@ -414,6 +423,8 @@ func (o VpnServerConfigurationOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // A mapping of tags to assign to the resource.
+//
+// When `vpnAuthenticationTypes` contains `AAD` the following arguments are supported:
 func (o VpnServerConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -442,12 +453,6 @@ func (o VpnServerConfigurationArrayOutput) ToVpnServerConfigurationArrayOutputWi
 	return o
 }
 
-func (o VpnServerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnServerConfiguration] {
-	return pulumix.Output[[]*VpnServerConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpnServerConfigurationArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnServerConfiguration {
 		return vs[0].([]*VpnServerConfiguration)[vs[1].(int)]
@@ -466,12 +471,6 @@ func (o VpnServerConfigurationMapOutput) ToVpnServerConfigurationMapOutput() Vpn
 
 func (o VpnServerConfigurationMapOutput) ToVpnServerConfigurationMapOutputWithContext(ctx context.Context) VpnServerConfigurationMapOutput {
 	return o
-}
-
-func (o VpnServerConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnServerConfiguration] {
-	return pulumix.Output[map[string]*VpnServerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpnServerConfigurationMapOutput) MapIndex(k pulumi.StringInput) VpnServerConfigurationOutput {

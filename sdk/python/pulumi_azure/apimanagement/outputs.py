@@ -3107,10 +3107,7 @@ class BackendServiceFabricCluster(dict):
         """
         :param Sequence[str] management_endpoints: A list of cluster management endpoints.
         :param int max_partition_resolution_retries: The maximum number of retries when attempting resolve the partition.
-        :param str client_certificate_id: The client certificate resource id for the management endpoint.
-               
-               > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-               >
+        :param str client_certificate_id: The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
         :param str client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
@@ -3146,10 +3143,7 @@ class BackendServiceFabricCluster(dict):
     @pulumi.getter(name="clientCertificateId")
     def client_certificate_id(self) -> Optional[str]:
         """
-        The client certificate resource id for the management endpoint.
-
-        > **Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
-        >
+        The client certificate resource id for the management endpoint.**Note:** At least one of `client_certificate_thumbprint`, and `client_certificate_id` must be set.
         """
         return pulumi.get(self, "client_certificate_id")
 
@@ -3202,7 +3196,7 @@ class BackendServiceFabricClusterServerX509Name(dict):
                  name: str):
         """
         :param str issuer_certificate_thumbprint: The thumbprint for the issuer of the certificate.
-        :param str name: The name of the API Management backend. Changing this forces a new resource to be created.
+        :param str name: The common name of the certificate.
         """
         pulumi.set(__self__, "issuer_certificate_thumbprint", issuer_certificate_thumbprint)
         pulumi.set(__self__, "name", name)
@@ -3219,7 +3213,7 @@ class BackendServiceFabricClusterServerX509Name(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the API Management backend. Changing this forces a new resource to be created.
+        The common name of the certificate.
         """
         return pulumi.get(self, "name")
 
@@ -3318,7 +3312,7 @@ class CustomDomainDeveloperPortal(dict):
                  subject: Optional[str] = None,
                  thumbprint: Optional[str] = None):
         """
-        :param str host_name: The Hostname to use for the corresponding endpoint.
+        :param str host_name: The Hostname to use for the API Proxy Endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
@@ -3353,7 +3347,7 @@ class CustomDomainDeveloperPortal(dict):
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        The Hostname to use for the corresponding endpoint.
+        The Hostname to use for the API Proxy Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -3634,7 +3628,7 @@ class CustomDomainManagement(dict):
                  subject: Optional[str] = None,
                  thumbprint: Optional[str] = None):
         """
-        :param str host_name: The Hostname to use for the corresponding endpoint.
+        :param str host_name: The Hostname to use for the API Proxy Endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
@@ -3669,7 +3663,7 @@ class CustomDomainManagement(dict):
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        The Hostname to use for the corresponding endpoint.
+        The Hostname to use for the API Proxy Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -3785,7 +3779,7 @@ class CustomDomainPortal(dict):
                  subject: Optional[str] = None,
                  thumbprint: Optional[str] = None):
         """
-        :param str host_name: The Hostname to use for the corresponding endpoint.
+        :param str host_name: The Hostname to use for the API Proxy Endpoint.
         :param str certificate: The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
         :param str certificate_password: The password associated with the certificate provided above.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
@@ -3820,7 +3814,7 @@ class CustomDomainPortal(dict):
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        The Hostname to use for the corresponding endpoint.
+        The Hostname to use for the API Proxy Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -4949,14 +4943,14 @@ class ServiceAdditionalLocation(dict):
         """
         :param str location: The name of the Azure Region in which the API Management Service should be expanded to.
         :param int capacity: The number of compute units in this region. Defaults to the capacity of the main region.
-        :param bool gateway_disabled: Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        :param bool gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param str gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param Sequence[str] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param str public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
                > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "location", location)
@@ -4997,7 +4991,7 @@ class ServiceAdditionalLocation(dict):
     @pulumi.getter(name="gatewayDisabled")
     def gateway_disabled(self) -> Optional[bool]:
         """
-        Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        Disable the gateway in main region? This is only supported when `additional_location` is set.`gateway_disabled` - (Optional) Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         """
         return pulumi.get(self, "gateway_disabled")
 
@@ -5039,7 +5033,7 @@ class ServiceAdditionalLocation(dict):
     @pulumi.getter(name="virtualNetworkConfiguration")
     def virtual_network_configuration(self) -> Optional['outputs.ServiceAdditionalLocationVirtualNetworkConfiguration']:
         """
-        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.`virtual_network_configuration` - (Optional) A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
@@ -5390,18 +5384,25 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
-        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
-        :param str certificate_password: The password for the certificate.
+        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
+        :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
-               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5439,7 +5440,7 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -5447,7 +5448,11 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[str]:
         """
-        The password for the certificate.
+        The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5481,7 +5486,7 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 
-        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5489,7 +5494,7 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[bool]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -5500,6 +5505,9 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -5565,8 +5573,10 @@ class ServiceHostnameConfigurationManagement(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
-        :param str certificate: The Base64 Encoded Certificate.
+        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
                
                > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
@@ -5574,11 +5584,14 @@ class ServiceHostnameConfigurationManagement(dict):
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
-               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5616,7 +5629,7 @@ class ServiceHostnameConfigurationManagement(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -5625,6 +5638,8 @@ class ServiceHostnameConfigurationManagement(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
 
         > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
@@ -5660,7 +5675,7 @@ class ServiceHostnameConfigurationManagement(dict):
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 
-        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5668,7 +5683,7 @@ class ServiceHostnameConfigurationManagement(dict):
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[bool]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -5679,6 +5694,9 @@ class ServiceHostnameConfigurationManagement(dict):
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -5744,18 +5762,25 @@ class ServiceHostnameConfigurationPortal(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
-        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
-        :param str certificate_password: The password for the certificate.
+        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
+        :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
-               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5793,7 +5818,7 @@ class ServiceHostnameConfigurationPortal(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -5801,7 +5826,11 @@ class ServiceHostnameConfigurationPortal(dict):
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[str]:
         """
-        The password for the certificate.
+        The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5835,7 +5864,7 @@ class ServiceHostnameConfigurationPortal(dict):
         """
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 
-        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5843,7 +5872,7 @@ class ServiceHostnameConfigurationPortal(dict):
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[bool]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -5854,6 +5883,9 @@ class ServiceHostnameConfigurationPortal(dict):
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -5922,8 +5954,10 @@ class ServiceHostnameConfigurationProxy(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
-        :param str certificate: The Base64 Encoded Certificate.
+        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
                
                > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
@@ -5933,8 +5967,13 @@ class ServiceHostnameConfigurationProxy(dict):
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
                > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
-        :param str ssl_keyvault_identity_client_id: The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+               
+               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -5974,7 +6013,7 @@ class ServiceHostnameConfigurationProxy(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        The Base64 Encoded Certificate.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -5983,6 +6022,8 @@ class ServiceHostnameConfigurationProxy(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
 
         > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
@@ -6034,7 +6075,7 @@ class ServiceHostnameConfigurationProxy(dict):
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[bool]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -6042,7 +6083,12 @@ class ServiceHostnameConfigurationProxy(dict):
     @pulumi.getter(name="sslKeyvaultIdentityClientId")
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
-        The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
+        System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+
+        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -6108,18 +6154,25 @@ class ServiceHostnameConfigurationScm(dict):
                  thumbprint: Optional[str] = None):
         """
         :param str host_name: The Hostname to use for the Management API.
-        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
-        :param str certificate_password: The password for the certificate.
+        :param str certificate: One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
+        :param str certificate_password: The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+               
+               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
                > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+               
+               
+               `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
@@ -6157,7 +6210,7 @@ class ServiceHostnameConfigurationScm(dict):
     @pulumi.getter
     def certificate(self) -> Optional[str]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more (up to 10) `certificate` blocks as defined below.`certificate` - (Optional) The Base64 Encoded Certificate.`certificate` - (Optional) The Base64 Encoded Certificate.
         """
         return pulumi.get(self, "certificate")
 
@@ -6165,7 +6218,11 @@ class ServiceHostnameConfigurationScm(dict):
     @pulumi.getter(name="certificatePassword")
     def certificate_password(self) -> Optional[str]:
         """
-        The password for the certificate.
+        The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.`certificate_password` - (Optional) The password associated with the certificate provided above.
+
+        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -6207,7 +6264,7 @@ class ServiceHostnameConfigurationScm(dict):
     @pulumi.getter(name="negotiateClientCertificate")
     def negotiate_client_certificate(self) -> Optional[bool]:
         """
-        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
+        Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.`negotiate_client_certificate` - (Optional) Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         """
         return pulumi.get(self, "negotiate_client_certificate")
 
@@ -6218,6 +6275,9 @@ class ServiceHostnameConfigurationScm(dict):
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+
+
+        `ssl_keyvault_identity_client_id` - (Optional) The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -6521,7 +6581,7 @@ class ServiceSecurity(dict):
         :param bool tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
-        :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        :param bool triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
@@ -6724,7 +6784,7 @@ class ServiceSecurity(dict):
     @pulumi.getter(name="tripleDesCiphersEnabled")
     def triple_des_ciphers_enabled(self) -> Optional[bool]:
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 
         > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """

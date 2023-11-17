@@ -27,7 +27,7 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
@@ -87,7 +87,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 
         > **NOTE:** The Subnet must have a `/21` or larger address space.
         """
@@ -196,7 +196,7 @@ class _EnvironmentState:
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
@@ -283,7 +283,7 @@ class _EnvironmentState:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 
         > **NOTE:** The Subnet must have a `/21` or larger address space.
         """
@@ -465,7 +465,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
@@ -600,7 +600,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
-        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
@@ -666,7 +666,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 
         > **NOTE:** The Subnet must have a `/21` or larger address space.
         """

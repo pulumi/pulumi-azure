@@ -20,6 +20,8 @@ public final class AppServiceLogsApplicationLogs {
     /**
      * @return Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
      * 
+     * An `http_logs` block supports *one* of the following:
+     * 
      */
     private @Nullable String fileSystemLevel;
 
@@ -33,6 +35,8 @@ public final class AppServiceLogsApplicationLogs {
     }
     /**
      * @return Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+     * 
+     * An `http_logs` block supports *one* of the following:
      * 
      */
     public Optional<String> fileSystemLevel() {

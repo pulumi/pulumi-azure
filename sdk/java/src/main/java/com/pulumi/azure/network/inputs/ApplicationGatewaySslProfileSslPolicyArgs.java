@@ -68,12 +68,16 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
     /**
      * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
+     * When using a `policy_type` of `Custom` the following fields are supported:
+     * 
      */
     @Import(name="policyName")
     private @Nullable Output<String> policyName;
 
     /**
      * @return The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * 
+     * When using a `policy_type` of `Custom` the following fields are supported:
      * 
      */
     public Optional<Output<String>> policyName() {
@@ -85,6 +89,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
      * 
      * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
      * 
+     * When using a `policy_type` of `Predefined` the following fields are supported:
+     * 
      */
     @Import(name="policyType")
     private @Nullable Output<String> policyType;
@@ -93,6 +99,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
      * @return The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
      * 
      * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+     * 
+     * When using a `policy_type` of `Predefined` the following fields are supported:
      * 
      */
     public Optional<Output<String>> policyType() {
@@ -219,6 +227,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
         /**
          * @param policyName The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
          * 
+         * When using a `policy_type` of `Custom` the following fields are supported:
+         * 
          * @return builder
          * 
          */
@@ -229,6 +239,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
 
         /**
          * @param policyName The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+         * 
+         * When using a `policy_type` of `Custom` the following fields are supported:
          * 
          * @return builder
          * 
@@ -242,6 +254,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
          * 
          * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
          * 
+         * When using a `policy_type` of `Predefined` the following fields are supported:
+         * 
          * @return builder
          * 
          */
@@ -254,6 +268,8 @@ public final class ApplicationGatewaySslProfileSslPolicyArgs extends com.pulumi.
          * @param policyType The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
          * 
          * &gt; **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+         * 
+         * When using a `policy_type` of `Predefined` the following fields are supported:
          * 
          * @return builder
          * 

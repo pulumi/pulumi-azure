@@ -31,12 +31,20 @@ public final class GetAccountSASResourceTypesArgs extends com.pulumi.resources.R
     /**
      * Should permission be granted only to a specific object?
      * 
+     * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+     * 
+     * A `services` block contains:
+     * 
      */
     @Import(name="object", required=true)
     private Output<Boolean> object;
 
     /**
      * @return Should permission be granted only to a specific object?
+     * 
+     * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+     * 
+     * A `services` block contains:
      * 
      */
     public Output<Boolean> object() {
@@ -108,6 +116,10 @@ public final class GetAccountSASResourceTypesArgs extends com.pulumi.resources.R
         /**
          * @param object Should permission be granted only to a specific object?
          * 
+         * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+         * 
+         * A `services` block contains:
+         * 
          * @return builder
          * 
          */
@@ -118,6 +130,10 @@ public final class GetAccountSASResourceTypesArgs extends com.pulumi.resources.R
 
         /**
          * @param object Should permission be granted only to a specific object?
+         * 
+         * `services` is a set of `true`/`false` flags which define the storage account services that are granted access by this SAS.
+         * 
+         * A `services` block contains:
          * 
          * @return builder
          * 

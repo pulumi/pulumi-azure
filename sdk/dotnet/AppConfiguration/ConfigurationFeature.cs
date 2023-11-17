@@ -137,6 +137,11 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// A `timewindow_filter` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         /// </summary>
         [Output("timewindowFilters")]
         public Output<ImmutableArray<Outputs.ConfigurationFeatureTimewindowFilter>> TimewindowFilters { get; private set; } = null!;
@@ -267,6 +272,11 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// A `timewindow_filter` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTimewindowFilterArgs> TimewindowFilters
         {
@@ -362,6 +372,11 @@ namespace Pulumi.Azure.AppConfiguration
 
         /// <summary>
         /// A `timewindow_filter` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `targeting_filter` block represents a feature filter of type `Microsoft.Targeting` and takes the following attributes:
         /// </summary>
         public InputList<Inputs.ConfigurationFeatureTimewindowFilterGetArgs> TimewindowFilters
         {

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
+        /// The password associated with the local administrator account.
         /// 
         /// &gt; **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
         /// </summary>

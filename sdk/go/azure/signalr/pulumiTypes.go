@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ServiceCorArgs) ToServiceCorOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorOutput)
 }
 
-func (i ServiceCorArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceCor] {
-	return pulumix.Output[ServiceCor]{
-		OutputState: i.ToServiceCorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceCorArrayInput is an input type that accepts ServiceCorArray and ServiceCorArrayOutput values.
 // You can construct a concrete instance of `ServiceCorArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ServiceCorArray) ToServiceCorArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorArrayOutput)
 }
 
-func (i ServiceCorArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceCor] {
-	return pulumix.Output[[]ServiceCor]{
-		OutputState: i.ToServiceCorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceCorOutput struct{ *pulumi.OutputState }
 
 func (ServiceCorOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ServiceCorOutput) ToServiceCorOutput() ServiceCorOutput {
 
 func (o ServiceCorOutput) ToServiceCorOutputWithContext(ctx context.Context) ServiceCorOutput {
 	return o
-}
-
-func (o ServiceCorOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCor] {
-	return pulumix.Output[ServiceCor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
@@ -121,12 +102,6 @@ func (o ServiceCorArrayOutput) ToServiceCorArrayOutput() ServiceCorArrayOutput {
 
 func (o ServiceCorArrayOutput) ToServiceCorArrayOutputWithContext(ctx context.Context) ServiceCorArrayOutput {
 	return o
-}
-
-func (o ServiceCorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceCor] {
-	return pulumix.Output[[]ServiceCor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceCorArrayOutput) Index(i pulumi.IntInput) ServiceCorOutput {
@@ -180,12 +155,6 @@ func (i ServiceIdentityArgs) ToServiceIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityOutput)
 }
 
-func (i ServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
-	return pulumix.Output[ServiceIdentity]{
-		OutputState: i.ToServiceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceIdentityArgs) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
 	return i.ToServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -227,12 +196,6 @@ func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityPtrOutput)
 }
 
-func (i *serviceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
-	return pulumix.Output[*ServiceIdentity]{
-		OutputState: i.ToServiceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceIdentityOutput) ElementType() reflect.Type {
@@ -255,12 +218,6 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
 		return &v
 	}).(ServiceIdentityPtrOutput)
-}
-
-func (o ServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
-	return pulumix.Output[ServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
@@ -295,12 +252,6 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutput() ServiceIdentityPt
 
 func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
 	return o
-}
-
-func (o ServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
-	return pulumix.Output[*ServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
@@ -398,12 +349,6 @@ func (i ServiceLiveTraceArgs) ToServiceLiveTraceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTraceOutput)
 }
 
-func (i ServiceLiveTraceArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceLiveTrace] {
-	return pulumix.Output[ServiceLiveTrace]{
-		OutputState: i.ToServiceLiveTraceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceLiveTraceArgs) ToServiceLiveTracePtrOutput() ServiceLiveTracePtrOutput {
 	return i.ToServiceLiveTracePtrOutputWithContext(context.Background())
 }
@@ -445,12 +390,6 @@ func (i *serviceLiveTracePtrType) ToServiceLiveTracePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLiveTracePtrOutput)
 }
 
-func (i *serviceLiveTracePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceLiveTrace] {
-	return pulumix.Output[*ServiceLiveTrace]{
-		OutputState: i.ToServiceLiveTracePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceLiveTraceOutput struct{ *pulumi.OutputState }
 
 func (ServiceLiveTraceOutput) ElementType() reflect.Type {
@@ -473,12 +412,6 @@ func (o ServiceLiveTraceOutput) ToServiceLiveTracePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceLiveTrace) *ServiceLiveTrace {
 		return &v
 	}).(ServiceLiveTracePtrOutput)
-}
-
-func (o ServiceLiveTraceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLiveTrace] {
-	return pulumix.Output[ServiceLiveTrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
@@ -513,12 +446,6 @@ func (o ServiceLiveTracePtrOutput) ToServiceLiveTracePtrOutput() ServiceLiveTrac
 
 func (o ServiceLiveTracePtrOutput) ToServiceLiveTracePtrOutputWithContext(ctx context.Context) ServiceLiveTracePtrOutput {
 	return o
-}
-
-func (o ServiceLiveTracePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLiveTrace] {
-	return pulumix.Output[*ServiceLiveTrace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceLiveTracePtrOutput) Elem() ServiceLiveTraceOutput {
@@ -576,7 +503,13 @@ type ServiceNetworkAclPrivateEndpoint struct {
 	//
 	// > **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
 	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
-	// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+	//
+	// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+	//
+	// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	//
 	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	//
@@ -602,7 +535,13 @@ type ServiceNetworkAclPrivateEndpointArgs struct {
 	//
 	// > **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
 	AllowedRequestTypes pulumi.StringArrayInput `pulumi:"allowedRequestTypes"`
-	// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+	//
+	// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+	//
+	// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	//
 	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	//
@@ -622,12 +561,6 @@ func (i ServiceNetworkAclPrivateEndpointArgs) ToServiceNetworkAclPrivateEndpoint
 
 func (i ServiceNetworkAclPrivateEndpointArgs) ToServiceNetworkAclPrivateEndpointOutputWithContext(ctx context.Context) ServiceNetworkAclPrivateEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPrivateEndpointOutput)
-}
-
-func (i ServiceNetworkAclPrivateEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkAclPrivateEndpoint] {
-	return pulumix.Output[ServiceNetworkAclPrivateEndpoint]{
-		OutputState: i.ToServiceNetworkAclPrivateEndpointOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceNetworkAclPrivateEndpointArrayInput is an input type that accepts ServiceNetworkAclPrivateEndpointArray and ServiceNetworkAclPrivateEndpointArrayOutput values.
@@ -655,12 +588,6 @@ func (i ServiceNetworkAclPrivateEndpointArray) ToServiceNetworkAclPrivateEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPrivateEndpointArrayOutput)
 }
 
-func (i ServiceNetworkAclPrivateEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkAclPrivateEndpoint] {
-	return pulumix.Output[[]ServiceNetworkAclPrivateEndpoint]{
-		OutputState: i.ToServiceNetworkAclPrivateEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNetworkAclPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclPrivateEndpointOutput) ElementType() reflect.Type {
@@ -675,12 +602,6 @@ func (o ServiceNetworkAclPrivateEndpointOutput) ToServiceNetworkAclPrivateEndpoi
 	return o
 }
 
-func (o ServiceNetworkAclPrivateEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkAclPrivateEndpoint] {
-	return pulumix.Output[ServiceNetworkAclPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 //
 // > **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
@@ -688,7 +609,13 @@ func (o ServiceNetworkAclPrivateEndpointOutput) AllowedRequestTypes() pulumi.Str
 	return o.ApplyT(func(v ServiceNetworkAclPrivateEndpoint) []string { return v.AllowedRequestTypes }).(pulumi.StringArrayOutput)
 }
 
-// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+//
+// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+//
+// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+//
+// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 //
 // > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 //
@@ -716,12 +643,6 @@ func (o ServiceNetworkAclPrivateEndpointArrayOutput) ToServiceNetworkAclPrivateE
 	return o
 }
 
-func (o ServiceNetworkAclPrivateEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceNetworkAclPrivateEndpoint] {
-	return pulumix.Output[[]ServiceNetworkAclPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkAclPrivateEndpointArrayOutput) Index(i pulumi.IntInput) ServiceNetworkAclPrivateEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceNetworkAclPrivateEndpoint {
 		return vs[0].([]ServiceNetworkAclPrivateEndpoint)[vs[1].(int)]
@@ -734,6 +655,12 @@ type ServiceNetworkAclPublicNetwork struct {
 	// > **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
 	AllowedRequestTypes []string `pulumi:"allowedRequestTypes"`
 	// The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+	//
+	// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+	//
+	// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 	//
 	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	//
@@ -762,6 +689,12 @@ type ServiceNetworkAclPublicNetworkArgs struct {
 	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 	//
 	// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+	//
+	// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+	//
+	// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+	//
+	// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
 	DeniedRequestTypes pulumi.StringArrayInput `pulumi:"deniedRequestTypes"`
 }
 
@@ -775,12 +708,6 @@ func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkOutp
 
 func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkOutput)
-}
-
-func (i ServiceNetworkAclPublicNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkAclPublicNetwork] {
-	return pulumix.Output[ServiceNetworkAclPublicNetwork]{
-		OutputState: i.ToServiceNetworkAclPublicNetworkOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ServiceNetworkAclPublicNetworkArgs) ToServiceNetworkAclPublicNetworkPtrOutput() ServiceNetworkAclPublicNetworkPtrOutput {
@@ -824,12 +751,6 @@ func (i *serviceNetworkAclPublicNetworkPtrType) ToServiceNetworkAclPublicNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclPublicNetworkPtrOutput)
 }
 
-func (i *serviceNetworkAclPublicNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAclPublicNetwork] {
-	return pulumix.Output[*ServiceNetworkAclPublicNetwork]{
-		OutputState: i.ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNetworkAclPublicNetworkOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclPublicNetworkOutput) ElementType() reflect.Type {
@@ -854,12 +775,6 @@ func (o ServiceNetworkAclPublicNetworkOutput) ToServiceNetworkAclPublicNetworkPt
 	}).(ServiceNetworkAclPublicNetworkPtrOutput)
 }
 
-func (o ServiceNetworkAclPublicNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkAclPublicNetwork] {
-	return pulumix.Output[ServiceNetworkAclPublicNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 //
 // > **Note:** When `defaultAction` is `Allow`, `allowedRequestTypes`cannot be set.
@@ -868,6 +783,12 @@ func (o ServiceNetworkAclPublicNetworkOutput) AllowedRequestTypes() pulumi.Strin
 }
 
 // The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+//
+// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+//
+// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+//
+// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 //
 // > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 //
@@ -888,12 +809,6 @@ func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetwor
 
 func (o ServiceNetworkAclPublicNetworkPtrOutput) ToServiceNetworkAclPublicNetworkPtrOutputWithContext(ctx context.Context) ServiceNetworkAclPublicNetworkPtrOutput {
 	return o
-}
-
-func (o ServiceNetworkAclPublicNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAclPublicNetwork] {
-	return pulumix.Output[*ServiceNetworkAclPublicNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkAclPublicNetworkPtrOutput) Elem() ServiceNetworkAclPublicNetworkOutput {
@@ -919,6 +834,12 @@ func (o ServiceNetworkAclPublicNetworkPtrOutput) AllowedRequestTypes() pulumi.St
 }
 
 // The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+//
+// > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
+//
+// > **Note:** `allowedRequestTypes` - (Optional) and `deniedRequestTypes` cannot be set together.
+//
+// `deniedRequestTypes` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
 //
 // > **Note:** When `defaultAction` is `Deny`, `deniedRequestTypes`cannot be set.
 //
@@ -969,12 +890,6 @@ func (i ServiceSkuArgs) ToServiceSkuOutputWithContext(ctx context.Context) Servi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuOutput)
 }
 
-func (i ServiceSkuArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSku] {
-	return pulumix.Output[ServiceSku]{
-		OutputState: i.ToServiceSkuOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceSkuArgs) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
 	return i.ToServiceSkuPtrOutputWithContext(context.Background())
 }
@@ -1016,12 +931,6 @@ func (i *serviceSkuPtrType) ToServiceSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSkuPtrOutput)
 }
 
-func (i *serviceSkuPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSku] {
-	return pulumix.Output[*ServiceSku]{
-		OutputState: i.ToServiceSkuPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceSkuOutput struct{ *pulumi.OutputState }
 
 func (ServiceSkuOutput) ElementType() reflect.Type {
@@ -1046,12 +955,6 @@ func (o ServiceSkuOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) 
 	}).(ServiceSkuPtrOutput)
 }
 
-func (o ServiceSkuOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSku] {
-	return pulumix.Output[ServiceSku]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90` and `100`.
 func (o ServiceSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v ServiceSku) int { return v.Capacity }).(pulumi.IntOutput)
@@ -1074,12 +977,6 @@ func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutput() ServiceSkuPtrOutput {
 
 func (o ServiceSkuPtrOutput) ToServiceSkuPtrOutputWithContext(ctx context.Context) ServiceSkuPtrOutput {
 	return o
-}
-
-func (o ServiceSkuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSku] {
-	return pulumix.Output[*ServiceSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceSkuPtrOutput) Elem() ServiceSkuOutput {
@@ -1161,12 +1058,6 @@ func (i ServiceUpstreamEndpointArgs) ToServiceUpstreamEndpointOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUpstreamEndpointOutput)
 }
 
-func (i ServiceUpstreamEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceUpstreamEndpoint] {
-	return pulumix.Output[ServiceUpstreamEndpoint]{
-		OutputState: i.ToServiceUpstreamEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceUpstreamEndpointArrayInput is an input type that accepts ServiceUpstreamEndpointArray and ServiceUpstreamEndpointArrayOutput values.
 // You can construct a concrete instance of `ServiceUpstreamEndpointArrayInput` via:
 //
@@ -1192,12 +1083,6 @@ func (i ServiceUpstreamEndpointArray) ToServiceUpstreamEndpointArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceUpstreamEndpointArrayOutput)
 }
 
-func (i ServiceUpstreamEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceUpstreamEndpoint] {
-	return pulumix.Output[[]ServiceUpstreamEndpoint]{
-		OutputState: i.ToServiceUpstreamEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceUpstreamEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServiceUpstreamEndpointOutput) ElementType() reflect.Type {
@@ -1210,12 +1095,6 @@ func (o ServiceUpstreamEndpointOutput) ToServiceUpstreamEndpointOutput() Service
 
 func (o ServiceUpstreamEndpointOutput) ToServiceUpstreamEndpointOutputWithContext(ctx context.Context) ServiceUpstreamEndpointOutput {
 	return o
-}
-
-func (o ServiceUpstreamEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceUpstreamEndpoint] {
-	return pulumix.Output[ServiceUpstreamEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The categories to match on, or `*` for all.
@@ -1255,12 +1134,6 @@ func (o ServiceUpstreamEndpointArrayOutput) ToServiceUpstreamEndpointArrayOutput
 
 func (o ServiceUpstreamEndpointArrayOutput) ToServiceUpstreamEndpointArrayOutputWithContext(ctx context.Context) ServiceUpstreamEndpointArrayOutput {
 	return o
-}
-
-func (o ServiceUpstreamEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceUpstreamEndpoint] {
-	return pulumix.Output[[]ServiceUpstreamEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceUpstreamEndpointArrayOutput) Index(i pulumi.IntInput) ServiceUpstreamEndpointOutput {

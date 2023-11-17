@@ -35,14 +35,14 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
     }
 
     /**
-     * The name of the header to modify.
+     * The name of the header to modify.`header_name` - (Required) The name of the header to modify.
      * 
      */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
     /**
-     * @return The name of the header to modify.
+     * @return The name of the header to modify.`header_name` - (Required) The name of the header to modify.
      * 
      */
     public Output<String> headerName() {
@@ -54,12 +54,20 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
      * 
      * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 
+     * `value` - (Optional) The value to append or overwrite.
+     * 
+     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
      * @return The value to append or overwrite.
+     * 
+     * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+     * 
+     * `value` - (Optional) The value to append or overwrite.
      * 
      * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
      * 
@@ -120,7 +128,7 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
         }
 
         /**
-         * @param headerName The name of the header to modify.
+         * @param headerName The name of the header to modify.`header_name` - (Required) The name of the header to modify.
          * 
          * @return builder
          * 
@@ -131,7 +139,7 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
         }
 
         /**
-         * @param headerName The name of the header to modify.
+         * @param headerName The name of the header to modify.`header_name` - (Required) The name of the header to modify.
          * 
          * @return builder
          * 
@@ -145,6 +153,10 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
          * 
          * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
          * 
+         * `value` - (Optional) The value to append or overwrite.
+         * 
+         * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+         * 
          * @return builder
          * 
          */
@@ -155,6 +167,10 @@ public final class FrontdoorRuleActionsRequestHeaderActionArgs extends com.pulum
 
         /**
          * @param value The value to append or overwrite.
+         * 
+         * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+         * 
+         * `value` - (Optional) The value to append or overwrite.
          * 
          * -&gt;**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
          * 

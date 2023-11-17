@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<Inputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringGetArgs>? MicrosoftPeering { get; set; }
 
         /// <summary>
-        /// A subnet for the primary link.
+        /// A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
         /// </summary>
         [Input("primaryPeerAddressPrefix", required: true)]
         public Input<string> PrimaryPeerAddressPrefix { get; set; } = null!;
@@ -33,13 +33,23 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
         /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering` block contains:
         /// </summary>
         [Input("routeFilterId")]
         public Input<string>? RouteFilterId { get; set; }
 
         /// <summary>
-        /// A subnet for the secondary link.
+        /// A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         /// </summary>
         [Input("secondaryPeerAddressPrefix", required: true)]
         public Input<string> SecondaryPeerAddressPrefix { get; set; } = null!;

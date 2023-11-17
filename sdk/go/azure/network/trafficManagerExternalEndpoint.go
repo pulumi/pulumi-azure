@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an External Endpoint within a Traffic Manager Profile.
@@ -261,12 +260,6 @@ func (i *TrafficManagerExternalEndpoint) ToTrafficManagerExternalEndpointOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointOutput)
 }
 
-func (i *TrafficManagerExternalEndpoint) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerExternalEndpoint] {
-	return pulumix.Output[*TrafficManagerExternalEndpoint]{
-		OutputState: i.ToTrafficManagerExternalEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrafficManagerExternalEndpointArrayInput is an input type that accepts TrafficManagerExternalEndpointArray and TrafficManagerExternalEndpointArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerExternalEndpointArrayInput` via:
 //
@@ -290,12 +283,6 @@ func (i TrafficManagerExternalEndpointArray) ToTrafficManagerExternalEndpointArr
 
 func (i TrafficManagerExternalEndpointArray) ToTrafficManagerExternalEndpointArrayOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointArrayOutput)
-}
-
-func (i TrafficManagerExternalEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerExternalEndpoint] {
-	return pulumix.Output[[]*TrafficManagerExternalEndpoint]{
-		OutputState: i.ToTrafficManagerExternalEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrafficManagerExternalEndpointMapInput is an input type that accepts TrafficManagerExternalEndpointMap and TrafficManagerExternalEndpointMapOutput values.
@@ -323,12 +310,6 @@ func (i TrafficManagerExternalEndpointMap) ToTrafficManagerExternalEndpointMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerExternalEndpointMapOutput)
 }
 
-func (i TrafficManagerExternalEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerExternalEndpoint] {
-	return pulumix.Output[map[string]*TrafficManagerExternalEndpoint]{
-		OutputState: i.ToTrafficManagerExternalEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficManagerExternalEndpointOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerExternalEndpointOutput) ElementType() reflect.Type {
@@ -341,12 +322,6 @@ func (o TrafficManagerExternalEndpointOutput) ToTrafficManagerExternalEndpointOu
 
 func (o TrafficManagerExternalEndpointOutput) ToTrafficManagerExternalEndpointOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointOutput {
 	return o
-}
-
-func (o TrafficManagerExternalEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerExternalEndpoint] {
-	return pulumix.Output[*TrafficManagerExternalEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `customHeader` blocks as defined below.
@@ -417,12 +392,6 @@ func (o TrafficManagerExternalEndpointArrayOutput) ToTrafficManagerExternalEndpo
 	return o
 }
 
-func (o TrafficManagerExternalEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerExternalEndpoint] {
-	return pulumix.Output[[]*TrafficManagerExternalEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficManagerExternalEndpointArrayOutput) Index(i pulumi.IntInput) TrafficManagerExternalEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficManagerExternalEndpoint {
 		return vs[0].([]*TrafficManagerExternalEndpoint)[vs[1].(int)]
@@ -441,12 +410,6 @@ func (o TrafficManagerExternalEndpointMapOutput) ToTrafficManagerExternalEndpoin
 
 func (o TrafficManagerExternalEndpointMapOutput) ToTrafficManagerExternalEndpointMapOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointMapOutput {
 	return o
-}
-
-func (o TrafficManagerExternalEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerExternalEndpoint] {
-	return pulumix.Output[map[string]*TrafficManagerExternalEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficManagerExternalEndpointMapOutput) MapIndex(k pulumi.StringInput) TrafficManagerExternalEndpointOutput {

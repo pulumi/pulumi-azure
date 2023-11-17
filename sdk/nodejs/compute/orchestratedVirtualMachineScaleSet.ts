@@ -178,6 +178,8 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     *
+     * > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean>;
     /**
@@ -436,6 +438,8 @@ export interface OrchestratedVirtualMachineScaleSetState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     *
+     * > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
@@ -596,6 +600,8 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     *
+     * > **NOTE:** `singlePlacementGroup` behaves differently for Orchestrated Virtual Machine Scale Sets than it does for other Virtual Machine Scale Sets. If you do not define the `singlePlacementGroup` field in your configuration file the service will determin what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`. If you wish to use Specialty Sku virtual machines (e.g. [M-Seiries](https://docs.microsoft.com/azure/virtual-machines/m-series) virtual machines) you will need to contact you Microsoft support professional and request to be added to the include list since this feature is currently in private preview until the end of September 2022. Once you have been added to the private preview include list you will need to run the following command to register your subscription with the feature: `az feature register --namespace Microsoft.Compute --name SpecialSkusForVmssFlex`. If you are not on the include list this command will error out with the following error message `(featureRegistrationUnsupported) The feature 'SpecialSkusForVmssFlex' does not support registration`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**

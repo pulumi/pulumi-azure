@@ -113,8 +113,13 @@ class ConfigurationFeatureTargetingFilterGroup(dict):
                  name: str,
                  rollout_percentage: int):
         """
-        :param str name: The name of the group.
+        :param str name: The name of the App Configuration Feature. Changing this forces a new resource to be created.
         :param int rollout_percentage: Rollout percentage of the group.
+               
+               
+               
+               
+               A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "rollout_percentage", rollout_percentage)
@@ -123,7 +128,7 @@ class ConfigurationFeatureTargetingFilterGroup(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the group.
+        The name of the App Configuration Feature. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -132,6 +137,11 @@ class ConfigurationFeatureTargetingFilterGroup(dict):
     def rollout_percentage(self) -> int:
         """
         Rollout percentage of the group.
+
+
+
+
+        A `timewindow_filter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
         """
         return pulumi.get(self, "rollout_percentage")
 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i ApplicationPlanArgs) ToApplicationPlanOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPlanOutput)
 }
 
-func (i ApplicationPlanArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationPlan] {
-	return pulumix.Output[ApplicationPlan]{
-		OutputState: i.ToApplicationPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationPlanArgs) ToApplicationPlanPtrOutput() ApplicationPlanPtrOutput {
 	return i.ToApplicationPlanPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *applicationPlanPtrType) ToApplicationPlanPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPlanPtrOutput)
 }
 
-func (i *applicationPlanPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationPlan] {
-	return pulumix.Output[*ApplicationPlan]{
-		OutputState: i.ToApplicationPlanPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationPlanOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPlanOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o ApplicationPlanOutput) ToApplicationPlanPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPlan) *ApplicationPlan {
 		return &v
 	}).(ApplicationPlanPtrOutput)
-}
-
-func (o ApplicationPlanOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationPlan] {
-	return pulumix.Output[ApplicationPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
@@ -189,12 +170,6 @@ func (o ApplicationPlanPtrOutput) ToApplicationPlanPtrOutput() ApplicationPlanPt
 
 func (o ApplicationPlanPtrOutput) ToApplicationPlanPtrOutputWithContext(ctx context.Context) ApplicationPlanPtrOutput {
 	return o
-}
-
-func (o ApplicationPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationPlan] {
-	return pulumix.Output[*ApplicationPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationPlanPtrOutput) Elem() ApplicationPlanOutput {
@@ -296,12 +271,6 @@ func (i DefinitionAuthorizationArgs) ToDefinitionAuthorizationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionAuthorizationOutput)
 }
 
-func (i DefinitionAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionAuthorization] {
-	return pulumix.Output[DefinitionAuthorization]{
-		OutputState: i.ToDefinitionAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefinitionAuthorizationArrayInput is an input type that accepts DefinitionAuthorizationArray and DefinitionAuthorizationArrayOutput values.
 // You can construct a concrete instance of `DefinitionAuthorizationArrayInput` via:
 //
@@ -327,12 +296,6 @@ func (i DefinitionAuthorizationArray) ToDefinitionAuthorizationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionAuthorizationArrayOutput)
 }
 
-func (i DefinitionAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionAuthorization] {
-	return pulumix.Output[[]DefinitionAuthorization]{
-		OutputState: i.ToDefinitionAuthorizationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (DefinitionAuthorizationOutput) ElementType() reflect.Type {
@@ -345,12 +308,6 @@ func (o DefinitionAuthorizationOutput) ToDefinitionAuthorizationOutput() Definit
 
 func (o DefinitionAuthorizationOutput) ToDefinitionAuthorizationOutputWithContext(ctx context.Context) DefinitionAuthorizationOutput {
 	return o
-}
-
-func (o DefinitionAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionAuthorization] {
-	return pulumix.Output[DefinitionAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
@@ -375,12 +332,6 @@ func (o DefinitionAuthorizationArrayOutput) ToDefinitionAuthorizationArrayOutput
 
 func (o DefinitionAuthorizationArrayOutput) ToDefinitionAuthorizationArrayOutputWithContext(ctx context.Context) DefinitionAuthorizationArrayOutput {
 	return o
-}
-
-func (o DefinitionAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionAuthorization] {
-	return pulumix.Output[[]DefinitionAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionAuthorizationOutput {

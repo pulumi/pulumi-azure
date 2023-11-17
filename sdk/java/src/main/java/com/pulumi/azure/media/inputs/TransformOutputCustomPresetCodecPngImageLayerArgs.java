@@ -16,14 +16,14 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
     public static final TransformOutputCustomPresetCodecPngImageLayerArgs Empty = new TransformOutputCustomPresetCodecPngImageLayerArgs();
 
     /**
-     * The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="height")
     private @Nullable Output<String> height;
 
     /**
-     * @return The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+     * @return The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> height() {
@@ -31,14 +31,14 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
     }
 
     /**
-     * The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+     * Specifies the label for the codec. The label can be used to control muxing behavior.
      * 
      */
     @Import(name="label")
     private @Nullable Output<String> label;
 
     /**
-     * @return The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+     * @return Specifies the label for the codec. The label can be used to control muxing behavior.
      * 
      */
     public Optional<Output<String>> label() {
@@ -46,14 +46,14 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
     }
 
     /**
-     * The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     @Import(name="width")
     private @Nullable Output<String> width;
 
     /**
-     * @return The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+     * @return The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
      * 
      */
     public Optional<Output<String>> width() {
@@ -87,7 +87,7 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
         }
 
         /**
-         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
         }
 
         /**
-         * @param height The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+         * @param height The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
         }
 
         /**
-         * @param label The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * @param label Specifies the label for the codec. The label can be used to control muxing behavior.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
         }
 
         /**
-         * @param label The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+         * @param label Specifies the label for the codec. The label can be used to control muxing behavior.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
         }
 
         /**
-         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TransformOutputCustomPresetCodecPngImageLayerArgs extends com
         }
 
         /**
-         * @param width The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+         * @param width The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
          * 
          * @return builder
          * 

@@ -25,6 +25,12 @@ public final class ServiceNetworkAclPublicNetwork {
      * 
      * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
      * 
+     * `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
+     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+     * 
      */
     private @Nullable List<String> deniedRequestTypes;
 
@@ -40,6 +46,12 @@ public final class ServiceNetworkAclPublicNetwork {
     }
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+     * 
+     * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+     * 
+     * &gt; **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+     * 
+     * `denied_request_types` - (Optional) The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
      * &gt; **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
      * 

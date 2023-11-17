@@ -30,12 +30,16 @@ public final class GetAccountSASServices extends com.pulumi.resources.InvokeArgs
     /**
      * Should permission be granted to `file` services within this storage account?
      * 
+     * A `permissions` block contains:
+     * 
      */
     @Import(name="file", required=true)
     private Boolean file;
 
     /**
      * @return Should permission be granted to `file` services within this storage account?
+     * 
+     * A `permissions` block contains:
      * 
      */
     public Boolean file() {
@@ -112,6 +116,8 @@ public final class GetAccountSASServices extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param file Should permission be granted to `file` services within this storage account?
+         * 
+         * A `permissions` block contains:
          * 
          * @return builder
          * 

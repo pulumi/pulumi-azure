@@ -30,10 +30,9 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
                
                > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-               
-               1. Contains only alphanumeric and hyphen characters
-               2. Cannot start with a number or hyphen
-               3. Cannot end with a hyphen
+               . Contains only alphanumeric and hyphen characters
+               . Cannot start with a number or hyphen
+               . Cannot end with a hyphen
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
@@ -100,10 +99,9 @@ class VirtualNetworkRuleArgs:
         The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
 
         > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-
-        1. Contains only alphanumeric and hyphen characters
-        2. Cannot start with a number or hyphen
-        3. Cannot end with a hyphen
+        . Contains only alphanumeric and hyphen characters
+        . Cannot start with a number or hyphen
+        . Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -128,10 +126,9 @@ class _VirtualNetworkRuleState:
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
                
                > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-               
-               1. Contains only alphanumeric and hyphen characters
-               2. Cannot start with a number or hyphen
-               3. Cannot end with a hyphen
+               . Contains only alphanumeric and hyphen characters
+               . Cannot start with a number or hyphen
+               . Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
@@ -168,10 +165,9 @@ class _VirtualNetworkRuleState:
         The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
 
         > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-
-        1. Contains only alphanumeric and hyphen characters
-        2. Cannot start with a number or hyphen
-        3. Cannot end with a hyphen
+        . Contains only alphanumeric and hyphen characters
+        . Cannot start with a number or hyphen
+        . Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 
@@ -276,10 +272,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
                
                > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-               
-               1. Contains only alphanumeric and hyphen characters
-               2. Cannot start with a number or hyphen
-               3. Cannot end with a hyphen
+               . Contains only alphanumeric and hyphen characters
+               . Cannot start with a number or hyphen
+               . Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
@@ -399,10 +394,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
                
                > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-               
-               1. Contains only alphanumeric and hyphen characters
-               2. Cannot start with a number or hyphen
-               3. Cannot end with a hyphen
+               . Contains only alphanumeric and hyphen characters
+               . Cannot start with a number or hyphen
+               . Cannot end with a hyphen
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet that the SQL server will be connected to.
@@ -435,10 +429,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
         The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
 
         > **NOTE:** `name` must be between 1-64 characters long and must satisfy all of the requirements below:
-
-        1. Contains only alphanumeric and hyphen characters
-        2. Cannot start with a number or hyphen
-        3. Cannot end with a hyphen
+        . Contains only alphanumeric and hyphen characters
+        . Cannot start with a number or hyphen
+        . Cannot end with a hyphen
         """
         return pulumi.get(self, "name")
 

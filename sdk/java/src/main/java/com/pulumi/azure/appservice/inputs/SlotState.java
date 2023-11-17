@@ -221,14 +221,14 @@ public final class SlotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+     * @return Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      * 
      */
     public Optional<Output<String>> name() {
@@ -636,7 +636,7 @@ public final class SlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class SlotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
          * 
          * @return builder
          * 

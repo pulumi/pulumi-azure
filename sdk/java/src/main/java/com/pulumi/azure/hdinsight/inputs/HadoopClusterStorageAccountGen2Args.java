@@ -70,12 +70,16 @@ public final class HadoopClusterStorageAccountGen2Args extends com.pulumi.resour
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
+     * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
      */
     @Import(name="storageResourceId", required=true)
     private Output<String> storageResourceId;
 
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageResourceId() {
@@ -183,6 +187,8 @@ public final class HadoopClusterStorageAccountGen2Args extends com.pulumi.resour
         /**
          * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
          * 
+         * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -193,6 +199,8 @@ public final class HadoopClusterStorageAccountGen2Args extends com.pulumi.resour
 
         /**
          * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
+         * `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

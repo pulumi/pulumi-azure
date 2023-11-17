@@ -19,6 +19,11 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly Outputs.AppServiceLogsApplicationLogsAzureBlobStorage? AzureBlobStorage;
         /// <summary>
         /// Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// An `http_logs` block supports *one* of the following:
         /// </summary>
         public readonly string? FileSystemLevel;
 

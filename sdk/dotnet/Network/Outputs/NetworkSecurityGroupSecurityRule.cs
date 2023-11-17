@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// The name of the security rule.
+        /// Specifies the name of the network security group. Changing this forces a new resource to be created.`name` - (Required) The name of the security rule.
         /// </summary>
         public readonly string Name;
         /// <summary>

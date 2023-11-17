@@ -95,7 +95,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<Outputs.AppDapr?> Dapr { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as detailed below.
+        /// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AppIdentity?> Identity { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name for this Container App. Changing this forces a new resource to be created.
+        /// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<Inputs.AppDaprArgs>? Dapr { get; set; }
 
         /// <summary>
-        /// An `identity` block as detailed below.
+        /// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppIdentityArgs>? Identity { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<Inputs.AppIngressArgs>? Ingress { get; set; }
 
         /// <summary>
-        /// The name for this Container App. Changing this forces a new resource to be created.
+        /// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -348,7 +348,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<Inputs.AppDaprGetArgs>? Dapr { get; set; }
 
         /// <summary>
-        /// An `identity` block as detailed below.
+        /// An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AppIdentityGetArgs>? Identity { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name for this Container App. Changing this forces a new resource to be created.
+        /// The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

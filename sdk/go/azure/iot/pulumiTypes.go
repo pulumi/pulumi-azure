@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i IoTHubCloudToDeviceArgs) ToIoTHubCloudToDeviceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceOutput)
 }
 
-func (i IoTHubCloudToDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubCloudToDevice] {
-	return pulumix.Output[IoTHubCloudToDevice]{
-		OutputState: i.ToIoTHubCloudToDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IoTHubCloudToDeviceArgs) ToIoTHubCloudToDevicePtrOutput() IoTHubCloudToDevicePtrOutput {
 	return i.ToIoTHubCloudToDevicePtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *ioTHubCloudToDevicePtrType) ToIoTHubCloudToDevicePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDevicePtrOutput)
 }
 
-func (i *ioTHubCloudToDevicePtrType) ToOutput(ctx context.Context) pulumix.Output[*IoTHubCloudToDevice] {
-	return pulumix.Output[*IoTHubCloudToDevice]{
-		OutputState: i.ToIoTHubCloudToDevicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubCloudToDeviceOutput struct{ *pulumi.OutputState }
 
 func (IoTHubCloudToDeviceOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o IoTHubCloudToDeviceOutput) ToIoTHubCloudToDevicePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubCloudToDevice) *IoTHubCloudToDevice {
 		return &v
 	}).(IoTHubCloudToDevicePtrOutput)
-}
-
-func (o IoTHubCloudToDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubCloudToDevice] {
-	return pulumix.Output[IoTHubCloudToDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
@@ -165,12 +146,6 @@ func (o IoTHubCloudToDevicePtrOutput) ToIoTHubCloudToDevicePtrOutput() IoTHubClo
 
 func (o IoTHubCloudToDevicePtrOutput) ToIoTHubCloudToDevicePtrOutputWithContext(ctx context.Context) IoTHubCloudToDevicePtrOutput {
 	return o
-}
-
-func (o IoTHubCloudToDevicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHubCloudToDevice] {
-	return pulumix.Output[*IoTHubCloudToDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubCloudToDevicePtrOutput) Elem() IoTHubCloudToDeviceOutput {
@@ -254,12 +229,6 @@ func (i IoTHubCloudToDeviceFeedbackArgs) ToIoTHubCloudToDeviceFeedbackOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceFeedbackOutput)
 }
 
-func (i IoTHubCloudToDeviceFeedbackArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubCloudToDeviceFeedback] {
-	return pulumix.Output[IoTHubCloudToDeviceFeedback]{
-		OutputState: i.ToIoTHubCloudToDeviceFeedbackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IoTHubCloudToDeviceFeedbackArrayInput is an input type that accepts IoTHubCloudToDeviceFeedbackArray and IoTHubCloudToDeviceFeedbackArrayOutput values.
 // You can construct a concrete instance of `IoTHubCloudToDeviceFeedbackArrayInput` via:
 //
@@ -285,12 +254,6 @@ func (i IoTHubCloudToDeviceFeedbackArray) ToIoTHubCloudToDeviceFeedbackArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubCloudToDeviceFeedbackArrayOutput)
 }
 
-func (i IoTHubCloudToDeviceFeedbackArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubCloudToDeviceFeedback] {
-	return pulumix.Output[[]IoTHubCloudToDeviceFeedback]{
-		OutputState: i.ToIoTHubCloudToDeviceFeedbackArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubCloudToDeviceFeedbackOutput struct{ *pulumi.OutputState }
 
 func (IoTHubCloudToDeviceFeedbackOutput) ElementType() reflect.Type {
@@ -303,12 +266,6 @@ func (o IoTHubCloudToDeviceFeedbackOutput) ToIoTHubCloudToDeviceFeedbackOutput()
 
 func (o IoTHubCloudToDeviceFeedbackOutput) ToIoTHubCloudToDeviceFeedbackOutputWithContext(ctx context.Context) IoTHubCloudToDeviceFeedbackOutput {
 	return o
-}
-
-func (o IoTHubCloudToDeviceFeedbackOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubCloudToDeviceFeedback] {
-	return pulumix.Output[IoTHubCloudToDeviceFeedback]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
@@ -340,12 +297,6 @@ func (o IoTHubCloudToDeviceFeedbackArrayOutput) ToIoTHubCloudToDeviceFeedbackArr
 	return o
 }
 
-func (o IoTHubCloudToDeviceFeedbackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubCloudToDeviceFeedback] {
-	return pulumix.Output[[]IoTHubCloudToDeviceFeedback]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IoTHubCloudToDeviceFeedbackArrayOutput) Index(i pulumi.IntInput) IoTHubCloudToDeviceFeedbackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHubCloudToDeviceFeedback {
 		return vs[0].([]IoTHubCloudToDeviceFeedback)[vs[1].(int)]
@@ -357,9 +308,9 @@ type IoTHubEndpoint struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds *int `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString *string `pulumi:"connectionString"`
-	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName *string `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 	Encoding *string `pulumi:"encoding"`
@@ -379,7 +330,7 @@ type IoTHubEndpoint struct {
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name string `pulumi:"name"`
-	// The resource group in which the endpoint will be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type string `pulumi:"type"`
@@ -401,9 +352,9 @@ type IoTHubEndpointArgs struct {
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	BatchFrequencyInSeconds pulumi.IntPtrInput `pulumi:"batchFrequencyInSeconds"`
-	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 	// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
@@ -423,7 +374,7 @@ type IoTHubEndpointArgs struct {
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
 	// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The resource group in which the endpoint will be created.
+	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
 	// The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -439,12 +390,6 @@ func (i IoTHubEndpointArgs) ToIoTHubEndpointOutput() IoTHubEndpointOutput {
 
 func (i IoTHubEndpointArgs) ToIoTHubEndpointOutputWithContext(ctx context.Context) IoTHubEndpointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubEndpointOutput)
-}
-
-func (i IoTHubEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubEndpoint] {
-	return pulumix.Output[IoTHubEndpoint]{
-		OutputState: i.ToIoTHubEndpointOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IoTHubEndpointArrayInput is an input type that accepts IoTHubEndpointArray and IoTHubEndpointArrayOutput values.
@@ -472,12 +417,6 @@ func (i IoTHubEndpointArray) ToIoTHubEndpointArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubEndpointArrayOutput)
 }
 
-func (i IoTHubEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubEndpoint] {
-	return pulumix.Output[[]IoTHubEndpoint]{
-		OutputState: i.ToIoTHubEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubEndpointOutput struct{ *pulumi.OutputState }
 
 func (IoTHubEndpointOutput) ElementType() reflect.Type {
@@ -492,12 +431,6 @@ func (o IoTHubEndpointOutput) ToIoTHubEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o IoTHubEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubEndpoint] {
-	return pulumix.Output[IoTHubEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 func (o IoTHubEndpointOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
@@ -508,12 +441,12 @@ func (o IoTHubEndpointOutput) BatchFrequencyInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *int { return v.BatchFrequencyInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.
+// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubEndpointOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubEndpointOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
@@ -557,7 +490,7 @@ func (o IoTHubEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The resource group in which the endpoint will be created.
+// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.`resourceGroupName` - (Optional) The resource group in which the endpoint will be created.
 func (o IoTHubEndpointOutput) ResourceGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
@@ -579,12 +512,6 @@ func (o IoTHubEndpointArrayOutput) ToIoTHubEndpointArrayOutput() IoTHubEndpointA
 
 func (o IoTHubEndpointArrayOutput) ToIoTHubEndpointArrayOutputWithContext(ctx context.Context) IoTHubEndpointArrayOutput {
 	return o
-}
-
-func (o IoTHubEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubEndpoint] {
-	return pulumix.Output[[]IoTHubEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubEndpointArrayOutput) Index(i pulumi.IntInput) IoTHubEndpointOutput {
@@ -634,12 +561,6 @@ func (i IoTHubEnrichmentArgs) ToIoTHubEnrichmentOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubEnrichmentOutput)
 }
 
-func (i IoTHubEnrichmentArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubEnrichment] {
-	return pulumix.Output[IoTHubEnrichment]{
-		OutputState: i.ToIoTHubEnrichmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IoTHubEnrichmentArrayInput is an input type that accepts IoTHubEnrichmentArray and IoTHubEnrichmentArrayOutput values.
 // You can construct a concrete instance of `IoTHubEnrichmentArrayInput` via:
 //
@@ -665,12 +586,6 @@ func (i IoTHubEnrichmentArray) ToIoTHubEnrichmentArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubEnrichmentArrayOutput)
 }
 
-func (i IoTHubEnrichmentArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubEnrichment] {
-	return pulumix.Output[[]IoTHubEnrichment]{
-		OutputState: i.ToIoTHubEnrichmentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubEnrichmentOutput struct{ *pulumi.OutputState }
 
 func (IoTHubEnrichmentOutput) ElementType() reflect.Type {
@@ -683,12 +598,6 @@ func (o IoTHubEnrichmentOutput) ToIoTHubEnrichmentOutput() IoTHubEnrichmentOutpu
 
 func (o IoTHubEnrichmentOutput) ToIoTHubEnrichmentOutputWithContext(ctx context.Context) IoTHubEnrichmentOutput {
 	return o
-}
-
-func (o IoTHubEnrichmentOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubEnrichment] {
-	return pulumix.Output[IoTHubEnrichment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of endpoints which will be enriched.
@@ -718,12 +627,6 @@ func (o IoTHubEnrichmentArrayOutput) ToIoTHubEnrichmentArrayOutput() IoTHubEnric
 
 func (o IoTHubEnrichmentArrayOutput) ToIoTHubEnrichmentArrayOutputWithContext(ctx context.Context) IoTHubEnrichmentArrayOutput {
 	return o
-}
-
-func (o IoTHubEnrichmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubEnrichment] {
-	return pulumix.Output[[]IoTHubEnrichment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubEnrichmentArrayOutput) Index(i pulumi.IntInput) IoTHubEnrichmentOutput {
@@ -777,12 +680,6 @@ func (i IoTHubFallbackRouteArgs) ToIoTHubFallbackRouteOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubFallbackRouteOutput)
 }
 
-func (i IoTHubFallbackRouteArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubFallbackRoute] {
-	return pulumix.Output[IoTHubFallbackRoute]{
-		OutputState: i.ToIoTHubFallbackRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IoTHubFallbackRouteArgs) ToIoTHubFallbackRoutePtrOutput() IoTHubFallbackRoutePtrOutput {
 	return i.ToIoTHubFallbackRoutePtrOutputWithContext(context.Background())
 }
@@ -824,12 +721,6 @@ func (i *ioTHubFallbackRoutePtrType) ToIoTHubFallbackRoutePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubFallbackRoutePtrOutput)
 }
 
-func (i *ioTHubFallbackRoutePtrType) ToOutput(ctx context.Context) pulumix.Output[*IoTHubFallbackRoute] {
-	return pulumix.Output[*IoTHubFallbackRoute]{
-		OutputState: i.ToIoTHubFallbackRoutePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubFallbackRouteOutput struct{ *pulumi.OutputState }
 
 func (IoTHubFallbackRouteOutput) ElementType() reflect.Type {
@@ -852,12 +743,6 @@ func (o IoTHubFallbackRouteOutput) ToIoTHubFallbackRoutePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubFallbackRoute) *IoTHubFallbackRoute {
 		return &v
 	}).(IoTHubFallbackRoutePtrOutput)
-}
-
-func (o IoTHubFallbackRouteOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubFallbackRoute] {
-	return pulumix.Output[IoTHubFallbackRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
@@ -892,12 +777,6 @@ func (o IoTHubFallbackRoutePtrOutput) ToIoTHubFallbackRoutePtrOutput() IoTHubFal
 
 func (o IoTHubFallbackRoutePtrOutput) ToIoTHubFallbackRoutePtrOutputWithContext(ctx context.Context) IoTHubFallbackRoutePtrOutput {
 	return o
-}
-
-func (o IoTHubFallbackRoutePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHubFallbackRoute] {
-	return pulumix.Output[*IoTHubFallbackRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubFallbackRoutePtrOutput) Elem() IoTHubFallbackRouteOutput {
@@ -953,9 +832,9 @@ func (o IoTHubFallbackRoutePtrOutput) Source() pulumi.StringPtrOutput {
 type IoTHubFileUpload struct {
 	// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType *string `pulumi:"authenticationType"`
-	// The connection string for the Azure Storage account to which files are uploaded.
+	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString string `pulumi:"connectionString"`
-	// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
+	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName string `pulumi:"containerName"`
 	// The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	DefaultTtl *string `pulumi:"defaultTtl"`
@@ -989,9 +868,9 @@ type IoTHubFileUploadInput interface {
 type IoTHubFileUploadArgs struct {
 	// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
-	// The connection string for the Azure Storage account to which files are uploaded.
+	// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
-	// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
+	// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
 	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
@@ -1021,12 +900,6 @@ func (i IoTHubFileUploadArgs) ToIoTHubFileUploadOutput() IoTHubFileUploadOutput 
 
 func (i IoTHubFileUploadArgs) ToIoTHubFileUploadOutputWithContext(ctx context.Context) IoTHubFileUploadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubFileUploadOutput)
-}
-
-func (i IoTHubFileUploadArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubFileUpload] {
-	return pulumix.Output[IoTHubFileUpload]{
-		OutputState: i.ToIoTHubFileUploadOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i IoTHubFileUploadArgs) ToIoTHubFileUploadPtrOutput() IoTHubFileUploadPtrOutput {
@@ -1070,12 +943,6 @@ func (i *ioTHubFileUploadPtrType) ToIoTHubFileUploadPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubFileUploadPtrOutput)
 }
 
-func (i *ioTHubFileUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*IoTHubFileUpload] {
-	return pulumix.Output[*IoTHubFileUpload]{
-		OutputState: i.ToIoTHubFileUploadPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubFileUploadOutput struct{ *pulumi.OutputState }
 
 func (IoTHubFileUploadOutput) ElementType() reflect.Type {
@@ -1100,23 +967,17 @@ func (o IoTHubFileUploadOutput) ToIoTHubFileUploadPtrOutputWithContext(ctx conte
 	}).(IoTHubFileUploadPtrOutput)
 }
 
-func (o IoTHubFileUploadOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubFileUpload] {
-	return pulumix.Output[IoTHubFileUpload]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
 func (o IoTHubFileUploadOutput) AuthenticationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.AuthenticationType }).(pulumi.StringPtrOutput)
 }
 
-// The connection string for the Azure Storage account to which files are uploaded.
+// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubFileUploadOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
+// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubFileUploadOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) string { return v.ContainerName }).(pulumi.StringOutput)
 }
@@ -1169,12 +1030,6 @@ func (o IoTHubFileUploadPtrOutput) ToIoTHubFileUploadPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o IoTHubFileUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHubFileUpload] {
-	return pulumix.Output[*IoTHubFileUpload]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IoTHubFileUploadPtrOutput) Elem() IoTHubFileUploadOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) IoTHubFileUpload {
 		if v != nil {
@@ -1195,7 +1050,7 @@ func (o IoTHubFileUploadPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The connection string for the Azure Storage account to which files are uploaded.
+// The connection string for the endpoint. This attribute is mandatory and can only be specified when `authenticationType` is `keyBased`.`connectionString` - (Required) The connection string for the Azure Storage account to which files are uploaded.
 func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1205,7 +1060,7 @@ func (o IoTHubFileUploadPtrOutput) ConnectionString() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
+// The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.`containerName` - (Required) The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connectionString specified.
 func (o IoTHubFileUploadPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1328,12 +1183,6 @@ func (i IoTHubIdentityArgs) ToIoTHubIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIdentityOutput)
 }
 
-func (i IoTHubIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubIdentity] {
-	return pulumix.Output[IoTHubIdentity]{
-		OutputState: i.ToIoTHubIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IoTHubIdentityArgs) ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOutput {
 	return i.ToIoTHubIdentityPtrOutputWithContext(context.Background())
 }
@@ -1375,12 +1224,6 @@ func (i *ioTHubIdentityPtrType) ToIoTHubIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubIdentityPtrOutput)
 }
 
-func (i *ioTHubIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*IoTHubIdentity] {
-	return pulumix.Output[*IoTHubIdentity]{
-		OutputState: i.ToIoTHubIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubIdentityOutput struct{ *pulumi.OutputState }
 
 func (IoTHubIdentityOutput) ElementType() reflect.Type {
@@ -1403,12 +1246,6 @@ func (o IoTHubIdentityOutput) ToIoTHubIdentityPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubIdentity) *IoTHubIdentity {
 		return &v
 	}).(IoTHubIdentityPtrOutput)
-}
-
-func (o IoTHubIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubIdentity] {
-	return pulumix.Output[IoTHubIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
@@ -1445,12 +1282,6 @@ func (o IoTHubIdentityPtrOutput) ToIoTHubIdentityPtrOutput() IoTHubIdentityPtrOu
 
 func (o IoTHubIdentityPtrOutput) ToIoTHubIdentityPtrOutputWithContext(ctx context.Context) IoTHubIdentityPtrOutput {
 	return o
-}
-
-func (o IoTHubIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHubIdentity] {
-	return pulumix.Output[*IoTHubIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubIdentityPtrOutput) Elem() IoTHubIdentityOutput {
@@ -1506,11 +1337,13 @@ func (o IoTHubIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type IoTHubNetworkRuleSet struct {
-	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`applyToBuiltinEventhubEndpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
 	ApplyToBuiltinEventhubEndpoint *bool `pulumi:"applyToBuiltinEventhubEndpoint"`
-	// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+	// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`defaultAction` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
+	//
+	// `ipRule` - (Optional) One or more `ipRule` blocks as defined below.
 	IpRules []IoTHubNetworkRuleSetIpRule `pulumi:"ipRules"`
 }
 
@@ -1526,11 +1359,13 @@ type IoTHubNetworkRuleSetInput interface {
 }
 
 type IoTHubNetworkRuleSetArgs struct {
-	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`applyToBuiltinEventhubEndpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
 	ApplyToBuiltinEventhubEndpoint pulumi.BoolPtrInput `pulumi:"applyToBuiltinEventhubEndpoint"`
-	// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+	// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`defaultAction` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
+	//
+	// `ipRule` - (Optional) One or more `ipRule` blocks as defined below.
 	IpRules IoTHubNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
@@ -1544,12 +1379,6 @@ func (i IoTHubNetworkRuleSetArgs) ToIoTHubNetworkRuleSetOutput() IoTHubNetworkRu
 
 func (i IoTHubNetworkRuleSetArgs) ToIoTHubNetworkRuleSetOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetOutput)
-}
-
-func (i IoTHubNetworkRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubNetworkRuleSet] {
-	return pulumix.Output[IoTHubNetworkRuleSet]{
-		OutputState: i.ToIoTHubNetworkRuleSetOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IoTHubNetworkRuleSetArrayInput is an input type that accepts IoTHubNetworkRuleSetArray and IoTHubNetworkRuleSetArrayOutput values.
@@ -1577,12 +1406,6 @@ func (i IoTHubNetworkRuleSetArray) ToIoTHubNetworkRuleSetArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetArrayOutput)
 }
 
-func (i IoTHubNetworkRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubNetworkRuleSet] {
-	return pulumix.Output[[]IoTHubNetworkRuleSet]{
-		OutputState: i.ToIoTHubNetworkRuleSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubNetworkRuleSetOutput struct{ *pulumi.OutputState }
 
 func (IoTHubNetworkRuleSetOutput) ElementType() reflect.Type {
@@ -1597,23 +1420,19 @@ func (o IoTHubNetworkRuleSetOutput) ToIoTHubNetworkRuleSetOutputWithContext(ctx 
 	return o
 }
 
-func (o IoTHubNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubNetworkRuleSet] {
-	return pulumix.Output[IoTHubNetworkRuleSet]{
-		OutputState: o.OutputState,
-	}
-}
-
-// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.`applyToBuiltinEventhubEndpoint` - (Optional) Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
 func (o IoTHubNetworkRuleSetOutput) ApplyToBuiltinEventhubEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSet) *bool { return v.ApplyToBuiltinEventhubEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.`defaultAction` - (Optional) Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
 func (o IoTHubNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipRule` blocks as defined below.
+//
+// `ipRule` - (Optional) One or more `ipRule` blocks as defined below.
 func (o IoTHubNetworkRuleSetOutput) IpRules() IoTHubNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSet) []IoTHubNetworkRuleSetIpRule { return v.IpRules }).(IoTHubNetworkRuleSetIpRuleArrayOutput)
 }
@@ -1632,12 +1451,6 @@ func (o IoTHubNetworkRuleSetArrayOutput) ToIoTHubNetworkRuleSetArrayOutputWithCo
 	return o
 }
 
-func (o IoTHubNetworkRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubNetworkRuleSet] {
-	return pulumix.Output[[]IoTHubNetworkRuleSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IoTHubNetworkRuleSetArrayOutput) Index(i pulumi.IntInput) IoTHubNetworkRuleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IoTHubNetworkRuleSet {
 		return vs[0].([]IoTHubNetworkRuleSet)[vs[1].(int)]
@@ -1646,10 +1459,12 @@ func (o IoTHubNetworkRuleSetArrayOutput) Index(i pulumi.IntInput) IoTHubNetworkR
 
 type IoTHubNetworkRuleSetIpRule struct {
 	// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+	//
+	// `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
-	// The IP address range in CIDR notation for the ip rule.
+	// The IP address range in CIDR notation for the IP rule.`ipMask` - (Required) The IP address range in CIDR notation for the ip rule.
 	IpMask string `pulumi:"ipMask"`
-	// The name of the ip rule.
+	// The name of the IP rule.`name` - (Required) The name of the ip rule.
 	Name string `pulumi:"name"`
 }
 
@@ -1666,10 +1481,12 @@ type IoTHubNetworkRuleSetIpRuleInput interface {
 
 type IoTHubNetworkRuleSetIpRuleArgs struct {
 	// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+	//
+	// `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The IP address range in CIDR notation for the ip rule.
+	// The IP address range in CIDR notation for the IP rule.`ipMask` - (Required) The IP address range in CIDR notation for the ip rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// The name of the ip rule.
+	// The name of the IP rule.`name` - (Required) The name of the ip rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1683,12 +1500,6 @@ func (i IoTHubNetworkRuleSetIpRuleArgs) ToIoTHubNetworkRuleSetIpRuleOutput() IoT
 
 func (i IoTHubNetworkRuleSetIpRuleArgs) ToIoTHubNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetIpRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetIpRuleOutput)
-}
-
-func (i IoTHubNetworkRuleSetIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubNetworkRuleSetIpRule] {
-	return pulumix.Output[IoTHubNetworkRuleSetIpRule]{
-		OutputState: i.ToIoTHubNetworkRuleSetIpRuleOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IoTHubNetworkRuleSetIpRuleArrayInput is an input type that accepts IoTHubNetworkRuleSetIpRuleArray and IoTHubNetworkRuleSetIpRuleArrayOutput values.
@@ -1716,12 +1527,6 @@ func (i IoTHubNetworkRuleSetIpRuleArray) ToIoTHubNetworkRuleSetIpRuleArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubNetworkRuleSetIpRuleArrayOutput)
 }
 
-func (i IoTHubNetworkRuleSetIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubNetworkRuleSetIpRule] {
-	return pulumix.Output[[]IoTHubNetworkRuleSetIpRule]{
-		OutputState: i.ToIoTHubNetworkRuleSetIpRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
 
 func (IoTHubNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
@@ -1736,23 +1541,19 @@ func (o IoTHubNetworkRuleSetIpRuleOutput) ToIoTHubNetworkRuleSetIpRuleOutputWith
 	return o
 }
 
-func (o IoTHubNetworkRuleSetIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubNetworkRuleSetIpRule] {
-	return pulumix.Output[IoTHubNetworkRuleSetIpRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+//
+// `action` - (Optional) The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
 func (o IoTHubNetworkRuleSetIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The IP address range in CIDR notation for the ip rule.
+// The IP address range in CIDR notation for the IP rule.`ipMask` - (Required) The IP address range in CIDR notation for the ip rule.
 func (o IoTHubNetworkRuleSetIpRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-// The name of the ip rule.
+// The name of the IP rule.`name` - (Required) The name of the ip rule.
 func (o IoTHubNetworkRuleSetIpRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1769,12 +1570,6 @@ func (o IoTHubNetworkRuleSetIpRuleArrayOutput) ToIoTHubNetworkRuleSetIpRuleArray
 
 func (o IoTHubNetworkRuleSetIpRuleArrayOutput) ToIoTHubNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) IoTHubNetworkRuleSetIpRuleArrayOutput {
 	return o
-}
-
-func (o IoTHubNetworkRuleSetIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubNetworkRuleSetIpRule] {
-	return pulumix.Output[[]IoTHubNetworkRuleSetIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) IoTHubNetworkRuleSetIpRuleOutput {
@@ -1832,12 +1627,6 @@ func (i IoTHubRouteArgs) ToIoTHubRouteOutputWithContext(ctx context.Context) IoT
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubRouteOutput)
 }
 
-func (i IoTHubRouteArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubRoute] {
-	return pulumix.Output[IoTHubRoute]{
-		OutputState: i.ToIoTHubRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IoTHubRouteArrayInput is an input type that accepts IoTHubRouteArray and IoTHubRouteArrayOutput values.
 // You can construct a concrete instance of `IoTHubRouteArrayInput` via:
 //
@@ -1863,12 +1652,6 @@ func (i IoTHubRouteArray) ToIoTHubRouteArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubRouteArrayOutput)
 }
 
-func (i IoTHubRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubRoute] {
-	return pulumix.Output[[]IoTHubRoute]{
-		OutputState: i.ToIoTHubRouteArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubRouteOutput struct{ *pulumi.OutputState }
 
 func (IoTHubRouteOutput) ElementType() reflect.Type {
@@ -1881,12 +1664,6 @@ func (o IoTHubRouteOutput) ToIoTHubRouteOutput() IoTHubRouteOutput {
 
 func (o IoTHubRouteOutput) ToIoTHubRouteOutputWithContext(ctx context.Context) IoTHubRouteOutput {
 	return o
-}
-
-func (o IoTHubRouteOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubRoute] {
-	return pulumix.Output[IoTHubRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
@@ -1926,12 +1703,6 @@ func (o IoTHubRouteArrayOutput) ToIoTHubRouteArrayOutput() IoTHubRouteArrayOutpu
 
 func (o IoTHubRouteArrayOutput) ToIoTHubRouteArrayOutputWithContext(ctx context.Context) IoTHubRouteArrayOutput {
 	return o
-}
-
-func (o IoTHubRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubRoute] {
-	return pulumix.Output[[]IoTHubRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubRouteArrayOutput) Index(i pulumi.IntInput) IoTHubRouteOutput {
@@ -1985,12 +1756,6 @@ func (i IoTHubSharedAccessPolicyArgs) ToIoTHubSharedAccessPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSharedAccessPolicyOutput)
 }
 
-func (i IoTHubSharedAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubSharedAccessPolicy] {
-	return pulumix.Output[IoTHubSharedAccessPolicy]{
-		OutputState: i.ToIoTHubSharedAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IoTHubSharedAccessPolicyArrayInput is an input type that accepts IoTHubSharedAccessPolicyArray and IoTHubSharedAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `IoTHubSharedAccessPolicyArrayInput` via:
 //
@@ -2016,12 +1781,6 @@ func (i IoTHubSharedAccessPolicyArray) ToIoTHubSharedAccessPolicyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSharedAccessPolicyArrayOutput)
 }
 
-func (i IoTHubSharedAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubSharedAccessPolicy] {
-	return pulumix.Output[[]IoTHubSharedAccessPolicy]{
-		OutputState: i.ToIoTHubSharedAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubSharedAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (IoTHubSharedAccessPolicyOutput) ElementType() reflect.Type {
@@ -2034,12 +1793,6 @@ func (o IoTHubSharedAccessPolicyOutput) ToIoTHubSharedAccessPolicyOutput() IoTHu
 
 func (o IoTHubSharedAccessPolicyOutput) ToIoTHubSharedAccessPolicyOutputWithContext(ctx context.Context) IoTHubSharedAccessPolicyOutput {
 	return o
-}
-
-func (o IoTHubSharedAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubSharedAccessPolicy] {
-	return pulumix.Output[IoTHubSharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the shared access policy.
@@ -2074,12 +1827,6 @@ func (o IoTHubSharedAccessPolicyArrayOutput) ToIoTHubSharedAccessPolicyArrayOutp
 
 func (o IoTHubSharedAccessPolicyArrayOutput) ToIoTHubSharedAccessPolicyArrayOutputWithContext(ctx context.Context) IoTHubSharedAccessPolicyArrayOutput {
 	return o
-}
-
-func (o IoTHubSharedAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IoTHubSharedAccessPolicy] {
-	return pulumix.Output[[]IoTHubSharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubSharedAccessPolicyArrayOutput) Index(i pulumi.IntInput) IoTHubSharedAccessPolicyOutput {
@@ -2129,12 +1876,6 @@ func (i IoTHubSkuArgs) ToIoTHubSkuOutputWithContext(ctx context.Context) IoTHubS
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSkuOutput)
 }
 
-func (i IoTHubSkuArgs) ToOutput(ctx context.Context) pulumix.Output[IoTHubSku] {
-	return pulumix.Output[IoTHubSku]{
-		OutputState: i.ToIoTHubSkuOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IoTHubSkuArgs) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
 	return i.ToIoTHubSkuPtrOutputWithContext(context.Background())
 }
@@ -2176,12 +1917,6 @@ func (i *ioTHubSkuPtrType) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IoTHubSkuPtrOutput)
 }
 
-func (i *ioTHubSkuPtrType) ToOutput(ctx context.Context) pulumix.Output[*IoTHubSku] {
-	return pulumix.Output[*IoTHubSku]{
-		OutputState: i.ToIoTHubSkuPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IoTHubSkuOutput struct{ *pulumi.OutputState }
 
 func (IoTHubSkuOutput) ElementType() reflect.Type {
@@ -2204,12 +1939,6 @@ func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) Io
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IoTHubSku) *IoTHubSku {
 		return &v
 	}).(IoTHubSkuPtrOutput)
-}
-
-func (o IoTHubSkuOutput) ToOutput(ctx context.Context) pulumix.Output[IoTHubSku] {
-	return pulumix.Output[IoTHubSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of provisioned IoT Hub units.
@@ -2236,12 +1965,6 @@ func (o IoTHubSkuPtrOutput) ToIoTHubSkuPtrOutput() IoTHubSkuPtrOutput {
 
 func (o IoTHubSkuPtrOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) IoTHubSkuPtrOutput {
 	return o
-}
-
-func (o IoTHubSkuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IoTHubSku] {
-	return pulumix.Output[*IoTHubSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IoTHubSkuPtrOutput) Elem() IoTHubSkuOutput {
@@ -2325,12 +2048,6 @@ func (i IotHubDeviceUpdateAccountIdentityArgs) ToIotHubDeviceUpdateAccountIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountIdentityOutput)
 }
 
-func (i IotHubDeviceUpdateAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[IotHubDeviceUpdateAccountIdentity] {
-	return pulumix.Output[IotHubDeviceUpdateAccountIdentity]{
-		OutputState: i.ToIotHubDeviceUpdateAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IotHubDeviceUpdateAccountIdentityArgs) ToIotHubDeviceUpdateAccountIdentityPtrOutput() IotHubDeviceUpdateAccountIdentityPtrOutput {
 	return i.ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -2372,12 +2089,6 @@ func (i *iotHubDeviceUpdateAccountIdentityPtrType) ToIotHubDeviceUpdateAccountId
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountIdentityPtrOutput)
 }
 
-func (i *iotHubDeviceUpdateAccountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateAccountIdentity] {
-	return pulumix.Output[*IotHubDeviceUpdateAccountIdentity]{
-		OutputState: i.ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDeviceUpdateAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (IotHubDeviceUpdateAccountIdentityOutput) ElementType() reflect.Type {
@@ -2400,12 +2111,6 @@ func (o IotHubDeviceUpdateAccountIdentityOutput) ToIotHubDeviceUpdateAccountIden
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDeviceUpdateAccountIdentity) *IotHubDeviceUpdateAccountIdentity {
 		return &v
 	}).(IotHubDeviceUpdateAccountIdentityPtrOutput)
-}
-
-func (o IotHubDeviceUpdateAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[IotHubDeviceUpdateAccountIdentity] {
-	return pulumix.Output[IotHubDeviceUpdateAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
@@ -2442,12 +2147,6 @@ func (o IotHubDeviceUpdateAccountIdentityPtrOutput) ToIotHubDeviceUpdateAccountI
 
 func (o IotHubDeviceUpdateAccountIdentityPtrOutput) ToIotHubDeviceUpdateAccountIdentityPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountIdentityPtrOutput {
 	return o
-}
-
-func (o IotHubDeviceUpdateAccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateAccountIdentity] {
-	return pulumix.Output[*IotHubDeviceUpdateAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDeviceUpdateAccountIdentityPtrOutput) Elem() IotHubDeviceUpdateAccountIdentityOutput {
@@ -2539,12 +2238,6 @@ func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToIotHubDeviceUp
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput)
 }
 
-func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[IotHubDeviceUpdateInstanceDiagnosticStorageAccount] {
-	return pulumix.Output[IotHubDeviceUpdateInstanceDiagnosticStorageAccount]{
-		OutputState: i.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput() IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
 	return i.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(context.Background())
 }
@@ -2586,12 +2279,6 @@ func (i *iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType) ToIotHubDevi
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput)
 }
 
-func (i *iotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateInstanceDiagnosticStorageAccount] {
-	return pulumix.Output[*IotHubDeviceUpdateInstanceDiagnosticStorageAccount]{
-		OutputState: i.ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ElementType() reflect.Type {
@@ -2616,12 +2303,6 @@ func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToIotHubDevice
 	}).(IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput)
 }
 
-func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[IotHubDeviceUpdateInstanceDiagnosticStorageAccount] {
-	return pulumix.Output[IotHubDeviceUpdateInstanceDiagnosticStorageAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Connection String of the Diagnostic Storage Account.
 func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v IotHubDeviceUpdateInstanceDiagnosticStorageAccount) string { return v.ConnectionString }).(pulumi.StringOutput)
@@ -2644,12 +2325,6 @@ func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ToIotHubDev
 
 func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ToIotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput {
 	return o
-}
-
-func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateInstanceDiagnosticStorageAccount] {
-	return pulumix.Output[*IotHubDeviceUpdateInstanceDiagnosticStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDeviceUpdateInstanceDiagnosticStorageAccountPtrOutput) Elem() IotHubDeviceUpdateInstanceDiagnosticStorageAccountOutput {
@@ -2727,12 +2402,6 @@ func (i IotHubDpsIpFilterRuleArgs) ToIotHubDpsIpFilterRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsIpFilterRuleOutput)
 }
 
-func (i IotHubDpsIpFilterRuleArgs) ToOutput(ctx context.Context) pulumix.Output[IotHubDpsIpFilterRule] {
-	return pulumix.Output[IotHubDpsIpFilterRule]{
-		OutputState: i.ToIotHubDpsIpFilterRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IotHubDpsIpFilterRuleArrayInput is an input type that accepts IotHubDpsIpFilterRuleArray and IotHubDpsIpFilterRuleArrayOutput values.
 // You can construct a concrete instance of `IotHubDpsIpFilterRuleArrayInput` via:
 //
@@ -2758,12 +2427,6 @@ func (i IotHubDpsIpFilterRuleArray) ToIotHubDpsIpFilterRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsIpFilterRuleArrayOutput)
 }
 
-func (i IotHubDpsIpFilterRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]IotHubDpsIpFilterRule] {
-	return pulumix.Output[[]IotHubDpsIpFilterRule]{
-		OutputState: i.ToIotHubDpsIpFilterRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDpsIpFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsIpFilterRuleOutput) ElementType() reflect.Type {
@@ -2776,12 +2439,6 @@ func (o IotHubDpsIpFilterRuleOutput) ToIotHubDpsIpFilterRuleOutput() IotHubDpsIp
 
 func (o IotHubDpsIpFilterRuleOutput) ToIotHubDpsIpFilterRuleOutputWithContext(ctx context.Context) IotHubDpsIpFilterRuleOutput {
 	return o
-}
-
-func (o IotHubDpsIpFilterRuleOutput) ToOutput(ctx context.Context) pulumix.Output[IotHubDpsIpFilterRule] {
-	return pulumix.Output[IotHubDpsIpFilterRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
@@ -2816,12 +2473,6 @@ func (o IotHubDpsIpFilterRuleArrayOutput) ToIotHubDpsIpFilterRuleArrayOutput() I
 
 func (o IotHubDpsIpFilterRuleArrayOutput) ToIotHubDpsIpFilterRuleArrayOutputWithContext(ctx context.Context) IotHubDpsIpFilterRuleArrayOutput {
 	return o
-}
-
-func (o IotHubDpsIpFilterRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IotHubDpsIpFilterRule] {
-	return pulumix.Output[[]IotHubDpsIpFilterRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDpsIpFilterRuleArrayOutput) Index(i pulumi.IntInput) IotHubDpsIpFilterRuleOutput {
@@ -2879,12 +2530,6 @@ func (i IotHubDpsLinkedHubArgs) ToIotHubDpsLinkedHubOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsLinkedHubOutput)
 }
 
-func (i IotHubDpsLinkedHubArgs) ToOutput(ctx context.Context) pulumix.Output[IotHubDpsLinkedHub] {
-	return pulumix.Output[IotHubDpsLinkedHub]{
-		OutputState: i.ToIotHubDpsLinkedHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IotHubDpsLinkedHubArrayInput is an input type that accepts IotHubDpsLinkedHubArray and IotHubDpsLinkedHubArrayOutput values.
 // You can construct a concrete instance of `IotHubDpsLinkedHubArrayInput` via:
 //
@@ -2910,12 +2555,6 @@ func (i IotHubDpsLinkedHubArray) ToIotHubDpsLinkedHubArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsLinkedHubArrayOutput)
 }
 
-func (i IotHubDpsLinkedHubArray) ToOutput(ctx context.Context) pulumix.Output[[]IotHubDpsLinkedHub] {
-	return pulumix.Output[[]IotHubDpsLinkedHub]{
-		OutputState: i.ToIotHubDpsLinkedHubArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDpsLinkedHubOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsLinkedHubOutput) ElementType() reflect.Type {
@@ -2928,12 +2567,6 @@ func (o IotHubDpsLinkedHubOutput) ToIotHubDpsLinkedHubOutput() IotHubDpsLinkedHu
 
 func (o IotHubDpsLinkedHubOutput) ToIotHubDpsLinkedHubOutputWithContext(ctx context.Context) IotHubDpsLinkedHubOutput {
 	return o
-}
-
-func (o IotHubDpsLinkedHubOutput) ToOutput(ctx context.Context) pulumix.Output[IotHubDpsLinkedHub] {
-	return pulumix.Output[IotHubDpsLinkedHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The weight applied to the IoT Hub. Defaults to `1`.
@@ -2973,12 +2606,6 @@ func (o IotHubDpsLinkedHubArrayOutput) ToIotHubDpsLinkedHubArrayOutput() IotHubD
 
 func (o IotHubDpsLinkedHubArrayOutput) ToIotHubDpsLinkedHubArrayOutputWithContext(ctx context.Context) IotHubDpsLinkedHubArrayOutput {
 	return o
-}
-
-func (o IotHubDpsLinkedHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IotHubDpsLinkedHub] {
-	return pulumix.Output[[]IotHubDpsLinkedHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDpsLinkedHubArrayOutput) Index(i pulumi.IntInput) IotHubDpsLinkedHubOutput {
@@ -3024,12 +2651,6 @@ func (i IotHubDpsSkuArgs) ToIotHubDpsSkuOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsSkuOutput)
 }
 
-func (i IotHubDpsSkuArgs) ToOutput(ctx context.Context) pulumix.Output[IotHubDpsSku] {
-	return pulumix.Output[IotHubDpsSku]{
-		OutputState: i.ToIotHubDpsSkuOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IotHubDpsSkuArgs) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
 	return i.ToIotHubDpsSkuPtrOutputWithContext(context.Background())
 }
@@ -3071,12 +2692,6 @@ func (i *iotHubDpsSkuPtrType) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDpsSkuPtrOutput)
 }
 
-func (i *iotHubDpsSkuPtrType) ToOutput(ctx context.Context) pulumix.Output[*IotHubDpsSku] {
-	return pulumix.Output[*IotHubDpsSku]{
-		OutputState: i.ToIotHubDpsSkuPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDpsSkuOutput struct{ *pulumi.OutputState }
 
 func (IotHubDpsSkuOutput) ElementType() reflect.Type {
@@ -3101,12 +2716,6 @@ func (o IotHubDpsSkuOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Conte
 	}).(IotHubDpsSkuPtrOutput)
 }
 
-func (o IotHubDpsSkuOutput) ToOutput(ctx context.Context) pulumix.Output[IotHubDpsSku] {
-	return pulumix.Output[IotHubDpsSku]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of provisioned IoT Device Provisioning Service units.
 func (o IotHubDpsSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IotHubDpsSku) int { return v.Capacity }).(pulumi.IntOutput)
@@ -3129,12 +2738,6 @@ func (o IotHubDpsSkuPtrOutput) ToIotHubDpsSkuPtrOutput() IotHubDpsSkuPtrOutput {
 
 func (o IotHubDpsSkuPtrOutput) ToIotHubDpsSkuPtrOutputWithContext(ctx context.Context) IotHubDpsSkuPtrOutput {
 	return o
-}
-
-func (o IotHubDpsSkuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDpsSku] {
-	return pulumix.Output[*IotHubDpsSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDpsSkuPtrOutput) Elem() IotHubDpsSkuOutput {
@@ -3212,12 +2815,6 @@ func (i SecurityDeviceGroupAllowRuleArgs) ToSecurityDeviceGroupAllowRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupAllowRuleOutput)
 }
 
-func (i SecurityDeviceGroupAllowRuleArgs) ToOutput(ctx context.Context) pulumix.Output[SecurityDeviceGroupAllowRule] {
-	return pulumix.Output[SecurityDeviceGroupAllowRule]{
-		OutputState: i.ToSecurityDeviceGroupAllowRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SecurityDeviceGroupAllowRuleArgs) ToSecurityDeviceGroupAllowRulePtrOutput() SecurityDeviceGroupAllowRulePtrOutput {
 	return i.ToSecurityDeviceGroupAllowRulePtrOutputWithContext(context.Background())
 }
@@ -3259,12 +2856,6 @@ func (i *securityDeviceGroupAllowRulePtrType) ToSecurityDeviceGroupAllowRulePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupAllowRulePtrOutput)
 }
 
-func (i *securityDeviceGroupAllowRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SecurityDeviceGroupAllowRule] {
-	return pulumix.Output[*SecurityDeviceGroupAllowRule]{
-		OutputState: i.ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityDeviceGroupAllowRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityDeviceGroupAllowRuleOutput) ElementType() reflect.Type {
@@ -3287,12 +2878,6 @@ func (o SecurityDeviceGroupAllowRuleOutput) ToSecurityDeviceGroupAllowRulePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityDeviceGroupAllowRule) *SecurityDeviceGroupAllowRule {
 		return &v
 	}).(SecurityDeviceGroupAllowRulePtrOutput)
-}
-
-func (o SecurityDeviceGroupAllowRuleOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityDeviceGroupAllowRule] {
-	return pulumix.Output[SecurityDeviceGroupAllowRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies which IP is not allowed to be connected to in current device group for inbound connection.
@@ -3327,12 +2912,6 @@ func (o SecurityDeviceGroupAllowRulePtrOutput) ToSecurityDeviceGroupAllowRulePtr
 
 func (o SecurityDeviceGroupAllowRulePtrOutput) ToSecurityDeviceGroupAllowRulePtrOutputWithContext(ctx context.Context) SecurityDeviceGroupAllowRulePtrOutput {
 	return o
-}
-
-func (o SecurityDeviceGroupAllowRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityDeviceGroupAllowRule] {
-	return pulumix.Output[*SecurityDeviceGroupAllowRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityDeviceGroupAllowRulePtrOutput) Elem() SecurityDeviceGroupAllowRuleOutput {
@@ -3430,12 +3009,6 @@ func (i SecurityDeviceGroupRangeRuleArgs) ToSecurityDeviceGroupRangeRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupRangeRuleOutput)
 }
 
-func (i SecurityDeviceGroupRangeRuleArgs) ToOutput(ctx context.Context) pulumix.Output[SecurityDeviceGroupRangeRule] {
-	return pulumix.Output[SecurityDeviceGroupRangeRule]{
-		OutputState: i.ToSecurityDeviceGroupRangeRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurityDeviceGroupRangeRuleArrayInput is an input type that accepts SecurityDeviceGroupRangeRuleArray and SecurityDeviceGroupRangeRuleArrayOutput values.
 // You can construct a concrete instance of `SecurityDeviceGroupRangeRuleArrayInput` via:
 //
@@ -3461,12 +3034,6 @@ func (i SecurityDeviceGroupRangeRuleArray) ToSecurityDeviceGroupRangeRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityDeviceGroupRangeRuleArrayOutput)
 }
 
-func (i SecurityDeviceGroupRangeRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]SecurityDeviceGroupRangeRule] {
-	return pulumix.Output[[]SecurityDeviceGroupRangeRule]{
-		OutputState: i.ToSecurityDeviceGroupRangeRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityDeviceGroupRangeRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityDeviceGroupRangeRuleOutput) ElementType() reflect.Type {
@@ -3479,12 +3046,6 @@ func (o SecurityDeviceGroupRangeRuleOutput) ToSecurityDeviceGroupRangeRuleOutput
 
 func (o SecurityDeviceGroupRangeRuleOutput) ToSecurityDeviceGroupRangeRuleOutputWithContext(ctx context.Context) SecurityDeviceGroupRangeRuleOutput {
 	return o
-}
-
-func (o SecurityDeviceGroupRangeRuleOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityDeviceGroupRangeRule] {
-	return pulumix.Output[SecurityDeviceGroupRangeRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the time range. represented in ISO 8601 duration format.
@@ -3519,12 +3080,6 @@ func (o SecurityDeviceGroupRangeRuleArrayOutput) ToSecurityDeviceGroupRangeRuleA
 
 func (o SecurityDeviceGroupRangeRuleArrayOutput) ToSecurityDeviceGroupRangeRuleArrayOutputWithContext(ctx context.Context) SecurityDeviceGroupRangeRuleArrayOutput {
 	return o
-}
-
-func (o SecurityDeviceGroupRangeRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecurityDeviceGroupRangeRule] {
-	return pulumix.Output[[]SecurityDeviceGroupRangeRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityDeviceGroupRangeRuleArrayOutput) Index(i pulumi.IntInput) SecurityDeviceGroupRangeRuleOutput {
@@ -3570,12 +3125,6 @@ func (i SecuritySolutionAdditionalWorkspaceArgs) ToSecuritySolutionAdditionalWor
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionAdditionalWorkspaceOutput)
 }
 
-func (i SecuritySolutionAdditionalWorkspaceArgs) ToOutput(ctx context.Context) pulumix.Output[SecuritySolutionAdditionalWorkspace] {
-	return pulumix.Output[SecuritySolutionAdditionalWorkspace]{
-		OutputState: i.ToSecuritySolutionAdditionalWorkspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecuritySolutionAdditionalWorkspaceArrayInput is an input type that accepts SecuritySolutionAdditionalWorkspaceArray and SecuritySolutionAdditionalWorkspaceArrayOutput values.
 // You can construct a concrete instance of `SecuritySolutionAdditionalWorkspaceArrayInput` via:
 //
@@ -3601,12 +3150,6 @@ func (i SecuritySolutionAdditionalWorkspaceArray) ToSecuritySolutionAdditionalWo
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionAdditionalWorkspaceArrayOutput)
 }
 
-func (i SecuritySolutionAdditionalWorkspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]SecuritySolutionAdditionalWorkspace] {
-	return pulumix.Output[[]SecuritySolutionAdditionalWorkspace]{
-		OutputState: i.ToSecuritySolutionAdditionalWorkspaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecuritySolutionAdditionalWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (SecuritySolutionAdditionalWorkspaceOutput) ElementType() reflect.Type {
@@ -3619,12 +3162,6 @@ func (o SecuritySolutionAdditionalWorkspaceOutput) ToSecuritySolutionAdditionalW
 
 func (o SecuritySolutionAdditionalWorkspaceOutput) ToSecuritySolutionAdditionalWorkspaceOutputWithContext(ctx context.Context) SecuritySolutionAdditionalWorkspaceOutput {
 	return o
-}
-
-func (o SecuritySolutionAdditionalWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[SecuritySolutionAdditionalWorkspace] {
-	return pulumix.Output[SecuritySolutionAdditionalWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
@@ -3649,12 +3186,6 @@ func (o SecuritySolutionAdditionalWorkspaceArrayOutput) ToSecuritySolutionAdditi
 
 func (o SecuritySolutionAdditionalWorkspaceArrayOutput) ToSecuritySolutionAdditionalWorkspaceArrayOutputWithContext(ctx context.Context) SecuritySolutionAdditionalWorkspaceArrayOutput {
 	return o
-}
-
-func (o SecuritySolutionAdditionalWorkspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecuritySolutionAdditionalWorkspace] {
-	return pulumix.Output[[]SecuritySolutionAdditionalWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecuritySolutionAdditionalWorkspaceArrayOutput) Index(i pulumi.IntInput) SecuritySolutionAdditionalWorkspaceOutput {
@@ -3756,12 +3287,6 @@ func (i SecuritySolutionRecommendationsEnabledArgs) ToSecuritySolutionRecommenda
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsEnabledOutput)
 }
 
-func (i SecuritySolutionRecommendationsEnabledArgs) ToOutput(ctx context.Context) pulumix.Output[SecuritySolutionRecommendationsEnabled] {
-	return pulumix.Output[SecuritySolutionRecommendationsEnabled]{
-		OutputState: i.ToSecuritySolutionRecommendationsEnabledOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SecuritySolutionRecommendationsEnabledArgs) ToSecuritySolutionRecommendationsEnabledPtrOutput() SecuritySolutionRecommendationsEnabledPtrOutput {
 	return i.ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(context.Background())
 }
@@ -3803,12 +3328,6 @@ func (i *securitySolutionRecommendationsEnabledPtrType) ToSecuritySolutionRecomm
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsEnabledPtrOutput)
 }
 
-func (i *securitySolutionRecommendationsEnabledPtrType) ToOutput(ctx context.Context) pulumix.Output[*SecuritySolutionRecommendationsEnabled] {
-	return pulumix.Output[*SecuritySolutionRecommendationsEnabled]{
-		OutputState: i.ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecuritySolutionRecommendationsEnabledOutput struct{ *pulumi.OutputState }
 
 func (SecuritySolutionRecommendationsEnabledOutput) ElementType() reflect.Type {
@@ -3831,12 +3350,6 @@ func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommen
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecuritySolutionRecommendationsEnabled) *SecuritySolutionRecommendationsEnabled {
 		return &v
 	}).(SecuritySolutionRecommendationsEnabledPtrOutput)
-}
-
-func (o SecuritySolutionRecommendationsEnabledOutput) ToOutput(ctx context.Context) pulumix.Output[SecuritySolutionRecommendationsEnabled] {
-	return pulumix.Output[SecuritySolutionRecommendationsEnabled]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -3931,12 +3444,6 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) ToSecuritySolutionRecom
 
 func (o SecuritySolutionRecommendationsEnabledPtrOutput) ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledPtrOutput {
 	return o
-}
-
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecuritySolutionRecommendationsEnabled] {
-	return pulumix.Output[*SecuritySolutionRecommendationsEnabled]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecuritySolutionRecommendationsEnabledPtrOutput) Elem() SecuritySolutionRecommendationsEnabledOutput {
@@ -4146,12 +3653,6 @@ func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2En
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStorageOutput)
 }
 
-func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToOutput(ctx context.Context) pulumix.Output[TimeSeriesInsightsGen2EnvironmentStorage] {
-	return pulumix.Output[TimeSeriesInsightsGen2EnvironmentStorage]{
-		OutputState: i.ToTimeSeriesInsightsGen2EnvironmentStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TimeSeriesInsightsGen2EnvironmentStorageArgs) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutput() TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
 	return i.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(context.Background())
 }
@@ -4193,12 +3694,6 @@ func (i *timeSeriesInsightsGen2EnvironmentStoragePtrType) ToTimeSeriesInsightsGe
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
 }
 
-func (i *timeSeriesInsightsGen2EnvironmentStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsGen2EnvironmentStorage] {
-	return pulumix.Output[*TimeSeriesInsightsGen2EnvironmentStorage]{
-		OutputState: i.ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TimeSeriesInsightsGen2EnvironmentStorageOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsGen2EnvironmentStorageOutput) ElementType() reflect.Type {
@@ -4223,12 +3718,6 @@ func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToTimeSeriesInsightsGen2
 	}).(TimeSeriesInsightsGen2EnvironmentStoragePtrOutput)
 }
 
-func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) ToOutput(ctx context.Context) pulumix.Output[TimeSeriesInsightsGen2EnvironmentStorage] {
-	return pulumix.Output[TimeSeriesInsightsGen2EnvironmentStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
 func (o TimeSeriesInsightsGen2EnvironmentStorageOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TimeSeriesInsightsGen2EnvironmentStorage) string { return v.Key }).(pulumi.StringOutput)
@@ -4251,12 +3740,6 @@ func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsG
 
 func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToTimeSeriesInsightsGen2EnvironmentStoragePtrOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentStoragePtrOutput {
 	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsGen2EnvironmentStorage] {
-	return pulumix.Output[*TimeSeriesInsightsGen2EnvironmentStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TimeSeriesInsightsGen2EnvironmentStoragePtrOutput) Elem() TimeSeriesInsightsGen2EnvironmentStorageOutput {
@@ -4326,12 +3809,6 @@ func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToTimeSeriesInsightsR
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetKeyPropertyOutput)
 }
 
-func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[TimeSeriesInsightsReferenceDataSetKeyProperty] {
-	return pulumix.Output[TimeSeriesInsightsReferenceDataSetKeyProperty]{
-		OutputState: i.ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput is an input type that accepts TimeSeriesInsightsReferenceDataSetKeyPropertyArray and TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetKeyPropertyArrayInput` via:
 //
@@ -4357,12 +3834,6 @@ func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ToTimeSeriesInsights
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput)
 }
 
-func (i TimeSeriesInsightsReferenceDataSetKeyPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]TimeSeriesInsightsReferenceDataSetKeyProperty] {
-	return pulumix.Output[[]TimeSeriesInsightsReferenceDataSetKeyProperty]{
-		OutputState: i.ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TimeSeriesInsightsReferenceDataSetKeyPropertyOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ElementType() reflect.Type {
@@ -4375,12 +3846,6 @@ func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToTimeSeriesInsight
 
 func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
 	return o
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[TimeSeriesInsightsReferenceDataSetKeyProperty] {
-	return pulumix.Output[TimeSeriesInsightsReferenceDataSetKeyProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the key property. Changing this forces a new resource to be created.
@@ -4405,12 +3870,6 @@ func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToTimeSeriesIn
 
 func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToTimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput {
 	return o
-}
-
-func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TimeSeriesInsightsReferenceDataSetKeyProperty] {
-	return pulumix.Output[[]TimeSeriesInsightsReferenceDataSetKeyProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TimeSeriesInsightsReferenceDataSetKeyPropertyArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsReferenceDataSetKeyPropertyOutput {
@@ -4464,12 +3923,6 @@ func (i GetIotHubIdentityArgs) ToGetIotHubIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetIotHubIdentityOutput)
 }
 
-func (i GetIotHubIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetIotHubIdentity] {
-	return pulumix.Output[GetIotHubIdentity]{
-		OutputState: i.ToGetIotHubIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetIotHubIdentityArrayInput is an input type that accepts GetIotHubIdentityArray and GetIotHubIdentityArrayOutput values.
 // You can construct a concrete instance of `GetIotHubIdentityArrayInput` via:
 //
@@ -4495,12 +3948,6 @@ func (i GetIotHubIdentityArray) ToGetIotHubIdentityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetIotHubIdentityArrayOutput)
 }
 
-func (i GetIotHubIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIotHubIdentity] {
-	return pulumix.Output[[]GetIotHubIdentity]{
-		OutputState: i.ToGetIotHubIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetIotHubIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetIotHubIdentityOutput) ElementType() reflect.Type {
@@ -4513,12 +3960,6 @@ func (o GetIotHubIdentityOutput) ToGetIotHubIdentityOutput() GetIotHubIdentityOu
 
 func (o GetIotHubIdentityOutput) ToGetIotHubIdentityOutputWithContext(ctx context.Context) GetIotHubIdentityOutput {
 	return o
-}
-
-func (o GetIotHubIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetIotHubIdentity] {
-	return pulumix.Output[GetIotHubIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of User Managed Identity IDs which are assigned to the Virtual Machine.
@@ -4553,12 +3994,6 @@ func (o GetIotHubIdentityArrayOutput) ToGetIotHubIdentityArrayOutput() GetIotHub
 
 func (o GetIotHubIdentityArrayOutput) ToGetIotHubIdentityArrayOutputWithContext(ctx context.Context) GetIotHubIdentityArrayOutput {
 	return o
-}
-
-func (o GetIotHubIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIotHubIdentity] {
-	return pulumix.Output[[]GetIotHubIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetIotHubIdentityArrayOutput) Index(i pulumi.IntInput) GetIotHubIdentityOutput {

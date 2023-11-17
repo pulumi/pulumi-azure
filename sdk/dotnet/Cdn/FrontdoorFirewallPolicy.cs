@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Cdn
         public Output<ImmutableArray<Outputs.FrontdoorFirewallPolicyCustomRule>> CustomRules { get; private set; } = null!;
 
         /// <summary>
-        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -436,7 +436,7 @@ namespace Pulumi.Azure.Cdn
         }
 
         /// <summary>
-        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        /// Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

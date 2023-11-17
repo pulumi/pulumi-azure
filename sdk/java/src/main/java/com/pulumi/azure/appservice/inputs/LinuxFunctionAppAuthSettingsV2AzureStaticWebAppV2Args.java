@@ -14,14 +14,14 @@ public final class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args extends
     public static final LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args Empty = new LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args();
 
     /**
-     * The ID of the Client to use to authenticate with Azure Active Directory.
+     * The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The ID of the Client to use to authenticate with Azure Active Directory.
+     * @return The ID of the Client to use to authenticate with the Custom OIDC.
      * 
      */
     public Output<String> clientId() {
@@ -53,7 +53,7 @@ public final class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args extends
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args extends
         }
 
         /**
-         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
+         * @param clientId The ID of the Client to use to authenticate with the Custom OIDC.
          * 
          * @return builder
          * 

@@ -81,6 +81,11 @@ export class ManagedDatabase extends pulumi.CustomResource {
 
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * In addition to the Arguments listed above - the following Attributes are exported:
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -128,6 +133,11 @@ export class ManagedDatabase extends pulumi.CustomResource {
 export interface ManagedDatabaseState {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * In addition to the Arguments listed above - the following Attributes are exported:
      */
     location?: pulumi.Input<string>;
     /**
@@ -146,6 +156,11 @@ export interface ManagedDatabaseState {
 export interface ManagedDatabaseArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+     *
+     *
+     *
+     *
+     * In addition to the Arguments listed above - the following Attributes are exported:
      */
     location?: pulumi.Input<string>;
     /**

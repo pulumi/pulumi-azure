@@ -756,9 +756,16 @@ class HBaseClusterRolesHeadNodeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -829,6 +836,10 @@ class HBaseClusterRolesHeadNodeArgs:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
@@ -841,7 +852,7 @@ class HBaseClusterRolesHeadNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -853,7 +864,10 @@ class HBaseClusterRolesHeadNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -935,11 +949,18 @@ class HBaseClusterRolesWorkerNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
@@ -1032,7 +1053,11 @@ class HBaseClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -1046,7 +1071,7 @@ class HBaseClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -1058,7 +1083,10 @@ class HBaseClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -1225,11 +1253,18 @@ class HBaseClusterRolesZookeeperNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -1298,7 +1333,11 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -1312,7 +1351,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -1324,7 +1363,10 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -1515,6 +1557,9 @@ class HBaseClusterStorageAccountArgs:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
@@ -1567,6 +1612,9 @@ class HBaseClusterStorageAccountArgs:
     def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -1591,6 +1639,9 @@ class HBaseClusterStorageAccountGen2Args:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
@@ -1642,6 +1693,9 @@ class HBaseClusterStorageAccountGen2Args:
     def storage_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -2558,11 +2612,21 @@ class HadoopClusterRolesHeadNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+               
+               
+               `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+               
+               
+               `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -2620,6 +2684,12 @@ class HadoopClusterRolesHeadNodeArgs:
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
+
+
+        `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+
+
+        `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -2633,6 +2703,10 @@ class HadoopClusterRolesHeadNodeArgs:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
@@ -2645,7 +2719,7 @@ class HadoopClusterRolesHeadNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -2657,7 +2731,7 @@ class HadoopClusterRolesHeadNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -2740,11 +2814,21 @@ class HadoopClusterRolesWorkerNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               
+               `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+               
+               
+               `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
@@ -2829,6 +2913,12 @@ class HadoopClusterRolesWorkerNodeArgs:
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
+
+
+        `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+
+
+        `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -2840,7 +2930,11 @@ class HadoopClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -2854,7 +2948,7 @@ class HadoopClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -2866,7 +2960,7 @@ class HadoopClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -3114,11 +3208,21 @@ class HadoopClusterRolesZookeeperNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               
+               `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+               
+               
+               `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -3176,6 +3280,12 @@ class HadoopClusterRolesZookeeperNodeArgs:
     def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]:
         """
         The script action which will run on the cluster. Changing this forces a new resource to be created.
+
+
+        `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
+
+
+        `script_actions` - (Optional) The script action which will run on the cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -3187,7 +3297,11 @@ class HadoopClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -3201,7 +3315,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -3213,7 +3327,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -3404,6 +3518,9 @@ class HadoopClusterStorageAccountArgs:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
@@ -3456,6 +3573,9 @@ class HadoopClusterStorageAccountArgs:
     def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -3480,6 +3600,9 @@ class HadoopClusterStorageAccountGen2Args:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
@@ -3531,6 +3654,9 @@ class HadoopClusterStorageAccountGen2Args:
     def storage_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -4154,13 +4280,19 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
                > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).`password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+               
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -4207,6 +4339,8 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         """
         The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).`password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
         > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
         return pulumi.get(self, "password")
@@ -4233,6 +4367,10 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
@@ -4245,7 +4383,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4257,7 +4395,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -4338,15 +4476,21 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
                
                > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
         :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
-        :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).`password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
@@ -4418,7 +4562,9 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).`password` - (Optional) The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         """
@@ -4444,7 +4590,11 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -4458,7 +4608,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4470,7 +4620,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -4706,11 +4856,15 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -4779,7 +4933,11 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -4793,7 +4951,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4805,7 +4963,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -4996,6 +5154,9 @@ class InteractiveQueryClusterStorageAccountArgs:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
@@ -5048,6 +5209,9 @@ class InteractiveQueryClusterStorageAccountArgs:
     def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -5072,6 +5236,9 @@ class InteractiveQueryClusterStorageAccountGen2Args:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
@@ -5123,6 +5290,9 @@ class InteractiveQueryClusterStorageAccountGen2Args:
     def storage_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -5809,9 +5979,24 @@ class KafkaClusterRolesHeadNodeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+               
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -5882,6 +6067,12 @@ class KafkaClusterRolesHeadNodeArgs:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
@@ -5894,7 +6085,7 @@ class KafkaClusterRolesHeadNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -5907,6 +6098,15 @@ class KafkaClusterRolesHeadNodeArgs:
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -5985,11 +6185,26 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -6058,7 +6273,13 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -6072,7 +6293,7 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -6084,7 +6305,16 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -6167,11 +6397,26 @@ class KafkaClusterRolesWorkerNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "number_of_disks_per_node", number_of_disks_per_node)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -6266,7 +6511,13 @@ class KafkaClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -6280,7 +6531,7 @@ class KafkaClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -6292,7 +6543,16 @@ class KafkaClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -6371,11 +6631,26 @@ class KafkaClusterRolesZookeeperNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+               
+               
+               `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -6444,7 +6719,13 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -6458,7 +6739,7 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -6470,7 +6751,16 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+
+
+        `virtual_network_id` - (Optional) The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -6661,6 +6951,9 @@ class KafkaClusterStorageAccountArgs:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
@@ -6713,6 +7006,9 @@ class KafkaClusterStorageAccountArgs:
     def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -6737,6 +7033,9 @@ class KafkaClusterStorageAccountGen2Args:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
@@ -6788,6 +7087,9 @@ class KafkaClusterStorageAccountGen2Args:
     def storage_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -7413,9 +7715,13 @@ class SparkClusterRolesHeadNodeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+               
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -7486,6 +7792,10 @@ class SparkClusterRolesHeadNodeArgs:
         """
         A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
         return pulumi.get(self, "ssh_keys")
@@ -7498,7 +7808,7 @@ class SparkClusterRolesHeadNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -7510,7 +7820,7 @@ class SparkClusterRolesHeadNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -7593,11 +7903,15 @@ class SparkClusterRolesWorkerNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "username", username)
@@ -7693,7 +8007,11 @@ class SparkClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -7707,7 +8025,7 @@ class SparkClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -7719,7 +8037,7 @@ class SparkClusterRolesWorkerNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -7967,11 +8285,15 @@ class SparkClusterRolesZookeeperNodeArgs:
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
         :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+               
+               > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
-        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "username", username)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -8040,7 +8362,11 @@ class SparkClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.`ssh_keys` - (Optional) A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 
         > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
         """
@@ -8054,7 +8380,7 @@ class SparkClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`subnet_id` - (Optional) The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -8066,7 +8392,7 @@ class SparkClusterRolesZookeeperNodeArgs:
     @pulumi.getter(name="virtualNetworkId")
     def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.`virtual_network_id` - (Optional) The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_id")
 
@@ -8257,6 +8583,9 @@ class SparkClusterStorageAccountArgs:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
@@ -8309,6 +8638,9 @@ class SparkClusterStorageAccountArgs:
     def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 
@@ -8333,6 +8665,9 @@ class SparkClusterStorageAccountGen2Args:
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param pulumi.Input[str] storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+               
+               
+               `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
@@ -8384,6 +8719,9 @@ class SparkClusterStorageAccountGen2Args:
     def storage_resource_id(self) -> pulumi.Input[str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
+
+
+        `storage_resource_id` - (Required) The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_resource_id")
 

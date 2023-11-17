@@ -26,6 +26,11 @@ namespace Pulumi.Azure.NetApp.Inputs
 
         /// <summary>
         /// A `data_protection_snapshot_policy` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `data_protection_replication` block is used when enabling the Cross-Region Replication (CRR) data protection option by deploying two Azure NetApp Files Volumes, one to be a primary volume and the other one will be the secondary, the secondary will have this block and will reference the primary volume, not all volume spec types are supported, please refer to  [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) for detauls. Each volume must be in a supported [region pair](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction#supported-region-pairs).
         /// </summary>
         [Input("dataProtectionSnapshotPolicy")]
         public Input<Inputs.VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyGetArgs>? DataProtectionSnapshotPolicy { get; set; }

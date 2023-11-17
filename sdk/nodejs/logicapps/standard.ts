@@ -177,7 +177,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -369,7 +369,7 @@ export interface StandardState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**
@@ -463,7 +463,7 @@ export interface StandardArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Logic App Changing this forces a new resource to be created.
+     * Specifies the name of the Logic App Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**

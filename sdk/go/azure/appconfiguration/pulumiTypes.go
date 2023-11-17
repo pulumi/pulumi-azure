@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ConfigurationFeatureTargetingFilterArgs) ToConfigurationFeatureTargeting
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterOutput)
 }
 
-func (i ConfigurationFeatureTargetingFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationFeatureTargetingFilter] {
-	return pulumix.Output[ConfigurationFeatureTargetingFilter]{
-		OutputState: i.ToConfigurationFeatureTargetingFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationFeatureTargetingFilterArrayInput is an input type that accepts ConfigurationFeatureTargetingFilterArray and ConfigurationFeatureTargetingFilterArrayOutput values.
 // You can construct a concrete instance of `ConfigurationFeatureTargetingFilterArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i ConfigurationFeatureTargetingFilterArray) ToConfigurationFeatureTargetin
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterArrayOutput)
 }
 
-func (i ConfigurationFeatureTargetingFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationFeatureTargetingFilter] {
-	return pulumix.Output[[]ConfigurationFeatureTargetingFilter]{
-		OutputState: i.ToConfigurationFeatureTargetingFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationFeatureTargetingFilterOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureTargetingFilterOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o ConfigurationFeatureTargetingFilterOutput) ToConfigurationFeatureTargeti
 
 func (o ConfigurationFeatureTargetingFilterOutput) ToConfigurationFeatureTargetingFilterOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterOutput {
 	return o
-}
-
-func (o ConfigurationFeatureTargetingFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationFeatureTargetingFilter] {
-	return pulumix.Output[ConfigurationFeatureTargetingFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A number representing the percentage of the entire user base.
@@ -143,12 +124,6 @@ func (o ConfigurationFeatureTargetingFilterArrayOutput) ToConfigurationFeatureTa
 	return o
 }
 
-func (o ConfigurationFeatureTargetingFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationFeatureTargetingFilter] {
-	return pulumix.Output[[]ConfigurationFeatureTargetingFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationFeatureTargetingFilterArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureTargetingFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationFeatureTargetingFilter {
 		return vs[0].([]ConfigurationFeatureTargetingFilter)[vs[1].(int)]
@@ -156,9 +131,11 @@ func (o ConfigurationFeatureTargetingFilterArrayOutput) Index(i pulumi.IntInput)
 }
 
 type ConfigurationFeatureTargetingFilterGroup struct {
-	// The name of the group.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Rollout percentage of the group.
+	//
+	// A `timewindowFilter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
 	RolloutPercentage int `pulumi:"rolloutPercentage"`
 }
 
@@ -174,9 +151,11 @@ type ConfigurationFeatureTargetingFilterGroupInput interface {
 }
 
 type ConfigurationFeatureTargetingFilterGroupArgs struct {
-	// The name of the group.
+	// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Rollout percentage of the group.
+	//
+	// A `timewindowFilter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
 	RolloutPercentage pulumi.IntInput `pulumi:"rolloutPercentage"`
 }
 
@@ -190,12 +169,6 @@ func (i ConfigurationFeatureTargetingFilterGroupArgs) ToConfigurationFeatureTarg
 
 func (i ConfigurationFeatureTargetingFilterGroupArgs) ToConfigurationFeatureTargetingFilterGroupOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterGroupOutput)
-}
-
-func (i ConfigurationFeatureTargetingFilterGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationFeatureTargetingFilterGroup] {
-	return pulumix.Output[ConfigurationFeatureTargetingFilterGroup]{
-		OutputState: i.ToConfigurationFeatureTargetingFilterGroupOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationFeatureTargetingFilterGroupArrayInput is an input type that accepts ConfigurationFeatureTargetingFilterGroupArray and ConfigurationFeatureTargetingFilterGroupArrayOutput values.
@@ -223,12 +196,6 @@ func (i ConfigurationFeatureTargetingFilterGroupArray) ToConfigurationFeatureTar
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTargetingFilterGroupArrayOutput)
 }
 
-func (i ConfigurationFeatureTargetingFilterGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationFeatureTargetingFilterGroup] {
-	return pulumix.Output[[]ConfigurationFeatureTargetingFilterGroup]{
-		OutputState: i.ToConfigurationFeatureTargetingFilterGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationFeatureTargetingFilterGroupOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureTargetingFilterGroupOutput) ElementType() reflect.Type {
@@ -243,18 +210,14 @@ func (o ConfigurationFeatureTargetingFilterGroupOutput) ToConfigurationFeatureTa
 	return o
 }
 
-func (o ConfigurationFeatureTargetingFilterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationFeatureTargetingFilterGroup] {
-	return pulumix.Output[ConfigurationFeatureTargetingFilterGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The name of the group.
+// The name of the App Configuration Feature. Changing this forces a new resource to be created.
 func (o ConfigurationFeatureTargetingFilterGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationFeatureTargetingFilterGroup) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Rollout percentage of the group.
+//
+// A `timewindowFilter` block represents a feature filter of type `Microsoft.TimeWindow` and takes the following attributes:
 func (o ConfigurationFeatureTargetingFilterGroupOutput) RolloutPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v ConfigurationFeatureTargetingFilterGroup) int { return v.RolloutPercentage }).(pulumi.IntOutput)
 }
@@ -271,12 +234,6 @@ func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) ToConfigurationFeat
 
 func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) ToConfigurationFeatureTargetingFilterGroupArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTargetingFilterGroupArrayOutput {
 	return o
-}
-
-func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationFeatureTargetingFilterGroup] {
-	return pulumix.Output[[]ConfigurationFeatureTargetingFilterGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationFeatureTargetingFilterGroupArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureTargetingFilterGroupOutput {
@@ -322,12 +279,6 @@ func (i ConfigurationFeatureTimewindowFilterArgs) ToConfigurationFeatureTimewind
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTimewindowFilterOutput)
 }
 
-func (i ConfigurationFeatureTimewindowFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationFeatureTimewindowFilter] {
-	return pulumix.Output[ConfigurationFeatureTimewindowFilter]{
-		OutputState: i.ToConfigurationFeatureTimewindowFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationFeatureTimewindowFilterArrayInput is an input type that accepts ConfigurationFeatureTimewindowFilterArray and ConfigurationFeatureTimewindowFilterArrayOutput values.
 // You can construct a concrete instance of `ConfigurationFeatureTimewindowFilterArrayInput` via:
 //
@@ -353,12 +304,6 @@ func (i ConfigurationFeatureTimewindowFilterArray) ToConfigurationFeatureTimewin
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationFeatureTimewindowFilterArrayOutput)
 }
 
-func (i ConfigurationFeatureTimewindowFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationFeatureTimewindowFilter] {
-	return pulumix.Output[[]ConfigurationFeatureTimewindowFilter]{
-		OutputState: i.ToConfigurationFeatureTimewindowFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationFeatureTimewindowFilterOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationFeatureTimewindowFilterOutput) ElementType() reflect.Type {
@@ -371,12 +316,6 @@ func (o ConfigurationFeatureTimewindowFilterOutput) ToConfigurationFeatureTimewi
 
 func (o ConfigurationFeatureTimewindowFilterOutput) ToConfigurationFeatureTimewindowFilterOutputWithContext(ctx context.Context) ConfigurationFeatureTimewindowFilterOutput {
 	return o
-}
-
-func (o ConfigurationFeatureTimewindowFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationFeatureTimewindowFilter] {
-	return pulumix.Output[ConfigurationFeatureTimewindowFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
@@ -401,12 +340,6 @@ func (o ConfigurationFeatureTimewindowFilterArrayOutput) ToConfigurationFeatureT
 
 func (o ConfigurationFeatureTimewindowFilterArrayOutput) ToConfigurationFeatureTimewindowFilterArrayOutputWithContext(ctx context.Context) ConfigurationFeatureTimewindowFilterArrayOutput {
 	return o
-}
-
-func (o ConfigurationFeatureTimewindowFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationFeatureTimewindowFilter] {
-	return pulumix.Output[[]ConfigurationFeatureTimewindowFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationFeatureTimewindowFilterArrayOutput) Index(i pulumi.IntInput) ConfigurationFeatureTimewindowFilterOutput {
@@ -452,12 +385,6 @@ func (i ConfigurationStoreEncryptionArgs) ToConfigurationStoreEncryptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreEncryptionOutput)
 }
 
-func (i ConfigurationStoreEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreEncryption] {
-	return pulumix.Output[ConfigurationStoreEncryption]{
-		OutputState: i.ToConfigurationStoreEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationStoreEncryptionArgs) ToConfigurationStoreEncryptionPtrOutput() ConfigurationStoreEncryptionPtrOutput {
 	return i.ToConfigurationStoreEncryptionPtrOutputWithContext(context.Background())
 }
@@ -499,12 +426,6 @@ func (i *configurationStoreEncryptionPtrType) ToConfigurationStoreEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreEncryptionPtrOutput)
 }
 
-func (i *configurationStoreEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationStoreEncryption] {
-	return pulumix.Output[*ConfigurationStoreEncryption]{
-		OutputState: i.ToConfigurationStoreEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStoreEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreEncryptionOutput) ElementType() reflect.Type {
@@ -529,12 +450,6 @@ func (o ConfigurationStoreEncryptionOutput) ToConfigurationStoreEncryptionPtrOut
 	}).(ConfigurationStoreEncryptionPtrOutput)
 }
 
-func (o ConfigurationStoreEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreEncryption] {
-	return pulumix.Output[ConfigurationStoreEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the client id of the identity which will be used to access key vault.
 func (o ConfigurationStoreEncryptionOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreEncryption) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
@@ -557,12 +472,6 @@ func (o ConfigurationStoreEncryptionPtrOutput) ToConfigurationStoreEncryptionPtr
 
 func (o ConfigurationStoreEncryptionPtrOutput) ToConfigurationStoreEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionPtrOutput {
 	return o
-}
-
-func (o ConfigurationStoreEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationStoreEncryption] {
-	return pulumix.Output[*ConfigurationStoreEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStoreEncryptionPtrOutput) Elem() ConfigurationStoreEncryptionOutput {
@@ -644,12 +553,6 @@ func (i ConfigurationStoreIdentityArgs) ToConfigurationStoreIdentityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreIdentityOutput)
 }
 
-func (i ConfigurationStoreIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreIdentity] {
-	return pulumix.Output[ConfigurationStoreIdentity]{
-		OutputState: i.ToConfigurationStoreIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationStoreIdentityArgs) ToConfigurationStoreIdentityPtrOutput() ConfigurationStoreIdentityPtrOutput {
 	return i.ToConfigurationStoreIdentityPtrOutputWithContext(context.Background())
 }
@@ -691,12 +594,6 @@ func (i *configurationStoreIdentityPtrType) ToConfigurationStoreIdentityPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreIdentityPtrOutput)
 }
 
-func (i *configurationStoreIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationStoreIdentity] {
-	return pulumix.Output[*ConfigurationStoreIdentity]{
-		OutputState: i.ToConfigurationStoreIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStoreIdentityOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreIdentityOutput) ElementType() reflect.Type {
@@ -719,12 +616,6 @@ func (o ConfigurationStoreIdentityOutput) ToConfigurationStoreIdentityPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationStoreIdentity) *ConfigurationStoreIdentity {
 		return &v
 	}).(ConfigurationStoreIdentityPtrOutput)
-}
-
-func (o ConfigurationStoreIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreIdentity] {
-	return pulumix.Output[ConfigurationStoreIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
@@ -761,12 +652,6 @@ func (o ConfigurationStoreIdentityPtrOutput) ToConfigurationStoreIdentityPtrOutp
 
 func (o ConfigurationStoreIdentityPtrOutput) ToConfigurationStoreIdentityPtrOutputWithContext(ctx context.Context) ConfigurationStoreIdentityPtrOutput {
 	return o
-}
-
-func (o ConfigurationStoreIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationStoreIdentity] {
-	return pulumix.Output[*ConfigurationStoreIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStoreIdentityPtrOutput) Elem() ConfigurationStoreIdentityOutput {
@@ -862,12 +747,6 @@ func (i ConfigurationStorePrimaryReadKeyArgs) ToConfigurationStorePrimaryReadKey
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrimaryReadKeyOutput)
 }
 
-func (i ConfigurationStorePrimaryReadKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[ConfigurationStorePrimaryReadKey]{
-		OutputState: i.ToConfigurationStorePrimaryReadKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationStorePrimaryReadKeyArrayInput is an input type that accepts ConfigurationStorePrimaryReadKeyArray and ConfigurationStorePrimaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStorePrimaryReadKeyArrayInput` via:
 //
@@ -893,12 +772,6 @@ func (i ConfigurationStorePrimaryReadKeyArray) ToConfigurationStorePrimaryReadKe
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrimaryReadKeyArrayOutput)
 }
 
-func (i ConfigurationStorePrimaryReadKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[[]ConfigurationStorePrimaryReadKey]{
-		OutputState: i.ToConfigurationStorePrimaryReadKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStorePrimaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePrimaryReadKeyOutput) ElementType() reflect.Type {
@@ -911,12 +784,6 @@ func (o ConfigurationStorePrimaryReadKeyOutput) ToConfigurationStorePrimaryReadK
 
 func (o ConfigurationStorePrimaryReadKeyOutput) ToConfigurationStorePrimaryReadKeyOutputWithContext(ctx context.Context) ConfigurationStorePrimaryReadKeyOutput {
 	return o
-}
-
-func (o ConfigurationStorePrimaryReadKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[ConfigurationStorePrimaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -946,12 +813,6 @@ func (o ConfigurationStorePrimaryReadKeyArrayOutput) ToConfigurationStorePrimary
 
 func (o ConfigurationStorePrimaryReadKeyArrayOutput) ToConfigurationStorePrimaryReadKeyArrayOutputWithContext(ctx context.Context) ConfigurationStorePrimaryReadKeyArrayOutput {
 	return o
-}
-
-func (o ConfigurationStorePrimaryReadKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[[]ConfigurationStorePrimaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStorePrimaryReadKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStorePrimaryReadKeyOutput {
@@ -1001,12 +862,6 @@ func (i ConfigurationStorePrimaryWriteKeyArgs) ToConfigurationStorePrimaryWriteK
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrimaryWriteKeyOutput)
 }
 
-func (i ConfigurationStorePrimaryWriteKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[ConfigurationStorePrimaryWriteKey]{
-		OutputState: i.ToConfigurationStorePrimaryWriteKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationStorePrimaryWriteKeyArrayInput is an input type that accepts ConfigurationStorePrimaryWriteKeyArray and ConfigurationStorePrimaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStorePrimaryWriteKeyArrayInput` via:
 //
@@ -1032,12 +887,6 @@ func (i ConfigurationStorePrimaryWriteKeyArray) ToConfigurationStorePrimaryWrite
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePrimaryWriteKeyArrayOutput)
 }
 
-func (i ConfigurationStorePrimaryWriteKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[[]ConfigurationStorePrimaryWriteKey]{
-		OutputState: i.ToConfigurationStorePrimaryWriteKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStorePrimaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStorePrimaryWriteKeyOutput) ElementType() reflect.Type {
@@ -1050,12 +899,6 @@ func (o ConfigurationStorePrimaryWriteKeyOutput) ToConfigurationStorePrimaryWrit
 
 func (o ConfigurationStorePrimaryWriteKeyOutput) ToConfigurationStorePrimaryWriteKeyOutputWithContext(ctx context.Context) ConfigurationStorePrimaryWriteKeyOutput {
 	return o
-}
-
-func (o ConfigurationStorePrimaryWriteKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[ConfigurationStorePrimaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -1085,12 +928,6 @@ func (o ConfigurationStorePrimaryWriteKeyArrayOutput) ToConfigurationStorePrimar
 
 func (o ConfigurationStorePrimaryWriteKeyArrayOutput) ToConfigurationStorePrimaryWriteKeyArrayOutputWithContext(ctx context.Context) ConfigurationStorePrimaryWriteKeyArrayOutput {
 	return o
-}
-
-func (o ConfigurationStorePrimaryWriteKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[[]ConfigurationStorePrimaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStorePrimaryWriteKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStorePrimaryWriteKeyOutput {
@@ -1144,12 +981,6 @@ func (i ConfigurationStoreReplicaArgs) ToConfigurationStoreReplicaOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreReplicaOutput)
 }
 
-func (i ConfigurationStoreReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreReplica] {
-	return pulumix.Output[ConfigurationStoreReplica]{
-		OutputState: i.ToConfigurationStoreReplicaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationStoreReplicaArrayInput is an input type that accepts ConfigurationStoreReplicaArray and ConfigurationStoreReplicaArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreReplicaArrayInput` via:
 //
@@ -1175,12 +1006,6 @@ func (i ConfigurationStoreReplicaArray) ToConfigurationStoreReplicaArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreReplicaArrayOutput)
 }
 
-func (i ConfigurationStoreReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreReplica] {
-	return pulumix.Output[[]ConfigurationStoreReplica]{
-		OutputState: i.ToConfigurationStoreReplicaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStoreReplicaOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreReplicaOutput) ElementType() reflect.Type {
@@ -1193,12 +1018,6 @@ func (o ConfigurationStoreReplicaOutput) ToConfigurationStoreReplicaOutput() Con
 
 func (o ConfigurationStoreReplicaOutput) ToConfigurationStoreReplicaOutputWithContext(ctx context.Context) ConfigurationStoreReplicaOutput {
 	return o
-}
-
-func (o ConfigurationStoreReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreReplica] {
-	return pulumix.Output[ConfigurationStoreReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL of the App Configuration Replica.
@@ -1233,12 +1052,6 @@ func (o ConfigurationStoreReplicaArrayOutput) ToConfigurationStoreReplicaArrayOu
 
 func (o ConfigurationStoreReplicaArrayOutput) ToConfigurationStoreReplicaArrayOutputWithContext(ctx context.Context) ConfigurationStoreReplicaArrayOutput {
 	return o
-}
-
-func (o ConfigurationStoreReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreReplica] {
-	return pulumix.Output[[]ConfigurationStoreReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStoreReplicaArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreReplicaOutput {
@@ -1288,12 +1101,6 @@ func (i ConfigurationStoreSecondaryReadKeyArgs) ToConfigurationStoreSecondaryRea
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreSecondaryReadKeyOutput)
 }
 
-func (i ConfigurationStoreSecondaryReadKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[ConfigurationStoreSecondaryReadKey]{
-		OutputState: i.ToConfigurationStoreSecondaryReadKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationStoreSecondaryReadKeyArrayInput is an input type that accepts ConfigurationStoreSecondaryReadKeyArray and ConfigurationStoreSecondaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreSecondaryReadKeyArrayInput` via:
 //
@@ -1319,12 +1126,6 @@ func (i ConfigurationStoreSecondaryReadKeyArray) ToConfigurationStoreSecondaryRe
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreSecondaryReadKeyArrayOutput)
 }
 
-func (i ConfigurationStoreSecondaryReadKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[[]ConfigurationStoreSecondaryReadKey]{
-		OutputState: i.ToConfigurationStoreSecondaryReadKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStoreSecondaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreSecondaryReadKeyOutput) ElementType() reflect.Type {
@@ -1337,12 +1138,6 @@ func (o ConfigurationStoreSecondaryReadKeyOutput) ToConfigurationStoreSecondaryR
 
 func (o ConfigurationStoreSecondaryReadKeyOutput) ToConfigurationStoreSecondaryReadKeyOutputWithContext(ctx context.Context) ConfigurationStoreSecondaryReadKeyOutput {
 	return o
-}
-
-func (o ConfigurationStoreSecondaryReadKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[ConfigurationStoreSecondaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -1372,12 +1167,6 @@ func (o ConfigurationStoreSecondaryReadKeyArrayOutput) ToConfigurationStoreSecon
 
 func (o ConfigurationStoreSecondaryReadKeyArrayOutput) ToConfigurationStoreSecondaryReadKeyArrayOutputWithContext(ctx context.Context) ConfigurationStoreSecondaryReadKeyArrayOutput {
 	return o
-}
-
-func (o ConfigurationStoreSecondaryReadKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[[]ConfigurationStoreSecondaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStoreSecondaryReadKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreSecondaryReadKeyOutput {
@@ -1427,12 +1216,6 @@ func (i ConfigurationStoreSecondaryWriteKeyArgs) ToConfigurationStoreSecondaryWr
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreSecondaryWriteKeyOutput)
 }
 
-func (i ConfigurationStoreSecondaryWriteKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[ConfigurationStoreSecondaryWriteKey]{
-		OutputState: i.ToConfigurationStoreSecondaryWriteKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationStoreSecondaryWriteKeyArrayInput is an input type that accepts ConfigurationStoreSecondaryWriteKeyArray and ConfigurationStoreSecondaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreSecondaryWriteKeyArrayInput` via:
 //
@@ -1458,12 +1241,6 @@ func (i ConfigurationStoreSecondaryWriteKeyArray) ToConfigurationStoreSecondaryW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreSecondaryWriteKeyArrayOutput)
 }
 
-func (i ConfigurationStoreSecondaryWriteKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[[]ConfigurationStoreSecondaryWriteKey]{
-		OutputState: i.ToConfigurationStoreSecondaryWriteKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationStoreSecondaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationStoreSecondaryWriteKeyOutput) ElementType() reflect.Type {
@@ -1476,12 +1253,6 @@ func (o ConfigurationStoreSecondaryWriteKeyOutput) ToConfigurationStoreSecondary
 
 func (o ConfigurationStoreSecondaryWriteKeyOutput) ToConfigurationStoreSecondaryWriteKeyOutputWithContext(ctx context.Context) ConfigurationStoreSecondaryWriteKeyOutput {
 	return o
-}
-
-func (o ConfigurationStoreSecondaryWriteKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[ConfigurationStoreSecondaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -1511,12 +1282,6 @@ func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) ToConfigurationStoreSeco
 
 func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) ToConfigurationStoreSecondaryWriteKeyArrayOutputWithContext(ctx context.Context) ConfigurationStoreSecondaryWriteKeyArrayOutput {
 	return o
-}
-
-func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[[]ConfigurationStoreSecondaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationStoreSecondaryWriteKeyOutput {
@@ -1590,12 +1355,6 @@ func (i GetConfigurationKeysItemArgs) ToGetConfigurationKeysItemOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationKeysItemOutput)
 }
 
-func (i GetConfigurationKeysItemArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationKeysItem] {
-	return pulumix.Output[GetConfigurationKeysItem]{
-		OutputState: i.ToGetConfigurationKeysItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationKeysItemArrayInput is an input type that accepts GetConfigurationKeysItemArray and GetConfigurationKeysItemArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationKeysItemArrayInput` via:
 //
@@ -1621,12 +1380,6 @@ func (i GetConfigurationKeysItemArray) ToGetConfigurationKeysItemArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationKeysItemArrayOutput)
 }
 
-func (i GetConfigurationKeysItemArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationKeysItem] {
-	return pulumix.Output[[]GetConfigurationKeysItem]{
-		OutputState: i.ToGetConfigurationKeysItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationKeysItemOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationKeysItemOutput) ElementType() reflect.Type {
@@ -1639,12 +1392,6 @@ func (o GetConfigurationKeysItemOutput) ToGetConfigurationKeysItemOutput() GetCo
 
 func (o GetConfigurationKeysItemOutput) ToGetConfigurationKeysItemOutputWithContext(ctx context.Context) GetConfigurationKeysItemOutput {
 	return o
-}
-
-func (o GetConfigurationKeysItemOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationKeysItem] {
-	return pulumix.Output[GetConfigurationKeysItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content type of the App Configuration Key.
@@ -1706,12 +1453,6 @@ func (o GetConfigurationKeysItemArrayOutput) ToGetConfigurationKeysItemArrayOutp
 	return o
 }
 
-func (o GetConfigurationKeysItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationKeysItem] {
-	return pulumix.Output[[]GetConfigurationKeysItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetConfigurationKeysItemArrayOutput) Index(i pulumi.IntInput) GetConfigurationKeysItemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationKeysItem {
 		return vs[0].([]GetConfigurationKeysItem)[vs[1].(int)]
@@ -1751,12 +1492,6 @@ func (i GetConfigurationStoreEncryptionArgs) ToGetConfigurationStoreEncryptionOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreEncryptionOutput)
 }
 
-func (i GetConfigurationStoreEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreEncryption] {
-	return pulumix.Output[GetConfigurationStoreEncryption]{
-		OutputState: i.ToGetConfigurationStoreEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStoreEncryptionArrayInput is an input type that accepts GetConfigurationStoreEncryptionArray and GetConfigurationStoreEncryptionArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreEncryptionArrayInput` via:
 //
@@ -1782,12 +1517,6 @@ func (i GetConfigurationStoreEncryptionArray) ToGetConfigurationStoreEncryptionA
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreEncryptionArrayOutput)
 }
 
-func (i GetConfigurationStoreEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreEncryption] {
-	return pulumix.Output[[]GetConfigurationStoreEncryption]{
-		OutputState: i.ToGetConfigurationStoreEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStoreEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreEncryptionOutput) ElementType() reflect.Type {
@@ -1800,12 +1529,6 @@ func (o GetConfigurationStoreEncryptionOutput) ToGetConfigurationStoreEncryption
 
 func (o GetConfigurationStoreEncryptionOutput) ToGetConfigurationStoreEncryptionOutputWithContext(ctx context.Context) GetConfigurationStoreEncryptionOutput {
 	return o
-}
-
-func (o GetConfigurationStoreEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreEncryption] {
-	return pulumix.Output[GetConfigurationStoreEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreEncryptionOutput) IdentityClientId() pulumi.StringOutput {
@@ -1828,12 +1551,6 @@ func (o GetConfigurationStoreEncryptionArrayOutput) ToGetConfigurationStoreEncry
 
 func (o GetConfigurationStoreEncryptionArrayOutput) ToGetConfigurationStoreEncryptionArrayOutputWithContext(ctx context.Context) GetConfigurationStoreEncryptionArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStoreEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreEncryption] {
-	return pulumix.Output[[]GetConfigurationStoreEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreEncryptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreEncryptionOutput {
@@ -1879,12 +1596,6 @@ func (i GetConfigurationStoreIdentityArgs) ToGetConfigurationStoreIdentityOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreIdentityOutput)
 }
 
-func (i GetConfigurationStoreIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreIdentity] {
-	return pulumix.Output[GetConfigurationStoreIdentity]{
-		OutputState: i.ToGetConfigurationStoreIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStoreIdentityArrayInput is an input type that accepts GetConfigurationStoreIdentityArray and GetConfigurationStoreIdentityArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreIdentityArrayInput` via:
 //
@@ -1910,12 +1621,6 @@ func (i GetConfigurationStoreIdentityArray) ToGetConfigurationStoreIdentityArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreIdentityArrayOutput)
 }
 
-func (i GetConfigurationStoreIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreIdentity] {
-	return pulumix.Output[[]GetConfigurationStoreIdentity]{
-		OutputState: i.ToGetConfigurationStoreIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStoreIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreIdentityOutput) ElementType() reflect.Type {
@@ -1928,12 +1633,6 @@ func (o GetConfigurationStoreIdentityOutput) ToGetConfigurationStoreIdentityOutp
 
 func (o GetConfigurationStoreIdentityOutput) ToGetConfigurationStoreIdentityOutputWithContext(ctx context.Context) GetConfigurationStoreIdentityOutput {
 	return o
-}
-
-func (o GetConfigurationStoreIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreIdentity] {
-	return pulumix.Output[GetConfigurationStoreIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -1964,12 +1663,6 @@ func (o GetConfigurationStoreIdentityArrayOutput) ToGetConfigurationStoreIdentit
 
 func (o GetConfigurationStoreIdentityArrayOutput) ToGetConfigurationStoreIdentityArrayOutputWithContext(ctx context.Context) GetConfigurationStoreIdentityArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStoreIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreIdentity] {
-	return pulumix.Output[[]GetConfigurationStoreIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreIdentityArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreIdentityOutput {
@@ -2019,12 +1712,6 @@ func (i GetConfigurationStorePrimaryReadKeyArgs) ToGetConfigurationStorePrimaryR
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStorePrimaryReadKeyOutput)
 }
 
-func (i GetConfigurationStorePrimaryReadKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[GetConfigurationStorePrimaryReadKey]{
-		OutputState: i.ToGetConfigurationStorePrimaryReadKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStorePrimaryReadKeyArrayInput is an input type that accepts GetConfigurationStorePrimaryReadKeyArray and GetConfigurationStorePrimaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStorePrimaryReadKeyArrayInput` via:
 //
@@ -2050,12 +1737,6 @@ func (i GetConfigurationStorePrimaryReadKeyArray) ToGetConfigurationStorePrimary
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStorePrimaryReadKeyArrayOutput)
 }
 
-func (i GetConfigurationStorePrimaryReadKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[[]GetConfigurationStorePrimaryReadKey]{
-		OutputState: i.ToGetConfigurationStorePrimaryReadKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStorePrimaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStorePrimaryReadKeyOutput) ElementType() reflect.Type {
@@ -2068,12 +1749,6 @@ func (o GetConfigurationStorePrimaryReadKeyOutput) ToGetConfigurationStorePrimar
 
 func (o GetConfigurationStorePrimaryReadKeyOutput) ToGetConfigurationStorePrimaryReadKeyOutputWithContext(ctx context.Context) GetConfigurationStorePrimaryReadKeyOutput {
 	return o
-}
-
-func (o GetConfigurationStorePrimaryReadKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[GetConfigurationStorePrimaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -2103,12 +1778,6 @@ func (o GetConfigurationStorePrimaryReadKeyArrayOutput) ToGetConfigurationStoreP
 
 func (o GetConfigurationStorePrimaryReadKeyArrayOutput) ToGetConfigurationStorePrimaryReadKeyArrayOutputWithContext(ctx context.Context) GetConfigurationStorePrimaryReadKeyArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStorePrimaryReadKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStorePrimaryReadKey] {
-	return pulumix.Output[[]GetConfigurationStorePrimaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStorePrimaryReadKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStorePrimaryReadKeyOutput {
@@ -2158,12 +1827,6 @@ func (i GetConfigurationStorePrimaryWriteKeyArgs) ToGetConfigurationStorePrimary
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStorePrimaryWriteKeyOutput)
 }
 
-func (i GetConfigurationStorePrimaryWriteKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[GetConfigurationStorePrimaryWriteKey]{
-		OutputState: i.ToGetConfigurationStorePrimaryWriteKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStorePrimaryWriteKeyArrayInput is an input type that accepts GetConfigurationStorePrimaryWriteKeyArray and GetConfigurationStorePrimaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStorePrimaryWriteKeyArrayInput` via:
 //
@@ -2189,12 +1852,6 @@ func (i GetConfigurationStorePrimaryWriteKeyArray) ToGetConfigurationStorePrimar
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStorePrimaryWriteKeyArrayOutput)
 }
 
-func (i GetConfigurationStorePrimaryWriteKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[[]GetConfigurationStorePrimaryWriteKey]{
-		OutputState: i.ToGetConfigurationStorePrimaryWriteKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStorePrimaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStorePrimaryWriteKeyOutput) ElementType() reflect.Type {
@@ -2207,12 +1864,6 @@ func (o GetConfigurationStorePrimaryWriteKeyOutput) ToGetConfigurationStorePrima
 
 func (o GetConfigurationStorePrimaryWriteKeyOutput) ToGetConfigurationStorePrimaryWriteKeyOutputWithContext(ctx context.Context) GetConfigurationStorePrimaryWriteKeyOutput {
 	return o
-}
-
-func (o GetConfigurationStorePrimaryWriteKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[GetConfigurationStorePrimaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -2242,12 +1893,6 @@ func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) ToGetConfigurationStore
 
 func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) ToGetConfigurationStorePrimaryWriteKeyArrayOutputWithContext(ctx context.Context) GetConfigurationStorePrimaryWriteKeyArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStorePrimaryWriteKey] {
-	return pulumix.Output[[]GetConfigurationStorePrimaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStorePrimaryWriteKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStorePrimaryWriteKeyOutput {
@@ -2301,12 +1946,6 @@ func (i GetConfigurationStoreReplicaArgs) ToGetConfigurationStoreReplicaOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreReplicaOutput)
 }
 
-func (i GetConfigurationStoreReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreReplica] {
-	return pulumix.Output[GetConfigurationStoreReplica]{
-		OutputState: i.ToGetConfigurationStoreReplicaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStoreReplicaArrayInput is an input type that accepts GetConfigurationStoreReplicaArray and GetConfigurationStoreReplicaArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreReplicaArrayInput` via:
 //
@@ -2332,12 +1971,6 @@ func (i GetConfigurationStoreReplicaArray) ToGetConfigurationStoreReplicaArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreReplicaArrayOutput)
 }
 
-func (i GetConfigurationStoreReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreReplica] {
-	return pulumix.Output[[]GetConfigurationStoreReplica]{
-		OutputState: i.ToGetConfigurationStoreReplicaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStoreReplicaOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreReplicaOutput) ElementType() reflect.Type {
@@ -2350,12 +1983,6 @@ func (o GetConfigurationStoreReplicaOutput) ToGetConfigurationStoreReplicaOutput
 
 func (o GetConfigurationStoreReplicaOutput) ToGetConfigurationStoreReplicaOutputWithContext(ctx context.Context) GetConfigurationStoreReplicaOutput {
 	return o
-}
-
-func (o GetConfigurationStoreReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreReplica] {
-	return pulumix.Output[GetConfigurationStoreReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL of the App Configuration Replica.
@@ -2390,12 +2017,6 @@ func (o GetConfigurationStoreReplicaArrayOutput) ToGetConfigurationStoreReplicaA
 
 func (o GetConfigurationStoreReplicaArrayOutput) ToGetConfigurationStoreReplicaArrayOutputWithContext(ctx context.Context) GetConfigurationStoreReplicaArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStoreReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreReplica] {
-	return pulumix.Output[[]GetConfigurationStoreReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreReplicaArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreReplicaOutput {
@@ -2445,12 +2066,6 @@ func (i GetConfigurationStoreSecondaryReadKeyArgs) ToGetConfigurationStoreSecond
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreSecondaryReadKeyOutput)
 }
 
-func (i GetConfigurationStoreSecondaryReadKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[GetConfigurationStoreSecondaryReadKey]{
-		OutputState: i.ToGetConfigurationStoreSecondaryReadKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStoreSecondaryReadKeyArrayInput is an input type that accepts GetConfigurationStoreSecondaryReadKeyArray and GetConfigurationStoreSecondaryReadKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreSecondaryReadKeyArrayInput` via:
 //
@@ -2476,12 +2091,6 @@ func (i GetConfigurationStoreSecondaryReadKeyArray) ToGetConfigurationStoreSecon
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreSecondaryReadKeyArrayOutput)
 }
 
-func (i GetConfigurationStoreSecondaryReadKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[[]GetConfigurationStoreSecondaryReadKey]{
-		OutputState: i.ToGetConfigurationStoreSecondaryReadKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStoreSecondaryReadKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreSecondaryReadKeyOutput) ElementType() reflect.Type {
@@ -2494,12 +2103,6 @@ func (o GetConfigurationStoreSecondaryReadKeyOutput) ToGetConfigurationStoreSeco
 
 func (o GetConfigurationStoreSecondaryReadKeyOutput) ToGetConfigurationStoreSecondaryReadKeyOutputWithContext(ctx context.Context) GetConfigurationStoreSecondaryReadKeyOutput {
 	return o
-}
-
-func (o GetConfigurationStoreSecondaryReadKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[GetConfigurationStoreSecondaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -2529,12 +2132,6 @@ func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) ToGetConfigurationStor
 
 func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) ToGetConfigurationStoreSecondaryReadKeyArrayOutputWithContext(ctx context.Context) GetConfigurationStoreSecondaryReadKeyArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreSecondaryReadKey] {
-	return pulumix.Output[[]GetConfigurationStoreSecondaryReadKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreSecondaryReadKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreSecondaryReadKeyOutput {
@@ -2584,12 +2181,6 @@ func (i GetConfigurationStoreSecondaryWriteKeyArgs) ToGetConfigurationStoreSecon
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreSecondaryWriteKeyOutput)
 }
 
-func (i GetConfigurationStoreSecondaryWriteKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[GetConfigurationStoreSecondaryWriteKey]{
-		OutputState: i.ToGetConfigurationStoreSecondaryWriteKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationStoreSecondaryWriteKeyArrayInput is an input type that accepts GetConfigurationStoreSecondaryWriteKeyArray and GetConfigurationStoreSecondaryWriteKeyArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationStoreSecondaryWriteKeyArrayInput` via:
 //
@@ -2615,12 +2206,6 @@ func (i GetConfigurationStoreSecondaryWriteKeyArray) ToGetConfigurationStoreSeco
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreSecondaryWriteKeyArrayOutput)
 }
 
-func (i GetConfigurationStoreSecondaryWriteKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[[]GetConfigurationStoreSecondaryWriteKey]{
-		OutputState: i.ToGetConfigurationStoreSecondaryWriteKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationStoreSecondaryWriteKeyOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationStoreSecondaryWriteKeyOutput) ElementType() reflect.Type {
@@ -2633,12 +2218,6 @@ func (o GetConfigurationStoreSecondaryWriteKeyOutput) ToGetConfigurationStoreSec
 
 func (o GetConfigurationStoreSecondaryWriteKeyOutput) ToGetConfigurationStoreSecondaryWriteKeyOutputWithContext(ctx context.Context) GetConfigurationStoreSecondaryWriteKeyOutput {
 	return o
-}
-
-func (o GetConfigurationStoreSecondaryWriteKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[GetConfigurationStoreSecondaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -2668,12 +2247,6 @@ func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) ToGetConfigurationSto
 
 func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) ToGetConfigurationStoreSecondaryWriteKeyArrayOutputWithContext(ctx context.Context) GetConfigurationStoreSecondaryWriteKeyArrayOutput {
 	return o
-}
-
-func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationStoreSecondaryWriteKey] {
-	return pulumix.Output[[]GetConfigurationStoreSecondaryWriteKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationStoreSecondaryWriteKeyArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreSecondaryWriteKeyOutput {

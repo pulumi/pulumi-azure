@@ -21,12 +21,20 @@ public final class DiagnosticSettingMetric {
      */
     private String category;
     /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
+     * @return Is this Diagnostic Log enabled? Defaults to `true`.
+     * 
+     * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
     /**
      * @return A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+     * 
+     * `retention_policy` - (Optional) A `retention_policy` block as defined below.
      * 
      * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
      * 
@@ -48,7 +56,9 @@ public final class DiagnosticSettingMetric {
         return this.category;
     }
     /**
-     * @return Is this Diagnostic Metric enabled? Defaults to `true`.
+     * @return Is this Diagnostic Log enabled? Defaults to `true`.
+     * 
+     * `enabled` - (Optional) Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {
@@ -56,6 +66,12 @@ public final class DiagnosticSettingMetric {
     }
     /**
      * @return A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).`retention_policy` - (Optional) A `retention_policy` block as defined below.
+     * 
+     * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+     * 
+     * `retention_policy` - (Optional) A `retention_policy` block as defined below.
      * 
      * !&gt; **NOTE:** `retention_policy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
      * 

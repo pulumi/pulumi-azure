@@ -184,6 +184,11 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
+     * * 
+     *   
+     *   ```
+     *   
+     *   ```
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -443,6 +448,11 @@ export interface LinuxFunctionAppSlotState {
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
+     * * 
+     *   
+     *   ```
+     *   
+     *   ```
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -568,6 +578,11 @@ export interface LinuxFunctionAppSlotArgs {
     name?: pulumi.Input<string>;
     /**
      * Should public network access be enabled for the Function App. Defaults to `true`.
+     * * 
+     *   
+     *   ```
+     *   
+     *   ```
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**

@@ -65,7 +65,7 @@ public final class AppTemplateContainer {
      */
     private String memory;
     /**
-     * @return The name of the container
+     * @return The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     private String name;
@@ -149,7 +149,7 @@ public final class AppTemplateContainer {
         return this.memory;
     }
     /**
-     * @return The name of the container
+     * @return The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     public String name() {

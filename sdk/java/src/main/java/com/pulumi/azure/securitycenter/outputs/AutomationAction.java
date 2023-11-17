@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AutomationAction {
     /**
-     * @return (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
      */
     private @Nullable String connectionString;
@@ -22,7 +22,7 @@ public final class AutomationAction {
      */
     private String resourceId;
     /**
-     * @return (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
      */
     private @Nullable String triggerUrl;
@@ -34,7 +34,7 @@ public final class AutomationAction {
 
     private AutomationAction() {}
     /**
-     * @return (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+     * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
      */
     public Optional<String> connectionString() {
@@ -48,7 +48,7 @@ public final class AutomationAction {
         return this.resourceId;
     }
     /**
-     * @return (Optional, but required when `type` is `LogicApp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
+     * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
      */
     public Optional<String> triggerUrl() {

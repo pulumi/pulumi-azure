@@ -22,17 +22,27 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly Outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering? MicrosoftPeering;
         /// <summary>
-        /// A subnet for the primary link.
+        /// A `/30` subnet for the primary link. Required when config for IPv4.`primary_peer_address_prefix` - (Required) A subnet for the primary link.
         /// </summary>
         public readonly string PrimaryPeerAddressPrefix;
         /// <summary>
         /// The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering_config` block contains:`route_filter_id` - (Optional) The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
+        /// 
         /// &gt; **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        /// 
+        /// 
+        /// 
+        /// 
+        /// A `microsoft_peering` block contains:
         /// </summary>
         public readonly string? RouteFilterId;
         /// <summary>
-        /// A subnet for the secondary link.
+        /// A `/30` subnet for the secondary link. Required when config for IPv4.`secondary_peer_address_prefix` - (Required) A subnet for the secondary link.
         /// </summary>
         public readonly string SecondaryPeerAddressPrefix;
 

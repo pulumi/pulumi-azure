@@ -39,7 +39,7 @@ class FrontdoorFirewallPolicyArgs:
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -145,7 +145,7 @@ class FrontdoorFirewallPolicyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -222,7 +222,7 @@ class _FrontdoorFirewallPolicyState:
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -301,7 +301,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         """
         return pulumi.get(self, "enabled")
 
@@ -554,7 +554,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
                
@@ -780,7 +780,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -840,7 +840,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is the Front Door Firewall Policy enabled? Defaults to `true`.
+        Is the Front Door Firewall Policy enabled? Defaults to `true`.`enabled` - (Optional) Is the managed rule override enabled or disabled. Defaults to `false`
         """
         return pulumi.get(self, "enabled")
 

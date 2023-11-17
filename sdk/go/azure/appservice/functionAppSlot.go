@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Function App deployment Slot.
@@ -131,7 +130,7 @@ type FunctionAppSlot struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	//
@@ -241,7 +240,7 @@ type functionAppSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	//
@@ -300,7 +299,7 @@ type FunctionAppSlotState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	//
@@ -359,7 +358,7 @@ type functionAppSlotArgs struct {
 	Identity *FunctionAppSlotIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name *string `pulumi:"name"`
 	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	//
@@ -409,7 +408,7 @@ type FunctionAppSlotArgs struct {
 	Identity FunctionAppSlotIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Function App. Changing this forces a new resource to be created.
+	// Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 	Name pulumi.StringPtrInput
 	// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 	//
@@ -452,12 +451,6 @@ func (i *FunctionAppSlot) ToFunctionAppSlotOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotOutput)
 }
 
-func (i *FunctionAppSlot) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppSlot] {
-	return pulumix.Output[*FunctionAppSlot]{
-		OutputState: i.ToFunctionAppSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionAppSlotArrayInput is an input type that accepts FunctionAppSlotArray and FunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `FunctionAppSlotArrayInput` via:
 //
@@ -481,12 +474,6 @@ func (i FunctionAppSlotArray) ToFunctionAppSlotArrayOutput() FunctionAppSlotArra
 
 func (i FunctionAppSlotArray) ToFunctionAppSlotArrayOutputWithContext(ctx context.Context) FunctionAppSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotArrayOutput)
-}
-
-func (i FunctionAppSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppSlot] {
-	return pulumix.Output[[]*FunctionAppSlot]{
-		OutputState: i.ToFunctionAppSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FunctionAppSlotMapInput is an input type that accepts FunctionAppSlotMap and FunctionAppSlotMapOutput values.
@@ -514,12 +501,6 @@ func (i FunctionAppSlotMap) ToFunctionAppSlotMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppSlotMapOutput)
 }
 
-func (i FunctionAppSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppSlot] {
-	return pulumix.Output[map[string]*FunctionAppSlot]{
-		OutputState: i.ToFunctionAppSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionAppSlotOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppSlotOutput) ElementType() reflect.Type {
@@ -532,12 +513,6 @@ func (o FunctionAppSlotOutput) ToFunctionAppSlotOutput() FunctionAppSlotOutput {
 
 func (o FunctionAppSlotOutput) ToFunctionAppSlotOutputWithContext(ctx context.Context) FunctionAppSlotOutput {
 	return o
-}
-
-func (o FunctionAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppSlot] {
-	return pulumix.Output[*FunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
@@ -611,7 +586,7 @@ func (o FunctionAppSlotOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Function App. Changing this forces a new resource to be created.
+// Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
 func (o FunctionAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -682,12 +657,6 @@ func (o FunctionAppSlotArrayOutput) ToFunctionAppSlotArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o FunctionAppSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppSlot] {
-	return pulumix.Output[[]*FunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionAppSlotArrayOutput) Index(i pulumi.IntInput) FunctionAppSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionAppSlot {
 		return vs[0].([]*FunctionAppSlot)[vs[1].(int)]
@@ -706,12 +675,6 @@ func (o FunctionAppSlotMapOutput) ToFunctionAppSlotMapOutput() FunctionAppSlotMa
 
 func (o FunctionAppSlotMapOutput) ToFunctionAppSlotMapOutputWithContext(ctx context.Context) FunctionAppSlotMapOutput {
 	return o
-}
-
-func (o FunctionAppSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppSlot] {
-	return pulumix.Output[map[string]*FunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionAppSlotMapOutput) MapIndex(k pulumi.StringInput) FunctionAppSlotOutput {

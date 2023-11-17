@@ -21,11 +21,6 @@ namespace Pulumi.Azure.Network.Outputs
         /// The private IP address associated with the Firewall.
         /// </summary>
         public readonly string? PrivateIpAddress;
-        /// <summary>
-        /// The ID of the Public IP Address associated with the firewall.
-        /// 
-        /// &gt; **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
-        /// </summary>
         public readonly string PublicIpAddressId;
         /// <summary>
         /// Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.

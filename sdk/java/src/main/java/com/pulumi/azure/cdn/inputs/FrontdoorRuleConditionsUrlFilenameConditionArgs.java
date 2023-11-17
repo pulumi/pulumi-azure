@@ -37,14 +37,14 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
     }
 
     /**
-     * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+     * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
      * 
      */
     @Import(name="negateCondition")
     private @Nullable Output<Boolean> negateCondition;
 
     /**
-     * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+     * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
      * 
      */
     public Optional<Output<Boolean>> negateCondition() {
@@ -146,7 +146,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         }
 
         /**
-         * @param negateCondition If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         * @param negateCondition If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         }
 
         /**
-         * @param negateCondition If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         * @param negateCondition If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.`negate_condition` - (Optional) If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
          * 
          * @return builder
          * 

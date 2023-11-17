@@ -145,7 +145,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -340,7 +340,7 @@ export interface FunctionAppSlotState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**
@@ -442,7 +442,7 @@ export interface FunctionAppSlotArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Function App. Changing this forces a new resource to be created.
+     * Specifies the name of the Function App. Changing this forces a new resource to be created.`name` - (Optional) The name for this IP Restriction.`name` - (Optional) The name for this IP Restriction.
      */
     name?: pulumi.Input<string>;
     /**

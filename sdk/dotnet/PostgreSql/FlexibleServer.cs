@@ -113,7 +113,7 @@ namespace Pulumi.Azure.PostgreSql
     public partial class FlexibleServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         /// 
         /// &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
         /// 
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class FlexibleServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         /// 
         /// &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
         /// 
@@ -509,7 +509,7 @@ namespace Pulumi.Azure.PostgreSql
     public sealed class FlexibleServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. 
+        /// The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`.
         /// 
         /// &gt; **Note:** Once `administrator_login` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
         /// 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i AccountFilterPresentationTimeRangeArgs) ToAccountFilterPresentationTimeR
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterPresentationTimeRangeOutput)
 }
 
-func (i AccountFilterPresentationTimeRangeArgs) ToOutput(ctx context.Context) pulumix.Output[AccountFilterPresentationTimeRange] {
-	return pulumix.Output[AccountFilterPresentationTimeRange]{
-		OutputState: i.ToAccountFilterPresentationTimeRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountFilterPresentationTimeRangeArgs) ToAccountFilterPresentationTimeRangePtrOutput() AccountFilterPresentationTimeRangePtrOutput {
 	return i.ToAccountFilterPresentationTimeRangePtrOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (i *accountFilterPresentationTimeRangePtrType) ToAccountFilterPresentationT
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterPresentationTimeRangePtrOutput)
 }
 
-func (i *accountFilterPresentationTimeRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountFilterPresentationTimeRange] {
-	return pulumix.Output[*AccountFilterPresentationTimeRange]{
-		OutputState: i.ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountFilterPresentationTimeRangeOutput struct{ *pulumi.OutputState }
 
 func (AccountFilterPresentationTimeRangeOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o AccountFilterPresentationTimeRangeOutput) ToAccountFilterPresentationTim
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountFilterPresentationTimeRange) *AccountFilterPresentationTimeRange {
 		return &v
 	}).(AccountFilterPresentationTimeRangePtrOutput)
-}
-
-func (o AccountFilterPresentationTimeRangeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountFilterPresentationTimeRange] {
-	return pulumix.Output[AccountFilterPresentationTimeRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The absolute end time boundary. Applies to Video on Demand (VoD).
@@ -198,12 +179,6 @@ func (o AccountFilterPresentationTimeRangePtrOutput) ToAccountFilterPresentation
 
 func (o AccountFilterPresentationTimeRangePtrOutput) ToAccountFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AccountFilterPresentationTimeRangePtrOutput {
 	return o
-}
-
-func (o AccountFilterPresentationTimeRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountFilterPresentationTimeRange] {
-	return pulumix.Output[*AccountFilterPresentationTimeRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountFilterPresentationTimeRangePtrOutput) Elem() AccountFilterPresentationTimeRangeOutput {
@@ -311,12 +286,6 @@ func (i AccountFilterTrackSelectionArgs) ToAccountFilterTrackSelectionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionOutput)
 }
 
-func (i AccountFilterTrackSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[AccountFilterTrackSelection] {
-	return pulumix.Output[AccountFilterTrackSelection]{
-		OutputState: i.ToAccountFilterTrackSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountFilterTrackSelectionArrayInput is an input type that accepts AccountFilterTrackSelectionArray and AccountFilterTrackSelectionArrayOutput values.
 // You can construct a concrete instance of `AccountFilterTrackSelectionArrayInput` via:
 //
@@ -342,12 +311,6 @@ func (i AccountFilterTrackSelectionArray) ToAccountFilterTrackSelectionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionArrayOutput)
 }
 
-func (i AccountFilterTrackSelectionArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountFilterTrackSelection] {
-	return pulumix.Output[[]AccountFilterTrackSelection]{
-		OutputState: i.ToAccountFilterTrackSelectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountFilterTrackSelectionOutput struct{ *pulumi.OutputState }
 
 func (AccountFilterTrackSelectionOutput) ElementType() reflect.Type {
@@ -360,12 +323,6 @@ func (o AccountFilterTrackSelectionOutput) ToAccountFilterTrackSelectionOutput()
 
 func (o AccountFilterTrackSelectionOutput) ToAccountFilterTrackSelectionOutputWithContext(ctx context.Context) AccountFilterTrackSelectionOutput {
 	return o
-}
-
-func (o AccountFilterTrackSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[AccountFilterTrackSelection] {
-	return pulumix.Output[AccountFilterTrackSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `selection` blocks as defined above.
@@ -385,12 +342,6 @@ func (o AccountFilterTrackSelectionArrayOutput) ToAccountFilterTrackSelectionArr
 
 func (o AccountFilterTrackSelectionArrayOutput) ToAccountFilterTrackSelectionArrayOutputWithContext(ctx context.Context) AccountFilterTrackSelectionArrayOutput {
 	return o
-}
-
-func (o AccountFilterTrackSelectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountFilterTrackSelection] {
-	return pulumix.Output[[]AccountFilterTrackSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) AccountFilterTrackSelectionOutput {
@@ -440,12 +391,6 @@ func (i AccountFilterTrackSelectionConditionArgs) ToAccountFilterTrackSelectionC
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionConditionOutput)
 }
 
-func (i AccountFilterTrackSelectionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AccountFilterTrackSelectionCondition] {
-	return pulumix.Output[AccountFilterTrackSelectionCondition]{
-		OutputState: i.ToAccountFilterTrackSelectionConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountFilterTrackSelectionConditionArrayInput is an input type that accepts AccountFilterTrackSelectionConditionArray and AccountFilterTrackSelectionConditionArrayOutput values.
 // You can construct a concrete instance of `AccountFilterTrackSelectionConditionArrayInput` via:
 //
@@ -471,12 +416,6 @@ func (i AccountFilterTrackSelectionConditionArray) ToAccountFilterTrackSelection
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTrackSelectionConditionArrayOutput)
 }
 
-func (i AccountFilterTrackSelectionConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountFilterTrackSelectionCondition] {
-	return pulumix.Output[[]AccountFilterTrackSelectionCondition]{
-		OutputState: i.ToAccountFilterTrackSelectionConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountFilterTrackSelectionConditionOutput struct{ *pulumi.OutputState }
 
 func (AccountFilterTrackSelectionConditionOutput) ElementType() reflect.Type {
@@ -489,12 +428,6 @@ func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectio
 
 func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectionConditionOutputWithContext(ctx context.Context) AccountFilterTrackSelectionConditionOutput {
 	return o
-}
-
-func (o AccountFilterTrackSelectionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AccountFilterTrackSelectionCondition] {
-	return pulumix.Output[AccountFilterTrackSelectionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
@@ -524,12 +457,6 @@ func (o AccountFilterTrackSelectionConditionArrayOutput) ToAccountFilterTrackSel
 
 func (o AccountFilterTrackSelectionConditionArrayOutput) ToAccountFilterTrackSelectionConditionArrayOutputWithContext(ctx context.Context) AccountFilterTrackSelectionConditionArrayOutput {
 	return o
-}
-
-func (o AccountFilterTrackSelectionConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountFilterTrackSelectionCondition] {
-	return pulumix.Output[[]AccountFilterTrackSelectionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountFilterTrackSelectionConditionArrayOutput) Index(i pulumi.IntInput) AccountFilterTrackSelectionConditionOutput {
@@ -595,12 +522,6 @@ func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRange
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPresentationTimeRangeOutput)
 }
 
-func (i AssetFilterPresentationTimeRangeArgs) ToOutput(ctx context.Context) pulumix.Output[AssetFilterPresentationTimeRange] {
-	return pulumix.Output[AssetFilterPresentationTimeRange]{
-		OutputState: i.ToAssetFilterPresentationTimeRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRangePtrOutput() AssetFilterPresentationTimeRangePtrOutput {
 	return i.ToAssetFilterPresentationTimeRangePtrOutputWithContext(context.Background())
 }
@@ -642,12 +563,6 @@ func (i *assetFilterPresentationTimeRangePtrType) ToAssetFilterPresentationTimeR
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterPresentationTimeRangePtrOutput)
 }
 
-func (i *assetFilterPresentationTimeRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*AssetFilterPresentationTimeRange] {
-	return pulumix.Output[*AssetFilterPresentationTimeRange]{
-		OutputState: i.ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetFilterPresentationTimeRangeOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterPresentationTimeRangeOutput) ElementType() reflect.Type {
@@ -670,12 +585,6 @@ func (o AssetFilterPresentationTimeRangeOutput) ToAssetFilterPresentationTimeRan
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssetFilterPresentationTimeRange) *AssetFilterPresentationTimeRange {
 		return &v
 	}).(AssetFilterPresentationTimeRangePtrOutput)
-}
-
-func (o AssetFilterPresentationTimeRangeOutput) ToOutput(ctx context.Context) pulumix.Output[AssetFilterPresentationTimeRange] {
-	return pulumix.Output[AssetFilterPresentationTimeRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The absolute end time boundary. Applies to Video on Demand (VoD).
@@ -722,12 +631,6 @@ func (o AssetFilterPresentationTimeRangePtrOutput) ToAssetFilterPresentationTime
 
 func (o AssetFilterPresentationTimeRangePtrOutput) ToAssetFilterPresentationTimeRangePtrOutputWithContext(ctx context.Context) AssetFilterPresentationTimeRangePtrOutput {
 	return o
-}
-
-func (o AssetFilterPresentationTimeRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetFilterPresentationTimeRange] {
-	return pulumix.Output[*AssetFilterPresentationTimeRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetFilterPresentationTimeRangePtrOutput) Elem() AssetFilterPresentationTimeRangeOutput {
@@ -835,12 +738,6 @@ func (i AssetFilterTrackSelectionArgs) ToAssetFilterTrackSelectionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionOutput)
 }
 
-func (i AssetFilterTrackSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[AssetFilterTrackSelection] {
-	return pulumix.Output[AssetFilterTrackSelection]{
-		OutputState: i.ToAssetFilterTrackSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetFilterTrackSelectionArrayInput is an input type that accepts AssetFilterTrackSelectionArray and AssetFilterTrackSelectionArrayOutput values.
 // You can construct a concrete instance of `AssetFilterTrackSelectionArrayInput` via:
 //
@@ -866,12 +763,6 @@ func (i AssetFilterTrackSelectionArray) ToAssetFilterTrackSelectionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionArrayOutput)
 }
 
-func (i AssetFilterTrackSelectionArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetFilterTrackSelection] {
-	return pulumix.Output[[]AssetFilterTrackSelection]{
-		OutputState: i.ToAssetFilterTrackSelectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetFilterTrackSelectionOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterTrackSelectionOutput) ElementType() reflect.Type {
@@ -884,12 +775,6 @@ func (o AssetFilterTrackSelectionOutput) ToAssetFilterTrackSelectionOutput() Ass
 
 func (o AssetFilterTrackSelectionOutput) ToAssetFilterTrackSelectionOutputWithContext(ctx context.Context) AssetFilterTrackSelectionOutput {
 	return o
-}
-
-func (o AssetFilterTrackSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[AssetFilterTrackSelection] {
-	return pulumix.Output[AssetFilterTrackSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `condition` blocks as defined above.
@@ -909,12 +794,6 @@ func (o AssetFilterTrackSelectionArrayOutput) ToAssetFilterTrackSelectionArrayOu
 
 func (o AssetFilterTrackSelectionArrayOutput) ToAssetFilterTrackSelectionArrayOutputWithContext(ctx context.Context) AssetFilterTrackSelectionArrayOutput {
 	return o
-}
-
-func (o AssetFilterTrackSelectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetFilterTrackSelection] {
-	return pulumix.Output[[]AssetFilterTrackSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) AssetFilterTrackSelectionOutput {
@@ -964,12 +843,6 @@ func (i AssetFilterTrackSelectionConditionArgs) ToAssetFilterTrackSelectionCondi
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionConditionOutput)
 }
 
-func (i AssetFilterTrackSelectionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AssetFilterTrackSelectionCondition] {
-	return pulumix.Output[AssetFilterTrackSelectionCondition]{
-		OutputState: i.ToAssetFilterTrackSelectionConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetFilterTrackSelectionConditionArrayInput is an input type that accepts AssetFilterTrackSelectionConditionArray and AssetFilterTrackSelectionConditionArrayOutput values.
 // You can construct a concrete instance of `AssetFilterTrackSelectionConditionArrayInput` via:
 //
@@ -995,12 +868,6 @@ func (i AssetFilterTrackSelectionConditionArray) ToAssetFilterTrackSelectionCond
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTrackSelectionConditionArrayOutput)
 }
 
-func (i AssetFilterTrackSelectionConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetFilterTrackSelectionCondition] {
-	return pulumix.Output[[]AssetFilterTrackSelectionCondition]{
-		OutputState: i.ToAssetFilterTrackSelectionConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetFilterTrackSelectionConditionOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterTrackSelectionConditionOutput) ElementType() reflect.Type {
@@ -1013,12 +880,6 @@ func (o AssetFilterTrackSelectionConditionOutput) ToAssetFilterTrackSelectionCon
 
 func (o AssetFilterTrackSelectionConditionOutput) ToAssetFilterTrackSelectionConditionOutputWithContext(ctx context.Context) AssetFilterTrackSelectionConditionOutput {
 	return o
-}
-
-func (o AssetFilterTrackSelectionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AssetFilterTrackSelectionCondition] {
-	return pulumix.Output[AssetFilterTrackSelectionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
@@ -1048,12 +909,6 @@ func (o AssetFilterTrackSelectionConditionArrayOutput) ToAssetFilterTrackSelecti
 
 func (o AssetFilterTrackSelectionConditionArrayOutput) ToAssetFilterTrackSelectionConditionArrayOutputWithContext(ctx context.Context) AssetFilterTrackSelectionConditionArrayOutput {
 	return o
-}
-
-func (o AssetFilterTrackSelectionConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetFilterTrackSelectionCondition] {
-	return pulumix.Output[[]AssetFilterTrackSelectionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetFilterTrackSelectionConditionArrayOutput) Index(i pulumi.IntInput) AssetFilterTrackSelectionConditionOutput {
@@ -1127,12 +982,6 @@ func (i ContentKeyPolicyPolicyOptionArgs) ToContentKeyPolicyPolicyOptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOption] {
-	return pulumix.Output[ContentKeyPolicyPolicyOption]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContentKeyPolicyPolicyOptionArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionArray and ContentKeyPolicyPolicyOptionArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionArrayInput` via:
 //
@@ -1158,12 +1007,6 @@ func (i ContentKeyPolicyPolicyOptionArray) ToContentKeyPolicyPolicyOptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionArrayOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOption] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOption]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionOutput) ElementType() reflect.Type {
@@ -1176,12 +1019,6 @@ func (o ContentKeyPolicyPolicyOptionOutput) ToContentKeyPolicyPolicyOptionOutput
 
 func (o ContentKeyPolicyPolicyOptionOutput) ToContentKeyPolicyPolicyOptionOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOption] {
-	return pulumix.Output[ContentKeyPolicyPolicyOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable a configuration for non-DRM keys.
@@ -1246,12 +1083,6 @@ func (o ContentKeyPolicyPolicyOptionArrayOutput) ToContentKeyPolicyPolicyOptionA
 	return o
 }
 
-func (o ContentKeyPolicyPolicyOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOption] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContentKeyPolicyPolicyOptionArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyPolicyOption {
 		return vs[0].([]ContentKeyPolicyPolicyOption)[vs[1].(int)]
@@ -1311,12 +1142,6 @@ func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolic
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfiguration] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfiguration]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
 	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1358,12 +1183,6 @@ func (i *contentKeyPolicyPolicyOptionFairplayConfigurationPtrType) ToContentKeyP
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput)
 }
 
-func (i *contentKeyPolicyPolicyOptionFairplayConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfiguration] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfiguration]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionFairplayConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ElementType() reflect.Type {
@@ -1386,12 +1205,6 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToContentKeyPol
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionFairplayConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfiguration {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput)
-}
-
-func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfiguration] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key that must be used as FairPlay Application Secret key.
@@ -1438,12 +1251,6 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ToContentKey
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfiguration] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput) Elem() ContentKeyPolicyPolicyOptionFairplayConfigurationOutput {
@@ -1553,12 +1360,6 @@ func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
 	return i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1600,12 +1401,6 @@ func (i *contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
 }
 
-func (i *contentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ElementType() reflect.Type {
@@ -1628,12 +1423,6 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration) *ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput)
-}
-
-func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Playback duration.
@@ -1662,12 +1451,6 @@ func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurat
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) ToContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput) Elem() ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput {
@@ -1781,12 +1564,6 @@ func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs) ToContent
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput` via:
 //
@@ -1812,12 +1589,6 @@ func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray) ToConten
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ElementType() reflect.Type {
@@ -1830,12 +1601,6 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ToConte
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag indicating whether test devices can use the license.
@@ -1920,12 +1685,6 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) To
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput {
@@ -2015,12 +1774,6 @@ func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
 	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(context.Background())
 }
@@ -2062,12 +1815,6 @@ func (i *contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput)
 }
 
-func (i *contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ElementType() reflect.Type {
@@ -2090,12 +1837,6 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight) *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput)
-}
-
-func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
@@ -2201,12 +1942,6 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOut
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput) Elem() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput {
@@ -2386,12 +2121,6 @@ func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplic
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput {
 	return i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutputWithContext(context.Background())
 }
@@ -2433,12 +2162,6 @@ func (i *contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExpli
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput)
 }
 
-func (i *contentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput) ElementType() reflect.Type {
@@ -2461,12 +2184,6 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction) *ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput)
-}
-
-func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
@@ -2495,12 +2212,6 @@ func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplic
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput) ToContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionPtrOutput) Elem() ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionOutput {
@@ -2606,12 +2317,6 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPoli
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestriction] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestriction]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionTokenRestrictionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput() ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
 	return i.ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(context.Background())
 }
@@ -2653,12 +2358,6 @@ func (i *contentKeyPolicyPolicyOptionTokenRestrictionPtrType) ToContentKeyPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput)
 }
 
-func (i *contentKeyPolicyPolicyOptionTokenRestrictionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionTokenRestriction] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionTokenRestriction]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionTokenRestrictionOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ElementType() reflect.Type {
@@ -2681,12 +2380,6 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToContentKeyPolicyPo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentKeyPolicyPolicyOptionTokenRestriction) *ContentKeyPolicyPolicyOptionTokenRestriction {
 		return &v
 	}).(ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput)
-}
-
-func (o ContentKeyPolicyPolicyOptionTokenRestrictionOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestriction] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `alternateKey` block as defined above.
@@ -2757,12 +2450,6 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ToContentKeyPolic
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionPtrOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContentKeyPolicyPolicyOptionTokenRestriction] {
-	return pulumix.Output[*ContentKeyPolicyPolicyOptionTokenRestriction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput) Elem() ContentKeyPolicyPolicyOptionTokenRestrictionOutput {
@@ -2926,12 +2613,6 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs) ToContentK
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArray and ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayInput` via:
 //
@@ -2957,12 +2638,6 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArray) ToContent
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput) ElementType() reflect.Type {
@@ -2975,12 +2650,6 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput) ToConten
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The RSA parameter exponent.
@@ -3017,12 +2686,6 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput) ToC
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyOutput {
@@ -3068,12 +2731,6 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs) ToContent
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray and ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput` via:
 //
@@ -3099,12 +2756,6 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray) ToConten
 	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput)
 }
 
-func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim]{
-		OutputState: i.ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ElementType() reflect.Type {
@@ -3117,12 +2768,6 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ToConte
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput) ToOutput(ctx context.Context) pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim] {
-	return pulumix.Output[ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Token claim type.
@@ -3147,12 +2792,6 @@ func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) To
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) ToContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutputWithContext(ctx context.Context) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput {
 	return o
-}
-
-func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim] {
-	return pulumix.Output[[]ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput) Index(i pulumi.IntInput) ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput {
@@ -3198,12 +2837,6 @@ func (i JobInputAssetArgs) ToJobInputAssetOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetOutput)
 }
 
-func (i JobInputAssetArgs) ToOutput(ctx context.Context) pulumix.Output[JobInputAsset] {
-	return pulumix.Output[JobInputAsset]{
-		OutputState: i.ToJobInputAssetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i JobInputAssetArgs) ToJobInputAssetPtrOutput() JobInputAssetPtrOutput {
 	return i.ToJobInputAssetPtrOutputWithContext(context.Background())
 }
@@ -3245,12 +2878,6 @@ func (i *jobInputAssetPtrType) ToJobInputAssetPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(JobInputAssetPtrOutput)
 }
 
-func (i *jobInputAssetPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobInputAsset] {
-	return pulumix.Output[*JobInputAsset]{
-		OutputState: i.ToJobInputAssetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobInputAssetOutput struct{ *pulumi.OutputState }
 
 func (JobInputAssetOutput) ElementType() reflect.Type {
@@ -3275,12 +2902,6 @@ func (o JobInputAssetOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Con
 	}).(JobInputAssetPtrOutput)
 }
 
-func (o JobInputAssetOutput) ToOutput(ctx context.Context) pulumix.Output[JobInputAsset] {
-	return pulumix.Output[JobInputAsset]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
 func (o JobInputAssetOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobInputAsset) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -3303,12 +2924,6 @@ func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutput() JobInputAssetPtrOutpu
 
 func (o JobInputAssetPtrOutput) ToJobInputAssetPtrOutputWithContext(ctx context.Context) JobInputAssetPtrOutput {
 	return o
-}
-
-func (o JobInputAssetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobInputAsset] {
-	return pulumix.Output[*JobInputAsset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobInputAssetPtrOutput) Elem() JobInputAssetOutput {
@@ -3378,12 +2993,6 @@ func (i JobOutputAssetArgs) ToJobOutputAssetOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetOutput)
 }
 
-func (i JobOutputAssetArgs) ToOutput(ctx context.Context) pulumix.Output[JobOutputAsset] {
-	return pulumix.Output[JobOutputAsset]{
-		OutputState: i.ToJobOutputAssetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobOutputAssetArrayInput is an input type that accepts JobOutputAssetArray and JobOutputAssetArrayOutput values.
 // You can construct a concrete instance of `JobOutputAssetArrayInput` via:
 //
@@ -3409,12 +3018,6 @@ func (i JobOutputAssetArray) ToJobOutputAssetArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputAssetArrayOutput)
 }
 
-func (i JobOutputAssetArray) ToOutput(ctx context.Context) pulumix.Output[[]JobOutputAsset] {
-	return pulumix.Output[[]JobOutputAsset]{
-		OutputState: i.ToJobOutputAssetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobOutputAssetOutput struct{ *pulumi.OutputState }
 
 func (JobOutputAssetOutput) ElementType() reflect.Type {
@@ -3427,12 +3030,6 @@ func (o JobOutputAssetOutput) ToJobOutputAssetOutput() JobOutputAssetOutput {
 
 func (o JobOutputAssetOutput) ToJobOutputAssetOutputWithContext(ctx context.Context) JobOutputAssetOutput {
 	return o
-}
-
-func (o JobOutputAssetOutput) ToOutput(ctx context.Context) pulumix.Output[JobOutputAsset] {
-	return pulumix.Output[JobOutputAsset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
@@ -3457,12 +3054,6 @@ func (o JobOutputAssetArrayOutput) ToJobOutputAssetArrayOutput() JobOutputAssetA
 
 func (o JobOutputAssetArrayOutput) ToJobOutputAssetArrayOutputWithContext(ctx context.Context) JobOutputAssetArrayOutput {
 	return o
-}
-
-func (o JobOutputAssetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobOutputAsset] {
-	return pulumix.Output[[]JobOutputAsset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobOutputAssetArrayOutput) Index(i pulumi.IntInput) JobOutputAssetOutput {
@@ -3508,12 +3099,6 @@ func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventCrossSiteAccessPolicyOutput)
 }
 
-func (i LiveEventCrossSiteAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventCrossSiteAccessPolicy] {
-	return pulumix.Output[LiveEventCrossSiteAccessPolicy]{
-		OutputState: i.ToLiveEventCrossSiteAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyPtrOutput() LiveEventCrossSiteAccessPolicyPtrOutput {
 	return i.ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
 }
@@ -3555,12 +3140,6 @@ func (i *liveEventCrossSiteAccessPolicyPtrType) ToLiveEventCrossSiteAccessPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventCrossSiteAccessPolicyPtrOutput)
 }
 
-func (i *liveEventCrossSiteAccessPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*LiveEventCrossSiteAccessPolicy] {
-	return pulumix.Output[*LiveEventCrossSiteAccessPolicy]{
-		OutputState: i.ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventCrossSiteAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (LiveEventCrossSiteAccessPolicyOutput) ElementType() reflect.Type {
@@ -3585,12 +3164,6 @@ func (o LiveEventCrossSiteAccessPolicyOutput) ToLiveEventCrossSiteAccessPolicyPt
 	}).(LiveEventCrossSiteAccessPolicyPtrOutput)
 }
 
-func (o LiveEventCrossSiteAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventCrossSiteAccessPolicy] {
-	return pulumix.Output[LiveEventCrossSiteAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The content of clientaccesspolicy.xml used by Silverlight.
 func (o LiveEventCrossSiteAccessPolicyOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventCrossSiteAccessPolicy) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
@@ -3613,12 +3186,6 @@ func (o LiveEventCrossSiteAccessPolicyPtrOutput) ToLiveEventCrossSiteAccessPolic
 
 func (o LiveEventCrossSiteAccessPolicyPtrOutput) ToLiveEventCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) LiveEventCrossSiteAccessPolicyPtrOutput {
 	return o
-}
-
-func (o LiveEventCrossSiteAccessPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveEventCrossSiteAccessPolicy] {
-	return pulumix.Output[*LiveEventCrossSiteAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventCrossSiteAccessPolicyPtrOutput) Elem() LiveEventCrossSiteAccessPolicyOutput {
@@ -3700,12 +3267,6 @@ func (i LiveEventEncodingArgs) ToLiveEventEncodingOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingOutput)
 }
 
-func (i LiveEventEncodingArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventEncoding] {
-	return pulumix.Output[LiveEventEncoding]{
-		OutputState: i.ToLiveEventEncodingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LiveEventEncodingArgs) ToLiveEventEncodingPtrOutput() LiveEventEncodingPtrOutput {
 	return i.ToLiveEventEncodingPtrOutputWithContext(context.Background())
 }
@@ -3747,12 +3308,6 @@ func (i *liveEventEncodingPtrType) ToLiveEventEncodingPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingPtrOutput)
 }
 
-func (i *liveEventEncodingPtrType) ToOutput(ctx context.Context) pulumix.Output[*LiveEventEncoding] {
-	return pulumix.Output[*LiveEventEncoding]{
-		OutputState: i.ToLiveEventEncodingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventEncodingOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingOutput) ElementType() reflect.Type {
@@ -3775,12 +3330,6 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncoding) *LiveEventEncoding {
 		return &v
 	}).(LiveEventEncodingPtrOutput)
-}
-
-func (o LiveEventEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventEncoding] {
-	return pulumix.Output[LiveEventEncoding]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
@@ -3817,12 +3366,6 @@ func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutput() LiveEventEnco
 
 func (o LiveEventEncodingPtrOutput) ToLiveEventEncodingPtrOutputWithContext(ctx context.Context) LiveEventEncodingPtrOutput {
 	return o
-}
-
-func (o LiveEventEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveEventEncoding] {
-	return pulumix.Output[*LiveEventEncoding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
@@ -3924,12 +3467,6 @@ func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput)
 }
 
-func (i LiveEventInputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventInputType] {
-	return pulumix.Output[LiveEventInputType]{
-		OutputState: i.ToLiveEventInputTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
 	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
 }
@@ -3971,12 +3508,6 @@ func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
 }
 
-func (i *liveEventInputTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*LiveEventInputType] {
-	return pulumix.Output[*LiveEventInputType]{
-		OutputState: i.ToLiveEventInputTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTypeOutput) ElementType() reflect.Type {
@@ -3999,12 +3530,6 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
 		return &v
 	}).(LiveEventInputTypePtrOutput)
-}
-
-func (o LiveEventInputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventInputType] {
-	return pulumix.Output[LiveEventInputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
@@ -4043,12 +3568,6 @@ func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutput() LiveEventIn
 
 func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
 	return o
-}
-
-func (o LiveEventInputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveEventInputType] {
-	return pulumix.Output[*LiveEventInputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
@@ -4143,12 +3662,6 @@ func (i LiveEventInputEndpointArgs) ToLiveEventInputEndpointOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputEndpointOutput)
 }
 
-func (i LiveEventInputEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventInputEndpoint] {
-	return pulumix.Output[LiveEventInputEndpoint]{
-		OutputState: i.ToLiveEventInputEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveEventInputEndpointArrayInput is an input type that accepts LiveEventInputEndpointArray and LiveEventInputEndpointArrayOutput values.
 // You can construct a concrete instance of `LiveEventInputEndpointArrayInput` via:
 //
@@ -4174,12 +3687,6 @@ func (i LiveEventInputEndpointArray) ToLiveEventInputEndpointArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputEndpointArrayOutput)
 }
 
-func (i LiveEventInputEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventInputEndpoint] {
-	return pulumix.Output[[]LiveEventInputEndpoint]{
-		OutputState: i.ToLiveEventInputEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventInputEndpointOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputEndpointOutput) ElementType() reflect.Type {
@@ -4192,12 +3699,6 @@ func (o LiveEventInputEndpointOutput) ToLiveEventInputEndpointOutput() LiveEvent
 
 func (o LiveEventInputEndpointOutput) ToLiveEventInputEndpointOutputWithContext(ctx context.Context) LiveEventInputEndpointOutput {
 	return o
-}
-
-func (o LiveEventInputEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventInputEndpoint] {
-	return pulumix.Output[LiveEventInputEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventInputEndpointOutput) Protocol() pulumi.StringPtrOutput {
@@ -4220,12 +3721,6 @@ func (o LiveEventInputEndpointArrayOutput) ToLiveEventInputEndpointArrayOutput()
 
 func (o LiveEventInputEndpointArrayOutput) ToLiveEventInputEndpointArrayOutputWithContext(ctx context.Context) LiveEventInputEndpointArrayOutput {
 	return o
-}
-
-func (o LiveEventInputEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventInputEndpoint] {
-	return pulumix.Output[[]LiveEventInputEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventInputEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventInputEndpointOutput {
@@ -4275,12 +3770,6 @@ func (i LiveEventInputIpAccessControlAllowArgs) ToLiveEventInputIpAccessControlA
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputIpAccessControlAllowOutput)
 }
 
-func (i LiveEventInputIpAccessControlAllowArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventInputIpAccessControlAllow] {
-	return pulumix.Output[LiveEventInputIpAccessControlAllow]{
-		OutputState: i.ToLiveEventInputIpAccessControlAllowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveEventInputIpAccessControlAllowArrayInput is an input type that accepts LiveEventInputIpAccessControlAllowArray and LiveEventInputIpAccessControlAllowArrayOutput values.
 // You can construct a concrete instance of `LiveEventInputIpAccessControlAllowArrayInput` via:
 //
@@ -4306,12 +3795,6 @@ func (i LiveEventInputIpAccessControlAllowArray) ToLiveEventInputIpAccessControl
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputIpAccessControlAllowArrayOutput)
 }
 
-func (i LiveEventInputIpAccessControlAllowArray) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventInputIpAccessControlAllow] {
-	return pulumix.Output[[]LiveEventInputIpAccessControlAllow]{
-		OutputState: i.ToLiveEventInputIpAccessControlAllowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventInputIpAccessControlAllowOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputIpAccessControlAllowOutput) ElementType() reflect.Type {
@@ -4324,12 +3807,6 @@ func (o LiveEventInputIpAccessControlAllowOutput) ToLiveEventInputIpAccessContro
 
 func (o LiveEventInputIpAccessControlAllowOutput) ToLiveEventInputIpAccessControlAllowOutputWithContext(ctx context.Context) LiveEventInputIpAccessControlAllowOutput {
 	return o
-}
-
-func (o LiveEventInputIpAccessControlAllowOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventInputIpAccessControlAllow] {
-	return pulumix.Output[LiveEventInputIpAccessControlAllow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address or CIDR range.
@@ -4359,12 +3836,6 @@ func (o LiveEventInputIpAccessControlAllowArrayOutput) ToLiveEventInputIpAccessC
 
 func (o LiveEventInputIpAccessControlAllowArrayOutput) ToLiveEventInputIpAccessControlAllowArrayOutputWithContext(ctx context.Context) LiveEventInputIpAccessControlAllowArrayOutput {
 	return o
-}
-
-func (o LiveEventInputIpAccessControlAllowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventInputIpAccessControlAllow] {
-	return pulumix.Output[[]LiveEventInputIpAccessControlAllow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventInputIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput) LiveEventInputIpAccessControlAllowOutput {
@@ -4420,12 +3891,6 @@ func (i LiveEventPreviewArgs) ToLiveEventPreviewOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewOutput)
 }
 
-func (i LiveEventPreviewArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventPreview] {
-	return pulumix.Output[LiveEventPreview]{
-		OutputState: i.ToLiveEventPreviewOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LiveEventPreviewArgs) ToLiveEventPreviewPtrOutput() LiveEventPreviewPtrOutput {
 	return i.ToLiveEventPreviewPtrOutputWithContext(context.Background())
 }
@@ -4467,12 +3932,6 @@ func (i *liveEventPreviewPtrType) ToLiveEventPreviewPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewPtrOutput)
 }
 
-func (i *liveEventPreviewPtrType) ToOutput(ctx context.Context) pulumix.Output[*LiveEventPreview] {
-	return pulumix.Output[*LiveEventPreview]{
-		OutputState: i.ToLiveEventPreviewPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventPreviewOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewOutput) ElementType() reflect.Type {
@@ -4495,12 +3954,6 @@ func (o LiveEventPreviewOutput) ToLiveEventPreviewPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreview) *LiveEventPreview {
 		return &v
 	}).(LiveEventPreviewPtrOutput)
-}
-
-func (o LiveEventPreviewOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventPreview] {
-	return pulumix.Output[LiveEventPreview]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streamingPolicyName` field.
@@ -4539,12 +3992,6 @@ func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutput() LiveEventPrevie
 
 func (o LiveEventPreviewPtrOutput) ToLiveEventPreviewPtrOutputWithContext(ctx context.Context) LiveEventPreviewPtrOutput {
 	return o
-}
-
-func (o LiveEventPreviewPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveEventPreview] {
-	return pulumix.Output[*LiveEventPreview]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventPreviewPtrOutput) Elem() LiveEventPreviewOutput {
@@ -4639,12 +4086,6 @@ func (i LiveEventPreviewEndpointArgs) ToLiveEventPreviewEndpointOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewEndpointOutput)
 }
 
-func (i LiveEventPreviewEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventPreviewEndpoint] {
-	return pulumix.Output[LiveEventPreviewEndpoint]{
-		OutputState: i.ToLiveEventPreviewEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveEventPreviewEndpointArrayInput is an input type that accepts LiveEventPreviewEndpointArray and LiveEventPreviewEndpointArrayOutput values.
 // You can construct a concrete instance of `LiveEventPreviewEndpointArrayInput` via:
 //
@@ -4670,12 +4111,6 @@ func (i LiveEventPreviewEndpointArray) ToLiveEventPreviewEndpointArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewEndpointArrayOutput)
 }
 
-func (i LiveEventPreviewEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventPreviewEndpoint] {
-	return pulumix.Output[[]LiveEventPreviewEndpoint]{
-		OutputState: i.ToLiveEventPreviewEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventPreviewEndpointOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewEndpointOutput) ElementType() reflect.Type {
@@ -4688,12 +4123,6 @@ func (o LiveEventPreviewEndpointOutput) ToLiveEventPreviewEndpointOutput() LiveE
 
 func (o LiveEventPreviewEndpointOutput) ToLiveEventPreviewEndpointOutputWithContext(ctx context.Context) LiveEventPreviewEndpointOutput {
 	return o
-}
-
-func (o LiveEventPreviewEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventPreviewEndpoint] {
-	return pulumix.Output[LiveEventPreviewEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventPreviewEndpointOutput) Protocol() pulumi.StringPtrOutput {
@@ -4716,12 +4145,6 @@ func (o LiveEventPreviewEndpointArrayOutput) ToLiveEventPreviewEndpointArrayOutp
 
 func (o LiveEventPreviewEndpointArrayOutput) ToLiveEventPreviewEndpointArrayOutputWithContext(ctx context.Context) LiveEventPreviewEndpointArrayOutput {
 	return o
-}
-
-func (o LiveEventPreviewEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventPreviewEndpoint] {
-	return pulumix.Output[[]LiveEventPreviewEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventPreviewEndpointArrayOutput) Index(i pulumi.IntInput) LiveEventPreviewEndpointOutput {
@@ -4771,12 +4194,6 @@ func (i LiveEventPreviewIpAccessControlAllowArgs) ToLiveEventPreviewIpAccessCont
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewIpAccessControlAllowOutput)
 }
 
-func (i LiveEventPreviewIpAccessControlAllowArgs) ToOutput(ctx context.Context) pulumix.Output[LiveEventPreviewIpAccessControlAllow] {
-	return pulumix.Output[LiveEventPreviewIpAccessControlAllow]{
-		OutputState: i.ToLiveEventPreviewIpAccessControlAllowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveEventPreviewIpAccessControlAllowArrayInput is an input type that accepts LiveEventPreviewIpAccessControlAllowArray and LiveEventPreviewIpAccessControlAllowArrayOutput values.
 // You can construct a concrete instance of `LiveEventPreviewIpAccessControlAllowArrayInput` via:
 //
@@ -4802,12 +4219,6 @@ func (i LiveEventPreviewIpAccessControlAllowArray) ToLiveEventPreviewIpAccessCon
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewIpAccessControlAllowArrayOutput)
 }
 
-func (i LiveEventPreviewIpAccessControlAllowArray) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventPreviewIpAccessControlAllow] {
-	return pulumix.Output[[]LiveEventPreviewIpAccessControlAllow]{
-		OutputState: i.ToLiveEventPreviewIpAccessControlAllowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventPreviewIpAccessControlAllowOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewIpAccessControlAllowOutput) ElementType() reflect.Type {
@@ -4820,12 +4231,6 @@ func (o LiveEventPreviewIpAccessControlAllowOutput) ToLiveEventPreviewIpAccessCo
 
 func (o LiveEventPreviewIpAccessControlAllowOutput) ToLiveEventPreviewIpAccessControlAllowOutputWithContext(ctx context.Context) LiveEventPreviewIpAccessControlAllowOutput {
 	return o
-}
-
-func (o LiveEventPreviewIpAccessControlAllowOutput) ToOutput(ctx context.Context) pulumix.Output[LiveEventPreviewIpAccessControlAllow] {
-	return pulumix.Output[LiveEventPreviewIpAccessControlAllow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address or CIDR range.
@@ -4855,12 +4260,6 @@ func (o LiveEventPreviewIpAccessControlAllowArrayOutput) ToLiveEventPreviewIpAcc
 
 func (o LiveEventPreviewIpAccessControlAllowArrayOutput) ToLiveEventPreviewIpAccessControlAllowArrayOutputWithContext(ctx context.Context) LiveEventPreviewIpAccessControlAllowArrayOutput {
 	return o
-}
-
-func (o LiveEventPreviewIpAccessControlAllowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LiveEventPreviewIpAccessControlAllow] {
-	return pulumix.Output[[]LiveEventPreviewIpAccessControlAllow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventPreviewIpAccessControlAllowArrayOutput) Index(i pulumi.IntInput) LiveEventPreviewIpAccessControlAllowOutput {
@@ -4914,12 +4313,6 @@ func (i ServiceAccountEncryptionArgs) ToServiceAccountEncryptionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionOutput)
 }
 
-func (i ServiceAccountEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountEncryption] {
-	return pulumix.Output[ServiceAccountEncryption]{
-		OutputState: i.ToServiceAccountEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceAccountEncryptionArgs) ToServiceAccountEncryptionPtrOutput() ServiceAccountEncryptionPtrOutput {
 	return i.ToServiceAccountEncryptionPtrOutputWithContext(context.Background())
 }
@@ -4961,12 +4354,6 @@ func (i *serviceAccountEncryptionPtrType) ToServiceAccountEncryptionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionPtrOutput)
 }
 
-func (i *serviceAccountEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountEncryption] {
-	return pulumix.Output[*ServiceAccountEncryption]{
-		OutputState: i.ToServiceAccountEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountEncryptionOutput) ElementType() reflect.Type {
@@ -4989,12 +4376,6 @@ func (o ServiceAccountEncryptionOutput) ToServiceAccountEncryptionPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountEncryption) *ServiceAccountEncryption {
 		return &v
 	}).(ServiceAccountEncryptionPtrOutput)
-}
-
-func (o ServiceAccountEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountEncryption] {
-	return pulumix.Output[ServiceAccountEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The current key used to encrypt the Media Services Account, including the key version.
@@ -5029,12 +4410,6 @@ func (o ServiceAccountEncryptionPtrOutput) ToServiceAccountEncryptionPtrOutput()
 
 func (o ServiceAccountEncryptionPtrOutput) ToServiceAccountEncryptionPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionPtrOutput {
 	return o
-}
-
-func (o ServiceAccountEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountEncryption] {
-	return pulumix.Output[*ServiceAccountEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountEncryptionPtrOutput) Elem() ServiceAccountEncryptionOutput {
@@ -5124,12 +4499,6 @@ func (i ServiceAccountEncryptionManagedIdentityArgs) ToServiceAccountEncryptionM
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionManagedIdentityOutput)
 }
 
-func (i ServiceAccountEncryptionManagedIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountEncryptionManagedIdentity] {
-	return pulumix.Output[ServiceAccountEncryptionManagedIdentity]{
-		OutputState: i.ToServiceAccountEncryptionManagedIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceAccountEncryptionManagedIdentityArgs) ToServiceAccountEncryptionManagedIdentityPtrOutput() ServiceAccountEncryptionManagedIdentityPtrOutput {
 	return i.ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
 }
@@ -5171,12 +4540,6 @@ func (i *serviceAccountEncryptionManagedIdentityPtrType) ToServiceAccountEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountEncryptionManagedIdentityPtrOutput)
 }
 
-func (i *serviceAccountEncryptionManagedIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountEncryptionManagedIdentity] {
-	return pulumix.Output[*ServiceAccountEncryptionManagedIdentity]{
-		OutputState: i.ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountEncryptionManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountEncryptionManagedIdentityOutput) ElementType() reflect.Type {
@@ -5201,12 +4564,6 @@ func (o ServiceAccountEncryptionManagedIdentityOutput) ToServiceAccountEncryptio
 	}).(ServiceAccountEncryptionManagedIdentityPtrOutput)
 }
 
-func (o ServiceAccountEncryptionManagedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountEncryptionManagedIdentity] {
-	return pulumix.Output[ServiceAccountEncryptionManagedIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether to use System Assigned Identity. Possible Values are `true` and `false`.
 func (o ServiceAccountEncryptionManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceAccountEncryptionManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
@@ -5229,12 +4586,6 @@ func (o ServiceAccountEncryptionManagedIdentityPtrOutput) ToServiceAccountEncryp
 
 func (o ServiceAccountEncryptionManagedIdentityPtrOutput) ToServiceAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountEncryptionManagedIdentityPtrOutput {
 	return o
-}
-
-func (o ServiceAccountEncryptionManagedIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountEncryptionManagedIdentity] {
-	return pulumix.Output[*ServiceAccountEncryptionManagedIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountEncryptionManagedIdentityPtrOutput) Elem() ServiceAccountEncryptionManagedIdentityOutput {
@@ -5312,12 +4663,6 @@ func (i ServiceAccountIdentityArgs) ToServiceAccountIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountIdentityOutput)
 }
 
-func (i ServiceAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountIdentity] {
-	return pulumix.Output[ServiceAccountIdentity]{
-		OutputState: i.ToServiceAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceAccountIdentityArgs) ToServiceAccountIdentityPtrOutput() ServiceAccountIdentityPtrOutput {
 	return i.ToServiceAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -5359,12 +4704,6 @@ func (i *serviceAccountIdentityPtrType) ToServiceAccountIdentityPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountIdentityPtrOutput)
 }
 
-func (i *serviceAccountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountIdentity] {
-	return pulumix.Output[*ServiceAccountIdentity]{
-		OutputState: i.ToServiceAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountIdentityOutput) ElementType() reflect.Type {
@@ -5387,12 +4726,6 @@ func (o ServiceAccountIdentityOutput) ToServiceAccountIdentityPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAccountIdentity) *ServiceAccountIdentity {
 		return &v
 	}).(ServiceAccountIdentityPtrOutput)
-}
-
-func (o ServiceAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountIdentity] {
-	return pulumix.Output[ServiceAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
@@ -5427,12 +4760,6 @@ func (o ServiceAccountIdentityPtrOutput) ToServiceAccountIdentityPtrOutput() Ser
 
 func (o ServiceAccountIdentityPtrOutput) ToServiceAccountIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountIdentityPtrOutput {
 	return o
-}
-
-func (o ServiceAccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountIdentity] {
-	return pulumix.Output[*ServiceAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountIdentityPtrOutput) Elem() ServiceAccountIdentityOutput {
@@ -5522,12 +4849,6 @@ func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryA
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountKeyDeliveryAccessControlOutput)
 }
 
-func (i ServiceAccountKeyDeliveryAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountKeyDeliveryAccessControl] {
-	return pulumix.Output[ServiceAccountKeyDeliveryAccessControl]{
-		OutputState: i.ToServiceAccountKeyDeliveryAccessControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryAccessControlPtrOutput() ServiceAccountKeyDeliveryAccessControlPtrOutput {
 	return i.ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(context.Background())
 }
@@ -5569,12 +4890,6 @@ func (i *serviceAccountKeyDeliveryAccessControlPtrType) ToServiceAccountKeyDeliv
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountKeyDeliveryAccessControlPtrOutput)
 }
 
-func (i *serviceAccountKeyDeliveryAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountKeyDeliveryAccessControl] {
-	return pulumix.Output[*ServiceAccountKeyDeliveryAccessControl]{
-		OutputState: i.ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountKeyDeliveryAccessControlOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountKeyDeliveryAccessControlOutput) ElementType() reflect.Type {
@@ -5599,12 +4914,6 @@ func (o ServiceAccountKeyDeliveryAccessControlOutput) ToServiceAccountKeyDeliver
 	}).(ServiceAccountKeyDeliveryAccessControlPtrOutput)
 }
 
-func (o ServiceAccountKeyDeliveryAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountKeyDeliveryAccessControl] {
-	return pulumix.Output[ServiceAccountKeyDeliveryAccessControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
 func (o ServiceAccountKeyDeliveryAccessControlOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAccountKeyDeliveryAccessControl) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
@@ -5627,12 +4936,6 @@ func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) ToServiceAccountKeyDeli
 
 func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) ToServiceAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) ServiceAccountKeyDeliveryAccessControlPtrOutput {
 	return o
-}
-
-func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountKeyDeliveryAccessControl] {
-	return pulumix.Output[*ServiceAccountKeyDeliveryAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountKeyDeliveryAccessControlPtrOutput) Elem() ServiceAccountKeyDeliveryAccessControlOutput {
@@ -5710,12 +5013,6 @@ func (i ServiceAccountStorageAccountArgs) ToServiceAccountStorageAccountOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountOutput)
 }
 
-func (i ServiceAccountStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountStorageAccount] {
-	return pulumix.Output[ServiceAccountStorageAccount]{
-		OutputState: i.ToServiceAccountStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceAccountStorageAccountArrayInput is an input type that accepts ServiceAccountStorageAccountArray and ServiceAccountStorageAccountArrayOutput values.
 // You can construct a concrete instance of `ServiceAccountStorageAccountArrayInput` via:
 //
@@ -5741,12 +5038,6 @@ func (i ServiceAccountStorageAccountArray) ToServiceAccountStorageAccountArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountArrayOutput)
 }
 
-func (i ServiceAccountStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceAccountStorageAccount] {
-	return pulumix.Output[[]ServiceAccountStorageAccount]{
-		OutputState: i.ToServiceAccountStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountStorageAccountOutput) ElementType() reflect.Type {
@@ -5759,12 +5050,6 @@ func (o ServiceAccountStorageAccountOutput) ToServiceAccountStorageAccountOutput
 
 func (o ServiceAccountStorageAccountOutput) ToServiceAccountStorageAccountOutputWithContext(ctx context.Context) ServiceAccountStorageAccountOutput {
 	return o
-}
-
-func (o ServiceAccountStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountStorageAccount] {
-	return pulumix.Output[ServiceAccountStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Storage Account that will be associated with the Media Services instance.
@@ -5798,12 +5083,6 @@ func (o ServiceAccountStorageAccountArrayOutput) ToServiceAccountStorageAccountA
 
 func (o ServiceAccountStorageAccountArrayOutput) ToServiceAccountStorageAccountArrayOutputWithContext(ctx context.Context) ServiceAccountStorageAccountArrayOutput {
 	return o
-}
-
-func (o ServiceAccountStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceAccountStorageAccount] {
-	return pulumix.Output[[]ServiceAccountStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountStorageAccountArrayOutput) Index(i pulumi.IntInput) ServiceAccountStorageAccountOutput {
@@ -5849,12 +5128,6 @@ func (i ServiceAccountStorageAccountManagedIdentityArgs) ToServiceAccountStorage
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountManagedIdentityOutput)
 }
 
-func (i ServiceAccountStorageAccountManagedIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountStorageAccountManagedIdentity] {
-	return pulumix.Output[ServiceAccountStorageAccountManagedIdentity]{
-		OutputState: i.ToServiceAccountStorageAccountManagedIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceAccountStorageAccountManagedIdentityArgs) ToServiceAccountStorageAccountManagedIdentityPtrOutput() ServiceAccountStorageAccountManagedIdentityPtrOutput {
 	return i.ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
 }
@@ -5896,12 +5169,6 @@ func (i *serviceAccountStorageAccountManagedIdentityPtrType) ToServiceAccountSto
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccountStorageAccountManagedIdentityPtrOutput)
 }
 
-func (i *serviceAccountStorageAccountManagedIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountStorageAccountManagedIdentity] {
-	return pulumix.Output[*ServiceAccountStorageAccountManagedIdentity]{
-		OutputState: i.ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAccountStorageAccountManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceAccountStorageAccountManagedIdentityOutput) ElementType() reflect.Type {
@@ -5926,12 +5193,6 @@ func (o ServiceAccountStorageAccountManagedIdentityOutput) ToServiceAccountStora
 	}).(ServiceAccountStorageAccountManagedIdentityPtrOutput)
 }
 
-func (o ServiceAccountStorageAccountManagedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAccountStorageAccountManagedIdentity] {
-	return pulumix.Output[ServiceAccountStorageAccountManagedIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether to use System Assigned Identity. Possible Values are `true` and `false`.
 func (o ServiceAccountStorageAccountManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceAccountStorageAccountManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
@@ -5954,12 +5215,6 @@ func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) ToServiceAccountSt
 
 func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) ToServiceAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) ServiceAccountStorageAccountManagedIdentityPtrOutput {
 	return o
-}
-
-func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAccountStorageAccountManagedIdentity] {
-	return pulumix.Output[*ServiceAccountStorageAccountManagedIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAccountStorageAccountManagedIdentityPtrOutput) Elem() ServiceAccountStorageAccountManagedIdentityOutput {
@@ -6029,12 +5284,6 @@ func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlOutput)
 }
 
-func (i StreamingEndpointAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointAccessControl] {
-	return pulumix.Output[StreamingEndpointAccessControl]{
-		OutputState: i.ToStreamingEndpointAccessControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlPtrOutput() StreamingEndpointAccessControlPtrOutput {
 	return i.ToStreamingEndpointAccessControlPtrOutputWithContext(context.Background())
 }
@@ -6076,12 +5325,6 @@ func (i *streamingEndpointAccessControlPtrType) ToStreamingEndpointAccessControl
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlPtrOutput)
 }
 
-func (i *streamingEndpointAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingEndpointAccessControl] {
-	return pulumix.Output[*StreamingEndpointAccessControl]{
-		OutputState: i.ToStreamingEndpointAccessControlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingEndpointAccessControlOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlOutput) ElementType() reflect.Type {
@@ -6104,12 +5347,6 @@ func (o StreamingEndpointAccessControlOutput) ToStreamingEndpointAccessControlPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControl) *StreamingEndpointAccessControl {
 		return &v
 	}).(StreamingEndpointAccessControlPtrOutput)
-}
-
-func (o StreamingEndpointAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointAccessControl] {
-	return pulumix.Output[StreamingEndpointAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `akamaiSignatureHeaderAuthenticationKey` blocks as defined below.
@@ -6136,12 +5373,6 @@ func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessContro
 
 func (o StreamingEndpointAccessControlPtrOutput) ToStreamingEndpointAccessControlPtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlPtrOutput {
 	return o
-}
-
-func (o StreamingEndpointAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingEndpointAccessControl] {
-	return pulumix.Output[*StreamingEndpointAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingEndpointAccessControlPtrOutput) Elem() StreamingEndpointAccessControlOutput {
@@ -6215,12 +5446,6 @@ func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput)
 }
 
-func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey] {
-	return pulumix.Output[StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey]{
-		OutputState: i.ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput is an input type that accepts StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray and StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput` via:
 //
@@ -6246,12 +5471,6 @@ func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArra
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput)
 }
 
-func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey] {
-	return pulumix.Output[[]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey]{
-		OutputState: i.ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) ElementType() reflect.Type {
@@ -6264,12 +5483,6 @@ func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutp
 
 func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutputWithContext(ctx context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
 	return o
-}
-
-func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey] {
-	return pulumix.Output[StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Authentication key.
@@ -6305,12 +5518,6 @@ func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArra
 
 func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) ToStreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutputWithContext(ctx context.Context) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput {
 	return o
-}
-
-func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey] {
-	return pulumix.Output[[]StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput) Index(i pulumi.IntInput) StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput {
@@ -6360,12 +5567,6 @@ func (i StreamingEndpointAccessControlIpAllowArgs) ToStreamingEndpointAccessCont
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlIpAllowOutput)
 }
 
-func (i StreamingEndpointAccessControlIpAllowArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointAccessControlIpAllow] {
-	return pulumix.Output[StreamingEndpointAccessControlIpAllow]{
-		OutputState: i.ToStreamingEndpointAccessControlIpAllowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingEndpointAccessControlIpAllowArrayInput is an input type that accepts StreamingEndpointAccessControlIpAllowArray and StreamingEndpointAccessControlIpAllowArrayOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlIpAllowArrayInput` via:
 //
@@ -6391,12 +5592,6 @@ func (i StreamingEndpointAccessControlIpAllowArray) ToStreamingEndpointAccessCon
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlIpAllowArrayOutput)
 }
 
-func (i StreamingEndpointAccessControlIpAllowArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingEndpointAccessControlIpAllow] {
-	return pulumix.Output[[]StreamingEndpointAccessControlIpAllow]{
-		OutputState: i.ToStreamingEndpointAccessControlIpAllowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingEndpointAccessControlIpAllowOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlIpAllowOutput) ElementType() reflect.Type {
@@ -6409,12 +5604,6 @@ func (o StreamingEndpointAccessControlIpAllowOutput) ToStreamingEndpointAccessCo
 
 func (o StreamingEndpointAccessControlIpAllowOutput) ToStreamingEndpointAccessControlIpAllowOutputWithContext(ctx context.Context) StreamingEndpointAccessControlIpAllowOutput {
 	return o
-}
-
-func (o StreamingEndpointAccessControlIpAllowOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointAccessControlIpAllow] {
-	return pulumix.Output[StreamingEndpointAccessControlIpAllow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address to allow.
@@ -6444,12 +5633,6 @@ func (o StreamingEndpointAccessControlIpAllowArrayOutput) ToStreamingEndpointAcc
 
 func (o StreamingEndpointAccessControlIpAllowArrayOutput) ToStreamingEndpointAccessControlIpAllowArrayOutputWithContext(ctx context.Context) StreamingEndpointAccessControlIpAllowArrayOutput {
 	return o
-}
-
-func (o StreamingEndpointAccessControlIpAllowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingEndpointAccessControlIpAllow] {
-	return pulumix.Output[[]StreamingEndpointAccessControlIpAllow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingEndpointAccessControlIpAllowArrayOutput) Index(i pulumi.IntInput) StreamingEndpointAccessControlIpAllowOutput {
@@ -6495,12 +5678,6 @@ func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSite
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointCrossSiteAccessPolicyOutput)
 }
 
-func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointCrossSiteAccessPolicy] {
-	return pulumix.Output[StreamingEndpointCrossSiteAccessPolicy]{
-		OutputState: i.ToStreamingEndpointCrossSiteAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSiteAccessPolicyPtrOutput() StreamingEndpointCrossSiteAccessPolicyPtrOutput {
 	return i.ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(context.Background())
 }
@@ -6542,12 +5719,6 @@ func (i *streamingEndpointCrossSiteAccessPolicyPtrType) ToStreamingEndpointCross
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointCrossSiteAccessPolicyPtrOutput)
 }
 
-func (i *streamingEndpointCrossSiteAccessPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingEndpointCrossSiteAccessPolicy] {
-	return pulumix.Output[*StreamingEndpointCrossSiteAccessPolicy]{
-		OutputState: i.ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingEndpointCrossSiteAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointCrossSiteAccessPolicyOutput) ElementType() reflect.Type {
@@ -6572,12 +5743,6 @@ func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToStreamingEndpointCrossSi
 	}).(StreamingEndpointCrossSiteAccessPolicyPtrOutput)
 }
 
-func (o StreamingEndpointCrossSiteAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointCrossSiteAccessPolicy] {
-	return pulumix.Output[StreamingEndpointCrossSiteAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The content of `clientaccesspolicy.xml` used by Silverlight.
 func (o StreamingEndpointCrossSiteAccessPolicyOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingEndpointCrossSiteAccessPolicy) *string { return v.ClientAccessPolicy }).(pulumi.StringPtrOutput)
@@ -6600,12 +5765,6 @@ func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ToStreamingEndpointCros
 
 func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ToStreamingEndpointCrossSiteAccessPolicyPtrOutputWithContext(ctx context.Context) StreamingEndpointCrossSiteAccessPolicyPtrOutput {
 	return o
-}
-
-func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingEndpointCrossSiteAccessPolicy] {
-	return pulumix.Output[*StreamingEndpointCrossSiteAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingEndpointCrossSiteAccessPolicyPtrOutput) Elem() StreamingEndpointCrossSiteAccessPolicyOutput {
@@ -6675,12 +5834,6 @@ func (i StreamingEndpointSkusArgs) ToStreamingEndpointSkusOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointSkusOutput)
 }
 
-func (i StreamingEndpointSkusArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointSkus] {
-	return pulumix.Output[StreamingEndpointSkus]{
-		OutputState: i.ToStreamingEndpointSkusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingEndpointSkusArrayInput is an input type that accepts StreamingEndpointSkusArray and StreamingEndpointSkusArrayOutput values.
 // You can construct a concrete instance of `StreamingEndpointSkusArrayInput` via:
 //
@@ -6706,12 +5859,6 @@ func (i StreamingEndpointSkusArray) ToStreamingEndpointSkusArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointSkusArrayOutput)
 }
 
-func (i StreamingEndpointSkusArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingEndpointSkus] {
-	return pulumix.Output[[]StreamingEndpointSkus]{
-		OutputState: i.ToStreamingEndpointSkusArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingEndpointSkusOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointSkusOutput) ElementType() reflect.Type {
@@ -6724,12 +5871,6 @@ func (o StreamingEndpointSkusOutput) ToStreamingEndpointSkusOutput() StreamingEn
 
 func (o StreamingEndpointSkusOutput) ToStreamingEndpointSkusOutputWithContext(ctx context.Context) StreamingEndpointSkusOutput {
 	return o
-}
-
-func (o StreamingEndpointSkusOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingEndpointSkus] {
-	return pulumix.Output[StreamingEndpointSkus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The sku capacity of Streaming Endpoint.
@@ -6754,12 +5895,6 @@ func (o StreamingEndpointSkusArrayOutput) ToStreamingEndpointSkusArrayOutput() S
 
 func (o StreamingEndpointSkusArrayOutput) ToStreamingEndpointSkusArrayOutputWithContext(ctx context.Context) StreamingEndpointSkusArrayOutput {
 	return o
-}
-
-func (o StreamingEndpointSkusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingEndpointSkus] {
-	return pulumix.Output[[]StreamingEndpointSkus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingEndpointSkusArrayOutput) Index(i pulumi.IntInput) StreamingEndpointSkusOutput {
@@ -6817,12 +5952,6 @@ func (i StreamingLocatorContentKeyArgs) ToStreamingLocatorContentKeyOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyOutput)
 }
 
-func (i StreamingLocatorContentKeyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingLocatorContentKey] {
-	return pulumix.Output[StreamingLocatorContentKey]{
-		OutputState: i.ToStreamingLocatorContentKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingLocatorContentKeyArrayInput is an input type that accepts StreamingLocatorContentKeyArray and StreamingLocatorContentKeyArrayOutput values.
 // You can construct a concrete instance of `StreamingLocatorContentKeyArrayInput` via:
 //
@@ -6848,12 +5977,6 @@ func (i StreamingLocatorContentKeyArray) ToStreamingLocatorContentKeyArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorContentKeyArrayOutput)
 }
 
-func (i StreamingLocatorContentKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingLocatorContentKey] {
-	return pulumix.Output[[]StreamingLocatorContentKey]{
-		OutputState: i.ToStreamingLocatorContentKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingLocatorContentKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorContentKeyOutput) ElementType() reflect.Type {
@@ -6866,12 +5989,6 @@ func (o StreamingLocatorContentKeyOutput) ToStreamingLocatorContentKeyOutput() S
 
 func (o StreamingLocatorContentKeyOutput) ToStreamingLocatorContentKeyOutputWithContext(ctx context.Context) StreamingLocatorContentKeyOutput {
 	return o
-}
-
-func (o StreamingLocatorContentKeyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingLocatorContentKey] {
-	return pulumix.Output[StreamingLocatorContentKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ID of Content Key. Changing this forces a new Streaming Locator to be created.
@@ -6911,12 +6028,6 @@ func (o StreamingLocatorContentKeyArrayOutput) ToStreamingLocatorContentKeyArray
 
 func (o StreamingLocatorContentKeyArrayOutput) ToStreamingLocatorContentKeyArrayOutputWithContext(ctx context.Context) StreamingLocatorContentKeyArrayOutput {
 	return o
-}
-
-func (o StreamingLocatorContentKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingLocatorContentKey] {
-	return pulumix.Output[[]StreamingLocatorContentKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingLocatorContentKeyArrayOutput) Index(i pulumi.IntInput) StreamingLocatorContentKeyOutput {
@@ -6970,12 +6081,6 @@ func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCbcsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcs] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcs]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncryptionCbcsPtrOutput() StreamingPolicyCommonEncryptionCbcsPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(context.Background())
 }
@@ -7017,12 +6122,6 @@ func (i *streamingPolicyCommonEncryptionCbcsPtrType) ToStreamingPolicyCommonEncr
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCbcsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcs] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcs]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCbcsOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCbcsOutput) ElementType() reflect.Type {
@@ -7045,12 +6144,6 @@ func (o StreamingPolicyCommonEncryptionCbcsOutput) ToStreamingPolicyCommonEncryp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcs) *StreamingPolicyCommonEncryptionCbcs {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsPtrOutput)
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcs] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcs]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -7093,12 +6186,6 @@ func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) ToStreamingPolicyCommonEnc
 
 func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) ToStreamingPolicyCommonEncryptionCbcsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcs] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsOutput {
@@ -7188,12 +6275,6 @@ func (i StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs) ToStreamingPo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsClearKeyEncryption] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsClearKeyEncryption]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs) ToStreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput() StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutputWithContext(context.Background())
 }
@@ -7235,12 +6316,6 @@ func (i *streamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrType) ToStreami
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsClearKeyEncryption] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsClearKeyEncryption]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput) ElementType() reflect.Type {
@@ -7265,12 +6340,6 @@ func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput) ToStreaming
 	}).(StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput)
 }
 
-func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsClearKeyEncryption] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsClearKeyEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
 //
 // > **Note** Either `clearKeyEncryption` or `drm` must be specified.
@@ -7292,12 +6361,6 @@ func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput) ToStream
 
 func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput) ToStreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsClearKeyEncryption] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsClearKeyEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionOutput {
@@ -7359,12 +6422,6 @@ func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPol
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsDefaultContentKey] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsDefaultContentKey]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(context.Background())
 }
@@ -7406,12 +6463,6 @@ func (i *streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType) ToStreamin
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDefaultContentKey] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDefaultContentKey]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ElementType() reflect.Type {
@@ -7436,12 +6487,6 @@ func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToStreamingP
 	}).(StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput)
 }
 
-func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsDefaultContentKey] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsDefaultContentKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
 func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCbcsDefaultContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -7464,12 +6509,6 @@ func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ToStreami
 
 func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ToStreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDefaultContentKey] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDefaultContentKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput {
@@ -7539,12 +6578,6 @@ func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCom
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsDrmFairplay] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsDrmFairplay]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput() StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(context.Background())
 }
@@ -7586,12 +6619,6 @@ func (i *streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType) ToStreamingPolic
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCbcsDrmFairplayPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDrmFairplay] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDrmFairplay]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ElementType() reflect.Type {
@@ -7614,12 +6641,6 @@ func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToStreamingPolicyC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcsDrmFairplay) *StreamingPolicyCommonEncryptionCbcsDrmFairplay {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput)
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsDrmFairplay] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsDrmFairplay]{
-		OutputState: o.OutputState,
-	}
 }
 
 // All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
@@ -7646,12 +6667,6 @@ func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ToStreamingPoli
 
 func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ToStreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDrmFairplay] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsDrmFairplay]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput {
@@ -7729,12 +6744,6 @@ func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(context.Background())
 }
@@ -7776,12 +6785,6 @@ func (i *streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType) ToStreaming
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ElementType() reflect.Type {
@@ -7804,12 +6807,6 @@ func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToStreamingPo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCbcsEnabledProtocols) *StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput)
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCbcsEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCbcsEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
@@ -7844,12 +6841,6 @@ func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ToStreamin
 
 func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ToStreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCbcsEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCbcsEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput) Elem() StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput {
@@ -7959,12 +6950,6 @@ func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCenc] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCenc]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncryptionCencPtrOutput() StreamingPolicyCommonEncryptionCencPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(context.Background())
 }
@@ -8006,12 +6991,6 @@ func (i *streamingPolicyCommonEncryptionCencPtrType) ToStreamingPolicyCommonEncr
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCencPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCenc] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCenc]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencOutput) ElementType() reflect.Type {
@@ -8034,12 +7013,6 @@ func (o StreamingPolicyCommonEncryptionCencOutput) ToStreamingPolicyCommonEncryp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCenc) *StreamingPolicyCommonEncryptionCenc {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencPtrOutput)
-}
-
-func (o StreamingPolicyCommonEncryptionCencOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCenc] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCenc]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `clearKeyEncryption` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -8103,12 +7076,6 @@ func (o StreamingPolicyCommonEncryptionCencPtrOutput) ToStreamingPolicyCommonEnc
 
 func (o StreamingPolicyCommonEncryptionCencPtrOutput) ToStreamingPolicyCommonEncryptionCencPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCenc] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCenc]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencPtrOutput) Elem() StreamingPolicyCommonEncryptionCencOutput {
@@ -8228,12 +7195,6 @@ func (i StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs) ToStreamingPo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencClearKeyEncryption] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencClearKeyEncryption]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencClearKeyEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs) ToStreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput() StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutputWithContext(context.Background())
 }
@@ -8275,12 +7236,6 @@ func (i *streamingPolicyCommonEncryptionCencClearKeyEncryptionPtrType) ToStreami
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCencClearKeyEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencClearKeyEncryption] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencClearKeyEncryption]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput) ElementType() reflect.Type {
@@ -8305,12 +7260,6 @@ func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput) ToStreaming
 	}).(StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput)
 }
 
-func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencClearKeyEncryption] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencClearKeyEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
 //
 // > **Note** Either `clearKeyEncryption` or `drm` must be specified.
@@ -8332,12 +7281,6 @@ func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput) ToStream
 
 func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput) ToStreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencClearKeyEncryption] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencClearKeyEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencClearKeyEncryptionPtrOutput) Elem() StreamingPolicyCommonEncryptionCencClearKeyEncryptionOutput {
@@ -8395,12 +7338,6 @@ func (i StreamingPolicyCommonEncryptionCencClearTrackArgs) ToStreamingPolicyComm
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencClearTrackOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencClearTrackArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrack] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrack]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencClearTrackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingPolicyCommonEncryptionCencClearTrackArrayInput is an input type that accepts StreamingPolicyCommonEncryptionCencClearTrackArray and StreamingPolicyCommonEncryptionCencClearTrackArrayOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencClearTrackArrayInput` via:
 //
@@ -8426,12 +7363,6 @@ func (i StreamingPolicyCommonEncryptionCencClearTrackArray) ToStreamingPolicyCom
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencClearTrackArrayOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencClearTrackArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrack] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrack]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencClearTrackArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencClearTrackOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencClearTrackOutput) ElementType() reflect.Type {
@@ -8444,12 +7375,6 @@ func (o StreamingPolicyCommonEncryptionCencClearTrackOutput) ToStreamingPolicyCo
 
 func (o StreamingPolicyCommonEncryptionCencClearTrackOutput) ToStreamingPolicyCommonEncryptionCencClearTrackOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencClearTrackOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencClearTrackOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrack] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
@@ -8471,12 +7396,6 @@ func (o StreamingPolicyCommonEncryptionCencClearTrackArrayOutput) ToStreamingPol
 
 func (o StreamingPolicyCommonEncryptionCencClearTrackArrayOutput) ToStreamingPolicyCommonEncryptionCencClearTrackArrayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencClearTrackArrayOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencClearTrackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrack] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencClearTrackArrayOutput) Index(i pulumi.IntInput) StreamingPolicyCommonEncryptionCencClearTrackOutput {
@@ -8526,12 +7445,6 @@ func (i StreamingPolicyCommonEncryptionCencClearTrackConditionArgs) ToStreamingP
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencClearTrackConditionOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencClearTrackConditionArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrackCondition] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrackCondition]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencClearTrackConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingPolicyCommonEncryptionCencClearTrackConditionArrayInput is an input type that accepts StreamingPolicyCommonEncryptionCencClearTrackConditionArray and StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencClearTrackConditionArrayInput` via:
 //
@@ -8557,12 +7470,6 @@ func (i StreamingPolicyCommonEncryptionCencClearTrackConditionArray) ToStreaming
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencClearTrackConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrackCondition] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrackCondition]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencClearTrackConditionOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencClearTrackConditionOutput) ElementType() reflect.Type {
@@ -8575,12 +7482,6 @@ func (o StreamingPolicyCommonEncryptionCencClearTrackConditionOutput) ToStreamin
 
 func (o StreamingPolicyCommonEncryptionCencClearTrackConditionOutput) ToStreamingPolicyCommonEncryptionCencClearTrackConditionOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencClearTrackConditionOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencClearTrackConditionOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrackCondition] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencClearTrackCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
@@ -8610,12 +7511,6 @@ func (o StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput) ToStr
 
 func (o StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput) ToStreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrackCondition] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencClearTrackCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencClearTrackConditionArrayOutput) Index(i pulumi.IntInput) StreamingPolicyCommonEncryptionCencClearTrackConditionOutput {
@@ -8665,12 +7560,6 @@ func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs) ToStrea
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayInput is an input type that accepts StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArray and StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayInput` via:
 //
@@ -8696,12 +7585,6 @@ func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArray) ToStre
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput) ElementType() reflect.Type {
@@ -8714,12 +7597,6 @@ func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput) ToStr
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput) ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
@@ -8751,12 +7628,6 @@ func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput) 
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput) ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArrayOutput) Index(i pulumi.IntInput) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingOutput {
@@ -8798,12 +7669,6 @@ func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayInput is an input type that accepts StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArray and StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayInput` via:
 //
@@ -8829,12 +7694,6 @@ func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput) ElementType() reflect.Type {
@@ -8847,12 +7706,6 @@ func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput) 
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput) ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
@@ -8874,12 +7727,6 @@ func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOut
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutput) ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArrayOutput) Index(i pulumi.IntInput) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackOutput {
@@ -8929,12 +7776,6 @@ func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditio
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayInput is an input type that accepts StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArray and StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayInput` via:
 //
@@ -8960,12 +7801,6 @@ func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditio
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput) ElementType() reflect.Type {
@@ -8978,12 +7813,6 @@ func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditio
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput) ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
@@ -9019,12 +7848,6 @@ func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditio
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutput) ToStreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition] {
-	return pulumix.Output[[]StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArrayOutput) Index(i pulumi.IntInput) StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionOutput {
@@ -9070,12 +7893,6 @@ func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPol
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencDefaultContentKey] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencDefaultContentKey]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput() StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(context.Background())
 }
@@ -9117,12 +7934,6 @@ func (i *streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType) ToStreamin
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCencDefaultContentKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencDefaultContentKey] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencDefaultContentKey]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ElementType() reflect.Type {
@@ -9147,12 +7958,6 @@ func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToStreamingP
 	}).(StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput)
 }
 
-func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencDefaultContentKey] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencDefaultContentKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
 func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyCommonEncryptionCencDefaultContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -9175,12 +7980,6 @@ func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ToStreami
 
 func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ToStreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencDefaultContentKey] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencDefaultContentKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput) Elem() StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput {
@@ -9250,12 +8049,6 @@ func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencDrmPlayready] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencDrmPlayready]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput() StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(context.Background())
 }
@@ -9297,12 +8090,6 @@ func (i *streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType) ToStreamingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCencDrmPlayreadyPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencDrmPlayready] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencDrmPlayready]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ElementType() reflect.Type {
@@ -9325,12 +8112,6 @@ func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToStreamingPolicy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCencDrmPlayready) *StreamingPolicyCommonEncryptionCencDrmPlayready {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput)
-}
-
-func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencDrmPlayready] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencDrmPlayready]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
@@ -9357,12 +8138,6 @@ func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ToStreamingPol
 
 func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ToStreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencDrmPlayready] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencDrmPlayready]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput) Elem() StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput {
@@ -9440,12 +8215,6 @@ func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPoli
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput)
 }
 
-func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput() StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
 	return i.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(context.Background())
 }
@@ -9487,12 +8256,6 @@ func (i *streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType) ToStreaming
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
 }
 
-func (i *streamingPolicyCommonEncryptionCencEnabledProtocolsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ElementType() reflect.Type {
@@ -9515,12 +8278,6 @@ func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToStreamingPo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyCommonEncryptionCencEnabledProtocols) *StreamingPolicyCommonEncryptionCencEnabledProtocols {
 		return &v
 	}).(StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput)
-}
-
-func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyCommonEncryptionCencEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyCommonEncryptionCencEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
@@ -9555,12 +8312,6 @@ func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ToStreamin
 
 func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ToStreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyCommonEncryptionCencEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyCommonEncryptionCencEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput) Elem() StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput {
@@ -9654,12 +8405,6 @@ func (i StreamingPolicyEnvelopeEncryptionArgs) ToStreamingPolicyEnvelopeEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyEnvelopeEncryptionOutput)
 }
 
-func (i StreamingPolicyEnvelopeEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyEnvelopeEncryption] {
-	return pulumix.Output[StreamingPolicyEnvelopeEncryption]{
-		OutputState: i.ToStreamingPolicyEnvelopeEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyEnvelopeEncryptionArgs) ToStreamingPolicyEnvelopeEncryptionPtrOutput() StreamingPolicyEnvelopeEncryptionPtrOutput {
 	return i.ToStreamingPolicyEnvelopeEncryptionPtrOutputWithContext(context.Background())
 }
@@ -9701,12 +8446,6 @@ func (i *streamingPolicyEnvelopeEncryptionPtrType) ToStreamingPolicyEnvelopeEncr
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyEnvelopeEncryptionPtrOutput)
 }
 
-func (i *streamingPolicyEnvelopeEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyEnvelopeEncryption] {
-	return pulumix.Output[*StreamingPolicyEnvelopeEncryption]{
-		OutputState: i.ToStreamingPolicyEnvelopeEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyEnvelopeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyEnvelopeEncryptionOutput) ElementType() reflect.Type {
@@ -9729,12 +8468,6 @@ func (o StreamingPolicyEnvelopeEncryptionOutput) ToStreamingPolicyEnvelopeEncryp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyEnvelopeEncryption) *StreamingPolicyEnvelopeEncryption {
 		return &v
 	}).(StreamingPolicyEnvelopeEncryptionPtrOutput)
-}
-
-func (o StreamingPolicyEnvelopeEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyEnvelopeEncryption] {
-	return pulumix.Output[StreamingPolicyEnvelopeEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
@@ -9768,12 +8501,6 @@ func (o StreamingPolicyEnvelopeEncryptionPtrOutput) ToStreamingPolicyEnvelopeEnc
 
 func (o StreamingPolicyEnvelopeEncryptionPtrOutput) ToStreamingPolicyEnvelopeEncryptionPtrOutputWithContext(ctx context.Context) StreamingPolicyEnvelopeEncryptionPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyEnvelopeEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyEnvelopeEncryption] {
-	return pulumix.Output[*StreamingPolicyEnvelopeEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyEnvelopeEncryptionPtrOutput) Elem() StreamingPolicyEnvelopeEncryptionOutput {
@@ -9853,12 +8580,6 @@ func (i StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs) ToStreamingPolic
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput)
 }
 
-func (i StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyEnvelopeEncryptionDefaultContentKey] {
-	return pulumix.Output[StreamingPolicyEnvelopeEncryptionDefaultContentKey]{
-		OutputState: i.ToStreamingPolicyEnvelopeEncryptionDefaultContentKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs) ToStreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput() StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput {
 	return i.ToStreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutputWithContext(context.Background())
 }
@@ -9900,12 +8621,6 @@ func (i *streamingPolicyEnvelopeEncryptionDefaultContentKeyPtrType) ToStreamingP
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput)
 }
 
-func (i *streamingPolicyEnvelopeEncryptionDefaultContentKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyEnvelopeEncryptionDefaultContentKey] {
-	return pulumix.Output[*StreamingPolicyEnvelopeEncryptionDefaultContentKey]{
-		OutputState: i.ToStreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput) ElementType() reflect.Type {
@@ -9930,12 +8645,6 @@ func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput) ToStreamingPol
 	}).(StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput)
 }
 
-func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyEnvelopeEncryptionDefaultContentKey] {
-	return pulumix.Output[StreamingPolicyEnvelopeEncryptionDefaultContentKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
 func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingPolicyEnvelopeEncryptionDefaultContentKey) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -9958,12 +8667,6 @@ func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput) ToStreaming
 
 func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput) ToStreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutputWithContext(ctx context.Context) StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyEnvelopeEncryptionDefaultContentKey] {
-	return pulumix.Output[*StreamingPolicyEnvelopeEncryptionDefaultContentKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyEnvelopeEncryptionDefaultContentKeyPtrOutput) Elem() StreamingPolicyEnvelopeEncryptionDefaultContentKeyOutput {
@@ -10041,12 +8744,6 @@ func (i StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs) ToStreamingPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyEnvelopeEncryptionEnabledProtocolsOutput)
 }
 
-func (i StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyEnvelopeEncryptionEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyEnvelopeEncryptionEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyEnvelopeEncryptionEnabledProtocolsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs) ToStreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput() StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput {
 	return i.ToStreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutputWithContext(context.Background())
 }
@@ -10088,12 +8785,6 @@ func (i *streamingPolicyEnvelopeEncryptionEnabledProtocolsPtrType) ToStreamingPo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput)
 }
 
-func (i *streamingPolicyEnvelopeEncryptionEnabledProtocolsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyEnvelopeEncryptionEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyEnvelopeEncryptionEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyEnvelopeEncryptionEnabledProtocolsOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyEnvelopeEncryptionEnabledProtocolsOutput) ElementType() reflect.Type {
@@ -10116,12 +8807,6 @@ func (o StreamingPolicyEnvelopeEncryptionEnabledProtocolsOutput) ToStreamingPoli
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyEnvelopeEncryptionEnabledProtocols) *StreamingPolicyEnvelopeEncryptionEnabledProtocols {
 		return &v
 	}).(StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput)
-}
-
-func (o StreamingPolicyEnvelopeEncryptionEnabledProtocolsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyEnvelopeEncryptionEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyEnvelopeEncryptionEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
@@ -10156,12 +8841,6 @@ func (o StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput) ToStreamingP
 
 func (o StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput) ToStreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyEnvelopeEncryptionEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyEnvelopeEncryptionEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyEnvelopeEncryptionEnabledProtocolsPtrOutput) Elem() StreamingPolicyEnvelopeEncryptionEnabledProtocolsOutput {
@@ -10259,12 +8938,6 @@ func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncr
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyNoEncryptionEnabledProtocolsOutput)
 }
 
-func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyNoEncryptionEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyNoEncryptionEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyNoEncryptionEnabledProtocolsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutput() StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
 	return i.ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(context.Background())
 }
@@ -10306,12 +8979,6 @@ func (i *streamingPolicyNoEncryptionEnabledProtocolsPtrType) ToStreamingPolicyNo
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput)
 }
 
-func (i *streamingPolicyNoEncryptionEnabledProtocolsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyNoEncryptionEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyNoEncryptionEnabledProtocols]{
-		OutputState: i.ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyNoEncryptionEnabledProtocolsOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyNoEncryptionEnabledProtocolsOutput) ElementType() reflect.Type {
@@ -10334,12 +9001,6 @@ func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToStreamingPolicyNoEn
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingPolicyNoEncryptionEnabledProtocols) *StreamingPolicyNoEncryptionEnabledProtocols {
 		return &v
 	}).(StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput)
-}
-
-func (o StreamingPolicyNoEncryptionEnabledProtocolsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingPolicyNoEncryptionEnabledProtocols] {
-	return pulumix.Output[StreamingPolicyNoEncryptionEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
@@ -10374,12 +9035,6 @@ func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ToStreamingPolicyN
 
 func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ToStreamingPolicyNoEncryptionEnabledProtocolsPtrOutputWithContext(ctx context.Context) StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput {
 	return o
-}
-
-func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicyNoEncryptionEnabledProtocols] {
-	return pulumix.Output[*StreamingPolicyNoEncryptionEnabledProtocols]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput) Elem() StreamingPolicyNoEncryptionEnabledProtocolsOutput {
@@ -10493,12 +9148,6 @@ func (i TransformOutputTypeArgs) ToTransformOutputTypeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputTypeOutput)
 }
 
-func (i TransformOutputTypeArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputType] {
-	return pulumix.Output[TransformOutputType]{
-		OutputState: i.ToTransformOutputTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformOutputTypeArrayInput is an input type that accepts TransformOutputTypeArray and TransformOutputTypeArrayOutput values.
 // You can construct a concrete instance of `TransformOutputTypeArrayInput` via:
 //
@@ -10524,12 +9173,6 @@ func (i TransformOutputTypeArray) ToTransformOutputTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputTypeArrayOutput)
 }
 
-func (i TransformOutputTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputType] {
-	return pulumix.Output[[]TransformOutputType]{
-		OutputState: i.ToTransformOutputTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputTypeOutput) ElementType() reflect.Type {
@@ -10542,12 +9185,6 @@ func (o TransformOutputTypeOutput) ToTransformOutputTypeOutput() TransformOutput
 
 func (o TransformOutputTypeOutput) ToTransformOutputTypeOutputWithContext(ctx context.Context) TransformOutputTypeOutput {
 	return o
-}
-
-func (o TransformOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputType] {
-	return pulumix.Output[TransformOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `audioAnalyzerPreset` block as defined above.
@@ -10601,12 +9238,6 @@ func (o TransformOutputTypeArrayOutput) ToTransformOutputTypeArrayOutputWithCont
 	return o
 }
 
-func (o TransformOutputTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputType] {
-	return pulumix.Output[[]TransformOutputType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputTypeArrayOutput) Index(i pulumi.IntInput) TransformOutputTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputType {
 		return vs[0].([]TransformOutputType)[vs[1].(int)]
@@ -10654,12 +9285,6 @@ func (i TransformOutputAudioAnalyzerPresetArgs) ToTransformOutputAudioAnalyzerPr
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputAudioAnalyzerPresetOutput)
 }
 
-func (i TransformOutputAudioAnalyzerPresetArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputAudioAnalyzerPreset] {
-	return pulumix.Output[TransformOutputAudioAnalyzerPreset]{
-		OutputState: i.ToTransformOutputAudioAnalyzerPresetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputAudioAnalyzerPresetArgs) ToTransformOutputAudioAnalyzerPresetPtrOutput() TransformOutputAudioAnalyzerPresetPtrOutput {
 	return i.ToTransformOutputAudioAnalyzerPresetPtrOutputWithContext(context.Background())
 }
@@ -10701,12 +9326,6 @@ func (i *transformOutputAudioAnalyzerPresetPtrType) ToTransformOutputAudioAnalyz
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputAudioAnalyzerPresetPtrOutput)
 }
 
-func (i *transformOutputAudioAnalyzerPresetPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputAudioAnalyzerPreset] {
-	return pulumix.Output[*TransformOutputAudioAnalyzerPreset]{
-		OutputState: i.ToTransformOutputAudioAnalyzerPresetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputAudioAnalyzerPresetOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputAudioAnalyzerPresetOutput) ElementType() reflect.Type {
@@ -10729,12 +9348,6 @@ func (o TransformOutputAudioAnalyzerPresetOutput) ToTransformOutputAudioAnalyzer
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputAudioAnalyzerPreset) *TransformOutputAudioAnalyzerPreset {
 		return &v
 	}).(TransformOutputAudioAnalyzerPresetPtrOutput)
-}
-
-func (o TransformOutputAudioAnalyzerPresetOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputAudioAnalyzerPreset] {
-	return pulumix.Output[TransformOutputAudioAnalyzerPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
@@ -10764,12 +9377,6 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) ToTransformOutputAudioAnaly
 
 func (o TransformOutputAudioAnalyzerPresetPtrOutput) ToTransformOutputAudioAnalyzerPresetPtrOutputWithContext(ctx context.Context) TransformOutputAudioAnalyzerPresetPtrOutput {
 	return o
-}
-
-func (o TransformOutputAudioAnalyzerPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputAudioAnalyzerPreset] {
-	return pulumix.Output[*TransformOutputAudioAnalyzerPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputAudioAnalyzerPresetPtrOutput) Elem() TransformOutputAudioAnalyzerPresetOutput {
@@ -10849,12 +9456,6 @@ func (i TransformOutputBuiltinPresetArgs) ToTransformOutputBuiltinPresetOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetOutput)
 }
 
-func (i TransformOutputBuiltinPresetArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputBuiltinPreset] {
-	return pulumix.Output[TransformOutputBuiltinPreset]{
-		OutputState: i.ToTransformOutputBuiltinPresetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputBuiltinPresetArgs) ToTransformOutputBuiltinPresetPtrOutput() TransformOutputBuiltinPresetPtrOutput {
 	return i.ToTransformOutputBuiltinPresetPtrOutputWithContext(context.Background())
 }
@@ -10896,12 +9497,6 @@ func (i *transformOutputBuiltinPresetPtrType) ToTransformOutputBuiltinPresetPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetPtrOutput)
 }
 
-func (i *transformOutputBuiltinPresetPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputBuiltinPreset] {
-	return pulumix.Output[*TransformOutputBuiltinPreset]{
-		OutputState: i.ToTransformOutputBuiltinPresetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputBuiltinPresetOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputBuiltinPresetOutput) ElementType() reflect.Type {
@@ -10924,12 +9519,6 @@ func (o TransformOutputBuiltinPresetOutput) ToTransformOutputBuiltinPresetPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputBuiltinPreset) *TransformOutputBuiltinPreset {
 		return &v
 	}).(TransformOutputBuiltinPresetPtrOutput)
-}
-
-func (o TransformOutputBuiltinPresetOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputBuiltinPreset] {
-	return pulumix.Output[TransformOutputBuiltinPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `presentConfiguration` block as defined below.
@@ -10956,12 +9545,6 @@ func (o TransformOutputBuiltinPresetPtrOutput) ToTransformOutputBuiltinPresetPtr
 
 func (o TransformOutputBuiltinPresetPtrOutput) ToTransformOutputBuiltinPresetPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPtrOutput {
 	return o
-}
-
-func (o TransformOutputBuiltinPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputBuiltinPreset] {
-	return pulumix.Output[*TransformOutputBuiltinPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputBuiltinPresetPtrOutput) Elem() TransformOutputBuiltinPresetOutput {
@@ -11055,12 +9638,6 @@ func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToTransformOutputBu
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetPresetConfigurationOutput)
 }
 
-func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputBuiltinPresetPresetConfiguration] {
-	return pulumix.Output[TransformOutputBuiltinPresetPresetConfiguration]{
-		OutputState: i.ToTransformOutputBuiltinPresetPresetConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputBuiltinPresetPresetConfigurationArgs) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutput() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
 	return i.ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(context.Background())
 }
@@ -11102,12 +9679,6 @@ func (i *transformOutputBuiltinPresetPresetConfigurationPtrType) ToTransformOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputBuiltinPresetPresetConfigurationPtrOutput)
 }
 
-func (i *transformOutputBuiltinPresetPresetConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputBuiltinPresetPresetConfiguration] {
-	return pulumix.Output[*TransformOutputBuiltinPresetPresetConfiguration]{
-		OutputState: i.ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputBuiltinPresetPresetConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputBuiltinPresetPresetConfigurationOutput) ElementType() reflect.Type {
@@ -11130,12 +9701,6 @@ func (o TransformOutputBuiltinPresetPresetConfigurationOutput) ToTransformOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputBuiltinPresetPresetConfiguration) *TransformOutputBuiltinPresetPresetConfiguration {
 		return &v
 	}).(TransformOutputBuiltinPresetPresetConfigurationPtrOutput)
-}
-
-func (o TransformOutputBuiltinPresetPresetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputBuiltinPresetPresetConfiguration] {
-	return pulumix.Output[TransformOutputBuiltinPresetPresetConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
@@ -11190,12 +9755,6 @@ func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) ToTransformOut
 
 func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) ToTransformOutputBuiltinPresetPresetConfigurationPtrOutputWithContext(ctx context.Context) TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
 	return o
-}
-
-func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputBuiltinPresetPresetConfiguration] {
-	return pulumix.Output[*TransformOutputBuiltinPresetPresetConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputBuiltinPresetPresetConfigurationPtrOutput) Elem() TransformOutputBuiltinPresetPresetConfigurationOutput {
@@ -11333,12 +9892,6 @@ func (i TransformOutputCustomPresetArgs) ToTransformOutputCustomPresetOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetOutput)
 }
 
-func (i TransformOutputCustomPresetArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPreset] {
-	return pulumix.Output[TransformOutputCustomPreset]{
-		OutputState: i.ToTransformOutputCustomPresetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetArgs) ToTransformOutputCustomPresetPtrOutput() TransformOutputCustomPresetPtrOutput {
 	return i.ToTransformOutputCustomPresetPtrOutputWithContext(context.Background())
 }
@@ -11380,12 +9933,6 @@ func (i *transformOutputCustomPresetPtrType) ToTransformOutputCustomPresetPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetPtrOutput)
 }
 
-func (i *transformOutputCustomPresetPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPreset] {
-	return pulumix.Output[*TransformOutputCustomPreset]{
-		OutputState: i.ToTransformOutputCustomPresetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetOutput) ElementType() reflect.Type {
@@ -11408,12 +9955,6 @@ func (o TransformOutputCustomPresetOutput) ToTransformOutputCustomPresetPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPreset) *TransformOutputCustomPreset {
 		return &v
 	}).(TransformOutputCustomPresetPtrOutput)
-}
-
-func (o TransformOutputCustomPresetOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPreset] {
-	return pulumix.Output[TransformOutputCustomPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `codec` blocks as defined above.
@@ -11448,12 +9989,6 @@ func (o TransformOutputCustomPresetPtrOutput) ToTransformOutputCustomPresetPtrOu
 
 func (o TransformOutputCustomPresetPtrOutput) ToTransformOutputCustomPresetPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPreset] {
-	return pulumix.Output[*TransformOutputCustomPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetPtrOutput) Elem() TransformOutputCustomPresetOutput {
@@ -11571,12 +10106,6 @@ func (i TransformOutputCustomPresetCodecArgs) ToTransformOutputCustomPresetCodec
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecOutput)
 }
 
-func (i TransformOutputCustomPresetCodecArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodec] {
-	return pulumix.Output[TransformOutputCustomPresetCodec]{
-		OutputState: i.ToTransformOutputCustomPresetCodecOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformOutputCustomPresetCodecArrayInput is an input type that accepts TransformOutputCustomPresetCodecArray and TransformOutputCustomPresetCodecArrayOutput values.
 // You can construct a concrete instance of `TransformOutputCustomPresetCodecArrayInput` via:
 //
@@ -11602,12 +10131,6 @@ func (i TransformOutputCustomPresetCodecArray) ToTransformOutputCustomPresetCode
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecArrayOutput)
 }
 
-func (i TransformOutputCustomPresetCodecArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodec] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodec]{
-		OutputState: i.ToTransformOutputCustomPresetCodecArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecOutput) ElementType() reflect.Type {
@@ -11620,12 +10143,6 @@ func (o TransformOutputCustomPresetCodecOutput) ToTransformOutputCustomPresetCod
 
 func (o TransformOutputCustomPresetCodecOutput) ToTransformOutputCustomPresetCodecOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetCodecOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodec] {
-	return pulumix.Output[TransformOutputCustomPresetCodec]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `aacAudio` block as defined above.
@@ -11692,12 +10209,6 @@ func (o TransformOutputCustomPresetCodecArrayOutput) ToTransformOutputCustomPres
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodec] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodec {
 		return vs[0].([]TransformOutputCustomPresetCodec)[vs[1].(int)]
@@ -11753,12 +10264,6 @@ func (i TransformOutputCustomPresetCodecAacAudioArgs) ToTransformOutputCustomPre
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecAacAudioOutput)
 }
 
-func (i TransformOutputCustomPresetCodecAacAudioArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecAacAudio] {
-	return pulumix.Output[TransformOutputCustomPresetCodecAacAudio]{
-		OutputState: i.ToTransformOutputCustomPresetCodecAacAudioOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetCodecAacAudioArgs) ToTransformOutputCustomPresetCodecAacAudioPtrOutput() TransformOutputCustomPresetCodecAacAudioPtrOutput {
 	return i.ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(context.Background())
 }
@@ -11800,12 +10305,6 @@ func (i *transformOutputCustomPresetCodecAacAudioPtrType) ToTransformOutputCusto
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecAacAudioPtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecAacAudioPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecAacAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecAacAudio]{
-		OutputState: i.ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecAacAudioOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecAacAudioOutput) ElementType() reflect.Type {
@@ -11828,12 +10327,6 @@ func (o TransformOutputCustomPresetCodecAacAudioOutput) ToTransformOutputCustomP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecAacAudio) *TransformOutputCustomPresetCodecAacAudio {
 		return &v
 	}).(TransformOutputCustomPresetCodecAacAudioPtrOutput)
-}
-
-func (o TransformOutputCustomPresetCodecAacAudioOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecAacAudio] {
-	return pulumix.Output[TransformOutputCustomPresetCodecAacAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The bitrate of the audio in bits per second. Default to `128000`.
@@ -11873,12 +10366,6 @@ func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) ToTransformOutputCust
 
 func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) ToTransformOutputCustomPresetCodecAacAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecAacAudioPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecAacAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecAacAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetCodecAacAudioPtrOutput) Elem() TransformOutputCustomPresetCodecAacAudioOutput {
@@ -11974,12 +10461,6 @@ func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToTransformOutputCustomPr
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyAudioOutput)
 }
 
-func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecCopyAudio] {
-	return pulumix.Output[TransformOutputCustomPresetCodecCopyAudio]{
-		OutputState: i.ToTransformOutputCustomPresetCodecCopyAudioOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetCodecCopyAudioArgs) ToTransformOutputCustomPresetCodecCopyAudioPtrOutput() TransformOutputCustomPresetCodecCopyAudioPtrOutput {
 	return i.ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(context.Background())
 }
@@ -12021,12 +10502,6 @@ func (i *transformOutputCustomPresetCodecCopyAudioPtrType) ToTransformOutputCust
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyAudioPtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecCopyAudioPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecCopyAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecCopyAudio]{
-		OutputState: i.ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecCopyAudioOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecCopyAudioOutput) ElementType() reflect.Type {
@@ -12051,12 +10526,6 @@ func (o TransformOutputCustomPresetCodecCopyAudioOutput) ToTransformOutputCustom
 	}).(TransformOutputCustomPresetCodecCopyAudioPtrOutput)
 }
 
-func (o TransformOutputCustomPresetCodecCopyAudioOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecCopyAudio] {
-	return pulumix.Output[TransformOutputCustomPresetCodecCopyAudio]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecCopyAudioOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecCopyAudio) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -12074,12 +10543,6 @@ func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) ToTransformOutputCus
 
 func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) ToTransformOutputCustomPresetCodecCopyAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyAudioPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecCopyAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecCopyAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetCodecCopyAudioPtrOutput) Elem() TransformOutputCustomPresetCodecCopyAudioOutput {
@@ -12135,12 +10598,6 @@ func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToTransformOutputCustomPr
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyVideoOutput)
 }
 
-func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecCopyVideo] {
-	return pulumix.Output[TransformOutputCustomPresetCodecCopyVideo]{
-		OutputState: i.ToTransformOutputCustomPresetCodecCopyVideoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetCodecCopyVideoArgs) ToTransformOutputCustomPresetCodecCopyVideoPtrOutput() TransformOutputCustomPresetCodecCopyVideoPtrOutput {
 	return i.ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(context.Background())
 }
@@ -12182,12 +10639,6 @@ func (i *transformOutputCustomPresetCodecCopyVideoPtrType) ToTransformOutputCust
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecCopyVideoPtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecCopyVideoPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecCopyVideo] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecCopyVideo]{
-		OutputState: i.ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecCopyVideoOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecCopyVideoOutput) ElementType() reflect.Type {
@@ -12212,12 +10663,6 @@ func (o TransformOutputCustomPresetCodecCopyVideoOutput) ToTransformOutputCustom
 	}).(TransformOutputCustomPresetCodecCopyVideoPtrOutput)
 }
 
-func (o TransformOutputCustomPresetCodecCopyVideoOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecCopyVideo] {
-	return pulumix.Output[TransformOutputCustomPresetCodecCopyVideo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecCopyVideoOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecCopyVideo) *string { return v.Label }).(pulumi.StringPtrOutput)
@@ -12235,12 +10680,6 @@ func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) ToTransformOutputCus
 
 func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) ToTransformOutputCustomPresetCodecCopyVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecCopyVideoPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecCopyVideo] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecCopyVideo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetCodecCopyVideoPtrOutput) Elem() TransformOutputCustomPresetCodecCopyVideoOutput {
@@ -12308,12 +10747,6 @@ func (i TransformOutputCustomPresetCodecDdAudioArgs) ToTransformOutputCustomPres
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecDdAudioOutput)
 }
 
-func (i TransformOutputCustomPresetCodecDdAudioArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecDdAudio] {
-	return pulumix.Output[TransformOutputCustomPresetCodecDdAudio]{
-		OutputState: i.ToTransformOutputCustomPresetCodecDdAudioOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetCodecDdAudioArgs) ToTransformOutputCustomPresetCodecDdAudioPtrOutput() TransformOutputCustomPresetCodecDdAudioPtrOutput {
 	return i.ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(context.Background())
 }
@@ -12355,12 +10788,6 @@ func (i *transformOutputCustomPresetCodecDdAudioPtrType) ToTransformOutputCustom
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecDdAudioPtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecDdAudioPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecDdAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecDdAudio]{
-		OutputState: i.ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecDdAudioOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecDdAudioOutput) ElementType() reflect.Type {
@@ -12383,12 +10810,6 @@ func (o TransformOutputCustomPresetCodecDdAudioOutput) ToTransformOutputCustomPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetCodecDdAudio) *TransformOutputCustomPresetCodecDdAudio {
 		return &v
 	}).(TransformOutputCustomPresetCodecDdAudioPtrOutput)
-}
-
-func (o TransformOutputCustomPresetCodecDdAudioOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecDdAudio] {
-	return pulumix.Output[TransformOutputCustomPresetCodecDdAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The bitrate of the audio in bits per second. Default to `192000`.
@@ -12423,12 +10844,6 @@ func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) ToTransformOutputCusto
 
 func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) ToTransformOutputCustomPresetCodecDdAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecDdAudioPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecDdAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecDdAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) Elem() TransformOutputCustomPresetCodecDdAudioOutput {
@@ -12482,21 +10897,23 @@ func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) SamplingRate() pulumi.
 }
 
 type TransformOutputCustomPresetCodecH264Video struct {
-	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity *string `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
-	// One or more `layer` blocks as defined below.
+	// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecH264VideoLayer `pulumi:"layers"`
 	// The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
 	RateControlMode *string `pulumi:"rateControlMode"`
-	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 	SceneChangeDetectionEnabled *bool `pulumi:"sceneChangeDetectionEnabled"`
-	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode *string `pulumi:"stretchMode"`
 	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	//
+	// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 	SyncMode *string `pulumi:"syncMode"`
 }
 
@@ -12512,21 +10929,23 @@ type TransformOutputCustomPresetCodecH264VideoInput interface {
 }
 
 type TransformOutputCustomPresetCodecH264VideoArgs struct {
-	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// One or more `layer` blocks as defined below.
+	// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecH264VideoLayerArrayInput `pulumi:"layers"`
 	// The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
 	RateControlMode pulumi.StringPtrInput `pulumi:"rateControlMode"`
-	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 	SceneChangeDetectionEnabled pulumi.BoolPtrInput `pulumi:"sceneChangeDetectionEnabled"`
-	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
 	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	//
+	// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 	SyncMode pulumi.StringPtrInput `pulumi:"syncMode"`
 }
 
@@ -12540,12 +10959,6 @@ func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPr
 
 func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPresetCodecH264VideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoOutput)
-}
-
-func (i TransformOutputCustomPresetCodecH264VideoArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH264Video] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH264Video]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH264VideoOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TransformOutputCustomPresetCodecH264VideoArgs) ToTransformOutputCustomPresetCodecH264VideoPtrOutput() TransformOutputCustomPresetCodecH264VideoPtrOutput {
@@ -12589,12 +11002,6 @@ func (i *transformOutputCustomPresetCodecH264VideoPtrType) ToTransformOutputCust
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoPtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecH264VideoPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecH264Video] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecH264Video]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH264VideoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecH264VideoOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecH264VideoOutput) ElementType() reflect.Type {
@@ -12619,18 +11026,12 @@ func (o TransformOutputCustomPresetCodecH264VideoOutput) ToTransformOutputCustom
 	}).(TransformOutputCustomPresetCodecH264VideoPtrOutput)
 }
 
-func (o TransformOutputCustomPresetCodecH264VideoOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH264Video] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH264Video]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) Complexity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
@@ -12640,7 +11041,7 @@ func (o TransformOutputCustomPresetCodecH264VideoOutput) Label() pulumi.StringPt
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// One or more `layer` blocks as defined below.
+// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) Layers() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) []TransformOutputCustomPresetCodecH264VideoLayer {
 		return v.Layers
@@ -12652,17 +11053,19 @@ func (o TransformOutputCustomPresetCodecH264VideoOutput) RateControlMode() pulum
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.RateControlMode }).(pulumi.StringPtrOutput)
 }
 
-// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *bool { return v.SceneChangeDetectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+//
+// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) SyncMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.SyncMode }).(pulumi.StringPtrOutput)
 }
@@ -12681,12 +11084,6 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) ToTransformOutputCus
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecH264Video] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecH264Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Elem() TransformOutputCustomPresetCodecH264VideoOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) TransformOutputCustomPresetCodecH264Video {
 		if v != nil {
@@ -12697,7 +11094,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Elem() TransformOutp
 	}).(TransformOutputCustomPresetCodecH264VideoOutput)
 }
 
-// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Complexity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
 		if v == nil {
@@ -12707,7 +11104,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Complexity() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
 		if v == nil {
@@ -12727,7 +11124,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Label() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more `layer` blocks as defined below.
+// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Layers() TransformOutputCustomPresetCodecH264VideoLayerArrayOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) []TransformOutputCustomPresetCodecH264VideoLayer {
 		if v == nil {
@@ -12747,7 +11144,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) RateControlMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *bool {
 		if v == nil {
@@ -12757,7 +11154,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) SceneChangeDetection
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
 		if v == nil {
@@ -12768,6 +11165,8 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) StretchMode() pulumi
 }
 
 // Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+//
+// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) SyncMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
 		if v == nil {
@@ -12778,35 +11177,36 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) SyncMode() pulumi.St
 }
 
 type TransformOutputCustomPresetCodecH264VideoLayer struct {
-	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
 	AdaptiveBFrameEnabled *bool `pulumi:"adaptiveBFrameEnabled"`
-	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
 	BFrames *int `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	// The bitrate of the audio in bits per second. Default to `128000`.
 	Bitrate int `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
 	BufferWindow *string `pulumi:"bufferWindow"`
-	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf *float64 `pulumi:"crf"`
-	// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.`entropyMode` - (Optional) The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 	EntropyMode *string `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional)
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate *string `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
-	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
 	Level *string `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
 	Profile *string `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames *int `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices *int `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -12822,35 +11222,36 @@ type TransformOutputCustomPresetCodecH264VideoLayerInput interface {
 }
 
 type TransformOutputCustomPresetCodecH264VideoLayerArgs struct {
-	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
 	AdaptiveBFrameEnabled pulumi.BoolPtrInput `pulumi:"adaptiveBFrameEnabled"`
-	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
 	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	// The bitrate of the audio in bits per second. Default to `128000`.
 	Bitrate pulumi.IntInput `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
 	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
-	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf pulumi.Float64PtrInput `pulumi:"crf"`
-	// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+	// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.`entropyMode` - (Optional) The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 	EntropyMode pulumi.StringPtrInput `pulumi:"entropyMode"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional)
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
 	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices pulumi.IntPtrInput `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -12864,12 +11265,6 @@ func (i TransformOutputCustomPresetCodecH264VideoLayerArgs) ToTransformOutputCus
 
 func (i TransformOutputCustomPresetCodecH264VideoLayerArgs) ToTransformOutputCustomPresetCodecH264VideoLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH264VideoLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoLayerOutput)
-}
-
-func (i TransformOutputCustomPresetCodecH264VideoLayerArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH264VideoLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH264VideoLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH264VideoLayerOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TransformOutputCustomPresetCodecH264VideoLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecH264VideoLayerArray and TransformOutputCustomPresetCodecH264VideoLayerArrayOutput values.
@@ -12897,12 +11292,6 @@ func (i TransformOutputCustomPresetCodecH264VideoLayerArray) ToTransformOutputCu
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH264VideoLayerArrayOutput)
 }
 
-func (i TransformOutputCustomPresetCodecH264VideoLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecH264VideoLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecH264VideoLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH264VideoLayerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecH264VideoLayerOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecH264VideoLayerOutput) ElementType() reflect.Type {
@@ -12917,83 +11306,78 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) ToTransformOutputC
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH264VideoLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH264VideoLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
-// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) AdaptiveBFrameEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *bool { return v.AdaptiveBFrameEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) BFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.BFrames }).(pulumi.IntPtrOutput)
 }
 
-// The average bitrate in bits per second at which to encode the input video when generating this layer.
+// The bitrate of the audio in bits per second. Default to `128000`.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Bitrate() pulumi.IntOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) int { return v.Bitrate }).(pulumi.IntOutput)
 }
 
-// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) BufferWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
 }
 
-// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Crf() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *float64 { return v.Crf }).(pulumi.Float64PtrOutput)
 }
 
-// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+// The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.`entropyMode` - (Optional) The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) EntropyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.EntropyMode }).(pulumi.StringPtrOutput)
 }
 
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional)
 // The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) FrameRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+// Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) MaxBitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) ReferenceFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
 }
 
-// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Slices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.Slices }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -13012,12 +11396,6 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) ToTransformOu
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecH264VideoLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecH264VideoLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecH264VideoLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecH264VideoLayer {
 		return vs[0].([]TransformOutputCustomPresetCodecH264VideoLayer)[vs[1].(int)]
@@ -13025,19 +11403,21 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) Index(i pulum
 }
 
 type TransformOutputCustomPresetCodecH265Video struct {
-	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity *string `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
-	// One or more `layer` blocks as defined below.
+	// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecH265VideoLayer `pulumi:"layers"`
-	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 	SceneChangeDetectionEnabled *bool `pulumi:"sceneChangeDetectionEnabled"`
-	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode *string `pulumi:"stretchMode"`
 	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	//
+	// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 	SyncMode *string `pulumi:"syncMode"`
 }
 
@@ -13053,19 +11433,21 @@ type TransformOutputCustomPresetCodecH265VideoInput interface {
 }
 
 type TransformOutputCustomPresetCodecH265VideoArgs struct {
-	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// One or more `layer` blocks as defined below.
+	// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecH265VideoLayerArrayInput `pulumi:"layers"`
-	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+	// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 	SceneChangeDetectionEnabled pulumi.BoolPtrInput `pulumi:"sceneChangeDetectionEnabled"`
-	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+	// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
 	// Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+	//
+	// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 	SyncMode pulumi.StringPtrInput `pulumi:"syncMode"`
 }
 
@@ -13079,12 +11461,6 @@ func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPr
 
 func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPresetCodecH265VideoOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoOutput)
-}
-
-func (i TransformOutputCustomPresetCodecH265VideoArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH265Video] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH265Video]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH265VideoOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TransformOutputCustomPresetCodecH265VideoArgs) ToTransformOutputCustomPresetCodecH265VideoPtrOutput() TransformOutputCustomPresetCodecH265VideoPtrOutput {
@@ -13128,12 +11504,6 @@ func (i *transformOutputCustomPresetCodecH265VideoPtrType) ToTransformOutputCust
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoPtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecH265VideoPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecH265Video] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecH265Video]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH265VideoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecH265VideoOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecH265VideoOutput) ElementType() reflect.Type {
@@ -13158,18 +11528,12 @@ func (o TransformOutputCustomPresetCodecH265VideoOutput) ToTransformOutputCustom
 	}).(TransformOutputCustomPresetCodecH265VideoPtrOutput)
 }
 
-func (o TransformOutputCustomPresetCodecH265VideoOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH265Video] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH265Video]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) Complexity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
@@ -13179,24 +11543,26 @@ func (o TransformOutputCustomPresetCodecH265VideoOutput) Label() pulumi.StringPt
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// One or more `layer` blocks as defined below.
+// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) Layers() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) []TransformOutputCustomPresetCodecH265VideoLayer {
 		return v.Layers
 	}).(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput)
 }
 
-// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *bool { return v.SceneChangeDetectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+//
+// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) SyncMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.SyncMode }).(pulumi.StringPtrOutput)
 }
@@ -13215,12 +11581,6 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) ToTransformOutputCus
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecH265Video] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecH265Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Elem() TransformOutputCustomPresetCodecH265VideoOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) TransformOutputCustomPresetCodecH265Video {
 		if v != nil {
@@ -13231,7 +11591,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Elem() TransformOutp
 	}).(TransformOutputCustomPresetCodecH265VideoOutput)
 }
 
-// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.`complexity` - (Optional) The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Complexity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
 		if v == nil {
@@ -13241,7 +11601,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Complexity() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.`keyFrameInterval` - (Optional) The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
 		if v == nil {
@@ -13261,7 +11621,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Label() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more `layer` blocks as defined below.
+// One or more `layer` blocks as defined below.`layer` - (Optional) One or more `layer` blocks as defined below.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Layers() TransformOutputCustomPresetCodecH265VideoLayerArrayOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) []TransformOutputCustomPresetCodecH265VideoLayer {
 		if v == nil {
@@ -13271,7 +11631,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Layers() TransformOu
 	}).(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput)
 }
 
-// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+// Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.`sceneChangeDetectionEnabled` - (Optional) Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) SceneChangeDetectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *bool {
 		if v == nil {
@@ -13281,7 +11641,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) SceneChangeDetection
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+// Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.`stretchMode` - (Optional) Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
 		if v == nil {
@@ -13292,6 +11652,8 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) StretchMode() pulumi
 }
 
 // Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+//
+// `syncMode` - (Optional) Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) SyncMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
 		if v == nil {
@@ -13302,33 +11664,34 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) SyncMode() pulumi.St
 }
 
 type TransformOutputCustomPresetCodecH265VideoLayer struct {
-	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
 	AdaptiveBFrameEnabled *bool `pulumi:"adaptiveBFrameEnabled"`
-	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
 	BFrames *int `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	// The bitrate of the audio in bits per second. Default to `128000`.
 	Bitrate int `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
 	BufferWindow *string `pulumi:"bufferWindow"`
-	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf *float64 `pulumi:"crf"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional)
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate *string `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
-	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
 	Level *string `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
 	Profile *string `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames *int `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices *int `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -13344,33 +11707,34 @@ type TransformOutputCustomPresetCodecH265VideoLayerInput interface {
 }
 
 type TransformOutputCustomPresetCodecH265VideoLayerArgs struct {
-	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+	// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
 	AdaptiveBFrameEnabled pulumi.BoolPtrInput `pulumi:"adaptiveBFrameEnabled"`
-	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+	// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
 	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
-	// The average bitrate in bits per second at which to encode the input video when generating this layer.
+	// The bitrate of the audio in bits per second. Default to `128000`.
 	Bitrate pulumi.IntInput `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
 	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
-	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf pulumi.Float64PtrInput `pulumi:"crf"`
+	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional)
 	// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 	FrameRate pulumi.StringPtrInput `pulumi:"frameRate"`
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+	// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
 	Level pulumi.StringPtrInput `pulumi:"level"`
-	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
-	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+	// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 	Slices pulumi.IntPtrInput `pulumi:"slices"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -13384,12 +11748,6 @@ func (i TransformOutputCustomPresetCodecH265VideoLayerArgs) ToTransformOutputCus
 
 func (i TransformOutputCustomPresetCodecH265VideoLayerArgs) ToTransformOutputCustomPresetCodecH265VideoLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecH265VideoLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoLayerOutput)
-}
-
-func (i TransformOutputCustomPresetCodecH265VideoLayerArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH265VideoLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH265VideoLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH265VideoLayerOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TransformOutputCustomPresetCodecH265VideoLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecH265VideoLayerArray and TransformOutputCustomPresetCodecH265VideoLayerArrayOutput values.
@@ -13417,12 +11775,6 @@ func (i TransformOutputCustomPresetCodecH265VideoLayerArray) ToTransformOutputCu
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecH265VideoLayerArrayOutput)
 }
 
-func (i TransformOutputCustomPresetCodecH265VideoLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecH265VideoLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecH265VideoLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecH265VideoLayerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecH265VideoLayerOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecH265VideoLayerOutput) ElementType() reflect.Type {
@@ -13437,78 +11789,73 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) ToTransformOutputC
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecH265VideoLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecH265VideoLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
-// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+// Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.`adaptiveBFrameEnabled` - (Optional) Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) AdaptiveBFrameEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *bool { return v.AdaptiveBFrameEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+// The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.`bFrames` - (Optional) The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) BFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.BFrames }).(pulumi.IntPtrOutput)
 }
 
-// The average bitrate in bits per second at which to encode the input video when generating this layer.
+// The bitrate of the audio in bits per second. Default to `128000`.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Bitrate() pulumi.IntOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) int { return v.Bitrate }).(pulumi.IntOutput)
 }
 
-// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).`bufferWindow` - (Optional) Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) BufferWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
 }
 
-// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `23`.`crf` - (Optional) The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Crf() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *float64 { return v.Crf }).(pulumi.Float64PtrOutput)
 }
 
+// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.`frameRate` - (Optional)
 // The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) FrameRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.FrameRate }).(pulumi.StringPtrOutput)
 }
 
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+// Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+// The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.`level` - (Optional) The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
-// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.`maxBitrate` - (Optional) The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) MaxBitrate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+// The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.`referenceFrames` - (Optional) The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) ReferenceFrames() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.ReferenceFrames }).(pulumi.IntPtrOutput)
 }
 
-// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+// The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.`slices` - (Optional) The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Slices() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.Slices }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -13527,12 +11874,6 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) ToTransformOu
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecH265VideoLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecH265VideoLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecH265VideoLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecH265VideoLayer {
 		return vs[0].([]TransformOutputCustomPresetCodecH265VideoLayer)[vs[1].(int)]
@@ -13542,7 +11883,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) Index(i pulum
 type TransformOutputCustomPresetCodecJpgImage struct {
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecJpgImageLayer `pulumi:"layers"`
@@ -13574,7 +11915,7 @@ type TransformOutputCustomPresetCodecJpgImageInput interface {
 type TransformOutputCustomPresetCodecJpgImageArgs struct {
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecJpgImageLayerArrayInput `pulumi:"layers"`
@@ -13602,12 +11943,6 @@ func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPre
 
 func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPresetCodecJpgImageOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageOutput)
-}
-
-func (i TransformOutputCustomPresetCodecJpgImageArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecJpgImage] {
-	return pulumix.Output[TransformOutputCustomPresetCodecJpgImage]{
-		OutputState: i.ToTransformOutputCustomPresetCodecJpgImageOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TransformOutputCustomPresetCodecJpgImageArgs) ToTransformOutputCustomPresetCodecJpgImagePtrOutput() TransformOutputCustomPresetCodecJpgImagePtrOutput {
@@ -13651,12 +11986,6 @@ func (i *transformOutputCustomPresetCodecJpgImagePtrType) ToTransformOutputCusto
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImagePtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecJpgImagePtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecJpgImage] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecJpgImage]{
-		OutputState: i.ToTransformOutputCustomPresetCodecJpgImagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecJpgImageOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecJpgImageOutput) ElementType() reflect.Type {
@@ -13681,18 +12010,12 @@ func (o TransformOutputCustomPresetCodecJpgImageOutput) ToTransformOutputCustomP
 	}).(TransformOutputCustomPresetCodecJpgImagePtrOutput)
 }
 
-func (o TransformOutputCustomPresetCodecJpgImageOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecJpgImage] {
-	return pulumix.Output[TransformOutputCustomPresetCodecJpgImage]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -13748,12 +12071,6 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) ToTransformOutputCust
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecJpgImage] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecJpgImage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Elem() TransformOutputCustomPresetCodecJpgImageOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) TransformOutputCustomPresetCodecJpgImage {
 		if v != nil {
@@ -13774,7 +12091,7 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) KeyFrameInterval() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// Specifies the label for the codec. The label can be used to control muxing behavior.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
 		if v == nil {
@@ -13855,13 +12172,13 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) SyncMode() pulumi.Str
 }
 
 type TransformOutputCustomPresetCodecJpgImageLayer struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
 	Quality *int `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -13877,13 +12194,13 @@ type TransformOutputCustomPresetCodecJpgImageLayerInput interface {
 }
 
 type TransformOutputCustomPresetCodecJpgImageLayerArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
 	Quality pulumi.IntPtrInput `pulumi:"quality"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -13897,12 +12214,6 @@ func (i TransformOutputCustomPresetCodecJpgImageLayerArgs) ToTransformOutputCust
 
 func (i TransformOutputCustomPresetCodecJpgImageLayerArgs) ToTransformOutputCustomPresetCodecJpgImageLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecJpgImageLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageLayerOutput)
-}
-
-func (i TransformOutputCustomPresetCodecJpgImageLayerArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecJpgImageLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecJpgImageLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecJpgImageLayerOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TransformOutputCustomPresetCodecJpgImageLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecJpgImageLayerArray and TransformOutputCustomPresetCodecJpgImageLayerArrayOutput values.
@@ -13930,12 +12241,6 @@ func (i TransformOutputCustomPresetCodecJpgImageLayerArray) ToTransformOutputCus
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecJpgImageLayerArrayOutput)
 }
 
-func (i TransformOutputCustomPresetCodecJpgImageLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecJpgImageLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecJpgImageLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecJpgImageLayerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecJpgImageLayerOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecJpgImageLayerOutput) ElementType() reflect.Type {
@@ -13950,18 +12255,12 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) ToTransformOutputCu
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecJpgImageLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecJpgImageLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+// Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -13971,7 +12270,7 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Quality() pulumi.In
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *int { return v.Quality }).(pulumi.IntPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecJpgImageLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImageLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -13990,12 +12289,6 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) ToTransformOut
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecJpgImageLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecJpgImageLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecJpgImageLayerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetCodecJpgImageLayer {
 		return vs[0].([]TransformOutputCustomPresetCodecJpgImageLayer)[vs[1].(int)]
@@ -14005,7 +12298,7 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) Index(i pulumi
 type TransformOutputCustomPresetCodecPngImage struct {
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers []TransformOutputCustomPresetCodecPngImageLayer `pulumi:"layers"`
@@ -14035,7 +12328,7 @@ type TransformOutputCustomPresetCodecPngImageInput interface {
 type TransformOutputCustomPresetCodecPngImageArgs struct {
 	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// Specifies the label for the codec. The label can be used to control muxing behavior.
+	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
 	// One or more `layer` blocks as defined below.
 	Layers TransformOutputCustomPresetCodecPngImageLayerArrayInput `pulumi:"layers"`
@@ -14061,12 +12354,6 @@ func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPre
 
 func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPresetCodecPngImageOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageOutput)
-}
-
-func (i TransformOutputCustomPresetCodecPngImageArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecPngImage] {
-	return pulumix.Output[TransformOutputCustomPresetCodecPngImage]{
-		OutputState: i.ToTransformOutputCustomPresetCodecPngImageOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TransformOutputCustomPresetCodecPngImageArgs) ToTransformOutputCustomPresetCodecPngImagePtrOutput() TransformOutputCustomPresetCodecPngImagePtrOutput {
@@ -14110,12 +12397,6 @@ func (i *transformOutputCustomPresetCodecPngImagePtrType) ToTransformOutputCusto
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImagePtrOutput)
 }
 
-func (i *transformOutputCustomPresetCodecPngImagePtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecPngImage] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecPngImage]{
-		OutputState: i.ToTransformOutputCustomPresetCodecPngImagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecPngImageOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecPngImageOutput) ElementType() reflect.Type {
@@ -14140,18 +12421,12 @@ func (o TransformOutputCustomPresetCodecPngImageOutput) ToTransformOutputCustomP
 	}).(TransformOutputCustomPresetCodecPngImagePtrOutput)
 }
 
-func (o TransformOutputCustomPresetCodecPngImageOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecPngImage] {
-	return pulumix.Output[TransformOutputCustomPresetCodecPngImage]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
 func (o TransformOutputCustomPresetCodecPngImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecPngImageOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
@@ -14202,12 +12477,6 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) ToTransformOutputCust
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecPngImagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetCodecPngImage] {
-	return pulumix.Output[*TransformOutputCustomPresetCodecPngImage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Elem() TransformOutputCustomPresetCodecPngImageOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) TransformOutputCustomPresetCodecPngImage {
 		if v != nil {
@@ -14228,7 +12497,7 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) KeyFrameInterval() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the label for the codec. The label can be used to control muxing behavior.
+// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.`label` - (Optional) Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
 		if v == nil {
@@ -14299,11 +12568,11 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) SyncMode() pulumi.Str
 }
 
 type TransformOutputCustomPresetCodecPngImageLayer struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height *string `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width *string `pulumi:"width"`
 }
 
@@ -14319,11 +12588,11 @@ type TransformOutputCustomPresetCodecPngImageLayerInput interface {
 }
 
 type TransformOutputCustomPresetCodecPngImageLayerArgs struct {
-	// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
 
@@ -14337,12 +12606,6 @@ func (i TransformOutputCustomPresetCodecPngImageLayerArgs) ToTransformOutputCust
 
 func (i TransformOutputCustomPresetCodecPngImageLayerArgs) ToTransformOutputCustomPresetCodecPngImageLayerOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageLayerOutput)
-}
-
-func (i TransformOutputCustomPresetCodecPngImageLayerArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecPngImageLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecPngImageLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecPngImageLayerOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TransformOutputCustomPresetCodecPngImageLayerArrayInput is an input type that accepts TransformOutputCustomPresetCodecPngImageLayerArray and TransformOutputCustomPresetCodecPngImageLayerArrayOutput values.
@@ -14370,12 +12633,6 @@ func (i TransformOutputCustomPresetCodecPngImageLayerArray) ToTransformOutputCus
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetCodecPngImageLayerArrayOutput)
 }
 
-func (i TransformOutputCustomPresetCodecPngImageLayerArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecPngImageLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecPngImageLayer]{
-		OutputState: i.ToTransformOutputCustomPresetCodecPngImageLayerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetCodecPngImageLayerOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetCodecPngImageLayerOutput) ElementType() reflect.Type {
@@ -14390,23 +12647,17 @@ func (o TransformOutputCustomPresetCodecPngImageLayerOutput) ToTransformOutputCu
 	return o
 }
 
-func (o TransformOutputCustomPresetCodecPngImageLayerOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetCodecPngImageLayer] {
-	return pulumix.Output[TransformOutputCustomPresetCodecPngImageLayer]{
-		OutputState: o.OutputState,
-	}
-}
-
-// The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+// The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+// Specifies the label for the codec. The label can be used to control muxing behavior.
 func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+// The width of the rectangular region in pixels. This can be absolute pixel value (e.g`  100 `), or relative to the size of the video (For example, `50%`).
 func (o TransformOutputCustomPresetCodecPngImageLayerOutput) Width() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImageLayer) *string { return v.Width }).(pulumi.StringPtrOutput)
 }
@@ -14423,12 +12674,6 @@ func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) ToTransformOut
 
 func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) ToTransformOutputCustomPresetCodecPngImageLayerArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetCodecPngImageLayerArrayOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetCodecPngImageLayer] {
-	return pulumix.Output[[]TransformOutputCustomPresetCodecPngImageLayer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetCodecPngImageLayerArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetCodecPngImageLayerOutput {
@@ -14490,12 +12735,6 @@ func (i TransformOutputCustomPresetFilterArgs) ToTransformOutputCustomPresetFilt
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOutput)
 }
 
-func (i TransformOutputCustomPresetFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilter] {
-	return pulumix.Output[TransformOutputCustomPresetFilter]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterArgs) ToTransformOutputCustomPresetFilterPtrOutput() TransformOutputCustomPresetFilterPtrOutput {
 	return i.ToTransformOutputCustomPresetFilterPtrOutputWithContext(context.Background())
 }
@@ -14537,12 +12776,6 @@ func (i *transformOutputCustomPresetFilterPtrType) ToTransformOutputCustomPreset
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilter] {
-	return pulumix.Output[*TransformOutputCustomPresetFilter]{
-		OutputState: i.ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterOutput) ElementType() reflect.Type {
@@ -14565,12 +12798,6 @@ func (o TransformOutputCustomPresetFilterOutput) ToTransformOutputCustomPresetFi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilter) *TransformOutputCustomPresetFilter {
 		return &v
 	}).(TransformOutputCustomPresetFilterPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilter] {
-	return pulumix.Output[TransformOutputCustomPresetFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `cropRectangle` block as defined above.
@@ -14621,12 +12848,6 @@ func (o TransformOutputCustomPresetFilterPtrOutput) ToTransformOutputCustomPrese
 
 func (o TransformOutputCustomPresetFilterPtrOutput) ToTransformOutputCustomPresetFilterPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilter] {
-	return pulumix.Output[*TransformOutputCustomPresetFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterPtrOutput) Elem() TransformOutputCustomPresetFilterOutput {
@@ -14744,12 +12965,6 @@ func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToTransformOutputCus
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterCropRectangleOutput)
 }
 
-func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterCropRectangle] {
-	return pulumix.Output[TransformOutputCustomPresetFilterCropRectangle]{
-		OutputState: i.ToTransformOutputCustomPresetFilterCropRectangleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterCropRectangleArgs) ToTransformOutputCustomPresetFilterCropRectanglePtrOutput() TransformOutputCustomPresetFilterCropRectanglePtrOutput {
 	return i.ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(context.Background())
 }
@@ -14791,12 +13006,6 @@ func (i *transformOutputCustomPresetFilterCropRectanglePtrType) ToTransformOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterCropRectanglePtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterCropRectangle] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterCropRectangle]{
-		OutputState: i.ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterCropRectangleOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterCropRectangleOutput) ElementType() reflect.Type {
@@ -14819,12 +13028,6 @@ func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToTransformOutputC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterCropRectangle) *TransformOutputCustomPresetFilterCropRectangle {
 		return &v
 	}).(TransformOutputCustomPresetFilterCropRectanglePtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterCropRectangleOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterCropRectangle] {
-	return pulumix.Output[TransformOutputCustomPresetFilterCropRectangle]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
@@ -14859,12 +13062,6 @@ func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) ToTransformOutp
 
 func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) ToTransformOutputCustomPresetFilterCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterCropRectanglePtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterCropRectangle] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterCropRectangle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterCropRectanglePtrOutput) Elem() TransformOutputCustomPresetFilterCropRectangleOutput {
@@ -14954,12 +13151,6 @@ func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToTransformOutputCusto
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterDeinterlaceOutput)
 }
 
-func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterDeinterlace] {
-	return pulumix.Output[TransformOutputCustomPresetFilterDeinterlace]{
-		OutputState: i.ToTransformOutputCustomPresetFilterDeinterlaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterDeinterlaceArgs) ToTransformOutputCustomPresetFilterDeinterlacePtrOutput() TransformOutputCustomPresetFilterDeinterlacePtrOutput {
 	return i.ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(context.Background())
 }
@@ -15001,12 +13192,6 @@ func (i *transformOutputCustomPresetFilterDeinterlacePtrType) ToTransformOutputC
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterDeinterlacePtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterDeinterlacePtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterDeinterlace] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterDeinterlace]{
-		OutputState: i.ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterDeinterlaceOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterDeinterlaceOutput) ElementType() reflect.Type {
@@ -15031,12 +13216,6 @@ func (o TransformOutputCustomPresetFilterDeinterlaceOutput) ToTransformOutputCus
 	}).(TransformOutputCustomPresetFilterDeinterlacePtrOutput)
 }
 
-func (o TransformOutputCustomPresetFilterDeinterlaceOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterDeinterlace] {
-	return pulumix.Output[TransformOutputCustomPresetFilterDeinterlace]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
 func (o TransformOutputCustomPresetFilterDeinterlaceOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFilterDeinterlace) *string { return v.Mode }).(pulumi.StringPtrOutput)
@@ -15059,12 +13238,6 @@ func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) ToTransformOutput
 
 func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) ToTransformOutputCustomPresetFilterDeinterlacePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterDeinterlacePtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterDeinterlace] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterDeinterlace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterDeinterlacePtrOutput) Elem() TransformOutputCustomPresetFilterDeinterlaceOutput {
@@ -15138,12 +13311,6 @@ func (i TransformOutputCustomPresetFilterFadeInArgs) ToTransformOutputCustomPres
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeInOutput)
 }
 
-func (i TransformOutputCustomPresetFilterFadeInArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterFadeIn] {
-	return pulumix.Output[TransformOutputCustomPresetFilterFadeIn]{
-		OutputState: i.ToTransformOutputCustomPresetFilterFadeInOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterFadeInArgs) ToTransformOutputCustomPresetFilterFadeInPtrOutput() TransformOutputCustomPresetFilterFadeInPtrOutput {
 	return i.ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(context.Background())
 }
@@ -15185,12 +13352,6 @@ func (i *transformOutputCustomPresetFilterFadeInPtrType) ToTransformOutputCustom
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeInPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterFadeInPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterFadeIn] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterFadeIn]{
-		OutputState: i.ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterFadeInOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterFadeInOutput) ElementType() reflect.Type {
@@ -15213,12 +13374,6 @@ func (o TransformOutputCustomPresetFilterFadeInOutput) ToTransformOutputCustomPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterFadeIn) *TransformOutputCustomPresetFilterFadeIn {
 		return &v
 	}).(TransformOutputCustomPresetFilterFadeInPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterFadeInOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterFadeIn] {
-	return pulumix.Output[TransformOutputCustomPresetFilterFadeIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
@@ -15248,12 +13403,6 @@ func (o TransformOutputCustomPresetFilterFadeInPtrOutput) ToTransformOutputCusto
 
 func (o TransformOutputCustomPresetFilterFadeInPtrOutput) ToTransformOutputCustomPresetFilterFadeInPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeInPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterFadeInPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterFadeIn] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterFadeIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterFadeInPtrOutput) Elem() TransformOutputCustomPresetFilterFadeInOutput {
@@ -15337,12 +13486,6 @@ func (i TransformOutputCustomPresetFilterFadeOutArgs) ToTransformOutputCustomPre
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeOutOutput)
 }
 
-func (i TransformOutputCustomPresetFilterFadeOutArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterFadeOut] {
-	return pulumix.Output[TransformOutputCustomPresetFilterFadeOut]{
-		OutputState: i.ToTransformOutputCustomPresetFilterFadeOutOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterFadeOutArgs) ToTransformOutputCustomPresetFilterFadeOutPtrOutput() TransformOutputCustomPresetFilterFadeOutPtrOutput {
 	return i.ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(context.Background())
 }
@@ -15384,12 +13527,6 @@ func (i *transformOutputCustomPresetFilterFadeOutPtrType) ToTransformOutputCusto
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterFadeOutPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterFadeOut] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterFadeOut]{
-		OutputState: i.ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterFadeOutOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterFadeOutOutput) ElementType() reflect.Type {
@@ -15412,12 +13549,6 @@ func (o TransformOutputCustomPresetFilterFadeOutOutput) ToTransformOutputCustomP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterFadeOut) *TransformOutputCustomPresetFilterFadeOut {
 		return &v
 	}).(TransformOutputCustomPresetFilterFadeOutPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterFadeOutOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterFadeOut] {
-	return pulumix.Output[TransformOutputCustomPresetFilterFadeOut]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
@@ -15447,12 +13578,6 @@ func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) ToTransformOutputCust
 
 func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) ToTransformOutputCustomPresetFilterFadeOutPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterFadeOutPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterFadeOut] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterFadeOut]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterFadeOutPtrOutput) Elem() TransformOutputCustomPresetFilterFadeOutOutput {
@@ -15536,12 +13661,6 @@ func (i TransformOutputCustomPresetFilterOverlayArgs) ToTransformOutputCustomPre
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayOutput)
 }
 
-func (i TransformOutputCustomPresetFilterOverlayArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlay] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlay]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformOutputCustomPresetFilterOverlayArrayInput is an input type that accepts TransformOutputCustomPresetFilterOverlayArray and TransformOutputCustomPresetFilterOverlayArrayOutput values.
 // You can construct a concrete instance of `TransformOutputCustomPresetFilterOverlayArrayInput` via:
 //
@@ -15567,12 +13686,6 @@ func (i TransformOutputCustomPresetFilterOverlayArray) ToTransformOutputCustomPr
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayArrayOutput)
 }
 
-func (i TransformOutputCustomPresetFilterOverlayArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFilterOverlay] {
-	return pulumix.Output[[]TransformOutputCustomPresetFilterOverlay]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterOverlayOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterOverlayOutput) ElementType() reflect.Type {
@@ -15585,12 +13698,6 @@ func (o TransformOutputCustomPresetFilterOverlayOutput) ToTransformOutputCustomP
 
 func (o TransformOutputCustomPresetFilterOverlayOutput) ToTransformOutputCustomPresetFilterOverlayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterOverlayOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlay] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlay]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `audio` block as defined above.
@@ -15621,12 +13728,6 @@ func (o TransformOutputCustomPresetFilterOverlayArrayOutput) ToTransformOutputCu
 
 func (o TransformOutputCustomPresetFilterOverlayArrayOutput) ToTransformOutputCustomPresetFilterOverlayArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayArrayOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterOverlayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFilterOverlay] {
-	return pulumix.Output[[]TransformOutputCustomPresetFilterOverlay]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterOverlayArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFilterOverlayOutput {
@@ -15688,12 +13789,6 @@ func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToTransformOutputCust
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayAudioOutput)
 }
 
-func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayAudio] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayAudio]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayAudioOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterOverlayAudioArgs) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutput() TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
 	return i.ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(context.Background())
 }
@@ -15735,12 +13830,6 @@ func (i *transformOutputCustomPresetFilterOverlayAudioPtrType) ToTransformOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayAudioPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterOverlayAudioPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayAudio]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterOverlayAudioOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterOverlayAudioOutput) ElementType() reflect.Type {
@@ -15763,12 +13852,6 @@ func (o TransformOutputCustomPresetFilterOverlayAudioOutput) ToTransformOutputCu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayAudio) *TransformOutputCustomPresetFilterOverlayAudio {
 		return &v
 	}).(TransformOutputCustomPresetFilterOverlayAudioPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterOverlayAudioOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayAudio] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
@@ -15813,12 +13896,6 @@ func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) ToTransformOutpu
 
 func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) ToTransformOutputCustomPresetFilterOverlayAudioPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayAudioPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayAudio] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayAudio]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterOverlayAudioPtrOutput) Elem() TransformOutputCustomPresetFilterOverlayAudioOutput {
@@ -15956,12 +14033,6 @@ func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToTransformOutputCust
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoOutput)
 }
 
-func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayVideo] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayVideo]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayVideoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterOverlayVideoArgs) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
 	return i.ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(context.Background())
 }
@@ -16003,12 +14074,6 @@ func (i *transformOutputCustomPresetFilterOverlayVideoPtrType) ToTransformOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterOverlayVideoPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideo] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideo]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterOverlayVideoOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterOverlayVideoOutput) ElementType() reflect.Type {
@@ -16031,12 +14096,6 @@ func (o TransformOutputCustomPresetFilterOverlayVideoOutput) ToTransformOutputCu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayVideo) *TransformOutputCustomPresetFilterOverlayVideo {
 		return &v
 	}).(TransformOutputCustomPresetFilterOverlayVideoPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterOverlayVideoOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayVideo] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayVideo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
@@ -16100,12 +14159,6 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) ToTransformOutpu
 
 func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideo] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterOverlayVideoPtrOutput) Elem() TransformOutputCustomPresetFilterOverlayVideoOutput {
@@ -16253,12 +14306,6 @@ func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToTransf
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput)
 }
 
-func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoCropRectangle] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoCropRectangle]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayVideoCropRectangleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput() TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
 	return i.ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(context.Background())
 }
@@ -16300,12 +14347,6 @@ func (i *transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType) ToTr
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterOverlayVideoCropRectanglePtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoCropRectangle] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoCropRectangle]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ElementType() reflect.Type {
@@ -16328,12 +14369,6 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToTran
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayVideoCropRectangle) *TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
 		return &v
 	}).(TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoCropRectangle] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoCropRectangle]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
@@ -16368,12 +14403,6 @@ func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) ToT
 
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoCropRectangle] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoCropRectangle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterOverlayVideoCropRectanglePtrOutput) Elem() TransformOutputCustomPresetFilterOverlayVideoCropRectangleOutput {
@@ -16471,12 +14500,6 @@ func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToTransformOu
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPositionOutput)
 }
 
-func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoPosition] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoPosition]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayVideoPositionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFilterOverlayVideoPositionArgs) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput() TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
 	return i.ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(context.Background())
 }
@@ -16518,12 +14541,6 @@ func (i *transformOutputCustomPresetFilterOverlayVideoPositionPtrType) ToTransfo
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFilterOverlayVideoPositionPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoPosition] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoPosition]{
-		OutputState: i.ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFilterOverlayVideoPositionOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ElementType() reflect.Type {
@@ -16546,12 +14563,6 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToTransform
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFilterOverlayVideoPosition) *TransformOutputCustomPresetFilterOverlayVideoPosition {
 		return &v
 	}).(TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFilterOverlayVideoPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoPosition] {
-	return pulumix.Output[TransformOutputCustomPresetFilterOverlayVideoPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
@@ -16586,12 +14597,6 @@ func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) ToTransf
 
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) ToTransformOutputCustomPresetFilterOverlayVideoPositionPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoPosition] {
-	return pulumix.Output[*TransformOutputCustomPresetFilterOverlayVideoPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFilterOverlayVideoPositionPtrOutput) Elem() TransformOutputCustomPresetFilterOverlayVideoPositionOutput {
@@ -16693,12 +14698,6 @@ func (i TransformOutputCustomPresetFormatArgs) ToTransformOutputCustomPresetForm
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatOutput)
 }
 
-func (i TransformOutputCustomPresetFormatArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormat] {
-	return pulumix.Output[TransformOutputCustomPresetFormat]{
-		OutputState: i.ToTransformOutputCustomPresetFormatOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformOutputCustomPresetFormatArrayInput is an input type that accepts TransformOutputCustomPresetFormatArray and TransformOutputCustomPresetFormatArrayOutput values.
 // You can construct a concrete instance of `TransformOutputCustomPresetFormatArrayInput` via:
 //
@@ -16724,12 +14723,6 @@ func (i TransformOutputCustomPresetFormatArray) ToTransformOutputCustomPresetFor
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatArrayOutput)
 }
 
-func (i TransformOutputCustomPresetFormatArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFormat] {
-	return pulumix.Output[[]TransformOutputCustomPresetFormat]{
-		OutputState: i.ToTransformOutputCustomPresetFormatArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatOutput) ElementType() reflect.Type {
@@ -16742,12 +14735,6 @@ func (o TransformOutputCustomPresetFormatOutput) ToTransformOutputCustomPresetFo
 
 func (o TransformOutputCustomPresetFormatOutput) ToTransformOutputCustomPresetFormatOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormat] {
-	return pulumix.Output[TransformOutputCustomPresetFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `jpg` block as defined below.
@@ -16788,12 +14775,6 @@ func (o TransformOutputCustomPresetFormatArrayOutput) ToTransformOutputCustomPre
 	return o
 }
 
-func (o TransformOutputCustomPresetFormatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFormat] {
-	return pulumix.Output[[]TransformOutputCustomPresetFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TransformOutputCustomPresetFormatArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFormatOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransformOutputCustomPresetFormat {
 		return vs[0].([]TransformOutputCustomPresetFormat)[vs[1].(int)]
@@ -16831,12 +14812,6 @@ func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetF
 
 func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetFormatJpgOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatJpgOutput)
-}
-
-func (i TransformOutputCustomPresetFormatJpgArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatJpg] {
-	return pulumix.Output[TransformOutputCustomPresetFormatJpg]{
-		OutputState: i.ToTransformOutputCustomPresetFormatJpgOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TransformOutputCustomPresetFormatJpgArgs) ToTransformOutputCustomPresetFormatJpgPtrOutput() TransformOutputCustomPresetFormatJpgPtrOutput {
@@ -16880,12 +14855,6 @@ func (i *transformOutputCustomPresetFormatJpgPtrType) ToTransformOutputCustomPre
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatJpgPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFormatJpgPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatJpg] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatJpg]{
-		OutputState: i.ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatJpgOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatJpgOutput) ElementType() reflect.Type {
@@ -16910,12 +14879,6 @@ func (o TransformOutputCustomPresetFormatJpgOutput) ToTransformOutputCustomPrese
 	}).(TransformOutputCustomPresetFormatJpgPtrOutput)
 }
 
-func (o TransformOutputCustomPresetFormatJpgOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatJpg] {
-	return pulumix.Output[TransformOutputCustomPresetFormatJpg]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o TransformOutputCustomPresetFormatJpgOutput) FilenamePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFormatJpg) string { return v.FilenamePattern }).(pulumi.StringOutput)
@@ -16933,12 +14896,6 @@ func (o TransformOutputCustomPresetFormatJpgPtrOutput) ToTransformOutputCustomPr
 
 func (o TransformOutputCustomPresetFormatJpgPtrOutput) ToTransformOutputCustomPresetFormatJpgPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatJpgPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatJpgPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatJpg] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatJpg]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFormatJpgPtrOutput) Elem() TransformOutputCustomPresetFormatJpgOutput {
@@ -16998,12 +14955,6 @@ func (i TransformOutputCustomPresetFormatMp4Args) ToTransformOutputCustomPresetF
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4Output)
 }
 
-func (i TransformOutputCustomPresetFormatMp4Args) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatMp4] {
-	return pulumix.Output[TransformOutputCustomPresetFormatMp4]{
-		OutputState: i.ToTransformOutputCustomPresetFormatMp4OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFormatMp4Args) ToTransformOutputCustomPresetFormatMp4PtrOutput() TransformOutputCustomPresetFormatMp4PtrOutput {
 	return i.ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(context.Background())
 }
@@ -17045,12 +14996,6 @@ func (i *transformOutputCustomPresetFormatMp4PtrType) ToTransformOutputCustomPre
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4PtrOutput)
 }
 
-func (i *transformOutputCustomPresetFormatMp4PtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatMp4] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatMp4]{
-		OutputState: i.ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatMp4Output struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatMp4Output) ElementType() reflect.Type {
@@ -17073,12 +15018,6 @@ func (o TransformOutputCustomPresetFormatMp4Output) ToTransformOutputCustomPrese
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFormatMp4) *TransformOutputCustomPresetFormatMp4 {
 		return &v
 	}).(TransformOutputCustomPresetFormatMp4PtrOutput)
-}
-
-func (o TransformOutputCustomPresetFormatMp4Output) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatMp4] {
-	return pulumix.Output[TransformOutputCustomPresetFormatMp4]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
@@ -17105,12 +15044,6 @@ func (o TransformOutputCustomPresetFormatMp4PtrOutput) ToTransformOutputCustomPr
 
 func (o TransformOutputCustomPresetFormatMp4PtrOutput) ToTransformOutputCustomPresetFormatMp4PtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4PtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatMp4PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatMp4] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatMp4]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFormatMp4PtrOutput) Elem() TransformOutputCustomPresetFormatMp4Output {
@@ -17176,12 +15109,6 @@ func (i TransformOutputCustomPresetFormatMp4OutputFileArgs) ToTransformOutputCus
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4OutputFileOutput)
 }
 
-func (i TransformOutputCustomPresetFormatMp4OutputFileArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatMp4OutputFile] {
-	return pulumix.Output[TransformOutputCustomPresetFormatMp4OutputFile]{
-		OutputState: i.ToTransformOutputCustomPresetFormatMp4OutputFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformOutputCustomPresetFormatMp4OutputFileArrayInput is an input type that accepts TransformOutputCustomPresetFormatMp4OutputFileArray and TransformOutputCustomPresetFormatMp4OutputFileArrayOutput values.
 // You can construct a concrete instance of `TransformOutputCustomPresetFormatMp4OutputFileArrayInput` via:
 //
@@ -17207,12 +15134,6 @@ func (i TransformOutputCustomPresetFormatMp4OutputFileArray) ToTransformOutputCu
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatMp4OutputFileArrayOutput)
 }
 
-func (i TransformOutputCustomPresetFormatMp4OutputFileArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFormatMp4OutputFile] {
-	return pulumix.Output[[]TransformOutputCustomPresetFormatMp4OutputFile]{
-		OutputState: i.ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatMp4OutputFileOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatMp4OutputFileOutput) ElementType() reflect.Type {
@@ -17225,12 +15146,6 @@ func (o TransformOutputCustomPresetFormatMp4OutputFileOutput) ToTransformOutputC
 
 func (o TransformOutputCustomPresetFormatMp4OutputFileOutput) ToTransformOutputCustomPresetFormatMp4OutputFileOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4OutputFileOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatMp4OutputFileOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatMp4OutputFile] {
-	return pulumix.Output[TransformOutputCustomPresetFormatMp4OutputFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
@@ -17250,12 +15165,6 @@ func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) ToTransformOu
 
 func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) ToTransformOutputCustomPresetFormatMp4OutputFileArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatMp4OutputFileArrayOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFormatMp4OutputFile] {
-	return pulumix.Output[[]TransformOutputCustomPresetFormatMp4OutputFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFormatMp4OutputFileArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFormatMp4OutputFileOutput {
@@ -17295,12 +15204,6 @@ func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetF
 
 func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetFormatPngOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatPngOutput)
-}
-
-func (i TransformOutputCustomPresetFormatPngArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatPng] {
-	return pulumix.Output[TransformOutputCustomPresetFormatPng]{
-		OutputState: i.ToTransformOutputCustomPresetFormatPngOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TransformOutputCustomPresetFormatPngArgs) ToTransformOutputCustomPresetFormatPngPtrOutput() TransformOutputCustomPresetFormatPngPtrOutput {
@@ -17344,12 +15247,6 @@ func (i *transformOutputCustomPresetFormatPngPtrType) ToTransformOutputCustomPre
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatPngPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFormatPngPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatPng] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatPng]{
-		OutputState: i.ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatPngOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatPngOutput) ElementType() reflect.Type {
@@ -17374,12 +15271,6 @@ func (o TransformOutputCustomPresetFormatPngOutput) ToTransformOutputCustomPrese
 	}).(TransformOutputCustomPresetFormatPngPtrOutput)
 }
 
-func (o TransformOutputCustomPresetFormatPngOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatPng] {
-	return pulumix.Output[TransformOutputCustomPresetFormatPng]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
 func (o TransformOutputCustomPresetFormatPngOutput) FilenamePattern() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetFormatPng) string { return v.FilenamePattern }).(pulumi.StringOutput)
@@ -17397,12 +15288,6 @@ func (o TransformOutputCustomPresetFormatPngPtrOutput) ToTransformOutputCustomPr
 
 func (o TransformOutputCustomPresetFormatPngPtrOutput) ToTransformOutputCustomPresetFormatPngPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatPngPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatPngPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatPng] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatPng]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFormatPngPtrOutput) Elem() TransformOutputCustomPresetFormatPngOutput {
@@ -17462,12 +15347,6 @@ func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToTransformOutputC
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutput)
 }
 
-func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatTransportStream] {
-	return pulumix.Output[TransformOutputCustomPresetFormatTransportStream]{
-		OutputState: i.ToTransformOutputCustomPresetFormatTransportStreamOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputCustomPresetFormatTransportStreamArgs) ToTransformOutputCustomPresetFormatTransportStreamPtrOutput() TransformOutputCustomPresetFormatTransportStreamPtrOutput {
 	return i.ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(context.Background())
 }
@@ -17509,12 +15388,6 @@ func (i *transformOutputCustomPresetFormatTransportStreamPtrType) ToTransformOut
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamPtrOutput)
 }
 
-func (i *transformOutputCustomPresetFormatTransportStreamPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatTransportStream] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatTransportStream]{
-		OutputState: i.ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatTransportStreamOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatTransportStreamOutput) ElementType() reflect.Type {
@@ -17537,12 +15410,6 @@ func (o TransformOutputCustomPresetFormatTransportStreamOutput) ToTransformOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputCustomPresetFormatTransportStream) *TransformOutputCustomPresetFormatTransportStream {
 		return &v
 	}).(TransformOutputCustomPresetFormatTransportStreamPtrOutput)
-}
-
-func (o TransformOutputCustomPresetFormatTransportStreamOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatTransportStream] {
-	return pulumix.Output[TransformOutputCustomPresetFormatTransportStream]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
@@ -17569,12 +15436,6 @@ func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) ToTransformOu
 
 func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) ToTransformOutputCustomPresetFormatTransportStreamPtrOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamPtrOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputCustomPresetFormatTransportStream] {
-	return pulumix.Output[*TransformOutputCustomPresetFormatTransportStream]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFormatTransportStreamPtrOutput) Elem() TransformOutputCustomPresetFormatTransportStreamOutput {
@@ -17640,12 +15501,6 @@ func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArgs) ToTransf
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutputFileOutput)
 }
 
-func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatTransportStreamOutputFile] {
-	return pulumix.Output[TransformOutputCustomPresetFormatTransportStreamOutputFile]{
-		OutputState: i.ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput is an input type that accepts TransformOutputCustomPresetFormatTransportStreamOutputFileArray and TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput values.
 // You can construct a concrete instance of `TransformOutputCustomPresetFormatTransportStreamOutputFileArrayInput` via:
 //
@@ -17671,12 +15526,6 @@ func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArray) ToTrans
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput)
 }
 
-func (i TransformOutputCustomPresetFormatTransportStreamOutputFileArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFormatTransportStreamOutputFile] {
-	return pulumix.Output[[]TransformOutputCustomPresetFormatTransportStreamOutputFile]{
-		OutputState: i.ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputCustomPresetFormatTransportStreamOutputFileOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ElementType() reflect.Type {
@@ -17689,12 +15538,6 @@ func (o TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ToTran
 
 func (o TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputFileOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatTransportStreamOutputFileOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputCustomPresetFormatTransportStreamOutputFile] {
-	return pulumix.Output[TransformOutputCustomPresetFormatTransportStreamOutputFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
@@ -17714,12 +15557,6 @@ func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) T
 
 func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) ToTransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutputWithContext(ctx context.Context) TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput {
 	return o
-}
-
-func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformOutputCustomPresetFormatTransportStreamOutputFile] {
-	return pulumix.Output[[]TransformOutputCustomPresetFormatTransportStreamOutputFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputCustomPresetFormatTransportStreamOutputFileArrayOutput) Index(i pulumi.IntInput) TransformOutputCustomPresetFormatTransportStreamOutputFileOutput {
@@ -17773,12 +15610,6 @@ func (i TransformOutputFaceDetectorPresetArgs) ToTransformOutputFaceDetectorPres
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputFaceDetectorPresetOutput)
 }
 
-func (i TransformOutputFaceDetectorPresetArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputFaceDetectorPreset] {
-	return pulumix.Output[TransformOutputFaceDetectorPreset]{
-		OutputState: i.ToTransformOutputFaceDetectorPresetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputFaceDetectorPresetArgs) ToTransformOutputFaceDetectorPresetPtrOutput() TransformOutputFaceDetectorPresetPtrOutput {
 	return i.ToTransformOutputFaceDetectorPresetPtrOutputWithContext(context.Background())
 }
@@ -17820,12 +15651,6 @@ func (i *transformOutputFaceDetectorPresetPtrType) ToTransformOutputFaceDetector
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputFaceDetectorPresetPtrOutput)
 }
 
-func (i *transformOutputFaceDetectorPresetPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputFaceDetectorPreset] {
-	return pulumix.Output[*TransformOutputFaceDetectorPreset]{
-		OutputState: i.ToTransformOutputFaceDetectorPresetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputFaceDetectorPresetOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputFaceDetectorPresetOutput) ElementType() reflect.Type {
@@ -17848,12 +15673,6 @@ func (o TransformOutputFaceDetectorPresetOutput) ToTransformOutputFaceDetectorPr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputFaceDetectorPreset) *TransformOutputFaceDetectorPreset {
 		return &v
 	}).(TransformOutputFaceDetectorPresetPtrOutput)
-}
-
-func (o TransformOutputFaceDetectorPresetOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputFaceDetectorPreset] {
-	return pulumix.Output[TransformOutputFaceDetectorPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
@@ -17888,12 +15707,6 @@ func (o TransformOutputFaceDetectorPresetPtrOutput) ToTransformOutputFaceDetecto
 
 func (o TransformOutputFaceDetectorPresetPtrOutput) ToTransformOutputFaceDetectorPresetPtrOutputWithContext(ctx context.Context) TransformOutputFaceDetectorPresetPtrOutput {
 	return o
-}
-
-func (o TransformOutputFaceDetectorPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputFaceDetectorPreset] {
-	return pulumix.Output[*TransformOutputFaceDetectorPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputFaceDetectorPresetPtrOutput) Elem() TransformOutputFaceDetectorPresetOutput {
@@ -17991,12 +15804,6 @@ func (i TransformOutputVideoAnalyzerPresetArgs) ToTransformOutputVideoAnalyzerPr
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputVideoAnalyzerPresetOutput)
 }
 
-func (i TransformOutputVideoAnalyzerPresetArgs) ToOutput(ctx context.Context) pulumix.Output[TransformOutputVideoAnalyzerPreset] {
-	return pulumix.Output[TransformOutputVideoAnalyzerPreset]{
-		OutputState: i.ToTransformOutputVideoAnalyzerPresetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TransformOutputVideoAnalyzerPresetArgs) ToTransformOutputVideoAnalyzerPresetPtrOutput() TransformOutputVideoAnalyzerPresetPtrOutput {
 	return i.ToTransformOutputVideoAnalyzerPresetPtrOutputWithContext(context.Background())
 }
@@ -18038,12 +15845,6 @@ func (i *transformOutputVideoAnalyzerPresetPtrType) ToTransformOutputVideoAnalyz
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutputVideoAnalyzerPresetPtrOutput)
 }
 
-func (i *transformOutputVideoAnalyzerPresetPtrType) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputVideoAnalyzerPreset] {
-	return pulumix.Output[*TransformOutputVideoAnalyzerPreset]{
-		OutputState: i.ToTransformOutputVideoAnalyzerPresetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformOutputVideoAnalyzerPresetOutput struct{ *pulumi.OutputState }
 
 func (TransformOutputVideoAnalyzerPresetOutput) ElementType() reflect.Type {
@@ -18066,12 +15867,6 @@ func (o TransformOutputVideoAnalyzerPresetOutput) ToTransformOutputVideoAnalyzer
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformOutputVideoAnalyzerPreset) *TransformOutputVideoAnalyzerPreset {
 		return &v
 	}).(TransformOutputVideoAnalyzerPresetPtrOutput)
-}
-
-func (o TransformOutputVideoAnalyzerPresetOutput) ToOutput(ctx context.Context) pulumix.Output[TransformOutputVideoAnalyzerPreset] {
-	return pulumix.Output[TransformOutputVideoAnalyzerPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
@@ -18106,12 +15901,6 @@ func (o TransformOutputVideoAnalyzerPresetPtrOutput) ToTransformOutputVideoAnaly
 
 func (o TransformOutputVideoAnalyzerPresetPtrOutput) ToTransformOutputVideoAnalyzerPresetPtrOutputWithContext(ctx context.Context) TransformOutputVideoAnalyzerPresetPtrOutput {
 	return o
-}
-
-func (o TransformOutputVideoAnalyzerPresetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformOutputVideoAnalyzerPreset] {
-	return pulumix.Output[*TransformOutputVideoAnalyzerPreset]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformOutputVideoAnalyzerPresetPtrOutput) Elem() TransformOutputVideoAnalyzerPresetOutput {

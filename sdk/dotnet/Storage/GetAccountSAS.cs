@@ -217,6 +217,15 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// A `permissions` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+        /// access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+        /// larger scope (affecting all sub-resources) than `object`.
+        /// 
+        /// A `resource_types` block contains:
         /// </summary>
         [Input("permissions", required: true)]
         public Inputs.GetAccountSASPermissionsArgs Permissions { get; set; } = null!;
@@ -291,6 +300,15 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// A `permissions` block as defined below.
+        /// 
+        /// 
+        /// 
+        /// 
+        /// `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+        /// access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+        /// larger scope (affecting all sub-resources) than `object`.
+        /// 
+        /// A `resource_types` block contains:
         /// </summary>
         [Input("permissions", required: true)]
         public Input<Inputs.GetAccountSASPermissionsInputArgs> Permissions { get; set; } = null!;

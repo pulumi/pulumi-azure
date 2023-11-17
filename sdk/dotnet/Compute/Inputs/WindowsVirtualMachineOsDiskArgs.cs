@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int>? DiskSizeGb { get; set; }
 
         /// <summary>
-        /// The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
+        /// The name of the Windows Virtual Machine. Changing this forces a new resource to be created.`name` - (Optional) The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

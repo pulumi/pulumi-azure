@@ -25,6 +25,11 @@ class ConfigurationArgs:
         The set of arguments for constructing a Configuration resource.
         :param pulumi.Input[str] nginx_deployment_id: The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
+               
+               
+               
+               
+               > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationConfigFileArgs']]] config_files: One or more `config_file` blocks as defined below.
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
@@ -55,6 +60,11 @@ class ConfigurationArgs:
     def root_file(self) -> pulumi.Input[str]:
         """
         Specify the root file path of this Nginx Configuration.
+
+
+
+
+        > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         """
         return pulumi.get(self, "root_file")
 
@@ -114,6 +124,11 @@ class _ConfigurationState:
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationProtectedFileArgs']]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
+               
+               
+               
+               
+               > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         """
         if config_files is not None:
             pulumi.set(__self__, "config_files", config_files)
@@ -179,6 +194,11 @@ class _ConfigurationState:
     def root_file(self) -> Optional[pulumi.Input[str]]:
         """
         Specify the root file path of this Nginx Configuration.
+
+
+
+
+        > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         """
         return pulumi.get(self, "root_file")
 
@@ -216,6 +236,11 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
+               
+               
+               
+               
+               > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         """
         ...
     @overload
@@ -299,6 +324,11 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] package_data: Specify the package data for this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationProtectedFileArgs']]]] protected_files: One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         :param pulumi.Input[str] root_file: Specify the root file path of this Nginx Configuration.
+               
+               
+               
+               
+               > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,6 +378,11 @@ class Configuration(pulumi.CustomResource):
     def root_file(self) -> pulumi.Output[str]:
         """
         Specify the root file path of this Nginx Configuration.
+
+
+
+
+        > **NOTE:** Either `package_data` or `config_file` must be specified - but not both.
         """
         return pulumi.get(self, "root_file")
 

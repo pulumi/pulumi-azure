@@ -86,12 +86,24 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * A `permissions` block as defined below.
      * 
+     * `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+     * access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+     * larger scope (affecting all sub-resources) than `object`.
+     * 
+     * A `resource_types` block contains:
+     * 
      */
     @Import(name="permissions", required=true)
     private Output<GetAccountSASPermissionsArgs> permissions;
 
     /**
      * @return A `permissions` block as defined below.
+     * 
+     * `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+     * access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+     * larger scope (affecting all sub-resources) than `object`.
+     * 
+     * A `resource_types` block contains:
      * 
      */
     public Output<GetAccountSASPermissionsArgs> permissions() {
@@ -281,6 +293,12 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param permissions A `permissions` block as defined below.
          * 
+         * `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+         * access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+         * larger scope (affecting all sub-resources) than `object`.
+         * 
+         * A `resource_types` block contains:
+         * 
          * @return builder
          * 
          */
@@ -291,6 +309,12 @@ public final class GetAccountSASArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param permissions A `permissions` block as defined below.
+         * 
+         * `resource_types` is a set of `true`/`false` flags which define the storage account resource types that are granted
+         * access by this SAS. This can be thought of as the scope over which the permissions apply. A `service` will have
+         * larger scope (affecting all sub-resources) than `object`.
+         * 
+         * A `resource_types` block contains:
          * 
          * @return builder
          * 

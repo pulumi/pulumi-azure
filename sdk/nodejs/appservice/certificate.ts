@@ -91,6 +91,17 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly issuer!: pulumi.Output<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as azuread from "@pulumi/azuread";
+     *
+     * const microsoftWebApp = azuread.getServicePrincipal({
+     *     applicationId: "abfa0a7c-a6b6-4736-8310-5855508787cd",
+     * });
+     * ```
      */
     public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
@@ -220,6 +231,17 @@ export interface CertificateState {
     issuer?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as azuread from "@pulumi/azuread";
+     *
+     * const microsoftWebApp = azuread.getServicePrincipal({
+     *     applicationId: "abfa0a7c-a6b6-4736-8310-5855508787cd",
+     * });
+     * ```
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -268,6 +290,17 @@ export interface CertificateArgs {
     appServicePlanId?: pulumi.Input<string>;
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** If using `keyVaultSecretId`, the WebApp Service Resource Principal ID `abfa0a7c-a6b6-4736-8310-5855508787cd` must have 'Secret > get' and 'Certificate > get' permissions on the Key Vault containing the certificate. (Source: [App Service Blog](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html)) If you use this provide to create the access policy you have to specify the Object ID of this Principal. This Object ID can be retrieved via following data reference, since it is different in every AAD Tenant:
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * import * as azuread from "@pulumi/azuread";
+     *
+     * const microsoftWebApp = azuread.getServicePrincipal({
+     *     applicationId: "abfa0a7c-a6b6-4736-8310-5855508787cd",
+     * });
+     * ```
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**

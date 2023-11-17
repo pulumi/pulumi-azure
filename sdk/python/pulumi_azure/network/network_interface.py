@@ -278,6 +278,8 @@ class _NetworkInterfaceState:
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Static IP Address which should be used.
+               
+               When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The private IP addresses of the network interface.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -491,6 +493,8 @@ class _NetworkInterfaceState:
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
         The Static IP Address which should be used.
+
+        When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         """
         return pulumi.get(self, "private_ip_address")
 
@@ -785,6 +789,8 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: The Static IP Address which should be used.
+               
+               When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The private IP addresses of the network interface.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -933,6 +939,8 @@ class NetworkInterface(pulumi.CustomResource):
     def private_ip_address(self) -> pulumi.Output[str]:
         """
         The Static IP Address which should be used.
+
+        When `private_ip_address_version` is set to `IPv4` the following fields can be configured:
         """
         return pulumi.get(self, "private_ip_address")
 

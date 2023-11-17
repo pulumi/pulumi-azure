@@ -119,12 +119,16 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of tags to assign to the resource.
      * 
+     * A `apns_credential` block contains:
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return A mapping of tags to assign to the resource.
+     * 
+     * A `apns_credential` block contains:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -298,6 +302,8 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags A mapping of tags to assign to the resource.
          * 
+         * A `apns_credential` block contains:
+         * 
          * @return builder
          * 
          */
@@ -308,6 +314,8 @@ public final class HubState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags A mapping of tags to assign to the resource.
+         * 
+         * A `apns_credential` block contains:
          * 
          * @return builder
          * 

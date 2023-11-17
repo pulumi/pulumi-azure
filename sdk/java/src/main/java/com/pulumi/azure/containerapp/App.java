@@ -143,14 +143,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dapr);
     }
     /**
-     * An `identity` block as detailed below.
+     * An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
     @Export(name="identity", refs={AppIdentity.class}, tree="[0]")
     private Output</* @Nullable */ AppIdentity> identity;
 
     /**
-     * @return An `identity` block as detailed below.
+     * @return An `identity` block as detailed below.`identity` - (Optional) Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
      * 
      */
     public Output<Optional<AppIdentity>> identity() {
@@ -213,14 +213,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * The name for this Container App. Changing this forces a new resource to be created.
+     * The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for this Container App. Changing this forces a new resource to be created.
+     * @return The name for this Container App. Changing this forces a new resource to be created.`name` - (Required) The name of the container
      * 
      */
     public Output<String> name() {

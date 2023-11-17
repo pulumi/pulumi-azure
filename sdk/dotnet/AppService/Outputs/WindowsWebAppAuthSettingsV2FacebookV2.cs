@@ -28,7 +28,21 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? GraphApiVersion;
         /// <summary>
-        /// The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        /// A list of Login Scopes provided by this Authentication Provider.
+        /// 
+        /// &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of scopes that should be requested as part of Facebook Login authentication.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        /// 
+        /// 
+        /// `login_scopes` - (Optional) The list of Login scopes that should be requested as part of Microsoft Account authentication.
         /// </summary>
         public readonly ImmutableArray<string> LoginScopes;
 
