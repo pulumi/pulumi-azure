@@ -4,10 +4,10 @@
     "dependencies": {
         "@pulumi/pulumi": "^3.0.0",
         "mime-types": "^2.1.19",
-        "@pulumi/azure": "^4.0.0"
+        "@pulumi/azure": "^5.0.0"
     },
     "devDependencies": {
-        "@types/node": "^10.0.0"
+        "@types/node": "^18.0.0"
     },
     "license": "Apache 2.0"
 }
