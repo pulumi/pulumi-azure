@@ -20,7 +20,7 @@ let networkInterface = new azure.network.NetworkInterface(name, {
     ipConfigurations: [{
         name: "webserveripcfg",
         subnetId: network.subnets[0].id,
-        privateIpAddressAllocation: "dynamic",
+        privateIpAddressAllocation: "Dynamic",
     }],
 });
 
