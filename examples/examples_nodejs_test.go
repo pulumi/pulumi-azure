@@ -31,10 +31,7 @@ func TestAccMultiCallback(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "multi-callback-all"),
-			// Removed until the next release after 1.4.0,
-			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
-			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
 		})
@@ -72,11 +69,8 @@ func TestAccAciVolumeMount(t *testing.T) {
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "aci-volume-mount"),
-			// TODO: Turn this back on after upstream version v3.6.0.
-			// Upstream added a new property to one of the resources in the test, which causes the test to fail when
-			// RunUpdateTest == true.
-			RunUpdateTest: false,
+			Dir:           filepath.Join(getCwd(t), "aci-volume-mount"),
+			RunUpdateTest: true,
 		})
 
 	integration.ProgramTest(t, &test)
@@ -107,17 +101,15 @@ func TestAccTable(t *testing.T) {
 func TestAccServicebusMigration(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "servicebus-migration-test"),
-			// Removed until the next release after 1.4.0,
-			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
-			// RunUpdateTest: true,
-			//EditDirs: []integration.EditDir{
-			//	{
-			//		Dir:             "step2",
-			//		Additive:        true,
-			//		ExpectNoChanges: true,
-			//	},
-			//},
+			Dir:           filepath.Join(getCwd(t), "servicebus-migration-test"),
+			RunUpdateTest: true,
+			EditDirs: []integration.EditDir{
+				{
+					Dir:             "step2",
+					Additive:        true,
+					ExpectNoChanges: true,
+				},
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -201,7 +193,6 @@ func TestAccNetwork_OIDC(t *testing.T) {
 }
 
 func TestAccWebserver(t *testing.T) {
-	t.Skip("Skipping until v2.80.0 release comes out upstream")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                  filepath.Join(getCwd(t), "webserver"),
@@ -216,8 +207,6 @@ func TestAccTopic(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "topic"),
-			// Removed until the next release after 1.4.0,
-			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
 			// RunUpdateTest: true,
 		})
 
@@ -245,7 +234,8 @@ func TestAccQueue(t *testing.T) {
 }
 
 func TestAccIot(t *testing.T) {
-	t.Skip("Temp Skipping as part of Pulumi May4th Release")
+	t.Skip(`Fails with error: TypeError: sharedAccessPolicies.find is not a function
+		at /home/runner/work/pulumi-azure/pulumi-azure/sdk/nodejs/iot/zMixins.ts:142:131`)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "iot"),
@@ -291,11 +281,8 @@ func TestAccEventgrid(t *testing.T) {
 func TestAccEventhub(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir: filepath.Join(getCwd(t), "eventhub"),
-			// Removed until the next release after 1.4.0,
-			// see https://github.com/pulumi/pulumi-azure/pull/417#issuecomment-558227019
-			// RunUpdateTest: true,
-			// work around https://github.com/terraform-providers/terraform-provider-azurerm/issues/4598
+			Dir:                      filepath.Join(getCwd(t), "eventhub"),
+			RunUpdateTest:            true,
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
 		})
