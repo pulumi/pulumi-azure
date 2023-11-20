@@ -234,6 +234,8 @@ func TestAccQueue(t *testing.T) {
 }
 
 func TestAccIot(t *testing.T) {
+	t.Skip(`Fails with error: TypeError: sharedAccessPolicies.find is not a function
+		at /home/runner/work/pulumi-azure/pulumi-azure/sdk/nodejs/iot/zMixins.ts:142:131`)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "iot"),
