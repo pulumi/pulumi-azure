@@ -1,97 +1,8 @@
-From 4e8eca5b23c4e7744dc9455fd357b0075798c5d8 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 28 Aug 2023 14:57:22 -0700
 Subject: [PATCH 5/9] Modify resources
 
----
- .../advisor_recommendations_data_source.go    |  6 ++-
- .../analysis_services_server_resource.go      |  5 +-
- .../appservice/helpers/function_app_schema.go |  3 +-
- .../linux_function_app_slot_resource_test.go  | 13 +++++-
- .../automation/automation_runbook_resource.go |  4 +-
- .../automation_schedule_resource.go           |  8 ++--
- .../services/cdn/cdn_endpoint_resource.go     |  8 +++-
- internal/services/cdn/cdn_profile_resource.go |  5 +-
- internal/services/compute/image_resource.go   | 32 +++++++------
- .../compute/linux_virtual_machine_resource.go | 10 ++--
- .../services/compute/managed_disk_resource.go |  1 +
- .../services/compute/snapshot_resource.go     |  2 +-
- ...l_machine_data_disk_attachment_resource.go |  7 ++-
- .../windows_virtual_machine_resource.go       | 10 ++--
- .../containers/container_group_resource.go    | 10 ++--
- .../containers/container_registry_resource.go |  6 ---
- .../containers/kubernetes_cluster_resource.go |  2 +-
- internal/services/cosmos/common/schema.go     |  7 +--
- .../cosmos/cosmosdb_account_resource.go       | 12 +++--
- ...osmosdb_cassandra_cluster_resource_test.go | 11 +++++
- .../cosmos/cosmosdb_gremlin_graph_resource.go |  6 ++-
- .../services/dns/dns_caa_record_resource.go   |  5 +-
- .../eventhub/eventhub_namespace_resource.go   |  2 +-
- .../services/eventhub/eventhub_resource.go    |  3 +-
- .../firewall/firewall_policy_resource.go      |  7 +--
- .../hdinsight_hadoop_cluster_resource.go      |  8 ++--
- internal/services/hdinsight/schema.go         | 14 ++++--
- .../iotcentral_application_resource.go        |  2 +-
- internal/services/iothub/iothub_resource.go   | 13 ++++--
- .../key_vault_certificate_resource.go         |  5 +-
- .../legacy/virtual_machine_resource.go        | 15 ++++--
- .../virtual_machine_scale_set_resource.go     | 15 ++++--
- .../loadbalancer/loadbalancer_resource.go     |  4 +-
- .../loadbalancer/nat_pool_resource.go         |  3 +-
- .../loadbalancer/nat_rule_resource.go         |  3 +-
- .../services/loadbalancer/probe_resource.go   |  3 +-
- .../services/loadbalancer/rule_resource.go    |  3 +-
- ...ytics_datasource_windows_event_resource.go |  4 +-
- .../log_analytics_workspace_resource.go       |  5 +-
- ...on_account_batch_configuration_resource.go | 21 +++++----
- .../logic/logic_app_standard_resource.go      |  8 +++-
- .../services/logz/logz_monitor_resource.go    | 12 +++--
- .../media/media_services_account_resource.go  |  6 ++-
- .../monitor_autoscale_setting_resource.go     |  5 +-
- .../services/mssql/mssql_database_resource.go |  8 ++--
- .../mssql/mssql_elasticpool_resource.go       | 11 +++--
- ...l_server_security_alert_policy_resource.go |  5 +-
- .../services/mysql/mysql_server_resource.go   |  7 ++-
- .../network/application_gateway_resource.go   | 21 +++++----
- .../network/express_route_circuit_resource.go |  7 ++-
- .../network_security_group_resource.go        | 11 +++--
- .../network/network_security_rule_resource.go | 15 ++++--
- .../network/public_ip_prefix_resource.go      | 13 ++++--
- .../services/network/public_ip_resource.go    | 15 +++---
- internal/services/network/route_resource.go   |  5 +-
- .../services/network/route_table_resource.go  |  5 +-
- ...ual_network_gateway_connection_resource.go | 17 ++++---
- .../virtual_network_gateway_resource.go       |  8 ++--
- .../network/virtual_network_resource_test.go  | 46 +++++++++++++++++++
- .../notification_hub_namespace_resource.go    |  3 +-
- .../policy/policy_definition_resource.go      |  3 +-
- .../portal/portal_dashboard_resource_test.go  |  7 ++-
- .../postgres/postgresql_server_resource.go    | 12 +++--
- .../recovery_services_vault_resource.go       |  4 +-
- .../site_recovery_replicated_vm_resource.go   |  4 +-
- .../services/redis/redis_cache_resource.go    |  4 +-
- .../redis/redis_linked_server_resource.go     |  3 +-
- .../resource/template_deployment_resource.go  |  5 +-
- .../security_center_automation_resource.go    | 11 +++--
- ...erver_vulnerability_assessment_resource.go |  1 +
- .../servicebus_namespace_resource.go          |  3 +-
- .../servicebus/servicebus_queue_resource.go   | 14 ++++++
- .../servicebus_subscription_rule_resource.go  |  4 +-
- .../servicebus/servicebus_topic_resource.go   | 21 ++++++++-
- .../services/sql/sql_database_resource.go     | 18 ++++----
- .../sql/sql_managed_instance_resource.go      |  5 +-
- internal/services/sql/sql_server_resource.go  |  7 ++-
- .../storage/storage_account_data_source.go    | 20 +++++++-
- .../storage/storage_account_resource.go       | 19 +++++---
- .../storage_management_policy_resource.go     |  7 ++-
- ...sql_pool_security_alert_policy_resource.go |  5 +-
- ...orkspace_security_alert_policy_resource.go |  5 +-
- .../traffic_manager_profile_resource.go       |  8 +++-
- internal/services/web/app_service.go          | 18 +++++---
- .../app_service_certificate_order_resource.go |  3 +-
- internal/services/web/function_app.go         |  5 +-
- .../web/function_app_slot_resource.go         | 24 ++++++----
- 87 files changed, 542 insertions(+), 229 deletions(-)
 
 diff --git a/internal/services/advisor/advisor_recommendations_data_source.go b/internal/services/advisor/advisor_recommendations_data_source.go
 index 39c0506972..c4965dfbdb 100644
@@ -158,7 +69,7 @@ index 79292d9848..24cdfb37ba 100644
  						"site_config.0.application_stack.0.python_version",
  						"site_config.0.application_stack.0.java_version",
 diff --git a/internal/services/appservice/linux_function_app_slot_resource_test.go b/internal/services/appservice/linux_function_app_slot_resource_test.go
-index 38b2e1b1bf..0eb892d933 100644
+index e79b7af93d..5007dd743e 100644
 --- a/internal/services/appservice/linux_function_app_slot_resource_test.go
 +++ b/internal/services/appservice/linux_function_app_slot_resource_test.go
 @@ -992,11 +992,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
@@ -193,7 +104,7 @@ index 38b2e1b1bf..0eb892d933 100644
  		},
  		data.ImportStep(),
 diff --git a/internal/services/automation/automation_runbook_resource.go b/internal/services/automation/automation_runbook_resource.go
-index f3ffde67c4..673fefda85 100644
+index 5f4be4fda1..c3192c3534 100644
 --- a/internal/services/automation/automation_runbook_resource.go
 +++ b/internal/services/automation/automation_runbook_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -215,7 +126,7 @@ index f3ffde67c4..673fefda85 100644
  
  			"log_progress": {
 diff --git a/internal/services/automation/automation_schedule_resource.go b/internal/services/automation/automation_schedule_resource.go
-index e5666f0a74..341156d821 100644
+index ee91d677ed..752a5838cc 100644
 --- a/internal/services/automation/automation_schedule_resource.go
 +++ b/internal/services/automation/automation_schedule_resource.go
 @@ -6,6 +6,7 @@ package automation
@@ -546,10 +457,10 @@ index 12b8af4999..f83e49383a 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 75bda5ae02..c9fe4e22f3 100644
+index e64009a4d1..f6c0a5249d 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1129,7 +1129,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1130,7 +1130,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -712,7 +623,7 @@ index 4c348213e9..578b65b5ac 100644
  
  			"capacity": {
 diff --git a/internal/services/eventhub/eventhub_resource.go b/internal/services/eventhub/eventhub_resource.go
-index eef9511072..460708d064 100644
+index b3cb1e5f84..7cb1c42d70 100644
 --- a/internal/services/eventhub/eventhub_resource.go
 +++ b/internal/services/eventhub/eventhub_resource.go
 @@ -5,6 +5,7 @@ package eventhub
@@ -723,7 +634,7 @@ index eef9511072..460708d064 100644
  	"log"
  	"time"
  
-@@ -94,7 +95,7 @@ func resourceEventHub() *pluginsdk.Resource {
+@@ -93,7 +94,7 @@ func resourceEventHub() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(eventhubs.EncodingCaptureDescriptionAvro),
  								string(eventhubs.EncodingCaptureDescriptionAvroDeflate),
@@ -733,7 +644,7 @@ index eef9511072..460708d064 100644
  						"interval_in_seconds": {
  							Type:         pluginsdk.TypeInt,
 diff --git a/internal/services/firewall/firewall_policy_resource.go b/internal/services/firewall/firewall_policy_resource.go
-index 4834143d11..1fbb53dbb4 100644
+index 102a0874e1..9f30c6075f 100644
 --- a/internal/services/firewall/firewall_policy_resource.go
 +++ b/internal/services/firewall/firewall_policy_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -895,10 +806,10 @@ index 840abaa824..cfb3a0b5a7 100644
  									"reuse_key": {
  										Type:     pluginsdk.TypeBool,
 diff --git a/internal/services/legacy/virtual_machine_resource.go b/internal/services/legacy/virtual_machine_resource.go
-index 526b1244f5..57e25c1720 100644
+index 176e20bd1b..a2ff276230 100644
 --- a/internal/services/legacy/virtual_machine_resource.go
 +++ b/internal/services/legacy/virtual_machine_resource.go
-@@ -8,6 +8,7 @@ import (
+@@ -9,6 +9,7 @@ import (
  	"crypto/sha1"
  	"encoding/hex"
  	"fmt"
@@ -906,7 +817,7 @@ index 526b1244f5..57e25c1720 100644
  	"log"
  	"strings"
  	"time"
-@@ -183,7 +184,7 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -184,7 +185,7 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Windows_Client",
  					"Windows_Server",
@@ -915,7 +826,7 @@ index 526b1244f5..57e25c1720 100644
  			},
  
  			"vm_size": {
-@@ -249,7 +250,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -250,7 +251,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(compute.OperatingSystemTypesLinux),
  								string(compute.OperatingSystemTypesWindows),
@@ -925,7 +836,7 @@ index 526b1244f5..57e25c1720 100644
  						},
  
  						"name": {
-@@ -284,7 +286,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -285,7 +287,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  								string(compute.StorageAccountTypesPremiumLRS),
  								string(compute.StorageAccountTypesStandardLRS),
  								string(compute.StorageAccountTypesStandardSSDLRS),
@@ -935,7 +846,7 @@ index 526b1244f5..57e25c1720 100644
  						},
  
  						"image_uri": {
-@@ -358,7 +361,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -359,7 +362,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  								string(compute.StorageAccountTypesStandardLRS),
  								string(compute.StorageAccountTypesStandardSSDLRS),
  								string(compute.StorageAccountTypesUltraSSDLRS),
@@ -945,7 +856,7 @@ index 526b1244f5..57e25c1720 100644
  						},
  
  						"create_option": {
-@@ -505,7 +509,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
+@@ -506,7 +510,8 @@ func resourceVirtualMachine() *pluginsdk.Resource {
  										ValidateFunc: validation.StringInSlice([]string{
  											"HTTP",
  											"HTTPS",
@@ -1483,7 +1394,7 @@ index bbde139d1a..3e246bebd3 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index c48ec75b65..27eb4e5575 100644
+index c0ae34feae..5498f67f0b 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
 @@ -7,6 +7,8 @@ import (
@@ -1658,11 +1569,11 @@ index 668ca0a8d1..a5531c00ba 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_rule_resource.go b/internal/services/network/network_security_rule_resource.go
-index 524468a0d8..78a286fbfd 100644
+index e9a770c241..4191df28bf 100644
 --- a/internal/services/network/network_security_rule_resource.go
 +++ b/internal/services/network/network_security_rule_resource.go
 @@ -14,7 +14,9 @@ import (
- 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-04-01/securityrules"
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-06-01/securityrules"
  	"github.com/hashicorp/terraform-provider-azurerm/helpers/tf"
  	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
@@ -1754,7 +1665,7 @@ index f0f001ff61..d909b00794 100644
  
  			"zones": commonschema.ZonesMultipleOptionalForceNew(),
 diff --git a/internal/services/network/public_ip_resource.go b/internal/services/network/public_ip_resource.go
-index fa1c7c8eb9..8b150ba955 100644
+index 1722882bf8..a557269a6e 100644
 --- a/internal/services/network/public_ip_resource.go
 +++ b/internal/services/network/public_ip_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1766,7 +1677,7 @@ index fa1c7c8eb9..8b150ba955 100644
  	"log"
  	"strings"
  	"time"
-@@ -87,14 +89,15 @@ func resourcePublicIp() *pluginsdk.Resource {
+@@ -88,14 +90,15 @@ func resourcePublicIp() *pluginsdk.Resource {
  			"edge_zone": commonschema.EdgeZoneOptionalForceNew(),
  
  			"ip_version": {
@@ -1787,7 +1698,7 @@ index fa1c7c8eb9..8b150ba955 100644
  			},
  
  			"sku": {
-@@ -105,7 +108,7 @@ func resourcePublicIp() *pluginsdk.Resource {
+@@ -106,7 +109,7 @@ func resourcePublicIp() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(network.PublicIPAddressSkuNameBasic),
  					string(network.PublicIPAddressSkuNameStandard),
@@ -1797,7 +1708,7 @@ index fa1c7c8eb9..8b150ba955 100644
  
  			"sku_tier": {
 diff --git a/internal/services/network/route_resource.go b/internal/services/network/route_resource.go
-index f4a0909bd2..603b568b09 100644
+index 73074a0b44..b9cb038d7b 100644
 --- a/internal/services/network/route_resource.go
 +++ b/internal/services/network/route_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -1820,7 +1731,7 @@ index f4a0909bd2..603b568b09 100644
  
  			"next_hop_in_ip_address": {
 diff --git a/internal/services/network/route_table_resource.go b/internal/services/network/route_table_resource.go
-index c18857418f..45997207b9 100644
+index 0a66c4b7c8..6a6c2912a2 100644
 --- a/internal/services/network/route_table_resource.go
 +++ b/internal/services/network/route_table_resource.go
 @@ -5,6 +5,8 @@ package network
@@ -2124,7 +2035,7 @@ index e138d3b137..8977222901 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index 55a2040979..d9067bf24c 100644
+index 891ee976e3..0cfa2a2b8d 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -2168,7 +2079,7 @@ index 531538f052..614e6bec69 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index ca6538e790..ef88f2c454 100644
+index 0dffb2b669..eaeb7d328c 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2614,7 +2525,7 @@ index d95e1d0bc9..9a853ede4b 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 0927a1e08c..03e29e88f7 100644
+index 247f846e54..8f470d665e 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -6,6 +6,8 @@ package storage
@@ -2679,7 +2590,7 @@ index 0927a1e08c..03e29e88f7 100644
  							Set: pluginsdk.HashString,
  						},
 diff --git a/internal/services/storage/storage_management_policy_resource.go b/internal/services/storage/storage_management_policy_resource.go
-index 52d609bd7b..924aa10ae8 100644
+index c90910e01c..1e3e9900e2 100644
 --- a/internal/services/storage/storage_management_policy_resource.go
 +++ b/internal/services/storage/storage_management_policy_resource.go
 @@ -138,10 +138,9 @@ func resourceStorageManagementPolicy() *pluginsdk.Resource {
@@ -2932,6 +2843,3 @@ index da8c25a5b0..fa2bfff38e 100644
  		},
  	}
  
--- 
-2.39.3 (Apple Git-145)
-

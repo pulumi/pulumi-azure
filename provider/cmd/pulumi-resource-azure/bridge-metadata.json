@@ -7340,6 +7340,9 @@
                                             "destination_urls": {
                                                 "maxItemsOne": false
                                             },
+                                            "http_headers": {
+                                                "maxItemsOne": false
+                                            },
                                             "protocols": {
                                                 "maxItemsOne": false
                                             },
@@ -31059,7 +31062,9 @@
                 "instrumentationKey": "instrumentation_key"
             },
             "azure:apimanagement/LoggerEventhub:LoggerEventhub": {
-                "connectionString": "connection_string"
+                "connectionString": "connection_string",
+                "endpointUri": "endpoint_uri",
+                "userAssignedIdentityClientId": "user_assigned_identity_client_id"
             },
             "azure:apimanagement/NamedValueValueFromKeyVault:NamedValueValueFromKeyVault": {
                 "identityClientId": "identity_client_id",
@@ -35300,6 +35305,7 @@
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "dailyMemoryTimeQuota": "daily_memory_time_quota",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "functionsExtensionVersion": "functions_extension_version",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
@@ -35318,7 +35324,8 @@
                 "storageAccountName": "storage_account_name",
                 "storageKeyVaultSecretId": "storage_key_vault_secret_id",
                 "storageUsesManagedIdentity": "storage_uses_managed_identity",
-                "virtualNetworkSubnetId": "virtual_network_subnet_id"
+                "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled"
             },
             "azure:appservice/getLinuxFunctionAppAuthSetting:getLinuxFunctionAppAuthSetting": {
                 "activeDirectories": "active_directory",
@@ -35585,6 +35592,7 @@
                 "connectionStrings": "connection_string",
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
                 "identities": "identity",
@@ -35600,7 +35608,8 @@
                 "siteCredentials": "site_credential",
                 "stickySettings": "sticky_settings",
                 "storageAccounts": "storage_account",
-                "virtualNetworkSubnetId": "virtual_network_subnet_id"
+                "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled"
             },
             "azure:appservice/getLinuxWebAppAuthSetting:getLinuxWebAppAuthSetting": {
                 "activeDirectories": "active_directory",
@@ -35925,6 +35934,7 @@
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "dailyMemoryTimeQuota": "daily_memory_time_quota",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "functionsExtensionVersion": "functions_extension_version",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
@@ -35943,7 +35953,8 @@
                 "storageAccountName": "storage_account_name",
                 "storageKeyVaultSecretId": "storage_key_vault_secret_id",
                 "storageUsesManagedIdentity": "storage_uses_managed_identity",
-                "virtualNetworkSubnetId": "virtual_network_subnet_id"
+                "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled"
             },
             "azure:appservice/getWindowsFunctionAppAuthSetting:getWindowsFunctionAppAuthSetting": {
                 "activeDirectories": "active_directory",
@@ -36198,6 +36209,7 @@
                 "connectionStrings": "connection_string",
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
                 "identities": "identity",
@@ -36212,7 +36224,8 @@
                 "siteCredentials": "site_credential",
                 "stickySettings": "sticky_settings",
                 "storageAccounts": "storage_account",
-                "virtualNetworkSubnetId": "virtual_network_subnet_id"
+                "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled"
             },
             "azure:appservice/getWindowsWebAppAuthSetting:getWindowsWebAppAuthSetting": {
                 "activeDirectories": "active_directory",
@@ -36549,6 +36562,7 @@
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "dailyMemoryTimeQuota": "daily_memory_time_quota",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "functionsExtensionVersion": "functions_extension_version",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
@@ -36569,6 +36583,7 @@
                 "storageKeyVaultSecretId": "storage_key_vault_secret_id",
                 "storageUsesManagedIdentity": "storage_uses_managed_identity",
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled",
                 "zipDeployFile": "zip_deploy_file"
             },
             "azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot": {
@@ -36584,6 +36599,7 @@
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "dailyMemoryTimeQuota": "daily_memory_time_quota",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "functionAppId": "function_app_id",
                 "functionsExtensionVersion": "functions_extension_version",
                 "hostingEnvironmentId": "hosting_environment_id",
@@ -36602,7 +36618,8 @@
                 "storageAccounts": "storage_account",
                 "storageKeyVaultSecretId": "storage_key_vault_secret_id",
                 "storageUsesManagedIdentity": "storage_uses_managed_identity",
-                "virtualNetworkSubnetId": "virtual_network_subnet_id"
+                "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled"
             },
             "azure:appservice/linuxWebApp:LinuxWebApp": {
                 "appSettings": "app_settings",
@@ -36615,6 +36632,7 @@
                 "connectionStrings": "connection_string",
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
                 "keyVaultReferenceIdentityId": "key_vault_reference_identity_id",
@@ -36630,6 +36648,7 @@
                 "stickySettings": "sticky_settings",
                 "storageAccounts": "storage_account",
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled",
                 "zipDeployFile": "zip_deploy_file"
             },
             "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot": {
@@ -36645,6 +36664,7 @@
                 "connectionStrings": "connection_string",
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
                 "keyVaultReferenceIdentityId": "key_vault_reference_identity_id",
@@ -36658,6 +36678,7 @@
                 "siteCredentials": "site_credential",
                 "storageAccounts": "storage_account",
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled",
                 "zipDeployFile": "zip_deploy_file"
             },
             "azure:appservice/managedCertificate:ManagedCertificate": {
@@ -36793,6 +36814,7 @@
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "dailyMemoryTimeQuota": "daily_memory_time_quota",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "functionsExtensionVersion": "functions_extension_version",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
@@ -36813,6 +36835,7 @@
                 "storageKeyVaultSecretId": "storage_key_vault_secret_id",
                 "storageUsesManagedIdentity": "storage_uses_managed_identity",
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled",
                 "zipDeployFile": "zip_deploy_file"
             },
             "azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot": {
@@ -36828,6 +36851,7 @@
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "dailyMemoryTimeQuota": "daily_memory_time_quota",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "functionAppId": "function_app_id",
                 "functionsExtensionVersion": "functions_extension_version",
                 "hostingEnvironmentId": "hosting_environment_id",
@@ -36846,7 +36870,8 @@
                 "storageAccounts": "storage_account",
                 "storageKeyVaultSecretId": "storage_key_vault_secret_id",
                 "storageUsesManagedIdentity": "storage_uses_managed_identity",
-                "virtualNetworkSubnetId": "virtual_network_subnet_id"
+                "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled"
             },
             "azure:appservice/windowsWebApp:WindowsWebApp": {
                 "appSettings": "app_settings",
@@ -36859,6 +36884,7 @@
                 "connectionStrings": "connection_string",
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
                 "keyVaultReferenceIdentityId": "key_vault_reference_identity_id",
@@ -36874,6 +36900,7 @@
                 "stickySettings": "sticky_settings",
                 "storageAccounts": "storage_account",
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled",
                 "zipDeployFile": "zip_deploy_file"
             },
             "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot": {
@@ -36888,6 +36915,7 @@
                 "connectionStrings": "connection_string",
                 "customDomainVerificationId": "custom_domain_verification_id",
                 "defaultHostname": "default_hostname",
+                "ftpPublishBasicAuthenticationEnabled": "ftp_publish_basic_authentication_enabled",
                 "hostingEnvironmentId": "hosting_environment_id",
                 "httpsOnly": "https_only",
                 "keyVaultReferenceIdentityId": "key_vault_reference_identity_id",
@@ -36901,6 +36929,7 @@
                 "siteCredentials": "site_credential",
                 "storageAccounts": "storage_account",
                 "virtualNetworkSubnetId": "virtual_network_subnet_id",
+                "webdeployPublishBasicAuthenticationEnabled": "webdeploy_publish_basic_authentication_enabled",
                 "zipDeployFile": "zip_deploy_file"
             },
             "azure:arc/ResourceBridgeApplianceIdentity:ResourceBridgeApplianceIdentity": {
@@ -38800,7 +38829,8 @@
             },
             "azure:cognitive/deployment:Deployment": {
                 "cognitiveAccountId": "cognitive_account_id",
-                "raiPolicyName": "rai_policy_name"
+                "raiPolicyName": "rai_policy_name",
+                "versionUpgradeOption": "version_upgrade_option"
             },
             "azure:cognitive/getAccount:getAccount": {
                 "primaryAccessKey": "primary_access_key",
@@ -50777,6 +50807,7 @@
                 "destinationFqdnTags": "destination_fqdn_tags",
                 "destinationFqdns": "destination_fqdns",
                 "destinationUrls": "destination_urls",
+                "httpHeaders": "http_headers",
                 "sourceAddresses": "source_addresses",
                 "sourceIpGroups": "source_ip_groups",
                 "terminateTls": "terminate_tls",

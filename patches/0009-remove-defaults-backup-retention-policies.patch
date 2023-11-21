@@ -1,15 +1,12 @@
-From 03903db0e37475e7c20a8b646c418d07b08302d8 Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Ramon Quitales <ramon@pulumi.com>
 Date: Wed, 9 Aug 2023 13:05:13 -1000
 Subject: [PATCH 9/9] remove defaults backup retention policies
 
 Fixes #1318
----
- .../services/recoveryservices/backup_policy_vm_resource.go  | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/internal/services/recoveryservices/backup_policy_vm_resource.go b/internal/services/recoveryservices/backup_policy_vm_resource.go
-index 097e3ab2f0..313190d12c 100644
+index 722223dc10..c42565ae0b 100644
 --- a/internal/services/recoveryservices/backup_policy_vm_resource.go
 +++ b/internal/services/recoveryservices/backup_policy_vm_resource.go
 @@ -1072,10 +1072,11 @@ func resourceBackupProtectionPolicyVMSchema() map[string]*pluginsdk.Schema {
@@ -38,6 +35,3 @@ index 097e3ab2f0..313190d12c 100644
  						ConflictsWith: []string{
  							"retention_yearly.0.weeks",
  							"retention_yearly.0.weekdays",
--- 
-2.39.3 (Apple Git-145)
-
