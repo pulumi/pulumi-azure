@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages attaching a Disk to a Virtual Machine.
@@ -295,12 +294,6 @@ func (i *DataDiskAttachment) ToDataDiskAttachmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskAttachmentOutput)
 }
 
-func (i *DataDiskAttachment) ToOutput(ctx context.Context) pulumix.Output[*DataDiskAttachment] {
-	return pulumix.Output[*DataDiskAttachment]{
-		OutputState: i.ToDataDiskAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataDiskAttachmentArrayInput is an input type that accepts DataDiskAttachmentArray and DataDiskAttachmentArrayOutput values.
 // You can construct a concrete instance of `DataDiskAttachmentArrayInput` via:
 //
@@ -324,12 +317,6 @@ func (i DataDiskAttachmentArray) ToDataDiskAttachmentArrayOutput() DataDiskAttac
 
 func (i DataDiskAttachmentArray) ToDataDiskAttachmentArrayOutputWithContext(ctx context.Context) DataDiskAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskAttachmentArrayOutput)
-}
-
-func (i DataDiskAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataDiskAttachment] {
-	return pulumix.Output[[]*DataDiskAttachment]{
-		OutputState: i.ToDataDiskAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataDiskAttachmentMapInput is an input type that accepts DataDiskAttachmentMap and DataDiskAttachmentMapOutput values.
@@ -357,12 +344,6 @@ func (i DataDiskAttachmentMap) ToDataDiskAttachmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataDiskAttachmentMapOutput)
 }
 
-func (i DataDiskAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataDiskAttachment] {
-	return pulumix.Output[map[string]*DataDiskAttachment]{
-		OutputState: i.ToDataDiskAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataDiskAttachmentOutput struct{ *pulumi.OutputState }
 
 func (DataDiskAttachmentOutput) ElementType() reflect.Type {
@@ -375,12 +356,6 @@ func (o DataDiskAttachmentOutput) ToDataDiskAttachmentOutput() DataDiskAttachmen
 
 func (o DataDiskAttachmentOutput) ToDataDiskAttachmentOutputWithContext(ctx context.Context) DataDiskAttachmentOutput {
 	return o
-}
-
-func (o DataDiskAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*DataDiskAttachment] {
-	return pulumix.Output[*DataDiskAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -427,12 +402,6 @@ func (o DataDiskAttachmentArrayOutput) ToDataDiskAttachmentArrayOutputWithContex
 	return o
 }
 
-func (o DataDiskAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataDiskAttachment] {
-	return pulumix.Output[[]*DataDiskAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataDiskAttachmentArrayOutput) Index(i pulumi.IntInput) DataDiskAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataDiskAttachment {
 		return vs[0].([]*DataDiskAttachment)[vs[1].(int)]
@@ -451,12 +420,6 @@ func (o DataDiskAttachmentMapOutput) ToDataDiskAttachmentMapOutput() DataDiskAtt
 
 func (o DataDiskAttachmentMapOutput) ToDataDiskAttachmentMapOutputWithContext(ctx context.Context) DataDiskAttachmentMapOutput {
 	return o
-}
-
-func (o DataDiskAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataDiskAttachment] {
-	return pulumix.Output[map[string]*DataDiskAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataDiskAttachmentMapOutput) MapIndex(k pulumi.StringInput) DataDiskAttachmentOutput {

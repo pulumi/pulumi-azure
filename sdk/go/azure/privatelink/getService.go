@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Private Link Service.
@@ -122,12 +121,6 @@ func (o GetServiceResultOutput) ToGetServiceResultOutput() GetServiceResultOutpu
 
 func (o GetServiceResultOutput) ToGetServiceResultOutputWithContext(ctx context.Context) GetServiceResultOutput {
 	return o
-}
-
-func (o GetServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceResult] {
-	return pulumix.Output[GetServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.

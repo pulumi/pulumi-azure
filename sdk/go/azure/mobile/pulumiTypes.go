@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToNetworkAt
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput)
 }
 
-func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
 	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPtrType) ToNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput)
 }
 
-func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput struct{ *pulumi.OutputState }
 
 func (NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToNetwork
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *NetworkAttachedDataNetworkNetworkAddressPortTranslation {
 		return &v
 	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput)
-}
-
-func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
@@ -213,12 +194,6 @@ func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) ToNetw
 
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput {
 	return o
-}
-
-func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) Elem() NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
@@ -338,12 +313,6 @@ func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput)
 }
 
-func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
 	return i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(context.Background())
 }
@@ -385,12 +354,6 @@ func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput)
 }
 
-func (i *networkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: i.ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput struct{ *pulumi.OutputState }
 
 func (NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ElementType() reflect.Type {
@@ -415,12 +378,6 @@ func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) 
 	}).(NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput)
 }
 
-func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the maximum port number.
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange) *int { return v.Maximum }).(pulumi.IntPtrOutput)
@@ -443,12 +400,6 @@ func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutpu
 
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) ToNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutputWithContext(ctx context.Context) NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput {
 	return o
-}
-
-func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[*NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrOutput) Elem() NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
@@ -518,12 +469,6 @@ func (i NetworkPacketCoreControlPlaneIdentityArgs) ToNetworkPacketCoreControlPla
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneIdentityOutput)
 }
 
-func (i NetworkPacketCoreControlPlaneIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[NetworkPacketCoreControlPlaneIdentity]{
-		OutputState: i.ToNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkPacketCoreControlPlaneIdentityArgs) ToNetworkPacketCoreControlPlaneIdentityPtrOutput() NetworkPacketCoreControlPlaneIdentityPtrOutput {
 	return i.ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(context.Background())
 }
@@ -565,12 +510,6 @@ func (i *networkPacketCoreControlPlaneIdentityPtrType) ToNetworkPacketCoreContro
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneIdentityPtrOutput)
 }
 
-func (i *networkPacketCoreControlPlaneIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[*NetworkPacketCoreControlPlaneIdentity]{
-		OutputState: i.ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkPacketCoreControlPlaneIdentityOutput struct{ *pulumi.OutputState }
 
 func (NetworkPacketCoreControlPlaneIdentityOutput) ElementType() reflect.Type {
@@ -595,12 +534,6 @@ func (o NetworkPacketCoreControlPlaneIdentityOutput) ToNetworkPacketCoreControlP
 	}).(NetworkPacketCoreControlPlaneIdentityPtrOutput)
 }
 
-func (o NetworkPacketCoreControlPlaneIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[NetworkPacketCoreControlPlaneIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of the IDs for User Assigned Managed Identity resources to be assigned.
 func (o NetworkPacketCoreControlPlaneIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkPacketCoreControlPlaneIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -623,12 +556,6 @@ func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) ToNetworkPacketCoreContr
 
 func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) ToNetworkPacketCoreControlPlaneIdentityPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneIdentityPtrOutput {
 	return o
-}
-
-func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[*NetworkPacketCoreControlPlaneIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkPacketCoreControlPlaneIdentityPtrOutput) Elem() NetworkPacketCoreControlPlaneIdentityOutput {
@@ -698,12 +625,6 @@ func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToNetworkPacket
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput)
 }
 
-func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[NetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: i.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
 	return i.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(context.Background())
 }
@@ -745,12 +666,6 @@ func (i *networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType) ToNetworkPa
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput)
 }
 
-func (i *networkPacketCoreControlPlaneLocalDiagnosticsAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[*NetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: i.ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput struct{ *pulumi.OutputState }
 
 func (NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ElementType() reflect.Type {
@@ -773,12 +688,6 @@ func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToNetworkPack
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCoreControlPlaneLocalDiagnosticsAccess) *NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
 		return &v
 	}).(NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput)
-}
-
-func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[NetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 // How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
@@ -805,12 +714,6 @@ func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) ToNetworkP
 
 func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) ToNetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput {
 	return o
-}
-
-func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[*NetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkPacketCoreControlPlaneLocalDiagnosticsAccessPtrOutput) Elem() NetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
@@ -896,12 +799,6 @@ func (i NetworkPacketCoreControlPlanePlatformArgs) ToNetworkPacketCoreControlPla
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlanePlatformOutput)
 }
 
-func (i NetworkPacketCoreControlPlanePlatformArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[NetworkPacketCoreControlPlanePlatform]{
-		OutputState: i.ToNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkPacketCoreControlPlanePlatformArgs) ToNetworkPacketCoreControlPlanePlatformPtrOutput() NetworkPacketCoreControlPlanePlatformPtrOutput {
 	return i.ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(context.Background())
 }
@@ -943,12 +840,6 @@ func (i *networkPacketCoreControlPlanePlatformPtrType) ToNetworkPacketCoreContro
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCoreControlPlanePlatformPtrOutput)
 }
 
-func (i *networkPacketCoreControlPlanePlatformPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[*NetworkPacketCoreControlPlanePlatform]{
-		OutputState: i.ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkPacketCoreControlPlanePlatformOutput struct{ *pulumi.OutputState }
 
 func (NetworkPacketCoreControlPlanePlatformOutput) ElementType() reflect.Type {
@@ -971,12 +862,6 @@ func (o NetworkPacketCoreControlPlanePlatformOutput) ToNetworkPacketCoreControlP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPacketCoreControlPlanePlatform) *NetworkPacketCoreControlPlanePlatform {
 		return &v
 	}).(NetworkPacketCoreControlPlanePlatformPtrOutput)
-}
-
-func (o NetworkPacketCoreControlPlanePlatformOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[NetworkPacketCoreControlPlanePlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Azure Arc connected cluster where the packet core is deployed.
@@ -1018,12 +903,6 @@ func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ToNetworkPacketCoreContr
 
 func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ToNetworkPacketCoreControlPlanePlatformPtrOutputWithContext(ctx context.Context) NetworkPacketCoreControlPlanePlatformPtrOutput {
 	return o
-}
-
-func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[*NetworkPacketCoreControlPlanePlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkPacketCoreControlPlanePlatformPtrOutput) Elem() NetworkPacketCoreControlPlanePlatformOutput {
@@ -1137,12 +1016,6 @@ func (i NetworkServicePccRuleArgs) ToNetworkServicePccRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleOutput)
 }
 
-func (i NetworkServicePccRuleArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRule] {
-	return pulumix.Output[NetworkServicePccRule]{
-		OutputState: i.ToNetworkServicePccRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkServicePccRuleArrayInput is an input type that accepts NetworkServicePccRuleArray and NetworkServicePccRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkServicePccRuleArrayInput` via:
 //
@@ -1168,12 +1041,6 @@ func (i NetworkServicePccRuleArray) ToNetworkServicePccRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleArrayOutput)
 }
 
-func (i NetworkServicePccRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkServicePccRule] {
-	return pulumix.Output[[]NetworkServicePccRule]{
-		OutputState: i.ToNetworkServicePccRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServicePccRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkServicePccRuleOutput) ElementType() reflect.Type {
@@ -1186,12 +1053,6 @@ func (o NetworkServicePccRuleOutput) ToNetworkServicePccRuleOutput() NetworkServ
 
 func (o NetworkServicePccRuleOutput) ToNetworkServicePccRuleOutputWithContext(ctx context.Context) NetworkServicePccRuleOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRule] {
-	return pulumix.Output[NetworkServicePccRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
@@ -1233,12 +1094,6 @@ func (o NetworkServicePccRuleArrayOutput) ToNetworkServicePccRuleArrayOutput() N
 
 func (o NetworkServicePccRuleArrayOutput) ToNetworkServicePccRuleArrayOutputWithContext(ctx context.Context) NetworkServicePccRuleArrayOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkServicePccRule] {
-	return pulumix.Output[[]NetworkServicePccRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServicePccRuleArrayOutput) Index(i pulumi.IntInput) NetworkServicePccRuleOutput {
@@ -1300,12 +1155,6 @@ func (i NetworkServicePccRuleQosPolicyArgs) ToNetworkServicePccRuleQosPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleQosPolicyOutput)
 }
 
-func (i NetworkServicePccRuleQosPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[NetworkServicePccRuleQosPolicy]{
-		OutputState: i.ToNetworkServicePccRuleQosPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkServicePccRuleQosPolicyArgs) ToNetworkServicePccRuleQosPolicyPtrOutput() NetworkServicePccRuleQosPolicyPtrOutput {
 	return i.ToNetworkServicePccRuleQosPolicyPtrOutputWithContext(context.Background())
 }
@@ -1347,12 +1196,6 @@ func (i *networkServicePccRuleQosPolicyPtrType) ToNetworkServicePccRuleQosPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleQosPolicyPtrOutput)
 }
 
-func (i *networkServicePccRuleQosPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[*NetworkServicePccRuleQosPolicy]{
-		OutputState: i.ToNetworkServicePccRuleQosPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServicePccRuleQosPolicyOutput struct{ *pulumi.OutputState }
 
 func (NetworkServicePccRuleQosPolicyOutput) ElementType() reflect.Type {
@@ -1375,12 +1218,6 @@ func (o NetworkServicePccRuleQosPolicyOutput) ToNetworkServicePccRuleQosPolicyPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkServicePccRuleQosPolicy) *NetworkServicePccRuleQosPolicy {
 		return &v
 	}).(NetworkServicePccRuleQosPolicyPtrOutput)
-}
-
-func (o NetworkServicePccRuleQosPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[NetworkServicePccRuleQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -1429,12 +1266,6 @@ func (o NetworkServicePccRuleQosPolicyPtrOutput) ToNetworkServicePccRuleQosPolic
 
 func (o NetworkServicePccRuleQosPolicyPtrOutput) ToNetworkServicePccRuleQosPolicyPtrOutputWithContext(ctx context.Context) NetworkServicePccRuleQosPolicyPtrOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleQosPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[*NetworkServicePccRuleQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServicePccRuleQosPolicyPtrOutput) Elem() NetworkServicePccRuleQosPolicyOutput {
@@ -1544,12 +1375,6 @@ func (i NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs) ToNetworkServicePcc
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput)
 }
 
-func (i NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[NetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: i.ToNetworkServicePccRuleQosPolicyGuaranteedBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs) ToNetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput() NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput {
 	return i.ToNetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutputWithContext(context.Background())
 }
@@ -1591,12 +1416,6 @@ func (i *networkServicePccRuleQosPolicyGuaranteedBitRatePtrType) ToNetworkServic
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput)
 }
 
-func (i *networkServicePccRuleQosPolicyGuaranteedBitRatePtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[*NetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: i.ToNetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput struct{ *pulumi.OutputState }
 
 func (NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ElementType() reflect.Type {
@@ -1621,12 +1440,6 @@ func (o NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ToNetworkServiceP
 	}).(NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput)
 }
 
-func (o NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[NetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
 func (o NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) Downlink() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkServicePccRuleQosPolicyGuaranteedBitRate) string { return v.Downlink }).(pulumi.StringOutput)
@@ -1649,12 +1462,6 @@ func (o NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput) ToNetworkServi
 
 func (o NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput) ToNetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutputWithContext(ctx context.Context) NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[*NetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrOutput) Elem() NetworkServicePccRuleQosPolicyGuaranteedBitRateOutput {
@@ -1724,12 +1531,6 @@ func (i NetworkServicePccRuleQosPolicyMaximumBitRateArgs) ToNetworkServicePccRul
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleQosPolicyMaximumBitRateOutput)
 }
 
-func (i NetworkServicePccRuleQosPolicyMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[NetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: i.ToNetworkServicePccRuleQosPolicyMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkServicePccRuleQosPolicyMaximumBitRateArgs) ToNetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput() NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput {
 	return i.ToNetworkServicePccRuleQosPolicyMaximumBitRatePtrOutputWithContext(context.Background())
 }
@@ -1771,12 +1572,6 @@ func (i *networkServicePccRuleQosPolicyMaximumBitRatePtrType) ToNetworkServicePc
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput)
 }
 
-func (i *networkServicePccRuleQosPolicyMaximumBitRatePtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[*NetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: i.ToNetworkServicePccRuleQosPolicyMaximumBitRatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServicePccRuleQosPolicyMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (NetworkServicePccRuleQosPolicyMaximumBitRateOutput) ElementType() reflect.Type {
@@ -1801,12 +1596,6 @@ func (o NetworkServicePccRuleQosPolicyMaximumBitRateOutput) ToNetworkServicePccR
 	}).(NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput)
 }
 
-func (o NetworkServicePccRuleQosPolicyMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[NetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
 func (o NetworkServicePccRuleQosPolicyMaximumBitRateOutput) Downlink() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkServicePccRuleQosPolicyMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
@@ -1829,12 +1618,6 @@ func (o NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput) ToNetworkServiceP
 
 func (o NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput) ToNetworkServicePccRuleQosPolicyMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[*NetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServicePccRuleQosPolicyMaximumBitRatePtrOutput) Elem() NetworkServicePccRuleQosPolicyMaximumBitRateOutput {
@@ -1916,12 +1699,6 @@ func (i NetworkServicePccRuleServiceDataFlowTemplateArgs) ToNetworkServicePccRul
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleServiceDataFlowTemplateOutput)
 }
 
-func (i NetworkServicePccRuleServiceDataFlowTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[NetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: i.ToNetworkServicePccRuleServiceDataFlowTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkServicePccRuleServiceDataFlowTemplateArrayInput is an input type that accepts NetworkServicePccRuleServiceDataFlowTemplateArray and NetworkServicePccRuleServiceDataFlowTemplateArrayOutput values.
 // You can construct a concrete instance of `NetworkServicePccRuleServiceDataFlowTemplateArrayInput` via:
 //
@@ -1947,12 +1724,6 @@ func (i NetworkServicePccRuleServiceDataFlowTemplateArray) ToNetworkServicePccRu
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServicePccRuleServiceDataFlowTemplateArrayOutput)
 }
 
-func (i NetworkServicePccRuleServiceDataFlowTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[[]NetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: i.ToNetworkServicePccRuleServiceDataFlowTemplateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServicePccRuleServiceDataFlowTemplateOutput struct{ *pulumi.OutputState }
 
 func (NetworkServicePccRuleServiceDataFlowTemplateOutput) ElementType() reflect.Type {
@@ -1965,12 +1736,6 @@ func (o NetworkServicePccRuleServiceDataFlowTemplateOutput) ToNetworkServicePccR
 
 func (o NetworkServicePccRuleServiceDataFlowTemplateOutput) ToNetworkServicePccRuleServiceDataFlowTemplateOutputWithContext(ctx context.Context) NetworkServicePccRuleServiceDataFlowTemplateOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleServiceDataFlowTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[NetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the direction of this flow. Possible values are `Uplink`, `Downlink` and `Bidirectional`.
@@ -2010,12 +1775,6 @@ func (o NetworkServicePccRuleServiceDataFlowTemplateArrayOutput) ToNetworkServic
 
 func (o NetworkServicePccRuleServiceDataFlowTemplateArrayOutput) ToNetworkServicePccRuleServiceDataFlowTemplateArrayOutputWithContext(ctx context.Context) NetworkServicePccRuleServiceDataFlowTemplateArrayOutput {
 	return o
-}
-
-func (o NetworkServicePccRuleServiceDataFlowTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[[]NetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServicePccRuleServiceDataFlowTemplateArrayOutput) Index(i pulumi.IntInput) NetworkServicePccRuleServiceDataFlowTemplateOutput {
@@ -2073,12 +1832,6 @@ func (i NetworkServiceServiceQosPolicyArgs) ToNetworkServiceServiceQosPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceServiceQosPolicyOutput)
 }
 
-func (i NetworkServiceServiceQosPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServiceServiceQosPolicy] {
-	return pulumix.Output[NetworkServiceServiceQosPolicy]{
-		OutputState: i.ToNetworkServiceServiceQosPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkServiceServiceQosPolicyArgs) ToNetworkServiceServiceQosPolicyPtrOutput() NetworkServiceServiceQosPolicyPtrOutput {
 	return i.ToNetworkServiceServiceQosPolicyPtrOutputWithContext(context.Background())
 }
@@ -2120,12 +1873,6 @@ func (i *networkServiceServiceQosPolicyPtrType) ToNetworkServiceServiceQosPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceServiceQosPolicyPtrOutput)
 }
 
-func (i *networkServiceServiceQosPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkServiceServiceQosPolicy] {
-	return pulumix.Output[*NetworkServiceServiceQosPolicy]{
-		OutputState: i.ToNetworkServiceServiceQosPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServiceServiceQosPolicyOutput struct{ *pulumi.OutputState }
 
 func (NetworkServiceServiceQosPolicyOutput) ElementType() reflect.Type {
@@ -2148,12 +1895,6 @@ func (o NetworkServiceServiceQosPolicyOutput) ToNetworkServiceServiceQosPolicyPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkServiceServiceQosPolicy) *NetworkServiceServiceQosPolicy {
 		return &v
 	}).(NetworkServiceServiceQosPolicyPtrOutput)
-}
-
-func (o NetworkServiceServiceQosPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServiceServiceQosPolicy] {
-	return pulumix.Output[NetworkServiceServiceQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -2195,12 +1936,6 @@ func (o NetworkServiceServiceQosPolicyPtrOutput) ToNetworkServiceServiceQosPolic
 
 func (o NetworkServiceServiceQosPolicyPtrOutput) ToNetworkServiceServiceQosPolicyPtrOutputWithContext(ctx context.Context) NetworkServiceServiceQosPolicyPtrOutput {
 	return o
-}
-
-func (o NetworkServiceServiceQosPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkServiceServiceQosPolicy] {
-	return pulumix.Output[*NetworkServiceServiceQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServiceServiceQosPolicyPtrOutput) Elem() NetworkServiceServiceQosPolicyOutput {
@@ -2300,12 +2035,6 @@ func (i NetworkServiceServiceQosPolicyMaximumBitRateArgs) ToNetworkServiceServic
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceServiceQosPolicyMaximumBitRateOutput)
 }
 
-func (i NetworkServiceServiceQosPolicyMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[NetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: i.ToNetworkServiceServiceQosPolicyMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkServiceServiceQosPolicyMaximumBitRateArgs) ToNetworkServiceServiceQosPolicyMaximumBitRatePtrOutput() NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput {
 	return i.ToNetworkServiceServiceQosPolicyMaximumBitRatePtrOutputWithContext(context.Background())
 }
@@ -2347,12 +2076,6 @@ func (i *networkServiceServiceQosPolicyMaximumBitRatePtrType) ToNetworkServiceSe
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput)
 }
 
-func (i *networkServiceServiceQosPolicyMaximumBitRatePtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[*NetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: i.ToNetworkServiceServiceQosPolicyMaximumBitRatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkServiceServiceQosPolicyMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (NetworkServiceServiceQosPolicyMaximumBitRateOutput) ElementType() reflect.Type {
@@ -2377,12 +2100,6 @@ func (o NetworkServiceServiceQosPolicyMaximumBitRateOutput) ToNetworkServiceServ
 	}).(NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput)
 }
 
-func (o NetworkServiceServiceQosPolicyMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[NetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
 func (o NetworkServiceServiceQosPolicyMaximumBitRateOutput) Downlink() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkServiceServiceQosPolicyMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
@@ -2405,12 +2122,6 @@ func (o NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput) ToNetworkServiceS
 
 func (o NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput) ToNetworkServiceServiceQosPolicyMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput {
 	return o
-}
-
-func (o NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[*NetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput) Elem() NetworkServiceServiceQosPolicyMaximumBitRateOutput {
@@ -2480,12 +2191,6 @@ func (i NetworkSimGroupIdentityArgs) ToNetworkSimGroupIdentityOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimGroupIdentityOutput)
 }
 
-func (i NetworkSimGroupIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSimGroupIdentity] {
-	return pulumix.Output[NetworkSimGroupIdentity]{
-		OutputState: i.ToNetworkSimGroupIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkSimGroupIdentityArgs) ToNetworkSimGroupIdentityPtrOutput() NetworkSimGroupIdentityPtrOutput {
 	return i.ToNetworkSimGroupIdentityPtrOutputWithContext(context.Background())
 }
@@ -2527,12 +2232,6 @@ func (i *networkSimGroupIdentityPtrType) ToNetworkSimGroupIdentityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimGroupIdentityPtrOutput)
 }
 
-func (i *networkSimGroupIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimGroupIdentity] {
-	return pulumix.Output[*NetworkSimGroupIdentity]{
-		OutputState: i.ToNetworkSimGroupIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSimGroupIdentityOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimGroupIdentityOutput) ElementType() reflect.Type {
@@ -2557,12 +2256,6 @@ func (o NetworkSimGroupIdentityOutput) ToNetworkSimGroupIdentityPtrOutputWithCon
 	}).(NetworkSimGroupIdentityPtrOutput)
 }
 
-func (o NetworkSimGroupIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSimGroupIdentity] {
-	return pulumix.Output[NetworkSimGroupIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of IDs for User Assigned Managed Identity resources to be assigned.
 func (o NetworkSimGroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NetworkSimGroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -2585,12 +2278,6 @@ func (o NetworkSimGroupIdentityPtrOutput) ToNetworkSimGroupIdentityPtrOutput() N
 
 func (o NetworkSimGroupIdentityPtrOutput) ToNetworkSimGroupIdentityPtrOutputWithContext(ctx context.Context) NetworkSimGroupIdentityPtrOutput {
 	return o
-}
-
-func (o NetworkSimGroupIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimGroupIdentity] {
-	return pulumix.Output[*NetworkSimGroupIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSimGroupIdentityPtrOutput) Elem() NetworkSimGroupIdentityOutput {
@@ -2664,12 +2351,6 @@ func (i NetworkSimPolicySliceArgs) ToNetworkSimPolicySliceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceOutput)
 }
 
-func (i NetworkSimPolicySliceArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicySlice] {
-	return pulumix.Output[NetworkSimPolicySlice]{
-		OutputState: i.ToNetworkSimPolicySliceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSimPolicySliceArrayInput is an input type that accepts NetworkSimPolicySliceArray and NetworkSimPolicySliceArrayOutput values.
 // You can construct a concrete instance of `NetworkSimPolicySliceArrayInput` via:
 //
@@ -2695,12 +2376,6 @@ func (i NetworkSimPolicySliceArray) ToNetworkSimPolicySliceArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceArrayOutput)
 }
 
-func (i NetworkSimPolicySliceArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSimPolicySlice] {
-	return pulumix.Output[[]NetworkSimPolicySlice]{
-		OutputState: i.ToNetworkSimPolicySliceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSimPolicySliceOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimPolicySliceOutput) ElementType() reflect.Type {
@@ -2713,12 +2388,6 @@ func (o NetworkSimPolicySliceOutput) ToNetworkSimPolicySliceOutput() NetworkSimP
 
 func (o NetworkSimPolicySliceOutput) ToNetworkSimPolicySliceOutputWithContext(ctx context.Context) NetworkSimPolicySliceOutput {
 	return o
-}
-
-func (o NetworkSimPolicySliceOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicySlice] {
-	return pulumix.Output[NetworkSimPolicySlice]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of `dataNetwork` block as defined below.
@@ -2748,12 +2417,6 @@ func (o NetworkSimPolicySliceArrayOutput) ToNetworkSimPolicySliceArrayOutput() N
 
 func (o NetworkSimPolicySliceArrayOutput) ToNetworkSimPolicySliceArrayOutputWithContext(ctx context.Context) NetworkSimPolicySliceArrayOutput {
 	return o
-}
-
-func (o NetworkSimPolicySliceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSimPolicySlice] {
-	return pulumix.Output[[]NetworkSimPolicySlice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSimPolicySliceArrayOutput) Index(i pulumi.IntInput) NetworkSimPolicySliceOutput {
@@ -2831,12 +2494,6 @@ func (i NetworkSimPolicySliceDataNetworkArgs) ToNetworkSimPolicySliceDataNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceDataNetworkOutput)
 }
 
-func (i NetworkSimPolicySliceDataNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[NetworkSimPolicySliceDataNetwork]{
-		OutputState: i.ToNetworkSimPolicySliceDataNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSimPolicySliceDataNetworkArrayInput is an input type that accepts NetworkSimPolicySliceDataNetworkArray and NetworkSimPolicySliceDataNetworkArrayOutput values.
 // You can construct a concrete instance of `NetworkSimPolicySliceDataNetworkArrayInput` via:
 //
@@ -2862,12 +2519,6 @@ func (i NetworkSimPolicySliceDataNetworkArray) ToNetworkSimPolicySliceDataNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceDataNetworkArrayOutput)
 }
 
-func (i NetworkSimPolicySliceDataNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[[]NetworkSimPolicySliceDataNetwork]{
-		OutputState: i.ToNetworkSimPolicySliceDataNetworkArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSimPolicySliceDataNetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimPolicySliceDataNetworkOutput) ElementType() reflect.Type {
@@ -2880,12 +2531,6 @@ func (o NetworkSimPolicySliceDataNetworkOutput) ToNetworkSimPolicySliceDataNetwo
 
 func (o NetworkSimPolicySliceDataNetworkOutput) ToNetworkSimPolicySliceDataNetworkOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkOutput {
 	return o
-}
-
-func (o NetworkSimPolicySliceDataNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[NetworkSimPolicySliceDataNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
@@ -2954,12 +2599,6 @@ func (o NetworkSimPolicySliceDataNetworkArrayOutput) ToNetworkSimPolicySliceData
 	return o
 }
 
-func (o NetworkSimPolicySliceDataNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[[]NetworkSimPolicySliceDataNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkSimPolicySliceDataNetworkArrayOutput) Index(i pulumi.IntInput) NetworkSimPolicySliceDataNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkSimPolicySliceDataNetwork {
 		return vs[0].([]NetworkSimPolicySliceDataNetwork)[vs[1].(int)]
@@ -3003,12 +2642,6 @@ func (i NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToNe
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
 }
 
-func (i NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate] {
-	return pulumix.Output[NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate]{
-		OutputState: i.ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ElementType() reflect.Type {
@@ -3021,12 +2654,6 @@ func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) To
 
 func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx context.Context) NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
 	return o
-}
-
-func (o NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate] {
-	return pulumix.Output[NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
@@ -3076,12 +2703,6 @@ func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToNetworkSimPo
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
 }
 
-func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[NetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: i.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput() NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
 	return i.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(context.Background())
 }
@@ -3123,12 +2744,6 @@ func (i *networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType) ToNetworkS
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput)
 }
 
-func (i *networkSimPolicyUserEquipmentAggregateMaximumBitRatePtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[*NetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: i.ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ElementType() reflect.Type {
@@ -3153,12 +2768,6 @@ func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToNetworkSim
 	}).(NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput)
 }
 
-func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[NetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
 func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) Downlink() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSimPolicyUserEquipmentAggregateMaximumBitRate) string { return v.Downlink }).(pulumi.StringOutput)
@@ -3181,12 +2790,6 @@ func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) ToNetwork
 
 func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) ToNetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutputWithContext(ctx context.Context) NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput {
 	return o
-}
-
-func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[*NetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) Elem() NetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
@@ -3260,12 +2863,6 @@ func (i NetworkSimStaticIpConfigurationArgs) ToNetworkSimStaticIpConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimStaticIpConfigurationOutput)
 }
 
-func (i NetworkSimStaticIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSimStaticIpConfiguration] {
-	return pulumix.Output[NetworkSimStaticIpConfiguration]{
-		OutputState: i.ToNetworkSimStaticIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSimStaticIpConfigurationArrayInput is an input type that accepts NetworkSimStaticIpConfigurationArray and NetworkSimStaticIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `NetworkSimStaticIpConfigurationArrayInput` via:
 //
@@ -3291,12 +2888,6 @@ func (i NetworkSimStaticIpConfigurationArray) ToNetworkSimStaticIpConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSimStaticIpConfigurationArrayOutput)
 }
 
-func (i NetworkSimStaticIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSimStaticIpConfiguration] {
-	return pulumix.Output[[]NetworkSimStaticIpConfiguration]{
-		OutputState: i.ToNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSimStaticIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkSimStaticIpConfigurationOutput) ElementType() reflect.Type {
@@ -3309,12 +2900,6 @@ func (o NetworkSimStaticIpConfigurationOutput) ToNetworkSimStaticIpConfiguration
 
 func (o NetworkSimStaticIpConfigurationOutput) ToNetworkSimStaticIpConfigurationOutputWithContext(ctx context.Context) NetworkSimStaticIpConfigurationOutput {
 	return o
-}
-
-func (o NetworkSimStaticIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSimStaticIpConfiguration] {
-	return pulumix.Output[NetworkSimStaticIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
@@ -3344,12 +2929,6 @@ func (o NetworkSimStaticIpConfigurationArrayOutput) ToNetworkSimStaticIpConfigur
 
 func (o NetworkSimStaticIpConfigurationArrayOutput) ToNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx context.Context) NetworkSimStaticIpConfigurationArrayOutput {
 	return o
-}
-
-func (o NetworkSimStaticIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSimStaticIpConfiguration] {
-	return pulumix.Output[[]NetworkSimStaticIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSimStaticIpConfigurationArrayOutput) Index(i pulumi.IntInput) NetworkSimStaticIpConfigurationOutput {
@@ -3395,12 +2974,6 @@ func (i NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs) ToNetw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput)
 }
 
-func (i NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[NetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: i.ToNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs) ToNetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput() NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput {
 	return i.ToNetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutputWithContext(context.Background())
 }
@@ -3442,12 +3015,6 @@ func (i *networkSliceSingleNetworkSliceSelectionAssistanceInformationPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput)
 }
 
-func (i *networkSliceSingleNetworkSliceSelectionAssistanceInformationPtrType) ToOutput(ctx context.Context) pulumix.Output[*NetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[*NetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: i.ToNetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput struct{ *pulumi.OutputState }
 
 func (NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ElementType() reflect.Type {
@@ -3470,12 +3037,6 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ToNe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkSliceSingleNetworkSliceSelectionAssistanceInformation) *NetworkSliceSingleNetworkSliceSelectionAssistanceInformation {
 		return &v
 	}).(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput)
-}
-
-func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[NetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Slice differentiator (SD). Must be a 6 digit hex string.
@@ -3502,12 +3063,6 @@ func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) T
 
 func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) ToNetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutputWithContext(ctx context.Context) NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput {
 	return o
-}
-
-func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[*NetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSliceSingleNetworkSliceSelectionAssistanceInformationPtrOutput) Elem() NetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput {
@@ -3589,12 +3144,6 @@ func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToGetNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput)
 }
 
-func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayInput is an input type that accepts GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray and GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput values.
 // You can construct a concrete instance of `GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayInput` via:
 //
@@ -3620,12 +3169,6 @@ func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray) ToGetNe
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput)
 }
 
-func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ElementType() reflect.Type {
@@ -3638,12 +3181,6 @@ func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToGetN
 
 func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
 	return o
-}
-
-func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) IcmpPinholeTimeoutInSeconds() pulumi.IntOutput {
@@ -3703,12 +3240,6 @@ func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) T
 	return o
 }
 
-func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation] {
-	return pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationArrayOutput) Index(i pulumi.IntInput) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
 		return vs[0].([]GetNetworkAttachedDataNetworkNetworkAddressPortTranslation)[vs[1].(int)]
@@ -3752,12 +3283,6 @@ func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput)
 }
 
-func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput is an input type that accepts GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray and GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput values.
 // You can construct a concrete instance of `GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayInput` via:
 //
@@ -3783,12 +3308,6 @@ func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput)
 }
 
-func (i GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: i.ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ElementType() reflect.Type {
@@ -3801,12 +3320,6 @@ func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutpu
 
 func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
 	return o
-}
-
-func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The maximum port number.
@@ -3831,12 +3344,6 @@ func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArray
 
 func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) ToGetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutputWithContext(ctx context.Context) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput {
 	return o
-}
-
-func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange] {
-	return pulumix.Output[[]GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArrayOutput) Index(i pulumi.IntInput) GetNetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeOutput {
@@ -3882,12 +3389,6 @@ func (i GetNetworkPacketCoreControlPlaneIdentityArgs) ToGetNetworkPacketCoreCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneIdentityOutput)
 }
 
-func (i GetNetworkPacketCoreControlPlaneIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[GetNetworkPacketCoreControlPlaneIdentity]{
-		OutputState: i.ToGetNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkPacketCoreControlPlaneIdentityArrayInput is an input type that accepts GetNetworkPacketCoreControlPlaneIdentityArray and GetNetworkPacketCoreControlPlaneIdentityArrayOutput values.
 // You can construct a concrete instance of `GetNetworkPacketCoreControlPlaneIdentityArrayInput` via:
 //
@@ -3913,12 +3414,6 @@ func (i GetNetworkPacketCoreControlPlaneIdentityArray) ToGetNetworkPacketCoreCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneIdentityArrayOutput)
 }
 
-func (i GetNetworkPacketCoreControlPlaneIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[[]GetNetworkPacketCoreControlPlaneIdentity]{
-		OutputState: i.ToGetNetworkPacketCoreControlPlaneIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkPacketCoreControlPlaneIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkPacketCoreControlPlaneIdentityOutput) ElementType() reflect.Type {
@@ -3931,12 +3426,6 @@ func (o GetNetworkPacketCoreControlPlaneIdentityOutput) ToGetNetworkPacketCoreCo
 
 func (o GetNetworkPacketCoreControlPlaneIdentityOutput) ToGetNetworkPacketCoreControlPlaneIdentityOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneIdentityOutput {
 	return o
-}
-
-func (o GetNetworkPacketCoreControlPlaneIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[GetNetworkPacketCoreControlPlaneIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs assigned to this resource.
@@ -3961,12 +3450,6 @@ func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) ToGetNetworkPacketC
 
 func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) ToGetNetworkPacketCoreControlPlaneIdentityArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneIdentityArrayOutput {
 	return o
-}
-
-func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkPacketCoreControlPlaneIdentity] {
-	return pulumix.Output[[]GetNetworkPacketCoreControlPlaneIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkPacketCoreControlPlaneIdentityArrayOutput) Index(i pulumi.IntInput) GetNetworkPacketCoreControlPlaneIdentityOutput {
@@ -4012,12 +3495,6 @@ func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToGetNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput)
 }
 
-func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: i.ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayInput is an input type that accepts GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray and GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput values.
 // You can construct a concrete instance of `GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayInput` via:
 //
@@ -4043,12 +3520,6 @@ func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray) ToGetNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput)
 }
 
-func (i GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[[]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: i.ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ElementType() reflect.Type {
@@ -4061,12 +3532,6 @@ func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToGetNetwo
 
 func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
 	return o
-}
-
-func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 // How to authenticate users who access local diagnostics APIs.
@@ -4093,12 +3558,6 @@ func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) ToGet
 
 func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) ToGetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput {
 	return o
-}
-
-func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess] {
-	return pulumix.Output[[]GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessArrayOutput) Index(i pulumi.IntInput) GetNetworkPacketCoreControlPlaneLocalDiagnosticsAccessOutput {
@@ -4156,12 +3615,6 @@ func (i GetNetworkPacketCoreControlPlanePlatformArgs) ToGetNetworkPacketCoreCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlanePlatformOutput)
 }
 
-func (i GetNetworkPacketCoreControlPlanePlatformArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[GetNetworkPacketCoreControlPlanePlatform]{
-		OutputState: i.ToGetNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkPacketCoreControlPlanePlatformArrayInput is an input type that accepts GetNetworkPacketCoreControlPlanePlatformArray and GetNetworkPacketCoreControlPlanePlatformArrayOutput values.
 // You can construct a concrete instance of `GetNetworkPacketCoreControlPlanePlatformArrayInput` via:
 //
@@ -4187,12 +3640,6 @@ func (i GetNetworkPacketCoreControlPlanePlatformArray) ToGetNetworkPacketCoreCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkPacketCoreControlPlanePlatformArrayOutput)
 }
 
-func (i GetNetworkPacketCoreControlPlanePlatformArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[[]GetNetworkPacketCoreControlPlanePlatform]{
-		OutputState: i.ToGetNetworkPacketCoreControlPlanePlatformArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkPacketCoreControlPlanePlatformOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkPacketCoreControlPlanePlatformOutput) ElementType() reflect.Type {
@@ -4205,12 +3652,6 @@ func (o GetNetworkPacketCoreControlPlanePlatformOutput) ToGetNetworkPacketCoreCo
 
 func (o GetNetworkPacketCoreControlPlanePlatformOutput) ToGetNetworkPacketCoreControlPlanePlatformOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlanePlatformOutput {
 	return o
-}
-
-func (o GetNetworkPacketCoreControlPlanePlatformOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[GetNetworkPacketCoreControlPlanePlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of Azure Arc connected cluster where the packet core is deployed.
@@ -4250,12 +3691,6 @@ func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) ToGetNetworkPacketC
 
 func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) ToGetNetworkPacketCoreControlPlanePlatformArrayOutputWithContext(ctx context.Context) GetNetworkPacketCoreControlPlanePlatformArrayOutput {
 	return o
-}
-
-func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkPacketCoreControlPlanePlatform] {
-	return pulumix.Output[[]GetNetworkPacketCoreControlPlanePlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkPacketCoreControlPlanePlatformArrayOutput) Index(i pulumi.IntInput) GetNetworkPacketCoreControlPlanePlatformOutput {
@@ -4313,12 +3748,6 @@ func (i GetNetworkServicePccRuleArgs) ToGetNetworkServicePccRuleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleOutput)
 }
 
-func (i GetNetworkServicePccRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRule] {
-	return pulumix.Output[GetNetworkServicePccRule]{
-		OutputState: i.ToGetNetworkServicePccRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServicePccRuleArrayInput is an input type that accepts GetNetworkServicePccRuleArray and GetNetworkServicePccRuleArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServicePccRuleArrayInput` via:
 //
@@ -4344,12 +3773,6 @@ func (i GetNetworkServicePccRuleArray) ToGetNetworkServicePccRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleArrayOutput)
 }
 
-func (i GetNetworkServicePccRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRule] {
-	return pulumix.Output[[]GetNetworkServicePccRule]{
-		OutputState: i.ToGetNetworkServicePccRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServicePccRuleOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServicePccRuleOutput) ElementType() reflect.Type {
@@ -4362,12 +3785,6 @@ func (o GetNetworkServicePccRuleOutput) ToGetNetworkServicePccRuleOutput() GetNe
 
 func (o GetNetworkServicePccRuleOutput) ToGetNetworkServicePccRuleOutputWithContext(ctx context.Context) GetNetworkServicePccRuleOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRule] {
-	return pulumix.Output[GetNetworkServicePccRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name which should be used for this Mobile Network Service.
@@ -4409,12 +3826,6 @@ func (o GetNetworkServicePccRuleArrayOutput) ToGetNetworkServicePccRuleArrayOutp
 
 func (o GetNetworkServicePccRuleArrayOutput) ToGetNetworkServicePccRuleArrayOutputWithContext(ctx context.Context) GetNetworkServicePccRuleArrayOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRule] {
-	return pulumix.Output[[]GetNetworkServicePccRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkServicePccRuleArrayOutput) Index(i pulumi.IntInput) GetNetworkServicePccRuleOutput {
@@ -4476,12 +3887,6 @@ func (i GetNetworkServicePccRuleQosPolicyArgs) ToGetNetworkServicePccRuleQosPoli
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleQosPolicyOutput)
 }
 
-func (i GetNetworkServicePccRuleQosPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[GetNetworkServicePccRuleQosPolicy]{
-		OutputState: i.ToGetNetworkServicePccRuleQosPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServicePccRuleQosPolicyArrayInput is an input type that accepts GetNetworkServicePccRuleQosPolicyArray and GetNetworkServicePccRuleQosPolicyArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServicePccRuleQosPolicyArrayInput` via:
 //
@@ -4507,12 +3912,6 @@ func (i GetNetworkServicePccRuleQosPolicyArray) ToGetNetworkServicePccRuleQosPol
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleQosPolicyArrayOutput)
 }
 
-func (i GetNetworkServicePccRuleQosPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[[]GetNetworkServicePccRuleQosPolicy]{
-		OutputState: i.ToGetNetworkServicePccRuleQosPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServicePccRuleQosPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServicePccRuleQosPolicyOutput) ElementType() reflect.Type {
@@ -4525,12 +3924,6 @@ func (o GetNetworkServicePccRuleQosPolicyOutput) ToGetNetworkServicePccRuleQosPo
 
 func (o GetNetworkServicePccRuleQosPolicyOutput) ToGetNetworkServicePccRuleQosPolicyOutputWithContext(ctx context.Context) GetNetworkServicePccRuleQosPolicyOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleQosPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[GetNetworkServicePccRuleQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // QoS Flow allocation and retention priority (ARP) level.
@@ -4581,12 +3974,6 @@ func (o GetNetworkServicePccRuleQosPolicyArrayOutput) ToGetNetworkServicePccRule
 	return o
 }
 
-func (o GetNetworkServicePccRuleQosPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleQosPolicy] {
-	return pulumix.Output[[]GetNetworkServicePccRuleQosPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetNetworkServicePccRuleQosPolicyArrayOutput) Index(i pulumi.IntInput) GetNetworkServicePccRuleQosPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkServicePccRuleQosPolicy {
 		return vs[0].([]GetNetworkServicePccRuleQosPolicy)[vs[1].(int)]
@@ -4630,12 +4017,6 @@ func (i GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArgs) ToGetNetworkServ
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput)
 }
 
-func (i GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[GetNetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: i.ToGetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayInput is an input type that accepts GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArray and GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayInput` via:
 //
@@ -4661,12 +4042,6 @@ func (i GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArray) ToGetNetworkSer
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput)
 }
 
-func (i GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[[]GetNetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: i.ToGetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ElementType() reflect.Type {
@@ -4679,12 +4054,6 @@ func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ToGetNetworkSe
 
 func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ToGetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutputWithContext(ctx context.Context) GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[GetNetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Downlink bit rate.
@@ -4709,12 +4078,6 @@ func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput) ToGetNetw
 
 func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput) ToGetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutputWithContext(ctx context.Context) GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleQosPolicyGuaranteedBitRate] {
-	return pulumix.Output[[]GetNetworkServicePccRuleQosPolicyGuaranteedBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkServicePccRuleQosPolicyGuaranteedBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkServicePccRuleQosPolicyGuaranteedBitRateOutput {
@@ -4760,12 +4123,6 @@ func (i GetNetworkServicePccRuleQosPolicyMaximumBitRateArgs) ToGetNetworkService
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput)
 }
 
-func (i GetNetworkServicePccRuleQosPolicyMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[GetNetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: i.ToGetNetworkServicePccRuleQosPolicyMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayInput is an input type that accepts GetNetworkServicePccRuleQosPolicyMaximumBitRateArray and GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayInput` via:
 //
@@ -4791,12 +4148,6 @@ func (i GetNetworkServicePccRuleQosPolicyMaximumBitRateArray) ToGetNetworkServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput)
 }
 
-func (i GetNetworkServicePccRuleQosPolicyMaximumBitRateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: i.ToGetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput) ElementType() reflect.Type {
@@ -4809,12 +4160,6 @@ func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput) ToGetNetworkServi
 
 func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput) ToGetNetworkServicePccRuleQosPolicyMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[GetNetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Downlink bit rate.
@@ -4839,12 +4184,6 @@ func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput) ToGetNetwork
 
 func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput) ToGetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleQosPolicyMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkServicePccRuleQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkServicePccRuleQosPolicyMaximumBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkServicePccRuleQosPolicyMaximumBitRateOutput {
@@ -4902,12 +4241,6 @@ func (i GetNetworkServicePccRuleServiceDataFlowTemplateArgs) ToGetNetworkService
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleServiceDataFlowTemplateOutput)
 }
 
-func (i GetNetworkServicePccRuleServiceDataFlowTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[GetNetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: i.ToGetNetworkServicePccRuleServiceDataFlowTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServicePccRuleServiceDataFlowTemplateArrayInput is an input type that accepts GetNetworkServicePccRuleServiceDataFlowTemplateArray and GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServicePccRuleServiceDataFlowTemplateArrayInput` via:
 //
@@ -4933,12 +4266,6 @@ func (i GetNetworkServicePccRuleServiceDataFlowTemplateArray) ToGetNetworkServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput)
 }
 
-func (i GetNetworkServicePccRuleServiceDataFlowTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[[]GetNetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: i.ToGetNetworkServicePccRuleServiceDataFlowTemplateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServicePccRuleServiceDataFlowTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServicePccRuleServiceDataFlowTemplateOutput) ElementType() reflect.Type {
@@ -4951,12 +4278,6 @@ func (o GetNetworkServicePccRuleServiceDataFlowTemplateOutput) ToGetNetworkServi
 
 func (o GetNetworkServicePccRuleServiceDataFlowTemplateOutput) ToGetNetworkServicePccRuleServiceDataFlowTemplateOutputWithContext(ctx context.Context) GetNetworkServicePccRuleServiceDataFlowTemplateOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleServiceDataFlowTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[GetNetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The direction of this flow. Possible values are `Uplink`, `Downlink` and `Bidirectional`.
@@ -4996,12 +4317,6 @@ func (o GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput) ToGetNetwork
 
 func (o GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput) ToGetNetworkServicePccRuleServiceDataFlowTemplateArrayOutputWithContext(ctx context.Context) GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput {
 	return o
-}
-
-func (o GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServicePccRuleServiceDataFlowTemplate] {
-	return pulumix.Output[[]GetNetworkServicePccRuleServiceDataFlowTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkServicePccRuleServiceDataFlowTemplateArrayOutput) Index(i pulumi.IntInput) GetNetworkServicePccRuleServiceDataFlowTemplateOutput {
@@ -5059,12 +4374,6 @@ func (i GetNetworkServiceServiceQosPolicyArgs) ToGetNetworkServiceServiceQosPoli
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServiceServiceQosPolicyOutput)
 }
 
-func (i GetNetworkServiceServiceQosPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServiceServiceQosPolicy] {
-	return pulumix.Output[GetNetworkServiceServiceQosPolicy]{
-		OutputState: i.ToGetNetworkServiceServiceQosPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServiceServiceQosPolicyArrayInput is an input type that accepts GetNetworkServiceServiceQosPolicyArray and GetNetworkServiceServiceQosPolicyArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServiceServiceQosPolicyArrayInput` via:
 //
@@ -5090,12 +4399,6 @@ func (i GetNetworkServiceServiceQosPolicyArray) ToGetNetworkServiceServiceQosPol
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServiceServiceQosPolicyArrayOutput)
 }
 
-func (i GetNetworkServiceServiceQosPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServiceServiceQosPolicy] {
-	return pulumix.Output[[]GetNetworkServiceServiceQosPolicy]{
-		OutputState: i.ToGetNetworkServiceServiceQosPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServiceServiceQosPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServiceServiceQosPolicyOutput) ElementType() reflect.Type {
@@ -5108,12 +4411,6 @@ func (o GetNetworkServiceServiceQosPolicyOutput) ToGetNetworkServiceServiceQosPo
 
 func (o GetNetworkServiceServiceQosPolicyOutput) ToGetNetworkServiceServiceQosPolicyOutputWithContext(ctx context.Context) GetNetworkServiceServiceQosPolicyOutput {
 	return o
-}
-
-func (o GetNetworkServiceServiceQosPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServiceServiceQosPolicy] {
-	return pulumix.Output[GetNetworkServiceServiceQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // QoS Flow allocation and retention priority (ARP) level.
@@ -5155,12 +4452,6 @@ func (o GetNetworkServiceServiceQosPolicyArrayOutput) ToGetNetworkServiceService
 
 func (o GetNetworkServiceServiceQosPolicyArrayOutput) ToGetNetworkServiceServiceQosPolicyArrayOutputWithContext(ctx context.Context) GetNetworkServiceServiceQosPolicyArrayOutput {
 	return o
-}
-
-func (o GetNetworkServiceServiceQosPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServiceServiceQosPolicy] {
-	return pulumix.Output[[]GetNetworkServiceServiceQosPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkServiceServiceQosPolicyArrayOutput) Index(i pulumi.IntInput) GetNetworkServiceServiceQosPolicyOutput {
@@ -5206,12 +4497,6 @@ func (i GetNetworkServiceServiceQosPolicyMaximumBitRateArgs) ToGetNetworkService
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServiceServiceQosPolicyMaximumBitRateOutput)
 }
 
-func (i GetNetworkServiceServiceQosPolicyMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[GetNetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: i.ToGetNetworkServiceServiceQosPolicyMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkServiceServiceQosPolicyMaximumBitRateArrayInput is an input type that accepts GetNetworkServiceServiceQosPolicyMaximumBitRateArray and GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput values.
 // You can construct a concrete instance of `GetNetworkServiceServiceQosPolicyMaximumBitRateArrayInput` via:
 //
@@ -5237,12 +4522,6 @@ func (i GetNetworkServiceServiceQosPolicyMaximumBitRateArray) ToGetNetworkServic
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput)
 }
 
-func (i GetNetworkServiceServiceQosPolicyMaximumBitRateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: i.ToGetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkServiceServiceQosPolicyMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkServiceServiceQosPolicyMaximumBitRateOutput) ElementType() reflect.Type {
@@ -5255,12 +4534,6 @@ func (o GetNetworkServiceServiceQosPolicyMaximumBitRateOutput) ToGetNetworkServi
 
 func (o GetNetworkServiceServiceQosPolicyMaximumBitRateOutput) ToGetNetworkServiceServiceQosPolicyMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkServiceServiceQosPolicyMaximumBitRateOutput {
 	return o
-}
-
-func (o GetNetworkServiceServiceQosPolicyMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[GetNetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Downlink bit rate.
@@ -5285,12 +4558,6 @@ func (o GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput) ToGetNetwork
 
 func (o GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput) ToGetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput {
 	return o
-}
-
-func (o GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkServiceServiceQosPolicyMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkServiceServiceQosPolicyMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkServiceServiceQosPolicyMaximumBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkServiceServiceQosPolicyMaximumBitRateOutput {
@@ -5340,12 +4607,6 @@ func (i GetNetworkSimGroupIdentityArgs) ToGetNetworkSimGroupIdentityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimGroupIdentityOutput)
 }
 
-func (i GetNetworkSimGroupIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimGroupIdentity] {
-	return pulumix.Output[GetNetworkSimGroupIdentity]{
-		OutputState: i.ToGetNetworkSimGroupIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSimGroupIdentityArrayInput is an input type that accepts GetNetworkSimGroupIdentityArray and GetNetworkSimGroupIdentityArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSimGroupIdentityArrayInput` via:
 //
@@ -5371,12 +4632,6 @@ func (i GetNetworkSimGroupIdentityArray) ToGetNetworkSimGroupIdentityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimGroupIdentityArrayOutput)
 }
 
-func (i GetNetworkSimGroupIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimGroupIdentity] {
-	return pulumix.Output[[]GetNetworkSimGroupIdentity]{
-		OutputState: i.ToGetNetworkSimGroupIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSimGroupIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSimGroupIdentityOutput) ElementType() reflect.Type {
@@ -5389,12 +4644,6 @@ func (o GetNetworkSimGroupIdentityOutput) ToGetNetworkSimGroupIdentityOutput() G
 
 func (o GetNetworkSimGroupIdentityOutput) ToGetNetworkSimGroupIdentityOutputWithContext(ctx context.Context) GetNetworkSimGroupIdentityOutput {
 	return o
-}
-
-func (o GetNetworkSimGroupIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimGroupIdentity] {
-	return pulumix.Output[GetNetworkSimGroupIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs assigned to this resource.
@@ -5427,12 +4676,6 @@ func (o GetNetworkSimGroupIdentityArrayOutput) ToGetNetworkSimGroupIdentityArray
 
 func (o GetNetworkSimGroupIdentityArrayOutput) ToGetNetworkSimGroupIdentityArrayOutputWithContext(ctx context.Context) GetNetworkSimGroupIdentityArrayOutput {
 	return o
-}
-
-func (o GetNetworkSimGroupIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimGroupIdentity] {
-	return pulumix.Output[[]GetNetworkSimGroupIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkSimGroupIdentityArrayOutput) Index(i pulumi.IntInput) GetNetworkSimGroupIdentityOutput {
@@ -5482,12 +4725,6 @@ func (i GetNetworkSimPolicySliceArgs) ToGetNetworkSimPolicySliceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceOutput)
 }
 
-func (i GetNetworkSimPolicySliceArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicySlice] {
-	return pulumix.Output[GetNetworkSimPolicySlice]{
-		OutputState: i.ToGetNetworkSimPolicySliceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSimPolicySliceArrayInput is an input type that accepts GetNetworkSimPolicySliceArray and GetNetworkSimPolicySliceArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSimPolicySliceArrayInput` via:
 //
@@ -5513,12 +4750,6 @@ func (i GetNetworkSimPolicySliceArray) ToGetNetworkSimPolicySliceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceArrayOutput)
 }
 
-func (i GetNetworkSimPolicySliceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicySlice] {
-	return pulumix.Output[[]GetNetworkSimPolicySlice]{
-		OutputState: i.ToGetNetworkSimPolicySliceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSimPolicySliceOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSimPolicySliceOutput) ElementType() reflect.Type {
@@ -5531,12 +4762,6 @@ func (o GetNetworkSimPolicySliceOutput) ToGetNetworkSimPolicySliceOutput() GetNe
 
 func (o GetNetworkSimPolicySliceOutput) ToGetNetworkSimPolicySliceOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicySliceOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicySlice] {
-	return pulumix.Output[GetNetworkSimPolicySlice]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of `dataNetwork` block as defined below.
@@ -5566,12 +4791,6 @@ func (o GetNetworkSimPolicySliceArrayOutput) ToGetNetworkSimPolicySliceArrayOutp
 
 func (o GetNetworkSimPolicySliceArrayOutput) ToGetNetworkSimPolicySliceArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceArrayOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicySliceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicySlice] {
-	return pulumix.Output[[]GetNetworkSimPolicySlice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkSimPolicySliceArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicySliceOutput {
@@ -5649,12 +4868,6 @@ func (i GetNetworkSimPolicySliceDataNetworkArgs) ToGetNetworkSimPolicySliceDataN
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkOutput)
 }
 
-func (i GetNetworkSimPolicySliceDataNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[GetNetworkSimPolicySliceDataNetwork]{
-		OutputState: i.ToGetNetworkSimPolicySliceDataNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSimPolicySliceDataNetworkArrayInput is an input type that accepts GetNetworkSimPolicySliceDataNetworkArray and GetNetworkSimPolicySliceDataNetworkArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSimPolicySliceDataNetworkArrayInput` via:
 //
@@ -5680,12 +4893,6 @@ func (i GetNetworkSimPolicySliceDataNetworkArray) ToGetNetworkSimPolicySliceData
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkArrayOutput)
 }
 
-func (i GetNetworkSimPolicySliceDataNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[[]GetNetworkSimPolicySliceDataNetwork]{
-		OutputState: i.ToGetNetworkSimPolicySliceDataNetworkArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSimPolicySliceDataNetworkOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSimPolicySliceDataNetworkOutput) ElementType() reflect.Type {
@@ -5698,12 +4905,6 @@ func (o GetNetworkSimPolicySliceDataNetworkOutput) ToGetNetworkSimPolicySliceDat
 
 func (o GetNetworkSimPolicySliceDataNetworkOutput) ToGetNetworkSimPolicySliceDataNetworkOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicySliceDataNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[GetNetworkSimPolicySliceDataNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allowed session types in addition to the default session type.
@@ -5772,12 +4973,6 @@ func (o GetNetworkSimPolicySliceDataNetworkArrayOutput) ToGetNetworkSimPolicySli
 	return o
 }
 
-func (o GetNetworkSimPolicySliceDataNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicySliceDataNetwork] {
-	return pulumix.Output[[]GetNetworkSimPolicySliceDataNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetNetworkSimPolicySliceDataNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicySliceDataNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkSimPolicySliceDataNetwork {
 		return vs[0].([]GetNetworkSimPolicySliceDataNetwork)[vs[1].(int)]
@@ -5821,12 +5016,6 @@ func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
 }
 
-func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate] {
-	return pulumix.Output[GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate]{
-		OutputState: i.ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput is an input type that accepts GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray and GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayInput` via:
 //
@@ -5852,12 +5041,6 @@ func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput)
 }
 
-func (i GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate]{
-		OutputState: i.ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ElementType() reflect.Type {
@@ -5870,12 +5053,6 @@ func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput)
 
 func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate] {
-	return pulumix.Output[GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Downlink bit rate.
@@ -5900,12 +5077,6 @@ func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOu
 
 func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) ToGetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateOutput {
@@ -5951,12 +5122,6 @@ func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToGetNetwor
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput)
 }
 
-func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: i.ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput is an input type that accepts GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray and GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayInput` via:
 //
@@ -5982,12 +5147,6 @@ func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray) ToGetNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput)
 }
 
-func (i GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: i.ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ElementType() reflect.Type {
@@ -6000,12 +5159,6 @@ func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToGetNetw
 
 func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutputWithContext(ctx context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Downlink bit rate.
@@ -6030,12 +5183,6 @@ func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) ToGe
 
 func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) ToGetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutputWithContext(ctx context.Context) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput {
 	return o
-}
-
-func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate] {
-	return pulumix.Output[[]GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateArrayOutput) Index(i pulumi.IntInput) GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRateOutput {
@@ -6083,12 +5230,6 @@ func (i GetNetworkSimStaticIpConfigurationArgs) ToGetNetworkSimStaticIpConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimStaticIpConfigurationOutput)
 }
 
-func (i GetNetworkSimStaticIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimStaticIpConfiguration] {
-	return pulumix.Output[GetNetworkSimStaticIpConfiguration]{
-		OutputState: i.ToGetNetworkSimStaticIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSimStaticIpConfigurationArrayInput is an input type that accepts GetNetworkSimStaticIpConfigurationArray and GetNetworkSimStaticIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSimStaticIpConfigurationArrayInput` via:
 //
@@ -6114,12 +5255,6 @@ func (i GetNetworkSimStaticIpConfigurationArray) ToGetNetworkSimStaticIpConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSimStaticIpConfigurationArrayOutput)
 }
 
-func (i GetNetworkSimStaticIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimStaticIpConfiguration] {
-	return pulumix.Output[[]GetNetworkSimStaticIpConfiguration]{
-		OutputState: i.ToGetNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSimStaticIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSimStaticIpConfigurationOutput) ElementType() reflect.Type {
@@ -6132,12 +5267,6 @@ func (o GetNetworkSimStaticIpConfigurationOutput) ToGetNetworkSimStaticIpConfigu
 
 func (o GetNetworkSimStaticIpConfigurationOutput) ToGetNetworkSimStaticIpConfigurationOutputWithContext(ctx context.Context) GetNetworkSimStaticIpConfigurationOutput {
 	return o
-}
-
-func (o GetNetworkSimStaticIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSimStaticIpConfiguration] {
-	return pulumix.Output[GetNetworkSimStaticIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of attached data network on which the static.
@@ -6166,12 +5295,6 @@ func (o GetNetworkSimStaticIpConfigurationArrayOutput) ToGetNetworkSimStaticIpCo
 
 func (o GetNetworkSimStaticIpConfigurationArrayOutput) ToGetNetworkSimStaticIpConfigurationArrayOutputWithContext(ctx context.Context) GetNetworkSimStaticIpConfigurationArrayOutput {
 	return o
-}
-
-func (o GetNetworkSimStaticIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSimStaticIpConfiguration] {
-	return pulumix.Output[[]GetNetworkSimStaticIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkSimStaticIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetNetworkSimStaticIpConfigurationOutput {
@@ -6217,12 +5340,6 @@ func (i GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput)
 }
 
-func (i GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: i.ToGetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayInput is an input type that accepts GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray and GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput values.
 // You can construct a concrete instance of `GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayInput` via:
 //
@@ -6248,12 +5365,6 @@ func (i GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput)
 }
 
-func (i GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[[]GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: i.ToGetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput struct{ *pulumi.OutputState }
 
 func (GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ElementType() reflect.Type {
@@ -6266,12 +5377,6 @@ func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) T
 
 func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ToGetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutputWithContext(ctx context.Context) GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput {
 	return o
-}
-
-func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput) ToOutput(ctx context.Context) pulumix.Output[GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Slice differentiator (SD).
@@ -6298,12 +5403,6 @@ func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutp
 
 func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput) ToGetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutputWithContext(ctx context.Context) GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput {
 	return o
-}
-
-func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation] {
-	return pulumix.Output[[]GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationArrayOutput) Index(i pulumi.IntInput) GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformationOutput {

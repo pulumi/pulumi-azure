@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Stream Input Blob.
@@ -301,12 +300,6 @@ func (i *StreamInputBlob) ToStreamInputBlobOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobOutput)
 }
 
-func (i *StreamInputBlob) ToOutput(ctx context.Context) pulumix.Output[*StreamInputBlob] {
-	return pulumix.Output[*StreamInputBlob]{
-		OutputState: i.ToStreamInputBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamInputBlobArrayInput is an input type that accepts StreamInputBlobArray and StreamInputBlobArrayOutput values.
 // You can construct a concrete instance of `StreamInputBlobArrayInput` via:
 //
@@ -330,12 +323,6 @@ func (i StreamInputBlobArray) ToStreamInputBlobArrayOutput() StreamInputBlobArra
 
 func (i StreamInputBlobArray) ToStreamInputBlobArrayOutputWithContext(ctx context.Context) StreamInputBlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobArrayOutput)
-}
-
-func (i StreamInputBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamInputBlob] {
-	return pulumix.Output[[]*StreamInputBlob]{
-		OutputState: i.ToStreamInputBlobArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StreamInputBlobMapInput is an input type that accepts StreamInputBlobMap and StreamInputBlobMapOutput values.
@@ -363,12 +350,6 @@ func (i StreamInputBlobMap) ToStreamInputBlobMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputBlobMapOutput)
 }
 
-func (i StreamInputBlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamInputBlob] {
-	return pulumix.Output[map[string]*StreamInputBlob]{
-		OutputState: i.ToStreamInputBlobMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamInputBlobOutput struct{ *pulumi.OutputState }
 
 func (StreamInputBlobOutput) ElementType() reflect.Type {
@@ -381,12 +362,6 @@ func (o StreamInputBlobOutput) ToStreamInputBlobOutput() StreamInputBlobOutput {
 
 func (o StreamInputBlobOutput) ToStreamInputBlobOutputWithContext(ctx context.Context) StreamInputBlobOutput {
 	return o
-}
-
-func (o StreamInputBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputBlob] {
-	return pulumix.Output[*StreamInputBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
@@ -453,12 +428,6 @@ func (o StreamInputBlobArrayOutput) ToStreamInputBlobArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o StreamInputBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamInputBlob] {
-	return pulumix.Output[[]*StreamInputBlob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamInputBlobArrayOutput) Index(i pulumi.IntInput) StreamInputBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamInputBlob {
 		return vs[0].([]*StreamInputBlob)[vs[1].(int)]
@@ -477,12 +446,6 @@ func (o StreamInputBlobMapOutput) ToStreamInputBlobMapOutput() StreamInputBlobMa
 
 func (o StreamInputBlobMapOutput) ToStreamInputBlobMapOutputWithContext(ctx context.Context) StreamInputBlobMapOutput {
 	return o
-}
-
-func (o StreamInputBlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamInputBlob] {
-	return pulumix.Output[map[string]*StreamInputBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamInputBlobMapOutput) MapIndex(k pulumi.StringInput) StreamInputBlobOutput {

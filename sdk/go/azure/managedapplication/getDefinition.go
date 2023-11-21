@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an existing Managed Application Definition.
@@ -106,12 +105,6 @@ func (o LookupDefinitionResultOutput) ToLookupDefinitionResultOutput() LookupDef
 
 func (o LookupDefinitionResultOutput) ToLookupDefinitionResultOutputWithContext(ctx context.Context) LookupDefinitionResultOutput {
 	return o
-}
-
-func (o LookupDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDefinitionResult] {
-	return pulumix.Output[LookupDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

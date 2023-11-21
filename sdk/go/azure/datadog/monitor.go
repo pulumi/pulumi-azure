@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a datadog Monitor.
@@ -295,12 +294,6 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
 }
 
-func (i *Monitor) ToOutput(ctx context.Context) pulumix.Output[*Monitor] {
-	return pulumix.Output[*Monitor]{
-		OutputState: i.ToMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorArrayInput is an input type that accepts MonitorArray and MonitorArrayOutput values.
 // You can construct a concrete instance of `MonitorArrayInput` via:
 //
@@ -324,12 +317,6 @@ func (i MonitorArray) ToMonitorArrayOutput() MonitorArrayOutput {
 
 func (i MonitorArray) ToMonitorArrayOutputWithContext(ctx context.Context) MonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorArrayOutput)
-}
-
-func (i MonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Monitor] {
-	return pulumix.Output[[]*Monitor]{
-		OutputState: i.ToMonitorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorMapInput is an input type that accepts MonitorMap and MonitorMapOutput values.
@@ -357,12 +344,6 @@ func (i MonitorMap) ToMonitorMapOutputWithContext(ctx context.Context) MonitorMa
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorMapOutput)
 }
 
-func (i MonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Monitor] {
-	return pulumix.Output[map[string]*Monitor]{
-		OutputState: i.ToMonitorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorOutput struct{ *pulumi.OutputState }
 
 func (MonitorOutput) ElementType() reflect.Type {
@@ -375,12 +356,6 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
-}
-
-func (o MonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*Monitor] {
-	return pulumix.Output[*Monitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `datadogOrganization` block as defined below.
@@ -447,12 +422,6 @@ func (o MonitorArrayOutput) ToMonitorArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o MonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Monitor] {
-	return pulumix.Output[[]*Monitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorArrayOutput) Index(i pulumi.IntInput) MonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Monitor {
 		return vs[0].([]*Monitor)[vs[1].(int)]
@@ -471,12 +440,6 @@ func (o MonitorMapOutput) ToMonitorMapOutput() MonitorMapOutput {
 
 func (o MonitorMapOutput) ToMonitorMapOutputWithContext(ctx context.Context) MonitorMapOutput {
 	return o
-}
-
-func (o MonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Monitor] {
-	return pulumix.Output[map[string]*Monitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorMapOutput) MapIndex(k pulumi.StringInput) MonitorOutput {

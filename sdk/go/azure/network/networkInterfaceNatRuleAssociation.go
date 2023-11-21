@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the association between a Network Interface and a Load Balancer's NAT Rule.
@@ -239,12 +238,6 @@ func (i *NetworkInterfaceNatRuleAssociation) ToNetworkInterfaceNatRuleAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceNatRuleAssociationOutput)
 }
 
-func (i *NetworkInterfaceNatRuleAssociation) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceNatRuleAssociation] {
-	return pulumix.Output[*NetworkInterfaceNatRuleAssociation]{
-		OutputState: i.ToNetworkInterfaceNatRuleAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkInterfaceNatRuleAssociationArrayInput is an input type that accepts NetworkInterfaceNatRuleAssociationArray and NetworkInterfaceNatRuleAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceNatRuleAssociationArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i NetworkInterfaceNatRuleAssociationArray) ToNetworkInterfaceNatRuleAssoci
 
 func (i NetworkInterfaceNatRuleAssociationArray) ToNetworkInterfaceNatRuleAssociationArrayOutputWithContext(ctx context.Context) NetworkInterfaceNatRuleAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceNatRuleAssociationArrayOutput)
-}
-
-func (i NetworkInterfaceNatRuleAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceNatRuleAssociation] {
-	return pulumix.Output[[]*NetworkInterfaceNatRuleAssociation]{
-		OutputState: i.ToNetworkInterfaceNatRuleAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkInterfaceNatRuleAssociationMapInput is an input type that accepts NetworkInterfaceNatRuleAssociationMap and NetworkInterfaceNatRuleAssociationMapOutput values.
@@ -301,12 +288,6 @@ func (i NetworkInterfaceNatRuleAssociationMap) ToNetworkInterfaceNatRuleAssociat
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceNatRuleAssociationMapOutput)
 }
 
-func (i NetworkInterfaceNatRuleAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceNatRuleAssociation] {
-	return pulumix.Output[map[string]*NetworkInterfaceNatRuleAssociation]{
-		OutputState: i.ToNetworkInterfaceNatRuleAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInterfaceNatRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceNatRuleAssociationOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o NetworkInterfaceNatRuleAssociationOutput) ToNetworkInterfaceNatRuleAssoc
 
 func (o NetworkInterfaceNatRuleAssociationOutput) ToNetworkInterfaceNatRuleAssociationOutputWithContext(ctx context.Context) NetworkInterfaceNatRuleAssociationOutput {
 	return o
-}
-
-func (o NetworkInterfaceNatRuleAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceNatRuleAssociation] {
-	return pulumix.Output[*NetworkInterfaceNatRuleAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
@@ -356,12 +331,6 @@ func (o NetworkInterfaceNatRuleAssociationArrayOutput) ToNetworkInterfaceNatRule
 	return o
 }
 
-func (o NetworkInterfaceNatRuleAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkInterfaceNatRuleAssociation] {
-	return pulumix.Output[[]*NetworkInterfaceNatRuleAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkInterfaceNatRuleAssociationArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceNatRuleAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkInterfaceNatRuleAssociation {
 		return vs[0].([]*NetworkInterfaceNatRuleAssociation)[vs[1].(int)]
@@ -380,12 +349,6 @@ func (o NetworkInterfaceNatRuleAssociationMapOutput) ToNetworkInterfaceNatRuleAs
 
 func (o NetworkInterfaceNatRuleAssociationMapOutput) ToNetworkInterfaceNatRuleAssociationMapOutputWithContext(ctx context.Context) NetworkInterfaceNatRuleAssociationMapOutput {
 	return o
-}
-
-func (o NetworkInterfaceNatRuleAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkInterfaceNatRuleAssociation] {
-	return pulumix.Output[map[string]*NetworkInterfaceNatRuleAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInterfaceNatRuleAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceNatRuleAssociationOutput {

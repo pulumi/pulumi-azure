@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i AppDaprArgs) ToAppDaprOutputWithContext(ctx context.Context) AppDaprOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppDaprOutput)
 }
 
-func (i AppDaprArgs) ToOutput(ctx context.Context) pulumix.Output[AppDapr] {
-	return pulumix.Output[AppDapr]{
-		OutputState: i.ToAppDaprOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppDaprArgs) ToAppDaprPtrOutput() AppDaprPtrOutput {
 	return i.ToAppDaprPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *appDaprPtrType) ToAppDaprPtrOutputWithContext(ctx context.Context) AppD
 	return pulumi.ToOutputWithContext(ctx, i).(AppDaprPtrOutput)
 }
 
-func (i *appDaprPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppDapr] {
-	return pulumix.Output[*AppDapr]{
-		OutputState: i.ToAppDaprPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppDaprOutput struct{ *pulumi.OutputState }
 
 func (AppDaprOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o AppDaprOutput) ToAppDaprPtrOutputWithContext(ctx context.Context) AppDap
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppDapr) *AppDapr {
 		return &v
 	}).(AppDaprPtrOutput)
-}
-
-func (o AppDaprOutput) ToOutput(ctx context.Context) pulumix.Output[AppDapr] {
-	return pulumix.Output[AppDapr]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Dapr Application Identifier.
@@ -165,12 +146,6 @@ func (o AppDaprPtrOutput) ToAppDaprPtrOutput() AppDaprPtrOutput {
 
 func (o AppDaprPtrOutput) ToAppDaprPtrOutputWithContext(ctx context.Context) AppDaprPtrOutput {
 	return o
-}
-
-func (o AppDaprPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppDapr] {
-	return pulumix.Output[*AppDapr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppDaprPtrOutput) Elem() AppDaprOutput {
@@ -254,12 +229,6 @@ func (i AppIdentityArgs) ToAppIdentityOutputWithContext(ctx context.Context) App
 	return pulumi.ToOutputWithContext(ctx, i).(AppIdentityOutput)
 }
 
-func (i AppIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AppIdentity] {
-	return pulumix.Output[AppIdentity]{
-		OutputState: i.ToAppIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppIdentityArgs) ToAppIdentityPtrOutput() AppIdentityPtrOutput {
 	return i.ToAppIdentityPtrOutputWithContext(context.Background())
 }
@@ -301,12 +270,6 @@ func (i *appIdentityPtrType) ToAppIdentityPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppIdentityPtrOutput)
 }
 
-func (i *appIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppIdentity] {
-	return pulumix.Output[*AppIdentity]{
-		OutputState: i.ToAppIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppIdentityOutput struct{ *pulumi.OutputState }
 
 func (AppIdentityOutput) ElementType() reflect.Type {
@@ -329,12 +292,6 @@ func (o AppIdentityOutput) ToAppIdentityPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppIdentity) *AppIdentity {
 		return &v
 	}).(AppIdentityPtrOutput)
-}
-
-func (o AppIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AppIdentity] {
-	return pulumix.Output[AppIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
@@ -367,12 +324,6 @@ func (o AppIdentityPtrOutput) ToAppIdentityPtrOutput() AppIdentityPtrOutput {
 
 func (o AppIdentityPtrOutput) ToAppIdentityPtrOutputWithContext(ctx context.Context) AppIdentityPtrOutput {
 	return o
-}
-
-func (o AppIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppIdentity] {
-	return pulumix.Output[*AppIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppIdentityPtrOutput) Elem() AppIdentityOutput {
@@ -492,12 +443,6 @@ func (i AppIngressArgs) ToAppIngressOutputWithContext(ctx context.Context) AppIn
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressOutput)
 }
 
-func (i AppIngressArgs) ToOutput(ctx context.Context) pulumix.Output[AppIngress] {
-	return pulumix.Output[AppIngress]{
-		OutputState: i.ToAppIngressOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppIngressArgs) ToAppIngressPtrOutput() AppIngressPtrOutput {
 	return i.ToAppIngressPtrOutputWithContext(context.Background())
 }
@@ -539,12 +484,6 @@ func (i *appIngressPtrType) ToAppIngressPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressPtrOutput)
 }
 
-func (i *appIngressPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppIngress] {
-	return pulumix.Output[*AppIngress]{
-		OutputState: i.ToAppIngressPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppIngressOutput struct{ *pulumi.OutputState }
 
 func (AppIngressOutput) ElementType() reflect.Type {
@@ -567,12 +506,6 @@ func (o AppIngressOutput) ToAppIngressPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppIngress) *AppIngress {
 		return &v
 	}).(AppIngressPtrOutput)
-}
-
-func (o AppIngressOutput) ToOutput(ctx context.Context) pulumix.Output[AppIngress] {
-	return pulumix.Output[AppIngress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should this ingress allow insecure connections?
@@ -631,12 +564,6 @@ func (o AppIngressPtrOutput) ToAppIngressPtrOutput() AppIngressPtrOutput {
 
 func (o AppIngressPtrOutput) ToAppIngressPtrOutputWithContext(ctx context.Context) AppIngressPtrOutput {
 	return o
-}
-
-func (o AppIngressPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppIngress] {
-	return pulumix.Output[*AppIngress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppIngressPtrOutput) Elem() AppIngressOutput {
@@ -774,12 +701,6 @@ func (i AppIngressCustomDomainArgs) ToAppIngressCustomDomainOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCustomDomainOutput)
 }
 
-func (i AppIngressCustomDomainArgs) ToOutput(ctx context.Context) pulumix.Output[AppIngressCustomDomain] {
-	return pulumix.Output[AppIngressCustomDomain]{
-		OutputState: i.ToAppIngressCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppIngressCustomDomainArgs) ToAppIngressCustomDomainPtrOutput() AppIngressCustomDomainPtrOutput {
 	return i.ToAppIngressCustomDomainPtrOutputWithContext(context.Background())
 }
@@ -821,12 +742,6 @@ func (i *appIngressCustomDomainPtrType) ToAppIngressCustomDomainPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressCustomDomainPtrOutput)
 }
 
-func (i *appIngressCustomDomainPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppIngressCustomDomain] {
-	return pulumix.Output[*AppIngressCustomDomain]{
-		OutputState: i.ToAppIngressCustomDomainPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppIngressCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (AppIngressCustomDomainOutput) ElementType() reflect.Type {
@@ -849,12 +764,6 @@ func (o AppIngressCustomDomainOutput) ToAppIngressCustomDomainPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppIngressCustomDomain) *AppIngressCustomDomain {
 		return &v
 	}).(AppIngressCustomDomainPtrOutput)
-}
-
-func (o AppIngressCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[AppIngressCustomDomain] {
-	return pulumix.Output[AppIngressCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
@@ -884,12 +793,6 @@ func (o AppIngressCustomDomainPtrOutput) ToAppIngressCustomDomainPtrOutput() App
 
 func (o AppIngressCustomDomainPtrOutput) ToAppIngressCustomDomainPtrOutputWithContext(ctx context.Context) AppIngressCustomDomainPtrOutput {
 	return o
-}
-
-func (o AppIngressCustomDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppIngressCustomDomain] {
-	return pulumix.Output[*AppIngressCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppIngressCustomDomainPtrOutput) Elem() AppIngressCustomDomainOutput {
@@ -981,12 +884,6 @@ func (i AppIngressTrafficWeightArgs) ToAppIngressTrafficWeightOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressTrafficWeightOutput)
 }
 
-func (i AppIngressTrafficWeightArgs) ToOutput(ctx context.Context) pulumix.Output[AppIngressTrafficWeight] {
-	return pulumix.Output[AppIngressTrafficWeight]{
-		OutputState: i.ToAppIngressTrafficWeightOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppIngressTrafficWeightArrayInput is an input type that accepts AppIngressTrafficWeightArray and AppIngressTrafficWeightArrayOutput values.
 // You can construct a concrete instance of `AppIngressTrafficWeightArrayInput` via:
 //
@@ -1012,12 +909,6 @@ func (i AppIngressTrafficWeightArray) ToAppIngressTrafficWeightArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AppIngressTrafficWeightArrayOutput)
 }
 
-func (i AppIngressTrafficWeightArray) ToOutput(ctx context.Context) pulumix.Output[[]AppIngressTrafficWeight] {
-	return pulumix.Output[[]AppIngressTrafficWeight]{
-		OutputState: i.ToAppIngressTrafficWeightArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppIngressTrafficWeightOutput struct{ *pulumi.OutputState }
 
 func (AppIngressTrafficWeightOutput) ElementType() reflect.Type {
@@ -1030,12 +921,6 @@ func (o AppIngressTrafficWeightOutput) ToAppIngressTrafficWeightOutput() AppIngr
 
 func (o AppIngressTrafficWeightOutput) ToAppIngressTrafficWeightOutputWithContext(ctx context.Context) AppIngressTrafficWeightOutput {
 	return o
-}
-
-func (o AppIngressTrafficWeightOutput) ToOutput(ctx context.Context) pulumix.Output[AppIngressTrafficWeight] {
-	return pulumix.Output[AppIngressTrafficWeight]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The label to apply to the revision as a name prefix for routing traffic.
@@ -1072,12 +957,6 @@ func (o AppIngressTrafficWeightArrayOutput) ToAppIngressTrafficWeightArrayOutput
 
 func (o AppIngressTrafficWeightArrayOutput) ToAppIngressTrafficWeightArrayOutputWithContext(ctx context.Context) AppIngressTrafficWeightArrayOutput {
 	return o
-}
-
-func (o AppIngressTrafficWeightArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppIngressTrafficWeight] {
-	return pulumix.Output[[]AppIngressTrafficWeight]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppIngressTrafficWeightArrayOutput) Index(i pulumi.IntInput) AppIngressTrafficWeightOutput {
@@ -1135,12 +1014,6 @@ func (i AppRegistryArgs) ToAppRegistryOutputWithContext(ctx context.Context) App
 	return pulumi.ToOutputWithContext(ctx, i).(AppRegistryOutput)
 }
 
-func (i AppRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[AppRegistry] {
-	return pulumix.Output[AppRegistry]{
-		OutputState: i.ToAppRegistryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppRegistryArrayInput is an input type that accepts AppRegistryArray and AppRegistryArrayOutput values.
 // You can construct a concrete instance of `AppRegistryArrayInput` via:
 //
@@ -1166,12 +1039,6 @@ func (i AppRegistryArray) ToAppRegistryArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AppRegistryArrayOutput)
 }
 
-func (i AppRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]AppRegistry] {
-	return pulumix.Output[[]AppRegistry]{
-		OutputState: i.ToAppRegistryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppRegistryOutput struct{ *pulumi.OutputState }
 
 func (AppRegistryOutput) ElementType() reflect.Type {
@@ -1184,12 +1051,6 @@ func (o AppRegistryOutput) ToAppRegistryOutput() AppRegistryOutput {
 
 func (o AppRegistryOutput) ToAppRegistryOutputWithContext(ctx context.Context) AppRegistryOutput {
 	return o
-}
-
-func (o AppRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[AppRegistry] {
-	return pulumix.Output[AppRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
@@ -1226,12 +1087,6 @@ func (o AppRegistryArrayOutput) ToAppRegistryArrayOutput() AppRegistryArrayOutpu
 
 func (o AppRegistryArrayOutput) ToAppRegistryArrayOutputWithContext(ctx context.Context) AppRegistryArrayOutput {
 	return o
-}
-
-func (o AppRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppRegistry] {
-	return pulumix.Output[[]AppRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppRegistryArrayOutput) Index(i pulumi.IntInput) AppRegistryOutput {
@@ -1281,12 +1136,6 @@ func (i AppSecretArgs) ToAppSecretOutputWithContext(ctx context.Context) AppSecr
 	return pulumi.ToOutputWithContext(ctx, i).(AppSecretOutput)
 }
 
-func (i AppSecretArgs) ToOutput(ctx context.Context) pulumix.Output[AppSecret] {
-	return pulumix.Output[AppSecret]{
-		OutputState: i.ToAppSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppSecretArrayInput is an input type that accepts AppSecretArray and AppSecretArrayOutput values.
 // You can construct a concrete instance of `AppSecretArrayInput` via:
 //
@@ -1312,12 +1161,6 @@ func (i AppSecretArray) ToAppSecretArrayOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AppSecretArrayOutput)
 }
 
-func (i AppSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]AppSecret] {
-	return pulumix.Output[[]AppSecret]{
-		OutputState: i.ToAppSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppSecretOutput struct{ *pulumi.OutputState }
 
 func (AppSecretOutput) ElementType() reflect.Type {
@@ -1330,12 +1173,6 @@ func (o AppSecretOutput) ToAppSecretOutput() AppSecretOutput {
 
 func (o AppSecretOutput) ToAppSecretOutputWithContext(ctx context.Context) AppSecretOutput {
 	return o
-}
-
-func (o AppSecretOutput) ToOutput(ctx context.Context) pulumix.Output[AppSecret] {
-	return pulumix.Output[AppSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Secret name.
@@ -1362,12 +1199,6 @@ func (o AppSecretArrayOutput) ToAppSecretArrayOutput() AppSecretArrayOutput {
 
 func (o AppSecretArrayOutput) ToAppSecretArrayOutputWithContext(ctx context.Context) AppSecretArrayOutput {
 	return o
-}
-
-func (o AppSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppSecret] {
-	return pulumix.Output[[]AppSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppSecretArrayOutput) Index(i pulumi.IntInput) AppSecretOutput {
@@ -1441,12 +1272,6 @@ func (i AppTemplateArgs) ToAppTemplateOutputWithContext(ctx context.Context) App
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateOutput)
 }
 
-func (i AppTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplate] {
-	return pulumix.Output[AppTemplate]{
-		OutputState: i.ToAppTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppTemplateArgs) ToAppTemplatePtrOutput() AppTemplatePtrOutput {
 	return i.ToAppTemplatePtrOutputWithContext(context.Background())
 }
@@ -1488,12 +1313,6 @@ func (i *appTemplatePtrType) ToAppTemplatePtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplatePtrOutput)
 }
 
-func (i *appTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*AppTemplate] {
-	return pulumix.Output[*AppTemplate]{
-		OutputState: i.ToAppTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateOutput) ElementType() reflect.Type {
@@ -1516,12 +1335,6 @@ func (o AppTemplateOutput) ToAppTemplatePtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppTemplate) *AppTemplate {
 		return &v
 	}).(AppTemplatePtrOutput)
-}
-
-func (o AppTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplate] {
-	return pulumix.Output[AppTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `azureQueueScaleRule` blocks as defined below.
@@ -1581,12 +1394,6 @@ func (o AppTemplatePtrOutput) ToAppTemplatePtrOutput() AppTemplatePtrOutput {
 
 func (o AppTemplatePtrOutput) ToAppTemplatePtrOutputWithContext(ctx context.Context) AppTemplatePtrOutput {
 	return o
-}
-
-func (o AppTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppTemplate] {
-	return pulumix.Output[*AppTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplatePtrOutput) Elem() AppTemplateOutput {
@@ -1734,12 +1541,6 @@ func (i AppTemplateAzureQueueScaleRuleArgs) ToAppTemplateAzureQueueScaleRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleOutput)
 }
 
-func (i AppTemplateAzureQueueScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[AppTemplateAzureQueueScaleRule]{
-		OutputState: i.ToAppTemplateAzureQueueScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateAzureQueueScaleRuleArrayInput is an input type that accepts AppTemplateAzureQueueScaleRuleArray and AppTemplateAzureQueueScaleRuleArrayOutput values.
 // You can construct a concrete instance of `AppTemplateAzureQueueScaleRuleArrayInput` via:
 //
@@ -1765,12 +1566,6 @@ func (i AppTemplateAzureQueueScaleRuleArray) ToAppTemplateAzureQueueScaleRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleArrayOutput)
 }
 
-func (i AppTemplateAzureQueueScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[[]AppTemplateAzureQueueScaleRule]{
-		OutputState: i.ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateAzureQueueScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateAzureQueueScaleRuleOutput) ElementType() reflect.Type {
@@ -1783,12 +1578,6 @@ func (o AppTemplateAzureQueueScaleRuleOutput) ToAppTemplateAzureQueueScaleRuleOu
 
 func (o AppTemplateAzureQueueScaleRuleOutput) ToAppTemplateAzureQueueScaleRuleOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleOutput {
 	return o
-}
-
-func (o AppTemplateAzureQueueScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[AppTemplateAzureQueueScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `authentication` blocks as defined below.
@@ -1825,12 +1614,6 @@ func (o AppTemplateAzureQueueScaleRuleArrayOutput) ToAppTemplateAzureQueueScaleR
 
 func (o AppTemplateAzureQueueScaleRuleArrayOutput) ToAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleArrayOutput {
 	return o
-}
-
-func (o AppTemplateAzureQueueScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[[]AppTemplateAzureQueueScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateAzureQueueScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateAzureQueueScaleRuleOutput {
@@ -1876,12 +1659,6 @@ func (i AppTemplateAzureQueueScaleRuleAuthenticationArgs) ToAppTemplateAzureQueu
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleAuthenticationOutput)
 }
 
-func (i AppTemplateAzureQueueScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateAzureQueueScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateAzureQueueScaleRuleAuthenticationArray and AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `AppTemplateAzureQueueScaleRuleAuthenticationArrayInput` via:
 //
@@ -1907,12 +1684,6 @@ func (i AppTemplateAzureQueueScaleRuleAuthenticationArray) ToAppTemplateAzureQue
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput)
 }
 
-func (i AppTemplateAzureQueueScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateAzureQueueScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateAzureQueueScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -1925,12 +1696,6 @@ func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) ToAppTemplateAzureQu
 
 func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) ToAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o AppTemplateAzureQueueScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App Secret to use for this Scale Rule Authentication.
@@ -1955,12 +1720,6 @@ func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToAppTemplateAz
 
 func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateAzureQueueScaleRuleAuthenticationOutput {
@@ -2058,12 +1817,6 @@ func (i AppTemplateContainerArgs) ToAppTemplateContainerOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerOutput)
 }
 
-func (i AppTemplateContainerArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainer] {
-	return pulumix.Output[AppTemplateContainer]{
-		OutputState: i.ToAppTemplateContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerArrayInput is an input type that accepts AppTemplateContainerArray and AppTemplateContainerArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerArrayInput` via:
 //
@@ -2089,12 +1842,6 @@ func (i AppTemplateContainerArray) ToAppTemplateContainerArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerArrayOutput)
 }
 
-func (i AppTemplateContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainer] {
-	return pulumix.Output[[]AppTemplateContainer]{
-		OutputState: i.ToAppTemplateContainerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerOutput) ElementType() reflect.Type {
@@ -2107,12 +1854,6 @@ func (o AppTemplateContainerOutput) ToAppTemplateContainerOutput() AppTemplateCo
 
 func (o AppTemplateContainerOutput) ToAppTemplateContainerOutputWithContext(ctx context.Context) AppTemplateContainerOutput {
 	return o
-}
-
-func (o AppTemplateContainerOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainer] {
-	return pulumix.Output[AppTemplateContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of extra arguments to pass to the container.
@@ -2195,12 +1936,6 @@ func (o AppTemplateContainerArrayOutput) ToAppTemplateContainerArrayOutputWithCo
 	return o
 }
 
-func (o AppTemplateContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainer] {
-	return pulumix.Output[[]AppTemplateContainer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppTemplateContainerArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateContainer {
 		return vs[0].([]AppTemplateContainer)[vs[1].(int)]
@@ -2252,12 +1987,6 @@ func (i AppTemplateContainerEnvArgs) ToAppTemplateContainerEnvOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerEnvOutput)
 }
 
-func (i AppTemplateContainerEnvArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerEnv] {
-	return pulumix.Output[AppTemplateContainerEnv]{
-		OutputState: i.ToAppTemplateContainerEnvOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerEnvArrayInput is an input type that accepts AppTemplateContainerEnvArray and AppTemplateContainerEnvArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerEnvArrayInput` via:
 //
@@ -2283,12 +2012,6 @@ func (i AppTemplateContainerEnvArray) ToAppTemplateContainerEnvArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerEnvArrayOutput)
 }
 
-func (i AppTemplateContainerEnvArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerEnv] {
-	return pulumix.Output[[]AppTemplateContainerEnv]{
-		OutputState: i.ToAppTemplateContainerEnvArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerEnvOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerEnvOutput) ElementType() reflect.Type {
@@ -2301,12 +2024,6 @@ func (o AppTemplateContainerEnvOutput) ToAppTemplateContainerEnvOutput() AppTemp
 
 func (o AppTemplateContainerEnvOutput) ToAppTemplateContainerEnvOutputWithContext(ctx context.Context) AppTemplateContainerEnvOutput {
 	return o
-}
-
-func (o AppTemplateContainerEnvOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerEnv] {
-	return pulumix.Output[AppTemplateContainerEnv]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the environment variable for the container.
@@ -2338,12 +2055,6 @@ func (o AppTemplateContainerEnvArrayOutput) ToAppTemplateContainerEnvArrayOutput
 
 func (o AppTemplateContainerEnvArrayOutput) ToAppTemplateContainerEnvArrayOutputWithContext(ctx context.Context) AppTemplateContainerEnvArrayOutput {
 	return o
-}
-
-func (o AppTemplateContainerEnvArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerEnv] {
-	return pulumix.Output[[]AppTemplateContainerEnv]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerEnvOutput {
@@ -2421,12 +2132,6 @@ func (i AppTemplateContainerLivenessProbeArgs) ToAppTemplateContainerLivenessPro
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerLivenessProbeOutput)
 }
 
-func (i AppTemplateContainerLivenessProbeArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerLivenessProbe] {
-	return pulumix.Output[AppTemplateContainerLivenessProbe]{
-		OutputState: i.ToAppTemplateContainerLivenessProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerLivenessProbeArrayInput is an input type that accepts AppTemplateContainerLivenessProbeArray and AppTemplateContainerLivenessProbeArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerLivenessProbeArrayInput` via:
 //
@@ -2452,12 +2157,6 @@ func (i AppTemplateContainerLivenessProbeArray) ToAppTemplateContainerLivenessPr
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerLivenessProbeArrayOutput)
 }
 
-func (i AppTemplateContainerLivenessProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerLivenessProbe] {
-	return pulumix.Output[[]AppTemplateContainerLivenessProbe]{
-		OutputState: i.ToAppTemplateContainerLivenessProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerLivenessProbeOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerLivenessProbeOutput) ElementType() reflect.Type {
@@ -2470,12 +2169,6 @@ func (o AppTemplateContainerLivenessProbeOutput) ToAppTemplateContainerLivenessP
 
 func (o AppTemplateContainerLivenessProbeOutput) ToAppTemplateContainerLivenessProbeOutputWithContext(ctx context.Context) AppTemplateContainerLivenessProbeOutput {
 	return o
-}
-
-func (o AppTemplateContainerLivenessProbeOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerLivenessProbe] {
-	return pulumix.Output[AppTemplateContainerLivenessProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
@@ -2542,12 +2235,6 @@ func (o AppTemplateContainerLivenessProbeArrayOutput) ToAppTemplateContainerLive
 	return o
 }
 
-func (o AppTemplateContainerLivenessProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerLivenessProbe] {
-	return pulumix.Output[[]AppTemplateContainerLivenessProbe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppTemplateContainerLivenessProbeArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerLivenessProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateContainerLivenessProbe {
 		return vs[0].([]AppTemplateContainerLivenessProbe)[vs[1].(int)]
@@ -2591,12 +2278,6 @@ func (i AppTemplateContainerLivenessProbeHeaderArgs) ToAppTemplateContainerLiven
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerLivenessProbeHeaderOutput)
 }
 
-func (i AppTemplateContainerLivenessProbeHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[AppTemplateContainerLivenessProbeHeader]{
-		OutputState: i.ToAppTemplateContainerLivenessProbeHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerLivenessProbeHeaderArrayInput is an input type that accepts AppTemplateContainerLivenessProbeHeaderArray and AppTemplateContainerLivenessProbeHeaderArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerLivenessProbeHeaderArrayInput` via:
 //
@@ -2622,12 +2303,6 @@ func (i AppTemplateContainerLivenessProbeHeaderArray) ToAppTemplateContainerLive
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerLivenessProbeHeaderArrayOutput)
 }
 
-func (i AppTemplateContainerLivenessProbeHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[[]AppTemplateContainerLivenessProbeHeader]{
-		OutputState: i.ToAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerLivenessProbeHeaderOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerLivenessProbeHeaderOutput) ElementType() reflect.Type {
@@ -2640,12 +2315,6 @@ func (o AppTemplateContainerLivenessProbeHeaderOutput) ToAppTemplateContainerLiv
 
 func (o AppTemplateContainerLivenessProbeHeaderOutput) ToAppTemplateContainerLivenessProbeHeaderOutputWithContext(ctx context.Context) AppTemplateContainerLivenessProbeHeaderOutput {
 	return o
-}
-
-func (o AppTemplateContainerLivenessProbeHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[AppTemplateContainerLivenessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The HTTP Header Name.
@@ -2670,12 +2339,6 @@ func (o AppTemplateContainerLivenessProbeHeaderArrayOutput) ToAppTemplateContain
 
 func (o AppTemplateContainerLivenessProbeHeaderArrayOutput) ToAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx context.Context) AppTemplateContainerLivenessProbeHeaderArrayOutput {
 	return o
-}
-
-func (o AppTemplateContainerLivenessProbeHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[[]AppTemplateContainerLivenessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerLivenessProbeHeaderOutput {
@@ -2749,12 +2412,6 @@ func (i AppTemplateContainerReadinessProbeArgs) ToAppTemplateContainerReadinessP
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerReadinessProbeOutput)
 }
 
-func (i AppTemplateContainerReadinessProbeArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerReadinessProbe] {
-	return pulumix.Output[AppTemplateContainerReadinessProbe]{
-		OutputState: i.ToAppTemplateContainerReadinessProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerReadinessProbeArrayInput is an input type that accepts AppTemplateContainerReadinessProbeArray and AppTemplateContainerReadinessProbeArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerReadinessProbeArrayInput` via:
 //
@@ -2780,12 +2437,6 @@ func (i AppTemplateContainerReadinessProbeArray) ToAppTemplateContainerReadiness
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerReadinessProbeArrayOutput)
 }
 
-func (i AppTemplateContainerReadinessProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerReadinessProbe] {
-	return pulumix.Output[[]AppTemplateContainerReadinessProbe]{
-		OutputState: i.ToAppTemplateContainerReadinessProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerReadinessProbeOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerReadinessProbeOutput) ElementType() reflect.Type {
@@ -2798,12 +2449,6 @@ func (o AppTemplateContainerReadinessProbeOutput) ToAppTemplateContainerReadines
 
 func (o AppTemplateContainerReadinessProbeOutput) ToAppTemplateContainerReadinessProbeOutputWithContext(ctx context.Context) AppTemplateContainerReadinessProbeOutput {
 	return o
-}
-
-func (o AppTemplateContainerReadinessProbeOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerReadinessProbe] {
-	return pulumix.Output[AppTemplateContainerReadinessProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
@@ -2867,12 +2512,6 @@ func (o AppTemplateContainerReadinessProbeArrayOutput) ToAppTemplateContainerRea
 	return o
 }
 
-func (o AppTemplateContainerReadinessProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerReadinessProbe] {
-	return pulumix.Output[[]AppTemplateContainerReadinessProbe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppTemplateContainerReadinessProbeArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerReadinessProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateContainerReadinessProbe {
 		return vs[0].([]AppTemplateContainerReadinessProbe)[vs[1].(int)]
@@ -2916,12 +2555,6 @@ func (i AppTemplateContainerReadinessProbeHeaderArgs) ToAppTemplateContainerRead
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerReadinessProbeHeaderOutput)
 }
 
-func (i AppTemplateContainerReadinessProbeHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[AppTemplateContainerReadinessProbeHeader]{
-		OutputState: i.ToAppTemplateContainerReadinessProbeHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerReadinessProbeHeaderArrayInput is an input type that accepts AppTemplateContainerReadinessProbeHeaderArray and AppTemplateContainerReadinessProbeHeaderArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerReadinessProbeHeaderArrayInput` via:
 //
@@ -2947,12 +2580,6 @@ func (i AppTemplateContainerReadinessProbeHeaderArray) ToAppTemplateContainerRea
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerReadinessProbeHeaderArrayOutput)
 }
 
-func (i AppTemplateContainerReadinessProbeHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[[]AppTemplateContainerReadinessProbeHeader]{
-		OutputState: i.ToAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerReadinessProbeHeaderOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerReadinessProbeHeaderOutput) ElementType() reflect.Type {
@@ -2965,12 +2592,6 @@ func (o AppTemplateContainerReadinessProbeHeaderOutput) ToAppTemplateContainerRe
 
 func (o AppTemplateContainerReadinessProbeHeaderOutput) ToAppTemplateContainerReadinessProbeHeaderOutputWithContext(ctx context.Context) AppTemplateContainerReadinessProbeHeaderOutput {
 	return o
-}
-
-func (o AppTemplateContainerReadinessProbeHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[AppTemplateContainerReadinessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The HTTP Header Name.
@@ -2995,12 +2616,6 @@ func (o AppTemplateContainerReadinessProbeHeaderArrayOutput) ToAppTemplateContai
 
 func (o AppTemplateContainerReadinessProbeHeaderArrayOutput) ToAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx context.Context) AppTemplateContainerReadinessProbeHeaderArrayOutput {
 	return o
-}
-
-func (o AppTemplateContainerReadinessProbeHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[[]AppTemplateContainerReadinessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerReadinessProbeHeaderOutput {
@@ -3074,12 +2689,6 @@ func (i AppTemplateContainerStartupProbeArgs) ToAppTemplateContainerStartupProbe
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerStartupProbeOutput)
 }
 
-func (i AppTemplateContainerStartupProbeArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerStartupProbe] {
-	return pulumix.Output[AppTemplateContainerStartupProbe]{
-		OutputState: i.ToAppTemplateContainerStartupProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerStartupProbeArrayInput is an input type that accepts AppTemplateContainerStartupProbeArray and AppTemplateContainerStartupProbeArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerStartupProbeArrayInput` via:
 //
@@ -3105,12 +2714,6 @@ func (i AppTemplateContainerStartupProbeArray) ToAppTemplateContainerStartupProb
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerStartupProbeArrayOutput)
 }
 
-func (i AppTemplateContainerStartupProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerStartupProbe] {
-	return pulumix.Output[[]AppTemplateContainerStartupProbe]{
-		OutputState: i.ToAppTemplateContainerStartupProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerStartupProbeOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerStartupProbeOutput) ElementType() reflect.Type {
@@ -3123,12 +2726,6 @@ func (o AppTemplateContainerStartupProbeOutput) ToAppTemplateContainerStartupPro
 
 func (o AppTemplateContainerStartupProbeOutput) ToAppTemplateContainerStartupProbeOutputWithContext(ctx context.Context) AppTemplateContainerStartupProbeOutput {
 	return o
-}
-
-func (o AppTemplateContainerStartupProbeOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerStartupProbe] {
-	return pulumix.Output[AppTemplateContainerStartupProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
@@ -3190,12 +2787,6 @@ func (o AppTemplateContainerStartupProbeArrayOutput) ToAppTemplateContainerStart
 	return o
 }
 
-func (o AppTemplateContainerStartupProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerStartupProbe] {
-	return pulumix.Output[[]AppTemplateContainerStartupProbe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppTemplateContainerStartupProbeArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerStartupProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTemplateContainerStartupProbe {
 		return vs[0].([]AppTemplateContainerStartupProbe)[vs[1].(int)]
@@ -3239,12 +2830,6 @@ func (i AppTemplateContainerStartupProbeHeaderArgs) ToAppTemplateContainerStartu
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerStartupProbeHeaderOutput)
 }
 
-func (i AppTemplateContainerStartupProbeHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[AppTemplateContainerStartupProbeHeader]{
-		OutputState: i.ToAppTemplateContainerStartupProbeHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerStartupProbeHeaderArrayInput is an input type that accepts AppTemplateContainerStartupProbeHeaderArray and AppTemplateContainerStartupProbeHeaderArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerStartupProbeHeaderArrayInput` via:
 //
@@ -3270,12 +2855,6 @@ func (i AppTemplateContainerStartupProbeHeaderArray) ToAppTemplateContainerStart
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerStartupProbeHeaderArrayOutput)
 }
 
-func (i AppTemplateContainerStartupProbeHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[[]AppTemplateContainerStartupProbeHeader]{
-		OutputState: i.ToAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerStartupProbeHeaderOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerStartupProbeHeaderOutput) ElementType() reflect.Type {
@@ -3288,12 +2867,6 @@ func (o AppTemplateContainerStartupProbeHeaderOutput) ToAppTemplateContainerStar
 
 func (o AppTemplateContainerStartupProbeHeaderOutput) ToAppTemplateContainerStartupProbeHeaderOutputWithContext(ctx context.Context) AppTemplateContainerStartupProbeHeaderOutput {
 	return o
-}
-
-func (o AppTemplateContainerStartupProbeHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[AppTemplateContainerStartupProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The HTTP Header Name.
@@ -3318,12 +2891,6 @@ func (o AppTemplateContainerStartupProbeHeaderArrayOutput) ToAppTemplateContaine
 
 func (o AppTemplateContainerStartupProbeHeaderArrayOutput) ToAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx context.Context) AppTemplateContainerStartupProbeHeaderArrayOutput {
 	return o
-}
-
-func (o AppTemplateContainerStartupProbeHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[[]AppTemplateContainerStartupProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateContainerStartupProbeHeaderArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerStartupProbeHeaderOutput {
@@ -3369,12 +2936,6 @@ func (i AppTemplateContainerVolumeMountArgs) ToAppTemplateContainerVolumeMountOu
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerVolumeMountOutput)
 }
 
-func (i AppTemplateContainerVolumeMountArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerVolumeMount] {
-	return pulumix.Output[AppTemplateContainerVolumeMount]{
-		OutputState: i.ToAppTemplateContainerVolumeMountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateContainerVolumeMountArrayInput is an input type that accepts AppTemplateContainerVolumeMountArray and AppTemplateContainerVolumeMountArrayOutput values.
 // You can construct a concrete instance of `AppTemplateContainerVolumeMountArrayInput` via:
 //
@@ -3400,12 +2961,6 @@ func (i AppTemplateContainerVolumeMountArray) ToAppTemplateContainerVolumeMountA
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateContainerVolumeMountArrayOutput)
 }
 
-func (i AppTemplateContainerVolumeMountArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerVolumeMount] {
-	return pulumix.Output[[]AppTemplateContainerVolumeMount]{
-		OutputState: i.ToAppTemplateContainerVolumeMountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateContainerVolumeMountOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateContainerVolumeMountOutput) ElementType() reflect.Type {
@@ -3418,12 +2973,6 @@ func (o AppTemplateContainerVolumeMountOutput) ToAppTemplateContainerVolumeMount
 
 func (o AppTemplateContainerVolumeMountOutput) ToAppTemplateContainerVolumeMountOutputWithContext(ctx context.Context) AppTemplateContainerVolumeMountOutput {
 	return o
-}
-
-func (o AppTemplateContainerVolumeMountOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateContainerVolumeMount] {
-	return pulumix.Output[AppTemplateContainerVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Volume to be mounted in the container.
@@ -3448,12 +2997,6 @@ func (o AppTemplateContainerVolumeMountArrayOutput) ToAppTemplateContainerVolume
 
 func (o AppTemplateContainerVolumeMountArrayOutput) ToAppTemplateContainerVolumeMountArrayOutputWithContext(ctx context.Context) AppTemplateContainerVolumeMountArrayOutput {
 	return o
-}
-
-func (o AppTemplateContainerVolumeMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateContainerVolumeMount] {
-	return pulumix.Output[[]AppTemplateContainerVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) AppTemplateContainerVolumeMountOutput {
@@ -3507,12 +3050,6 @@ func (i AppTemplateCustomScaleRuleArgs) ToAppTemplateCustomScaleRuleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleOutput)
 }
 
-func (i AppTemplateCustomScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRule] {
-	return pulumix.Output[AppTemplateCustomScaleRule]{
-		OutputState: i.ToAppTemplateCustomScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateCustomScaleRuleArrayInput is an input type that accepts AppTemplateCustomScaleRuleArray and AppTemplateCustomScaleRuleArrayOutput values.
 // You can construct a concrete instance of `AppTemplateCustomScaleRuleArrayInput` via:
 //
@@ -3538,12 +3075,6 @@ func (i AppTemplateCustomScaleRuleArray) ToAppTemplateCustomScaleRuleArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleArrayOutput)
 }
 
-func (i AppTemplateCustomScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRule] {
-	return pulumix.Output[[]AppTemplateCustomScaleRule]{
-		OutputState: i.ToAppTemplateCustomScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateCustomScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateCustomScaleRuleOutput) ElementType() reflect.Type {
@@ -3556,12 +3087,6 @@ func (o AppTemplateCustomScaleRuleOutput) ToAppTemplateCustomScaleRuleOutput() A
 
 func (o AppTemplateCustomScaleRuleOutput) ToAppTemplateCustomScaleRuleOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleOutput {
 	return o
-}
-
-func (o AppTemplateCustomScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRule] {
-	return pulumix.Output[AppTemplateCustomScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Zero or more `authentication` blocks as defined below.
@@ -3598,12 +3123,6 @@ func (o AppTemplateCustomScaleRuleArrayOutput) ToAppTemplateCustomScaleRuleArray
 
 func (o AppTemplateCustomScaleRuleArrayOutput) ToAppTemplateCustomScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleArrayOutput {
 	return o
-}
-
-func (o AppTemplateCustomScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRule] {
-	return pulumix.Output[[]AppTemplateCustomScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateCustomScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateCustomScaleRuleOutput {
@@ -3649,12 +3168,6 @@ func (i AppTemplateCustomScaleRuleAuthenticationArgs) ToAppTemplateCustomScaleRu
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleAuthenticationOutput)
 }
 
-func (i AppTemplateCustomScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateCustomScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateCustomScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateCustomScaleRuleAuthenticationArray and AppTemplateCustomScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `AppTemplateCustomScaleRuleAuthenticationArrayInput` via:
 //
@@ -3680,12 +3193,6 @@ func (i AppTemplateCustomScaleRuleAuthenticationArray) ToAppTemplateCustomScaleR
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateCustomScaleRuleAuthenticationArrayOutput)
 }
 
-func (i AppTemplateCustomScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateCustomScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateCustomScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -3698,12 +3205,6 @@ func (o AppTemplateCustomScaleRuleAuthenticationOutput) ToAppTemplateCustomScale
 
 func (o AppTemplateCustomScaleRuleAuthenticationOutput) ToAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o AppTemplateCustomScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateCustomScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App Secret to use for this Scale Rule Authentication.
@@ -3728,12 +3229,6 @@ func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) ToAppTemplateCustom
 
 func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) ToAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateCustomScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateCustomScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateCustomScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateCustomScaleRuleAuthenticationOutput {
@@ -3783,12 +3278,6 @@ func (i AppTemplateHttpScaleRuleArgs) ToAppTemplateHttpScaleRuleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleOutput)
 }
 
-func (i AppTemplateHttpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRule] {
-	return pulumix.Output[AppTemplateHttpScaleRule]{
-		OutputState: i.ToAppTemplateHttpScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateHttpScaleRuleArrayInput is an input type that accepts AppTemplateHttpScaleRuleArray and AppTemplateHttpScaleRuleArrayOutput values.
 // You can construct a concrete instance of `AppTemplateHttpScaleRuleArrayInput` via:
 //
@@ -3814,12 +3303,6 @@ func (i AppTemplateHttpScaleRuleArray) ToAppTemplateHttpScaleRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleArrayOutput)
 }
 
-func (i AppTemplateHttpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRule] {
-	return pulumix.Output[[]AppTemplateHttpScaleRule]{
-		OutputState: i.ToAppTemplateHttpScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateHttpScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateHttpScaleRuleOutput) ElementType() reflect.Type {
@@ -3832,12 +3315,6 @@ func (o AppTemplateHttpScaleRuleOutput) ToAppTemplateHttpScaleRuleOutput() AppTe
 
 func (o AppTemplateHttpScaleRuleOutput) ToAppTemplateHttpScaleRuleOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleOutput {
 	return o
-}
-
-func (o AppTemplateHttpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRule] {
-	return pulumix.Output[AppTemplateHttpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Zero or more `authentication` blocks as defined below.
@@ -3867,12 +3344,6 @@ func (o AppTemplateHttpScaleRuleArrayOutput) ToAppTemplateHttpScaleRuleArrayOutp
 
 func (o AppTemplateHttpScaleRuleArrayOutput) ToAppTemplateHttpScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleArrayOutput {
 	return o
-}
-
-func (o AppTemplateHttpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRule] {
-	return pulumix.Output[[]AppTemplateHttpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateHttpScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateHttpScaleRuleOutput {
@@ -3918,12 +3389,6 @@ func (i AppTemplateHttpScaleRuleAuthenticationArgs) ToAppTemplateHttpScaleRuleAu
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleAuthenticationOutput)
 }
 
-func (i AppTemplateHttpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateHttpScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateHttpScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateHttpScaleRuleAuthenticationArray and AppTemplateHttpScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `AppTemplateHttpScaleRuleAuthenticationArrayInput` via:
 //
@@ -3949,12 +3414,6 @@ func (i AppTemplateHttpScaleRuleAuthenticationArray) ToAppTemplateHttpScaleRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateHttpScaleRuleAuthenticationArrayOutput)
 }
 
-func (i AppTemplateHttpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateHttpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateHttpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -3967,12 +3426,6 @@ func (o AppTemplateHttpScaleRuleAuthenticationOutput) ToAppTemplateHttpScaleRule
 
 func (o AppTemplateHttpScaleRuleAuthenticationOutput) ToAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o AppTemplateHttpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateHttpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App Secret to use for this Scale Rule Authentication.
@@ -3997,12 +3450,6 @@ func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) ToAppTemplateHttpScal
 
 func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) ToAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateHttpScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateHttpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateHttpScaleRuleAuthenticationOutput {
@@ -4052,12 +3499,6 @@ func (i AppTemplateTcpScaleRuleArgs) ToAppTemplateTcpScaleRuleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleOutput)
 }
 
-func (i AppTemplateTcpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRule] {
-	return pulumix.Output[AppTemplateTcpScaleRule]{
-		OutputState: i.ToAppTemplateTcpScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateTcpScaleRuleArrayInput is an input type that accepts AppTemplateTcpScaleRuleArray and AppTemplateTcpScaleRuleArrayOutput values.
 // You can construct a concrete instance of `AppTemplateTcpScaleRuleArrayInput` via:
 //
@@ -4083,12 +3524,6 @@ func (i AppTemplateTcpScaleRuleArray) ToAppTemplateTcpScaleRuleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleArrayOutput)
 }
 
-func (i AppTemplateTcpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRule] {
-	return pulumix.Output[[]AppTemplateTcpScaleRule]{
-		OutputState: i.ToAppTemplateTcpScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateTcpScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateTcpScaleRuleOutput) ElementType() reflect.Type {
@@ -4101,12 +3536,6 @@ func (o AppTemplateTcpScaleRuleOutput) ToAppTemplateTcpScaleRuleOutput() AppTemp
 
 func (o AppTemplateTcpScaleRuleOutput) ToAppTemplateTcpScaleRuleOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleOutput {
 	return o
-}
-
-func (o AppTemplateTcpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRule] {
-	return pulumix.Output[AppTemplateTcpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Zero or more `authentication` blocks as defined below.
@@ -4136,12 +3565,6 @@ func (o AppTemplateTcpScaleRuleArrayOutput) ToAppTemplateTcpScaleRuleArrayOutput
 
 func (o AppTemplateTcpScaleRuleArrayOutput) ToAppTemplateTcpScaleRuleArrayOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleArrayOutput {
 	return o
-}
-
-func (o AppTemplateTcpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRule] {
-	return pulumix.Output[[]AppTemplateTcpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateTcpScaleRuleArrayOutput) Index(i pulumi.IntInput) AppTemplateTcpScaleRuleOutput {
@@ -4187,12 +3610,6 @@ func (i AppTemplateTcpScaleRuleAuthenticationArgs) ToAppTemplateTcpScaleRuleAuth
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleAuthenticationOutput)
 }
 
-func (i AppTemplateTcpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateTcpScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateTcpScaleRuleAuthenticationArrayInput is an input type that accepts AppTemplateTcpScaleRuleAuthenticationArray and AppTemplateTcpScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `AppTemplateTcpScaleRuleAuthenticationArrayInput` via:
 //
@@ -4218,12 +3635,6 @@ func (i AppTemplateTcpScaleRuleAuthenticationArray) ToAppTemplateTcpScaleRuleAut
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateTcpScaleRuleAuthenticationArrayOutput)
 }
 
-func (i AppTemplateTcpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication]{
-		OutputState: i.ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateTcpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateTcpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -4236,12 +3647,6 @@ func (o AppTemplateTcpScaleRuleAuthenticationOutput) ToAppTemplateTcpScaleRuleAu
 
 func (o AppTemplateTcpScaleRuleAuthenticationOutput) ToAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o AppTemplateTcpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[AppTemplateTcpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App Secret to use for this Scale Rule Authentication.
@@ -4266,12 +3671,6 @@ func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) ToAppTemplateTcpScaleR
 
 func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) ToAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) AppTemplateTcpScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[[]AppTemplateTcpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateTcpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) AppTemplateTcpScaleRuleAuthenticationOutput {
@@ -4321,12 +3720,6 @@ func (i AppTemplateVolumeArgs) ToAppTemplateVolumeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateVolumeOutput)
 }
 
-func (i AppTemplateVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[AppTemplateVolume] {
-	return pulumix.Output[AppTemplateVolume]{
-		OutputState: i.ToAppTemplateVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTemplateVolumeArrayInput is an input type that accepts AppTemplateVolumeArray and AppTemplateVolumeArrayOutput values.
 // You can construct a concrete instance of `AppTemplateVolumeArrayInput` via:
 //
@@ -4352,12 +3745,6 @@ func (i AppTemplateVolumeArray) ToAppTemplateVolumeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AppTemplateVolumeArrayOutput)
 }
 
-func (i AppTemplateVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateVolume] {
-	return pulumix.Output[[]AppTemplateVolume]{
-		OutputState: i.ToAppTemplateVolumeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTemplateVolumeOutput struct{ *pulumi.OutputState }
 
 func (AppTemplateVolumeOutput) ElementType() reflect.Type {
@@ -4370,12 +3757,6 @@ func (o AppTemplateVolumeOutput) ToAppTemplateVolumeOutput() AppTemplateVolumeOu
 
 func (o AppTemplateVolumeOutput) ToAppTemplateVolumeOutputWithContext(ctx context.Context) AppTemplateVolumeOutput {
 	return o
-}
-
-func (o AppTemplateVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[AppTemplateVolume] {
-	return pulumix.Output[AppTemplateVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the volume.
@@ -4405,12 +3786,6 @@ func (o AppTemplateVolumeArrayOutput) ToAppTemplateVolumeArrayOutput() AppTempla
 
 func (o AppTemplateVolumeArrayOutput) ToAppTemplateVolumeArrayOutputWithContext(ctx context.Context) AppTemplateVolumeArrayOutput {
 	return o
-}
-
-func (o AppTemplateVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTemplateVolume] {
-	return pulumix.Output[[]AppTemplateVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTemplateVolumeArrayOutput) Index(i pulumi.IntInput) AppTemplateVolumeOutput {
@@ -4460,12 +3835,6 @@ func (i EnvironmentDaprComponentMetadataArgs) ToEnvironmentDaprComponentMetadata
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentMetadataOutput)
 }
 
-func (i EnvironmentDaprComponentMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentDaprComponentMetadata] {
-	return pulumix.Output[EnvironmentDaprComponentMetadata]{
-		OutputState: i.ToEnvironmentDaprComponentMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentDaprComponentMetadataArrayInput is an input type that accepts EnvironmentDaprComponentMetadataArray and EnvironmentDaprComponentMetadataArrayOutput values.
 // You can construct a concrete instance of `EnvironmentDaprComponentMetadataArrayInput` via:
 //
@@ -4491,12 +3860,6 @@ func (i EnvironmentDaprComponentMetadataArray) ToEnvironmentDaprComponentMetadat
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentMetadataArrayOutput)
 }
 
-func (i EnvironmentDaprComponentMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentDaprComponentMetadata] {
-	return pulumix.Output[[]EnvironmentDaprComponentMetadata]{
-		OutputState: i.ToEnvironmentDaprComponentMetadataArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentDaprComponentMetadataOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDaprComponentMetadataOutput) ElementType() reflect.Type {
@@ -4509,12 +3872,6 @@ func (o EnvironmentDaprComponentMetadataOutput) ToEnvironmentDaprComponentMetada
 
 func (o EnvironmentDaprComponentMetadataOutput) ToEnvironmentDaprComponentMetadataOutputWithContext(ctx context.Context) EnvironmentDaprComponentMetadataOutput {
 	return o
-}
-
-func (o EnvironmentDaprComponentMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentDaprComponentMetadata] {
-	return pulumix.Output[EnvironmentDaprComponentMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Metadata configuration item.
@@ -4544,12 +3901,6 @@ func (o EnvironmentDaprComponentMetadataArrayOutput) ToEnvironmentDaprComponentM
 
 func (o EnvironmentDaprComponentMetadataArrayOutput) ToEnvironmentDaprComponentMetadataArrayOutputWithContext(ctx context.Context) EnvironmentDaprComponentMetadataArrayOutput {
 	return o
-}
-
-func (o EnvironmentDaprComponentMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentDaprComponentMetadata] {
-	return pulumix.Output[[]EnvironmentDaprComponentMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentDaprComponentMetadataArrayOutput) Index(i pulumi.IntInput) EnvironmentDaprComponentMetadataOutput {
@@ -4595,12 +3946,6 @@ func (i EnvironmentDaprComponentSecretArgs) ToEnvironmentDaprComponentSecretOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentSecretOutput)
 }
 
-func (i EnvironmentDaprComponentSecretArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentDaprComponentSecret] {
-	return pulumix.Output[EnvironmentDaprComponentSecret]{
-		OutputState: i.ToEnvironmentDaprComponentSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentDaprComponentSecretArrayInput is an input type that accepts EnvironmentDaprComponentSecretArray and EnvironmentDaprComponentSecretArrayOutput values.
 // You can construct a concrete instance of `EnvironmentDaprComponentSecretArrayInput` via:
 //
@@ -4626,12 +3971,6 @@ func (i EnvironmentDaprComponentSecretArray) ToEnvironmentDaprComponentSecretArr
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentSecretArrayOutput)
 }
 
-func (i EnvironmentDaprComponentSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentDaprComponentSecret] {
-	return pulumix.Output[[]EnvironmentDaprComponentSecret]{
-		OutputState: i.ToEnvironmentDaprComponentSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentDaprComponentSecretOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDaprComponentSecretOutput) ElementType() reflect.Type {
@@ -4644,12 +3983,6 @@ func (o EnvironmentDaprComponentSecretOutput) ToEnvironmentDaprComponentSecretOu
 
 func (o EnvironmentDaprComponentSecretOutput) ToEnvironmentDaprComponentSecretOutputWithContext(ctx context.Context) EnvironmentDaprComponentSecretOutput {
 	return o
-}
-
-func (o EnvironmentDaprComponentSecretOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentDaprComponentSecret] {
-	return pulumix.Output[EnvironmentDaprComponentSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Secret name.
@@ -4674,12 +4007,6 @@ func (o EnvironmentDaprComponentSecretArrayOutput) ToEnvironmentDaprComponentSec
 
 func (o EnvironmentDaprComponentSecretArrayOutput) ToEnvironmentDaprComponentSecretArrayOutputWithContext(ctx context.Context) EnvironmentDaprComponentSecretArrayOutput {
 	return o
-}
-
-func (o EnvironmentDaprComponentSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentDaprComponentSecret] {
-	return pulumix.Output[[]EnvironmentDaprComponentSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentDaprComponentSecretArrayOutput) Index(i pulumi.IntInput) EnvironmentDaprComponentSecretOutput {
@@ -4729,12 +4056,6 @@ func (i GetAppDaprArgs) ToGetAppDaprOutputWithContext(ctx context.Context) GetAp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppDaprOutput)
 }
 
-func (i GetAppDaprArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppDapr] {
-	return pulumix.Output[GetAppDapr]{
-		OutputState: i.ToGetAppDaprOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppDaprArrayInput is an input type that accepts GetAppDaprArray and GetAppDaprArrayOutput values.
 // You can construct a concrete instance of `GetAppDaprArrayInput` via:
 //
@@ -4760,12 +4081,6 @@ func (i GetAppDaprArray) ToGetAppDaprArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppDaprArrayOutput)
 }
 
-func (i GetAppDaprArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppDapr] {
-	return pulumix.Output[[]GetAppDapr]{
-		OutputState: i.ToGetAppDaprArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppDaprOutput struct{ *pulumi.OutputState }
 
 func (GetAppDaprOutput) ElementType() reflect.Type {
@@ -4778,12 +4093,6 @@ func (o GetAppDaprOutput) ToGetAppDaprOutput() GetAppDaprOutput {
 
 func (o GetAppDaprOutput) ToGetAppDaprOutputWithContext(ctx context.Context) GetAppDaprOutput {
 	return o
-}
-
-func (o GetAppDaprOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppDapr] {
-	return pulumix.Output[GetAppDapr]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Dapr Application Identifier.
@@ -4813,12 +4122,6 @@ func (o GetAppDaprArrayOutput) ToGetAppDaprArrayOutput() GetAppDaprArrayOutput {
 
 func (o GetAppDaprArrayOutput) ToGetAppDaprArrayOutputWithContext(ctx context.Context) GetAppDaprArrayOutput {
 	return o
-}
-
-func (o GetAppDaprArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppDapr] {
-	return pulumix.Output[[]GetAppDapr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppDaprArrayOutput) Index(i pulumi.IntInput) GetAppDaprOutput {
@@ -4868,12 +4171,6 @@ func (i GetAppIdentityArgs) ToGetAppIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIdentityOutput)
 }
 
-func (i GetAppIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppIdentity] {
-	return pulumix.Output[GetAppIdentity]{
-		OutputState: i.ToGetAppIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppIdentityArrayInput is an input type that accepts GetAppIdentityArray and GetAppIdentityArrayOutput values.
 // You can construct a concrete instance of `GetAppIdentityArrayInput` via:
 //
@@ -4899,12 +4196,6 @@ func (i GetAppIdentityArray) ToGetAppIdentityArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIdentityArrayOutput)
 }
 
-func (i GetAppIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIdentity] {
-	return pulumix.Output[[]GetAppIdentity]{
-		OutputState: i.ToGetAppIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetAppIdentityOutput) ElementType() reflect.Type {
@@ -4917,12 +4208,6 @@ func (o GetAppIdentityOutput) ToGetAppIdentityOutput() GetAppIdentityOutput {
 
 func (o GetAppIdentityOutput) ToGetAppIdentityOutputWithContext(ctx context.Context) GetAppIdentityOutput {
 	return o
-}
-
-func (o GetAppIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppIdentity] {
-	return pulumix.Output[GetAppIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
@@ -4955,12 +4240,6 @@ func (o GetAppIdentityArrayOutput) ToGetAppIdentityArrayOutput() GetAppIdentityA
 
 func (o GetAppIdentityArrayOutput) ToGetAppIdentityArrayOutputWithContext(ctx context.Context) GetAppIdentityArrayOutput {
 	return o
-}
-
-func (o GetAppIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIdentity] {
-	return pulumix.Output[[]GetAppIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppIdentityArrayOutput) Index(i pulumi.IntInput) GetAppIdentityOutput {
@@ -5028,12 +4307,6 @@ func (i GetAppIngressArgs) ToGetAppIngressOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressOutput)
 }
 
-func (i GetAppIngressArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppIngress] {
-	return pulumix.Output[GetAppIngress]{
-		OutputState: i.ToGetAppIngressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppIngressArrayInput is an input type that accepts GetAppIngressArray and GetAppIngressArrayOutput values.
 // You can construct a concrete instance of `GetAppIngressArrayInput` via:
 //
@@ -5059,12 +4332,6 @@ func (i GetAppIngressArray) ToGetAppIngressArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressArrayOutput)
 }
 
-func (i GetAppIngressArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIngress] {
-	return pulumix.Output[[]GetAppIngress]{
-		OutputState: i.ToGetAppIngressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppIngressOutput struct{ *pulumi.OutputState }
 
 func (GetAppIngressOutput) ElementType() reflect.Type {
@@ -5077,12 +4344,6 @@ func (o GetAppIngressOutput) ToGetAppIngressOutput() GetAppIngressOutput {
 
 func (o GetAppIngressOutput) ToGetAppIngressOutputWithContext(ctx context.Context) GetAppIngressOutput {
 	return o
-}
-
-func (o GetAppIngressOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppIngress] {
-	return pulumix.Output[GetAppIngress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should this ingress allow insecure connections?
@@ -5138,12 +4399,6 @@ func (o GetAppIngressArrayOutput) ToGetAppIngressArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o GetAppIngressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIngress] {
-	return pulumix.Output[[]GetAppIngress]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetAppIngressArrayOutput) Index(i pulumi.IntInput) GetAppIngressOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppIngress {
 		return vs[0].([]GetAppIngress)[vs[1].(int)]
@@ -5191,12 +4446,6 @@ func (i GetAppIngressCustomDomainArgs) ToGetAppIngressCustomDomainOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressCustomDomainOutput)
 }
 
-func (i GetAppIngressCustomDomainArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppIngressCustomDomain] {
-	return pulumix.Output[GetAppIngressCustomDomain]{
-		OutputState: i.ToGetAppIngressCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppIngressCustomDomainArrayInput is an input type that accepts GetAppIngressCustomDomainArray and GetAppIngressCustomDomainArrayOutput values.
 // You can construct a concrete instance of `GetAppIngressCustomDomainArrayInput` via:
 //
@@ -5222,12 +4471,6 @@ func (i GetAppIngressCustomDomainArray) ToGetAppIngressCustomDomainArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressCustomDomainArrayOutput)
 }
 
-func (i GetAppIngressCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIngressCustomDomain] {
-	return pulumix.Output[[]GetAppIngressCustomDomain]{
-		OutputState: i.ToGetAppIngressCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppIngressCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (GetAppIngressCustomDomainOutput) ElementType() reflect.Type {
@@ -5240,12 +4483,6 @@ func (o GetAppIngressCustomDomainOutput) ToGetAppIngressCustomDomainOutput() Get
 
 func (o GetAppIngressCustomDomainOutput) ToGetAppIngressCustomDomainOutputWithContext(ctx context.Context) GetAppIngressCustomDomainOutput {
 	return o
-}
-
-func (o GetAppIngressCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppIngressCustomDomain] {
-	return pulumix.Output[GetAppIngressCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
@@ -5275,12 +4512,6 @@ func (o GetAppIngressCustomDomainArrayOutput) ToGetAppIngressCustomDomainArrayOu
 
 func (o GetAppIngressCustomDomainArrayOutput) ToGetAppIngressCustomDomainArrayOutputWithContext(ctx context.Context) GetAppIngressCustomDomainArrayOutput {
 	return o
-}
-
-func (o GetAppIngressCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIngressCustomDomain] {
-	return pulumix.Output[[]GetAppIngressCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppIngressCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAppIngressCustomDomainOutput {
@@ -5334,12 +4565,6 @@ func (i GetAppIngressTrafficWeightArgs) ToGetAppIngressTrafficWeightOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressTrafficWeightOutput)
 }
 
-func (i GetAppIngressTrafficWeightArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppIngressTrafficWeight] {
-	return pulumix.Output[GetAppIngressTrafficWeight]{
-		OutputState: i.ToGetAppIngressTrafficWeightOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppIngressTrafficWeightArrayInput is an input type that accepts GetAppIngressTrafficWeightArray and GetAppIngressTrafficWeightArrayOutput values.
 // You can construct a concrete instance of `GetAppIngressTrafficWeightArrayInput` via:
 //
@@ -5365,12 +4590,6 @@ func (i GetAppIngressTrafficWeightArray) ToGetAppIngressTrafficWeightArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppIngressTrafficWeightArrayOutput)
 }
 
-func (i GetAppIngressTrafficWeightArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIngressTrafficWeight] {
-	return pulumix.Output[[]GetAppIngressTrafficWeight]{
-		OutputState: i.ToGetAppIngressTrafficWeightArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppIngressTrafficWeightOutput struct{ *pulumi.OutputState }
 
 func (GetAppIngressTrafficWeightOutput) ElementType() reflect.Type {
@@ -5383,12 +4602,6 @@ func (o GetAppIngressTrafficWeightOutput) ToGetAppIngressTrafficWeightOutput() G
 
 func (o GetAppIngressTrafficWeightOutput) ToGetAppIngressTrafficWeightOutputWithContext(ctx context.Context) GetAppIngressTrafficWeightOutput {
 	return o
-}
-
-func (o GetAppIngressTrafficWeightOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppIngressTrafficWeight] {
-	return pulumix.Output[GetAppIngressTrafficWeight]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The label to apply to the revision as a name prefix for routing traffic.
@@ -5423,12 +4636,6 @@ func (o GetAppIngressTrafficWeightArrayOutput) ToGetAppIngressTrafficWeightArray
 
 func (o GetAppIngressTrafficWeightArrayOutput) ToGetAppIngressTrafficWeightArrayOutputWithContext(ctx context.Context) GetAppIngressTrafficWeightArrayOutput {
 	return o
-}
-
-func (o GetAppIngressTrafficWeightArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppIngressTrafficWeight] {
-	return pulumix.Output[[]GetAppIngressTrafficWeight]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppIngressTrafficWeightArrayOutput) Index(i pulumi.IntInput) GetAppIngressTrafficWeightOutput {
@@ -5482,12 +4689,6 @@ func (i GetAppRegistryArgs) ToGetAppRegistryOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppRegistryOutput)
 }
 
-func (i GetAppRegistryArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppRegistry] {
-	return pulumix.Output[GetAppRegistry]{
-		OutputState: i.ToGetAppRegistryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppRegistryArrayInput is an input type that accepts GetAppRegistryArray and GetAppRegistryArrayOutput values.
 // You can construct a concrete instance of `GetAppRegistryArrayInput` via:
 //
@@ -5513,12 +4714,6 @@ func (i GetAppRegistryArray) ToGetAppRegistryArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppRegistryArrayOutput)
 }
 
-func (i GetAppRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppRegistry] {
-	return pulumix.Output[[]GetAppRegistry]{
-		OutputState: i.ToGetAppRegistryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppRegistryOutput struct{ *pulumi.OutputState }
 
 func (GetAppRegistryOutput) ElementType() reflect.Type {
@@ -5531,12 +4726,6 @@ func (o GetAppRegistryOutput) ToGetAppRegistryOutput() GetAppRegistryOutput {
 
 func (o GetAppRegistryOutput) ToGetAppRegistryOutputWithContext(ctx context.Context) GetAppRegistryOutput {
 	return o
-}
-
-func (o GetAppRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppRegistry] {
-	return pulumix.Output[GetAppRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
@@ -5571,12 +4760,6 @@ func (o GetAppRegistryArrayOutput) ToGetAppRegistryArrayOutput() GetAppRegistryA
 
 func (o GetAppRegistryArrayOutput) ToGetAppRegistryArrayOutputWithContext(ctx context.Context) GetAppRegistryArrayOutput {
 	return o
-}
-
-func (o GetAppRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppRegistry] {
-	return pulumix.Output[[]GetAppRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppRegistryArrayOutput) Index(i pulumi.IntInput) GetAppRegistryOutput {
@@ -5622,12 +4805,6 @@ func (i GetAppSecretArgs) ToGetAppSecretOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppSecretOutput)
 }
 
-func (i GetAppSecretArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppSecret] {
-	return pulumix.Output[GetAppSecret]{
-		OutputState: i.ToGetAppSecretOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppSecretArrayInput is an input type that accepts GetAppSecretArray and GetAppSecretArrayOutput values.
 // You can construct a concrete instance of `GetAppSecretArrayInput` via:
 //
@@ -5653,12 +4830,6 @@ func (i GetAppSecretArray) ToGetAppSecretArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppSecretArrayOutput)
 }
 
-func (i GetAppSecretArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppSecret] {
-	return pulumix.Output[[]GetAppSecret]{
-		OutputState: i.ToGetAppSecretArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppSecretOutput struct{ *pulumi.OutputState }
 
 func (GetAppSecretOutput) ElementType() reflect.Type {
@@ -5671,12 +4842,6 @@ func (o GetAppSecretOutput) ToGetAppSecretOutput() GetAppSecretOutput {
 
 func (o GetAppSecretOutput) ToGetAppSecretOutputWithContext(ctx context.Context) GetAppSecretOutput {
 	return o
-}
-
-func (o GetAppSecretOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppSecret] {
-	return pulumix.Output[GetAppSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -5701,12 +4866,6 @@ func (o GetAppSecretArrayOutput) ToGetAppSecretArrayOutput() GetAppSecretArrayOu
 
 func (o GetAppSecretArrayOutput) ToGetAppSecretArrayOutputWithContext(ctx context.Context) GetAppSecretArrayOutput {
 	return o
-}
-
-func (o GetAppSecretArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppSecret] {
-	return pulumix.Output[[]GetAppSecret]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppSecretArrayOutput) Index(i pulumi.IntInput) GetAppSecretOutput {
@@ -5772,12 +4931,6 @@ func (i GetAppTemplateArgs) ToGetAppTemplateOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateOutput)
 }
 
-func (i GetAppTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplate] {
-	return pulumix.Output[GetAppTemplate]{
-		OutputState: i.ToGetAppTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateArrayInput is an input type that accepts GetAppTemplateArray and GetAppTemplateArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateArrayInput` via:
 //
@@ -5803,12 +4956,6 @@ func (i GetAppTemplateArray) ToGetAppTemplateArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateArrayOutput)
 }
 
-func (i GetAppTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplate] {
-	return pulumix.Output[[]GetAppTemplate]{
-		OutputState: i.ToGetAppTemplateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateOutput) ElementType() reflect.Type {
@@ -5821,12 +4968,6 @@ func (o GetAppTemplateOutput) ToGetAppTemplateOutput() GetAppTemplateOutput {
 
 func (o GetAppTemplateOutput) ToGetAppTemplateOutputWithContext(ctx context.Context) GetAppTemplateOutput {
 	return o
-}
-
-func (o GetAppTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplate] {
-	return pulumix.Output[GetAppTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateOutput) AzureQueueScaleRules() GetAppTemplateAzureQueueScaleRuleArrayOutput {
@@ -5884,12 +5025,6 @@ func (o GetAppTemplateArrayOutput) ToGetAppTemplateArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o GetAppTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplate] {
-	return pulumix.Output[[]GetAppTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetAppTemplateArrayOutput) Index(i pulumi.IntInput) GetAppTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplate {
 		return vs[0].([]GetAppTemplate)[vs[1].(int)]
@@ -5935,12 +5070,6 @@ func (i GetAppTemplateAzureQueueScaleRuleArgs) ToGetAppTemplateAzureQueueScaleRu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleOutput)
 }
 
-func (i GetAppTemplateAzureQueueScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[GetAppTemplateAzureQueueScaleRule]{
-		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateAzureQueueScaleRuleArrayInput is an input type that accepts GetAppTemplateAzureQueueScaleRuleArray and GetAppTemplateAzureQueueScaleRuleArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateAzureQueueScaleRuleArrayInput` via:
 //
@@ -5966,12 +5095,6 @@ func (i GetAppTemplateAzureQueueScaleRuleArray) ToGetAppTemplateAzureQueueScaleR
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleArrayOutput)
 }
 
-func (i GetAppTemplateAzureQueueScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRule]{
-		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateAzureQueueScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateAzureQueueScaleRuleOutput) ElementType() reflect.Type {
@@ -5984,12 +5107,6 @@ func (o GetAppTemplateAzureQueueScaleRuleOutput) ToGetAppTemplateAzureQueueScale
 
 func (o GetAppTemplateAzureQueueScaleRuleOutput) ToGetAppTemplateAzureQueueScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleOutput {
 	return o
-}
-
-func (o GetAppTemplateAzureQueueScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[GetAppTemplateAzureQueueScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateAzureQueueScaleRuleOutput) Authentications() GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
@@ -6023,12 +5140,6 @@ func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) ToGetAppTemplateAzureQueue
 
 func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) ToGetAppTemplateAzureQueueScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRule] {
-	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateAzureQueueScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateAzureQueueScaleRuleOutput {
@@ -6072,12 +5183,6 @@ func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArgs) ToGetAppTemplateAzu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleAuthenticationOutput)
 }
 
-func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateAzureQueueScaleRuleAuthenticationArray and GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateAzureQueueScaleRuleAuthenticationArrayInput` via:
 //
@@ -6103,12 +5208,6 @@ func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArray) ToGetAppTemplateAz
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput)
 }
 
-func (i GetAppTemplateAzureQueueScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateAzureQueueScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -6121,12 +5220,6 @@ func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ToGetAppTemplateA
 
 func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ToGetAppTemplateAzureQueueScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o GetAppTemplateAzureQueueScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the secret that contains the value for this environment variable.
@@ -6150,12 +5243,6 @@ func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToGetAppTemp
 
 func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToGetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateAzureQueueScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateAzureQueueScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateAzureQueueScaleRuleAuthenticationOutput {
@@ -6241,12 +5328,6 @@ func (i GetAppTemplateContainerArgs) ToGetAppTemplateContainerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerOutput)
 }
 
-func (i GetAppTemplateContainerArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainer] {
-	return pulumix.Output[GetAppTemplateContainer]{
-		OutputState: i.ToGetAppTemplateContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerArrayInput is an input type that accepts GetAppTemplateContainerArray and GetAppTemplateContainerArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerArrayInput` via:
 //
@@ -6272,12 +5353,6 @@ func (i GetAppTemplateContainerArray) ToGetAppTemplateContainerArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerArrayOutput)
 }
 
-func (i GetAppTemplateContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainer] {
-	return pulumix.Output[[]GetAppTemplateContainer]{
-		OutputState: i.ToGetAppTemplateContainerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerOutput) ElementType() reflect.Type {
@@ -6290,12 +5365,6 @@ func (o GetAppTemplateContainerOutput) ToGetAppTemplateContainerOutput() GetAppT
 
 func (o GetAppTemplateContainerOutput) ToGetAppTemplateContainerOutputWithContext(ctx context.Context) GetAppTemplateContainerOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainer] {
-	return pulumix.Output[GetAppTemplateContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of extra arguments to pass to the container.
@@ -6372,12 +5441,6 @@ func (o GetAppTemplateContainerArrayOutput) ToGetAppTemplateContainerArrayOutput
 	return o
 }
 
-func (o GetAppTemplateContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainer] {
-	return pulumix.Output[[]GetAppTemplateContainer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetAppTemplateContainerArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainer {
 		return vs[0].([]GetAppTemplateContainer)[vs[1].(int)]
@@ -6425,12 +5488,6 @@ func (i GetAppTemplateContainerEnvArgs) ToGetAppTemplateContainerEnvOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerEnvOutput)
 }
 
-func (i GetAppTemplateContainerEnvArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerEnv] {
-	return pulumix.Output[GetAppTemplateContainerEnv]{
-		OutputState: i.ToGetAppTemplateContainerEnvOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerEnvArrayInput is an input type that accepts GetAppTemplateContainerEnvArray and GetAppTemplateContainerEnvArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerEnvArrayInput` via:
 //
@@ -6456,12 +5513,6 @@ func (i GetAppTemplateContainerEnvArray) ToGetAppTemplateContainerEnvArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerEnvArrayOutput)
 }
 
-func (i GetAppTemplateContainerEnvArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerEnv] {
-	return pulumix.Output[[]GetAppTemplateContainerEnv]{
-		OutputState: i.ToGetAppTemplateContainerEnvArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerEnvOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerEnvOutput) ElementType() reflect.Type {
@@ -6474,12 +5525,6 @@ func (o GetAppTemplateContainerEnvOutput) ToGetAppTemplateContainerEnvOutput() G
 
 func (o GetAppTemplateContainerEnvOutput) ToGetAppTemplateContainerEnvOutputWithContext(ctx context.Context) GetAppTemplateContainerEnvOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerEnvOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerEnv] {
-	return pulumix.Output[GetAppTemplateContainerEnv]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -6509,12 +5554,6 @@ func (o GetAppTemplateContainerEnvArrayOutput) ToGetAppTemplateContainerEnvArray
 
 func (o GetAppTemplateContainerEnvArrayOutput) ToGetAppTemplateContainerEnvArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerEnvArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerEnvArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerEnv] {
-	return pulumix.Output[[]GetAppTemplateContainerEnv]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateContainerEnvArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerEnvOutput {
@@ -6592,12 +5631,6 @@ func (i GetAppTemplateContainerLivenessProbeArgs) ToGetAppTemplateContainerLiven
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeOutput)
 }
 
-func (i GetAppTemplateContainerLivenessProbeArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerLivenessProbe] {
-	return pulumix.Output[GetAppTemplateContainerLivenessProbe]{
-		OutputState: i.ToGetAppTemplateContainerLivenessProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerLivenessProbeArrayInput is an input type that accepts GetAppTemplateContainerLivenessProbeArray and GetAppTemplateContainerLivenessProbeArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerLivenessProbeArrayInput` via:
 //
@@ -6623,12 +5656,6 @@ func (i GetAppTemplateContainerLivenessProbeArray) ToGetAppTemplateContainerLive
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeArrayOutput)
 }
 
-func (i GetAppTemplateContainerLivenessProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerLivenessProbe] {
-	return pulumix.Output[[]GetAppTemplateContainerLivenessProbe]{
-		OutputState: i.ToGetAppTemplateContainerLivenessProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerLivenessProbeOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerLivenessProbeOutput) ElementType() reflect.Type {
@@ -6641,12 +5668,6 @@ func (o GetAppTemplateContainerLivenessProbeOutput) ToGetAppTemplateContainerLiv
 
 func (o GetAppTemplateContainerLivenessProbeOutput) ToGetAppTemplateContainerLivenessProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerLivenessProbeOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerLivenessProbe] {
-	return pulumix.Output[GetAppTemplateContainerLivenessProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
@@ -6715,12 +5736,6 @@ func (o GetAppTemplateContainerLivenessProbeArrayOutput) ToGetAppTemplateContain
 	return o
 }
 
-func (o GetAppTemplateContainerLivenessProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerLivenessProbe] {
-	return pulumix.Output[[]GetAppTemplateContainerLivenessProbe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetAppTemplateContainerLivenessProbeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerLivenessProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerLivenessProbe {
 		return vs[0].([]GetAppTemplateContainerLivenessProbe)[vs[1].(int)]
@@ -6764,12 +5779,6 @@ func (i GetAppTemplateContainerLivenessProbeHeaderArgs) ToGetAppTemplateContaine
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeHeaderOutput)
 }
 
-func (i GetAppTemplateContainerLivenessProbeHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[GetAppTemplateContainerLivenessProbeHeader]{
-		OutputState: i.ToGetAppTemplateContainerLivenessProbeHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerLivenessProbeHeaderArrayInput is an input type that accepts GetAppTemplateContainerLivenessProbeHeaderArray and GetAppTemplateContainerLivenessProbeHeaderArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerLivenessProbeHeaderArrayInput` via:
 //
@@ -6795,12 +5804,6 @@ func (i GetAppTemplateContainerLivenessProbeHeaderArray) ToGetAppTemplateContain
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerLivenessProbeHeaderArrayOutput)
 }
 
-func (i GetAppTemplateContainerLivenessProbeHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[[]GetAppTemplateContainerLivenessProbeHeader]{
-		OutputState: i.ToGetAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerLivenessProbeHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerLivenessProbeHeaderOutput) ElementType() reflect.Type {
@@ -6813,12 +5816,6 @@ func (o GetAppTemplateContainerLivenessProbeHeaderOutput) ToGetAppTemplateContai
 
 func (o GetAppTemplateContainerLivenessProbeHeaderOutput) ToGetAppTemplateContainerLivenessProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeHeaderOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerLivenessProbeHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[GetAppTemplateContainerLivenessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -6843,12 +5840,6 @@ func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) ToGetAppTemplateC
 
 func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) ToGetAppTemplateContainerLivenessProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerLivenessProbeHeaderArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerLivenessProbeHeader] {
-	return pulumix.Output[[]GetAppTemplateContainerLivenessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateContainerLivenessProbeHeaderArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerLivenessProbeHeaderOutput {
@@ -6922,12 +5913,6 @@ func (i GetAppTemplateContainerReadinessProbeArgs) ToGetAppTemplateContainerRead
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeOutput)
 }
 
-func (i GetAppTemplateContainerReadinessProbeArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerReadinessProbe] {
-	return pulumix.Output[GetAppTemplateContainerReadinessProbe]{
-		OutputState: i.ToGetAppTemplateContainerReadinessProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerReadinessProbeArrayInput is an input type that accepts GetAppTemplateContainerReadinessProbeArray and GetAppTemplateContainerReadinessProbeArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerReadinessProbeArrayInput` via:
 //
@@ -6953,12 +5938,6 @@ func (i GetAppTemplateContainerReadinessProbeArray) ToGetAppTemplateContainerRea
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeArrayOutput)
 }
 
-func (i GetAppTemplateContainerReadinessProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerReadinessProbe] {
-	return pulumix.Output[[]GetAppTemplateContainerReadinessProbe]{
-		OutputState: i.ToGetAppTemplateContainerReadinessProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerReadinessProbeOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerReadinessProbeOutput) ElementType() reflect.Type {
@@ -6971,12 +5950,6 @@ func (o GetAppTemplateContainerReadinessProbeOutput) ToGetAppTemplateContainerRe
 
 func (o GetAppTemplateContainerReadinessProbeOutput) ToGetAppTemplateContainerReadinessProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerReadinessProbeOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerReadinessProbe] {
-	return pulumix.Output[GetAppTemplateContainerReadinessProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
@@ -7040,12 +6013,6 @@ func (o GetAppTemplateContainerReadinessProbeArrayOutput) ToGetAppTemplateContai
 	return o
 }
 
-func (o GetAppTemplateContainerReadinessProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerReadinessProbe] {
-	return pulumix.Output[[]GetAppTemplateContainerReadinessProbe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetAppTemplateContainerReadinessProbeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerReadinessProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerReadinessProbe {
 		return vs[0].([]GetAppTemplateContainerReadinessProbe)[vs[1].(int)]
@@ -7089,12 +6056,6 @@ func (i GetAppTemplateContainerReadinessProbeHeaderArgs) ToGetAppTemplateContain
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeHeaderOutput)
 }
 
-func (i GetAppTemplateContainerReadinessProbeHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[GetAppTemplateContainerReadinessProbeHeader]{
-		OutputState: i.ToGetAppTemplateContainerReadinessProbeHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerReadinessProbeHeaderArrayInput is an input type that accepts GetAppTemplateContainerReadinessProbeHeaderArray and GetAppTemplateContainerReadinessProbeHeaderArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerReadinessProbeHeaderArrayInput` via:
 //
@@ -7120,12 +6081,6 @@ func (i GetAppTemplateContainerReadinessProbeHeaderArray) ToGetAppTemplateContai
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerReadinessProbeHeaderArrayOutput)
 }
 
-func (i GetAppTemplateContainerReadinessProbeHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[[]GetAppTemplateContainerReadinessProbeHeader]{
-		OutputState: i.ToGetAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerReadinessProbeHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerReadinessProbeHeaderOutput) ElementType() reflect.Type {
@@ -7138,12 +6093,6 @@ func (o GetAppTemplateContainerReadinessProbeHeaderOutput) ToGetAppTemplateConta
 
 func (o GetAppTemplateContainerReadinessProbeHeaderOutput) ToGetAppTemplateContainerReadinessProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeHeaderOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerReadinessProbeHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[GetAppTemplateContainerReadinessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -7168,12 +6117,6 @@ func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) ToGetAppTemplate
 
 func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) ToGetAppTemplateContainerReadinessProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerReadinessProbeHeaderArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerReadinessProbeHeader] {
-	return pulumix.Output[[]GetAppTemplateContainerReadinessProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateContainerReadinessProbeHeaderArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerReadinessProbeHeaderOutput {
@@ -7247,12 +6190,6 @@ func (i GetAppTemplateContainerStartupProbeArgs) ToGetAppTemplateContainerStartu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeOutput)
 }
 
-func (i GetAppTemplateContainerStartupProbeArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerStartupProbe] {
-	return pulumix.Output[GetAppTemplateContainerStartupProbe]{
-		OutputState: i.ToGetAppTemplateContainerStartupProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerStartupProbeArrayInput is an input type that accepts GetAppTemplateContainerStartupProbeArray and GetAppTemplateContainerStartupProbeArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerStartupProbeArrayInput` via:
 //
@@ -7278,12 +6215,6 @@ func (i GetAppTemplateContainerStartupProbeArray) ToGetAppTemplateContainerStart
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeArrayOutput)
 }
 
-func (i GetAppTemplateContainerStartupProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerStartupProbe] {
-	return pulumix.Output[[]GetAppTemplateContainerStartupProbe]{
-		OutputState: i.ToGetAppTemplateContainerStartupProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerStartupProbeOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerStartupProbeOutput) ElementType() reflect.Type {
@@ -7296,12 +6227,6 @@ func (o GetAppTemplateContainerStartupProbeOutput) ToGetAppTemplateContainerStar
 
 func (o GetAppTemplateContainerStartupProbeOutput) ToGetAppTemplateContainerStartupProbeOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerStartupProbeOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerStartupProbe] {
-	return pulumix.Output[GetAppTemplateContainerStartupProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `10`. Defaults to `3`.
@@ -7365,12 +6290,6 @@ func (o GetAppTemplateContainerStartupProbeArrayOutput) ToGetAppTemplateContaine
 	return o
 }
 
-func (o GetAppTemplateContainerStartupProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerStartupProbe] {
-	return pulumix.Output[[]GetAppTemplateContainerStartupProbe]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetAppTemplateContainerStartupProbeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerStartupProbeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAppTemplateContainerStartupProbe {
 		return vs[0].([]GetAppTemplateContainerStartupProbe)[vs[1].(int)]
@@ -7414,12 +6333,6 @@ func (i GetAppTemplateContainerStartupProbeHeaderArgs) ToGetAppTemplateContainer
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeHeaderOutput)
 }
 
-func (i GetAppTemplateContainerStartupProbeHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[GetAppTemplateContainerStartupProbeHeader]{
-		OutputState: i.ToGetAppTemplateContainerStartupProbeHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerStartupProbeHeaderArrayInput is an input type that accepts GetAppTemplateContainerStartupProbeHeaderArray and GetAppTemplateContainerStartupProbeHeaderArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerStartupProbeHeaderArrayInput` via:
 //
@@ -7445,12 +6358,6 @@ func (i GetAppTemplateContainerStartupProbeHeaderArray) ToGetAppTemplateContaine
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerStartupProbeHeaderArrayOutput)
 }
 
-func (i GetAppTemplateContainerStartupProbeHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[[]GetAppTemplateContainerStartupProbeHeader]{
-		OutputState: i.ToGetAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerStartupProbeHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerStartupProbeHeaderOutput) ElementType() reflect.Type {
@@ -7463,12 +6370,6 @@ func (o GetAppTemplateContainerStartupProbeHeaderOutput) ToGetAppTemplateContain
 
 func (o GetAppTemplateContainerStartupProbeHeaderOutput) ToGetAppTemplateContainerStartupProbeHeaderOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeHeaderOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerStartupProbeHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[GetAppTemplateContainerStartupProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -7493,12 +6394,6 @@ func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) ToGetAppTemplateCo
 
 func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) ToGetAppTemplateContainerStartupProbeHeaderArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerStartupProbeHeaderArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerStartupProbeHeader] {
-	return pulumix.Output[[]GetAppTemplateContainerStartupProbeHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateContainerStartupProbeHeaderArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerStartupProbeHeaderOutput {
@@ -7544,12 +6439,6 @@ func (i GetAppTemplateContainerVolumeMountArgs) ToGetAppTemplateContainerVolumeM
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerVolumeMountOutput)
 }
 
-func (i GetAppTemplateContainerVolumeMountArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerVolumeMount] {
-	return pulumix.Output[GetAppTemplateContainerVolumeMount]{
-		OutputState: i.ToGetAppTemplateContainerVolumeMountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateContainerVolumeMountArrayInput is an input type that accepts GetAppTemplateContainerVolumeMountArray and GetAppTemplateContainerVolumeMountArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateContainerVolumeMountArrayInput` via:
 //
@@ -7575,12 +6464,6 @@ func (i GetAppTemplateContainerVolumeMountArray) ToGetAppTemplateContainerVolume
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateContainerVolumeMountArrayOutput)
 }
 
-func (i GetAppTemplateContainerVolumeMountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerVolumeMount] {
-	return pulumix.Output[[]GetAppTemplateContainerVolumeMount]{
-		OutputState: i.ToGetAppTemplateContainerVolumeMountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateContainerVolumeMountOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateContainerVolumeMountOutput) ElementType() reflect.Type {
@@ -7593,12 +6476,6 @@ func (o GetAppTemplateContainerVolumeMountOutput) ToGetAppTemplateContainerVolum
 
 func (o GetAppTemplateContainerVolumeMountOutput) ToGetAppTemplateContainerVolumeMountOutputWithContext(ctx context.Context) GetAppTemplateContainerVolumeMountOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerVolumeMountOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateContainerVolumeMount] {
-	return pulumix.Output[GetAppTemplateContainerVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -7623,12 +6500,6 @@ func (o GetAppTemplateContainerVolumeMountArrayOutput) ToGetAppTemplateContainer
 
 func (o GetAppTemplateContainerVolumeMountArrayOutput) ToGetAppTemplateContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetAppTemplateContainerVolumeMountArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateContainerVolumeMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateContainerVolumeMount] {
-	return pulumix.Output[[]GetAppTemplateContainerVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) GetAppTemplateContainerVolumeMountOutput {
@@ -7676,12 +6547,6 @@ func (i GetAppTemplateCustomScaleRuleArgs) ToGetAppTemplateCustomScaleRuleOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleOutput)
 }
 
-func (i GetAppTemplateCustomScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRule] {
-	return pulumix.Output[GetAppTemplateCustomScaleRule]{
-		OutputState: i.ToGetAppTemplateCustomScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateCustomScaleRuleArrayInput is an input type that accepts GetAppTemplateCustomScaleRuleArray and GetAppTemplateCustomScaleRuleArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateCustomScaleRuleArrayInput` via:
 //
@@ -7707,12 +6572,6 @@ func (i GetAppTemplateCustomScaleRuleArray) ToGetAppTemplateCustomScaleRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleArrayOutput)
 }
 
-func (i GetAppTemplateCustomScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRule] {
-	return pulumix.Output[[]GetAppTemplateCustomScaleRule]{
-		OutputState: i.ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateCustomScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateCustomScaleRuleOutput) ElementType() reflect.Type {
@@ -7725,12 +6584,6 @@ func (o GetAppTemplateCustomScaleRuleOutput) ToGetAppTemplateCustomScaleRuleOutp
 
 func (o GetAppTemplateCustomScaleRuleOutput) ToGetAppTemplateCustomScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleOutput {
 	return o
-}
-
-func (o GetAppTemplateCustomScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRule] {
-	return pulumix.Output[GetAppTemplateCustomScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateCustomScaleRuleOutput) Authentications() GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
@@ -7764,12 +6617,6 @@ func (o GetAppTemplateCustomScaleRuleArrayOutput) ToGetAppTemplateCustomScaleRul
 
 func (o GetAppTemplateCustomScaleRuleArrayOutput) ToGetAppTemplateCustomScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateCustomScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRule] {
-	return pulumix.Output[[]GetAppTemplateCustomScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateCustomScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateCustomScaleRuleOutput {
@@ -7813,12 +6660,6 @@ func (i GetAppTemplateCustomScaleRuleAuthenticationArgs) ToGetAppTemplateCustomS
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleAuthenticationOutput)
 }
 
-func (i GetAppTemplateCustomScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateCustomScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateCustomScaleRuleAuthenticationArray and GetAppTemplateCustomScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateCustomScaleRuleAuthenticationArrayInput` via:
 //
@@ -7844,12 +6685,6 @@ func (i GetAppTemplateCustomScaleRuleAuthenticationArray) ToGetAppTemplateCustom
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateCustomScaleRuleAuthenticationArrayOutput)
 }
 
-func (i GetAppTemplateCustomScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateCustomScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateCustomScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -7862,12 +6697,6 @@ func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) ToGetAppTemplateCusto
 
 func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) ToGetAppTemplateCustomScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o GetAppTemplateCustomScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateCustomScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the secret that contains the value for this environment variable.
@@ -7891,12 +6720,6 @@ func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ToGetAppTemplate
 
 func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ToGetAppTemplateCustomScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateCustomScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateCustomScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateCustomScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateCustomScaleRuleAuthenticationOutput {
@@ -7942,12 +6765,6 @@ func (i GetAppTemplateHttpScaleRuleArgs) ToGetAppTemplateHttpScaleRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleOutput)
 }
 
-func (i GetAppTemplateHttpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRule] {
-	return pulumix.Output[GetAppTemplateHttpScaleRule]{
-		OutputState: i.ToGetAppTemplateHttpScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateHttpScaleRuleArrayInput is an input type that accepts GetAppTemplateHttpScaleRuleArray and GetAppTemplateHttpScaleRuleArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateHttpScaleRuleArrayInput` via:
 //
@@ -7973,12 +6790,6 @@ func (i GetAppTemplateHttpScaleRuleArray) ToGetAppTemplateHttpScaleRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleArrayOutput)
 }
 
-func (i GetAppTemplateHttpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRule] {
-	return pulumix.Output[[]GetAppTemplateHttpScaleRule]{
-		OutputState: i.ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateHttpScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateHttpScaleRuleOutput) ElementType() reflect.Type {
@@ -7991,12 +6802,6 @@ func (o GetAppTemplateHttpScaleRuleOutput) ToGetAppTemplateHttpScaleRuleOutput()
 
 func (o GetAppTemplateHttpScaleRuleOutput) ToGetAppTemplateHttpScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleOutput {
 	return o
-}
-
-func (o GetAppTemplateHttpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRule] {
-	return pulumix.Output[GetAppTemplateHttpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateHttpScaleRuleOutput) Authentications() GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
@@ -8026,12 +6831,6 @@ func (o GetAppTemplateHttpScaleRuleArrayOutput) ToGetAppTemplateHttpScaleRuleArr
 
 func (o GetAppTemplateHttpScaleRuleArrayOutput) ToGetAppTemplateHttpScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateHttpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRule] {
-	return pulumix.Output[[]GetAppTemplateHttpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateHttpScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateHttpScaleRuleOutput {
@@ -8075,12 +6874,6 @@ func (i GetAppTemplateHttpScaleRuleAuthenticationArgs) ToGetAppTemplateHttpScale
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleAuthenticationOutput)
 }
 
-func (i GetAppTemplateHttpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateHttpScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateHttpScaleRuleAuthenticationArray and GetAppTemplateHttpScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateHttpScaleRuleAuthenticationArrayInput` via:
 //
@@ -8106,12 +6899,6 @@ func (i GetAppTemplateHttpScaleRuleAuthenticationArray) ToGetAppTemplateHttpScal
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateHttpScaleRuleAuthenticationArrayOutput)
 }
 
-func (i GetAppTemplateHttpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateHttpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateHttpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -8124,12 +6911,6 @@ func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) ToGetAppTemplateHttpSca
 
 func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) ToGetAppTemplateHttpScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o GetAppTemplateHttpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateHttpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the secret that contains the value for this environment variable.
@@ -8153,12 +6934,6 @@ func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateHt
 
 func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateHttpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateHttpScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateHttpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateHttpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateHttpScaleRuleAuthenticationOutput {
@@ -8204,12 +6979,6 @@ func (i GetAppTemplateTcpScaleRuleArgs) ToGetAppTemplateTcpScaleRuleOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleOutput)
 }
 
-func (i GetAppTemplateTcpScaleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRule] {
-	return pulumix.Output[GetAppTemplateTcpScaleRule]{
-		OutputState: i.ToGetAppTemplateTcpScaleRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateTcpScaleRuleArrayInput is an input type that accepts GetAppTemplateTcpScaleRuleArray and GetAppTemplateTcpScaleRuleArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateTcpScaleRuleArrayInput` via:
 //
@@ -8235,12 +7004,6 @@ func (i GetAppTemplateTcpScaleRuleArray) ToGetAppTemplateTcpScaleRuleArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleArrayOutput)
 }
 
-func (i GetAppTemplateTcpScaleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRule] {
-	return pulumix.Output[[]GetAppTemplateTcpScaleRule]{
-		OutputState: i.ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateTcpScaleRuleOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateTcpScaleRuleOutput) ElementType() reflect.Type {
@@ -8253,12 +7016,6 @@ func (o GetAppTemplateTcpScaleRuleOutput) ToGetAppTemplateTcpScaleRuleOutput() G
 
 func (o GetAppTemplateTcpScaleRuleOutput) ToGetAppTemplateTcpScaleRuleOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleOutput {
 	return o
-}
-
-func (o GetAppTemplateTcpScaleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRule] {
-	return pulumix.Output[GetAppTemplateTcpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateTcpScaleRuleOutput) Authentications() GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
@@ -8288,12 +7045,6 @@ func (o GetAppTemplateTcpScaleRuleArrayOutput) ToGetAppTemplateTcpScaleRuleArray
 
 func (o GetAppTemplateTcpScaleRuleArrayOutput) ToGetAppTemplateTcpScaleRuleArrayOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateTcpScaleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRule] {
-	return pulumix.Output[[]GetAppTemplateTcpScaleRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateTcpScaleRuleArrayOutput) Index(i pulumi.IntInput) GetAppTemplateTcpScaleRuleOutput {
@@ -8337,12 +7088,6 @@ func (i GetAppTemplateTcpScaleRuleAuthenticationArgs) ToGetAppTemplateTcpScaleRu
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleAuthenticationOutput)
 }
 
-func (i GetAppTemplateTcpScaleRuleAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateTcpScaleRuleAuthenticationArrayInput is an input type that accepts GetAppTemplateTcpScaleRuleAuthenticationArray and GetAppTemplateTcpScaleRuleAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateTcpScaleRuleAuthenticationArrayInput` via:
 //
@@ -8368,12 +7113,6 @@ func (i GetAppTemplateTcpScaleRuleAuthenticationArray) ToGetAppTemplateTcpScaleR
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateTcpScaleRuleAuthenticationArrayOutput)
 }
 
-func (i GetAppTemplateTcpScaleRuleAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication]{
-		OutputState: i.ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateTcpScaleRuleAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateTcpScaleRuleAuthenticationOutput) ElementType() reflect.Type {
@@ -8386,12 +7125,6 @@ func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) ToGetAppTemplateTcpScale
 
 func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) ToGetAppTemplateTcpScaleRuleAuthenticationOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleAuthenticationOutput {
 	return o
-}
-
-func (o GetAppTemplateTcpScaleRuleAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[GetAppTemplateTcpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the secret that contains the value for this environment variable.
@@ -8415,12 +7148,6 @@ func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateTcp
 
 func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ToGetAppTemplateTcpScaleRuleAuthenticationArrayOutputWithContext(ctx context.Context) GetAppTemplateTcpScaleRuleAuthenticationArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication] {
-	return pulumix.Output[[]GetAppTemplateTcpScaleRuleAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateTcpScaleRuleAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAppTemplateTcpScaleRuleAuthenticationOutput {
@@ -8470,12 +7197,6 @@ func (i GetAppTemplateVolumeArgs) ToGetAppTemplateVolumeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateVolumeOutput)
 }
 
-func (i GetAppTemplateVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateVolume] {
-	return pulumix.Output[GetAppTemplateVolume]{
-		OutputState: i.ToGetAppTemplateVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAppTemplateVolumeArrayInput is an input type that accepts GetAppTemplateVolumeArray and GetAppTemplateVolumeArrayOutput values.
 // You can construct a concrete instance of `GetAppTemplateVolumeArrayInput` via:
 //
@@ -8501,12 +7222,6 @@ func (i GetAppTemplateVolumeArray) ToGetAppTemplateVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetAppTemplateVolumeArrayOutput)
 }
 
-func (i GetAppTemplateVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateVolume] {
-	return pulumix.Output[[]GetAppTemplateVolume]{
-		OutputState: i.ToGetAppTemplateVolumeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAppTemplateVolumeOutput struct{ *pulumi.OutputState }
 
 func (GetAppTemplateVolumeOutput) ElementType() reflect.Type {
@@ -8519,12 +7234,6 @@ func (o GetAppTemplateVolumeOutput) ToGetAppTemplateVolumeOutput() GetAppTemplat
 
 func (o GetAppTemplateVolumeOutput) ToGetAppTemplateVolumeOutputWithContext(ctx context.Context) GetAppTemplateVolumeOutput {
 	return o
-}
-
-func (o GetAppTemplateVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppTemplateVolume] {
-	return pulumix.Output[GetAppTemplateVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Container App.
@@ -8554,12 +7263,6 @@ func (o GetAppTemplateVolumeArrayOutput) ToGetAppTemplateVolumeArrayOutput() Get
 
 func (o GetAppTemplateVolumeArrayOutput) ToGetAppTemplateVolumeArrayOutputWithContext(ctx context.Context) GetAppTemplateVolumeArrayOutput {
 	return o
-}
-
-func (o GetAppTemplateVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAppTemplateVolume] {
-	return pulumix.Output[[]GetAppTemplateVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAppTemplateVolumeArrayOutput) Index(i pulumi.IntInput) GetAppTemplateVolumeOutput {

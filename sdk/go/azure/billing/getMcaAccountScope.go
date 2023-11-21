@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access an ID for your MCA Account billing scope.
@@ -111,12 +110,6 @@ func (o GetMcaAccountScopeResultOutput) ToGetMcaAccountScopeResultOutput() GetMc
 
 func (o GetMcaAccountScopeResultOutput) ToGetMcaAccountScopeResultOutputWithContext(ctx context.Context) GetMcaAccountScopeResultOutput {
 	return o
-}
-
-func (o GetMcaAccountScopeResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetMcaAccountScopeResult] {
-	return pulumix.Output[GetMcaAccountScopeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMcaAccountScopeResultOutput) BillingAccountName() pulumi.StringOutput {

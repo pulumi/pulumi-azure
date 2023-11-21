@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -279,12 +278,6 @@ func (i *FrontdoorCustomDomain) ToFrontdoorCustomDomainOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainOutput)
 }
 
-func (i *FrontdoorCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorCustomDomain] {
-	return pulumix.Output[*FrontdoorCustomDomain]{
-		OutputState: i.ToFrontdoorCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorCustomDomainArrayInput is an input type that accepts FrontdoorCustomDomainArray and FrontdoorCustomDomainArrayOutput values.
 // You can construct a concrete instance of `FrontdoorCustomDomainArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i FrontdoorCustomDomainArray) ToFrontdoorCustomDomainArrayOutput() Frontdo
 
 func (i FrontdoorCustomDomainArray) ToFrontdoorCustomDomainArrayOutputWithContext(ctx context.Context) FrontdoorCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainArrayOutput)
-}
-
-func (i FrontdoorCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorCustomDomain] {
-	return pulumix.Output[[]*FrontdoorCustomDomain]{
-		OutputState: i.ToFrontdoorCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrontdoorCustomDomainMapInput is an input type that accepts FrontdoorCustomDomainMap and FrontdoorCustomDomainMapOutput values.
@@ -341,12 +328,6 @@ func (i FrontdoorCustomDomainMap) ToFrontdoorCustomDomainMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainMapOutput)
 }
 
-func (i FrontdoorCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorCustomDomain] {
-	return pulumix.Output[map[string]*FrontdoorCustomDomain]{
-		OutputState: i.ToFrontdoorCustomDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorCustomDomainOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o FrontdoorCustomDomainOutput) ToFrontdoorCustomDomainOutput() FrontdoorCu
 
 func (o FrontdoorCustomDomainOutput) ToFrontdoorCustomDomainOutputWithContext(ctx context.Context) FrontdoorCustomDomainOutput {
 	return o
-}
-
-func (o FrontdoorCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorCustomDomain] {
-	return pulumix.Output[*FrontdoorCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created.
@@ -420,12 +395,6 @@ func (o FrontdoorCustomDomainArrayOutput) ToFrontdoorCustomDomainArrayOutputWith
 	return o
 }
 
-func (o FrontdoorCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorCustomDomain] {
-	return pulumix.Output[[]*FrontdoorCustomDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrontdoorCustomDomainArrayOutput) Index(i pulumi.IntInput) FrontdoorCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorCustomDomain {
 		return vs[0].([]*FrontdoorCustomDomain)[vs[1].(int)]
@@ -444,12 +413,6 @@ func (o FrontdoorCustomDomainMapOutput) ToFrontdoorCustomDomainMapOutput() Front
 
 func (o FrontdoorCustomDomainMapOutput) ToFrontdoorCustomDomainMapOutputWithContext(ctx context.Context) FrontdoorCustomDomainMapOutput {
 	return o
-}
-
-func (o FrontdoorCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorCustomDomain] {
-	return pulumix.Output[map[string]*FrontdoorCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorCustomDomainMapOutput) MapIndex(k pulumi.StringInput) FrontdoorCustomDomainOutput {

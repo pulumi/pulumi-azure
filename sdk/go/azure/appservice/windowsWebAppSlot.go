@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Windows Web App Slot.
@@ -475,12 +474,6 @@ func (i *WindowsWebAppSlot) ToWindowsWebAppSlotOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsWebAppSlotOutput)
 }
 
-func (i *WindowsWebAppSlot) ToOutput(ctx context.Context) pulumix.Output[*WindowsWebAppSlot] {
-	return pulumix.Output[*WindowsWebAppSlot]{
-		OutputState: i.ToWindowsWebAppSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WindowsWebAppSlotArrayInput is an input type that accepts WindowsWebAppSlotArray and WindowsWebAppSlotArrayOutput values.
 // You can construct a concrete instance of `WindowsWebAppSlotArrayInput` via:
 //
@@ -504,12 +497,6 @@ func (i WindowsWebAppSlotArray) ToWindowsWebAppSlotArrayOutput() WindowsWebAppSl
 
 func (i WindowsWebAppSlotArray) ToWindowsWebAppSlotArrayOutputWithContext(ctx context.Context) WindowsWebAppSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsWebAppSlotArrayOutput)
-}
-
-func (i WindowsWebAppSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsWebAppSlot] {
-	return pulumix.Output[[]*WindowsWebAppSlot]{
-		OutputState: i.ToWindowsWebAppSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WindowsWebAppSlotMapInput is an input type that accepts WindowsWebAppSlotMap and WindowsWebAppSlotMapOutput values.
@@ -537,12 +524,6 @@ func (i WindowsWebAppSlotMap) ToWindowsWebAppSlotMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsWebAppSlotMapOutput)
 }
 
-func (i WindowsWebAppSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsWebAppSlot] {
-	return pulumix.Output[map[string]*WindowsWebAppSlot]{
-		OutputState: i.ToWindowsWebAppSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsWebAppSlotOutput struct{ *pulumi.OutputState }
 
 func (WindowsWebAppSlotOutput) ElementType() reflect.Type {
@@ -555,12 +536,6 @@ func (o WindowsWebAppSlotOutput) ToWindowsWebAppSlotOutput() WindowsWebAppSlotOu
 
 func (o WindowsWebAppSlotOutput) ToWindowsWebAppSlotOutputWithContext(ctx context.Context) WindowsWebAppSlotOutput {
 	return o
-}
-
-func (o WindowsWebAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsWebAppSlot] {
-	return pulumix.Output[*WindowsWebAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
@@ -749,12 +724,6 @@ func (o WindowsWebAppSlotArrayOutput) ToWindowsWebAppSlotArrayOutputWithContext(
 	return o
 }
 
-func (o WindowsWebAppSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsWebAppSlot] {
-	return pulumix.Output[[]*WindowsWebAppSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WindowsWebAppSlotArrayOutput) Index(i pulumi.IntInput) WindowsWebAppSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsWebAppSlot {
 		return vs[0].([]*WindowsWebAppSlot)[vs[1].(int)]
@@ -773,12 +742,6 @@ func (o WindowsWebAppSlotMapOutput) ToWindowsWebAppSlotMapOutput() WindowsWebApp
 
 func (o WindowsWebAppSlotMapOutput) ToWindowsWebAppSlotMapOutputWithContext(ctx context.Context) WindowsWebAppSlotMapOutput {
 	return o
-}
-
-func (o WindowsWebAppSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsWebAppSlot] {
-	return pulumix.Output[map[string]*WindowsWebAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsWebAppSlotMapOutput) MapIndex(k pulumi.StringInput) WindowsWebAppSlotOutput {

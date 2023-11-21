@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Bot Channels Registration.
@@ -364,12 +363,6 @@ func (i *ChannelsRegistration) ToChannelsRegistrationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationOutput)
 }
 
-func (i *ChannelsRegistration) ToOutput(ctx context.Context) pulumix.Output[*ChannelsRegistration] {
-	return pulumix.Output[*ChannelsRegistration]{
-		OutputState: i.ToChannelsRegistrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelsRegistrationArrayInput is an input type that accepts ChannelsRegistrationArray and ChannelsRegistrationArrayOutput values.
 // You can construct a concrete instance of `ChannelsRegistrationArrayInput` via:
 //
@@ -393,12 +386,6 @@ func (i ChannelsRegistrationArray) ToChannelsRegistrationArrayOutput() ChannelsR
 
 func (i ChannelsRegistrationArray) ToChannelsRegistrationArrayOutputWithContext(ctx context.Context) ChannelsRegistrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationArrayOutput)
-}
-
-func (i ChannelsRegistrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelsRegistration] {
-	return pulumix.Output[[]*ChannelsRegistration]{
-		OutputState: i.ToChannelsRegistrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ChannelsRegistrationMapInput is an input type that accepts ChannelsRegistrationMap and ChannelsRegistrationMapOutput values.
@@ -426,12 +413,6 @@ func (i ChannelsRegistrationMap) ToChannelsRegistrationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelsRegistrationMapOutput)
 }
 
-func (i ChannelsRegistrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelsRegistration] {
-	return pulumix.Output[map[string]*ChannelsRegistration]{
-		OutputState: i.ToChannelsRegistrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelsRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ChannelsRegistrationOutput) ElementType() reflect.Type {
@@ -444,12 +425,6 @@ func (o ChannelsRegistrationOutput) ToChannelsRegistrationOutput() ChannelsRegis
 
 func (o ChannelsRegistrationOutput) ToChannelsRegistrationOutputWithContext(ctx context.Context) ChannelsRegistrationOutput {
 	return o
-}
-
-func (o ChannelsRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelsRegistration] {
-	return pulumix.Output[*ChannelsRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
@@ -559,12 +534,6 @@ func (o ChannelsRegistrationArrayOutput) ToChannelsRegistrationArrayOutputWithCo
 	return o
 }
 
-func (o ChannelsRegistrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelsRegistration] {
-	return pulumix.Output[[]*ChannelsRegistration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelsRegistrationArrayOutput) Index(i pulumi.IntInput) ChannelsRegistrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelsRegistration {
 		return vs[0].([]*ChannelsRegistration)[vs[1].(int)]
@@ -583,12 +552,6 @@ func (o ChannelsRegistrationMapOutput) ToChannelsRegistrationMapOutput() Channel
 
 func (o ChannelsRegistrationMapOutput) ToChannelsRegistrationMapOutputWithContext(ctx context.Context) ChannelsRegistrationMapOutput {
 	return o
-}
-
-func (o ChannelsRegistrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelsRegistration] {
-	return pulumix.Output[map[string]*ChannelsRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelsRegistrationMapOutput) MapIndex(k pulumi.StringInput) ChannelsRegistrationOutput {

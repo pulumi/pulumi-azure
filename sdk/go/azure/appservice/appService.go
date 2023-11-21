@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service (within an App Service Plan).
@@ -412,12 +411,6 @@ func (i *AppService) ToAppServiceOutputWithContext(ctx context.Context) AppServi
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceOutput)
 }
 
-func (i *AppService) ToOutput(ctx context.Context) pulumix.Output[*AppService] {
-	return pulumix.Output[*AppService]{
-		OutputState: i.ToAppServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppServiceArrayInput is an input type that accepts AppServiceArray and AppServiceArrayOutput values.
 // You can construct a concrete instance of `AppServiceArrayInput` via:
 //
@@ -441,12 +434,6 @@ func (i AppServiceArray) ToAppServiceArrayOutput() AppServiceArrayOutput {
 
 func (i AppServiceArray) ToAppServiceArrayOutputWithContext(ctx context.Context) AppServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceArrayOutput)
-}
-
-func (i AppServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppService] {
-	return pulumix.Output[[]*AppService]{
-		OutputState: i.ToAppServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AppServiceMapInput is an input type that accepts AppServiceMap and AppServiceMapOutput values.
@@ -474,12 +461,6 @@ func (i AppServiceMap) ToAppServiceMapOutputWithContext(ctx context.Context) App
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceMapOutput)
 }
 
-func (i AppServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppService] {
-	return pulumix.Output[map[string]*AppService]{
-		OutputState: i.ToAppServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppServiceOutput struct{ *pulumi.OutputState }
 
 func (AppServiceOutput) ElementType() reflect.Type {
@@ -492,12 +473,6 @@ func (o AppServiceOutput) ToAppServiceOutput() AppServiceOutput {
 
 func (o AppServiceOutput) ToAppServiceOutputWithContext(ctx context.Context) AppServiceOutput {
 	return o
-}
-
-func (o AppServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*AppService] {
-	return pulumix.Output[*AppService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Plan within which to create this App Service.
@@ -649,12 +624,6 @@ func (o AppServiceArrayOutput) ToAppServiceArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AppServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppService] {
-	return pulumix.Output[[]*AppService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppServiceArrayOutput) Index(i pulumi.IntInput) AppServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppService {
 		return vs[0].([]*AppService)[vs[1].(int)]
@@ -673,12 +642,6 @@ func (o AppServiceMapOutput) ToAppServiceMapOutput() AppServiceMapOutput {
 
 func (o AppServiceMapOutput) ToAppServiceMapOutputWithContext(ctx context.Context) AppServiceMapOutput {
 	return o
-}
-
-func (o AppServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppService] {
-	return pulumix.Output[map[string]*AppService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppServiceMapOutput) MapIndex(k pulumi.StringInput) AppServiceOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Dapr Component for a Container App Environment.
@@ -267,12 +266,6 @@ func (i *EnvironmentDaprComponent) ToEnvironmentDaprComponentOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentOutput)
 }
 
-func (i *EnvironmentDaprComponent) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentDaprComponent] {
-	return pulumix.Output[*EnvironmentDaprComponent]{
-		OutputState: i.ToEnvironmentDaprComponentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentDaprComponentArrayInput is an input type that accepts EnvironmentDaprComponentArray and EnvironmentDaprComponentArrayOutput values.
 // You can construct a concrete instance of `EnvironmentDaprComponentArrayInput` via:
 //
@@ -296,12 +289,6 @@ func (i EnvironmentDaprComponentArray) ToEnvironmentDaprComponentArrayOutput() E
 
 func (i EnvironmentDaprComponentArray) ToEnvironmentDaprComponentArrayOutputWithContext(ctx context.Context) EnvironmentDaprComponentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentArrayOutput)
-}
-
-func (i EnvironmentDaprComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentDaprComponent] {
-	return pulumix.Output[[]*EnvironmentDaprComponent]{
-		OutputState: i.ToEnvironmentDaprComponentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EnvironmentDaprComponentMapInput is an input type that accepts EnvironmentDaprComponentMap and EnvironmentDaprComponentMapOutput values.
@@ -329,12 +316,6 @@ func (i EnvironmentDaprComponentMap) ToEnvironmentDaprComponentMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentDaprComponentMapOutput)
 }
 
-func (i EnvironmentDaprComponentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentDaprComponent] {
-	return pulumix.Output[map[string]*EnvironmentDaprComponent]{
-		OutputState: i.ToEnvironmentDaprComponentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentDaprComponentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentDaprComponentOutput) ElementType() reflect.Type {
@@ -347,12 +328,6 @@ func (o EnvironmentDaprComponentOutput) ToEnvironmentDaprComponentOutput() Envir
 
 func (o EnvironmentDaprComponentOutput) ToEnvironmentDaprComponentOutputWithContext(ctx context.Context) EnvironmentDaprComponentOutput {
 	return o
-}
-
-func (o EnvironmentDaprComponentOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentDaprComponent] {
-	return pulumix.Output[*EnvironmentDaprComponent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
@@ -416,12 +391,6 @@ func (o EnvironmentDaprComponentArrayOutput) ToEnvironmentDaprComponentArrayOutp
 	return o
 }
 
-func (o EnvironmentDaprComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentDaprComponent] {
-	return pulumix.Output[[]*EnvironmentDaprComponent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentDaprComponentArrayOutput) Index(i pulumi.IntInput) EnvironmentDaprComponentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentDaprComponent {
 		return vs[0].([]*EnvironmentDaprComponent)[vs[1].(int)]
@@ -440,12 +409,6 @@ func (o EnvironmentDaprComponentMapOutput) ToEnvironmentDaprComponentMapOutput()
 
 func (o EnvironmentDaprComponentMapOutput) ToEnvironmentDaprComponentMapOutputWithContext(ctx context.Context) EnvironmentDaprComponentMapOutput {
 	return o
-}
-
-func (o EnvironmentDaprComponentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentDaprComponent] {
-	return pulumix.Output[map[string]*EnvironmentDaprComponent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentDaprComponentMapOutput) MapIndex(k pulumi.StringInput) EnvironmentDaprComponentOutput {

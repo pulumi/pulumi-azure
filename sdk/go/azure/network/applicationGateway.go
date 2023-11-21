@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Gateway.
@@ -612,12 +611,6 @@ func (i *ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayOutput)
 }
 
-func (i *ApplicationGateway) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGateway] {
-	return pulumix.Output[*ApplicationGateway]{
-		OutputState: i.ToApplicationGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationGatewayArrayInput is an input type that accepts ApplicationGatewayArray and ApplicationGatewayArrayOutput values.
 // You can construct a concrete instance of `ApplicationGatewayArrayInput` via:
 //
@@ -641,12 +634,6 @@ func (i ApplicationGatewayArray) ToApplicationGatewayArrayOutput() ApplicationGa
 
 func (i ApplicationGatewayArray) ToApplicationGatewayArrayOutputWithContext(ctx context.Context) ApplicationGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayArrayOutput)
-}
-
-func (i ApplicationGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationGateway] {
-	return pulumix.Output[[]*ApplicationGateway]{
-		OutputState: i.ToApplicationGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApplicationGatewayMapInput is an input type that accepts ApplicationGatewayMap and ApplicationGatewayMapOutput values.
@@ -674,12 +661,6 @@ func (i ApplicationGatewayMap) ToApplicationGatewayMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayMapOutput)
 }
 
-func (i ApplicationGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationGateway] {
-	return pulumix.Output[map[string]*ApplicationGateway]{
-		OutputState: i.ToApplicationGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationGatewayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayOutput) ElementType() reflect.Type {
@@ -692,12 +673,6 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutput() ApplicationGatewa
 
 func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx context.Context) ApplicationGatewayOutput {
 	return o
-}
-
-func (o ApplicationGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGateway] {
-	return pulumix.Output[*ApplicationGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `authenticationCertificate` blocks as defined below.
@@ -912,12 +887,6 @@ func (o ApplicationGatewayArrayOutput) ToApplicationGatewayArrayOutputWithContex
 	return o
 }
 
-func (o ApplicationGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApplicationGateway] {
-	return pulumix.Output[[]*ApplicationGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationGatewayArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApplicationGateway {
 		return vs[0].([]*ApplicationGateway)[vs[1].(int)]
@@ -936,12 +905,6 @@ func (o ApplicationGatewayMapOutput) ToApplicationGatewayMapOutput() Application
 
 func (o ApplicationGatewayMapOutput) ToApplicationGatewayMapOutputWithContext(ctx context.Context) ApplicationGatewayMapOutput {
 	return o
-}
-
-func (o ApplicationGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApplicationGateway] {
-	return pulumix.Output[map[string]*ApplicationGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationGatewayMapOutput) MapIndex(k pulumi.StringInput) ApplicationGatewayOutput {

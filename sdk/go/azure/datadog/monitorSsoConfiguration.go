@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages SingleSignOn on the datadog Monitor.
@@ -207,12 +206,6 @@ func (i *MonitorSsoConfiguration) ToMonitorSsoConfigurationOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorSsoConfigurationOutput)
 }
 
-func (i *MonitorSsoConfiguration) ToOutput(ctx context.Context) pulumix.Output[*MonitorSsoConfiguration] {
-	return pulumix.Output[*MonitorSsoConfiguration]{
-		OutputState: i.ToMonitorSsoConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MonitorSsoConfigurationArrayInput is an input type that accepts MonitorSsoConfigurationArray and MonitorSsoConfigurationArrayOutput values.
 // You can construct a concrete instance of `MonitorSsoConfigurationArrayInput` via:
 //
@@ -236,12 +229,6 @@ func (i MonitorSsoConfigurationArray) ToMonitorSsoConfigurationArrayOutput() Mon
 
 func (i MonitorSsoConfigurationArray) ToMonitorSsoConfigurationArrayOutputWithContext(ctx context.Context) MonitorSsoConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorSsoConfigurationArrayOutput)
-}
-
-func (i MonitorSsoConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorSsoConfiguration] {
-	return pulumix.Output[[]*MonitorSsoConfiguration]{
-		OutputState: i.ToMonitorSsoConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MonitorSsoConfigurationMapInput is an input type that accepts MonitorSsoConfigurationMap and MonitorSsoConfigurationMapOutput values.
@@ -269,12 +256,6 @@ func (i MonitorSsoConfigurationMap) ToMonitorSsoConfigurationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorSsoConfigurationMapOutput)
 }
 
-func (i MonitorSsoConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorSsoConfiguration] {
-	return pulumix.Output[map[string]*MonitorSsoConfiguration]{
-		OutputState: i.ToMonitorSsoConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorSsoConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MonitorSsoConfigurationOutput) ElementType() reflect.Type {
@@ -287,12 +268,6 @@ func (o MonitorSsoConfigurationOutput) ToMonitorSsoConfigurationOutput() Monitor
 
 func (o MonitorSsoConfigurationOutput) ToMonitorSsoConfigurationOutputWithContext(ctx context.Context) MonitorSsoConfigurationOutput {
 	return o
-}
-
-func (o MonitorSsoConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorSsoConfiguration] {
-	return pulumix.Output[*MonitorSsoConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
@@ -334,12 +309,6 @@ func (o MonitorSsoConfigurationArrayOutput) ToMonitorSsoConfigurationArrayOutput
 	return o
 }
 
-func (o MonitorSsoConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MonitorSsoConfiguration] {
-	return pulumix.Output[[]*MonitorSsoConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorSsoConfigurationArrayOutput) Index(i pulumi.IntInput) MonitorSsoConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MonitorSsoConfiguration {
 		return vs[0].([]*MonitorSsoConfiguration)[vs[1].(int)]
@@ -358,12 +327,6 @@ func (o MonitorSsoConfigurationMapOutput) ToMonitorSsoConfigurationMapOutput() M
 
 func (o MonitorSsoConfigurationMapOutput) ToMonitorSsoConfigurationMapOutputWithContext(ctx context.Context) MonitorSsoConfigurationMapOutput {
 	return o
-}
-
-func (o MonitorSsoConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MonitorSsoConfiguration] {
-	return pulumix.Output[map[string]*MonitorSsoConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorSsoConfigurationMapOutput) MapIndex(k pulumi.StringInput) MonitorSsoConfigurationOutput {

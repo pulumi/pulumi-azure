@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i DomainIdentityArgs) ToDomainIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityOutput)
 }
 
-func (i DomainIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[DomainIdentity] {
-	return pulumix.Output[DomainIdentity]{
-		OutputState: i.ToDomainIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainIdentityArgs) ToDomainIdentityPtrOutput() DomainIdentityPtrOutput {
 	return i.ToDomainIdentityPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *domainIdentityPtrType) ToDomainIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityPtrOutput)
 }
 
-func (i *domainIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentity] {
-	return pulumix.Output[*DomainIdentity]{
-		OutputState: i.ToDomainIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainIdentityOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentity) *DomainIdentity {
 		return &v
 	}).(DomainIdentityPtrOutput)
-}
-
-func (o DomainIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[DomainIdentity] {
-	return pulumix.Output[DomainIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
@@ -186,12 +167,6 @@ func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOu
 
 func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
 	return o
-}
-
-func (o DomainIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainIdentity] {
-	return pulumix.Output[*DomainIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
@@ -285,12 +260,6 @@ func (i DomainInboundIpRuleArgs) ToDomainInboundIpRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleOutput)
 }
 
-func (i DomainInboundIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[DomainInboundIpRule] {
-	return pulumix.Output[DomainInboundIpRule]{
-		OutputState: i.ToDomainInboundIpRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainInboundIpRuleArrayInput is an input type that accepts DomainInboundIpRuleArray and DomainInboundIpRuleArrayOutput values.
 // You can construct a concrete instance of `DomainInboundIpRuleArrayInput` via:
 //
@@ -316,12 +285,6 @@ func (i DomainInboundIpRuleArray) ToDomainInboundIpRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInboundIpRuleArrayOutput)
 }
 
-func (i DomainInboundIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainInboundIpRule] {
-	return pulumix.Output[[]DomainInboundIpRule]{
-		OutputState: i.ToDomainInboundIpRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainInboundIpRuleOutput struct{ *pulumi.OutputState }
 
 func (DomainInboundIpRuleOutput) ElementType() reflect.Type {
@@ -334,12 +297,6 @@ func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutput() DomainInboundIp
 
 func (o DomainInboundIpRuleOutput) ToDomainInboundIpRuleOutputWithContext(ctx context.Context) DomainInboundIpRuleOutput {
 	return o
-}
-
-func (o DomainInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[DomainInboundIpRule] {
-	return pulumix.Output[DomainInboundIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
@@ -364,12 +321,6 @@ func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutput() Domai
 
 func (o DomainInboundIpRuleArrayOutput) ToDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) DomainInboundIpRuleArrayOutput {
 	return o
-}
-
-func (o DomainInboundIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainInboundIpRule] {
-	return pulumix.Output[[]DomainInboundIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainInboundIpRuleArrayOutput) Index(i pulumi.IntInput) DomainInboundIpRuleOutput {
@@ -419,12 +370,6 @@ func (i DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingDefaultValuesOutput)
 }
 
-func (i DomainInputMappingDefaultValuesArgs) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingDefaultValues] {
-	return pulumix.Output[DomainInputMappingDefaultValues]{
-		OutputState: i.ToDomainInputMappingDefaultValuesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainInputMappingDefaultValuesArgs) ToDomainInputMappingDefaultValuesPtrOutput() DomainInputMappingDefaultValuesPtrOutput {
 	return i.ToDomainInputMappingDefaultValuesPtrOutputWithContext(context.Background())
 }
@@ -466,12 +411,6 @@ func (i *domainInputMappingDefaultValuesPtrType) ToDomainInputMappingDefaultValu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingDefaultValuesPtrOutput)
 }
 
-func (i *domainInputMappingDefaultValuesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingDefaultValues] {
-	return pulumix.Output[*DomainInputMappingDefaultValues]{
-		OutputState: i.ToDomainInputMappingDefaultValuesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainInputMappingDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingDefaultValuesOutput) ElementType() reflect.Type {
@@ -494,12 +433,6 @@ func (o DomainInputMappingDefaultValuesOutput) ToDomainInputMappingDefaultValues
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInputMappingDefaultValues) *DomainInputMappingDefaultValues {
 		return &v
 	}).(DomainInputMappingDefaultValuesPtrOutput)
-}
-
-func (o DomainInputMappingDefaultValuesOutput) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingDefaultValues] {
-	return pulumix.Output[DomainInputMappingDefaultValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -529,12 +462,6 @@ func (o DomainInputMappingDefaultValuesPtrOutput) ToDomainInputMappingDefaultVal
 
 func (o DomainInputMappingDefaultValuesPtrOutput) ToDomainInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) DomainInputMappingDefaultValuesPtrOutput {
 	return o
-}
-
-func (o DomainInputMappingDefaultValuesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingDefaultValues] {
-	return pulumix.Output[*DomainInputMappingDefaultValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainInputMappingDefaultValuesPtrOutput) Elem() DomainInputMappingDefaultValuesOutput {
@@ -630,12 +557,6 @@ func (i DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingFieldsOutput)
 }
 
-func (i DomainInputMappingFieldsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingFields] {
-	return pulumix.Output[DomainInputMappingFields]{
-		OutputState: i.ToDomainInputMappingFieldsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DomainInputMappingFieldsArgs) ToDomainInputMappingFieldsPtrOutput() DomainInputMappingFieldsPtrOutput {
 	return i.ToDomainInputMappingFieldsPtrOutputWithContext(context.Background())
 }
@@ -677,12 +598,6 @@ func (i *domainInputMappingFieldsPtrType) ToDomainInputMappingFieldsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DomainInputMappingFieldsPtrOutput)
 }
 
-func (i *domainInputMappingFieldsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingFields] {
-	return pulumix.Output[*DomainInputMappingFields]{
-		OutputState: i.ToDomainInputMappingFieldsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainInputMappingFieldsOutput struct{ *pulumi.OutputState }
 
 func (DomainInputMappingFieldsOutput) ElementType() reflect.Type {
@@ -705,12 +620,6 @@ func (o DomainInputMappingFieldsOutput) ToDomainInputMappingFieldsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainInputMappingFields) *DomainInputMappingFields {
 		return &v
 	}).(DomainInputMappingFieldsPtrOutput)
-}
-
-func (o DomainInputMappingFieldsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainInputMappingFields] {
-	return pulumix.Output[DomainInputMappingFields]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -755,12 +664,6 @@ func (o DomainInputMappingFieldsPtrOutput) ToDomainInputMappingFieldsPtrOutput()
 
 func (o DomainInputMappingFieldsPtrOutput) ToDomainInputMappingFieldsPtrOutputWithContext(ctx context.Context) DomainInputMappingFieldsPtrOutput {
 	return o
-}
-
-func (o DomainInputMappingFieldsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainInputMappingFields] {
-	return pulumix.Output[*DomainInputMappingFields]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainInputMappingFieldsPtrOutput) Elem() DomainInputMappingFieldsOutput {
@@ -942,12 +845,6 @@ func (i EventSubscriptionAdvancedFilterArgs) ToEventSubscriptionAdvancedFilterOu
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilter] {
-	return pulumix.Output[EventSubscriptionAdvancedFilter]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionAdvancedFilterArgs) ToEventSubscriptionAdvancedFilterPtrOutput() EventSubscriptionAdvancedFilterPtrOutput {
 	return i.ToEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Background())
 }
@@ -989,12 +886,6 @@ func (i *eventSubscriptionAdvancedFilterPtrType) ToEventSubscriptionAdvancedFilt
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterPtrOutput)
 }
 
-func (i *eventSubscriptionAdvancedFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAdvancedFilter] {
-	return pulumix.Output[*EventSubscriptionAdvancedFilter]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterOutput) ElementType() reflect.Type {
@@ -1017,12 +908,6 @@ func (o EventSubscriptionAdvancedFilterOutput) ToEventSubscriptionAdvancedFilter
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionAdvancedFilter) *EventSubscriptionAdvancedFilter {
 		return &v
 	}).(EventSubscriptionAdvancedFilterPtrOutput)
-}
-
-func (o EventSubscriptionAdvancedFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilter] {
-	return pulumix.Output[EventSubscriptionAdvancedFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Compares a value of an event using a single boolean value.
@@ -1168,12 +1053,6 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) ToEventSubscriptionAdvancedFil
 
 func (o EventSubscriptionAdvancedFilterPtrOutput) ToEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAdvancedFilter] {
-	return pulumix.Output[*EventSubscriptionAdvancedFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterPtrOutput) Elem() EventSubscriptionAdvancedFilterOutput {
@@ -1419,12 +1298,6 @@ func (i EventSubscriptionAdvancedFilterBoolEqualArgs) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterBoolEqualOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterBoolEqualArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterBoolEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterBoolEqualArray and EventSubscriptionAdvancedFilterBoolEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterBoolEqualArrayInput` via:
 //
@@ -1450,12 +1323,6 @@ func (i EventSubscriptionAdvancedFilterBoolEqualArray) ToEventSubscriptionAdvanc
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterBoolEqualArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterBoolEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterBoolEqualOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterBoolEqualOutput) ElementType() reflect.Type {
@@ -1468,12 +1335,6 @@ func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToEventSubscriptionAdvan
 
 func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterBoolEqualOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -1500,12 +1361,6 @@ func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterBoolEqualArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterBoolEqualOutput {
@@ -1547,12 +1402,6 @@ func (i EventSubscriptionAdvancedFilterIsNotNullArgs) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNotNullOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterIsNotNullArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterIsNotNullArrayInput is an input type that accepts EventSubscriptionAdvancedFilterIsNotNullArray and EventSubscriptionAdvancedFilterIsNotNullArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNotNullArrayInput` via:
 //
@@ -1578,12 +1427,6 @@ func (i EventSubscriptionAdvancedFilterIsNotNullArray) ToEventSubscriptionAdvanc
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNotNullArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterIsNotNullArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterIsNotNullOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterIsNotNullOutput) ElementType() reflect.Type {
@@ -1596,12 +1439,6 @@ func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvan
 
 func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -1621,12 +1458,6 @@ func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNotNullArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterIsNotNullOutput {
@@ -1668,12 +1499,6 @@ func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput is an input type that accepts EventSubscriptionAdvancedFilterIsNullOrUndefinedArray and EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput` via:
 //
@@ -1699,12 +1524,6 @@ func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ElementType() reflect.Type {
@@ -1717,12 +1536,6 @@ func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscript
 
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -1742,12 +1555,6 @@ func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToEventSubs
 
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
@@ -1797,12 +1604,6 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanArray and EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanArrayInput` via:
 //
@@ -1828,12 +1629,6 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanArray) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberGreaterThanArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberGreaterThanOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ElementType() reflect.Type {
@@ -1846,12 +1641,6 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToEventSubscript
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -1878,12 +1667,6 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToEventSubs
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberGreaterThanOutput {
@@ -1933,12 +1716,6 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToEventSubs
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray and EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput` via:
 //
@@ -1964,12 +1741,6 @@ func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToEventSub
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ElementType() reflect.Type {
@@ -1982,12 +1753,6 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToEventSu
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2014,12 +1779,6 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToEv
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
@@ -2069,12 +1828,6 @@ func (i EventSubscriptionAdvancedFilterNumberInArgs) ToEventSubscriptionAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInArray and EventSubscriptionAdvancedFilterNumberInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInArrayInput` via:
 //
@@ -2100,12 +1853,6 @@ func (i EventSubscriptionAdvancedFilterNumberInArray) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberInOutput) ElementType() reflect.Type {
@@ -2118,12 +1865,6 @@ func (o EventSubscriptionAdvancedFilterNumberInOutput) ToEventSubscriptionAdvanc
 
 func (o EventSubscriptionAdvancedFilterNumberInOutput) ToEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2150,12 +1891,6 @@ func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) ToEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberInOutput {
@@ -2205,12 +1940,6 @@ func (i EventSubscriptionAdvancedFilterNumberInRangeArgs) ToEventSubscriptionAdv
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInRangeOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberInRangeArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberInRangeArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberInRangeArray and EventSubscriptionAdvancedFilterNumberInRangeArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberInRangeArrayInput` via:
 //
@@ -2236,12 +1965,6 @@ func (i EventSubscriptionAdvancedFilterNumberInRangeArray) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberInRangeArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberInRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberInRangeOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberInRangeOutput) ElementType() reflect.Type {
@@ -2254,12 +1977,6 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2286,12 +2003,6 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToEventSubscrip
 
 func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberInRangeOutput {
@@ -2341,12 +2052,6 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanArgs) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberLessThanArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberLessThanArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanArray and EventSubscriptionAdvancedFilterNumberLessThanArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanArrayInput` via:
 //
@@ -2372,12 +2077,6 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanArray) ToEventSubscriptionA
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberLessThanArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberLessThanOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberLessThanOutput) ElementType() reflect.Type {
@@ -2390,12 +2089,6 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2422,12 +2115,6 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToEventSubscri
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberLessThanOutput {
@@ -2477,12 +2164,6 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray and EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput` via:
 //
@@ -2508,12 +2189,6 @@ func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ElementType() reflect.Type {
@@ -2526,12 +2201,6 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2558,12 +2227,6 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToEvent
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
@@ -2613,12 +2276,6 @@ func (i EventSubscriptionAdvancedFilterNumberNotInArgs) ToEventSubscriptionAdvan
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberNotInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberNotInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInArray and EventSubscriptionAdvancedFilterNumberNotInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInArrayInput` via:
 //
@@ -2644,12 +2301,6 @@ func (i EventSubscriptionAdvancedFilterNumberNotInArray) ToEventSubscriptionAdva
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberNotInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberNotInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberNotInOutput) ElementType() reflect.Type {
@@ -2662,12 +2313,6 @@ func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToEventSubscriptionAdv
 
 func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2694,12 +2339,6 @@ func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberNotInOutput {
@@ -2749,12 +2388,6 @@ func (i EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToEventSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInRangeOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput is an input type that accepts EventSubscriptionAdvancedFilterNumberNotInRangeArray and EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterNumberNotInRangeArrayInput` via:
 //
@@ -2780,12 +2413,6 @@ func (i EventSubscriptionAdvancedFilterNumberNotInRangeArray) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterNumberNotInRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterNumberNotInRangeOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ElementType() reflect.Type {
@@ -2798,12 +2425,6 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2830,12 +2451,6 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterNumberNotInRangeOutput {
@@ -2885,12 +2500,6 @@ func (i EventSubscriptionAdvancedFilterStringBeginsWithArgs) ToEventSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringBeginsWithOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringBeginsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringBeginsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringBeginsWithArray and EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringBeginsWithArrayInput` via:
 //
@@ -2916,12 +2525,6 @@ func (i EventSubscriptionAdvancedFilterStringBeginsWithArray) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringBeginsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringBeginsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringBeginsWithOutput) ElementType() reflect.Type {
@@ -2934,12 +2537,6 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringBeginsWithOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -2966,12 +2563,6 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringBeginsWithOutput {
@@ -3021,12 +2612,6 @@ func (i EventSubscriptionAdvancedFilterStringContainArgs) ToEventSubscriptionAdv
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringContainOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringContainArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringContain]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringContainArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringContainArray and EventSubscriptionAdvancedFilterStringContainArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringContainArrayInput` via:
 //
@@ -3052,12 +2637,6 @@ func (i EventSubscriptionAdvancedFilterStringContainArray) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringContainArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringContainArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringContainOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringContainOutput) ElementType() reflect.Type {
@@ -3070,12 +2649,6 @@ func (o EventSubscriptionAdvancedFilterStringContainOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterStringContainOutput) ToEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringContainOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringContainOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3102,12 +2675,6 @@ func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) ToEventSubscrip
 
 func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) ToEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringContainArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringContainOutput {
@@ -3157,12 +2724,6 @@ func (i EventSubscriptionAdvancedFilterStringEndsWithArgs) ToEventSubscriptionAd
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringEndsWithOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringEndsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringEndsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringEndsWithArray and EventSubscriptionAdvancedFilterStringEndsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringEndsWithArrayInput` via:
 //
@@ -3188,12 +2749,6 @@ func (i EventSubscriptionAdvancedFilterStringEndsWithArray) ToEventSubscriptionA
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringEndsWithArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringEndsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringEndsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringEndsWithOutput) ElementType() reflect.Type {
@@ -3206,12 +2761,6 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToEventSubscription
 
 func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringEndsWithOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3238,12 +2787,6 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToEventSubscri
 
 func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringEndsWithOutput {
@@ -3293,12 +2836,6 @@ func (i EventSubscriptionAdvancedFilterStringInArgs) ToEventSubscriptionAdvanced
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringInOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringInArray and EventSubscriptionAdvancedFilterStringInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringInArrayInput` via:
 //
@@ -3324,12 +2861,6 @@ func (i EventSubscriptionAdvancedFilterStringInArray) ToEventSubscriptionAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringInArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringInOutput) ElementType() reflect.Type {
@@ -3342,12 +2873,6 @@ func (o EventSubscriptionAdvancedFilterStringInOutput) ToEventSubscriptionAdvanc
 
 func (o EventSubscriptionAdvancedFilterStringInOutput) ToEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringInOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3374,12 +2899,6 @@ func (o EventSubscriptionAdvancedFilterStringInArrayOutput) ToEventSubscriptionA
 
 func (o EventSubscriptionAdvancedFilterStringInArrayOutput) ToEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringInArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringInOutput {
@@ -3429,12 +2948,6 @@ func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToEventSubscript
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotBeginsWithOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotBeginsWithArray and EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput` via:
 //
@@ -3460,12 +2973,6 @@ func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToEventSubscrip
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringNotBeginsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ElementType() reflect.Type {
@@ -3478,12 +2985,6 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscri
 
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3510,12 +3011,6 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToEventSu
 
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
@@ -3565,12 +3060,6 @@ func (i EventSubscriptionAdvancedFilterStringNotContainArgs) ToEventSubscription
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotContainOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotContainArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringNotContainArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotContainArray and EventSubscriptionAdvancedFilterStringNotContainArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotContainArrayInput` via:
 //
@@ -3596,12 +3085,6 @@ func (i EventSubscriptionAdvancedFilterStringNotContainArray) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotContainArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotContainArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringNotContainOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotContainOutput) ElementType() reflect.Type {
@@ -3614,12 +3097,6 @@ func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3646,12 +3123,6 @@ func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToEventSubsc
 
 func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotContainArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotContainOutput {
@@ -3701,12 +3172,6 @@ func (i EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToEventSubscriptio
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotEndsWithOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotEndsWithArray and EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotEndsWithArrayInput` via:
 //
@@ -3732,12 +3197,6 @@ func (i EventSubscriptionAdvancedFilterStringNotEndsWithArray) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotEndsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringNotEndsWithOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ElementType() reflect.Type {
@@ -3750,12 +3209,6 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscript
 
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3782,12 +3235,6 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToEventSubs
 
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotEndsWithOutput {
@@ -3837,12 +3284,6 @@ func (i EventSubscriptionAdvancedFilterStringNotInArgs) ToEventSubscriptionAdvan
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotInOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotInArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionAdvancedFilterStringNotInArrayInput is an input type that accepts EventSubscriptionAdvancedFilterStringNotInArray and EventSubscriptionAdvancedFilterStringNotInArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionAdvancedFilterStringNotInArrayInput` via:
 //
@@ -3868,12 +3309,6 @@ func (i EventSubscriptionAdvancedFilterStringNotInArray) ToEventSubscriptionAdva
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAdvancedFilterStringNotInArrayOutput)
 }
 
-func (i EventSubscriptionAdvancedFilterStringNotInArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: i.ToEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAdvancedFilterStringNotInOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAdvancedFilterStringNotInOutput) ElementType() reflect.Type {
@@ -3886,12 +3321,6 @@ func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToEventSubscriptionAdv
 
 func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotInOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[EventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -3918,12 +3347,6 @@ func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) ToEventSubscripti
 
 func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) ToEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx context.Context) EventSubscriptionAdvancedFilterStringNotInArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[[]EventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAdvancedFilterStringNotInArrayOutput) Index(i pulumi.IntInput) EventSubscriptionAdvancedFilterStringNotInOutput {
@@ -3973,12 +3396,6 @@ func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunc
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointOutput)
 }
 
-func (i EventSubscriptionAzureFunctionEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[EventSubscriptionAzureFunctionEndpoint]{
-		OutputState: i.ToEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionAzureFunctionEndpointArgs) ToEventSubscriptionAzureFunctionEndpointPtrOutput() EventSubscriptionAzureFunctionEndpointPtrOutput {
 	return i.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
 }
@@ -4020,12 +3437,6 @@ func (i *eventSubscriptionAzureFunctionEndpointPtrType) ToEventSubscriptionAzure
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionAzureFunctionEndpointPtrOutput)
 }
 
-func (i *eventSubscriptionAzureFunctionEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[*EventSubscriptionAzureFunctionEndpoint]{
-		OutputState: i.ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionAzureFunctionEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionAzureFunctionEndpointOutput) ElementType() reflect.Type {
@@ -4048,12 +3459,6 @@ func (o EventSubscriptionAzureFunctionEndpointOutput) ToEventSubscriptionAzureFu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionAzureFunctionEndpoint) *EventSubscriptionAzureFunctionEndpoint {
 		return &v
 	}).(EventSubscriptionAzureFunctionEndpointPtrOutput)
-}
-
-func (o EventSubscriptionAzureFunctionEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[EventSubscriptionAzureFunctionEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
@@ -4083,12 +3488,6 @@ func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzur
 
 func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionAzureFunctionEndpointPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionAzureFunctionEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[*EventSubscriptionAzureFunctionEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionAzureFunctionEndpointPtrOutput) Elem() EventSubscriptionAzureFunctionEndpointOutput {
@@ -4168,12 +3567,6 @@ func (i EventSubscriptionDeadLetterIdentityArgs) ToEventSubscriptionDeadLetterId
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeadLetterIdentityOutput)
 }
 
-func (i EventSubscriptionDeadLetterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[EventSubscriptionDeadLetterIdentity]{
-		OutputState: i.ToEventSubscriptionDeadLetterIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionDeadLetterIdentityArgs) ToEventSubscriptionDeadLetterIdentityPtrOutput() EventSubscriptionDeadLetterIdentityPtrOutput {
 	return i.ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(context.Background())
 }
@@ -4215,12 +3608,6 @@ func (i *eventSubscriptionDeadLetterIdentityPtrType) ToEventSubscriptionDeadLett
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
-func (i *eventSubscriptionDeadLetterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[*EventSubscriptionDeadLetterIdentity]{
-		OutputState: i.ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionDeadLetterIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDeadLetterIdentityOutput) ElementType() reflect.Type {
@@ -4245,12 +3632,6 @@ func (o EventSubscriptionDeadLetterIdentityOutput) ToEventSubscriptionDeadLetter
 	}).(EventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
-func (o EventSubscriptionDeadLetterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[EventSubscriptionDeadLetterIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeadLetterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDeadLetterIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -4273,12 +3654,6 @@ func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToEventSubscriptionDeadLet
 
 func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionDeadLetterIdentityPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionDeadLetterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[*EventSubscriptionDeadLetterIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionDeadLetterIdentityPtrOutput) Elem() EventSubscriptionDeadLetterIdentityOutput {
@@ -4348,12 +3723,6 @@ func (i EventSubscriptionDeliveryIdentityArgs) ToEventSubscriptionDeliveryIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryIdentityOutput)
 }
 
-func (i EventSubscriptionDeliveryIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[EventSubscriptionDeliveryIdentity]{
-		OutputState: i.ToEventSubscriptionDeliveryIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionDeliveryIdentityArgs) ToEventSubscriptionDeliveryIdentityPtrOutput() EventSubscriptionDeliveryIdentityPtrOutput {
 	return i.ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(context.Background())
 }
@@ -4395,12 +3764,6 @@ func (i *eventSubscriptionDeliveryIdentityPtrType) ToEventSubscriptionDeliveryId
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-func (i *eventSubscriptionDeliveryIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[*EventSubscriptionDeliveryIdentity]{
-		OutputState: i.ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionDeliveryIdentityOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDeliveryIdentityOutput) ElementType() reflect.Type {
@@ -4425,12 +3788,6 @@ func (o EventSubscriptionDeliveryIdentityOutput) ToEventSubscriptionDeliveryIden
 	}).(EventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-func (o EventSubscriptionDeliveryIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[EventSubscriptionDeliveryIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o EventSubscriptionDeliveryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionDeliveryIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -4453,12 +3810,6 @@ func (o EventSubscriptionDeliveryIdentityPtrOutput) ToEventSubscriptionDeliveryI
 
 func (o EventSubscriptionDeliveryIdentityPtrOutput) ToEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx context.Context) EventSubscriptionDeliveryIdentityPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionDeliveryIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[*EventSubscriptionDeliveryIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionDeliveryIdentityPtrOutput) Elem() EventSubscriptionDeliveryIdentityOutput {
@@ -4540,12 +3891,6 @@ func (i EventSubscriptionDeliveryPropertyArgs) ToEventSubscriptionDeliveryProper
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryPropertyOutput)
 }
 
-func (i EventSubscriptionDeliveryPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryProperty] {
-	return pulumix.Output[EventSubscriptionDeliveryProperty]{
-		OutputState: i.ToEventSubscriptionDeliveryPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionDeliveryPropertyArrayInput is an input type that accepts EventSubscriptionDeliveryPropertyArray and EventSubscriptionDeliveryPropertyArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionDeliveryPropertyArrayInput` via:
 //
@@ -4571,12 +3916,6 @@ func (i EventSubscriptionDeliveryPropertyArray) ToEventSubscriptionDeliveryPrope
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDeliveryPropertyArrayOutput)
 }
 
-func (i EventSubscriptionDeliveryPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionDeliveryProperty] {
-	return pulumix.Output[[]EventSubscriptionDeliveryProperty]{
-		OutputState: i.ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionDeliveryPropertyOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDeliveryPropertyOutput) ElementType() reflect.Type {
@@ -4589,12 +3928,6 @@ func (o EventSubscriptionDeliveryPropertyOutput) ToEventSubscriptionDeliveryProp
 
 func (o EventSubscriptionDeliveryPropertyOutput) ToEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyOutput {
 	return o
-}
-
-func (o EventSubscriptionDeliveryPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionDeliveryProperty] {
-	return pulumix.Output[EventSubscriptionDeliveryProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the header to send on to the destination
@@ -4634,12 +3967,6 @@ func (o EventSubscriptionDeliveryPropertyArrayOutput) ToEventSubscriptionDeliver
 
 func (o EventSubscriptionDeliveryPropertyArrayOutput) ToEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) EventSubscriptionDeliveryPropertyArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionDeliveryPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionDeliveryProperty] {
-	return pulumix.Output[[]EventSubscriptionDeliveryProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) EventSubscriptionDeliveryPropertyOutput {
@@ -4685,12 +4012,6 @@ func (i EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionRetryPolicyOutput)
 }
 
-func (i EventSubscriptionRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionRetryPolicy] {
-	return pulumix.Output[EventSubscriptionRetryPolicy]{
-		OutputState: i.ToEventSubscriptionRetryPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionRetryPolicyArgs) ToEventSubscriptionRetryPolicyPtrOutput() EventSubscriptionRetryPolicyPtrOutput {
 	return i.ToEventSubscriptionRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -4732,12 +4053,6 @@ func (i *eventSubscriptionRetryPolicyPtrType) ToEventSubscriptionRetryPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
-func (i *eventSubscriptionRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionRetryPolicy] {
-	return pulumix.Output[*EventSubscriptionRetryPolicy]{
-		OutputState: i.ToEventSubscriptionRetryPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionRetryPolicyOutput) ElementType() reflect.Type {
@@ -4762,12 +4077,6 @@ func (o EventSubscriptionRetryPolicyOutput) ToEventSubscriptionRetryPolicyPtrOut
 	}).(EventSubscriptionRetryPolicyPtrOutput)
 }
 
-func (o EventSubscriptionRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionRetryPolicy] {
-	return pulumix.Output[EventSubscriptionRetryPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o EventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v EventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
@@ -4790,12 +4099,6 @@ func (o EventSubscriptionRetryPolicyPtrOutput) ToEventSubscriptionRetryPolicyPtr
 
 func (o EventSubscriptionRetryPolicyPtrOutput) ToEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) EventSubscriptionRetryPolicyPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionRetryPolicy] {
-	return pulumix.Output[*EventSubscriptionRetryPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionRetryPolicyPtrOutput) Elem() EventSubscriptionRetryPolicyOutput {
@@ -4865,12 +4168,6 @@ func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
-func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: i.ToEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionStorageBlobDeadLetterDestinationArgs) ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
 	return i.ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
 }
@@ -4912,12 +4209,6 @@ func (i *eventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
 
-func (i *eventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: i.ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionStorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
@@ -4942,12 +4233,6 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToEventSubscrip
 	}).(EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
 
-func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[EventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the id of the storage account id where the storage blob is located.
 func (o EventSubscriptionStorageBlobDeadLetterDestinationOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionStorageBlobDeadLetterDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
@@ -4970,12 +4255,6 @@ func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToEventSubsc
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[*EventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() EventSubscriptionStorageBlobDeadLetterDestinationOutput {
@@ -5049,12 +4328,6 @@ func (i EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQue
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageQueueEndpointOutput)
 }
 
-func (i EventSubscriptionStorageQueueEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[EventSubscriptionStorageQueueEndpoint]{
-		OutputState: i.ToEventSubscriptionStorageQueueEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionStorageQueueEndpointArgs) ToEventSubscriptionStorageQueueEndpointPtrOutput() EventSubscriptionStorageQueueEndpointPtrOutput {
 	return i.ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Background())
 }
@@ -5096,12 +4369,6 @@ func (i *eventSubscriptionStorageQueueEndpointPtrType) ToEventSubscriptionStorag
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
-func (i *eventSubscriptionStorageQueueEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[*EventSubscriptionStorageQueueEndpoint]{
-		OutputState: i.ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionStorageQueueEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionStorageQueueEndpointOutput) ElementType() reflect.Type {
@@ -5124,12 +4391,6 @@ func (o EventSubscriptionStorageQueueEndpointOutput) ToEventSubscriptionStorageQ
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionStorageQueueEndpoint) *EventSubscriptionStorageQueueEndpoint {
 		return &v
 	}).(EventSubscriptionStorageQueueEndpointPtrOutput)
-}
-
-func (o EventSubscriptionStorageQueueEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[EventSubscriptionStorageQueueEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Storage queue message time to live in seconds.
@@ -5159,12 +4420,6 @@ func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToEventSubscriptionStora
 
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionStorageQueueEndpointPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionStorageQueueEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[*EventSubscriptionStorageQueueEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionStorageQueueEndpointPtrOutput) Elem() EventSubscriptionStorageQueueEndpointOutput {
@@ -5248,12 +4503,6 @@ func (i EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionSubjectFilterOutput)
 }
 
-func (i EventSubscriptionSubjectFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSubjectFilter] {
-	return pulumix.Output[EventSubscriptionSubjectFilter]{
-		OutputState: i.ToEventSubscriptionSubjectFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionSubjectFilterArgs) ToEventSubscriptionSubjectFilterPtrOutput() EventSubscriptionSubjectFilterPtrOutput {
 	return i.ToEventSubscriptionSubjectFilterPtrOutputWithContext(context.Background())
 }
@@ -5295,12 +4544,6 @@ func (i *eventSubscriptionSubjectFilterPtrType) ToEventSubscriptionSubjectFilter
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionSubjectFilterPtrOutput)
 }
 
-func (i *eventSubscriptionSubjectFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSubjectFilter] {
-	return pulumix.Output[*EventSubscriptionSubjectFilter]{
-		OutputState: i.ToEventSubscriptionSubjectFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionSubjectFilterOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionSubjectFilterOutput) ElementType() reflect.Type {
@@ -5323,12 +4566,6 @@ func (o EventSubscriptionSubjectFilterOutput) ToEventSubscriptionSubjectFilterPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionSubjectFilter) *EventSubscriptionSubjectFilter {
 		return &v
 	}).(EventSubscriptionSubjectFilterPtrOutput)
-}
-
-func (o EventSubscriptionSubjectFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionSubjectFilter] {
-	return pulumix.Output[EventSubscriptionSubjectFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
@@ -5358,12 +4595,6 @@ func (o EventSubscriptionSubjectFilterPtrOutput) ToEventSubscriptionSubjectFilte
 
 func (o EventSubscriptionSubjectFilterPtrOutput) ToEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionSubjectFilterPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionSubjectFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionSubjectFilter] {
-	return pulumix.Output[*EventSubscriptionSubjectFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionSubjectFilterPtrOutput) Elem() EventSubscriptionSubjectFilterOutput {
@@ -5459,12 +4690,6 @@ func (i EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionWebhookEndpointOutput)
 }
 
-func (i EventSubscriptionWebhookEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[EventSubscriptionWebhookEndpoint]{
-		OutputState: i.ToEventSubscriptionWebhookEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EventSubscriptionWebhookEndpointArgs) ToEventSubscriptionWebhookEndpointPtrOutput() EventSubscriptionWebhookEndpointPtrOutput {
 	return i.ToEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Background())
 }
@@ -5506,12 +4731,6 @@ func (i *eventSubscriptionWebhookEndpointPtrType) ToEventSubscriptionWebhookEndp
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionWebhookEndpointPtrOutput)
 }
 
-func (i *eventSubscriptionWebhookEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[*EventSubscriptionWebhookEndpoint]{
-		OutputState: i.ToEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionWebhookEndpointOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionWebhookEndpointOutput) ElementType() reflect.Type {
@@ -5534,12 +4753,6 @@ func (o EventSubscriptionWebhookEndpointOutput) ToEventSubscriptionWebhookEndpoi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionWebhookEndpoint) *EventSubscriptionWebhookEndpoint {
 		return &v
 	}).(EventSubscriptionWebhookEndpointPtrOutput)
-}
-
-func (o EventSubscriptionWebhookEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[EventSubscriptionWebhookEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -5584,12 +4797,6 @@ func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEnd
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) ToEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) EventSubscriptionWebhookEndpointPtrOutput {
 	return o
-}
-
-func (o EventSubscriptionWebhookEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[*EventSubscriptionWebhookEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionWebhookEndpointPtrOutput) Elem() EventSubscriptionWebhookEndpointOutput {
@@ -5771,12 +4978,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToSystemTopicEventSubscr
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilter] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilter]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionAdvancedFilterArgs) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutput() SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
 	return i.ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(context.Background())
 }
@@ -5818,12 +5019,6 @@ func (i *systemTopicEventSubscriptionAdvancedFilterPtrType) ToSystemTopicEventSu
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionAdvancedFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionAdvancedFilter] {
-	return pulumix.Output[*SystemTopicEventSubscriptionAdvancedFilter]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterOutput) ElementType() reflect.Type {
@@ -5846,12 +5041,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToSystemTopicEventSubs
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionAdvancedFilter) *SystemTopicEventSubscriptionAdvancedFilter {
 		return &v
 	}).(SystemTopicEventSubscriptionAdvancedFilterPtrOutput)
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilter] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Compares a value of an event using a single boolean value.
@@ -6001,12 +5190,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ToSystemTopicEventS
 
 func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ToSystemTopicEventSubscriptionAdvancedFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionAdvancedFilter] {
-	return pulumix.Output[*SystemTopicEventSubscriptionAdvancedFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterPtrOutput) Elem() SystemTopicEventSubscriptionAdvancedFilterOutput {
@@ -6252,12 +5435,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs) ToSystemTopicEv
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray and SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayInput` via:
 //
@@ -6283,12 +5460,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray) ToSystemTopicE
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterBoolEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ElementType() reflect.Type {
@@ -6301,12 +5472,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ToSystemTopic
 
 func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -6333,12 +5498,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToSystem
 
 func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterBoolEqual] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterBoolEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterBoolEqualArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterBoolEqualOutput {
@@ -6380,12 +5539,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs) ToSystemTopicEv
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterIsNotNullArray and SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayInput` via:
 //
@@ -6411,12 +5564,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterIsNotNullArray) ToSystemTopicE
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterIsNotNullArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput) ElementType() reflect.Type {
@@ -6429,12 +5576,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput) ToSystemTopic
 
 func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput) ToSystemTopicEventSubscriptionAdvancedFilterIsNotNullOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -6454,12 +5595,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToSystem
 
 func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNotNull] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNotNull]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterIsNotNullArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterIsNotNullOutput {
@@ -6501,12 +5636,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToSyste
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArray and SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayInput` via:
 //
@@ -6532,12 +5661,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToSyst
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ElementType() reflect.Type {
@@ -6550,12 +5673,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToSys
 
 func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToSystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -6575,12 +5692,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) 
 
 func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedOutput {
@@ -6630,12 +5741,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToSyste
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray and SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayInput` via:
 //
@@ -6661,12 +5766,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray) ToSyst
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ElementType() reflect.Type {
@@ -6679,12 +5778,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToSys
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -6711,12 +5804,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) 
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOutput {
@@ -6766,12 +5853,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray and SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayInput` via:
 //
@@ -6797,12 +5878,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray)
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ElementType() reflect.Type {
@@ -6815,12 +5890,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -6847,12 +5916,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayO
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput {
@@ -6902,12 +5965,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArgs) ToSystemTopicEve
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberInOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberInArray and SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberInArrayInput` via:
 //
@@ -6933,12 +5990,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArray) ToSystemTopicEv
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberInArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberInOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ElementType() reflect.Type {
@@ -6951,12 +6002,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ToSystemTopicE
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberInOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -6983,12 +6028,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) ToSystemT
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberInOutput {
@@ -7038,12 +6077,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs) ToSystemTop
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArray and SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayInput` via:
 //
@@ -7069,12 +6102,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArray) ToSystemTo
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput) ElementType() reflect.Type {
@@ -7087,12 +6114,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput) ToSystemT
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7119,12 +6140,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToSy
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberInRange] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberInRangeArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberInRangeOutput {
@@ -7174,12 +6189,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs) ToSystemTo
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray and SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayInput` via:
 //
@@ -7205,12 +6214,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray) ToSystemT
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ElementType() reflect.Type {
@@ -7223,12 +6226,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ToSystem
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7255,12 +6252,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToS
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOutput {
@@ -7310,12 +6301,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToS
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray and SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayInput` via:
 //
@@ -7341,12 +6326,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ElementType() reflect.Type {
@@ -7359,12 +6338,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) T
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7391,12 +6364,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutp
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput {
@@ -7446,12 +6413,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs) ToSystemTopic
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray and SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayInput` via:
 //
@@ -7477,12 +6438,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray) ToSystemTopi
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ElementType() reflect.Type {
@@ -7495,12 +6450,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ToSystemTop
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7527,12 +6476,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToSyst
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberNotInOutput {
@@ -7582,12 +6525,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToSystem
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArray and SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayInput` via:
 //
@@ -7613,12 +6550,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArray) ToSyste
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput) ElementType() reflect.Type {
@@ -7631,12 +6562,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToSyst
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7663,12 +6588,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) T
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterNumberNotInRangeOutput {
@@ -7718,12 +6637,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs) ToSystem
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray and SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayInput` via:
 //
@@ -7749,12 +6662,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray) ToSyste
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ElementType() reflect.Type {
@@ -7767,12 +6674,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ToSyst
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7799,12 +6700,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) T
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringBeginsWithOutput {
@@ -7854,12 +6749,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArgs) ToSystemTop
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringContainOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringContain]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringContainArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringContainArray and SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringContainArrayInput` via:
 //
@@ -7885,12 +6774,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArray) ToSystemTo
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringContainArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringContain]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringContainOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ElementType() reflect.Type {
@@ -7903,12 +6786,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ToSystemT
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringContainOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringContainOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -7935,12 +6812,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) ToSy
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringContain] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringContainArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringContainOutput {
@@ -7990,12 +6861,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs) ToSystemTo
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray and SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayInput` via:
 //
@@ -8021,12 +6886,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray) ToSystemT
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ElementType() reflect.Type {
@@ -8039,12 +6898,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ToSystem
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -8071,12 +6924,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToS
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringEndsWithArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringEndsWithOutput {
@@ -8126,12 +6973,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringInArgs) ToSystemTopicEve
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringInOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringInArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringInArray and SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringInArrayInput` via:
 //
@@ -8157,12 +6998,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringInArray) ToSystemTopicEv
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringInArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringInOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ElementType() reflect.Type {
@@ -8175,12 +7010,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ToSystemTopicE
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringInOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -8207,12 +7036,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) ToSystemT
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringInOutput {
@@ -8262,12 +7085,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToSys
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArray and SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayInput` via:
 //
@@ -8293,12 +7110,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToSy
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ElementType() reflect.Type {
@@ -8311,12 +7122,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToS
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -8343,12 +7148,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWithOutput {
@@ -8398,12 +7197,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs) ToSystem
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotContainArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringNotContainArray and SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayInput` via:
 //
@@ -8429,12 +7222,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotContainArray) ToSyste
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotContainArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput) ElementType() reflect.Type {
@@ -8447,12 +7234,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput) ToSyst
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotContainOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -8479,12 +7260,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput) T
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotContain] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotContain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotContainArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringNotContainOutput {
@@ -8534,12 +7309,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToSyste
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArray and SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayInput` via:
 //
@@ -8565,12 +7334,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArray) ToSyst
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput) ElementType() reflect.Type {
@@ -8583,12 +7346,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToSys
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -8615,12 +7372,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) 
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWithOutput {
@@ -8670,12 +7421,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs) ToSystemTopic
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayInput is an input type that accepts SystemTopicEventSubscriptionAdvancedFilterStringNotInArray and SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayInput` via:
 //
@@ -8701,12 +7446,6 @@ func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArray) ToSystemTopi
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionAdvancedFilterStringNotInArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: i.ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ElementType() reflect.Type {
@@ -8719,12 +7458,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ToSystemTop
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[SystemTopicEventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -8751,12 +7484,6 @@ func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) ToSyst
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) ToSystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotIn] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionAdvancedFilterStringNotIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAdvancedFilterStringNotInArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionAdvancedFilterStringNotInOutput {
@@ -8806,12 +7533,6 @@ func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToSystemTopicEven
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAzureFunctionEndpointOutput)
 }
 
-func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[SystemTopicEventSubscriptionAzureFunctionEndpoint]{
-		OutputState: i.ToSystemTopicEventSubscriptionAzureFunctionEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionAzureFunctionEndpointArgs) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput() SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
 	return i.ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(context.Background())
 }
@@ -8853,12 +7574,6 @@ func (i *systemTopicEventSubscriptionAzureFunctionEndpointPtrType) ToSystemTopic
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionAzureFunctionEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[*SystemTopicEventSubscriptionAzureFunctionEndpoint]{
-		OutputState: i.ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionAzureFunctionEndpointOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ElementType() reflect.Type {
@@ -8881,12 +7596,6 @@ func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToSystemTopicEv
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionAzureFunctionEndpoint) *SystemTopicEventSubscriptionAzureFunctionEndpoint {
 		return &v
 	}).(SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput)
-}
-
-func (o SystemTopicEventSubscriptionAzureFunctionEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[SystemTopicEventSubscriptionAzureFunctionEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
@@ -8916,12 +7625,6 @@ func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ToSystemTopi
 
 func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ToSystemTopicEventSubscriptionAzureFunctionEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionAzureFunctionEndpoint] {
-	return pulumix.Output[*SystemTopicEventSubscriptionAzureFunctionEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionAzureFunctionEndpointPtrOutput) Elem() SystemTopicEventSubscriptionAzureFunctionEndpointOutput {
@@ -9001,12 +7704,6 @@ func (i SystemTopicEventSubscriptionDeadLetterIdentityArgs) ToSystemTopicEventSu
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeadLetterIdentityOutput)
 }
 
-func (i SystemTopicEventSubscriptionDeadLetterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[SystemTopicEventSubscriptionDeadLetterIdentity]{
-		OutputState: i.ToSystemTopicEventSubscriptionDeadLetterIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionDeadLetterIdentityArgs) ToSystemTopicEventSubscriptionDeadLetterIdentityPtrOutput() SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput {
 	return i.ToSystemTopicEventSubscriptionDeadLetterIdentityPtrOutputWithContext(context.Background())
 }
@@ -9048,12 +7745,6 @@ func (i *systemTopicEventSubscriptionDeadLetterIdentityPtrType) ToSystemTopicEve
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionDeadLetterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[*SystemTopicEventSubscriptionDeadLetterIdentity]{
-		OutputState: i.ToSystemTopicEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionDeadLetterIdentityOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionDeadLetterIdentityOutput) ElementType() reflect.Type {
@@ -9078,12 +7769,6 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) ToSystemTopicEvent
 	}).(SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput)
 }
 
-func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[SystemTopicEventSubscriptionDeadLetterIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicEventSubscriptionDeadLetterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeadLetterIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -9106,12 +7791,6 @@ func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) ToSystemTopicEv
 
 func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) ToSystemTopicEventSubscriptionDeadLetterIdentityPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionDeadLetterIdentity] {
-	return pulumix.Output[*SystemTopicEventSubscriptionDeadLetterIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionDeadLetterIdentityPtrOutput) Elem() SystemTopicEventSubscriptionDeadLetterIdentityOutput {
@@ -9181,12 +7860,6 @@ func (i SystemTopicEventSubscriptionDeliveryIdentityArgs) ToSystemTopicEventSubs
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeliveryIdentityOutput)
 }
 
-func (i SystemTopicEventSubscriptionDeliveryIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[SystemTopicEventSubscriptionDeliveryIdentity]{
-		OutputState: i.ToSystemTopicEventSubscriptionDeliveryIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionDeliveryIdentityArgs) ToSystemTopicEventSubscriptionDeliveryIdentityPtrOutput() SystemTopicEventSubscriptionDeliveryIdentityPtrOutput {
 	return i.ToSystemTopicEventSubscriptionDeliveryIdentityPtrOutputWithContext(context.Background())
 }
@@ -9228,12 +7901,6 @@ func (i *systemTopicEventSubscriptionDeliveryIdentityPtrType) ToSystemTopicEvent
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionDeliveryIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[*SystemTopicEventSubscriptionDeliveryIdentity]{
-		OutputState: i.ToSystemTopicEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionDeliveryIdentityOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionDeliveryIdentityOutput) ElementType() reflect.Type {
@@ -9258,12 +7925,6 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) ToSystemTopicEventSu
 	}).(SystemTopicEventSubscriptionDeliveryIdentityPtrOutput)
 }
 
-func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[SystemTopicEventSubscriptionDeliveryIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is `SystemAssigned`, `UserAssigned`.
 func (o SystemTopicEventSubscriptionDeliveryIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionDeliveryIdentity) string { return v.Type }).(pulumi.StringOutput)
@@ -9286,12 +7947,6 @@ func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) ToSystemTopicEven
 
 func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) ToSystemTopicEventSubscriptionDeliveryIdentityPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryIdentityPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionDeliveryIdentity] {
-	return pulumix.Output[*SystemTopicEventSubscriptionDeliveryIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionDeliveryIdentityPtrOutput) Elem() SystemTopicEventSubscriptionDeliveryIdentityOutput {
@@ -9373,12 +8028,6 @@ func (i SystemTopicEventSubscriptionDeliveryPropertyArgs) ToSystemTopicEventSubs
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeliveryPropertyOutput)
 }
 
-func (i SystemTopicEventSubscriptionDeliveryPropertyArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionDeliveryProperty] {
-	return pulumix.Output[SystemTopicEventSubscriptionDeliveryProperty]{
-		OutputState: i.ToSystemTopicEventSubscriptionDeliveryPropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionDeliveryPropertyArrayInput is an input type that accepts SystemTopicEventSubscriptionDeliveryPropertyArray and SystemTopicEventSubscriptionDeliveryPropertyArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionDeliveryPropertyArrayInput` via:
 //
@@ -9404,12 +8053,6 @@ func (i SystemTopicEventSubscriptionDeliveryPropertyArray) ToSystemTopicEventSub
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionDeliveryPropertyArrayOutput)
 }
 
-func (i SystemTopicEventSubscriptionDeliveryPropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionDeliveryProperty] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionDeliveryProperty]{
-		OutputState: i.ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionDeliveryPropertyOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionDeliveryPropertyOutput) ElementType() reflect.Type {
@@ -9422,12 +8065,6 @@ func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) ToSystemTopicEventSu
 
 func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) ToSystemTopicEventSubscriptionDeliveryPropertyOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryPropertyOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionDeliveryPropertyOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionDeliveryProperty] {
-	return pulumix.Output[SystemTopicEventSubscriptionDeliveryProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the header to send on to the destination.
@@ -9467,12 +8104,6 @@ func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) ToSystemTopicEv
 
 func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) ToSystemTopicEventSubscriptionDeliveryPropertyArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionDeliveryPropertyArrayOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SystemTopicEventSubscriptionDeliveryProperty] {
-	return pulumix.Output[[]SystemTopicEventSubscriptionDeliveryProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionDeliveryPropertyArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionDeliveryPropertyOutput {
@@ -9518,12 +8149,6 @@ func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToSystemTopicEventSubscript
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionRetryPolicyOutput)
 }
 
-func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionRetryPolicy] {
-	return pulumix.Output[SystemTopicEventSubscriptionRetryPolicy]{
-		OutputState: i.ToSystemTopicEventSubscriptionRetryPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionRetryPolicyArgs) ToSystemTopicEventSubscriptionRetryPolicyPtrOutput() SystemTopicEventSubscriptionRetryPolicyPtrOutput {
 	return i.ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(context.Background())
 }
@@ -9565,12 +8190,6 @@ func (i *systemTopicEventSubscriptionRetryPolicyPtrType) ToSystemTopicEventSubsc
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionRetryPolicyPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionRetryPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionRetryPolicy] {
-	return pulumix.Output[*SystemTopicEventSubscriptionRetryPolicy]{
-		OutputState: i.ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionRetryPolicyOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionRetryPolicyOutput) ElementType() reflect.Type {
@@ -9595,12 +8214,6 @@ func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToSystemTopicEventSubscri
 	}).(SystemTopicEventSubscriptionRetryPolicyPtrOutput)
 }
 
-func (o SystemTopicEventSubscriptionRetryPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionRetryPolicy] {
-	return pulumix.Output[SystemTopicEventSubscriptionRetryPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
 func (o SystemTopicEventSubscriptionRetryPolicyOutput) EventTimeToLive() pulumi.IntOutput {
 	return o.ApplyT(func(v SystemTopicEventSubscriptionRetryPolicy) int { return v.EventTimeToLive }).(pulumi.IntOutput)
@@ -9623,12 +8236,6 @@ func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) ToSystemTopicEventSubs
 
 func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) ToSystemTopicEventSubscriptionRetryPolicyPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionRetryPolicyPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionRetryPolicy] {
-	return pulumix.Output[*SystemTopicEventSubscriptionRetryPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionRetryPolicyPtrOutput) Elem() SystemTopicEventSubscriptionRetryPolicyOutput {
@@ -9698,12 +8305,6 @@ func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToSyst
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput)
 }
 
-func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[SystemTopicEventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: i.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationArgs) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
 	return i.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(context.Background())
 }
@@ -9745,12 +8346,6 @@ func (i *systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[*SystemTopicEventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: i.ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ElementType() reflect.Type {
@@ -9773,12 +8368,6 @@ func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToSy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionStorageBlobDeadLetterDestination) *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination {
 		return &v
 	}).(SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput)
-}
-
-func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[SystemTopicEventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the id of the storage account id where the storage blob is located.
@@ -9805,12 +8394,6 @@ func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) T
 
 func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToSystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionStorageBlobDeadLetterDestination] {
-	return pulumix.Output[*SystemTopicEventSubscriptionStorageBlobDeadLetterDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput) Elem() SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationOutput {
@@ -9884,12 +8467,6 @@ func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToSystemTopicEvent
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageQueueEndpointOutput)
 }
 
-func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[SystemTopicEventSubscriptionStorageQueueEndpoint]{
-		OutputState: i.ToSystemTopicEventSubscriptionStorageQueueEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionStorageQueueEndpointArgs) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutput() SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
 	return i.ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(context.Background())
 }
@@ -9931,12 +8508,6 @@ func (i *systemTopicEventSubscriptionStorageQueueEndpointPtrType) ToSystemTopicE
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionStorageQueueEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[*SystemTopicEventSubscriptionStorageQueueEndpoint]{
-		OutputState: i.ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionStorageQueueEndpointOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionStorageQueueEndpointOutput) ElementType() reflect.Type {
@@ -9959,12 +8530,6 @@ func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToSystemTopicEve
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionStorageQueueEndpoint) *SystemTopicEventSubscriptionStorageQueueEndpoint {
 		return &v
 	}).(SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput)
-}
-
-func (o SystemTopicEventSubscriptionStorageQueueEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[SystemTopicEventSubscriptionStorageQueueEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Storage queue message time to live in seconds.
@@ -9996,12 +8561,6 @@ func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ToSystemTopic
 
 func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ToSystemTopicEventSubscriptionStorageQueueEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionStorageQueueEndpoint] {
-	return pulumix.Output[*SystemTopicEventSubscriptionStorageQueueEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionStorageQueueEndpointPtrOutput) Elem() SystemTopicEventSubscriptionStorageQueueEndpointOutput {
@@ -10085,12 +8644,6 @@ func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToSystemTopicEventSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionSubjectFilterOutput)
 }
 
-func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionSubjectFilter] {
-	return pulumix.Output[SystemTopicEventSubscriptionSubjectFilter]{
-		OutputState: i.ToSystemTopicEventSubscriptionSubjectFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionSubjectFilterArgs) ToSystemTopicEventSubscriptionSubjectFilterPtrOutput() SystemTopicEventSubscriptionSubjectFilterPtrOutput {
 	return i.ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(context.Background())
 }
@@ -10132,12 +8685,6 @@ func (i *systemTopicEventSubscriptionSubjectFilterPtrType) ToSystemTopicEventSub
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionSubjectFilterPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionSubjectFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionSubjectFilter] {
-	return pulumix.Output[*SystemTopicEventSubscriptionSubjectFilter]{
-		OutputState: i.ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionSubjectFilterOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionSubjectFilterOutput) ElementType() reflect.Type {
@@ -10160,12 +8707,6 @@ func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToSystemTopicEventSubsc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionSubjectFilter) *SystemTopicEventSubscriptionSubjectFilter {
 		return &v
 	}).(SystemTopicEventSubscriptionSubjectFilterPtrOutput)
-}
-
-func (o SystemTopicEventSubscriptionSubjectFilterOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionSubjectFilter] {
-	return pulumix.Output[SystemTopicEventSubscriptionSubjectFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if `subjectBeginsWith` and `subjectEndsWith` case sensitive. This value
@@ -10195,12 +8736,6 @@ func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) ToSystemTopicEventSu
 
 func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) ToSystemTopicEventSubscriptionSubjectFilterPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionSubjectFilterPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionSubjectFilter] {
-	return pulumix.Output[*SystemTopicEventSubscriptionSubjectFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionSubjectFilterPtrOutput) Elem() SystemTopicEventSubscriptionSubjectFilterOutput {
@@ -10296,12 +8831,6 @@ func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToSystemTopicEventSubsc
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionWebhookEndpointOutput)
 }
 
-func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[SystemTopicEventSubscriptionWebhookEndpoint]{
-		OutputState: i.ToSystemTopicEventSubscriptionWebhookEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicEventSubscriptionWebhookEndpointArgs) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutput() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 	return i.ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(context.Background())
 }
@@ -10343,12 +8872,6 @@ func (i *systemTopicEventSubscriptionWebhookEndpointPtrType) ToSystemTopicEventS
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionWebhookEndpointPtrOutput)
 }
 
-func (i *systemTopicEventSubscriptionWebhookEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[*SystemTopicEventSubscriptionWebhookEndpoint]{
-		OutputState: i.ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionWebhookEndpointOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionWebhookEndpointOutput) ElementType() reflect.Type {
@@ -10371,12 +8894,6 @@ func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToSystemTopicEventSub
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicEventSubscriptionWebhookEndpoint) *SystemTopicEventSubscriptionWebhookEndpoint {
 		return &v
 	}).(SystemTopicEventSubscriptionWebhookEndpointPtrOutput)
-}
-
-func (o SystemTopicEventSubscriptionWebhookEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicEventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[SystemTopicEventSubscriptionWebhookEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -10421,12 +8938,6 @@ func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ToSystemTopicEvent
 
 func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ToSystemTopicEventSubscriptionWebhookEndpointPtrOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscriptionWebhookEndpoint] {
-	return pulumix.Output[*SystemTopicEventSubscriptionWebhookEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionWebhookEndpointPtrOutput) Elem() SystemTopicEventSubscriptionWebhookEndpointOutput {
@@ -10552,12 +9063,6 @@ func (i SystemTopicIdentityArgs) ToSystemTopicIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicIdentityOutput)
 }
 
-func (i SystemTopicIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[SystemTopicIdentity] {
-	return pulumix.Output[SystemTopicIdentity]{
-		OutputState: i.ToSystemTopicIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SystemTopicIdentityArgs) ToSystemTopicIdentityPtrOutput() SystemTopicIdentityPtrOutput {
 	return i.ToSystemTopicIdentityPtrOutputWithContext(context.Background())
 }
@@ -10599,12 +9104,6 @@ func (i *systemTopicIdentityPtrType) ToSystemTopicIdentityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicIdentityPtrOutput)
 }
 
-func (i *systemTopicIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicIdentity] {
-	return pulumix.Output[*SystemTopicIdentity]{
-		OutputState: i.ToSystemTopicIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicIdentityOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicIdentityOutput) ElementType() reflect.Type {
@@ -10627,12 +9126,6 @@ func (o SystemTopicIdentityOutput) ToSystemTopicIdentityPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemTopicIdentity) *SystemTopicIdentity {
 		return &v
 	}).(SystemTopicIdentityPtrOutput)
-}
-
-func (o SystemTopicIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[SystemTopicIdentity] {
-	return pulumix.Output[SystemTopicIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
@@ -10671,12 +9164,6 @@ func (o SystemTopicIdentityPtrOutput) ToSystemTopicIdentityPtrOutput() SystemTop
 
 func (o SystemTopicIdentityPtrOutput) ToSystemTopicIdentityPtrOutputWithContext(ctx context.Context) SystemTopicIdentityPtrOutput {
 	return o
-}
-
-func (o SystemTopicIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicIdentity] {
-	return pulumix.Output[*SystemTopicIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicIdentityPtrOutput) Elem() SystemTopicIdentityOutput {
@@ -10786,12 +9273,6 @@ func (i TopicIdentityArgs) ToTopicIdentityOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TopicIdentityOutput)
 }
 
-func (i TopicIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[TopicIdentity] {
-	return pulumix.Output[TopicIdentity]{
-		OutputState: i.ToTopicIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicIdentityArgs) ToTopicIdentityPtrOutput() TopicIdentityPtrOutput {
 	return i.ToTopicIdentityPtrOutputWithContext(context.Background())
 }
@@ -10833,12 +9314,6 @@ func (i *topicIdentityPtrType) ToTopicIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TopicIdentityPtrOutput)
 }
 
-func (i *topicIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicIdentity] {
-	return pulumix.Output[*TopicIdentity]{
-		OutputState: i.ToTopicIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicIdentityOutput struct{ *pulumi.OutputState }
 
 func (TopicIdentityOutput) ElementType() reflect.Type {
@@ -10861,12 +9336,6 @@ func (o TopicIdentityOutput) ToTopicIdentityPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicIdentity) *TopicIdentity {
 		return &v
 	}).(TopicIdentityPtrOutput)
-}
-
-func (o TopicIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[TopicIdentity] {
-	return pulumix.Output[TopicIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic.
@@ -10905,12 +9374,6 @@ func (o TopicIdentityPtrOutput) ToTopicIdentityPtrOutput() TopicIdentityPtrOutpu
 
 func (o TopicIdentityPtrOutput) ToTopicIdentityPtrOutputWithContext(ctx context.Context) TopicIdentityPtrOutput {
 	return o
-}
-
-func (o TopicIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicIdentity] {
-	return pulumix.Output[*TopicIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicIdentityPtrOutput) Elem() TopicIdentityOutput {
@@ -11004,12 +9467,6 @@ func (i TopicInboundIpRuleArgs) ToTopicInboundIpRuleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicInboundIpRuleOutput)
 }
 
-func (i TopicInboundIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[TopicInboundIpRule] {
-	return pulumix.Output[TopicInboundIpRule]{
-		OutputState: i.ToTopicInboundIpRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicInboundIpRuleArrayInput is an input type that accepts TopicInboundIpRuleArray and TopicInboundIpRuleArrayOutput values.
 // You can construct a concrete instance of `TopicInboundIpRuleArrayInput` via:
 //
@@ -11035,12 +9492,6 @@ func (i TopicInboundIpRuleArray) ToTopicInboundIpRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TopicInboundIpRuleArrayOutput)
 }
 
-func (i TopicInboundIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicInboundIpRule] {
-	return pulumix.Output[[]TopicInboundIpRule]{
-		OutputState: i.ToTopicInboundIpRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicInboundIpRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicInboundIpRuleOutput) ElementType() reflect.Type {
@@ -11053,12 +9504,6 @@ func (o TopicInboundIpRuleOutput) ToTopicInboundIpRuleOutput() TopicInboundIpRul
 
 func (o TopicInboundIpRuleOutput) ToTopicInboundIpRuleOutputWithContext(ctx context.Context) TopicInboundIpRuleOutput {
 	return o
-}
-
-func (o TopicInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicInboundIpRule] {
-	return pulumix.Output[TopicInboundIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
@@ -11083,12 +9528,6 @@ func (o TopicInboundIpRuleArrayOutput) ToTopicInboundIpRuleArrayOutput() TopicIn
 
 func (o TopicInboundIpRuleArrayOutput) ToTopicInboundIpRuleArrayOutputWithContext(ctx context.Context) TopicInboundIpRuleArrayOutput {
 	return o
-}
-
-func (o TopicInboundIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicInboundIpRule] {
-	return pulumix.Output[[]TopicInboundIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicInboundIpRuleArrayOutput) Index(i pulumi.IntInput) TopicInboundIpRuleOutput {
@@ -11138,12 +9577,6 @@ func (i TopicInputMappingDefaultValuesArgs) ToTopicInputMappingDefaultValuesOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TopicInputMappingDefaultValuesOutput)
 }
 
-func (i TopicInputMappingDefaultValuesArgs) ToOutput(ctx context.Context) pulumix.Output[TopicInputMappingDefaultValues] {
-	return pulumix.Output[TopicInputMappingDefaultValues]{
-		OutputState: i.ToTopicInputMappingDefaultValuesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicInputMappingDefaultValuesArgs) ToTopicInputMappingDefaultValuesPtrOutput() TopicInputMappingDefaultValuesPtrOutput {
 	return i.ToTopicInputMappingDefaultValuesPtrOutputWithContext(context.Background())
 }
@@ -11185,12 +9618,6 @@ func (i *topicInputMappingDefaultValuesPtrType) ToTopicInputMappingDefaultValues
 	return pulumi.ToOutputWithContext(ctx, i).(TopicInputMappingDefaultValuesPtrOutput)
 }
 
-func (i *topicInputMappingDefaultValuesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicInputMappingDefaultValues] {
-	return pulumix.Output[*TopicInputMappingDefaultValues]{
-		OutputState: i.ToTopicInputMappingDefaultValuesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicInputMappingDefaultValuesOutput struct{ *pulumi.OutputState }
 
 func (TopicInputMappingDefaultValuesOutput) ElementType() reflect.Type {
@@ -11213,12 +9640,6 @@ func (o TopicInputMappingDefaultValuesOutput) ToTopicInputMappingDefaultValuesPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicInputMappingDefaultValues) *TopicInputMappingDefaultValues {
 		return &v
 	}).(TopicInputMappingDefaultValuesPtrOutput)
-}
-
-func (o TopicInputMappingDefaultValuesOutput) ToOutput(ctx context.Context) pulumix.Output[TopicInputMappingDefaultValues] {
-	return pulumix.Output[TopicInputMappingDefaultValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -11248,12 +9669,6 @@ func (o TopicInputMappingDefaultValuesPtrOutput) ToTopicInputMappingDefaultValue
 
 func (o TopicInputMappingDefaultValuesPtrOutput) ToTopicInputMappingDefaultValuesPtrOutputWithContext(ctx context.Context) TopicInputMappingDefaultValuesPtrOutput {
 	return o
-}
-
-func (o TopicInputMappingDefaultValuesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicInputMappingDefaultValues] {
-	return pulumix.Output[*TopicInputMappingDefaultValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicInputMappingDefaultValuesPtrOutput) Elem() TopicInputMappingDefaultValuesOutput {
@@ -11349,12 +9764,6 @@ func (i TopicInputMappingFieldsArgs) ToTopicInputMappingFieldsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicInputMappingFieldsOutput)
 }
 
-func (i TopicInputMappingFieldsArgs) ToOutput(ctx context.Context) pulumix.Output[TopicInputMappingFields] {
-	return pulumix.Output[TopicInputMappingFields]{
-		OutputState: i.ToTopicInputMappingFieldsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicInputMappingFieldsArgs) ToTopicInputMappingFieldsPtrOutput() TopicInputMappingFieldsPtrOutput {
 	return i.ToTopicInputMappingFieldsPtrOutputWithContext(context.Background())
 }
@@ -11396,12 +9805,6 @@ func (i *topicInputMappingFieldsPtrType) ToTopicInputMappingFieldsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicInputMappingFieldsPtrOutput)
 }
 
-func (i *topicInputMappingFieldsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicInputMappingFields] {
-	return pulumix.Output[*TopicInputMappingFields]{
-		OutputState: i.ToTopicInputMappingFieldsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicInputMappingFieldsOutput struct{ *pulumi.OutputState }
 
 func (TopicInputMappingFieldsOutput) ElementType() reflect.Type {
@@ -11424,12 +9827,6 @@ func (o TopicInputMappingFieldsOutput) ToTopicInputMappingFieldsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicInputMappingFields) *TopicInputMappingFields {
 		return &v
 	}).(TopicInputMappingFieldsPtrOutput)
-}
-
-func (o TopicInputMappingFieldsOutput) ToOutput(ctx context.Context) pulumix.Output[TopicInputMappingFields] {
-	return pulumix.Output[TopicInputMappingFields]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -11474,12 +9871,6 @@ func (o TopicInputMappingFieldsPtrOutput) ToTopicInputMappingFieldsPtrOutput() T
 
 func (o TopicInputMappingFieldsPtrOutput) ToTopicInputMappingFieldsPtrOutputWithContext(ctx context.Context) TopicInputMappingFieldsPtrOutput {
 	return o
-}
-
-func (o TopicInputMappingFieldsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicInputMappingFields] {
-	return pulumix.Output[*TopicInputMappingFields]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicInputMappingFieldsPtrOutput) Elem() TopicInputMappingFieldsOutput {
@@ -11597,12 +9988,6 @@ func (i GetDomainIdentityArgs) ToGetDomainIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainIdentityOutput)
 }
 
-func (i GetDomainIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainIdentity] {
-	return pulumix.Output[GetDomainIdentity]{
-		OutputState: i.ToGetDomainIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDomainIdentityArrayInput is an input type that accepts GetDomainIdentityArray and GetDomainIdentityArrayOutput values.
 // You can construct a concrete instance of `GetDomainIdentityArrayInput` via:
 //
@@ -11628,12 +10013,6 @@ func (i GetDomainIdentityArray) ToGetDomainIdentityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainIdentityArrayOutput)
 }
 
-func (i GetDomainIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainIdentity] {
-	return pulumix.Output[[]GetDomainIdentity]{
-		OutputState: i.ToGetDomainIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDomainIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetDomainIdentityOutput) ElementType() reflect.Type {
@@ -11646,12 +10025,6 @@ func (o GetDomainIdentityOutput) ToGetDomainIdentityOutput() GetDomainIdentityOu
 
 func (o GetDomainIdentityOutput) ToGetDomainIdentityOutputWithContext(ctx context.Context) GetDomainIdentityOutput {
 	return o
-}
-
-func (o GetDomainIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainIdentity] {
-	return pulumix.Output[GetDomainIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this EventGrid Domain.
@@ -11686,12 +10059,6 @@ func (o GetDomainIdentityArrayOutput) ToGetDomainIdentityArrayOutput() GetDomain
 
 func (o GetDomainIdentityArrayOutput) ToGetDomainIdentityArrayOutputWithContext(ctx context.Context) GetDomainIdentityArrayOutput {
 	return o
-}
-
-func (o GetDomainIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainIdentity] {
-	return pulumix.Output[[]GetDomainIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainIdentityArrayOutput) Index(i pulumi.IntInput) GetDomainIdentityOutput {
@@ -11737,12 +10104,6 @@ func (i GetDomainInboundIpRuleArgs) ToGetDomainInboundIpRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainInboundIpRuleOutput)
 }
 
-func (i GetDomainInboundIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainInboundIpRule] {
-	return pulumix.Output[GetDomainInboundIpRule]{
-		OutputState: i.ToGetDomainInboundIpRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDomainInboundIpRuleArrayInput is an input type that accepts GetDomainInboundIpRuleArray and GetDomainInboundIpRuleArrayOutput values.
 // You can construct a concrete instance of `GetDomainInboundIpRuleArrayInput` via:
 //
@@ -11768,12 +10129,6 @@ func (i GetDomainInboundIpRuleArray) ToGetDomainInboundIpRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainInboundIpRuleArrayOutput)
 }
 
-func (i GetDomainInboundIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainInboundIpRule] {
-	return pulumix.Output[[]GetDomainInboundIpRule]{
-		OutputState: i.ToGetDomainInboundIpRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDomainInboundIpRuleOutput struct{ *pulumi.OutputState }
 
 func (GetDomainInboundIpRuleOutput) ElementType() reflect.Type {
@@ -11786,12 +10141,6 @@ func (o GetDomainInboundIpRuleOutput) ToGetDomainInboundIpRuleOutput() GetDomain
 
 func (o GetDomainInboundIpRuleOutput) ToGetDomainInboundIpRuleOutputWithContext(ctx context.Context) GetDomainInboundIpRuleOutput {
 	return o
-}
-
-func (o GetDomainInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainInboundIpRule] {
-	return pulumix.Output[GetDomainInboundIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to take when the rule is matched. Possible values are `Allow`.
@@ -11816,12 +10165,6 @@ func (o GetDomainInboundIpRuleArrayOutput) ToGetDomainInboundIpRuleArrayOutput()
 
 func (o GetDomainInboundIpRuleArrayOutput) ToGetDomainInboundIpRuleArrayOutputWithContext(ctx context.Context) GetDomainInboundIpRuleArrayOutput {
 	return o
-}
-
-func (o GetDomainInboundIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainInboundIpRule] {
-	return pulumix.Output[[]GetDomainInboundIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainInboundIpRuleArrayOutput) Index(i pulumi.IntInput) GetDomainInboundIpRuleOutput {
@@ -11871,12 +10214,6 @@ func (i GetDomainInputMappingDefaultValueArgs) ToGetDomainInputMappingDefaultVal
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainInputMappingDefaultValueOutput)
 }
 
-func (i GetDomainInputMappingDefaultValueArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainInputMappingDefaultValue] {
-	return pulumix.Output[GetDomainInputMappingDefaultValue]{
-		OutputState: i.ToGetDomainInputMappingDefaultValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDomainInputMappingDefaultValueArrayInput is an input type that accepts GetDomainInputMappingDefaultValueArray and GetDomainInputMappingDefaultValueArrayOutput values.
 // You can construct a concrete instance of `GetDomainInputMappingDefaultValueArrayInput` via:
 //
@@ -11902,12 +10239,6 @@ func (i GetDomainInputMappingDefaultValueArray) ToGetDomainInputMappingDefaultVa
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainInputMappingDefaultValueArrayOutput)
 }
 
-func (i GetDomainInputMappingDefaultValueArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainInputMappingDefaultValue] {
-	return pulumix.Output[[]GetDomainInputMappingDefaultValue]{
-		OutputState: i.ToGetDomainInputMappingDefaultValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDomainInputMappingDefaultValueOutput struct{ *pulumi.OutputState }
 
 func (GetDomainInputMappingDefaultValueOutput) ElementType() reflect.Type {
@@ -11920,12 +10251,6 @@ func (o GetDomainInputMappingDefaultValueOutput) ToGetDomainInputMappingDefaultV
 
 func (o GetDomainInputMappingDefaultValueOutput) ToGetDomainInputMappingDefaultValueOutputWithContext(ctx context.Context) GetDomainInputMappingDefaultValueOutput {
 	return o
-}
-
-func (o GetDomainInputMappingDefaultValueOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainInputMappingDefaultValue] {
-	return pulumix.Output[GetDomainInputMappingDefaultValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the default data version of the EventGrid Event associated with the domain.
@@ -11955,12 +10280,6 @@ func (o GetDomainInputMappingDefaultValueArrayOutput) ToGetDomainInputMappingDef
 
 func (o GetDomainInputMappingDefaultValueArrayOutput) ToGetDomainInputMappingDefaultValueArrayOutputWithContext(ctx context.Context) GetDomainInputMappingDefaultValueArrayOutput {
 	return o
-}
-
-func (o GetDomainInputMappingDefaultValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainInputMappingDefaultValue] {
-	return pulumix.Output[[]GetDomainInputMappingDefaultValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainInputMappingDefaultValueArrayOutput) Index(i pulumi.IntInput) GetDomainInputMappingDefaultValueOutput {
@@ -12022,12 +10341,6 @@ func (i GetDomainInputMappingFieldArgs) ToGetDomainInputMappingFieldOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainInputMappingFieldOutput)
 }
 
-func (i GetDomainInputMappingFieldArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainInputMappingField] {
-	return pulumix.Output[GetDomainInputMappingField]{
-		OutputState: i.ToGetDomainInputMappingFieldOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDomainInputMappingFieldArrayInput is an input type that accepts GetDomainInputMappingFieldArray and GetDomainInputMappingFieldArrayOutput values.
 // You can construct a concrete instance of `GetDomainInputMappingFieldArrayInput` via:
 //
@@ -12053,12 +10366,6 @@ func (i GetDomainInputMappingFieldArray) ToGetDomainInputMappingFieldArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDomainInputMappingFieldArrayOutput)
 }
 
-func (i GetDomainInputMappingFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainInputMappingField] {
-	return pulumix.Output[[]GetDomainInputMappingField]{
-		OutputState: i.ToGetDomainInputMappingFieldArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDomainInputMappingFieldOutput struct{ *pulumi.OutputState }
 
 func (GetDomainInputMappingFieldOutput) ElementType() reflect.Type {
@@ -12071,12 +10378,6 @@ func (o GetDomainInputMappingFieldOutput) ToGetDomainInputMappingFieldOutput() G
 
 func (o GetDomainInputMappingFieldOutput) ToGetDomainInputMappingFieldOutputWithContext(ctx context.Context) GetDomainInputMappingFieldOutput {
 	return o
-}
-
-func (o GetDomainInputMappingFieldOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainInputMappingField] {
-	return pulumix.Output[GetDomainInputMappingField]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the default data version of the EventGrid Event associated with the domain.
@@ -12121,12 +10422,6 @@ func (o GetDomainInputMappingFieldArrayOutput) ToGetDomainInputMappingFieldArray
 
 func (o GetDomainInputMappingFieldArrayOutput) ToGetDomainInputMappingFieldArrayOutputWithContext(ctx context.Context) GetDomainInputMappingFieldArrayOutput {
 	return o
-}
-
-func (o GetDomainInputMappingFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainInputMappingField] {
-	return pulumix.Output[[]GetDomainInputMappingField]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDomainInputMappingFieldArrayOutput) Index(i pulumi.IntInput) GetDomainInputMappingFieldOutput {
@@ -12180,12 +10475,6 @@ func (i GetSystemTopicIdentityArgs) ToGetSystemTopicIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicIdentityOutput)
 }
 
-func (i GetSystemTopicIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetSystemTopicIdentity] {
-	return pulumix.Output[GetSystemTopicIdentity]{
-		OutputState: i.ToGetSystemTopicIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSystemTopicIdentityArrayInput is an input type that accepts GetSystemTopicIdentityArray and GetSystemTopicIdentityArrayOutput values.
 // You can construct a concrete instance of `GetSystemTopicIdentityArrayInput` via:
 //
@@ -12211,12 +10500,6 @@ func (i GetSystemTopicIdentityArray) ToGetSystemTopicIdentityArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetSystemTopicIdentityArrayOutput)
 }
 
-func (i GetSystemTopicIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSystemTopicIdentity] {
-	return pulumix.Output[[]GetSystemTopicIdentity]{
-		OutputState: i.ToGetSystemTopicIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSystemTopicIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetSystemTopicIdentityOutput) ElementType() reflect.Type {
@@ -12229,12 +10512,6 @@ func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityOutput() GetSystem
 
 func (o GetSystemTopicIdentityOutput) ToGetSystemTopicIdentityOutputWithContext(ctx context.Context) GetSystemTopicIdentityOutput {
 	return o
-}
-
-func (o GetSystemTopicIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetSystemTopicIdentity] {
-	return pulumix.Output[GetSystemTopicIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Event Grid System Topic.
@@ -12269,12 +10546,6 @@ func (o GetSystemTopicIdentityArrayOutput) ToGetSystemTopicIdentityArrayOutput()
 
 func (o GetSystemTopicIdentityArrayOutput) ToGetSystemTopicIdentityArrayOutputWithContext(ctx context.Context) GetSystemTopicIdentityArrayOutput {
 	return o
-}
-
-func (o GetSystemTopicIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSystemTopicIdentity] {
-	return pulumix.Output[[]GetSystemTopicIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSystemTopicIdentityArrayOutput) Index(i pulumi.IntInput) GetSystemTopicIdentityOutput {

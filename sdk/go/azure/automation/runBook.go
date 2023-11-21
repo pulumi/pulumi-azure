@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Automation Runbook.
@@ -364,12 +363,6 @@ func (i *RunBook) ToRunBookOutputWithContext(ctx context.Context) RunBookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookOutput)
 }
 
-func (i *RunBook) ToOutput(ctx context.Context) pulumix.Output[*RunBook] {
-	return pulumix.Output[*RunBook]{
-		OutputState: i.ToRunBookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RunBookArrayInput is an input type that accepts RunBookArray and RunBookArrayOutput values.
 // You can construct a concrete instance of `RunBookArrayInput` via:
 //
@@ -393,12 +386,6 @@ func (i RunBookArray) ToRunBookArrayOutput() RunBookArrayOutput {
 
 func (i RunBookArray) ToRunBookArrayOutputWithContext(ctx context.Context) RunBookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookArrayOutput)
-}
-
-func (i RunBookArray) ToOutput(ctx context.Context) pulumix.Output[[]*RunBook] {
-	return pulumix.Output[[]*RunBook]{
-		OutputState: i.ToRunBookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RunBookMapInput is an input type that accepts RunBookMap and RunBookMapOutput values.
@@ -426,12 +413,6 @@ func (i RunBookMap) ToRunBookMapOutputWithContext(ctx context.Context) RunBookMa
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookMapOutput)
 }
 
-func (i RunBookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RunBook] {
-	return pulumix.Output[map[string]*RunBook]{
-		OutputState: i.ToRunBookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookOutput struct{ *pulumi.OutputState }
 
 func (RunBookOutput) ElementType() reflect.Type {
@@ -444,12 +425,6 @@ func (o RunBookOutput) ToRunBookOutput() RunBookOutput {
 
 func (o RunBookOutput) ToRunBookOutputWithContext(ctx context.Context) RunBookOutput {
 	return o
-}
-
-func (o RunBookOutput) ToOutput(ctx context.Context) pulumix.Output[*RunBook] {
-	return pulumix.Output[*RunBook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
@@ -537,12 +512,6 @@ func (o RunBookArrayOutput) ToRunBookArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o RunBookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RunBook] {
-	return pulumix.Output[[]*RunBook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RunBookArrayOutput) Index(i pulumi.IntInput) RunBookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RunBook {
 		return vs[0].([]*RunBook)[vs[1].(int)]
@@ -561,12 +530,6 @@ func (o RunBookMapOutput) ToRunBookMapOutput() RunBookMapOutput {
 
 func (o RunBookMapOutput) ToRunBookMapOutputWithContext(ctx context.Context) RunBookMapOutput {
 	return o
-}
-
-func (o RunBookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RunBook] {
-	return pulumix.Output[map[string]*RunBook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookMapOutput) MapIndex(k pulumi.StringInput) RunBookOutput {

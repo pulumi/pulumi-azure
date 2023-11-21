@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Container Registry token.
@@ -115,12 +114,6 @@ func (o LookupRegistryTokenResultOutput) ToLookupRegistryTokenResultOutput() Loo
 
 func (o LookupRegistryTokenResultOutput) ToLookupRegistryTokenResultOutputWithContext(ctx context.Context) LookupRegistryTokenResultOutput {
 	return o
-}
-
-func (o LookupRegistryTokenResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRegistryTokenResult] {
-	return pulumix.Output[LookupRegistryTokenResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRegistryTokenResultOutput) ContainerRegistryName() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an ExpressRoute gateway.
@@ -232,12 +231,6 @@ func (i *ExpressRouteGateway) ToExpressRouteGatewayOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteGatewayOutput)
 }
 
-func (i *ExpressRouteGateway) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteGateway] {
-	return pulumix.Output[*ExpressRouteGateway]{
-		OutputState: i.ToExpressRouteGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExpressRouteGatewayArrayInput is an input type that accepts ExpressRouteGatewayArray and ExpressRouteGatewayArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteGatewayArrayInput` via:
 //
@@ -261,12 +254,6 @@ func (i ExpressRouteGatewayArray) ToExpressRouteGatewayArrayOutput() ExpressRout
 
 func (i ExpressRouteGatewayArray) ToExpressRouteGatewayArrayOutputWithContext(ctx context.Context) ExpressRouteGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteGatewayArrayOutput)
-}
-
-func (i ExpressRouteGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteGateway] {
-	return pulumix.Output[[]*ExpressRouteGateway]{
-		OutputState: i.ToExpressRouteGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExpressRouteGatewayMapInput is an input type that accepts ExpressRouteGatewayMap and ExpressRouteGatewayMapOutput values.
@@ -294,12 +281,6 @@ func (i ExpressRouteGatewayMap) ToExpressRouteGatewayMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteGatewayMapOutput)
 }
 
-func (i ExpressRouteGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteGateway] {
-	return pulumix.Output[map[string]*ExpressRouteGateway]{
-		OutputState: i.ToExpressRouteGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExpressRouteGatewayOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteGatewayOutput) ElementType() reflect.Type {
@@ -312,12 +293,6 @@ func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutput() ExpressRouteGat
 
 func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutputWithContext(ctx context.Context) ExpressRouteGatewayOutput {
 	return o
-}
-
-func (o ExpressRouteGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteGateway] {
-	return pulumix.Output[*ExpressRouteGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
@@ -369,12 +344,6 @@ func (o ExpressRouteGatewayArrayOutput) ToExpressRouteGatewayArrayOutputWithCont
 	return o
 }
 
-func (o ExpressRouteGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteGateway] {
-	return pulumix.Output[[]*ExpressRouteGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExpressRouteGatewayArrayOutput) Index(i pulumi.IntInput) ExpressRouteGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteGateway {
 		return vs[0].([]*ExpressRouteGateway)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o ExpressRouteGatewayMapOutput) ToExpressRouteGatewayMapOutput() ExpressRo
 
 func (o ExpressRouteGatewayMapOutput) ToExpressRouteGatewayMapOutputWithContext(ctx context.Context) ExpressRouteGatewayMapOutput {
 	return o
-}
-
-func (o ExpressRouteGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteGateway] {
-	return pulumix.Output[map[string]*ExpressRouteGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExpressRouteGatewayMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteGatewayOutput {

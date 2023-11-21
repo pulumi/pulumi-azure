@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a service connector for function app.
@@ -291,12 +290,6 @@ func (i *AppConnection) ToAppConnectionOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(AppConnectionOutput)
 }
 
-func (i *AppConnection) ToOutput(ctx context.Context) pulumix.Output[*AppConnection] {
-	return pulumix.Output[*AppConnection]{
-		OutputState: i.ToAppConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppConnectionArrayInput is an input type that accepts AppConnectionArray and AppConnectionArrayOutput values.
 // You can construct a concrete instance of `AppConnectionArrayInput` via:
 //
@@ -320,12 +313,6 @@ func (i AppConnectionArray) ToAppConnectionArrayOutput() AppConnectionArrayOutpu
 
 func (i AppConnectionArray) ToAppConnectionArrayOutputWithContext(ctx context.Context) AppConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppConnectionArrayOutput)
-}
-
-func (i AppConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppConnection] {
-	return pulumix.Output[[]*AppConnection]{
-		OutputState: i.ToAppConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AppConnectionMapInput is an input type that accepts AppConnectionMap and AppConnectionMapOutput values.
@@ -353,12 +340,6 @@ func (i AppConnectionMap) ToAppConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AppConnectionMapOutput)
 }
 
-func (i AppConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppConnection] {
-	return pulumix.Output[map[string]*AppConnection]{
-		OutputState: i.ToAppConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppConnectionOutput struct{ *pulumi.OutputState }
 
 func (AppConnectionOutput) ElementType() reflect.Type {
@@ -371,12 +352,6 @@ func (o AppConnectionOutput) ToAppConnectionOutput() AppConnectionOutput {
 
 func (o AppConnectionOutput) ToAppConnectionOutputWithContext(ctx context.Context) AppConnectionOutput {
 	return o
-}
-
-func (o AppConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*AppConnection] {
-	return pulumix.Output[*AppConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authentication info. An `authentication` block as defined below.
@@ -430,12 +405,6 @@ func (o AppConnectionArrayOutput) ToAppConnectionArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o AppConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppConnection] {
-	return pulumix.Output[[]*AppConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppConnectionArrayOutput) Index(i pulumi.IntInput) AppConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppConnection {
 		return vs[0].([]*AppConnection)[vs[1].(int)]
@@ -454,12 +423,6 @@ func (o AppConnectionMapOutput) ToAppConnectionMapOutput() AppConnectionMapOutpu
 
 func (o AppConnectionMapOutput) ToAppConnectionMapOutputWithContext(ctx context.Context) AppConnectionMapOutput {
 	return o
-}
-
-func (o AppConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppConnection] {
-	return pulumix.Output[map[string]*AppConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppConnectionMapOutput) MapIndex(k pulumi.StringInput) AppConnectionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a ServiceBus Topic.
@@ -315,12 +314,6 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
-func (i *Topic) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
-	return pulumix.Output[*Topic]{
-		OutputState: i.ToTopicOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicArrayInput is an input type that accepts TopicArray and TopicArrayOutput values.
 // You can construct a concrete instance of `TopicArrayInput` via:
 //
@@ -344,12 +337,6 @@ func (i TopicArray) ToTopicArrayOutput() TopicArrayOutput {
 
 func (i TopicArray) ToTopicArrayOutputWithContext(ctx context.Context) TopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicArrayOutput)
-}
-
-func (i TopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*Topic] {
-	return pulumix.Output[[]*Topic]{
-		OutputState: i.ToTopicArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TopicMapInput is an input type that accepts TopicMap and TopicMapOutput values.
@@ -377,12 +364,6 @@ func (i TopicMap) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicMapOutput)
 }
 
-func (i TopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Topic] {
-	return pulumix.Output[map[string]*Topic]{
-		OutputState: i.ToTopicMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
@@ -395,12 +376,6 @@ func (o TopicOutput) ToTopicOutput() TopicOutput {
 
 func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
-}
-
-func (o TopicOutput) ToOutput(ctx context.Context) pulumix.Output[*Topic] {
-	return pulumix.Output[*Topic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
@@ -495,12 +470,6 @@ func (o TopicArrayOutput) ToTopicArrayOutputWithContext(ctx context.Context) Top
 	return o
 }
 
-func (o TopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Topic] {
-	return pulumix.Output[[]*Topic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicArrayOutput) Index(i pulumi.IntInput) TopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Topic {
 		return vs[0].([]*Topic)[vs[1].(int)]
@@ -519,12 +488,6 @@ func (o TopicMapOutput) ToTopicMapOutput() TopicMapOutput {
 
 func (o TopicMapOutput) ToTopicMapOutputWithContext(ctx context.Context) TopicMapOutput {
 	return o
-}
-
-func (o TopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Topic] {
-	return pulumix.Output[map[string]*Topic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicMapOutput) MapIndex(k pulumi.StringInput) TopicOutput {

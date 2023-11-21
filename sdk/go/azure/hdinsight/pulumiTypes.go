@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionOutput()
 
 func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionOutputWithContext(ctx context.Context) HBaseClusterComponentVersionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComponentVersionOutput)
-}
-
-func (i HBaseClusterComponentVersionArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterComponentVersion] {
-	return pulumix.Output[HBaseClusterComponentVersion]{
-		OutputState: i.ToHBaseClusterComponentVersionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i HBaseClusterComponentVersionArgs) ToHBaseClusterComponentVersionPtrOutput() HBaseClusterComponentVersionPtrOutput {
@@ -94,12 +87,6 @@ func (i *hbaseClusterComponentVersionPtrType) ToHBaseClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComponentVersionPtrOutput)
 }
 
-func (i *hbaseClusterComponentVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterComponentVersion] {
-	return pulumix.Output[*HBaseClusterComponentVersion]{
-		OutputState: i.ToHBaseClusterComponentVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o HBaseClusterComponentVersionOutput) ToHBaseClusterComponentVersionPtrOut
 	}).(HBaseClusterComponentVersionPtrOutput)
 }
 
-func (o HBaseClusterComponentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterComponentVersion] {
-	return pulumix.Output[HBaseClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
 func (o HBaseClusterComponentVersionOutput) Hbase() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterComponentVersion) string { return v.Hbase }).(pulumi.StringOutput)
@@ -147,12 +128,6 @@ func (o HBaseClusterComponentVersionPtrOutput) ToHBaseClusterComponentVersionPtr
 
 func (o HBaseClusterComponentVersionPtrOutput) ToHBaseClusterComponentVersionPtrOutputWithContext(ctx context.Context) HBaseClusterComponentVersionPtrOutput {
 	return o
-}
-
-func (o HBaseClusterComponentVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterComponentVersion] {
-	return pulumix.Output[*HBaseClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterComponentVersionPtrOutput) Elem() HBaseClusterComponentVersionOutput {
@@ -212,12 +187,6 @@ func (i HBaseClusterComputeIsolationArgs) ToHBaseClusterComputeIsolationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComputeIsolationOutput)
 }
 
-func (i HBaseClusterComputeIsolationArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterComputeIsolation] {
-	return pulumix.Output[HBaseClusterComputeIsolation]{
-		OutputState: i.ToHBaseClusterComputeIsolationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterComputeIsolationArgs) ToHBaseClusterComputeIsolationPtrOutput() HBaseClusterComputeIsolationPtrOutput {
 	return i.ToHBaseClusterComputeIsolationPtrOutputWithContext(context.Background())
 }
@@ -259,12 +228,6 @@ func (i *hbaseClusterComputeIsolationPtrType) ToHBaseClusterComputeIsolationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterComputeIsolationPtrOutput)
 }
 
-func (i *hbaseClusterComputeIsolationPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterComputeIsolation] {
-	return pulumix.Output[*HBaseClusterComputeIsolation]{
-		OutputState: i.ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterComputeIsolationOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterComputeIsolationOutput) ElementType() reflect.Type {
@@ -289,12 +252,6 @@ func (o HBaseClusterComputeIsolationOutput) ToHBaseClusterComputeIsolationPtrOut
 	}).(HBaseClusterComputeIsolationPtrOutput)
 }
 
-func (o HBaseClusterComputeIsolationOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterComputeIsolation] {
-	return pulumix.Output[HBaseClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o HBaseClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HBaseClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
@@ -317,12 +274,6 @@ func (o HBaseClusterComputeIsolationPtrOutput) ToHBaseClusterComputeIsolationPtr
 
 func (o HBaseClusterComputeIsolationPtrOutput) ToHBaseClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HBaseClusterComputeIsolationPtrOutput {
 	return o
-}
-
-func (o HBaseClusterComputeIsolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterComputeIsolation] {
-	return pulumix.Output[*HBaseClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterComputeIsolationPtrOutput) Elem() HBaseClusterComputeIsolationOutput {
@@ -400,12 +351,6 @@ func (i HBaseClusterDiskEncryptionArgs) ToHBaseClusterDiskEncryptionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterDiskEncryptionOutput)
 }
 
-func (i HBaseClusterDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterDiskEncryption] {
-	return pulumix.Output[HBaseClusterDiskEncryption]{
-		OutputState: i.ToHBaseClusterDiskEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterDiskEncryptionArrayInput is an input type that accepts HBaseClusterDiskEncryptionArray and HBaseClusterDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterDiskEncryptionArrayInput` via:
 //
@@ -431,12 +376,6 @@ func (i HBaseClusterDiskEncryptionArray) ToHBaseClusterDiskEncryptionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterDiskEncryptionArrayOutput)
 }
 
-func (i HBaseClusterDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterDiskEncryption] {
-	return pulumix.Output[[]HBaseClusterDiskEncryption]{
-		OutputState: i.ToHBaseClusterDiskEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterDiskEncryptionOutput) ElementType() reflect.Type {
@@ -449,12 +388,6 @@ func (o HBaseClusterDiskEncryptionOutput) ToHBaseClusterDiskEncryptionOutput() H
 
 func (o HBaseClusterDiskEncryptionOutput) ToHBaseClusterDiskEncryptionOutputWithContext(ctx context.Context) HBaseClusterDiskEncryptionOutput {
 	return o
-}
-
-func (o HBaseClusterDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterDiskEncryption] {
-	return pulumix.Output[HBaseClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -489,12 +422,6 @@ func (o HBaseClusterDiskEncryptionArrayOutput) ToHBaseClusterDiskEncryptionArray
 
 func (o HBaseClusterDiskEncryptionArrayOutput) ToHBaseClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) HBaseClusterDiskEncryptionArrayOutput {
 	return o
-}
-
-func (o HBaseClusterDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterDiskEncryption] {
-	return pulumix.Output[[]HBaseClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) HBaseClusterDiskEncryptionOutput {
@@ -540,12 +467,6 @@ func (i HBaseClusterExtensionArgs) ToHBaseClusterExtensionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterExtensionOutput)
 }
 
-func (i HBaseClusterExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterExtension] {
-	return pulumix.Output[HBaseClusterExtension]{
-		OutputState: i.ToHBaseClusterExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterExtensionArgs) ToHBaseClusterExtensionPtrOutput() HBaseClusterExtensionPtrOutput {
 	return i.ToHBaseClusterExtensionPtrOutputWithContext(context.Background())
 }
@@ -587,12 +508,6 @@ func (i *hbaseClusterExtensionPtrType) ToHBaseClusterExtensionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterExtensionPtrOutput)
 }
 
-func (i *hbaseClusterExtensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterExtension] {
-	return pulumix.Output[*HBaseClusterExtension]{
-		OutputState: i.ToHBaseClusterExtensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterExtensionOutput) ElementType() reflect.Type {
@@ -617,12 +532,6 @@ func (o HBaseClusterExtensionOutput) ToHBaseClusterExtensionPtrOutputWithContext
 	}).(HBaseClusterExtensionPtrOutput)
 }
 
-func (o HBaseClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterExtension] {
-	return pulumix.Output[HBaseClusterExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The workspace ID of the log analytics extension.
 func (o HBaseClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -645,12 +554,6 @@ func (o HBaseClusterExtensionPtrOutput) ToHBaseClusterExtensionPtrOutput() HBase
 
 func (o HBaseClusterExtensionPtrOutput) ToHBaseClusterExtensionPtrOutputWithContext(ctx context.Context) HBaseClusterExtensionPtrOutput {
 	return o
-}
-
-func (o HBaseClusterExtensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterExtension] {
-	return pulumix.Output[*HBaseClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterExtensionPtrOutput) Elem() HBaseClusterExtensionOutput {
@@ -724,12 +627,6 @@ func (i HBaseClusterGatewayArgs) ToHBaseClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterGatewayOutput)
 }
 
-func (i HBaseClusterGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterGateway] {
-	return pulumix.Output[HBaseClusterGateway]{
-		OutputState: i.ToHBaseClusterGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterGatewayArgs) ToHBaseClusterGatewayPtrOutput() HBaseClusterGatewayPtrOutput {
 	return i.ToHBaseClusterGatewayPtrOutputWithContext(context.Background())
 }
@@ -771,12 +668,6 @@ func (i *hbaseClusterGatewayPtrType) ToHBaseClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterGatewayPtrOutput)
 }
 
-func (i *hbaseClusterGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterGateway] {
-	return pulumix.Output[*HBaseClusterGateway]{
-		OutputState: i.ToHBaseClusterGatewayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterGatewayOutput) ElementType() reflect.Type {
@@ -799,12 +690,6 @@ func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterGateway) *HBaseClusterGateway {
 		return &v
 	}).(HBaseClusterGatewayPtrOutput)
-}
-
-func (o HBaseClusterGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterGateway] {
-	return pulumix.Output[HBaseClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password used for the Ambari Portal.
@@ -831,12 +716,6 @@ func (o HBaseClusterGatewayPtrOutput) ToHBaseClusterGatewayPtrOutput() HBaseClus
 
 func (o HBaseClusterGatewayPtrOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx context.Context) HBaseClusterGatewayPtrOutput {
 	return o
-}
-
-func (o HBaseClusterGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterGateway] {
-	return pulumix.Output[*HBaseClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterGatewayPtrOutput) Elem() HBaseClusterGatewayOutput {
@@ -912,12 +791,6 @@ func (i HBaseClusterMetastoresArgs) ToHBaseClusterMetastoresOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresOutput)
 }
 
-func (i HBaseClusterMetastoresArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastores] {
-	return pulumix.Output[HBaseClusterMetastores]{
-		OutputState: i.ToHBaseClusterMetastoresOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterMetastoresArgs) ToHBaseClusterMetastoresPtrOutput() HBaseClusterMetastoresPtrOutput {
 	return i.ToHBaseClusterMetastoresPtrOutputWithContext(context.Background())
 }
@@ -959,12 +832,6 @@ func (i *hbaseClusterMetastoresPtrType) ToHBaseClusterMetastoresPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresPtrOutput)
 }
 
-func (i *hbaseClusterMetastoresPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastores] {
-	return pulumix.Output[*HBaseClusterMetastores]{
-		OutputState: i.ToHBaseClusterMetastoresPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterMetastoresOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterMetastoresOutput) ElementType() reflect.Type {
@@ -987,12 +854,6 @@ func (o HBaseClusterMetastoresOutput) ToHBaseClusterMetastoresPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastores) *HBaseClusterMetastores {
 		return &v
 	}).(HBaseClusterMetastoresPtrOutput)
-}
-
-func (o HBaseClusterMetastoresOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastores] {
-	return pulumix.Output[HBaseClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `ambari` block as defined below.
@@ -1022,12 +883,6 @@ func (o HBaseClusterMetastoresPtrOutput) ToHBaseClusterMetastoresPtrOutput() HBa
 
 func (o HBaseClusterMetastoresPtrOutput) ToHBaseClusterMetastoresPtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresPtrOutput {
 	return o
-}
-
-func (o HBaseClusterMetastoresPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastores] {
-	return pulumix.Output[*HBaseClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterMetastoresPtrOutput) Elem() HBaseClusterMetastoresOutput {
@@ -1115,12 +970,6 @@ func (i HBaseClusterMetastoresAmbariArgs) ToHBaseClusterMetastoresAmbariOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresAmbariOutput)
 }
 
-func (i HBaseClusterMetastoresAmbariArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastoresAmbari] {
-	return pulumix.Output[HBaseClusterMetastoresAmbari]{
-		OutputState: i.ToHBaseClusterMetastoresAmbariOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterMetastoresAmbariArgs) ToHBaseClusterMetastoresAmbariPtrOutput() HBaseClusterMetastoresAmbariPtrOutput {
 	return i.ToHBaseClusterMetastoresAmbariPtrOutputWithContext(context.Background())
 }
@@ -1162,12 +1011,6 @@ func (i *hbaseClusterMetastoresAmbariPtrType) ToHBaseClusterMetastoresAmbariPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresAmbariPtrOutput)
 }
 
-func (i *hbaseClusterMetastoresAmbariPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastoresAmbari] {
-	return pulumix.Output[*HBaseClusterMetastoresAmbari]{
-		OutputState: i.ToHBaseClusterMetastoresAmbariPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterMetastoresAmbariOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterMetastoresAmbariOutput) ElementType() reflect.Type {
@@ -1190,12 +1033,6 @@ func (o HBaseClusterMetastoresAmbariOutput) ToHBaseClusterMetastoresAmbariPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastoresAmbari) *HBaseClusterMetastoresAmbari {
 		return &v
 	}).(HBaseClusterMetastoresAmbariPtrOutput)
-}
-
-func (o HBaseClusterMetastoresAmbariOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastoresAmbari] {
-	return pulumix.Output[HBaseClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -1230,12 +1067,6 @@ func (o HBaseClusterMetastoresAmbariPtrOutput) ToHBaseClusterMetastoresAmbariPtr
 
 func (o HBaseClusterMetastoresAmbariPtrOutput) ToHBaseClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresAmbariPtrOutput {
 	return o
-}
-
-func (o HBaseClusterMetastoresAmbariPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastoresAmbari] {
-	return pulumix.Output[*HBaseClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterMetastoresAmbariPtrOutput) Elem() HBaseClusterMetastoresAmbariOutput {
@@ -1333,12 +1164,6 @@ func (i HBaseClusterMetastoresHiveArgs) ToHBaseClusterMetastoresHiveOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresHiveOutput)
 }
 
-func (i HBaseClusterMetastoresHiveArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastoresHive] {
-	return pulumix.Output[HBaseClusterMetastoresHive]{
-		OutputState: i.ToHBaseClusterMetastoresHiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterMetastoresHiveArgs) ToHBaseClusterMetastoresHivePtrOutput() HBaseClusterMetastoresHivePtrOutput {
 	return i.ToHBaseClusterMetastoresHivePtrOutputWithContext(context.Background())
 }
@@ -1380,12 +1205,6 @@ func (i *hbaseClusterMetastoresHivePtrType) ToHBaseClusterMetastoresHivePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresHivePtrOutput)
 }
 
-func (i *hbaseClusterMetastoresHivePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastoresHive] {
-	return pulumix.Output[*HBaseClusterMetastoresHive]{
-		OutputState: i.ToHBaseClusterMetastoresHivePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterMetastoresHiveOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterMetastoresHiveOutput) ElementType() reflect.Type {
@@ -1408,12 +1227,6 @@ func (o HBaseClusterMetastoresHiveOutput) ToHBaseClusterMetastoresHivePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastoresHive) *HBaseClusterMetastoresHive {
 		return &v
 	}).(HBaseClusterMetastoresHivePtrOutput)
-}
-
-func (o HBaseClusterMetastoresHiveOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastoresHive] {
-	return pulumix.Output[HBaseClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -1448,12 +1261,6 @@ func (o HBaseClusterMetastoresHivePtrOutput) ToHBaseClusterMetastoresHivePtrOutp
 
 func (o HBaseClusterMetastoresHivePtrOutput) ToHBaseClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresHivePtrOutput {
 	return o
-}
-
-func (o HBaseClusterMetastoresHivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastoresHive] {
-	return pulumix.Output[*HBaseClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterMetastoresHivePtrOutput) Elem() HBaseClusterMetastoresHiveOutput {
@@ -1551,12 +1358,6 @@ func (i HBaseClusterMetastoresOozieArgs) ToHBaseClusterMetastoresOozieOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresOozieOutput)
 }
 
-func (i HBaseClusterMetastoresOozieArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastoresOozie] {
-	return pulumix.Output[HBaseClusterMetastoresOozie]{
-		OutputState: i.ToHBaseClusterMetastoresOozieOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterMetastoresOozieArgs) ToHBaseClusterMetastoresOoziePtrOutput() HBaseClusterMetastoresOoziePtrOutput {
 	return i.ToHBaseClusterMetastoresOoziePtrOutputWithContext(context.Background())
 }
@@ -1598,12 +1399,6 @@ func (i *hbaseClusterMetastoresOoziePtrType) ToHBaseClusterMetastoresOoziePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMetastoresOoziePtrOutput)
 }
 
-func (i *hbaseClusterMetastoresOoziePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastoresOozie] {
-	return pulumix.Output[*HBaseClusterMetastoresOozie]{
-		OutputState: i.ToHBaseClusterMetastoresOoziePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterMetastoresOozieOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterMetastoresOozieOutput) ElementType() reflect.Type {
@@ -1626,12 +1421,6 @@ func (o HBaseClusterMetastoresOozieOutput) ToHBaseClusterMetastoresOoziePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterMetastoresOozie) *HBaseClusterMetastoresOozie {
 		return &v
 	}).(HBaseClusterMetastoresOoziePtrOutput)
-}
-
-func (o HBaseClusterMetastoresOozieOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMetastoresOozie] {
-	return pulumix.Output[HBaseClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -1666,12 +1455,6 @@ func (o HBaseClusterMetastoresOoziePtrOutput) ToHBaseClusterMetastoresOoziePtrOu
 
 func (o HBaseClusterMetastoresOoziePtrOutput) ToHBaseClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HBaseClusterMetastoresOoziePtrOutput {
 	return o
-}
-
-func (o HBaseClusterMetastoresOoziePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMetastoresOozie] {
-	return pulumix.Output[*HBaseClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterMetastoresOoziePtrOutput) Elem() HBaseClusterMetastoresOozieOutput {
@@ -1761,12 +1544,6 @@ func (i HBaseClusterMonitorArgs) ToHBaseClusterMonitorOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMonitorOutput)
 }
 
-func (i HBaseClusterMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMonitor] {
-	return pulumix.Output[HBaseClusterMonitor]{
-		OutputState: i.ToHBaseClusterMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterMonitorArgs) ToHBaseClusterMonitorPtrOutput() HBaseClusterMonitorPtrOutput {
 	return i.ToHBaseClusterMonitorPtrOutputWithContext(context.Background())
 }
@@ -1808,12 +1585,6 @@ func (i *hbaseClusterMonitorPtrType) ToHBaseClusterMonitorPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMonitorPtrOutput)
 }
 
-func (i *hbaseClusterMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMonitor] {
-	return pulumix.Output[*HBaseClusterMonitor]{
-		OutputState: i.ToHBaseClusterMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterMonitorOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterMonitorOutput) ElementType() reflect.Type {
@@ -1838,12 +1609,6 @@ func (o HBaseClusterMonitorOutput) ToHBaseClusterMonitorPtrOutputWithContext(ctx
 	}).(HBaseClusterMonitorPtrOutput)
 }
 
-func (o HBaseClusterMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterMonitor] {
-	return pulumix.Output[HBaseClusterMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Operations Management Suite (OMS) workspace ID.
 func (o HBaseClusterMonitorOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterMonitor) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -1866,12 +1631,6 @@ func (o HBaseClusterMonitorPtrOutput) ToHBaseClusterMonitorPtrOutput() HBaseClus
 
 func (o HBaseClusterMonitorPtrOutput) ToHBaseClusterMonitorPtrOutputWithContext(ctx context.Context) HBaseClusterMonitorPtrOutput {
 	return o
-}
-
-func (o HBaseClusterMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterMonitor] {
-	return pulumix.Output[*HBaseClusterMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterMonitorPtrOutput) Elem() HBaseClusterMonitorOutput {
@@ -1945,12 +1704,6 @@ func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterNetworkOutput)
 }
 
-func (i HBaseClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterNetwork] {
-	return pulumix.Output[HBaseClusterNetwork]{
-		OutputState: i.ToHBaseClusterNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterNetworkArgs) ToHBaseClusterNetworkPtrOutput() HBaseClusterNetworkPtrOutput {
 	return i.ToHBaseClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -1992,12 +1745,6 @@ func (i *hbaseClusterNetworkPtrType) ToHBaseClusterNetworkPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterNetworkPtrOutput)
 }
 
-func (i *hbaseClusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterNetwork] {
-	return pulumix.Output[*HBaseClusterNetwork]{
-		OutputState: i.ToHBaseClusterNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterNetworkOutput) ElementType() reflect.Type {
@@ -2020,12 +1767,6 @@ func (o HBaseClusterNetworkOutput) ToHBaseClusterNetworkPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterNetwork) *HBaseClusterNetwork {
 		return &v
 	}).(HBaseClusterNetworkPtrOutput)
-}
-
-func (o HBaseClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterNetwork] {
-	return pulumix.Output[HBaseClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -2052,12 +1793,6 @@ func (o HBaseClusterNetworkPtrOutput) ToHBaseClusterNetworkPtrOutput() HBaseClus
 
 func (o HBaseClusterNetworkPtrOutput) ToHBaseClusterNetworkPtrOutputWithContext(ctx context.Context) HBaseClusterNetworkPtrOutput {
 	return o
-}
-
-func (o HBaseClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterNetwork] {
-	return pulumix.Output[*HBaseClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterNetworkPtrOutput) Elem() HBaseClusterNetworkOutput {
@@ -2133,12 +1868,6 @@ func (i HBaseClusterRolesArgs) ToHBaseClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesOutput)
 }
 
-func (i HBaseClusterRolesArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRoles] {
-	return pulumix.Output[HBaseClusterRoles]{
-		OutputState: i.ToHBaseClusterRolesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterRolesArgs) ToHBaseClusterRolesPtrOutput() HBaseClusterRolesPtrOutput {
 	return i.ToHBaseClusterRolesPtrOutputWithContext(context.Background())
 }
@@ -2180,12 +1909,6 @@ func (i *hbaseClusterRolesPtrType) ToHBaseClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesPtrOutput)
 }
 
-func (i *hbaseClusterRolesPtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRoles] {
-	return pulumix.Output[*HBaseClusterRoles]{
-		OutputState: i.ToHBaseClusterRolesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesOutput) ElementType() reflect.Type {
@@ -2208,12 +1931,6 @@ func (o HBaseClusterRolesOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRoles) *HBaseClusterRoles {
 		return &v
 	}).(HBaseClusterRolesPtrOutput)
-}
-
-func (o HBaseClusterRolesOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRoles] {
-	return pulumix.Output[HBaseClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `headNode` block as defined above.
@@ -2243,12 +1960,6 @@ func (o HBaseClusterRolesPtrOutput) ToHBaseClusterRolesPtrOutput() HBaseClusterR
 
 func (o HBaseClusterRolesPtrOutput) ToHBaseClusterRolesPtrOutputWithContext(ctx context.Context) HBaseClusterRolesPtrOutput {
 	return o
-}
-
-func (o HBaseClusterRolesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRoles] {
-	return pulumix.Output[*HBaseClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesPtrOutput) Elem() HBaseClusterRolesOutput {
@@ -2356,12 +2067,6 @@ func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeOutput)
 }
 
-func (i HBaseClusterRolesHeadNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesHeadNode] {
-	return pulumix.Output[HBaseClusterRolesHeadNode]{
-		OutputState: i.ToHBaseClusterRolesHeadNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterRolesHeadNodeArgs) ToHBaseClusterRolesHeadNodePtrOutput() HBaseClusterRolesHeadNodePtrOutput {
 	return i.ToHBaseClusterRolesHeadNodePtrOutputWithContext(context.Background())
 }
@@ -2403,12 +2108,6 @@ func (i *hbaseClusterRolesHeadNodePtrType) ToHBaseClusterRolesHeadNodePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodePtrOutput)
 }
 
-func (i *hbaseClusterRolesHeadNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesHeadNode] {
-	return pulumix.Output[*HBaseClusterRolesHeadNode]{
-		OutputState: i.ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -2431,12 +2130,6 @@ func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesHeadNode) *HBaseClusterRolesHeadNode {
 		return &v
 	}).(HBaseClusterRolesHeadNodePtrOutput)
-}
-
-func (o HBaseClusterRolesHeadNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesHeadNode] {
-	return pulumix.Output[HBaseClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -2490,12 +2183,6 @@ func (o HBaseClusterRolesHeadNodePtrOutput) ToHBaseClusterRolesHeadNodePtrOutput
 
 func (o HBaseClusterRolesHeadNodePtrOutput) ToHBaseClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodePtrOutput {
 	return o
-}
-
-func (o HBaseClusterRolesHeadNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesHeadNode] {
-	return pulumix.Output[*HBaseClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesHeadNodePtrOutput) Elem() HBaseClusterRolesHeadNodeOutput {
@@ -2623,12 +2310,6 @@ func (i HBaseClusterRolesHeadNodeScriptActionArgs) ToHBaseClusterRolesHeadNodeSc
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeScriptActionOutput)
 }
 
-func (i HBaseClusterRolesHeadNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[HBaseClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToHBaseClusterRolesHeadNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts HBaseClusterRolesHeadNodeScriptActionArray and HBaseClusterRolesHeadNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesHeadNodeScriptActionArrayInput` via:
 //
@@ -2654,12 +2335,6 @@ func (i HBaseClusterRolesHeadNodeScriptActionArray) ToHBaseClusterRolesHeadNodeS
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesHeadNodeScriptActionArrayOutput)
 }
 
-func (i HBaseClusterRolesHeadNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]HBaseClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToHBaseClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
@@ -2672,12 +2347,6 @@ func (o HBaseClusterRolesHeadNodeScriptActionOutput) ToHBaseClusterRolesHeadNode
 
 func (o HBaseClusterRolesHeadNodeScriptActionOutput) ToHBaseClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeScriptActionOutput {
 	return o
-}
-
-func (o HBaseClusterRolesHeadNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[HBaseClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -2707,12 +2376,6 @@ func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) ToHBaseClusterRolesHea
 
 func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) ToHBaseClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesHeadNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]HBaseClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesHeadNodeScriptActionOutput {
@@ -2794,12 +2457,6 @@ func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNode] {
-	return pulumix.Output[HBaseClusterRolesWorkerNode]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterRolesWorkerNodeArgs) ToHBaseClusterRolesWorkerNodePtrOutput() HBaseClusterRolesWorkerNodePtrOutput {
 	return i.ToHBaseClusterRolesWorkerNodePtrOutputWithContext(context.Background())
 }
@@ -2841,12 +2498,6 @@ func (i *hbaseClusterRolesWorkerNodePtrType) ToHBaseClusterRolesWorkerNodePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodePtrOutput)
 }
 
-func (i *hbaseClusterRolesWorkerNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesWorkerNode] {
-	return pulumix.Output[*HBaseClusterRolesWorkerNode]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -2869,12 +2520,6 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToHBaseClusterRolesWorkerNodePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNode {
 		return &v
 	}).(HBaseClusterRolesWorkerNodePtrOutput)
-}
-
-func (o HBaseClusterRolesWorkerNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNode] {
-	return pulumix.Output[HBaseClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `autoscale` block as defined below.
@@ -2938,12 +2583,6 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) ToHBaseClusterRolesWorkerNodePtrOu
 
 func (o HBaseClusterRolesWorkerNodePtrOutput) ToHBaseClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodePtrOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesWorkerNode] {
-	return pulumix.Output[*HBaseClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNodeOutput {
@@ -3087,12 +2726,6 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeA
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterRolesWorkerNodeAutoscaleArgs) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutput() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
 	return i.ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
 }
@@ -3134,12 +2767,6 @@ func (i *hbaseClusterRolesWorkerNodeAutoscalePtrType) ToHBaseClusterRolesWorkerN
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-func (i *hbaseClusterRolesWorkerNodeAutoscalePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
@@ -3164,12 +2791,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNod
 	}).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `recurrence` block as defined below.
 //
 // > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
@@ -3191,12 +2812,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ToHBaseClusterRolesWorker
 
 func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ToHBaseClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HBaseClusterRolesWorkerNodeAutoscaleOutput {
@@ -3258,12 +2873,6 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesW
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
 }
@@ -3305,12 +2914,6 @@ func (i *hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToHBaseClusterRo
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
 
-func (i *hbaseClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
@@ -3333,12 +2936,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHBaseClusterRole
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
-}
-
-func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `schedule` blocks as defined below.
@@ -3365,12 +2962,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHBaseClusterR
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*HBaseClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
@@ -3444,12 +3035,6 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHBaseClust
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
@@ -3475,12 +3060,6 @@ func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToHBaseClus
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -3493,12 +3072,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHBaseClu
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -3528,12 +3101,6 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHBa
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
@@ -3583,12 +3150,6 @@ func (i HBaseClusterRolesWorkerNodeScriptActionArgs) ToHBaseClusterRolesWorkerNo
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeScriptActionOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts HBaseClusterRolesWorkerNodeScriptActionArray and HBaseClusterRolesWorkerNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesWorkerNodeScriptActionArrayInput` via:
 //
@@ -3614,12 +3175,6 @@ func (i HBaseClusterRolesWorkerNodeScriptActionArray) ToHBaseClusterRolesWorkerN
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
-func (i HBaseClusterRolesWorkerNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]HBaseClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToHBaseClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
@@ -3632,12 +3187,6 @@ func (o HBaseClusterRolesWorkerNodeScriptActionOutput) ToHBaseClusterRolesWorker
 
 func (o HBaseClusterRolesWorkerNodeScriptActionOutput) ToHBaseClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeScriptActionOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[HBaseClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -3667,12 +3216,6 @@ func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) ToHBaseClusterRolesW
 
 func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) ToHBaseClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]HBaseClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesWorkerNodeScriptActionOutput {
@@ -3746,12 +3289,6 @@ func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeOutput)
 }
 
-func (i HBaseClusterRolesZookeeperNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesZookeeperNode] {
-	return pulumix.Output[HBaseClusterRolesZookeeperNode]{
-		OutputState: i.ToHBaseClusterRolesZookeeperNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterRolesZookeeperNodeArgs) ToHBaseClusterRolesZookeeperNodePtrOutput() HBaseClusterRolesZookeeperNodePtrOutput {
 	return i.ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
 }
@@ -3793,12 +3330,6 @@ func (i *hbaseClusterRolesZookeeperNodePtrType) ToHBaseClusterRolesZookeeperNode
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodePtrOutput)
 }
 
-func (i *hbaseClusterRolesZookeeperNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesZookeeperNode] {
-	return pulumix.Output[*HBaseClusterRolesZookeeperNode]{
-		OutputState: i.ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -3821,12 +3352,6 @@ func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterRolesZookeeperNode) *HBaseClusterRolesZookeeperNode {
 		return &v
 	}).(HBaseClusterRolesZookeeperNodePtrOutput)
-}
-
-func (o HBaseClusterRolesZookeeperNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesZookeeperNode] {
-	return pulumix.Output[HBaseClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -3882,12 +3407,6 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) ToHBaseClusterRolesZookeeperNod
 
 func (o HBaseClusterRolesZookeeperNodePtrOutput) ToHBaseClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodePtrOutput {
 	return o
-}
-
-func (o HBaseClusterRolesZookeeperNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterRolesZookeeperNode] {
-	return pulumix.Output[*HBaseClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesZookeeperNodePtrOutput) Elem() HBaseClusterRolesZookeeperNodeOutput {
@@ -4015,12 +3534,6 @@ func (i HBaseClusterRolesZookeeperNodeScriptActionArgs) ToHBaseClusterRolesZooke
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeScriptActionOutput)
 }
 
-func (i HBaseClusterRolesZookeeperNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[HBaseClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToHBaseClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts HBaseClusterRolesZookeeperNodeScriptActionArray and HBaseClusterRolesZookeeperNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterRolesZookeeperNodeScriptActionArrayInput` via:
 //
@@ -4046,12 +3559,6 @@ func (i HBaseClusterRolesZookeeperNodeScriptActionArray) ToHBaseClusterRolesZook
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterRolesZookeeperNodeScriptActionArrayOutput)
 }
 
-func (i HBaseClusterRolesZookeeperNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]HBaseClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
@@ -4064,12 +3571,6 @@ func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) ToHBaseClusterRolesZoo
 
 func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) ToHBaseClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeScriptActionOutput {
 	return o
-}
-
-func (o HBaseClusterRolesZookeeperNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[HBaseClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -4099,12 +3600,6 @@ func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) ToHBaseClusterRol
 
 func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) ToHBaseClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]HBaseClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HBaseClusterRolesZookeeperNodeScriptActionOutput {
@@ -4170,12 +3665,6 @@ func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfileOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterSecurityProfileOutput)
 }
 
-func (i HBaseClusterSecurityProfileArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterSecurityProfile] {
-	return pulumix.Output[HBaseClusterSecurityProfile]{
-		OutputState: i.ToHBaseClusterSecurityProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterSecurityProfileArgs) ToHBaseClusterSecurityProfilePtrOutput() HBaseClusterSecurityProfilePtrOutput {
 	return i.ToHBaseClusterSecurityProfilePtrOutputWithContext(context.Background())
 }
@@ -4217,12 +3706,6 @@ func (i *hbaseClusterSecurityProfilePtrType) ToHBaseClusterSecurityProfilePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterSecurityProfilePtrOutput)
 }
 
-func (i *hbaseClusterSecurityProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterSecurityProfile] {
-	return pulumix.Output[*HBaseClusterSecurityProfile]{
-		OutputState: i.ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterSecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterSecurityProfileOutput) ElementType() reflect.Type {
@@ -4245,12 +3728,6 @@ func (o HBaseClusterSecurityProfileOutput) ToHBaseClusterSecurityProfilePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterSecurityProfile) *HBaseClusterSecurityProfile {
 		return &v
 	}).(HBaseClusterSecurityProfilePtrOutput)
-}
-
-func (o HBaseClusterSecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterSecurityProfile] {
-	return pulumix.Output[HBaseClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -4300,12 +3777,6 @@ func (o HBaseClusterSecurityProfilePtrOutput) ToHBaseClusterSecurityProfilePtrOu
 
 func (o HBaseClusterSecurityProfilePtrOutput) ToHBaseClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HBaseClusterSecurityProfilePtrOutput {
 	return o
-}
-
-func (o HBaseClusterSecurityProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterSecurityProfile] {
-	return pulumix.Output[*HBaseClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterSecurityProfilePtrOutput) Elem() HBaseClusterSecurityProfileOutput {
@@ -4441,12 +3912,6 @@ func (i HBaseClusterStorageAccountArgs) ToHBaseClusterStorageAccountOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterStorageAccountOutput)
 }
 
-func (i HBaseClusterStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterStorageAccount] {
-	return pulumix.Output[HBaseClusterStorageAccount]{
-		OutputState: i.ToHBaseClusterStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterStorageAccountArrayInput is an input type that accepts HBaseClusterStorageAccountArray and HBaseClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterStorageAccountArrayInput` via:
 //
@@ -4472,12 +3937,6 @@ func (i HBaseClusterStorageAccountArray) ToHBaseClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterStorageAccountArrayOutput)
 }
 
-func (i HBaseClusterStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterStorageAccount] {
-	return pulumix.Output[[]HBaseClusterStorageAccount]{
-		OutputState: i.ToHBaseClusterStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterStorageAccountOutput) ElementType() reflect.Type {
@@ -4490,12 +3949,6 @@ func (o HBaseClusterStorageAccountOutput) ToHBaseClusterStorageAccountOutput() H
 
 func (o HBaseClusterStorageAccountOutput) ToHBaseClusterStorageAccountOutputWithContext(ctx context.Context) HBaseClusterStorageAccountOutput {
 	return o
-}
-
-func (o HBaseClusterStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterStorageAccount] {
-	return pulumix.Output[HBaseClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -4534,12 +3987,6 @@ func (o HBaseClusterStorageAccountArrayOutput) ToHBaseClusterStorageAccountArray
 
 func (o HBaseClusterStorageAccountArrayOutput) ToHBaseClusterStorageAccountArrayOutputWithContext(ctx context.Context) HBaseClusterStorageAccountArrayOutput {
 	return o
-}
-
-func (o HBaseClusterStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HBaseClusterStorageAccount] {
-	return pulumix.Output[[]HBaseClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) HBaseClusterStorageAccountOutput {
@@ -4601,12 +4048,6 @@ func (i HBaseClusterStorageAccountGen2Args) ToHBaseClusterStorageAccountGen2Outp
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterStorageAccountGen2Output)
 }
 
-func (i HBaseClusterStorageAccountGen2Args) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterStorageAccountGen2] {
-	return pulumix.Output[HBaseClusterStorageAccountGen2]{
-		OutputState: i.ToHBaseClusterStorageAccountGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HBaseClusterStorageAccountGen2Args) ToHBaseClusterStorageAccountGen2PtrOutput() HBaseClusterStorageAccountGen2PtrOutput {
 	return i.ToHBaseClusterStorageAccountGen2PtrOutputWithContext(context.Background())
 }
@@ -4648,12 +4089,6 @@ func (i *hbaseClusterStorageAccountGen2PtrType) ToHBaseClusterStorageAccountGen2
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterStorageAccountGen2PtrOutput)
 }
 
-func (i *hbaseClusterStorageAccountGen2PtrType) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterStorageAccountGen2] {
-	return pulumix.Output[*HBaseClusterStorageAccountGen2]{
-		OutputState: i.ToHBaseClusterStorageAccountGen2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (HBaseClusterStorageAccountGen2Output) ElementType() reflect.Type {
@@ -4676,12 +4111,6 @@ func (o HBaseClusterStorageAccountGen2Output) ToHBaseClusterStorageAccountGen2Pt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterStorageAccountGen2) *HBaseClusterStorageAccountGen2 {
 		return &v
 	}).(HBaseClusterStorageAccountGen2PtrOutput)
-}
-
-func (o HBaseClusterStorageAccountGen2Output) ToOutput(ctx context.Context) pulumix.Output[HBaseClusterStorageAccountGen2] {
-	return pulumix.Output[HBaseClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -4720,12 +4149,6 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) ToHBaseClusterStorageAccountGen
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) ToHBaseClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) HBaseClusterStorageAccountGen2PtrOutput {
 	return o
-}
-
-func (o HBaseClusterStorageAccountGen2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseClusterStorageAccountGen2] {
-	return pulumix.Output[*HBaseClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterStorageAccountGen2PtrOutput) Elem() HBaseClusterStorageAccountGen2Output {
@@ -4815,12 +4238,6 @@ func (i HadoopClusterComponentVersionArgs) ToHadoopClusterComponentVersionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComponentVersionOutput)
 }
 
-func (i HadoopClusterComponentVersionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterComponentVersion] {
-	return pulumix.Output[HadoopClusterComponentVersion]{
-		OutputState: i.ToHadoopClusterComponentVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterComponentVersionArgs) ToHadoopClusterComponentVersionPtrOutput() HadoopClusterComponentVersionPtrOutput {
 	return i.ToHadoopClusterComponentVersionPtrOutputWithContext(context.Background())
 }
@@ -4862,12 +4279,6 @@ func (i *hadoopClusterComponentVersionPtrType) ToHadoopClusterComponentVersionPt
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComponentVersionPtrOutput)
 }
 
-func (i *hadoopClusterComponentVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterComponentVersion] {
-	return pulumix.Output[*HadoopClusterComponentVersion]{
-		OutputState: i.ToHadoopClusterComponentVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -4892,12 +4303,6 @@ func (o HadoopClusterComponentVersionOutput) ToHadoopClusterComponentVersionPtrO
 	}).(HadoopClusterComponentVersionPtrOutput)
 }
 
-func (o HadoopClusterComponentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterComponentVersion] {
-	return pulumix.Output[HadoopClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
 func (o HadoopClusterComponentVersionOutput) Hadoop() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterComponentVersion) string { return v.Hadoop }).(pulumi.StringOutput)
@@ -4915,12 +4320,6 @@ func (o HadoopClusterComponentVersionPtrOutput) ToHadoopClusterComponentVersionP
 
 func (o HadoopClusterComponentVersionPtrOutput) ToHadoopClusterComponentVersionPtrOutputWithContext(ctx context.Context) HadoopClusterComponentVersionPtrOutput {
 	return o
-}
-
-func (o HadoopClusterComponentVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterComponentVersion] {
-	return pulumix.Output[*HadoopClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterComponentVersionPtrOutput) Elem() HadoopClusterComponentVersionOutput {
@@ -4980,12 +4379,6 @@ func (i HadoopClusterComputeIsolationArgs) ToHadoopClusterComputeIsolationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComputeIsolationOutput)
 }
 
-func (i HadoopClusterComputeIsolationArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterComputeIsolation] {
-	return pulumix.Output[HadoopClusterComputeIsolation]{
-		OutputState: i.ToHadoopClusterComputeIsolationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterComputeIsolationArgs) ToHadoopClusterComputeIsolationPtrOutput() HadoopClusterComputeIsolationPtrOutput {
 	return i.ToHadoopClusterComputeIsolationPtrOutputWithContext(context.Background())
 }
@@ -5027,12 +4420,6 @@ func (i *hadoopClusterComputeIsolationPtrType) ToHadoopClusterComputeIsolationPt
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterComputeIsolationPtrOutput)
 }
 
-func (i *hadoopClusterComputeIsolationPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterComputeIsolation] {
-	return pulumix.Output[*HadoopClusterComputeIsolation]{
-		OutputState: i.ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterComputeIsolationOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterComputeIsolationOutput) ElementType() reflect.Type {
@@ -5057,12 +4444,6 @@ func (o HadoopClusterComputeIsolationOutput) ToHadoopClusterComputeIsolationPtrO
 	}).(HadoopClusterComputeIsolationPtrOutput)
 }
 
-func (o HadoopClusterComputeIsolationOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterComputeIsolation] {
-	return pulumix.Output[HadoopClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o HadoopClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HadoopClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
@@ -5085,12 +4466,6 @@ func (o HadoopClusterComputeIsolationPtrOutput) ToHadoopClusterComputeIsolationP
 
 func (o HadoopClusterComputeIsolationPtrOutput) ToHadoopClusterComputeIsolationPtrOutputWithContext(ctx context.Context) HadoopClusterComputeIsolationPtrOutput {
 	return o
-}
-
-func (o HadoopClusterComputeIsolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterComputeIsolation] {
-	return pulumix.Output[*HadoopClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterComputeIsolationPtrOutput) Elem() HadoopClusterComputeIsolationOutput {
@@ -5168,12 +4543,6 @@ func (i HadoopClusterDiskEncryptionArgs) ToHadoopClusterDiskEncryptionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterDiskEncryptionOutput)
 }
 
-func (i HadoopClusterDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterDiskEncryption] {
-	return pulumix.Output[HadoopClusterDiskEncryption]{
-		OutputState: i.ToHadoopClusterDiskEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterDiskEncryptionArrayInput is an input type that accepts HadoopClusterDiskEncryptionArray and HadoopClusterDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterDiskEncryptionArrayInput` via:
 //
@@ -5199,12 +4568,6 @@ func (i HadoopClusterDiskEncryptionArray) ToHadoopClusterDiskEncryptionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterDiskEncryptionArrayOutput)
 }
 
-func (i HadoopClusterDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterDiskEncryption] {
-	return pulumix.Output[[]HadoopClusterDiskEncryption]{
-		OutputState: i.ToHadoopClusterDiskEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterDiskEncryptionOutput) ElementType() reflect.Type {
@@ -5217,12 +4580,6 @@ func (o HadoopClusterDiskEncryptionOutput) ToHadoopClusterDiskEncryptionOutput()
 
 func (o HadoopClusterDiskEncryptionOutput) ToHadoopClusterDiskEncryptionOutputWithContext(ctx context.Context) HadoopClusterDiskEncryptionOutput {
 	return o
-}
-
-func (o HadoopClusterDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterDiskEncryption] {
-	return pulumix.Output[HadoopClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -5257,12 +4614,6 @@ func (o HadoopClusterDiskEncryptionArrayOutput) ToHadoopClusterDiskEncryptionArr
 
 func (o HadoopClusterDiskEncryptionArrayOutput) ToHadoopClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) HadoopClusterDiskEncryptionArrayOutput {
 	return o
-}
-
-func (o HadoopClusterDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterDiskEncryption] {
-	return pulumix.Output[[]HadoopClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) HadoopClusterDiskEncryptionOutput {
@@ -5308,12 +4659,6 @@ func (i HadoopClusterExtensionArgs) ToHadoopClusterExtensionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterExtensionOutput)
 }
 
-func (i HadoopClusterExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterExtension] {
-	return pulumix.Output[HadoopClusterExtension]{
-		OutputState: i.ToHadoopClusterExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterExtensionArgs) ToHadoopClusterExtensionPtrOutput() HadoopClusterExtensionPtrOutput {
 	return i.ToHadoopClusterExtensionPtrOutputWithContext(context.Background())
 }
@@ -5355,12 +4700,6 @@ func (i *hadoopClusterExtensionPtrType) ToHadoopClusterExtensionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterExtensionPtrOutput)
 }
 
-func (i *hadoopClusterExtensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterExtension] {
-	return pulumix.Output[*HadoopClusterExtension]{
-		OutputState: i.ToHadoopClusterExtensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterExtensionOutput) ElementType() reflect.Type {
@@ -5385,12 +4724,6 @@ func (o HadoopClusterExtensionOutput) ToHadoopClusterExtensionPtrOutputWithConte
 	}).(HadoopClusterExtensionPtrOutput)
 }
 
-func (o HadoopClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterExtension] {
-	return pulumix.Output[HadoopClusterExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The workspace ID of the log analytics extension.
 func (o HadoopClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -5413,12 +4746,6 @@ func (o HadoopClusterExtensionPtrOutput) ToHadoopClusterExtensionPtrOutput() Had
 
 func (o HadoopClusterExtensionPtrOutput) ToHadoopClusterExtensionPtrOutputWithContext(ctx context.Context) HadoopClusterExtensionPtrOutput {
 	return o
-}
-
-func (o HadoopClusterExtensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterExtension] {
-	return pulumix.Output[*HadoopClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterExtensionPtrOutput) Elem() HadoopClusterExtensionOutput {
@@ -5492,12 +4819,6 @@ func (i HadoopClusterGatewayArgs) ToHadoopClusterGatewayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterGatewayOutput)
 }
 
-func (i HadoopClusterGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterGateway] {
-	return pulumix.Output[HadoopClusterGateway]{
-		OutputState: i.ToHadoopClusterGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterGatewayArgs) ToHadoopClusterGatewayPtrOutput() HadoopClusterGatewayPtrOutput {
 	return i.ToHadoopClusterGatewayPtrOutputWithContext(context.Background())
 }
@@ -5539,12 +4860,6 @@ func (i *hadoopClusterGatewayPtrType) ToHadoopClusterGatewayPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterGatewayPtrOutput)
 }
 
-func (i *hadoopClusterGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterGateway] {
-	return pulumix.Output[*HadoopClusterGateway]{
-		OutputState: i.ToHadoopClusterGatewayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterGatewayOutput) ElementType() reflect.Type {
@@ -5567,12 +4882,6 @@ func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterGateway) *HadoopClusterGateway {
 		return &v
 	}).(HadoopClusterGatewayPtrOutput)
-}
-
-func (o HadoopClusterGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterGateway] {
-	return pulumix.Output[HadoopClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password used for the Ambari Portal.
@@ -5599,12 +4908,6 @@ func (o HadoopClusterGatewayPtrOutput) ToHadoopClusterGatewayPtrOutput() HadoopC
 
 func (o HadoopClusterGatewayPtrOutput) ToHadoopClusterGatewayPtrOutputWithContext(ctx context.Context) HadoopClusterGatewayPtrOutput {
 	return o
-}
-
-func (o HadoopClusterGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterGateway] {
-	return pulumix.Output[*HadoopClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterGatewayPtrOutput) Elem() HadoopClusterGatewayOutput {
@@ -5680,12 +4983,6 @@ func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOutput)
 }
 
-func (i HadoopClusterMetastoresArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastores] {
-	return pulumix.Output[HadoopClusterMetastores]{
-		OutputState: i.ToHadoopClusterMetastoresOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterMetastoresArgs) ToHadoopClusterMetastoresPtrOutput() HadoopClusterMetastoresPtrOutput {
 	return i.ToHadoopClusterMetastoresPtrOutputWithContext(context.Background())
 }
@@ -5727,12 +5024,6 @@ func (i *hadoopClusterMetastoresPtrType) ToHadoopClusterMetastoresPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresPtrOutput)
 }
 
-func (i *hadoopClusterMetastoresPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastores] {
-	return pulumix.Output[*HadoopClusterMetastores]{
-		OutputState: i.ToHadoopClusterMetastoresPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterMetastoresOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterMetastoresOutput) ElementType() reflect.Type {
@@ -5755,12 +5046,6 @@ func (o HadoopClusterMetastoresOutput) ToHadoopClusterMetastoresPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastores) *HadoopClusterMetastores {
 		return &v
 	}).(HadoopClusterMetastoresPtrOutput)
-}
-
-func (o HadoopClusterMetastoresOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastores] {
-	return pulumix.Output[HadoopClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `ambari` block as defined below.
@@ -5790,12 +5075,6 @@ func (o HadoopClusterMetastoresPtrOutput) ToHadoopClusterMetastoresPtrOutput() H
 
 func (o HadoopClusterMetastoresPtrOutput) ToHadoopClusterMetastoresPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresPtrOutput {
 	return o
-}
-
-func (o HadoopClusterMetastoresPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastores] {
-	return pulumix.Output[*HadoopClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterMetastoresPtrOutput) Elem() HadoopClusterMetastoresOutput {
@@ -5883,12 +5162,6 @@ func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresAmbariOutput)
 }
 
-func (i HadoopClusterMetastoresAmbariArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastoresAmbari] {
-	return pulumix.Output[HadoopClusterMetastoresAmbari]{
-		OutputState: i.ToHadoopClusterMetastoresAmbariOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterMetastoresAmbariArgs) ToHadoopClusterMetastoresAmbariPtrOutput() HadoopClusterMetastoresAmbariPtrOutput {
 	return i.ToHadoopClusterMetastoresAmbariPtrOutputWithContext(context.Background())
 }
@@ -5930,12 +5203,6 @@ func (i *hadoopClusterMetastoresAmbariPtrType) ToHadoopClusterMetastoresAmbariPt
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresAmbariPtrOutput)
 }
 
-func (i *hadoopClusterMetastoresAmbariPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastoresAmbari] {
-	return pulumix.Output[*HadoopClusterMetastoresAmbari]{
-		OutputState: i.ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterMetastoresAmbariOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterMetastoresAmbariOutput) ElementType() reflect.Type {
@@ -5958,12 +5225,6 @@ func (o HadoopClusterMetastoresAmbariOutput) ToHadoopClusterMetastoresAmbariPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastoresAmbari) *HadoopClusterMetastoresAmbari {
 		return &v
 	}).(HadoopClusterMetastoresAmbariPtrOutput)
-}
-
-func (o HadoopClusterMetastoresAmbariOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastoresAmbari] {
-	return pulumix.Output[HadoopClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -5998,12 +5259,6 @@ func (o HadoopClusterMetastoresAmbariPtrOutput) ToHadoopClusterMetastoresAmbariP
 
 func (o HadoopClusterMetastoresAmbariPtrOutput) ToHadoopClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresAmbariPtrOutput {
 	return o
-}
-
-func (o HadoopClusterMetastoresAmbariPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastoresAmbari] {
-	return pulumix.Output[*HadoopClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterMetastoresAmbariPtrOutput) Elem() HadoopClusterMetastoresAmbariOutput {
@@ -6101,12 +5356,6 @@ func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHiveOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresHiveOutput)
 }
 
-func (i HadoopClusterMetastoresHiveArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastoresHive] {
-	return pulumix.Output[HadoopClusterMetastoresHive]{
-		OutputState: i.ToHadoopClusterMetastoresHiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterMetastoresHiveArgs) ToHadoopClusterMetastoresHivePtrOutput() HadoopClusterMetastoresHivePtrOutput {
 	return i.ToHadoopClusterMetastoresHivePtrOutputWithContext(context.Background())
 }
@@ -6148,12 +5397,6 @@ func (i *hadoopClusterMetastoresHivePtrType) ToHadoopClusterMetastoresHivePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresHivePtrOutput)
 }
 
-func (i *hadoopClusterMetastoresHivePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastoresHive] {
-	return pulumix.Output[*HadoopClusterMetastoresHive]{
-		OutputState: i.ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterMetastoresHiveOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterMetastoresHiveOutput) ElementType() reflect.Type {
@@ -6176,12 +5419,6 @@ func (o HadoopClusterMetastoresHiveOutput) ToHadoopClusterMetastoresHivePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastoresHive) *HadoopClusterMetastoresHive {
 		return &v
 	}).(HadoopClusterMetastoresHivePtrOutput)
-}
-
-func (o HadoopClusterMetastoresHiveOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastoresHive] {
-	return pulumix.Output[HadoopClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -6216,12 +5453,6 @@ func (o HadoopClusterMetastoresHivePtrOutput) ToHadoopClusterMetastoresHivePtrOu
 
 func (o HadoopClusterMetastoresHivePtrOutput) ToHadoopClusterMetastoresHivePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresHivePtrOutput {
 	return o
-}
-
-func (o HadoopClusterMetastoresHivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastoresHive] {
-	return pulumix.Output[*HadoopClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterMetastoresHivePtrOutput) Elem() HadoopClusterMetastoresHiveOutput {
@@ -6319,12 +5550,6 @@ func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOozieOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOozieOutput)
 }
 
-func (i HadoopClusterMetastoresOozieArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastoresOozie] {
-	return pulumix.Output[HadoopClusterMetastoresOozie]{
-		OutputState: i.ToHadoopClusterMetastoresOozieOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterMetastoresOozieArgs) ToHadoopClusterMetastoresOoziePtrOutput() HadoopClusterMetastoresOoziePtrOutput {
 	return i.ToHadoopClusterMetastoresOoziePtrOutputWithContext(context.Background())
 }
@@ -6366,12 +5591,6 @@ func (i *hadoopClusterMetastoresOoziePtrType) ToHadoopClusterMetastoresOoziePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMetastoresOoziePtrOutput)
 }
 
-func (i *hadoopClusterMetastoresOoziePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastoresOozie] {
-	return pulumix.Output[*HadoopClusterMetastoresOozie]{
-		OutputState: i.ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterMetastoresOozieOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterMetastoresOozieOutput) ElementType() reflect.Type {
@@ -6394,12 +5613,6 @@ func (o HadoopClusterMetastoresOozieOutput) ToHadoopClusterMetastoresOoziePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterMetastoresOozie) *HadoopClusterMetastoresOozie {
 		return &v
 	}).(HadoopClusterMetastoresOoziePtrOutput)
-}
-
-func (o HadoopClusterMetastoresOozieOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMetastoresOozie] {
-	return pulumix.Output[HadoopClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -6434,12 +5647,6 @@ func (o HadoopClusterMetastoresOoziePtrOutput) ToHadoopClusterMetastoresOoziePtr
 
 func (o HadoopClusterMetastoresOoziePtrOutput) ToHadoopClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) HadoopClusterMetastoresOoziePtrOutput {
 	return o
-}
-
-func (o HadoopClusterMetastoresOoziePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMetastoresOozie] {
-	return pulumix.Output[*HadoopClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterMetastoresOoziePtrOutput) Elem() HadoopClusterMetastoresOozieOutput {
@@ -6529,12 +5736,6 @@ func (i HadoopClusterMonitorArgs) ToHadoopClusterMonitorOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMonitorOutput)
 }
 
-func (i HadoopClusterMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMonitor] {
-	return pulumix.Output[HadoopClusterMonitor]{
-		OutputState: i.ToHadoopClusterMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterMonitorArgs) ToHadoopClusterMonitorPtrOutput() HadoopClusterMonitorPtrOutput {
 	return i.ToHadoopClusterMonitorPtrOutputWithContext(context.Background())
 }
@@ -6576,12 +5777,6 @@ func (i *hadoopClusterMonitorPtrType) ToHadoopClusterMonitorPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMonitorPtrOutput)
 }
 
-func (i *hadoopClusterMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMonitor] {
-	return pulumix.Output[*HadoopClusterMonitor]{
-		OutputState: i.ToHadoopClusterMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterMonitorOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterMonitorOutput) ElementType() reflect.Type {
@@ -6606,12 +5801,6 @@ func (o HadoopClusterMonitorOutput) ToHadoopClusterMonitorPtrOutputWithContext(c
 	}).(HadoopClusterMonitorPtrOutput)
 }
 
-func (o HadoopClusterMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterMonitor] {
-	return pulumix.Output[HadoopClusterMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Operations Management Suite (OMS) workspace ID.
 func (o HadoopClusterMonitorOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterMonitor) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -6634,12 +5823,6 @@ func (o HadoopClusterMonitorPtrOutput) ToHadoopClusterMonitorPtrOutput() HadoopC
 
 func (o HadoopClusterMonitorPtrOutput) ToHadoopClusterMonitorPtrOutputWithContext(ctx context.Context) HadoopClusterMonitorPtrOutput {
 	return o
-}
-
-func (o HadoopClusterMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterMonitor] {
-	return pulumix.Output[*HadoopClusterMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterMonitorPtrOutput) Elem() HadoopClusterMonitorOutput {
@@ -6713,12 +5896,6 @@ func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterNetworkOutput)
 }
 
-func (i HadoopClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterNetwork] {
-	return pulumix.Output[HadoopClusterNetwork]{
-		OutputState: i.ToHadoopClusterNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterNetworkArgs) ToHadoopClusterNetworkPtrOutput() HadoopClusterNetworkPtrOutput {
 	return i.ToHadoopClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -6760,12 +5937,6 @@ func (i *hadoopClusterNetworkPtrType) ToHadoopClusterNetworkPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterNetworkPtrOutput)
 }
 
-func (i *hadoopClusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterNetwork] {
-	return pulumix.Output[*HadoopClusterNetwork]{
-		OutputState: i.ToHadoopClusterNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterNetworkOutput) ElementType() reflect.Type {
@@ -6788,12 +5959,6 @@ func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterNetwork) *HadoopClusterNetwork {
 		return &v
 	}).(HadoopClusterNetworkPtrOutput)
-}
-
-func (o HadoopClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterNetwork] {
-	return pulumix.Output[HadoopClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -6820,12 +5985,6 @@ func (o HadoopClusterNetworkPtrOutput) ToHadoopClusterNetworkPtrOutput() HadoopC
 
 func (o HadoopClusterNetworkPtrOutput) ToHadoopClusterNetworkPtrOutputWithContext(ctx context.Context) HadoopClusterNetworkPtrOutput {
 	return o
-}
-
-func (o HadoopClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterNetwork] {
-	return pulumix.Output[*HadoopClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterNetworkPtrOutput) Elem() HadoopClusterNetworkOutput {
@@ -6905,12 +6064,6 @@ func (i HadoopClusterRolesArgs) ToHadoopClusterRolesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesOutput)
 }
 
-func (i HadoopClusterRolesArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRoles] {
-	return pulumix.Output[HadoopClusterRoles]{
-		OutputState: i.ToHadoopClusterRolesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesArgs) ToHadoopClusterRolesPtrOutput() HadoopClusterRolesPtrOutput {
 	return i.ToHadoopClusterRolesPtrOutputWithContext(context.Background())
 }
@@ -6952,12 +6105,6 @@ func (i *hadoopClusterRolesPtrType) ToHadoopClusterRolesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesPtrOutput)
 }
 
-func (i *hadoopClusterRolesPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRoles] {
-	return pulumix.Output[*HadoopClusterRoles]{
-		OutputState: i.ToHadoopClusterRolesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesOutput) ElementType() reflect.Type {
@@ -6980,12 +6127,6 @@ func (o HadoopClusterRolesOutput) ToHadoopClusterRolesPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRoles) *HadoopClusterRoles {
 		return &v
 	}).(HadoopClusterRolesPtrOutput)
-}
-
-func (o HadoopClusterRolesOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRoles] {
-	return pulumix.Output[HadoopClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `edgeNode` block as defined below.
@@ -7020,12 +6161,6 @@ func (o HadoopClusterRolesPtrOutput) ToHadoopClusterRolesPtrOutput() HadoopClust
 
 func (o HadoopClusterRolesPtrOutput) ToHadoopClusterRolesPtrOutputWithContext(ctx context.Context) HadoopClusterRolesPtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRoles] {
-	return pulumix.Output[*HadoopClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesPtrOutput) Elem() HadoopClusterRolesOutput {
@@ -7127,12 +6262,6 @@ func (i HadoopClusterRolesEdgeNodeArgs) ToHadoopClusterRolesEdgeNodeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNode] {
-	return pulumix.Output[HadoopClusterRolesEdgeNode]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesEdgeNodeArgs) ToHadoopClusterRolesEdgeNodePtrOutput() HadoopClusterRolesEdgeNodePtrOutput {
 	return i.ToHadoopClusterRolesEdgeNodePtrOutputWithContext(context.Background())
 }
@@ -7174,12 +6303,6 @@ func (i *hadoopClusterRolesEdgeNodePtrType) ToHadoopClusterRolesEdgeNodePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodePtrOutput)
 }
 
-func (i *hadoopClusterRolesEdgeNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesEdgeNode] {
-	return pulumix.Output[*HadoopClusterRolesEdgeNode]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesEdgeNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeOutput) ElementType() reflect.Type {
@@ -7202,12 +6325,6 @@ func (o HadoopClusterRolesEdgeNodeOutput) ToHadoopClusterRolesEdgeNodePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesEdgeNode) *HadoopClusterRolesEdgeNode {
 		return &v
 	}).(HadoopClusterRolesEdgeNodePtrOutput)
-}
-
-func (o HadoopClusterRolesEdgeNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNode] {
-	return pulumix.Output[HadoopClusterRolesEdgeNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
@@ -7251,12 +6368,6 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) ToHadoopClusterRolesEdgeNodePtrOutp
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) ToHadoopClusterRolesEdgeNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodePtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesEdgeNode] {
-	return pulumix.Output[*HadoopClusterRolesEdgeNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesEdgeNodePtrOutput) Elem() HadoopClusterRolesEdgeNodeOutput {
@@ -7368,12 +6479,6 @@ func (i HadoopClusterRolesEdgeNodeHttpsEndpointArgs) ToHadoopClusterRolesEdgeNod
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeHttpsEndpointOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeHttpsEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNodeHttpsEndpoint] {
-	return pulumix.Output[HadoopClusterRolesEdgeNodeHttpsEndpoint]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeHttpsEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput is an input type that accepts HadoopClusterRolesEdgeNodeHttpsEndpointArray and HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput` via:
 //
@@ -7399,12 +6504,6 @@ func (i HadoopClusterRolesEdgeNodeHttpsEndpointArray) ToHadoopClusterRolesEdgeNo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeHttpsEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesEdgeNodeHttpsEndpoint] {
-	return pulumix.Output[[]HadoopClusterRolesEdgeNodeHttpsEndpoint]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesEdgeNodeHttpsEndpointOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ElementType() reflect.Type {
@@ -7417,12 +6516,6 @@ func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ToHadoopClusterRolesEdgeN
 
 func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ToHadoopClusterRolesEdgeNodeHttpsEndpointOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodeHttpsEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNodeHttpsEndpoint] {
-	return pulumix.Output[HadoopClusterRolesEdgeNodeHttpsEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of access modes for the application.
@@ -7462,12 +6555,6 @@ func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) ToHadoopClusterRoles
 
 func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) ToHadoopClusterRolesEdgeNodeHttpsEndpointArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesEdgeNodeHttpsEndpoint] {
-	return pulumix.Output[[]HadoopClusterRolesEdgeNodeHttpsEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesEdgeNodeHttpsEndpointOutput {
@@ -7517,12 +6604,6 @@ func (i HadoopClusterRolesEdgeNodeInstallScriptActionArgs) ToHadoopClusterRolesE
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeInstallScriptActionOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeInstallScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNodeInstallScriptAction] {
-	return pulumix.Output[HadoopClusterRolesEdgeNodeInstallScriptAction]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeInstallScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput is an input type that accepts HadoopClusterRolesEdgeNodeInstallScriptActionArray and HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput` via:
 //
@@ -7548,12 +6629,6 @@ func (i HadoopClusterRolesEdgeNodeInstallScriptActionArray) ToHadoopClusterRoles
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeInstallScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesEdgeNodeInstallScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesEdgeNodeInstallScriptAction]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeInstallScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesEdgeNodeInstallScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ElementType() reflect.Type {
@@ -7566,12 +6641,6 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ToHadoopClusterRole
 
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ToHadoopClusterRolesEdgeNodeInstallScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeInstallScriptActionOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodeInstallScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNodeInstallScriptAction] {
-	return pulumix.Output[HadoopClusterRolesEdgeNodeInstallScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the install script action.
@@ -7601,12 +6670,6 @@ func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) ToHadoopCluste
 
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) ToHadoopClusterRolesEdgeNodeInstallScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesEdgeNodeInstallScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesEdgeNodeInstallScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesEdgeNodeInstallScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesEdgeNodeInstallScriptActionOutput {
@@ -7656,12 +6719,6 @@ func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArgs) ToHadoopClusterRole
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeUninstallScriptActionOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNodeUninstallScriptAction] {
-	return pulumix.Output[HadoopClusterRolesEdgeNodeUninstallScriptAction]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput is an input type that accepts HadoopClusterRolesEdgeNodeUninstallScriptActionArray and HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesEdgeNodeUninstallScriptActionArrayInput` via:
 //
@@ -7687,12 +6744,6 @@ func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArray) ToHadoopClusterRol
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput)
 }
 
-func (i HadoopClusterRolesEdgeNodeUninstallScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesEdgeNodeUninstallScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesEdgeNodeUninstallScriptAction]{
-		OutputState: i.ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesEdgeNodeUninstallScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ElementType() reflect.Type {
@@ -7705,12 +6756,6 @@ func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ToHadoopClusterRo
 
 func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ToHadoopClusterRolesEdgeNodeUninstallScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodeUninstallScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesEdgeNodeUninstallScriptAction] {
-	return pulumix.Output[HadoopClusterRolesEdgeNodeUninstallScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the uninstall script action.
@@ -7740,12 +6785,6 @@ func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) ToHadoopClus
 
 func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) ToHadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesEdgeNodeUninstallScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesEdgeNodeUninstallScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesEdgeNodeUninstallScriptActionOutput {
@@ -7819,12 +6858,6 @@ func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeOutput)
 }
 
-func (i HadoopClusterRolesHeadNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesHeadNode] {
-	return pulumix.Output[HadoopClusterRolesHeadNode]{
-		OutputState: i.ToHadoopClusterRolesHeadNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesHeadNodeArgs) ToHadoopClusterRolesHeadNodePtrOutput() HadoopClusterRolesHeadNodePtrOutput {
 	return i.ToHadoopClusterRolesHeadNodePtrOutputWithContext(context.Background())
 }
@@ -7866,12 +6899,6 @@ func (i *hadoopClusterRolesHeadNodePtrType) ToHadoopClusterRolesHeadNodePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodePtrOutput)
 }
 
-func (i *hadoopClusterRolesHeadNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesHeadNode] {
-	return pulumix.Output[*HadoopClusterRolesHeadNode]{
-		OutputState: i.ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -7894,12 +6921,6 @@ func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesHeadNode) *HadoopClusterRolesHeadNode {
 		return &v
 	}).(HadoopClusterRolesHeadNodePtrOutput)
-}
-
-func (o HadoopClusterRolesHeadNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesHeadNode] {
-	return pulumix.Output[HadoopClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -7953,12 +6974,6 @@ func (o HadoopClusterRolesHeadNodePtrOutput) ToHadoopClusterRolesHeadNodePtrOutp
 
 func (o HadoopClusterRolesHeadNodePtrOutput) ToHadoopClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodePtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesHeadNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesHeadNode] {
-	return pulumix.Output[*HadoopClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesHeadNodePtrOutput) Elem() HadoopClusterRolesHeadNodeOutput {
@@ -8086,12 +7101,6 @@ func (i HadoopClusterRolesHeadNodeScriptActionArgs) ToHadoopClusterRolesHeadNode
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeScriptActionOutput)
 }
 
-func (i HadoopClusterRolesHeadNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[HadoopClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToHadoopClusterRolesHeadNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts HadoopClusterRolesHeadNodeScriptActionArray and HadoopClusterRolesHeadNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesHeadNodeScriptActionArrayInput` via:
 //
@@ -8117,12 +7126,6 @@ func (i HadoopClusterRolesHeadNodeScriptActionArray) ToHadoopClusterRolesHeadNod
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesHeadNodeScriptActionArrayOutput)
 }
 
-func (i HadoopClusterRolesHeadNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToHadoopClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
@@ -8135,12 +7138,6 @@ func (o HadoopClusterRolesHeadNodeScriptActionOutput) ToHadoopClusterRolesHeadNo
 
 func (o HadoopClusterRolesHeadNodeScriptActionOutput) ToHadoopClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeScriptActionOutput {
 	return o
-}
-
-func (o HadoopClusterRolesHeadNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[HadoopClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -8170,12 +7167,6 @@ func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) ToHadoopClusterRolesH
 
 func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) ToHadoopClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesHeadNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesHeadNodeScriptActionOutput {
@@ -8257,12 +7248,6 @@ func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNode] {
-	return pulumix.Output[HadoopClusterRolesWorkerNode]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesWorkerNodeArgs) ToHadoopClusterRolesWorkerNodePtrOutput() HadoopClusterRolesWorkerNodePtrOutput {
 	return i.ToHadoopClusterRolesWorkerNodePtrOutputWithContext(context.Background())
 }
@@ -8304,12 +7289,6 @@ func (i *hadoopClusterRolesWorkerNodePtrType) ToHadoopClusterRolesWorkerNodePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodePtrOutput)
 }
 
-func (i *hadoopClusterRolesWorkerNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNode] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNode]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -8332,12 +7311,6 @@ func (o HadoopClusterRolesWorkerNodeOutput) ToHadoopClusterRolesWorkerNodePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNode) *HadoopClusterRolesWorkerNode {
 		return &v
 	}).(HadoopClusterRolesWorkerNodePtrOutput)
-}
-
-func (o HadoopClusterRolesWorkerNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNode] {
-	return pulumix.Output[HadoopClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `autoscale` block as defined below.
@@ -8403,12 +7376,6 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) ToHadoopClusterRolesWorkerNodePtr
 
 func (o HadoopClusterRolesWorkerNodePtrOutput) ToHadoopClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodePtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNode] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesWorkerNodePtrOutput) Elem() HadoopClusterRolesWorkerNodeOutput {
@@ -8556,12 +7523,6 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNod
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesWorkerNodeAutoscaleArgs) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutput() HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
 	return i.ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
 }
@@ -8603,12 +7564,6 @@ func (i *hadoopClusterRolesWorkerNodeAutoscalePtrType) ToHadoopClusterRolesWorke
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-func (i *hadoopClusterRolesWorkerNodeAutoscalePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
@@ -8631,12 +7586,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToHadoopClusterRolesWorkerN
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(HadoopClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `capacity` block as defined below.
@@ -8667,12 +7616,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ToHadoopClusterRolesWork
 
 func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ToHadoopClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleOutput {
@@ -8744,12 +7687,6 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesW
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return i.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
 }
@@ -8791,12 +7728,6 @@ func (i *hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToHadoopClusterRo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-func (i *hadoopClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
@@ -8821,12 +7752,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToHadoopClusterRole
 	}).(HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum number of worker nodes to autoscale to based on the cluster's activity.
 func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
@@ -8849,12 +7774,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToHadoopClusterR
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToHadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleCapacityOutput {
@@ -8924,12 +7843,6 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRole
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
 }
@@ -8971,12 +7884,6 @@ func (i *hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToHadoopCluster
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
 
-func (i *hadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
@@ -8999,12 +7906,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToHadoopClusterRo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesWorkerNodeAutoscaleRecurrence) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `schedule` blocks as defined below.
@@ -9031,12 +7932,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHadoopCluste
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*HadoopClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HadoopClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
@@ -9110,12 +8005,6 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToHadoopClu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
@@ -9141,12 +8030,6 @@ func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToHadoopCl
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -9159,12 +8042,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHadoopC
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -9194,12 +8071,6 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHa
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToHadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
@@ -9249,12 +8120,6 @@ func (i HadoopClusterRolesWorkerNodeScriptActionArgs) ToHadoopClusterRolesWorker
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeScriptActionOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts HadoopClusterRolesWorkerNodeScriptActionArray and HadoopClusterRolesWorkerNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesWorkerNodeScriptActionArrayInput` via:
 //
@@ -9280,12 +8145,6 @@ func (i HadoopClusterRolesWorkerNodeScriptActionArray) ToHadoopClusterRolesWorke
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
-func (i HadoopClusterRolesWorkerNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToHadoopClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
@@ -9298,12 +8157,6 @@ func (o HadoopClusterRolesWorkerNodeScriptActionOutput) ToHadoopClusterRolesWork
 
 func (o HadoopClusterRolesWorkerNodeScriptActionOutput) ToHadoopClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeScriptActionOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[HadoopClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -9333,12 +8186,6 @@ func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) ToHadoopClusterRole
 
 func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) ToHadoopClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesWorkerNodeScriptActionOutput {
@@ -9412,12 +8259,6 @@ func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodeOu
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeOutput)
 }
 
-func (i HadoopClusterRolesZookeeperNodeArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesZookeeperNode] {
-	return pulumix.Output[HadoopClusterRolesZookeeperNode]{
-		OutputState: i.ToHadoopClusterRolesZookeeperNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterRolesZookeeperNodeArgs) ToHadoopClusterRolesZookeeperNodePtrOutput() HadoopClusterRolesZookeeperNodePtrOutput {
 	return i.ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
 }
@@ -9459,12 +8300,6 @@ func (i *hadoopClusterRolesZookeeperNodePtrType) ToHadoopClusterRolesZookeeperNo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodePtrOutput)
 }
 
-func (i *hadoopClusterRolesZookeeperNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesZookeeperNode] {
-	return pulumix.Output[*HadoopClusterRolesZookeeperNode]{
-		OutputState: i.ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -9487,12 +8322,6 @@ func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNode
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterRolesZookeeperNode) *HadoopClusterRolesZookeeperNode {
 		return &v
 	}).(HadoopClusterRolesZookeeperNodePtrOutput)
-}
-
-func (o HadoopClusterRolesZookeeperNodeOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesZookeeperNode] {
-	return pulumix.Output[HadoopClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -9548,12 +8377,6 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) ToHadoopClusterRolesZookeeperN
 
 func (o HadoopClusterRolesZookeeperNodePtrOutput) ToHadoopClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodePtrOutput {
 	return o
-}
-
-func (o HadoopClusterRolesZookeeperNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterRolesZookeeperNode] {
-	return pulumix.Output[*HadoopClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesZookeeperNodePtrOutput) Elem() HadoopClusterRolesZookeeperNodeOutput {
@@ -9681,12 +8504,6 @@ func (i HadoopClusterRolesZookeeperNodeScriptActionArgs) ToHadoopClusterRolesZoo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeScriptActionOutput)
 }
 
-func (i HadoopClusterRolesZookeeperNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[HadoopClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToHadoopClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts HadoopClusterRolesZookeeperNodeScriptActionArray and HadoopClusterRolesZookeeperNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterRolesZookeeperNodeScriptActionArrayInput` via:
 //
@@ -9712,12 +8529,6 @@ func (i HadoopClusterRolesZookeeperNodeScriptActionArray) ToHadoopClusterRolesZo
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterRolesZookeeperNodeScriptActionArrayOutput)
 }
 
-func (i HadoopClusterRolesZookeeperNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
@@ -9730,12 +8541,6 @@ func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) ToHadoopClusterRolesZ
 
 func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) ToHadoopClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeScriptActionOutput {
 	return o
-}
-
-func (o HadoopClusterRolesZookeeperNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[HadoopClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -9765,12 +8570,6 @@ func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) ToHadoopClusterR
 
 func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) ToHadoopClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]HadoopClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) HadoopClusterRolesZookeeperNodeScriptActionOutput {
@@ -9836,12 +8635,6 @@ func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfileOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterSecurityProfileOutput)
 }
 
-func (i HadoopClusterSecurityProfileArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterSecurityProfile] {
-	return pulumix.Output[HadoopClusterSecurityProfile]{
-		OutputState: i.ToHadoopClusterSecurityProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterSecurityProfileArgs) ToHadoopClusterSecurityProfilePtrOutput() HadoopClusterSecurityProfilePtrOutput {
 	return i.ToHadoopClusterSecurityProfilePtrOutputWithContext(context.Background())
 }
@@ -9883,12 +8676,6 @@ func (i *hadoopClusterSecurityProfilePtrType) ToHadoopClusterSecurityProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterSecurityProfilePtrOutput)
 }
 
-func (i *hadoopClusterSecurityProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterSecurityProfile] {
-	return pulumix.Output[*HadoopClusterSecurityProfile]{
-		OutputState: i.ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterSecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterSecurityProfileOutput) ElementType() reflect.Type {
@@ -9911,12 +8698,6 @@ func (o HadoopClusterSecurityProfileOutput) ToHadoopClusterSecurityProfilePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterSecurityProfile) *HadoopClusterSecurityProfile {
 		return &v
 	}).(HadoopClusterSecurityProfilePtrOutput)
-}
-
-func (o HadoopClusterSecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterSecurityProfile] {
-	return pulumix.Output[HadoopClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -9966,12 +8747,6 @@ func (o HadoopClusterSecurityProfilePtrOutput) ToHadoopClusterSecurityProfilePtr
 
 func (o HadoopClusterSecurityProfilePtrOutput) ToHadoopClusterSecurityProfilePtrOutputWithContext(ctx context.Context) HadoopClusterSecurityProfilePtrOutput {
 	return o
-}
-
-func (o HadoopClusterSecurityProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterSecurityProfile] {
-	return pulumix.Output[*HadoopClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterSecurityProfilePtrOutput) Elem() HadoopClusterSecurityProfileOutput {
@@ -10107,12 +8882,6 @@ func (i HadoopClusterStorageAccountArgs) ToHadoopClusterStorageAccountOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterStorageAccountOutput)
 }
 
-func (i HadoopClusterStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterStorageAccount] {
-	return pulumix.Output[HadoopClusterStorageAccount]{
-		OutputState: i.ToHadoopClusterStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterStorageAccountArrayInput is an input type that accepts HadoopClusterStorageAccountArray and HadoopClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterStorageAccountArrayInput` via:
 //
@@ -10138,12 +8907,6 @@ func (i HadoopClusterStorageAccountArray) ToHadoopClusterStorageAccountArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterStorageAccountArrayOutput)
 }
 
-func (i HadoopClusterStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterStorageAccount] {
-	return pulumix.Output[[]HadoopClusterStorageAccount]{
-		OutputState: i.ToHadoopClusterStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterStorageAccountOutput) ElementType() reflect.Type {
@@ -10156,12 +8919,6 @@ func (o HadoopClusterStorageAccountOutput) ToHadoopClusterStorageAccountOutput()
 
 func (o HadoopClusterStorageAccountOutput) ToHadoopClusterStorageAccountOutputWithContext(ctx context.Context) HadoopClusterStorageAccountOutput {
 	return o
-}
-
-func (o HadoopClusterStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterStorageAccount] {
-	return pulumix.Output[HadoopClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -10200,12 +8957,6 @@ func (o HadoopClusterStorageAccountArrayOutput) ToHadoopClusterStorageAccountArr
 
 func (o HadoopClusterStorageAccountArrayOutput) ToHadoopClusterStorageAccountArrayOutputWithContext(ctx context.Context) HadoopClusterStorageAccountArrayOutput {
 	return o
-}
-
-func (o HadoopClusterStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HadoopClusterStorageAccount] {
-	return pulumix.Output[[]HadoopClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) HadoopClusterStorageAccountOutput {
@@ -10267,12 +9018,6 @@ func (i HadoopClusterStorageAccountGen2Args) ToHadoopClusterStorageAccountGen2Ou
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterStorageAccountGen2Output)
 }
 
-func (i HadoopClusterStorageAccountGen2Args) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterStorageAccountGen2] {
-	return pulumix.Output[HadoopClusterStorageAccountGen2]{
-		OutputState: i.ToHadoopClusterStorageAccountGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HadoopClusterStorageAccountGen2Args) ToHadoopClusterStorageAccountGen2PtrOutput() HadoopClusterStorageAccountGen2PtrOutput {
 	return i.ToHadoopClusterStorageAccountGen2PtrOutputWithContext(context.Background())
 }
@@ -10314,12 +9059,6 @@ func (i *hadoopClusterStorageAccountGen2PtrType) ToHadoopClusterStorageAccountGe
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterStorageAccountGen2PtrOutput)
 }
 
-func (i *hadoopClusterStorageAccountGen2PtrType) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterStorageAccountGen2] {
-	return pulumix.Output[*HadoopClusterStorageAccountGen2]{
-		OutputState: i.ToHadoopClusterStorageAccountGen2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (HadoopClusterStorageAccountGen2Output) ElementType() reflect.Type {
@@ -10342,12 +9081,6 @@ func (o HadoopClusterStorageAccountGen2Output) ToHadoopClusterStorageAccountGen2
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterStorageAccountGen2) *HadoopClusterStorageAccountGen2 {
 		return &v
 	}).(HadoopClusterStorageAccountGen2PtrOutput)
-}
-
-func (o HadoopClusterStorageAccountGen2Output) ToOutput(ctx context.Context) pulumix.Output[HadoopClusterStorageAccountGen2] {
-	return pulumix.Output[HadoopClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -10386,12 +9119,6 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) ToHadoopClusterStorageAccountG
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) ToHadoopClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) HadoopClusterStorageAccountGen2PtrOutput {
 	return o
-}
-
-func (o HadoopClusterStorageAccountGen2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopClusterStorageAccountGen2] {
-	return pulumix.Output[*HadoopClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterStorageAccountGen2PtrOutput) Elem() HadoopClusterStorageAccountGen2Output {
@@ -10481,12 +9208,6 @@ func (i InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComponentVersionOutput)
 }
 
-func (i InteractiveQueryClusterComponentVersionArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterComponentVersion] {
-	return pulumix.Output[InteractiveQueryClusterComponentVersion]{
-		OutputState: i.ToInteractiveQueryClusterComponentVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterComponentVersionArgs) ToInteractiveQueryClusterComponentVersionPtrOutput() InteractiveQueryClusterComponentVersionPtrOutput {
 	return i.ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(context.Background())
 }
@@ -10528,12 +9249,6 @@ func (i *interactiveQueryClusterComponentVersionPtrType) ToInteractiveQueryClust
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComponentVersionPtrOutput)
 }
 
-func (i *interactiveQueryClusterComponentVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterComponentVersion] {
-	return pulumix.Output[*InteractiveQueryClusterComponentVersion]{
-		OutputState: i.ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -10558,12 +9273,6 @@ func (o InteractiveQueryClusterComponentVersionOutput) ToInteractiveQueryCluster
 	}).(InteractiveQueryClusterComponentVersionPtrOutput)
 }
 
-func (o InteractiveQueryClusterComponentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterComponentVersion] {
-	return pulumix.Output[InteractiveQueryClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterComponentVersionOutput) InteractiveHive() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterComponentVersion) string { return v.InteractiveHive }).(pulumi.StringOutput)
@@ -10581,12 +9290,6 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) ToInteractiveQueryClus
 
 func (o InteractiveQueryClusterComponentVersionPtrOutput) ToInteractiveQueryClusterComponentVersionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComponentVersionPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterComponentVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterComponentVersion] {
-	return pulumix.Output[*InteractiveQueryClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterComponentVersionPtrOutput) Elem() InteractiveQueryClusterComponentVersionOutput {
@@ -10646,12 +9349,6 @@ func (i InteractiveQueryClusterComputeIsolationArgs) ToInteractiveQueryClusterCo
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComputeIsolationOutput)
 }
 
-func (i InteractiveQueryClusterComputeIsolationArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterComputeIsolation] {
-	return pulumix.Output[InteractiveQueryClusterComputeIsolation]{
-		OutputState: i.ToInteractiveQueryClusterComputeIsolationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterComputeIsolationArgs) ToInteractiveQueryClusterComputeIsolationPtrOutput() InteractiveQueryClusterComputeIsolationPtrOutput {
 	return i.ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(context.Background())
 }
@@ -10693,12 +9390,6 @@ func (i *interactiveQueryClusterComputeIsolationPtrType) ToInteractiveQueryClust
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterComputeIsolationPtrOutput)
 }
 
-func (i *interactiveQueryClusterComputeIsolationPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterComputeIsolation] {
-	return pulumix.Output[*InteractiveQueryClusterComputeIsolation]{
-		OutputState: i.ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterComputeIsolationOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterComputeIsolationOutput) ElementType() reflect.Type {
@@ -10723,12 +9414,6 @@ func (o InteractiveQueryClusterComputeIsolationOutput) ToInteractiveQueryCluster
 	}).(InteractiveQueryClusterComputeIsolationPtrOutput)
 }
 
-func (o InteractiveQueryClusterComputeIsolationOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterComputeIsolation] {
-	return pulumix.Output[InteractiveQueryClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o InteractiveQueryClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
@@ -10751,12 +9436,6 @@ func (o InteractiveQueryClusterComputeIsolationPtrOutput) ToInteractiveQueryClus
 
 func (o InteractiveQueryClusterComputeIsolationPtrOutput) ToInteractiveQueryClusterComputeIsolationPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterComputeIsolationPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterComputeIsolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterComputeIsolation] {
-	return pulumix.Output[*InteractiveQueryClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterComputeIsolationPtrOutput) Elem() InteractiveQueryClusterComputeIsolationOutput {
@@ -10834,12 +9513,6 @@ func (i InteractiveQueryClusterDiskEncryptionArgs) ToInteractiveQueryClusterDisk
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterDiskEncryptionOutput)
 }
 
-func (i InteractiveQueryClusterDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterDiskEncryption] {
-	return pulumix.Output[InteractiveQueryClusterDiskEncryption]{
-		OutputState: i.ToInteractiveQueryClusterDiskEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterDiskEncryptionArrayInput is an input type that accepts InteractiveQueryClusterDiskEncryptionArray and InteractiveQueryClusterDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterDiskEncryptionArrayInput` via:
 //
@@ -10865,12 +9538,6 @@ func (i InteractiveQueryClusterDiskEncryptionArray) ToInteractiveQueryClusterDis
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterDiskEncryptionArrayOutput)
 }
 
-func (i InteractiveQueryClusterDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterDiskEncryption] {
-	return pulumix.Output[[]InteractiveQueryClusterDiskEncryption]{
-		OutputState: i.ToInteractiveQueryClusterDiskEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterDiskEncryptionOutput) ElementType() reflect.Type {
@@ -10883,12 +9550,6 @@ func (o InteractiveQueryClusterDiskEncryptionOutput) ToInteractiveQueryClusterDi
 
 func (o InteractiveQueryClusterDiskEncryptionOutput) ToInteractiveQueryClusterDiskEncryptionOutputWithContext(ctx context.Context) InteractiveQueryClusterDiskEncryptionOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterDiskEncryption] {
-	return pulumix.Output[InteractiveQueryClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -10923,12 +9584,6 @@ func (o InteractiveQueryClusterDiskEncryptionArrayOutput) ToInteractiveQueryClus
 
 func (o InteractiveQueryClusterDiskEncryptionArrayOutput) ToInteractiveQueryClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterDiskEncryptionArrayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterDiskEncryption] {
-	return pulumix.Output[[]InteractiveQueryClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterDiskEncryptionOutput {
@@ -10974,12 +9629,6 @@ func (i InteractiveQueryClusterExtensionArgs) ToInteractiveQueryClusterExtension
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterExtensionOutput)
 }
 
-func (i InteractiveQueryClusterExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterExtension] {
-	return pulumix.Output[InteractiveQueryClusterExtension]{
-		OutputState: i.ToInteractiveQueryClusterExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterExtensionArgs) ToInteractiveQueryClusterExtensionPtrOutput() InteractiveQueryClusterExtensionPtrOutput {
 	return i.ToInteractiveQueryClusterExtensionPtrOutputWithContext(context.Background())
 }
@@ -11021,12 +9670,6 @@ func (i *interactiveQueryClusterExtensionPtrType) ToInteractiveQueryClusterExten
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterExtensionPtrOutput)
 }
 
-func (i *interactiveQueryClusterExtensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterExtension] {
-	return pulumix.Output[*InteractiveQueryClusterExtension]{
-		OutputState: i.ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterExtensionOutput) ElementType() reflect.Type {
@@ -11051,12 +9694,6 @@ func (o InteractiveQueryClusterExtensionOutput) ToInteractiveQueryClusterExtensi
 	}).(InteractiveQueryClusterExtensionPtrOutput)
 }
 
-func (o InteractiveQueryClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterExtension] {
-	return pulumix.Output[InteractiveQueryClusterExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The workspace ID of the log analytics extension.
 func (o InteractiveQueryClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -11079,12 +9716,6 @@ func (o InteractiveQueryClusterExtensionPtrOutput) ToInteractiveQueryClusterExte
 
 func (o InteractiveQueryClusterExtensionPtrOutput) ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterExtensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterExtension] {
-	return pulumix.Output[*InteractiveQueryClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterExtensionPtrOutput) Elem() InteractiveQueryClusterExtensionOutput {
@@ -11158,12 +9789,6 @@ func (i InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterGatewayOutput)
 }
 
-func (i InteractiveQueryClusterGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterGateway] {
-	return pulumix.Output[InteractiveQueryClusterGateway]{
-		OutputState: i.ToInteractiveQueryClusterGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterGatewayArgs) ToInteractiveQueryClusterGatewayPtrOutput() InteractiveQueryClusterGatewayPtrOutput {
 	return i.ToInteractiveQueryClusterGatewayPtrOutputWithContext(context.Background())
 }
@@ -11205,12 +9830,6 @@ func (i *interactiveQueryClusterGatewayPtrType) ToInteractiveQueryClusterGateway
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterGatewayPtrOutput)
 }
 
-func (i *interactiveQueryClusterGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterGateway] {
-	return pulumix.Output[*InteractiveQueryClusterGateway]{
-		OutputState: i.ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterGatewayOutput) ElementType() reflect.Type {
@@ -11233,12 +9852,6 @@ func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterGateway) *InteractiveQueryClusterGateway {
 		return &v
 	}).(InteractiveQueryClusterGatewayPtrOutput)
-}
-
-func (o InteractiveQueryClusterGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterGateway] {
-	return pulumix.Output[InteractiveQueryClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password used for the Ambari Portal.
@@ -11265,12 +9878,6 @@ func (o InteractiveQueryClusterGatewayPtrOutput) ToInteractiveQueryClusterGatewa
 
 func (o InteractiveQueryClusterGatewayPtrOutput) ToInteractiveQueryClusterGatewayPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterGatewayPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterGateway] {
-	return pulumix.Output[*InteractiveQueryClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterGatewayPtrOutput) Elem() InteractiveQueryClusterGatewayOutput {
@@ -11346,12 +9953,6 @@ func (i InteractiveQueryClusterMetastoresArgs) ToInteractiveQueryClusterMetastor
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresOutput)
 }
 
-func (i InteractiveQueryClusterMetastoresArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastores] {
-	return pulumix.Output[InteractiveQueryClusterMetastores]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterMetastoresArgs) ToInteractiveQueryClusterMetastoresPtrOutput() InteractiveQueryClusterMetastoresPtrOutput {
 	return i.ToInteractiveQueryClusterMetastoresPtrOutputWithContext(context.Background())
 }
@@ -11393,12 +9994,6 @@ func (i *interactiveQueryClusterMetastoresPtrType) ToInteractiveQueryClusterMeta
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresPtrOutput)
 }
 
-func (i *interactiveQueryClusterMetastoresPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastores] {
-	return pulumix.Output[*InteractiveQueryClusterMetastores]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterMetastoresOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterMetastoresOutput) ElementType() reflect.Type {
@@ -11421,12 +10016,6 @@ func (o InteractiveQueryClusterMetastoresOutput) ToInteractiveQueryClusterMetast
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastores) *InteractiveQueryClusterMetastores {
 		return &v
 	}).(InteractiveQueryClusterMetastoresPtrOutput)
-}
-
-func (o InteractiveQueryClusterMetastoresOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastores] {
-	return pulumix.Output[InteractiveQueryClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `ambari` block as defined below.
@@ -11456,12 +10045,6 @@ func (o InteractiveQueryClusterMetastoresPtrOutput) ToInteractiveQueryClusterMet
 
 func (o InteractiveQueryClusterMetastoresPtrOutput) ToInteractiveQueryClusterMetastoresPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterMetastoresPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastores] {
-	return pulumix.Output[*InteractiveQueryClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterMetastoresPtrOutput) Elem() InteractiveQueryClusterMetastoresOutput {
@@ -11549,12 +10132,6 @@ func (i InteractiveQueryClusterMetastoresAmbariArgs) ToInteractiveQueryClusterMe
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresAmbariOutput)
 }
 
-func (i InteractiveQueryClusterMetastoresAmbariArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastoresAmbari] {
-	return pulumix.Output[InteractiveQueryClusterMetastoresAmbari]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresAmbariOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterMetastoresAmbariArgs) ToInteractiveQueryClusterMetastoresAmbariPtrOutput() InteractiveQueryClusterMetastoresAmbariPtrOutput {
 	return i.ToInteractiveQueryClusterMetastoresAmbariPtrOutputWithContext(context.Background())
 }
@@ -11596,12 +10173,6 @@ func (i *interactiveQueryClusterMetastoresAmbariPtrType) ToInteractiveQueryClust
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresAmbariPtrOutput)
 }
 
-func (i *interactiveQueryClusterMetastoresAmbariPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastoresAmbari] {
-	return pulumix.Output[*InteractiveQueryClusterMetastoresAmbari]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresAmbariPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterMetastoresAmbariOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterMetastoresAmbariOutput) ElementType() reflect.Type {
@@ -11624,12 +10195,6 @@ func (o InteractiveQueryClusterMetastoresAmbariOutput) ToInteractiveQueryCluster
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastoresAmbari) *InteractiveQueryClusterMetastoresAmbari {
 		return &v
 	}).(InteractiveQueryClusterMetastoresAmbariPtrOutput)
-}
-
-func (o InteractiveQueryClusterMetastoresAmbariOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastoresAmbari] {
-	return pulumix.Output[InteractiveQueryClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -11664,12 +10229,6 @@ func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) ToInteractiveQueryClus
 
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) ToInteractiveQueryClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresAmbariPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastoresAmbari] {
-	return pulumix.Output[*InteractiveQueryClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterMetastoresAmbariPtrOutput) Elem() InteractiveQueryClusterMetastoresAmbariOutput {
@@ -11767,12 +10326,6 @@ func (i InteractiveQueryClusterMetastoresHiveArgs) ToInteractiveQueryClusterMeta
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresHiveOutput)
 }
 
-func (i InteractiveQueryClusterMetastoresHiveArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastoresHive] {
-	return pulumix.Output[InteractiveQueryClusterMetastoresHive]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresHiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterMetastoresHiveArgs) ToInteractiveQueryClusterMetastoresHivePtrOutput() InteractiveQueryClusterMetastoresHivePtrOutput {
 	return i.ToInteractiveQueryClusterMetastoresHivePtrOutputWithContext(context.Background())
 }
@@ -11814,12 +10367,6 @@ func (i *interactiveQueryClusterMetastoresHivePtrType) ToInteractiveQueryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresHivePtrOutput)
 }
 
-func (i *interactiveQueryClusterMetastoresHivePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastoresHive] {
-	return pulumix.Output[*InteractiveQueryClusterMetastoresHive]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresHivePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterMetastoresHiveOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterMetastoresHiveOutput) ElementType() reflect.Type {
@@ -11842,12 +10389,6 @@ func (o InteractiveQueryClusterMetastoresHiveOutput) ToInteractiveQueryClusterMe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastoresHive) *InteractiveQueryClusterMetastoresHive {
 		return &v
 	}).(InteractiveQueryClusterMetastoresHivePtrOutput)
-}
-
-func (o InteractiveQueryClusterMetastoresHiveOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastoresHive] {
-	return pulumix.Output[InteractiveQueryClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -11882,12 +10423,6 @@ func (o InteractiveQueryClusterMetastoresHivePtrOutput) ToInteractiveQueryCluste
 
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) ToInteractiveQueryClusterMetastoresHivePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresHivePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterMetastoresHivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastoresHive] {
-	return pulumix.Output[*InteractiveQueryClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterMetastoresHivePtrOutput) Elem() InteractiveQueryClusterMetastoresHiveOutput {
@@ -11985,12 +10520,6 @@ func (i InteractiveQueryClusterMetastoresOozieArgs) ToInteractiveQueryClusterMet
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresOozieOutput)
 }
 
-func (i InteractiveQueryClusterMetastoresOozieArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastoresOozie] {
-	return pulumix.Output[InteractiveQueryClusterMetastoresOozie]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresOozieOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterMetastoresOozieArgs) ToInteractiveQueryClusterMetastoresOoziePtrOutput() InteractiveQueryClusterMetastoresOoziePtrOutput {
 	return i.ToInteractiveQueryClusterMetastoresOoziePtrOutputWithContext(context.Background())
 }
@@ -12032,12 +10561,6 @@ func (i *interactiveQueryClusterMetastoresOoziePtrType) ToInteractiveQueryCluste
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMetastoresOoziePtrOutput)
 }
 
-func (i *interactiveQueryClusterMetastoresOoziePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastoresOozie] {
-	return pulumix.Output[*InteractiveQueryClusterMetastoresOozie]{
-		OutputState: i.ToInteractiveQueryClusterMetastoresOoziePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterMetastoresOozieOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterMetastoresOozieOutput) ElementType() reflect.Type {
@@ -12060,12 +10583,6 @@ func (o InteractiveQueryClusterMetastoresOozieOutput) ToInteractiveQueryClusterM
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterMetastoresOozie) *InteractiveQueryClusterMetastoresOozie {
 		return &v
 	}).(InteractiveQueryClusterMetastoresOoziePtrOutput)
-}
-
-func (o InteractiveQueryClusterMetastoresOozieOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMetastoresOozie] {
-	return pulumix.Output[InteractiveQueryClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -12100,12 +10617,6 @@ func (o InteractiveQueryClusterMetastoresOoziePtrOutput) ToInteractiveQueryClust
 
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) ToInteractiveQueryClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMetastoresOoziePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterMetastoresOoziePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMetastoresOozie] {
-	return pulumix.Output[*InteractiveQueryClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterMetastoresOoziePtrOutput) Elem() InteractiveQueryClusterMetastoresOozieOutput {
@@ -12195,12 +10706,6 @@ func (i InteractiveQueryClusterMonitorArgs) ToInteractiveQueryClusterMonitorOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMonitorOutput)
 }
 
-func (i InteractiveQueryClusterMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMonitor] {
-	return pulumix.Output[InteractiveQueryClusterMonitor]{
-		OutputState: i.ToInteractiveQueryClusterMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterMonitorArgs) ToInteractiveQueryClusterMonitorPtrOutput() InteractiveQueryClusterMonitorPtrOutput {
 	return i.ToInteractiveQueryClusterMonitorPtrOutputWithContext(context.Background())
 }
@@ -12242,12 +10747,6 @@ func (i *interactiveQueryClusterMonitorPtrType) ToInteractiveQueryClusterMonitor
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMonitorPtrOutput)
 }
 
-func (i *interactiveQueryClusterMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMonitor] {
-	return pulumix.Output[*InteractiveQueryClusterMonitor]{
-		OutputState: i.ToInteractiveQueryClusterMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterMonitorOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterMonitorOutput) ElementType() reflect.Type {
@@ -12272,12 +10771,6 @@ func (o InteractiveQueryClusterMonitorOutput) ToInteractiveQueryClusterMonitorPt
 	}).(InteractiveQueryClusterMonitorPtrOutput)
 }
 
-func (o InteractiveQueryClusterMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterMonitor] {
-	return pulumix.Output[InteractiveQueryClusterMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Operations Management Suite (OMS) workspace ID.
 func (o InteractiveQueryClusterMonitorOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterMonitor) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -12300,12 +10793,6 @@ func (o InteractiveQueryClusterMonitorPtrOutput) ToInteractiveQueryClusterMonito
 
 func (o InteractiveQueryClusterMonitorPtrOutput) ToInteractiveQueryClusterMonitorPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterMonitorPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterMonitor] {
-	return pulumix.Output[*InteractiveQueryClusterMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterMonitorPtrOutput) Elem() InteractiveQueryClusterMonitorOutput {
@@ -12379,12 +10866,6 @@ func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterNetworkOutput)
 }
 
-func (i InteractiveQueryClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterNetwork] {
-	return pulumix.Output[InteractiveQueryClusterNetwork]{
-		OutputState: i.ToInteractiveQueryClusterNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterNetworkArgs) ToInteractiveQueryClusterNetworkPtrOutput() InteractiveQueryClusterNetworkPtrOutput {
 	return i.ToInteractiveQueryClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -12426,12 +10907,6 @@ func (i *interactiveQueryClusterNetworkPtrType) ToInteractiveQueryClusterNetwork
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterNetworkPtrOutput)
 }
 
-func (i *interactiveQueryClusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterNetwork] {
-	return pulumix.Output[*InteractiveQueryClusterNetwork]{
-		OutputState: i.ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterNetworkOutput) ElementType() reflect.Type {
@@ -12454,12 +10929,6 @@ func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterNetwork) *InteractiveQueryClusterNetwork {
 		return &v
 	}).(InteractiveQueryClusterNetworkPtrOutput)
-}
-
-func (o InteractiveQueryClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterNetwork] {
-	return pulumix.Output[InteractiveQueryClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -12486,12 +10955,6 @@ func (o InteractiveQueryClusterNetworkPtrOutput) ToInteractiveQueryClusterNetwor
 
 func (o InteractiveQueryClusterNetworkPtrOutput) ToInteractiveQueryClusterNetworkPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterNetworkPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterNetwork] {
-	return pulumix.Output[*InteractiveQueryClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterNetworkPtrOutput) Elem() InteractiveQueryClusterNetworkOutput {
@@ -12567,12 +11030,6 @@ func (i InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesOutput)
 }
 
-func (i InteractiveQueryClusterRolesArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRoles] {
-	return pulumix.Output[InteractiveQueryClusterRoles]{
-		OutputState: i.ToInteractiveQueryClusterRolesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesArgs) ToInteractiveQueryClusterRolesPtrOutput() InteractiveQueryClusterRolesPtrOutput {
 	return i.ToInteractiveQueryClusterRolesPtrOutputWithContext(context.Background())
 }
@@ -12614,12 +11071,6 @@ func (i *interactiveQueryClusterRolesPtrType) ToInteractiveQueryClusterRolesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesPtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRoles] {
-	return pulumix.Output[*InteractiveQueryClusterRoles]{
-		OutputState: i.ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesOutput) ElementType() reflect.Type {
@@ -12642,12 +11093,6 @@ func (o InteractiveQueryClusterRolesOutput) ToInteractiveQueryClusterRolesPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRoles) *InteractiveQueryClusterRoles {
 		return &v
 	}).(InteractiveQueryClusterRolesPtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRoles] {
-	return pulumix.Output[InteractiveQueryClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `headNode` block as defined above.
@@ -12677,12 +11122,6 @@ func (o InteractiveQueryClusterRolesPtrOutput) ToInteractiveQueryClusterRolesPtr
 
 func (o InteractiveQueryClusterRolesPtrOutput) ToInteractiveQueryClusterRolesPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRoles] {
-	return pulumix.Output[*InteractiveQueryClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesPtrOutput) Elem() InteractiveQueryClusterRolesOutput {
@@ -12794,12 +11233,6 @@ func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRoles
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeOutput)
 }
 
-func (i InteractiveQueryClusterRolesHeadNodeArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesHeadNode] {
-	return pulumix.Output[InteractiveQueryClusterRolesHeadNode]{
-		OutputState: i.ToInteractiveQueryClusterRolesHeadNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesHeadNodeArgs) ToInteractiveQueryClusterRolesHeadNodePtrOutput() InteractiveQueryClusterRolesHeadNodePtrOutput {
 	return i.ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(context.Background())
 }
@@ -12841,12 +11274,6 @@ func (i *interactiveQueryClusterRolesHeadNodePtrType) ToInteractiveQueryClusterR
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodePtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesHeadNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesHeadNode] {
-	return pulumix.Output[*InteractiveQueryClusterRolesHeadNode]{
-		OutputState: i.ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -12869,12 +11296,6 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRol
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesHeadNode) *InteractiveQueryClusterRolesHeadNode {
 		return &v
 	}).(InteractiveQueryClusterRolesHeadNodePtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesHeadNodeOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesHeadNode] {
-	return pulumix.Output[InteractiveQueryClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -12932,12 +11353,6 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ToInteractiveQueryCluster
 
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ToInteractiveQueryClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesHeadNode] {
-	return pulumix.Output[*InteractiveQueryClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Elem() InteractiveQueryClusterRolesHeadNodeOutput {
@@ -13067,12 +11482,6 @@ func (i InteractiveQueryClusterRolesHeadNodeScriptActionArgs) ToInteractiveQuery
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeScriptActionOutput)
 }
 
-func (i InteractiveQueryClusterRolesHeadNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[InteractiveQueryClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToInteractiveQueryClusterRolesHeadNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts InteractiveQueryClusterRolesHeadNodeScriptActionArray and InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput` via:
 //
@@ -13098,12 +11507,6 @@ func (i InteractiveQueryClusterRolesHeadNodeScriptActionArray) ToInteractiveQuer
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput)
 }
 
-func (i InteractiveQueryClusterRolesHeadNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
@@ -13116,12 +11519,6 @@ func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ToInteractiveQue
 
 func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ToInteractiveQueryClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesHeadNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[InteractiveQueryClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -13151,12 +11548,6 @@ func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) ToInteracti
 
 func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesHeadNodeScriptActionOutput {
@@ -13242,12 +11633,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRol
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNode] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNode]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesWorkerNodeArgs) ToInteractiveQueryClusterRolesWorkerNodePtrOutput() InteractiveQueryClusterRolesWorkerNodePtrOutput {
 	return i.ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(context.Background())
 }
@@ -13289,12 +11674,6 @@ func (i *interactiveQueryClusterRolesWorkerNodePtrType) ToInteractiveQueryCluste
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesWorkerNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNode] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNode]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -13317,12 +11696,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToInteractiveQueryClusterR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNode) *InteractiveQueryClusterRolesWorkerNode {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodePtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNode] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `autoscale` block as defined below.
@@ -13392,12 +11765,6 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToInteractiveQueryClust
 
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToInteractiveQueryClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNode] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeOutput {
@@ -13543,12 +11910,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryC
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
 	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
 }
@@ -13590,12 +11951,6 @@ func (i *interactiveQueryClusterRolesWorkerNodeAutoscalePtrType) ToInteractiveQu
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesWorkerNodeAutoscalePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
@@ -13618,12 +11973,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToInteractiveQuer
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNodeAutoscale) *InteractiveQueryClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Deprecated: HDInsight interactive query clusters can no longer be configured through `autoscale.0.capacity`. Use `autoscale.0.recurrence` instead.
@@ -13652,12 +12001,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ToInteractiveQ
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscalePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleOutput {
@@ -13723,12 +12066,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteracti
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
 }
@@ -13770,12 +12107,6 @@ func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToInter
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
@@ -13800,12 +12131,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToInterac
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
 }
@@ -13826,12 +12151,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInte
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityOutput {
@@ -13899,12 +12218,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInterac
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
 }
@@ -13946,12 +12259,6 @@ func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToInt
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
@@ -13974,12 +12281,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToInter
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence) *InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `schedule` blocks as defined below.
@@ -14006,12 +12307,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToIn
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
@@ -14085,12 +12380,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
@@ -14116,12 +12405,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -14134,12 +12417,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -14171,12 +12448,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOu
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToInteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
@@ -14226,12 +12497,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArgs) ToInteractiveQue
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeScriptActionOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts InteractiveQueryClusterRolesWorkerNodeScriptActionArray and InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput` via:
 //
@@ -14257,12 +12522,6 @@ func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArray) ToInteractiveQu
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
-func (i InteractiveQueryClusterRolesWorkerNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
@@ -14275,12 +12534,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ToInteractiveQ
 
 func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ToInteractiveQueryClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[InteractiveQueryClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -14310,12 +12563,6 @@ func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) ToInterac
 
 func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesWorkerNodeScriptActionOutput {
@@ -14389,12 +12636,6 @@ func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeOutput)
 }
 
-func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesZookeeperNode] {
-	return pulumix.Output[InteractiveQueryClusterRolesZookeeperNode]{
-		OutputState: i.ToInteractiveQueryClusterRolesZookeeperNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterRolesZookeeperNodeArgs) ToInteractiveQueryClusterRolesZookeeperNodePtrOutput() InteractiveQueryClusterRolesZookeeperNodePtrOutput {
 	return i.ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
 }
@@ -14436,12 +12677,6 @@ func (i *interactiveQueryClusterRolesZookeeperNodePtrType) ToInteractiveQueryClu
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodePtrOutput)
 }
 
-func (i *interactiveQueryClusterRolesZookeeperNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesZookeeperNode] {
-	return pulumix.Output[*InteractiveQueryClusterRolesZookeeperNode]{
-		OutputState: i.ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -14464,12 +12699,6 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClust
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterRolesZookeeperNode) *InteractiveQueryClusterRolesZookeeperNode {
 		return &v
 	}).(InteractiveQueryClusterRolesZookeeperNodePtrOutput)
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesZookeeperNode] {
-	return pulumix.Output[InteractiveQueryClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -14525,12 +12754,6 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ToInteractiveQueryCl
 
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ToInteractiveQueryClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterRolesZookeeperNode] {
-	return pulumix.Output[*InteractiveQueryClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Elem() InteractiveQueryClusterRolesZookeeperNodeOutput {
@@ -14658,12 +12881,6 @@ func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs) ToInteractive
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput)
 }
 
-func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[InteractiveQueryClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts InteractiveQueryClusterRolesZookeeperNodeScriptActionArray and InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput` via:
 //
@@ -14689,12 +12906,6 @@ func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArray) ToInteractiv
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput)
 }
 
-func (i InteractiveQueryClusterRolesZookeeperNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
@@ -14707,12 +12918,6 @@ func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ToInteracti
 
 func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[InteractiveQueryClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -14742,12 +12947,6 @@ func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) ToInte
 
 func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) ToInteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]InteractiveQueryClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterRolesZookeeperNodeScriptActionOutput {
@@ -14813,12 +13012,6 @@ func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSec
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterSecurityProfileOutput)
 }
 
-func (i InteractiveQueryClusterSecurityProfileArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterSecurityProfile] {
-	return pulumix.Output[InteractiveQueryClusterSecurityProfile]{
-		OutputState: i.ToInteractiveQueryClusterSecurityProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterSecurityProfileArgs) ToInteractiveQueryClusterSecurityProfilePtrOutput() InteractiveQueryClusterSecurityProfilePtrOutput {
 	return i.ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(context.Background())
 }
@@ -14860,12 +13053,6 @@ func (i *interactiveQueryClusterSecurityProfilePtrType) ToInteractiveQueryCluste
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterSecurityProfilePtrOutput)
 }
 
-func (i *interactiveQueryClusterSecurityProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterSecurityProfile] {
-	return pulumix.Output[*InteractiveQueryClusterSecurityProfile]{
-		OutputState: i.ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterSecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterSecurityProfileOutput) ElementType() reflect.Type {
@@ -14888,12 +13075,6 @@ func (o InteractiveQueryClusterSecurityProfileOutput) ToInteractiveQueryClusterS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterSecurityProfile) *InteractiveQueryClusterSecurityProfile {
 		return &v
 	}).(InteractiveQueryClusterSecurityProfilePtrOutput)
-}
-
-func (o InteractiveQueryClusterSecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterSecurityProfile] {
-	return pulumix.Output[InteractiveQueryClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -14943,12 +13124,6 @@ func (o InteractiveQueryClusterSecurityProfilePtrOutput) ToInteractiveQueryClust
 
 func (o InteractiveQueryClusterSecurityProfilePtrOutput) ToInteractiveQueryClusterSecurityProfilePtrOutputWithContext(ctx context.Context) InteractiveQueryClusterSecurityProfilePtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterSecurityProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterSecurityProfile] {
-	return pulumix.Output[*InteractiveQueryClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterSecurityProfilePtrOutput) Elem() InteractiveQueryClusterSecurityProfileOutput {
@@ -15084,12 +13259,6 @@ func (i InteractiveQueryClusterStorageAccountArgs) ToInteractiveQueryClusterStor
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterStorageAccountOutput)
 }
 
-func (i InteractiveQueryClusterStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterStorageAccount] {
-	return pulumix.Output[InteractiveQueryClusterStorageAccount]{
-		OutputState: i.ToInteractiveQueryClusterStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterStorageAccountArrayInput is an input type that accepts InteractiveQueryClusterStorageAccountArray and InteractiveQueryClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterStorageAccountArrayInput` via:
 //
@@ -15115,12 +13284,6 @@ func (i InteractiveQueryClusterStorageAccountArray) ToInteractiveQueryClusterSto
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterStorageAccountArrayOutput)
 }
 
-func (i InteractiveQueryClusterStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterStorageAccount] {
-	return pulumix.Output[[]InteractiveQueryClusterStorageAccount]{
-		OutputState: i.ToInteractiveQueryClusterStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterStorageAccountOutput) ElementType() reflect.Type {
@@ -15133,12 +13296,6 @@ func (o InteractiveQueryClusterStorageAccountOutput) ToInteractiveQueryClusterSt
 
 func (o InteractiveQueryClusterStorageAccountOutput) ToInteractiveQueryClusterStorageAccountOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterStorageAccount] {
-	return pulumix.Output[InteractiveQueryClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -15177,12 +13334,6 @@ func (o InteractiveQueryClusterStorageAccountArrayOutput) ToInteractiveQueryClus
 
 func (o InteractiveQueryClusterStorageAccountArrayOutput) ToInteractiveQueryClusterStorageAccountArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountArrayOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InteractiveQueryClusterStorageAccount] {
-	return pulumix.Output[[]InteractiveQueryClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterStorageAccountOutput {
@@ -15244,12 +13395,6 @@ func (i InteractiveQueryClusterStorageAccountGen2Args) ToInteractiveQueryCluster
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterStorageAccountGen2Output)
 }
 
-func (i InteractiveQueryClusterStorageAccountGen2Args) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterStorageAccountGen2] {
-	return pulumix.Output[InteractiveQueryClusterStorageAccountGen2]{
-		OutputState: i.ToInteractiveQueryClusterStorageAccountGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InteractiveQueryClusterStorageAccountGen2Args) ToInteractiveQueryClusterStorageAccountGen2PtrOutput() InteractiveQueryClusterStorageAccountGen2PtrOutput {
 	return i.ToInteractiveQueryClusterStorageAccountGen2PtrOutputWithContext(context.Background())
 }
@@ -15291,12 +13436,6 @@ func (i *interactiveQueryClusterStorageAccountGen2PtrType) ToInteractiveQueryClu
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterStorageAccountGen2PtrOutput)
 }
 
-func (i *interactiveQueryClusterStorageAccountGen2PtrType) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterStorageAccountGen2] {
-	return pulumix.Output[*InteractiveQueryClusterStorageAccountGen2]{
-		OutputState: i.ToInteractiveQueryClusterStorageAccountGen2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterStorageAccountGen2Output) ElementType() reflect.Type {
@@ -15319,12 +13458,6 @@ func (o InteractiveQueryClusterStorageAccountGen2Output) ToInteractiveQueryClust
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterStorageAccountGen2) *InteractiveQueryClusterStorageAccountGen2 {
 		return &v
 	}).(InteractiveQueryClusterStorageAccountGen2PtrOutput)
-}
-
-func (o InteractiveQueryClusterStorageAccountGen2Output) ToOutput(ctx context.Context) pulumix.Output[InteractiveQueryClusterStorageAccountGen2] {
-	return pulumix.Output[InteractiveQueryClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -15363,12 +13496,6 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ToInteractiveQueryCl
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ToInteractiveQueryClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) InteractiveQueryClusterStorageAccountGen2PtrOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryClusterStorageAccountGen2] {
-	return pulumix.Output[*InteractiveQueryClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) Elem() InteractiveQueryClusterStorageAccountGen2Output {
@@ -15458,12 +13585,6 @@ func (i KafkaClusterComponentVersionArgs) ToKafkaClusterComponentVersionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComponentVersionOutput)
 }
 
-func (i KafkaClusterComponentVersionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterComponentVersion] {
-	return pulumix.Output[KafkaClusterComponentVersion]{
-		OutputState: i.ToKafkaClusterComponentVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterComponentVersionArgs) ToKafkaClusterComponentVersionPtrOutput() KafkaClusterComponentVersionPtrOutput {
 	return i.ToKafkaClusterComponentVersionPtrOutputWithContext(context.Background())
 }
@@ -15505,12 +13626,6 @@ func (i *kafkaClusterComponentVersionPtrType) ToKafkaClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComponentVersionPtrOutput)
 }
 
-func (i *kafkaClusterComponentVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterComponentVersion] {
-	return pulumix.Output[*KafkaClusterComponentVersion]{
-		OutputState: i.ToKafkaClusterComponentVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -15535,12 +13650,6 @@ func (o KafkaClusterComponentVersionOutput) ToKafkaClusterComponentVersionPtrOut
 	}).(KafkaClusterComponentVersionPtrOutput)
 }
 
-func (o KafkaClusterComponentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterComponentVersion] {
-	return pulumix.Output[KafkaClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 func (o KafkaClusterComponentVersionOutput) Kafka() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterComponentVersion) string { return v.Kafka }).(pulumi.StringOutput)
@@ -15558,12 +13667,6 @@ func (o KafkaClusterComponentVersionPtrOutput) ToKafkaClusterComponentVersionPtr
 
 func (o KafkaClusterComponentVersionPtrOutput) ToKafkaClusterComponentVersionPtrOutputWithContext(ctx context.Context) KafkaClusterComponentVersionPtrOutput {
 	return o
-}
-
-func (o KafkaClusterComponentVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterComponentVersion] {
-	return pulumix.Output[*KafkaClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterComponentVersionPtrOutput) Elem() KafkaClusterComponentVersionOutput {
@@ -15623,12 +13726,6 @@ func (i KafkaClusterComputeIsolationArgs) ToKafkaClusterComputeIsolationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComputeIsolationOutput)
 }
 
-func (i KafkaClusterComputeIsolationArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterComputeIsolation] {
-	return pulumix.Output[KafkaClusterComputeIsolation]{
-		OutputState: i.ToKafkaClusterComputeIsolationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterComputeIsolationArgs) ToKafkaClusterComputeIsolationPtrOutput() KafkaClusterComputeIsolationPtrOutput {
 	return i.ToKafkaClusterComputeIsolationPtrOutputWithContext(context.Background())
 }
@@ -15670,12 +13767,6 @@ func (i *kafkaClusterComputeIsolationPtrType) ToKafkaClusterComputeIsolationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterComputeIsolationPtrOutput)
 }
 
-func (i *kafkaClusterComputeIsolationPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterComputeIsolation] {
-	return pulumix.Output[*KafkaClusterComputeIsolation]{
-		OutputState: i.ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterComputeIsolationOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterComputeIsolationOutput) ElementType() reflect.Type {
@@ -15700,12 +13791,6 @@ func (o KafkaClusterComputeIsolationOutput) ToKafkaClusterComputeIsolationPtrOut
 	}).(KafkaClusterComputeIsolationPtrOutput)
 }
 
-func (o KafkaClusterComputeIsolationOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterComputeIsolation] {
-	return pulumix.Output[KafkaClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o KafkaClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KafkaClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
@@ -15728,12 +13813,6 @@ func (o KafkaClusterComputeIsolationPtrOutput) ToKafkaClusterComputeIsolationPtr
 
 func (o KafkaClusterComputeIsolationPtrOutput) ToKafkaClusterComputeIsolationPtrOutputWithContext(ctx context.Context) KafkaClusterComputeIsolationPtrOutput {
 	return o
-}
-
-func (o KafkaClusterComputeIsolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterComputeIsolation] {
-	return pulumix.Output[*KafkaClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterComputeIsolationPtrOutput) Elem() KafkaClusterComputeIsolationOutput {
@@ -15811,12 +13890,6 @@ func (i KafkaClusterDiskEncryptionArgs) ToKafkaClusterDiskEncryptionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterDiskEncryptionOutput)
 }
 
-func (i KafkaClusterDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterDiskEncryption] {
-	return pulumix.Output[KafkaClusterDiskEncryption]{
-		OutputState: i.ToKafkaClusterDiskEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClusterDiskEncryptionArrayInput is an input type that accepts KafkaClusterDiskEncryptionArray and KafkaClusterDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterDiskEncryptionArrayInput` via:
 //
@@ -15842,12 +13915,6 @@ func (i KafkaClusterDiskEncryptionArray) ToKafkaClusterDiskEncryptionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterDiskEncryptionArrayOutput)
 }
 
-func (i KafkaClusterDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterDiskEncryption] {
-	return pulumix.Output[[]KafkaClusterDiskEncryption]{
-		OutputState: i.ToKafkaClusterDiskEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterDiskEncryptionOutput) ElementType() reflect.Type {
@@ -15860,12 +13927,6 @@ func (o KafkaClusterDiskEncryptionOutput) ToKafkaClusterDiskEncryptionOutput() K
 
 func (o KafkaClusterDiskEncryptionOutput) ToKafkaClusterDiskEncryptionOutputWithContext(ctx context.Context) KafkaClusterDiskEncryptionOutput {
 	return o
-}
-
-func (o KafkaClusterDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterDiskEncryption] {
-	return pulumix.Output[KafkaClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -15900,12 +13961,6 @@ func (o KafkaClusterDiskEncryptionArrayOutput) ToKafkaClusterDiskEncryptionArray
 
 func (o KafkaClusterDiskEncryptionArrayOutput) ToKafkaClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) KafkaClusterDiskEncryptionArrayOutput {
 	return o
-}
-
-func (o KafkaClusterDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterDiskEncryption] {
-	return pulumix.Output[[]KafkaClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) KafkaClusterDiskEncryptionOutput {
@@ -15951,12 +14006,6 @@ func (i KafkaClusterExtensionArgs) ToKafkaClusterExtensionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterExtensionOutput)
 }
 
-func (i KafkaClusterExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterExtension] {
-	return pulumix.Output[KafkaClusterExtension]{
-		OutputState: i.ToKafkaClusterExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterExtensionArgs) ToKafkaClusterExtensionPtrOutput() KafkaClusterExtensionPtrOutput {
 	return i.ToKafkaClusterExtensionPtrOutputWithContext(context.Background())
 }
@@ -15998,12 +14047,6 @@ func (i *kafkaClusterExtensionPtrType) ToKafkaClusterExtensionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterExtensionPtrOutput)
 }
 
-func (i *kafkaClusterExtensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterExtension] {
-	return pulumix.Output[*KafkaClusterExtension]{
-		OutputState: i.ToKafkaClusterExtensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterExtensionOutput) ElementType() reflect.Type {
@@ -16028,12 +14071,6 @@ func (o KafkaClusterExtensionOutput) ToKafkaClusterExtensionPtrOutputWithContext
 	}).(KafkaClusterExtensionPtrOutput)
 }
 
-func (o KafkaClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterExtension] {
-	return pulumix.Output[KafkaClusterExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The workspace ID of the log analytics extension.
 func (o KafkaClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -16056,12 +14093,6 @@ func (o KafkaClusterExtensionPtrOutput) ToKafkaClusterExtensionPtrOutput() Kafka
 
 func (o KafkaClusterExtensionPtrOutput) ToKafkaClusterExtensionPtrOutputWithContext(ctx context.Context) KafkaClusterExtensionPtrOutput {
 	return o
-}
-
-func (o KafkaClusterExtensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterExtension] {
-	return pulumix.Output[*KafkaClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterExtensionPtrOutput) Elem() KafkaClusterExtensionOutput {
@@ -16135,12 +14166,6 @@ func (i KafkaClusterGatewayArgs) ToKafkaClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterGatewayOutput)
 }
 
-func (i KafkaClusterGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterGateway] {
-	return pulumix.Output[KafkaClusterGateway]{
-		OutputState: i.ToKafkaClusterGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterGatewayArgs) ToKafkaClusterGatewayPtrOutput() KafkaClusterGatewayPtrOutput {
 	return i.ToKafkaClusterGatewayPtrOutputWithContext(context.Background())
 }
@@ -16182,12 +14207,6 @@ func (i *kafkaClusterGatewayPtrType) ToKafkaClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterGatewayPtrOutput)
 }
 
-func (i *kafkaClusterGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterGateway] {
-	return pulumix.Output[*KafkaClusterGateway]{
-		OutputState: i.ToKafkaClusterGatewayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterGatewayOutput) ElementType() reflect.Type {
@@ -16210,12 +14229,6 @@ func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterGateway) *KafkaClusterGateway {
 		return &v
 	}).(KafkaClusterGatewayPtrOutput)
-}
-
-func (o KafkaClusterGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterGateway] {
-	return pulumix.Output[KafkaClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password used for the Ambari Portal.
@@ -16242,12 +14255,6 @@ func (o KafkaClusterGatewayPtrOutput) ToKafkaClusterGatewayPtrOutput() KafkaClus
 
 func (o KafkaClusterGatewayPtrOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx context.Context) KafkaClusterGatewayPtrOutput {
 	return o
-}
-
-func (o KafkaClusterGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterGateway] {
-	return pulumix.Output[*KafkaClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterGatewayPtrOutput) Elem() KafkaClusterGatewayOutput {
@@ -16323,12 +14330,6 @@ func (i KafkaClusterMetastoresArgs) ToKafkaClusterMetastoresOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresOutput)
 }
 
-func (i KafkaClusterMetastoresArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastores] {
-	return pulumix.Output[KafkaClusterMetastores]{
-		OutputState: i.ToKafkaClusterMetastoresOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterMetastoresArgs) ToKafkaClusterMetastoresPtrOutput() KafkaClusterMetastoresPtrOutput {
 	return i.ToKafkaClusterMetastoresPtrOutputWithContext(context.Background())
 }
@@ -16370,12 +14371,6 @@ func (i *kafkaClusterMetastoresPtrType) ToKafkaClusterMetastoresPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresPtrOutput)
 }
 
-func (i *kafkaClusterMetastoresPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastores] {
-	return pulumix.Output[*KafkaClusterMetastores]{
-		OutputState: i.ToKafkaClusterMetastoresPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterMetastoresOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterMetastoresOutput) ElementType() reflect.Type {
@@ -16398,12 +14393,6 @@ func (o KafkaClusterMetastoresOutput) ToKafkaClusterMetastoresPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastores) *KafkaClusterMetastores {
 		return &v
 	}).(KafkaClusterMetastoresPtrOutput)
-}
-
-func (o KafkaClusterMetastoresOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastores] {
-	return pulumix.Output[KafkaClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `ambari` block as defined below.
@@ -16433,12 +14422,6 @@ func (o KafkaClusterMetastoresPtrOutput) ToKafkaClusterMetastoresPtrOutput() Kaf
 
 func (o KafkaClusterMetastoresPtrOutput) ToKafkaClusterMetastoresPtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresPtrOutput {
 	return o
-}
-
-func (o KafkaClusterMetastoresPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastores] {
-	return pulumix.Output[*KafkaClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterMetastoresPtrOutput) Elem() KafkaClusterMetastoresOutput {
@@ -16526,12 +14509,6 @@ func (i KafkaClusterMetastoresAmbariArgs) ToKafkaClusterMetastoresAmbariOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresAmbariOutput)
 }
 
-func (i KafkaClusterMetastoresAmbariArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastoresAmbari] {
-	return pulumix.Output[KafkaClusterMetastoresAmbari]{
-		OutputState: i.ToKafkaClusterMetastoresAmbariOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterMetastoresAmbariArgs) ToKafkaClusterMetastoresAmbariPtrOutput() KafkaClusterMetastoresAmbariPtrOutput {
 	return i.ToKafkaClusterMetastoresAmbariPtrOutputWithContext(context.Background())
 }
@@ -16573,12 +14550,6 @@ func (i *kafkaClusterMetastoresAmbariPtrType) ToKafkaClusterMetastoresAmbariPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresAmbariPtrOutput)
 }
 
-func (i *kafkaClusterMetastoresAmbariPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastoresAmbari] {
-	return pulumix.Output[*KafkaClusterMetastoresAmbari]{
-		OutputState: i.ToKafkaClusterMetastoresAmbariPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterMetastoresAmbariOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterMetastoresAmbariOutput) ElementType() reflect.Type {
@@ -16601,12 +14572,6 @@ func (o KafkaClusterMetastoresAmbariOutput) ToKafkaClusterMetastoresAmbariPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastoresAmbari) *KafkaClusterMetastoresAmbari {
 		return &v
 	}).(KafkaClusterMetastoresAmbariPtrOutput)
-}
-
-func (o KafkaClusterMetastoresAmbariOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastoresAmbari] {
-	return pulumix.Output[KafkaClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -16641,12 +14606,6 @@ func (o KafkaClusterMetastoresAmbariPtrOutput) ToKafkaClusterMetastoresAmbariPtr
 
 func (o KafkaClusterMetastoresAmbariPtrOutput) ToKafkaClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresAmbariPtrOutput {
 	return o
-}
-
-func (o KafkaClusterMetastoresAmbariPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastoresAmbari] {
-	return pulumix.Output[*KafkaClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterMetastoresAmbariPtrOutput) Elem() KafkaClusterMetastoresAmbariOutput {
@@ -16744,12 +14703,6 @@ func (i KafkaClusterMetastoresHiveArgs) ToKafkaClusterMetastoresHiveOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresHiveOutput)
 }
 
-func (i KafkaClusterMetastoresHiveArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastoresHive] {
-	return pulumix.Output[KafkaClusterMetastoresHive]{
-		OutputState: i.ToKafkaClusterMetastoresHiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterMetastoresHiveArgs) ToKafkaClusterMetastoresHivePtrOutput() KafkaClusterMetastoresHivePtrOutput {
 	return i.ToKafkaClusterMetastoresHivePtrOutputWithContext(context.Background())
 }
@@ -16791,12 +14744,6 @@ func (i *kafkaClusterMetastoresHivePtrType) ToKafkaClusterMetastoresHivePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresHivePtrOutput)
 }
 
-func (i *kafkaClusterMetastoresHivePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastoresHive] {
-	return pulumix.Output[*KafkaClusterMetastoresHive]{
-		OutputState: i.ToKafkaClusterMetastoresHivePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterMetastoresHiveOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterMetastoresHiveOutput) ElementType() reflect.Type {
@@ -16819,12 +14766,6 @@ func (o KafkaClusterMetastoresHiveOutput) ToKafkaClusterMetastoresHivePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastoresHive) *KafkaClusterMetastoresHive {
 		return &v
 	}).(KafkaClusterMetastoresHivePtrOutput)
-}
-
-func (o KafkaClusterMetastoresHiveOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastoresHive] {
-	return pulumix.Output[KafkaClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -16859,12 +14800,6 @@ func (o KafkaClusterMetastoresHivePtrOutput) ToKafkaClusterMetastoresHivePtrOutp
 
 func (o KafkaClusterMetastoresHivePtrOutput) ToKafkaClusterMetastoresHivePtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresHivePtrOutput {
 	return o
-}
-
-func (o KafkaClusterMetastoresHivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastoresHive] {
-	return pulumix.Output[*KafkaClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterMetastoresHivePtrOutput) Elem() KafkaClusterMetastoresHiveOutput {
@@ -16962,12 +14897,6 @@ func (i KafkaClusterMetastoresOozieArgs) ToKafkaClusterMetastoresOozieOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresOozieOutput)
 }
 
-func (i KafkaClusterMetastoresOozieArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastoresOozie] {
-	return pulumix.Output[KafkaClusterMetastoresOozie]{
-		OutputState: i.ToKafkaClusterMetastoresOozieOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterMetastoresOozieArgs) ToKafkaClusterMetastoresOoziePtrOutput() KafkaClusterMetastoresOoziePtrOutput {
 	return i.ToKafkaClusterMetastoresOoziePtrOutputWithContext(context.Background())
 }
@@ -17009,12 +14938,6 @@ func (i *kafkaClusterMetastoresOoziePtrType) ToKafkaClusterMetastoresOoziePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMetastoresOoziePtrOutput)
 }
 
-func (i *kafkaClusterMetastoresOoziePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastoresOozie] {
-	return pulumix.Output[*KafkaClusterMetastoresOozie]{
-		OutputState: i.ToKafkaClusterMetastoresOoziePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterMetastoresOozieOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterMetastoresOozieOutput) ElementType() reflect.Type {
@@ -17037,12 +14960,6 @@ func (o KafkaClusterMetastoresOozieOutput) ToKafkaClusterMetastoresOoziePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterMetastoresOozie) *KafkaClusterMetastoresOozie {
 		return &v
 	}).(KafkaClusterMetastoresOoziePtrOutput)
-}
-
-func (o KafkaClusterMetastoresOozieOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMetastoresOozie] {
-	return pulumix.Output[KafkaClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -17077,12 +14994,6 @@ func (o KafkaClusterMetastoresOoziePtrOutput) ToKafkaClusterMetastoresOoziePtrOu
 
 func (o KafkaClusterMetastoresOoziePtrOutput) ToKafkaClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) KafkaClusterMetastoresOoziePtrOutput {
 	return o
-}
-
-func (o KafkaClusterMetastoresOoziePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMetastoresOozie] {
-	return pulumix.Output[*KafkaClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterMetastoresOoziePtrOutput) Elem() KafkaClusterMetastoresOozieOutput {
@@ -17172,12 +15083,6 @@ func (i KafkaClusterMonitorArgs) ToKafkaClusterMonitorOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMonitorOutput)
 }
 
-func (i KafkaClusterMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMonitor] {
-	return pulumix.Output[KafkaClusterMonitor]{
-		OutputState: i.ToKafkaClusterMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterMonitorArgs) ToKafkaClusterMonitorPtrOutput() KafkaClusterMonitorPtrOutput {
 	return i.ToKafkaClusterMonitorPtrOutputWithContext(context.Background())
 }
@@ -17219,12 +15124,6 @@ func (i *kafkaClusterMonitorPtrType) ToKafkaClusterMonitorPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterMonitorPtrOutput)
 }
 
-func (i *kafkaClusterMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMonitor] {
-	return pulumix.Output[*KafkaClusterMonitor]{
-		OutputState: i.ToKafkaClusterMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterMonitorOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterMonitorOutput) ElementType() reflect.Type {
@@ -17249,12 +15148,6 @@ func (o KafkaClusterMonitorOutput) ToKafkaClusterMonitorPtrOutputWithContext(ctx
 	}).(KafkaClusterMonitorPtrOutput)
 }
 
-func (o KafkaClusterMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterMonitor] {
-	return pulumix.Output[KafkaClusterMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Operations Management Suite (OMS) workspace ID.
 func (o KafkaClusterMonitorOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterMonitor) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -17277,12 +15170,6 @@ func (o KafkaClusterMonitorPtrOutput) ToKafkaClusterMonitorPtrOutput() KafkaClus
 
 func (o KafkaClusterMonitorPtrOutput) ToKafkaClusterMonitorPtrOutputWithContext(ctx context.Context) KafkaClusterMonitorPtrOutput {
 	return o
-}
-
-func (o KafkaClusterMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterMonitor] {
-	return pulumix.Output[*KafkaClusterMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterMonitorPtrOutput) Elem() KafkaClusterMonitorOutput {
@@ -17356,12 +15243,6 @@ func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkOutput)
 }
 
-func (i KafkaClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterNetwork] {
-	return pulumix.Output[KafkaClusterNetwork]{
-		OutputState: i.ToKafkaClusterNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterNetworkArgs) ToKafkaClusterNetworkPtrOutput() KafkaClusterNetworkPtrOutput {
 	return i.ToKafkaClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -17403,12 +15284,6 @@ func (i *kafkaClusterNetworkPtrType) ToKafkaClusterNetworkPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterNetworkPtrOutput)
 }
 
-func (i *kafkaClusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterNetwork] {
-	return pulumix.Output[*KafkaClusterNetwork]{
-		OutputState: i.ToKafkaClusterNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterNetworkOutput) ElementType() reflect.Type {
@@ -17431,12 +15306,6 @@ func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterNetwork) *KafkaClusterNetwork {
 		return &v
 	}).(KafkaClusterNetworkPtrOutput)
-}
-
-func (o KafkaClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterNetwork] {
-	return pulumix.Output[KafkaClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -17463,12 +15332,6 @@ func (o KafkaClusterNetworkPtrOutput) ToKafkaClusterNetworkPtrOutput() KafkaClus
 
 func (o KafkaClusterNetworkPtrOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx context.Context) KafkaClusterNetworkPtrOutput {
 	return o
-}
-
-func (o KafkaClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterNetwork] {
-	return pulumix.Output[*KafkaClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterNetworkPtrOutput) Elem() KafkaClusterNetworkOutput {
@@ -17544,12 +15407,6 @@ func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRestProxyOutput)
 }
 
-func (i KafkaClusterRestProxyArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRestProxy] {
-	return pulumix.Output[KafkaClusterRestProxy]{
-		OutputState: i.ToKafkaClusterRestProxyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterRestProxyArgs) ToKafkaClusterRestProxyPtrOutput() KafkaClusterRestProxyPtrOutput {
 	return i.ToKafkaClusterRestProxyPtrOutputWithContext(context.Background())
 }
@@ -17591,12 +15448,6 @@ func (i *kafkaClusterRestProxyPtrType) ToKafkaClusterRestProxyPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRestProxyPtrOutput)
 }
 
-func (i *kafkaClusterRestProxyPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRestProxy] {
-	return pulumix.Output[*KafkaClusterRestProxy]{
-		OutputState: i.ToKafkaClusterRestProxyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRestProxyOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRestProxyOutput) ElementType() reflect.Type {
@@ -17619,12 +15470,6 @@ func (o KafkaClusterRestProxyOutput) ToKafkaClusterRestProxyPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRestProxy) *KafkaClusterRestProxy {
 		return &v
 	}).(KafkaClusterRestProxyPtrOutput)
-}
-
-func (o KafkaClusterRestProxyOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRestProxy] {
-	return pulumix.Output[KafkaClusterRestProxy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
@@ -17651,12 +15496,6 @@ func (o KafkaClusterRestProxyPtrOutput) ToKafkaClusterRestProxyPtrOutput() Kafka
 
 func (o KafkaClusterRestProxyPtrOutput) ToKafkaClusterRestProxyPtrOutputWithContext(ctx context.Context) KafkaClusterRestProxyPtrOutput {
 	return o
-}
-
-func (o KafkaClusterRestProxyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRestProxy] {
-	return pulumix.Output[*KafkaClusterRestProxy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRestProxyPtrOutput) Elem() KafkaClusterRestProxyOutput {
@@ -17740,12 +15579,6 @@ func (i KafkaClusterRolesArgs) ToKafkaClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesOutput)
 }
 
-func (i KafkaClusterRolesArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRoles] {
-	return pulumix.Output[KafkaClusterRoles]{
-		OutputState: i.ToKafkaClusterRolesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterRolesArgs) ToKafkaClusterRolesPtrOutput() KafkaClusterRolesPtrOutput {
 	return i.ToKafkaClusterRolesPtrOutputWithContext(context.Background())
 }
@@ -17787,12 +15620,6 @@ func (i *kafkaClusterRolesPtrType) ToKafkaClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesPtrOutput)
 }
 
-func (i *kafkaClusterRolesPtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRoles] {
-	return pulumix.Output[*KafkaClusterRoles]{
-		OutputState: i.ToKafkaClusterRolesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesOutput) ElementType() reflect.Type {
@@ -17815,12 +15642,6 @@ func (o KafkaClusterRolesOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRoles) *KafkaClusterRoles {
 		return &v
 	}).(KafkaClusterRolesPtrOutput)
-}
-
-func (o KafkaClusterRolesOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRoles] {
-	return pulumix.Output[KafkaClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `headNode` block as defined above.
@@ -17857,12 +15678,6 @@ func (o KafkaClusterRolesPtrOutput) ToKafkaClusterRolesPtrOutput() KafkaClusterR
 
 func (o KafkaClusterRolesPtrOutput) ToKafkaClusterRolesPtrOutputWithContext(ctx context.Context) KafkaClusterRolesPtrOutput {
 	return o
-}
-
-func (o KafkaClusterRolesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRoles] {
-	return pulumix.Output[*KafkaClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesPtrOutput) Elem() KafkaClusterRolesOutput {
@@ -17982,12 +15797,6 @@ func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeOutput)
 }
 
-func (i KafkaClusterRolesHeadNodeArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesHeadNode] {
-	return pulumix.Output[KafkaClusterRolesHeadNode]{
-		OutputState: i.ToKafkaClusterRolesHeadNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterRolesHeadNodeArgs) ToKafkaClusterRolesHeadNodePtrOutput() KafkaClusterRolesHeadNodePtrOutput {
 	return i.ToKafkaClusterRolesHeadNodePtrOutputWithContext(context.Background())
 }
@@ -18029,12 +15838,6 @@ func (i *kafkaClusterRolesHeadNodePtrType) ToKafkaClusterRolesHeadNodePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodePtrOutput)
 }
 
-func (i *kafkaClusterRolesHeadNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesHeadNode] {
-	return pulumix.Output[*KafkaClusterRolesHeadNode]{
-		OutputState: i.ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -18057,12 +15860,6 @@ func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesHeadNode) *KafkaClusterRolesHeadNode {
 		return &v
 	}).(KafkaClusterRolesHeadNodePtrOutput)
-}
-
-func (o KafkaClusterRolesHeadNodeOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesHeadNode] {
-	return pulumix.Output[KafkaClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -18116,12 +15913,6 @@ func (o KafkaClusterRolesHeadNodePtrOutput) ToKafkaClusterRolesHeadNodePtrOutput
 
 func (o KafkaClusterRolesHeadNodePtrOutput) ToKafkaClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodePtrOutput {
 	return o
-}
-
-func (o KafkaClusterRolesHeadNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesHeadNode] {
-	return pulumix.Output[*KafkaClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesHeadNodePtrOutput) Elem() KafkaClusterRolesHeadNodeOutput {
@@ -18249,12 +16040,6 @@ func (i KafkaClusterRolesHeadNodeScriptActionArgs) ToKafkaClusterRolesHeadNodeSc
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeScriptActionOutput)
 }
 
-func (i KafkaClusterRolesHeadNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesHeadNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesHeadNodeScriptActionArray and KafkaClusterRolesHeadNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesHeadNodeScriptActionArrayInput` via:
 //
@@ -18280,12 +16065,6 @@ func (i KafkaClusterRolesHeadNodeScriptActionArray) ToKafkaClusterRolesHeadNodeS
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesHeadNodeScriptActionArrayOutput)
 }
 
-func (i KafkaClusterRolesHeadNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
@@ -18298,12 +16077,6 @@ func (o KafkaClusterRolesHeadNodeScriptActionOutput) ToKafkaClusterRolesHeadNode
 
 func (o KafkaClusterRolesHeadNodeScriptActionOutput) ToKafkaClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeScriptActionOutput {
 	return o
-}
-
-func (o KafkaClusterRolesHeadNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -18333,12 +16106,6 @@ func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) ToKafkaClusterRolesHea
 
 func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) ToKafkaClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesHeadNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesHeadNodeScriptActionOutput {
@@ -18412,12 +16179,6 @@ func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManage
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeOutput)
 }
 
-func (i KafkaClusterRolesKafkaManagementNodeArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesKafkaManagementNode] {
-	return pulumix.Output[KafkaClusterRolesKafkaManagementNode]{
-		OutputState: i.ToKafkaClusterRolesKafkaManagementNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterRolesKafkaManagementNodeArgs) ToKafkaClusterRolesKafkaManagementNodePtrOutput() KafkaClusterRolesKafkaManagementNodePtrOutput {
 	return i.ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(context.Background())
 }
@@ -18459,12 +16220,6 @@ func (i *kafkaClusterRolesKafkaManagementNodePtrType) ToKafkaClusterRolesKafkaMa
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodePtrOutput)
 }
 
-func (i *kafkaClusterRolesKafkaManagementNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesKafkaManagementNode] {
-	return pulumix.Output[*KafkaClusterRolesKafkaManagementNode]{
-		OutputState: i.ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesKafkaManagementNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesKafkaManagementNodeOutput) ElementType() reflect.Type {
@@ -18487,12 +16242,6 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaMana
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesKafkaManagementNode) *KafkaClusterRolesKafkaManagementNode {
 		return &v
 	}).(KafkaClusterRolesKafkaManagementNodePtrOutput)
-}
-
-func (o KafkaClusterRolesKafkaManagementNodeOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesKafkaManagementNode] {
-	return pulumix.Output[KafkaClusterRolesKafkaManagementNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
@@ -18548,12 +16297,6 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ToKafkaClusterRolesKafkaM
 
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ToKafkaClusterRolesKafkaManagementNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodePtrOutput {
 	return o
-}
-
-func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesKafkaManagementNode] {
-	return pulumix.Output[*KafkaClusterRolesKafkaManagementNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Elem() KafkaClusterRolesKafkaManagementNodeOutput {
@@ -18681,12 +16424,6 @@ func (i KafkaClusterRolesKafkaManagementNodeScriptActionArgs) ToKafkaClusterRole
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeScriptActionOutput)
 }
 
-func (i KafkaClusterRolesKafkaManagementNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesKafkaManagementNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesKafkaManagementNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesKafkaManagementNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesKafkaManagementNodeScriptActionArray and KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput` via:
 //
@@ -18712,12 +16449,6 @@ func (i KafkaClusterRolesKafkaManagementNodeScriptActionArray) ToKafkaClusterRol
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput)
 }
 
-func (i KafkaClusterRolesKafkaManagementNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesKafkaManagementNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesKafkaManagementNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesKafkaManagementNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ElementType() reflect.Type {
@@ -18730,12 +16461,6 @@ func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ToKafkaClusterRo
 
 func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ToKafkaClusterRolesKafkaManagementNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
 	return o
-}
-
-func (o KafkaClusterRolesKafkaManagementNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesKafkaManagementNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesKafkaManagementNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -18765,12 +16490,6 @@ func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) ToKafkaClus
 
 func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) ToKafkaClusterRolesKafkaManagementNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesKafkaManagementNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesKafkaManagementNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesKafkaManagementNodeScriptActionOutput {
@@ -18852,12 +16571,6 @@ func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeOutput)
 }
 
-func (i KafkaClusterRolesWorkerNodeArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesWorkerNode] {
-	return pulumix.Output[KafkaClusterRolesWorkerNode]{
-		OutputState: i.ToKafkaClusterRolesWorkerNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterRolesWorkerNodeArgs) ToKafkaClusterRolesWorkerNodePtrOutput() KafkaClusterRolesWorkerNodePtrOutput {
 	return i.ToKafkaClusterRolesWorkerNodePtrOutputWithContext(context.Background())
 }
@@ -18899,12 +16612,6 @@ func (i *kafkaClusterRolesWorkerNodePtrType) ToKafkaClusterRolesWorkerNodePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodePtrOutput)
 }
 
-func (i *kafkaClusterRolesWorkerNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesWorkerNode] {
-	return pulumix.Output[*KafkaClusterRolesWorkerNode]{
-		OutputState: i.ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -18927,12 +16634,6 @@ func (o KafkaClusterRolesWorkerNodeOutput) ToKafkaClusterRolesWorkerNodePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesWorkerNode) *KafkaClusterRolesWorkerNode {
 		return &v
 	}).(KafkaClusterRolesWorkerNodePtrOutput)
-}
-
-func (o KafkaClusterRolesWorkerNodeOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesWorkerNode] {
-	return pulumix.Output[KafkaClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
@@ -18996,12 +16697,6 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) ToKafkaClusterRolesWorkerNodePtrOu
 
 func (o KafkaClusterRolesWorkerNodePtrOutput) ToKafkaClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodePtrOutput {
 	return o
-}
-
-func (o KafkaClusterRolesWorkerNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesWorkerNode] {
-	return pulumix.Output[*KafkaClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesWorkerNodePtrOutput) Elem() KafkaClusterRolesWorkerNodeOutput {
@@ -19149,12 +16844,6 @@ func (i KafkaClusterRolesWorkerNodeScriptActionArgs) ToKafkaClusterRolesWorkerNo
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeScriptActionOutput)
 }
 
-func (i KafkaClusterRolesWorkerNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesWorkerNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesWorkerNodeScriptActionArray and KafkaClusterRolesWorkerNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesWorkerNodeScriptActionArrayInput` via:
 //
@@ -19180,12 +16869,6 @@ func (i KafkaClusterRolesWorkerNodeScriptActionArray) ToKafkaClusterRolesWorkerN
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
-func (i KafkaClusterRolesWorkerNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
@@ -19198,12 +16881,6 @@ func (o KafkaClusterRolesWorkerNodeScriptActionOutput) ToKafkaClusterRolesWorker
 
 func (o KafkaClusterRolesWorkerNodeScriptActionOutput) ToKafkaClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeScriptActionOutput {
 	return o
-}
-
-func (o KafkaClusterRolesWorkerNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -19233,12 +16910,6 @@ func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) ToKafkaClusterRolesW
 
 func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) ToKafkaClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesWorkerNodeScriptActionOutput {
@@ -19312,12 +16983,6 @@ func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeOutput)
 }
 
-func (i KafkaClusterRolesZookeeperNodeArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesZookeeperNode] {
-	return pulumix.Output[KafkaClusterRolesZookeeperNode]{
-		OutputState: i.ToKafkaClusterRolesZookeeperNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterRolesZookeeperNodeArgs) ToKafkaClusterRolesZookeeperNodePtrOutput() KafkaClusterRolesZookeeperNodePtrOutput {
 	return i.ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
 }
@@ -19359,12 +17024,6 @@ func (i *kafkaClusterRolesZookeeperNodePtrType) ToKafkaClusterRolesZookeeperNode
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodePtrOutput)
 }
 
-func (i *kafkaClusterRolesZookeeperNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesZookeeperNode] {
-	return pulumix.Output[*KafkaClusterRolesZookeeperNode]{
-		OutputState: i.ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -19387,12 +17046,6 @@ func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterRolesZookeeperNode) *KafkaClusterRolesZookeeperNode {
 		return &v
 	}).(KafkaClusterRolesZookeeperNodePtrOutput)
-}
-
-func (o KafkaClusterRolesZookeeperNodeOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesZookeeperNode] {
-	return pulumix.Output[KafkaClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -19448,12 +17101,6 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) ToKafkaClusterRolesZookeeperNod
 
 func (o KafkaClusterRolesZookeeperNodePtrOutput) ToKafkaClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodePtrOutput {
 	return o
-}
-
-func (o KafkaClusterRolesZookeeperNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterRolesZookeeperNode] {
-	return pulumix.Output[*KafkaClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesZookeeperNodePtrOutput) Elem() KafkaClusterRolesZookeeperNodeOutput {
@@ -19581,12 +17228,6 @@ func (i KafkaClusterRolesZookeeperNodeScriptActionArgs) ToKafkaClusterRolesZooke
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeScriptActionOutput)
 }
 
-func (i KafkaClusterRolesZookeeperNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts KafkaClusterRolesZookeeperNodeScriptActionArray and KafkaClusterRolesZookeeperNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterRolesZookeeperNodeScriptActionArrayInput` via:
 //
@@ -19612,12 +17253,6 @@ func (i KafkaClusterRolesZookeeperNodeScriptActionArray) ToKafkaClusterRolesZook
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterRolesZookeeperNodeScriptActionArrayOutput)
 }
 
-func (i KafkaClusterRolesZookeeperNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
@@ -19630,12 +17265,6 @@ func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) ToKafkaClusterRolesZoo
 
 func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) ToKafkaClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeScriptActionOutput {
 	return o
-}
-
-func (o KafkaClusterRolesZookeeperNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[KafkaClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -19665,12 +17294,6 @@ func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) ToKafkaClusterRol
 
 func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) ToKafkaClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]KafkaClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) KafkaClusterRolesZookeeperNodeScriptActionOutput {
@@ -19736,12 +17359,6 @@ func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfileOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterSecurityProfileOutput)
 }
 
-func (i KafkaClusterSecurityProfileArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterSecurityProfile] {
-	return pulumix.Output[KafkaClusterSecurityProfile]{
-		OutputState: i.ToKafkaClusterSecurityProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterSecurityProfileArgs) ToKafkaClusterSecurityProfilePtrOutput() KafkaClusterSecurityProfilePtrOutput {
 	return i.ToKafkaClusterSecurityProfilePtrOutputWithContext(context.Background())
 }
@@ -19783,12 +17400,6 @@ func (i *kafkaClusterSecurityProfilePtrType) ToKafkaClusterSecurityProfilePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterSecurityProfilePtrOutput)
 }
 
-func (i *kafkaClusterSecurityProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterSecurityProfile] {
-	return pulumix.Output[*KafkaClusterSecurityProfile]{
-		OutputState: i.ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterSecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterSecurityProfileOutput) ElementType() reflect.Type {
@@ -19811,12 +17422,6 @@ func (o KafkaClusterSecurityProfileOutput) ToKafkaClusterSecurityProfilePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterSecurityProfile) *KafkaClusterSecurityProfile {
 		return &v
 	}).(KafkaClusterSecurityProfilePtrOutput)
-}
-
-func (o KafkaClusterSecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterSecurityProfile] {
-	return pulumix.Output[KafkaClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -19866,12 +17471,6 @@ func (o KafkaClusterSecurityProfilePtrOutput) ToKafkaClusterSecurityProfilePtrOu
 
 func (o KafkaClusterSecurityProfilePtrOutput) ToKafkaClusterSecurityProfilePtrOutputWithContext(ctx context.Context) KafkaClusterSecurityProfilePtrOutput {
 	return o
-}
-
-func (o KafkaClusterSecurityProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterSecurityProfile] {
-	return pulumix.Output[*KafkaClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterSecurityProfilePtrOutput) Elem() KafkaClusterSecurityProfileOutput {
@@ -20007,12 +17606,6 @@ func (i KafkaClusterStorageAccountArgs) ToKafkaClusterStorageAccountOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStorageAccountOutput)
 }
 
-func (i KafkaClusterStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterStorageAccount] {
-	return pulumix.Output[KafkaClusterStorageAccount]{
-		OutputState: i.ToKafkaClusterStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KafkaClusterStorageAccountArrayInput is an input type that accepts KafkaClusterStorageAccountArray and KafkaClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `KafkaClusterStorageAccountArrayInput` via:
 //
@@ -20038,12 +17631,6 @@ func (i KafkaClusterStorageAccountArray) ToKafkaClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStorageAccountArrayOutput)
 }
 
-func (i KafkaClusterStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterStorageAccount] {
-	return pulumix.Output[[]KafkaClusterStorageAccount]{
-		OutputState: i.ToKafkaClusterStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (KafkaClusterStorageAccountOutput) ElementType() reflect.Type {
@@ -20056,12 +17643,6 @@ func (o KafkaClusterStorageAccountOutput) ToKafkaClusterStorageAccountOutput() K
 
 func (o KafkaClusterStorageAccountOutput) ToKafkaClusterStorageAccountOutputWithContext(ctx context.Context) KafkaClusterStorageAccountOutput {
 	return o
-}
-
-func (o KafkaClusterStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterStorageAccount] {
-	return pulumix.Output[KafkaClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -20100,12 +17681,6 @@ func (o KafkaClusterStorageAccountArrayOutput) ToKafkaClusterStorageAccountArray
 
 func (o KafkaClusterStorageAccountArrayOutput) ToKafkaClusterStorageAccountArrayOutputWithContext(ctx context.Context) KafkaClusterStorageAccountArrayOutput {
 	return o
-}
-
-func (o KafkaClusterStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KafkaClusterStorageAccount] {
-	return pulumix.Output[[]KafkaClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) KafkaClusterStorageAccountOutput {
@@ -20167,12 +17742,6 @@ func (i KafkaClusterStorageAccountGen2Args) ToKafkaClusterStorageAccountGen2Outp
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStorageAccountGen2Output)
 }
 
-func (i KafkaClusterStorageAccountGen2Args) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterStorageAccountGen2] {
-	return pulumix.Output[KafkaClusterStorageAccountGen2]{
-		OutputState: i.ToKafkaClusterStorageAccountGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i KafkaClusterStorageAccountGen2Args) ToKafkaClusterStorageAccountGen2PtrOutput() KafkaClusterStorageAccountGen2PtrOutput {
 	return i.ToKafkaClusterStorageAccountGen2PtrOutputWithContext(context.Background())
 }
@@ -20214,12 +17783,6 @@ func (i *kafkaClusterStorageAccountGen2PtrType) ToKafkaClusterStorageAccountGen2
 	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterStorageAccountGen2PtrOutput)
 }
 
-func (i *kafkaClusterStorageAccountGen2PtrType) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterStorageAccountGen2] {
-	return pulumix.Output[*KafkaClusterStorageAccountGen2]{
-		OutputState: i.ToKafkaClusterStorageAccountGen2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KafkaClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (KafkaClusterStorageAccountGen2Output) ElementType() reflect.Type {
@@ -20242,12 +17805,6 @@ func (o KafkaClusterStorageAccountGen2Output) ToKafkaClusterStorageAccountGen2Pt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterStorageAccountGen2) *KafkaClusterStorageAccountGen2 {
 		return &v
 	}).(KafkaClusterStorageAccountGen2PtrOutput)
-}
-
-func (o KafkaClusterStorageAccountGen2Output) ToOutput(ctx context.Context) pulumix.Output[KafkaClusterStorageAccountGen2] {
-	return pulumix.Output[KafkaClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -20286,12 +17843,6 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) ToKafkaClusterStorageAccountGen
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) ToKafkaClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) KafkaClusterStorageAccountGen2PtrOutput {
 	return o
-}
-
-func (o KafkaClusterStorageAccountGen2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KafkaClusterStorageAccountGen2] {
-	return pulumix.Output[*KafkaClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KafkaClusterStorageAccountGen2PtrOutput) Elem() KafkaClusterStorageAccountGen2Output {
@@ -20381,12 +17932,6 @@ func (i SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComponentVersionOutput)
 }
 
-func (i SparkClusterComponentVersionArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterComponentVersion] {
-	return pulumix.Output[SparkClusterComponentVersion]{
-		OutputState: i.ToSparkClusterComponentVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterComponentVersionArgs) ToSparkClusterComponentVersionPtrOutput() SparkClusterComponentVersionPtrOutput {
 	return i.ToSparkClusterComponentVersionPtrOutputWithContext(context.Background())
 }
@@ -20428,12 +17973,6 @@ func (i *sparkClusterComponentVersionPtrType) ToSparkClusterComponentVersionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComponentVersionPtrOutput)
 }
 
-func (i *sparkClusterComponentVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterComponentVersion] {
-	return pulumix.Output[*SparkClusterComponentVersion]{
-		OutputState: i.ToSparkClusterComponentVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterComponentVersionOutput) ElementType() reflect.Type {
@@ -20458,12 +17997,6 @@ func (o SparkClusterComponentVersionOutput) ToSparkClusterComponentVersionPtrOut
 	}).(SparkClusterComponentVersionPtrOutput)
 }
 
-func (o SparkClusterComponentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterComponentVersion] {
-	return pulumix.Output[SparkClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
 func (o SparkClusterComponentVersionOutput) Spark() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterComponentVersion) string { return v.Spark }).(pulumi.StringOutput)
@@ -20481,12 +18014,6 @@ func (o SparkClusterComponentVersionPtrOutput) ToSparkClusterComponentVersionPtr
 
 func (o SparkClusterComponentVersionPtrOutput) ToSparkClusterComponentVersionPtrOutputWithContext(ctx context.Context) SparkClusterComponentVersionPtrOutput {
 	return o
-}
-
-func (o SparkClusterComponentVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterComponentVersion] {
-	return pulumix.Output[*SparkClusterComponentVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterComponentVersionPtrOutput) Elem() SparkClusterComponentVersionOutput {
@@ -20546,12 +18073,6 @@ func (i SparkClusterComputeIsolationArgs) ToSparkClusterComputeIsolationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComputeIsolationOutput)
 }
 
-func (i SparkClusterComputeIsolationArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterComputeIsolation] {
-	return pulumix.Output[SparkClusterComputeIsolation]{
-		OutputState: i.ToSparkClusterComputeIsolationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterComputeIsolationArgs) ToSparkClusterComputeIsolationPtrOutput() SparkClusterComputeIsolationPtrOutput {
 	return i.ToSparkClusterComputeIsolationPtrOutputWithContext(context.Background())
 }
@@ -20593,12 +18114,6 @@ func (i *sparkClusterComputeIsolationPtrType) ToSparkClusterComputeIsolationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterComputeIsolationPtrOutput)
 }
 
-func (i *sparkClusterComputeIsolationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterComputeIsolation] {
-	return pulumix.Output[*SparkClusterComputeIsolation]{
-		OutputState: i.ToSparkClusterComputeIsolationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterComputeIsolationOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterComputeIsolationOutput) ElementType() reflect.Type {
@@ -20623,12 +18138,6 @@ func (o SparkClusterComputeIsolationOutput) ToSparkClusterComputeIsolationPtrOut
 	}).(SparkClusterComputeIsolationPtrOutput)
 }
 
-func (o SparkClusterComputeIsolationOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterComputeIsolation] {
-	return pulumix.Output[SparkClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
 func (o SparkClusterComputeIsolationOutput) ComputeIsolationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SparkClusterComputeIsolation) *bool { return v.ComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
@@ -20651,12 +18160,6 @@ func (o SparkClusterComputeIsolationPtrOutput) ToSparkClusterComputeIsolationPtr
 
 func (o SparkClusterComputeIsolationPtrOutput) ToSparkClusterComputeIsolationPtrOutputWithContext(ctx context.Context) SparkClusterComputeIsolationPtrOutput {
 	return o
-}
-
-func (o SparkClusterComputeIsolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterComputeIsolation] {
-	return pulumix.Output[*SparkClusterComputeIsolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterComputeIsolationPtrOutput) Elem() SparkClusterComputeIsolationOutput {
@@ -20734,12 +18237,6 @@ func (i SparkClusterDiskEncryptionArgs) ToSparkClusterDiskEncryptionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterDiskEncryptionOutput)
 }
 
-func (i SparkClusterDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterDiskEncryption] {
-	return pulumix.Output[SparkClusterDiskEncryption]{
-		OutputState: i.ToSparkClusterDiskEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkClusterDiskEncryptionArrayInput is an input type that accepts SparkClusterDiskEncryptionArray and SparkClusterDiskEncryptionArrayOutput values.
 // You can construct a concrete instance of `SparkClusterDiskEncryptionArrayInput` via:
 //
@@ -20765,12 +18262,6 @@ func (i SparkClusterDiskEncryptionArray) ToSparkClusterDiskEncryptionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterDiskEncryptionArrayOutput)
 }
 
-func (i SparkClusterDiskEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterDiskEncryption] {
-	return pulumix.Output[[]SparkClusterDiskEncryption]{
-		OutputState: i.ToSparkClusterDiskEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterDiskEncryptionOutput) ElementType() reflect.Type {
@@ -20783,12 +18274,6 @@ func (o SparkClusterDiskEncryptionOutput) ToSparkClusterDiskEncryptionOutput() S
 
 func (o SparkClusterDiskEncryptionOutput) ToSparkClusterDiskEncryptionOutputWithContext(ctx context.Context) SparkClusterDiskEncryptionOutput {
 	return o
-}
-
-func (o SparkClusterDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterDiskEncryption] {
-	return pulumix.Output[SparkClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
@@ -20823,12 +18308,6 @@ func (o SparkClusterDiskEncryptionArrayOutput) ToSparkClusterDiskEncryptionArray
 
 func (o SparkClusterDiskEncryptionArrayOutput) ToSparkClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) SparkClusterDiskEncryptionArrayOutput {
 	return o
-}
-
-func (o SparkClusterDiskEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterDiskEncryption] {
-	return pulumix.Output[[]SparkClusterDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) SparkClusterDiskEncryptionOutput {
@@ -20874,12 +18353,6 @@ func (i SparkClusterExtensionArgs) ToSparkClusterExtensionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterExtensionOutput)
 }
 
-func (i SparkClusterExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterExtension] {
-	return pulumix.Output[SparkClusterExtension]{
-		OutputState: i.ToSparkClusterExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterExtensionArgs) ToSparkClusterExtensionPtrOutput() SparkClusterExtensionPtrOutput {
 	return i.ToSparkClusterExtensionPtrOutputWithContext(context.Background())
 }
@@ -20921,12 +18394,6 @@ func (i *sparkClusterExtensionPtrType) ToSparkClusterExtensionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterExtensionPtrOutput)
 }
 
-func (i *sparkClusterExtensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterExtension] {
-	return pulumix.Output[*SparkClusterExtension]{
-		OutputState: i.ToSparkClusterExtensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterExtensionOutput) ElementType() reflect.Type {
@@ -20951,12 +18418,6 @@ func (o SparkClusterExtensionOutput) ToSparkClusterExtensionPtrOutputWithContext
 	}).(SparkClusterExtensionPtrOutput)
 }
 
-func (o SparkClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterExtension] {
-	return pulumix.Output[SparkClusterExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The workspace ID of the log analytics extension.
 func (o SparkClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -20979,12 +18440,6 @@ func (o SparkClusterExtensionPtrOutput) ToSparkClusterExtensionPtrOutput() Spark
 
 func (o SparkClusterExtensionPtrOutput) ToSparkClusterExtensionPtrOutputWithContext(ctx context.Context) SparkClusterExtensionPtrOutput {
 	return o
-}
-
-func (o SparkClusterExtensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterExtension] {
-	return pulumix.Output[*SparkClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterExtensionPtrOutput) Elem() SparkClusterExtensionOutput {
@@ -21058,12 +18513,6 @@ func (i SparkClusterGatewayArgs) ToSparkClusterGatewayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterGatewayOutput)
 }
 
-func (i SparkClusterGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterGateway] {
-	return pulumix.Output[SparkClusterGateway]{
-		OutputState: i.ToSparkClusterGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterGatewayArgs) ToSparkClusterGatewayPtrOutput() SparkClusterGatewayPtrOutput {
 	return i.ToSparkClusterGatewayPtrOutputWithContext(context.Background())
 }
@@ -21105,12 +18554,6 @@ func (i *sparkClusterGatewayPtrType) ToSparkClusterGatewayPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterGatewayPtrOutput)
 }
 
-func (i *sparkClusterGatewayPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterGateway] {
-	return pulumix.Output[*SparkClusterGateway]{
-		OutputState: i.ToSparkClusterGatewayPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterGatewayOutput) ElementType() reflect.Type {
@@ -21133,12 +18576,6 @@ func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterGateway) *SparkClusterGateway {
 		return &v
 	}).(SparkClusterGatewayPtrOutput)
-}
-
-func (o SparkClusterGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterGateway] {
-	return pulumix.Output[SparkClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password used for the Ambari Portal.
@@ -21165,12 +18602,6 @@ func (o SparkClusterGatewayPtrOutput) ToSparkClusterGatewayPtrOutput() SparkClus
 
 func (o SparkClusterGatewayPtrOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx context.Context) SparkClusterGatewayPtrOutput {
 	return o
-}
-
-func (o SparkClusterGatewayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterGateway] {
-	return pulumix.Output[*SparkClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterGatewayPtrOutput) Elem() SparkClusterGatewayOutput {
@@ -21246,12 +18677,6 @@ func (i SparkClusterMetastoresArgs) ToSparkClusterMetastoresOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresOutput)
 }
 
-func (i SparkClusterMetastoresArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastores] {
-	return pulumix.Output[SparkClusterMetastores]{
-		OutputState: i.ToSparkClusterMetastoresOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterMetastoresArgs) ToSparkClusterMetastoresPtrOutput() SparkClusterMetastoresPtrOutput {
 	return i.ToSparkClusterMetastoresPtrOutputWithContext(context.Background())
 }
@@ -21293,12 +18718,6 @@ func (i *sparkClusterMetastoresPtrType) ToSparkClusterMetastoresPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresPtrOutput)
 }
 
-func (i *sparkClusterMetastoresPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastores] {
-	return pulumix.Output[*SparkClusterMetastores]{
-		OutputState: i.ToSparkClusterMetastoresPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterMetastoresOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterMetastoresOutput) ElementType() reflect.Type {
@@ -21321,12 +18740,6 @@ func (o SparkClusterMetastoresOutput) ToSparkClusterMetastoresPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastores) *SparkClusterMetastores {
 		return &v
 	}).(SparkClusterMetastoresPtrOutput)
-}
-
-func (o SparkClusterMetastoresOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastores] {
-	return pulumix.Output[SparkClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `ambari` block as defined below.
@@ -21356,12 +18769,6 @@ func (o SparkClusterMetastoresPtrOutput) ToSparkClusterMetastoresPtrOutput() Spa
 
 func (o SparkClusterMetastoresPtrOutput) ToSparkClusterMetastoresPtrOutputWithContext(ctx context.Context) SparkClusterMetastoresPtrOutput {
 	return o
-}
-
-func (o SparkClusterMetastoresPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastores] {
-	return pulumix.Output[*SparkClusterMetastores]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterMetastoresPtrOutput) Elem() SparkClusterMetastoresOutput {
@@ -21449,12 +18856,6 @@ func (i SparkClusterMetastoresAmbariArgs) ToSparkClusterMetastoresAmbariOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresAmbariOutput)
 }
 
-func (i SparkClusterMetastoresAmbariArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastoresAmbari] {
-	return pulumix.Output[SparkClusterMetastoresAmbari]{
-		OutputState: i.ToSparkClusterMetastoresAmbariOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterMetastoresAmbariArgs) ToSparkClusterMetastoresAmbariPtrOutput() SparkClusterMetastoresAmbariPtrOutput {
 	return i.ToSparkClusterMetastoresAmbariPtrOutputWithContext(context.Background())
 }
@@ -21496,12 +18897,6 @@ func (i *sparkClusterMetastoresAmbariPtrType) ToSparkClusterMetastoresAmbariPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresAmbariPtrOutput)
 }
 
-func (i *sparkClusterMetastoresAmbariPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastoresAmbari] {
-	return pulumix.Output[*SparkClusterMetastoresAmbari]{
-		OutputState: i.ToSparkClusterMetastoresAmbariPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterMetastoresAmbariOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterMetastoresAmbariOutput) ElementType() reflect.Type {
@@ -21524,12 +18919,6 @@ func (o SparkClusterMetastoresAmbariOutput) ToSparkClusterMetastoresAmbariPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastoresAmbari) *SparkClusterMetastoresAmbari {
 		return &v
 	}).(SparkClusterMetastoresAmbariPtrOutput)
-}
-
-func (o SparkClusterMetastoresAmbariOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastoresAmbari] {
-	return pulumix.Output[SparkClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -21564,12 +18953,6 @@ func (o SparkClusterMetastoresAmbariPtrOutput) ToSparkClusterMetastoresAmbariPtr
 
 func (o SparkClusterMetastoresAmbariPtrOutput) ToSparkClusterMetastoresAmbariPtrOutputWithContext(ctx context.Context) SparkClusterMetastoresAmbariPtrOutput {
 	return o
-}
-
-func (o SparkClusterMetastoresAmbariPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastoresAmbari] {
-	return pulumix.Output[*SparkClusterMetastoresAmbari]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterMetastoresAmbariPtrOutput) Elem() SparkClusterMetastoresAmbariOutput {
@@ -21667,12 +19050,6 @@ func (i SparkClusterMetastoresHiveArgs) ToSparkClusterMetastoresHiveOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresHiveOutput)
 }
 
-func (i SparkClusterMetastoresHiveArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastoresHive] {
-	return pulumix.Output[SparkClusterMetastoresHive]{
-		OutputState: i.ToSparkClusterMetastoresHiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterMetastoresHiveArgs) ToSparkClusterMetastoresHivePtrOutput() SparkClusterMetastoresHivePtrOutput {
 	return i.ToSparkClusterMetastoresHivePtrOutputWithContext(context.Background())
 }
@@ -21714,12 +19091,6 @@ func (i *sparkClusterMetastoresHivePtrType) ToSparkClusterMetastoresHivePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresHivePtrOutput)
 }
 
-func (i *sparkClusterMetastoresHivePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastoresHive] {
-	return pulumix.Output[*SparkClusterMetastoresHive]{
-		OutputState: i.ToSparkClusterMetastoresHivePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterMetastoresHiveOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterMetastoresHiveOutput) ElementType() reflect.Type {
@@ -21742,12 +19113,6 @@ func (o SparkClusterMetastoresHiveOutput) ToSparkClusterMetastoresHivePtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastoresHive) *SparkClusterMetastoresHive {
 		return &v
 	}).(SparkClusterMetastoresHivePtrOutput)
-}
-
-func (o SparkClusterMetastoresHiveOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastoresHive] {
-	return pulumix.Output[SparkClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -21782,12 +19147,6 @@ func (o SparkClusterMetastoresHivePtrOutput) ToSparkClusterMetastoresHivePtrOutp
 
 func (o SparkClusterMetastoresHivePtrOutput) ToSparkClusterMetastoresHivePtrOutputWithContext(ctx context.Context) SparkClusterMetastoresHivePtrOutput {
 	return o
-}
-
-func (o SparkClusterMetastoresHivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastoresHive] {
-	return pulumix.Output[*SparkClusterMetastoresHive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterMetastoresHivePtrOutput) Elem() SparkClusterMetastoresHiveOutput {
@@ -21885,12 +19244,6 @@ func (i SparkClusterMetastoresOozieArgs) ToSparkClusterMetastoresOozieOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresOozieOutput)
 }
 
-func (i SparkClusterMetastoresOozieArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastoresOozie] {
-	return pulumix.Output[SparkClusterMetastoresOozie]{
-		OutputState: i.ToSparkClusterMetastoresOozieOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterMetastoresOozieArgs) ToSparkClusterMetastoresOoziePtrOutput() SparkClusterMetastoresOoziePtrOutput {
 	return i.ToSparkClusterMetastoresOoziePtrOutputWithContext(context.Background())
 }
@@ -21932,12 +19285,6 @@ func (i *sparkClusterMetastoresOoziePtrType) ToSparkClusterMetastoresOoziePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMetastoresOoziePtrOutput)
 }
 
-func (i *sparkClusterMetastoresOoziePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastoresOozie] {
-	return pulumix.Output[*SparkClusterMetastoresOozie]{
-		OutputState: i.ToSparkClusterMetastoresOoziePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterMetastoresOozieOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterMetastoresOozieOutput) ElementType() reflect.Type {
@@ -21960,12 +19307,6 @@ func (o SparkClusterMetastoresOozieOutput) ToSparkClusterMetastoresOoziePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterMetastoresOozie) *SparkClusterMetastoresOozie {
 		return &v
 	}).(SparkClusterMetastoresOoziePtrOutput)
-}
-
-func (o SparkClusterMetastoresOozieOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMetastoresOozie] {
-	return pulumix.Output[SparkClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
@@ -22000,12 +19341,6 @@ func (o SparkClusterMetastoresOoziePtrOutput) ToSparkClusterMetastoresOoziePtrOu
 
 func (o SparkClusterMetastoresOoziePtrOutput) ToSparkClusterMetastoresOoziePtrOutputWithContext(ctx context.Context) SparkClusterMetastoresOoziePtrOutput {
 	return o
-}
-
-func (o SparkClusterMetastoresOoziePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMetastoresOozie] {
-	return pulumix.Output[*SparkClusterMetastoresOozie]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterMetastoresOoziePtrOutput) Elem() SparkClusterMetastoresOozieOutput {
@@ -22095,12 +19430,6 @@ func (i SparkClusterMonitorArgs) ToSparkClusterMonitorOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMonitorOutput)
 }
 
-func (i SparkClusterMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMonitor] {
-	return pulumix.Output[SparkClusterMonitor]{
-		OutputState: i.ToSparkClusterMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterMonitorArgs) ToSparkClusterMonitorPtrOutput() SparkClusterMonitorPtrOutput {
 	return i.ToSparkClusterMonitorPtrOutputWithContext(context.Background())
 }
@@ -22142,12 +19471,6 @@ func (i *sparkClusterMonitorPtrType) ToSparkClusterMonitorPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterMonitorPtrOutput)
 }
 
-func (i *sparkClusterMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMonitor] {
-	return pulumix.Output[*SparkClusterMonitor]{
-		OutputState: i.ToSparkClusterMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterMonitorOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterMonitorOutput) ElementType() reflect.Type {
@@ -22172,12 +19495,6 @@ func (o SparkClusterMonitorOutput) ToSparkClusterMonitorPtrOutputWithContext(ctx
 	}).(SparkClusterMonitorPtrOutput)
 }
 
-func (o SparkClusterMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterMonitor] {
-	return pulumix.Output[SparkClusterMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Operations Management Suite (OMS) workspace ID.
 func (o SparkClusterMonitorOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterMonitor) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
@@ -22200,12 +19517,6 @@ func (o SparkClusterMonitorPtrOutput) ToSparkClusterMonitorPtrOutput() SparkClus
 
 func (o SparkClusterMonitorPtrOutput) ToSparkClusterMonitorPtrOutputWithContext(ctx context.Context) SparkClusterMonitorPtrOutput {
 	return o
-}
-
-func (o SparkClusterMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterMonitor] {
-	return pulumix.Output[*SparkClusterMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterMonitorPtrOutput) Elem() SparkClusterMonitorOutput {
@@ -22279,12 +19590,6 @@ func (i SparkClusterNetworkArgs) ToSparkClusterNetworkOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterNetworkOutput)
 }
 
-func (i SparkClusterNetworkArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterNetwork] {
-	return pulumix.Output[SparkClusterNetwork]{
-		OutputState: i.ToSparkClusterNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterNetworkArgs) ToSparkClusterNetworkPtrOutput() SparkClusterNetworkPtrOutput {
 	return i.ToSparkClusterNetworkPtrOutputWithContext(context.Background())
 }
@@ -22326,12 +19631,6 @@ func (i *sparkClusterNetworkPtrType) ToSparkClusterNetworkPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterNetworkPtrOutput)
 }
 
-func (i *sparkClusterNetworkPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterNetwork] {
-	return pulumix.Output[*SparkClusterNetwork]{
-		OutputState: i.ToSparkClusterNetworkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterNetworkOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterNetworkOutput) ElementType() reflect.Type {
@@ -22354,12 +19653,6 @@ func (o SparkClusterNetworkOutput) ToSparkClusterNetworkPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterNetwork) *SparkClusterNetwork {
 		return &v
 	}).(SparkClusterNetworkPtrOutput)
-}
-
-func (o SparkClusterNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterNetwork] {
-	return pulumix.Output[SparkClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
@@ -22386,12 +19679,6 @@ func (o SparkClusterNetworkPtrOutput) ToSparkClusterNetworkPtrOutput() SparkClus
 
 func (o SparkClusterNetworkPtrOutput) ToSparkClusterNetworkPtrOutputWithContext(ctx context.Context) SparkClusterNetworkPtrOutput {
 	return o
-}
-
-func (o SparkClusterNetworkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterNetwork] {
-	return pulumix.Output[*SparkClusterNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterNetworkPtrOutput) Elem() SparkClusterNetworkOutput {
@@ -22467,12 +19754,6 @@ func (i SparkClusterRolesArgs) ToSparkClusterRolesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesOutput)
 }
 
-func (i SparkClusterRolesArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRoles] {
-	return pulumix.Output[SparkClusterRoles]{
-		OutputState: i.ToSparkClusterRolesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesArgs) ToSparkClusterRolesPtrOutput() SparkClusterRolesPtrOutput {
 	return i.ToSparkClusterRolesPtrOutputWithContext(context.Background())
 }
@@ -22514,12 +19795,6 @@ func (i *sparkClusterRolesPtrType) ToSparkClusterRolesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesPtrOutput)
 }
 
-func (i *sparkClusterRolesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRoles] {
-	return pulumix.Output[*SparkClusterRoles]{
-		OutputState: i.ToSparkClusterRolesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesOutput) ElementType() reflect.Type {
@@ -22542,12 +19817,6 @@ func (o SparkClusterRolesOutput) ToSparkClusterRolesPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRoles) *SparkClusterRoles {
 		return &v
 	}).(SparkClusterRolesPtrOutput)
-}
-
-func (o SparkClusterRolesOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRoles] {
-	return pulumix.Output[SparkClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `headNode` block as defined above.
@@ -22577,12 +19846,6 @@ func (o SparkClusterRolesPtrOutput) ToSparkClusterRolesPtrOutput() SparkClusterR
 
 func (o SparkClusterRolesPtrOutput) ToSparkClusterRolesPtrOutputWithContext(ctx context.Context) SparkClusterRolesPtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRoles] {
-	return pulumix.Output[*SparkClusterRoles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesPtrOutput) Elem() SparkClusterRolesOutput {
@@ -22690,12 +19953,6 @@ func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeOutput)
 }
 
-func (i SparkClusterRolesHeadNodeArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesHeadNode] {
-	return pulumix.Output[SparkClusterRolesHeadNode]{
-		OutputState: i.ToSparkClusterRolesHeadNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesHeadNodeArgs) ToSparkClusterRolesHeadNodePtrOutput() SparkClusterRolesHeadNodePtrOutput {
 	return i.ToSparkClusterRolesHeadNodePtrOutputWithContext(context.Background())
 }
@@ -22737,12 +19994,6 @@ func (i *sparkClusterRolesHeadNodePtrType) ToSparkClusterRolesHeadNodePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodePtrOutput)
 }
 
-func (i *sparkClusterRolesHeadNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesHeadNode] {
-	return pulumix.Output[*SparkClusterRolesHeadNode]{
-		OutputState: i.ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesHeadNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesHeadNodeOutput) ElementType() reflect.Type {
@@ -22765,12 +20016,6 @@ func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesHeadNode) *SparkClusterRolesHeadNode {
 		return &v
 	}).(SparkClusterRolesHeadNodePtrOutput)
-}
-
-func (o SparkClusterRolesHeadNodeOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesHeadNode] {
-	return pulumix.Output[SparkClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -22824,12 +20069,6 @@ func (o SparkClusterRolesHeadNodePtrOutput) ToSparkClusterRolesHeadNodePtrOutput
 
 func (o SparkClusterRolesHeadNodePtrOutput) ToSparkClusterRolesHeadNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodePtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesHeadNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesHeadNode] {
-	return pulumix.Output[*SparkClusterRolesHeadNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesHeadNodePtrOutput) Elem() SparkClusterRolesHeadNodeOutput {
@@ -22957,12 +20196,6 @@ func (i SparkClusterRolesHeadNodeScriptActionArgs) ToSparkClusterRolesHeadNodeSc
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeScriptActionOutput)
 }
 
-func (i SparkClusterRolesHeadNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[SparkClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToSparkClusterRolesHeadNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkClusterRolesHeadNodeScriptActionArrayInput is an input type that accepts SparkClusterRolesHeadNodeScriptActionArray and SparkClusterRolesHeadNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `SparkClusterRolesHeadNodeScriptActionArrayInput` via:
 //
@@ -22988,12 +20221,6 @@ func (i SparkClusterRolesHeadNodeScriptActionArray) ToSparkClusterRolesHeadNodeS
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesHeadNodeScriptActionArrayOutput)
 }
 
-func (i SparkClusterRolesHeadNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]SparkClusterRolesHeadNodeScriptAction]{
-		OutputState: i.ToSparkClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesHeadNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesHeadNodeScriptActionOutput) ElementType() reflect.Type {
@@ -23006,12 +20233,6 @@ func (o SparkClusterRolesHeadNodeScriptActionOutput) ToSparkClusterRolesHeadNode
 
 func (o SparkClusterRolesHeadNodeScriptActionOutput) ToSparkClusterRolesHeadNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeScriptActionOutput {
 	return o
-}
-
-func (o SparkClusterRolesHeadNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[SparkClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -23041,12 +20262,6 @@ func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) ToSparkClusterRolesHea
 
 func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) ToSparkClusterRolesHeadNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesHeadNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesHeadNodeScriptAction] {
-	return pulumix.Output[[]SparkClusterRolesHeadNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesHeadNodeScriptActionOutput {
@@ -23128,12 +20343,6 @@ func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNode] {
-	return pulumix.Output[SparkClusterRolesWorkerNode]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesWorkerNodeArgs) ToSparkClusterRolesWorkerNodePtrOutput() SparkClusterRolesWorkerNodePtrOutput {
 	return i.ToSparkClusterRolesWorkerNodePtrOutputWithContext(context.Background())
 }
@@ -23175,12 +20384,6 @@ func (i *sparkClusterRolesWorkerNodePtrType) ToSparkClusterRolesWorkerNodePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodePtrOutput)
 }
 
-func (i *sparkClusterRolesWorkerNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNode] {
-	return pulumix.Output[*SparkClusterRolesWorkerNode]{
-		OutputState: i.ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesWorkerNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeOutput) ElementType() reflect.Type {
@@ -23203,12 +20406,6 @@ func (o SparkClusterRolesWorkerNodeOutput) ToSparkClusterRolesWorkerNodePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNode) *SparkClusterRolesWorkerNode {
 		return &v
 	}).(SparkClusterRolesWorkerNodePtrOutput)
-}
-
-func (o SparkClusterRolesWorkerNodeOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNode] {
-	return pulumix.Output[SparkClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `autoscale` block as defined below.
@@ -23272,12 +20469,6 @@ func (o SparkClusterRolesWorkerNodePtrOutput) ToSparkClusterRolesWorkerNodePtrOu
 
 func (o SparkClusterRolesWorkerNodePtrOutput) ToSparkClusterRolesWorkerNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodePtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNode] {
-	return pulumix.Output[*SparkClusterRolesWorkerNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesWorkerNodePtrOutput) Elem() SparkClusterRolesWorkerNodeOutput {
@@ -23425,12 +20616,6 @@ func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeA
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesWorkerNodeAutoscaleArgs) ToSparkClusterRolesWorkerNodeAutoscalePtrOutput() SparkClusterRolesWorkerNodeAutoscalePtrOutput {
 	return i.ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(context.Background())
 }
@@ -23472,12 +20657,6 @@ func (i *sparkClusterRolesWorkerNodeAutoscalePtrType) ToSparkClusterRolesWorkerN
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
 }
 
-func (i *sparkClusterRolesWorkerNodeAutoscalePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*SparkClusterRolesWorkerNodeAutoscale]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesWorkerNodeAutoscaleOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeAutoscaleOutput) ElementType() reflect.Type {
@@ -23500,12 +20679,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToSparkClusterRolesWorkerNod
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscale {
 		return &v
 	}).(SparkClusterRolesWorkerNodeAutoscalePtrOutput)
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscaleOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `capacity` block as defined below.
@@ -23536,12 +20709,6 @@ func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) ToSparkClusterRolesWorker
 
 func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) ToSparkClusterRolesWorkerNodeAutoscalePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNodeAutoscale] {
-	return pulumix.Output[*SparkClusterRolesWorkerNodeAutoscale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleOutput {
@@ -23613,12 +20780,6 @@ func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWor
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleCapacityOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleCapacityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesWorkerNodeAutoscaleCapacityArgs) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput() SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return i.ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(context.Background())
 }
@@ -23660,12 +20821,6 @@ func (i *sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToSparkClusterRole
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-func (i *sparkClusterRolesWorkerNodeAutoscaleCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesWorkerNodeAutoscaleCapacityOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ElementType() reflect.Type {
@@ -23690,12 +20845,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToSparkClusterRolesW
 	}).(SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput)
 }
 
-func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum number of worker nodes to autoscale to based on the cluster's activity.
 func (o SparkClusterRolesWorkerNodeAutoscaleCapacityOutput) MaxInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscaleCapacity) int { return v.MaxInstanceCount }).(pulumi.IntOutput)
@@ -23718,12 +20867,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToSparkClusterRol
 
 func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToSparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleCapacity] {
-	return pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscaleCapacityPtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleCapacityOutput {
@@ -23793,12 +20936,6 @@ func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesW
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(context.Background())
 }
@@ -23840,12 +20977,6 @@ func (i *sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToSparkClusterRo
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
 }
 
-func (i *sparkClusterRolesWorkerNodeAutoscaleRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ElementType() reflect.Type {
@@ -23868,12 +20999,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToSparkClusterRole
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesWorkerNodeAutoscaleRecurrence) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
 		return &v
 	}).(SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput)
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `schedule` blocks as defined below.
@@ -23900,12 +21025,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToSparkClusterR
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleRecurrence] {
-	return pulumix.Output[*SparkClusterRolesWorkerNodeAutoscaleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() SparkClusterRolesWorkerNodeAutoscaleRecurrenceOutput {
@@ -23979,12 +21098,6 @@ func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToSparkClust
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput is an input type that accepts SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray and SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput` via:
 //
@@ -24010,12 +21123,6 @@ func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToSparkClus
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ElementType() reflect.Type {
@@ -24028,12 +21135,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToSparkClu
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -24063,12 +21164,6 @@ func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToSpa
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToSparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule] {
-	return pulumix.Output[[]SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput {
@@ -24118,12 +21213,6 @@ func (i SparkClusterRolesWorkerNodeScriptActionArgs) ToSparkClusterRolesWorkerNo
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeScriptActionOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkClusterRolesWorkerNodeScriptActionArrayInput is an input type that accepts SparkClusterRolesWorkerNodeScriptActionArray and SparkClusterRolesWorkerNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `SparkClusterRolesWorkerNodeScriptActionArrayInput` via:
 //
@@ -24149,12 +21238,6 @@ func (i SparkClusterRolesWorkerNodeScriptActionArray) ToSparkClusterRolesWorkerN
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesWorkerNodeScriptActionArrayOutput)
 }
 
-func (i SparkClusterRolesWorkerNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]SparkClusterRolesWorkerNodeScriptAction]{
-		OutputState: i.ToSparkClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesWorkerNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesWorkerNodeScriptActionOutput) ElementType() reflect.Type {
@@ -24167,12 +21250,6 @@ func (o SparkClusterRolesWorkerNodeScriptActionOutput) ToSparkClusterRolesWorker
 
 func (o SparkClusterRolesWorkerNodeScriptActionOutput) ToSparkClusterRolesWorkerNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeScriptActionOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[SparkClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -24202,12 +21279,6 @@ func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) ToSparkClusterRolesW
 
 func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) ToSparkClusterRolesWorkerNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesWorkerNodeScriptAction] {
-	return pulumix.Output[[]SparkClusterRolesWorkerNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesWorkerNodeScriptActionOutput {
@@ -24281,12 +21352,6 @@ func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeOutput)
 }
 
-func (i SparkClusterRolesZookeeperNodeArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesZookeeperNode] {
-	return pulumix.Output[SparkClusterRolesZookeeperNode]{
-		OutputState: i.ToSparkClusterRolesZookeeperNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterRolesZookeeperNodeArgs) ToSparkClusterRolesZookeeperNodePtrOutput() SparkClusterRolesZookeeperNodePtrOutput {
 	return i.ToSparkClusterRolesZookeeperNodePtrOutputWithContext(context.Background())
 }
@@ -24328,12 +21393,6 @@ func (i *sparkClusterRolesZookeeperNodePtrType) ToSparkClusterRolesZookeeperNode
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodePtrOutput)
 }
 
-func (i *sparkClusterRolesZookeeperNodePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesZookeeperNode] {
-	return pulumix.Output[*SparkClusterRolesZookeeperNode]{
-		OutputState: i.ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesZookeeperNodeOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesZookeeperNodeOutput) ElementType() reflect.Type {
@@ -24356,12 +21415,6 @@ func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodePt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterRolesZookeeperNode) *SparkClusterRolesZookeeperNode {
 		return &v
 	}).(SparkClusterRolesZookeeperNodePtrOutput)
-}
-
-func (o SparkClusterRolesZookeeperNodeOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesZookeeperNode] {
-	return pulumix.Output[SparkClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -24417,12 +21470,6 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) ToSparkClusterRolesZookeeperNod
 
 func (o SparkClusterRolesZookeeperNodePtrOutput) ToSparkClusterRolesZookeeperNodePtrOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodePtrOutput {
 	return o
-}
-
-func (o SparkClusterRolesZookeeperNodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterRolesZookeeperNode] {
-	return pulumix.Output[*SparkClusterRolesZookeeperNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesZookeeperNodePtrOutput) Elem() SparkClusterRolesZookeeperNodeOutput {
@@ -24550,12 +21597,6 @@ func (i SparkClusterRolesZookeeperNodeScriptActionArgs) ToSparkClusterRolesZooke
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeScriptActionOutput)
 }
 
-func (i SparkClusterRolesZookeeperNodeScriptActionArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[SparkClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToSparkClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkClusterRolesZookeeperNodeScriptActionArrayInput is an input type that accepts SparkClusterRolesZookeeperNodeScriptActionArray and SparkClusterRolesZookeeperNodeScriptActionArrayOutput values.
 // You can construct a concrete instance of `SparkClusterRolesZookeeperNodeScriptActionArrayInput` via:
 //
@@ -24581,12 +21622,6 @@ func (i SparkClusterRolesZookeeperNodeScriptActionArray) ToSparkClusterRolesZook
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterRolesZookeeperNodeScriptActionArrayOutput)
 }
 
-func (i SparkClusterRolesZookeeperNodeScriptActionArray) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]SparkClusterRolesZookeeperNodeScriptAction]{
-		OutputState: i.ToSparkClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterRolesZookeeperNodeScriptActionOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterRolesZookeeperNodeScriptActionOutput) ElementType() reflect.Type {
@@ -24599,12 +21634,6 @@ func (o SparkClusterRolesZookeeperNodeScriptActionOutput) ToSparkClusterRolesZoo
 
 func (o SparkClusterRolesZookeeperNodeScriptActionOutput) ToSparkClusterRolesZookeeperNodeScriptActionOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeScriptActionOutput {
 	return o
-}
-
-func (o SparkClusterRolesZookeeperNodeScriptActionOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[SparkClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the script action.
@@ -24634,12 +21663,6 @@ func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) ToSparkClusterRol
 
 func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) ToSparkClusterRolesZookeeperNodeScriptActionArrayOutputWithContext(ctx context.Context) SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o
-}
-
-func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterRolesZookeeperNodeScriptAction] {
-	return pulumix.Output[[]SparkClusterRolesZookeeperNodeScriptAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterRolesZookeeperNodeScriptActionArrayOutput) Index(i pulumi.IntInput) SparkClusterRolesZookeeperNodeScriptActionOutput {
@@ -24705,12 +21728,6 @@ func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfileOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterSecurityProfileOutput)
 }
 
-func (i SparkClusterSecurityProfileArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterSecurityProfile] {
-	return pulumix.Output[SparkClusterSecurityProfile]{
-		OutputState: i.ToSparkClusterSecurityProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterSecurityProfileArgs) ToSparkClusterSecurityProfilePtrOutput() SparkClusterSecurityProfilePtrOutput {
 	return i.ToSparkClusterSecurityProfilePtrOutputWithContext(context.Background())
 }
@@ -24752,12 +21769,6 @@ func (i *sparkClusterSecurityProfilePtrType) ToSparkClusterSecurityProfilePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterSecurityProfilePtrOutput)
 }
 
-func (i *sparkClusterSecurityProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterSecurityProfile] {
-	return pulumix.Output[*SparkClusterSecurityProfile]{
-		OutputState: i.ToSparkClusterSecurityProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterSecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterSecurityProfileOutput) ElementType() reflect.Type {
@@ -24780,12 +21791,6 @@ func (o SparkClusterSecurityProfileOutput) ToSparkClusterSecurityProfilePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterSecurityProfile) *SparkClusterSecurityProfile {
 		return &v
 	}).(SparkClusterSecurityProfilePtrOutput)
-}
-
-func (o SparkClusterSecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterSecurityProfile] {
-	return pulumix.Output[SparkClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -24835,12 +21840,6 @@ func (o SparkClusterSecurityProfilePtrOutput) ToSparkClusterSecurityProfilePtrOu
 
 func (o SparkClusterSecurityProfilePtrOutput) ToSparkClusterSecurityProfilePtrOutputWithContext(ctx context.Context) SparkClusterSecurityProfilePtrOutput {
 	return o
-}
-
-func (o SparkClusterSecurityProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterSecurityProfile] {
-	return pulumix.Output[*SparkClusterSecurityProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterSecurityProfilePtrOutput) Elem() SparkClusterSecurityProfileOutput {
@@ -24976,12 +21975,6 @@ func (i SparkClusterStorageAccountArgs) ToSparkClusterStorageAccountOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterStorageAccountOutput)
 }
 
-func (i SparkClusterStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[SparkClusterStorageAccount] {
-	return pulumix.Output[SparkClusterStorageAccount]{
-		OutputState: i.ToSparkClusterStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkClusterStorageAccountArrayInput is an input type that accepts SparkClusterStorageAccountArray and SparkClusterStorageAccountArrayOutput values.
 // You can construct a concrete instance of `SparkClusterStorageAccountArrayInput` via:
 //
@@ -25007,12 +22000,6 @@ func (i SparkClusterStorageAccountArray) ToSparkClusterStorageAccountArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterStorageAccountArrayOutput)
 }
 
-func (i SparkClusterStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterStorageAccount] {
-	return pulumix.Output[[]SparkClusterStorageAccount]{
-		OutputState: i.ToSparkClusterStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (SparkClusterStorageAccountOutput) ElementType() reflect.Type {
@@ -25025,12 +22012,6 @@ func (o SparkClusterStorageAccountOutput) ToSparkClusterStorageAccountOutput() S
 
 func (o SparkClusterStorageAccountOutput) ToSparkClusterStorageAccountOutputWithContext(ctx context.Context) SparkClusterStorageAccountOutput {
 	return o
-}
-
-func (o SparkClusterStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[SparkClusterStorageAccount] {
-	return pulumix.Output[SparkClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
@@ -25069,12 +22050,6 @@ func (o SparkClusterStorageAccountArrayOutput) ToSparkClusterStorageAccountArray
 
 func (o SparkClusterStorageAccountArrayOutput) ToSparkClusterStorageAccountArrayOutputWithContext(ctx context.Context) SparkClusterStorageAccountArrayOutput {
 	return o
-}
-
-func (o SparkClusterStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SparkClusterStorageAccount] {
-	return pulumix.Output[[]SparkClusterStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterStorageAccountArrayOutput) Index(i pulumi.IntInput) SparkClusterStorageAccountOutput {
@@ -25136,12 +22111,6 @@ func (i SparkClusterStorageAccountGen2Args) ToSparkClusterStorageAccountGen2Outp
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterStorageAccountGen2Output)
 }
 
-func (i SparkClusterStorageAccountGen2Args) ToOutput(ctx context.Context) pulumix.Output[SparkClusterStorageAccountGen2] {
-	return pulumix.Output[SparkClusterStorageAccountGen2]{
-		OutputState: i.ToSparkClusterStorageAccountGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkClusterStorageAccountGen2Args) ToSparkClusterStorageAccountGen2PtrOutput() SparkClusterStorageAccountGen2PtrOutput {
 	return i.ToSparkClusterStorageAccountGen2PtrOutputWithContext(context.Background())
 }
@@ -25183,12 +22152,6 @@ func (i *sparkClusterStorageAccountGen2PtrType) ToSparkClusterStorageAccountGen2
 	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterStorageAccountGen2PtrOutput)
 }
 
-func (i *sparkClusterStorageAccountGen2PtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterStorageAccountGen2] {
-	return pulumix.Output[*SparkClusterStorageAccountGen2]{
-		OutputState: i.ToSparkClusterStorageAccountGen2PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkClusterStorageAccountGen2Output struct{ *pulumi.OutputState }
 
 func (SparkClusterStorageAccountGen2Output) ElementType() reflect.Type {
@@ -25211,12 +22174,6 @@ func (o SparkClusterStorageAccountGen2Output) ToSparkClusterStorageAccountGen2Pt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterStorageAccountGen2) *SparkClusterStorageAccountGen2 {
 		return &v
 	}).(SparkClusterStorageAccountGen2PtrOutput)
-}
-
-func (o SparkClusterStorageAccountGen2Output) ToOutput(ctx context.Context) pulumix.Output[SparkClusterStorageAccountGen2] {
-	return pulumix.Output[SparkClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -25255,12 +22212,6 @@ func (o SparkClusterStorageAccountGen2PtrOutput) ToSparkClusterStorageAccountGen
 
 func (o SparkClusterStorageAccountGen2PtrOutput) ToSparkClusterStorageAccountGen2PtrOutputWithContext(ctx context.Context) SparkClusterStorageAccountGen2PtrOutput {
 	return o
-}
-
-func (o SparkClusterStorageAccountGen2PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkClusterStorageAccountGen2] {
-	return pulumix.Output[*SparkClusterStorageAccountGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkClusterStorageAccountGen2PtrOutput) Elem() SparkClusterStorageAccountGen2Output {
@@ -25358,12 +22309,6 @@ func (i GetClusterGatewayArgs) ToGetClusterGatewayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterGatewayOutput)
 }
 
-func (i GetClusterGatewayArgs) ToOutput(ctx context.Context) pulumix.Output[GetClusterGateway] {
-	return pulumix.Output[GetClusterGateway]{
-		OutputState: i.ToGetClusterGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetClusterGatewayArrayInput is an input type that accepts GetClusterGatewayArray and GetClusterGatewayArrayOutput values.
 // You can construct a concrete instance of `GetClusterGatewayArrayInput` via:
 //
@@ -25389,12 +22334,6 @@ func (i GetClusterGatewayArray) ToGetClusterGatewayArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetClusterGatewayArrayOutput)
 }
 
-func (i GetClusterGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterGateway] {
-	return pulumix.Output[[]GetClusterGateway]{
-		OutputState: i.ToGetClusterGatewayArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetClusterGatewayOutput struct{ *pulumi.OutputState }
 
 func (GetClusterGatewayOutput) ElementType() reflect.Type {
@@ -25407,12 +22346,6 @@ func (o GetClusterGatewayOutput) ToGetClusterGatewayOutput() GetClusterGatewayOu
 
 func (o GetClusterGatewayOutput) ToGetClusterGatewayOutputWithContext(ctx context.Context) GetClusterGatewayOutput {
 	return o
-}
-
-func (o GetClusterGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterGateway] {
-	return pulumix.Output[GetClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is the Ambari Portal enabled?
@@ -25442,12 +22375,6 @@ func (o GetClusterGatewayArrayOutput) ToGetClusterGatewayArrayOutput() GetCluste
 
 func (o GetClusterGatewayArrayOutput) ToGetClusterGatewayArrayOutputWithContext(ctx context.Context) GetClusterGatewayArrayOutput {
 	return o
-}
-
-func (o GetClusterGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetClusterGateway] {
-	return pulumix.Output[[]GetClusterGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetClusterGatewayArrayOutput) Index(i pulumi.IntInput) GetClusterGatewayOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.
@@ -235,12 +234,6 @@ func (i *DataLakeGen2Path) ToDataLakeGen2PathOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathOutput)
 }
 
-func (i *DataLakeGen2Path) ToOutput(ctx context.Context) pulumix.Output[*DataLakeGen2Path] {
-	return pulumix.Output[*DataLakeGen2Path]{
-		OutputState: i.ToDataLakeGen2PathOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataLakeGen2PathArrayInput is an input type that accepts DataLakeGen2PathArray and DataLakeGen2PathArrayOutput values.
 // You can construct a concrete instance of `DataLakeGen2PathArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i DataLakeGen2PathArray) ToDataLakeGen2PathArrayOutput() DataLakeGen2PathA
 
 func (i DataLakeGen2PathArray) ToDataLakeGen2PathArrayOutputWithContext(ctx context.Context) DataLakeGen2PathArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathArrayOutput)
-}
-
-func (i DataLakeGen2PathArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeGen2Path] {
-	return pulumix.Output[[]*DataLakeGen2Path]{
-		OutputState: i.ToDataLakeGen2PathArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataLakeGen2PathMapInput is an input type that accepts DataLakeGen2PathMap and DataLakeGen2PathMapOutput values.
@@ -297,12 +284,6 @@ func (i DataLakeGen2PathMap) ToDataLakeGen2PathMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathMapOutput)
 }
 
-func (i DataLakeGen2PathMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeGen2Path] {
-	return pulumix.Output[map[string]*DataLakeGen2Path]{
-		OutputState: i.ToDataLakeGen2PathMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeGen2PathOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2PathOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o DataLakeGen2PathOutput) ToDataLakeGen2PathOutput() DataLakeGen2PathOutpu
 
 func (o DataLakeGen2PathOutput) ToDataLakeGen2PathOutputWithContext(ctx context.Context) DataLakeGen2PathOutput {
 	return o
-}
-
-func (o DataLakeGen2PathOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeGen2Path] {
-	return pulumix.Output[*DataLakeGen2Path]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
@@ -372,12 +347,6 @@ func (o DataLakeGen2PathArrayOutput) ToDataLakeGen2PathArrayOutputWithContext(ct
 	return o
 }
 
-func (o DataLakeGen2PathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataLakeGen2Path] {
-	return pulumix.Output[[]*DataLakeGen2Path]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataLakeGen2PathArrayOutput) Index(i pulumi.IntInput) DataLakeGen2PathOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataLakeGen2Path {
 		return vs[0].([]*DataLakeGen2Path)[vs[1].(int)]
@@ -396,12 +365,6 @@ func (o DataLakeGen2PathMapOutput) ToDataLakeGen2PathMapOutput() DataLakeGen2Pat
 
 func (o DataLakeGen2PathMapOutput) ToDataLakeGen2PathMapOutputWithContext(ctx context.Context) DataLakeGen2PathMapOutput {
 	return o
-}
-
-func (o DataLakeGen2PathMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataLakeGen2Path] {
-	return pulumix.Output[map[string]*DataLakeGen2Path]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeGen2PathMapOutput) MapIndex(k pulumi.StringInput) DataLakeGen2PathOutput {

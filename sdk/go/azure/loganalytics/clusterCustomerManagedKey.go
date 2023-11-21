@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Cluster Customer Managed Key.
@@ -228,12 +227,6 @@ func (i *ClusterCustomerManagedKey) ToClusterCustomerManagedKeyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCustomerManagedKeyOutput)
 }
 
-func (i *ClusterCustomerManagedKey) ToOutput(ctx context.Context) pulumix.Output[*ClusterCustomerManagedKey] {
-	return pulumix.Output[*ClusterCustomerManagedKey]{
-		OutputState: i.ToClusterCustomerManagedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterCustomerManagedKeyArrayInput is an input type that accepts ClusterCustomerManagedKeyArray and ClusterCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `ClusterCustomerManagedKeyArrayInput` via:
 //
@@ -257,12 +250,6 @@ func (i ClusterCustomerManagedKeyArray) ToClusterCustomerManagedKeyArrayOutput()
 
 func (i ClusterCustomerManagedKeyArray) ToClusterCustomerManagedKeyArrayOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCustomerManagedKeyArrayOutput)
-}
-
-func (i ClusterCustomerManagedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterCustomerManagedKey] {
-	return pulumix.Output[[]*ClusterCustomerManagedKey]{
-		OutputState: i.ToClusterCustomerManagedKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterCustomerManagedKeyMapInput is an input type that accepts ClusterCustomerManagedKeyMap and ClusterCustomerManagedKeyMapOutput values.
@@ -290,12 +277,6 @@ func (i ClusterCustomerManagedKeyMap) ToClusterCustomerManagedKeyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCustomerManagedKeyMapOutput)
 }
 
-func (i ClusterCustomerManagedKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterCustomerManagedKey] {
-	return pulumix.Output[map[string]*ClusterCustomerManagedKey]{
-		OutputState: i.ToClusterCustomerManagedKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (ClusterCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -308,12 +289,6 @@ func (o ClusterCustomerManagedKeyOutput) ToClusterCustomerManagedKeyOutput() Clu
 
 func (o ClusterCustomerManagedKeyOutput) ToClusterCustomerManagedKeyOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyOutput {
 	return o
-}
-
-func (o ClusterCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterCustomerManagedKey] {
-	return pulumix.Output[*ClusterCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Key Vault Key to use for encryption.
@@ -340,12 +315,6 @@ func (o ClusterCustomerManagedKeyArrayOutput) ToClusterCustomerManagedKeyArrayOu
 	return o
 }
 
-func (o ClusterCustomerManagedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterCustomerManagedKey] {
-	return pulumix.Output[[]*ClusterCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) ClusterCustomerManagedKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterCustomerManagedKey {
 		return vs[0].([]*ClusterCustomerManagedKey)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o ClusterCustomerManagedKeyMapOutput) ToClusterCustomerManagedKeyMapOutput
 
 func (o ClusterCustomerManagedKeyMapOutput) ToClusterCustomerManagedKeyMapOutputWithContext(ctx context.Context) ClusterCustomerManagedKeyMapOutput {
 	return o
-}
-
-func (o ClusterCustomerManagedKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterCustomerManagedKey] {
-	return pulumix.Output[map[string]*ClusterCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) ClusterCustomerManagedKeyOutput {
