@@ -17,7 +17,7 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelector {
      */
     private @Nullable List<String> ins;
     /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     private String kind;
@@ -36,7 +36,7 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelector {
         return this.ins == null ? List.of() : this.ins;
     }
     /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     public String kind() {

@@ -36,6 +36,10 @@ class NetworkAttachedDataNetworkArgs:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Attached Data Network should exist. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs'] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+               
+               > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -138,6 +142,9 @@ class NetworkAttachedDataNetworkArgs:
     @property
     @pulumi.getter(name="userEquipmentAddressPoolPrefixes")
     def user_equipment_address_pool_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        """
         return pulumi.get(self, "user_equipment_address_pool_prefixes")
 
     @user_equipment_address_pool_prefixes.setter
@@ -147,6 +154,11 @@ class NetworkAttachedDataNetworkArgs:
     @property
     @pulumi.getter(name="userEquipmentStaticAddressPoolPrefixes")
     def user_equipment_static_address_pool_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+
+        > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+        """
         return pulumi.get(self, "user_equipment_static_address_pool_prefixes")
 
     @user_equipment_static_address_pool_prefixes.setter
@@ -225,6 +237,10 @@ class _NetworkAttachedDataNetworkState:
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs'] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+               
+               > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -330,6 +346,9 @@ class _NetworkAttachedDataNetworkState:
     @property
     @pulumi.getter(name="userEquipmentAddressPoolPrefixes")
     def user_equipment_address_pool_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        """
         return pulumi.get(self, "user_equipment_address_pool_prefixes")
 
     @user_equipment_address_pool_prefixes.setter
@@ -339,6 +358,11 @@ class _NetworkAttachedDataNetworkState:
     @property
     @pulumi.getter(name="userEquipmentStaticAddressPoolPrefixes")
     def user_equipment_static_address_pool_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+
+        > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+        """
         return pulumi.get(self, "user_equipment_static_address_pool_prefixes")
 
     @user_equipment_static_address_pool_prefixes.setter
@@ -431,6 +455,10 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+               
+               > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -542,6 +570,10 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] mobile_network_packet_core_data_plane_id: Specifies the ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to. Changing this forces a new Mobile Network Attached Data Network to be created.
         :param pulumi.Input[pulumi.InputType['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] network_address_port_translation: A `network_address_port_translation` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_equipment_static_address_pool_prefixes: Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+               
+               > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
         :param pulumi.Input[str] user_plane_access_ipv4_address: The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_gateway: The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -616,11 +648,19 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userEquipmentAddressPoolPrefixes")
     def user_equipment_address_pool_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        """
         return pulumi.get(self, "user_equipment_address_pool_prefixes")
 
     @property
     @pulumi.getter(name="userEquipmentStaticAddressPoolPrefixes")
     def user_equipment_static_address_pool_prefixes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+
+        > **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+        """
         return pulumi.get(self, "user_equipment_static_address_pool_prefixes")
 
     @property

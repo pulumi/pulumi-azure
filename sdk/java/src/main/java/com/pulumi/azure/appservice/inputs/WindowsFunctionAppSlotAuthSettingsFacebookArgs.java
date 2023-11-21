@@ -62,14 +62,14 @@ public final class WindowsFunctionAppSlotAuthSettingsFacebookArgs extends com.pu
     }
 
     /**
-     * an `oauth_scopes` block as detailed below.
+     * Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
      * 
      */
     @Import(name="oauthScopes")
     private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
      * 
      */
     public Optional<Output<List<String>>> oauthScopes() {
@@ -167,7 +167,7 @@ public final class WindowsFunctionAppSlotAuthSettingsFacebookArgs extends com.pu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WindowsFunctionAppSlotAuthSettingsFacebookArgs extends com.pu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WindowsFunctionAppSlotAuthSettingsFacebookArgs extends com.pu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
          * 
          * @return builder
          * 

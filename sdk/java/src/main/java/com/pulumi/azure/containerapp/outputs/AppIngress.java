@@ -56,7 +56,7 @@ public final class AppIngress {
      */
     private List<AppIngressTrafficWeight> trafficWeights;
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+     * @return The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
      */
     private @Nullable String transport;
@@ -116,7 +116,7 @@ public final class AppIngress {
         return this.trafficWeights;
     }
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+     * @return The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
      */
     public Optional<String> transport() {

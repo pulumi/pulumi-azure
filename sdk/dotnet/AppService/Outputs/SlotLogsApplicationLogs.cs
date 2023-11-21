@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.SlotLogsApplicationLogsAzureBlobStorage? AzureBlobStorage;
         /// <summary>
-        /// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+        /// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
         /// </summary>
         public readonly string? FileSystemLevel;
 

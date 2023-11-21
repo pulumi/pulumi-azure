@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The operator to use for comparison. The allowed values are `In`.
+        /// The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }

@@ -210,14 +210,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificates);
     }
     /**
-     * The container configuration used in the pool&#39;s VMs.
+     * The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
      * 
      */
     @Export(name="containerConfiguration", refs={PoolContainerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PoolContainerConfiguration> containerConfiguration;
 
     /**
-     * @return The container configuration used in the pool&#39;s VMs.
+     * @return The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
      * 
      */
     public Output<Optional<PoolContainerConfiguration>> containerConfiguration() {
@@ -308,14 +308,14 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      * 
      */
     @Export(name="interNodeCommunication", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> interNodeCommunication;
 
     /**
-     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      * 
      */
     public Output<Optional<String>> interNodeCommunication() {
@@ -490,42 +490,42 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stopPendingResizeOperation);
     }
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageImageReference", refs={PoolStorageImageReference.class}, tree="[0]")
     private Output<PoolStorageImageReference> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * @return A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<PoolStorageImageReference> storageImageReference() {
         return this.storageImageReference;
     }
     /**
-     * The desired node communication mode for the pool.
+     * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      * 
      */
     @Export(name="targetNodeCommunicationMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetNodeCommunicationMode;
 
     /**
-     * @return The desired node communication mode for the pool.
+     * @return The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      * 
      */
     public Output<Optional<String>> targetNodeCommunicationMode() {
         return Codegen.optional(this.targetNodeCommunicationMode);
     }
     /**
-     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      * 
      */
     @Export(name="taskSchedulingPolicies", refs={List.class,PoolTaskSchedulingPolicy.class}, tree="[0,1]")
     private Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies;
 
     /**
-     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      * 
      */
     public Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies() {

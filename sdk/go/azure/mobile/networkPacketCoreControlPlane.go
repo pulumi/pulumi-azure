@@ -122,7 +122,7 @@ type NetworkPacketCoreControlPlane struct {
 	ControlPlaneAccessIpv4Subnet pulumi.StringPtrOutput `pulumi:"controlPlaneAccessIpv4Subnet"`
 	// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	ControlPlaneAccessName pulumi.StringPtrOutput `pulumi:"controlPlaneAccessName"`
-	// The core network technology generation. Possible values are `EPG` and `5GC`.
+	// The core network technology generation. Possible values are `5GC` and `EPC`.
 	CoreNetworkTechnology pulumi.StringPtrOutput `pulumi:"coreNetworkTechnology"`
 	// An `identity` block as defined below.
 	Identity NetworkPacketCoreControlPlaneIdentityPtrOutput `pulumi:"identity"`
@@ -200,7 +200,7 @@ type networkPacketCoreControlPlaneState struct {
 	ControlPlaneAccessIpv4Subnet *string `pulumi:"controlPlaneAccessIpv4Subnet"`
 	// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	ControlPlaneAccessName *string `pulumi:"controlPlaneAccessName"`
-	// The core network technology generation. Possible values are `EPG` and `5GC`.
+	// The core network technology generation. Possible values are `5GC` and `EPC`.
 	CoreNetworkTechnology *string `pulumi:"coreNetworkTechnology"`
 	// An `identity` block as defined below.
 	Identity *NetworkPacketCoreControlPlaneIdentity `pulumi:"identity"`
@@ -237,7 +237,7 @@ type NetworkPacketCoreControlPlaneState struct {
 	ControlPlaneAccessIpv4Subnet pulumi.StringPtrInput
 	// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	ControlPlaneAccessName pulumi.StringPtrInput
-	// The core network technology generation. Possible values are `EPG` and `5GC`.
+	// The core network technology generation. Possible values are `5GC` and `EPC`.
 	CoreNetworkTechnology pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity NetworkPacketCoreControlPlaneIdentityPtrInput
@@ -278,7 +278,7 @@ type networkPacketCoreControlPlaneArgs struct {
 	ControlPlaneAccessIpv4Subnet *string `pulumi:"controlPlaneAccessIpv4Subnet"`
 	// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	ControlPlaneAccessName *string `pulumi:"controlPlaneAccessName"`
-	// The core network technology generation. Possible values are `EPG` and `5GC`.
+	// The core network technology generation. Possible values are `5GC` and `EPC`.
 	CoreNetworkTechnology *string `pulumi:"coreNetworkTechnology"`
 	// An `identity` block as defined below.
 	Identity *NetworkPacketCoreControlPlaneIdentity `pulumi:"identity"`
@@ -316,7 +316,7 @@ type NetworkPacketCoreControlPlaneArgs struct {
 	ControlPlaneAccessIpv4Subnet pulumi.StringPtrInput
 	// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	ControlPlaneAccessName pulumi.StringPtrInput
-	// The core network technology generation. Possible values are `EPG` and `5GC`.
+	// The core network technology generation. Possible values are `5GC` and `EPC`.
 	CoreNetworkTechnology pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity NetworkPacketCoreControlPlaneIdentityPtrInput
@@ -475,7 +475,7 @@ func (o NetworkPacketCoreControlPlaneOutput) ControlPlaneAccessName() pulumi.Str
 	return o.ApplyT(func(v *NetworkPacketCoreControlPlane) pulumi.StringPtrOutput { return v.ControlPlaneAccessName }).(pulumi.StringPtrOutput)
 }
 
-// The core network technology generation. Possible values are `EPG` and `5GC`.
+// The core network technology generation. Possible values are `5GC` and `EPC`.
 func (o NetworkPacketCoreControlPlaneOutput) CoreNetworkTechnology() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkPacketCoreControlPlane) pulumi.StringPtrOutput { return v.CoreNetworkTechnology }).(pulumi.StringPtrOutput)
 }

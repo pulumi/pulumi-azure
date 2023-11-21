@@ -110,7 +110,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly authentication!: pulumi.Output<outputs.appservice.ConnectionAuthentication>;
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      */
     public readonly clientType!: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface ConnectionState {
      */
     authentication?: pulumi.Input<inputs.appservice.ConnectionAuthentication>;
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      */
     clientType?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface ConnectionArgs {
      */
     authentication: pulumi.Input<inputs.appservice.ConnectionAuthentication>;
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      */
     clientType?: pulumi.Input<string>;
     /**

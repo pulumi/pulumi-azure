@@ -32,14 +32,14 @@ public final class ScheduledQueryRulesLogCriteriaDimensionArgs extends com.pulum
     }
 
     /**
-     * Operator for dimension values, - &#39;Include&#39;.
+     * Operator for dimension values, - &#39;Include&#39;. Defaults to `Include`.
      * 
      */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
     /**
-     * @return Operator for dimension values, - &#39;Include&#39;.
+     * @return Operator for dimension values, - &#39;Include&#39;. Defaults to `Include`.
      * 
      */
     public Optional<Output<String>> operator() {
@@ -109,7 +109,7 @@ public final class ScheduledQueryRulesLogCriteriaDimensionArgs extends com.pulum
         }
 
         /**
-         * @param operator Operator for dimension values, - &#39;Include&#39;.
+         * @param operator Operator for dimension values, - &#39;Include&#39;. Defaults to `Include`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ScheduledQueryRulesLogCriteriaDimensionArgs extends com.pulum
         }
 
         /**
-         * @param operator Operator for dimension values, - &#39;Include&#39;.
+         * @param operator Operator for dimension values, - &#39;Include&#39;. Defaults to `Include`.
          * 
          * @return builder
          * 

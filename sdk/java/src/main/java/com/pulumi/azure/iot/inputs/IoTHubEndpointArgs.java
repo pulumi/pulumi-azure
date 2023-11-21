@@ -122,14 +122,14 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+     * File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     @Import(name="fileNameFormat")
     private @Nullable Output<String> fileNameFormat;
 
     /**
-     * @return File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+     * @return File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     public Optional<Output<String>> fileNameFormat() {
@@ -403,7 +403,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fileNameFormat File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+         * @param fileNameFormat File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class IoTHubEndpointArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fileNameFormat File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+         * @param fileNameFormat File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
          * 
          * @return builder
          * 

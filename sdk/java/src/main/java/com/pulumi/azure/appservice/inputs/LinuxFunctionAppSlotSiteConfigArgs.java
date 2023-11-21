@@ -219,14 +219,14 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * a `default_documents` block as detailed below.
+     * Specifies a list of Default Documents for the Linux Web App.
      * 
      */
     @Import(name="defaultDocuments")
     private @Nullable Output<List<String>> defaultDocuments;
 
     /**
-     * @return a `default_documents` block as detailed below.
+     * @return Specifies a list of Default Documents for the Linux Web App.
      * 
      */
     public Optional<Output<List<String>>> defaultDocuments() {
@@ -279,14 +279,14 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+     * The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
      * 
      */
     @Import(name="healthCheckEvictionTimeInMin")
     private @Nullable Output<Integer> healthCheckEvictionTimeInMin;
 
     /**
-     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
      * 
      */
     public Optional<Output<Integer>> healthCheckEvictionTimeInMin() {
@@ -916,7 +916,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultDocuments a `default_documents` block as detailed below.
+         * @param defaultDocuments Specifies a list of Default Documents for the Linux Web App.
          * 
          * @return builder
          * 
@@ -927,7 +927,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultDocuments a `default_documents` block as detailed below.
+         * @param defaultDocuments Specifies a list of Default Documents for the Linux Web App.
          * 
          * @return builder
          * 
@@ -937,7 +937,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultDocuments a `default_documents` block as detailed below.
+         * @param defaultDocuments Specifies a list of Default Documents for the Linux Web App.
          * 
          * @return builder
          * 
@@ -1010,7 +1010,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
          * 
          * @return builder
          * 
@@ -1021,7 +1021,7 @@ public final class LinuxFunctionAppSlotSiteConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+         * @param healthCheckEvictionTimeInMin The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
          * 
          * @return builder
          * 

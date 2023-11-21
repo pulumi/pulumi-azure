@@ -688,7 +688,7 @@ func (o CertifiateCertificatePolicyPtrOutput) X509CertificateProperties() Certif
 }
 
 type CertifiateCertificatePolicyIssuerParameters struct {
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 	Name string `pulumi:"name"`
 }
 
@@ -704,7 +704,7 @@ type CertifiateCertificatePolicyIssuerParametersInput interface {
 }
 
 type CertifiateCertificatePolicyIssuerParametersArgs struct {
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -803,7 +803,7 @@ func (o CertifiateCertificatePolicyIssuerParametersOutput) ToOutput(ctx context.
 	}
 }
 
-// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 func (o CertifiateCertificatePolicyIssuerParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyIssuerParameters) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -838,7 +838,7 @@ func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Elem() CertifiateC
 	}).(CertifiateCertificatePolicyIssuerParametersOutput)
 }
 
-// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyIssuerParameters) *string {
 		if v == nil {
@@ -849,15 +849,15 @@ func (o CertifiateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.Stri
 }
 
 type CertifiateCertificatePolicyKeyProperties struct {
-	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 	Curve *string `pulumi:"curve"`
-	// Is this certificate exportable? Changing this forces a new resource to be created.
+	// Is this certificate exportable?
 	Exportable bool `pulumi:"exportable"`
-	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 	KeyType string `pulumi:"keyType"`
-	// Is the key reusable? Changing this forces a new resource to be created.
+	// Is the key reusable?
 	ReuseKey bool `pulumi:"reuseKey"`
 }
 
@@ -873,15 +873,15 @@ type CertifiateCertificatePolicyKeyPropertiesInput interface {
 }
 
 type CertifiateCertificatePolicyKeyPropertiesArgs struct {
-	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 	Curve pulumi.StringPtrInput `pulumi:"curve"`
-	// Is this certificate exportable? Changing this forces a new resource to be created.
+	// Is this certificate exportable?
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
-	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
-	// Is the key reusable? Changing this forces a new resource to be created.
+	// Is the key reusable?
 	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
 }
 
@@ -980,27 +980,27 @@ func (o CertifiateCertificatePolicyKeyPropertiesOutput) ToOutput(ctx context.Con
 	}
 }
 
-// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) Curve() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *string { return v.Curve }).(pulumi.StringPtrOutput)
 }
 
-// Is this certificate exportable? Changing this forces a new resource to be created.
+// Is this certificate exportable?
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) Exportable() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) bool { return v.Exportable }).(pulumi.BoolOutput)
 }
 
-// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
-// Is the key reusable? Changing this forces a new resource to be created.
+// Is the key reusable?
 func (o CertifiateCertificatePolicyKeyPropertiesOutput) ReuseKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyKeyProperties) bool { return v.ReuseKey }).(pulumi.BoolOutput)
 }
@@ -1035,7 +1035,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertifiateCert
 	}).(CertifiateCertificatePolicyKeyPropertiesOutput)
 }
 
-// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Curve() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -1045,7 +1045,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Curve() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is this certificate exportable? Changing this forces a new resource to be created.
+// Is this certificate exportable?
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *bool {
 		if v == nil {
@@ -1055,7 +1055,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *int {
 		if v == nil {
@@ -1065,7 +1065,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -1075,7 +1075,7 @@ func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the key reusable? Changing this forces a new resource to be created.
+// Is the key reusable?
 func (o CertifiateCertificatePolicyKeyPropertiesPtrOutput) ReuseKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyKeyProperties) *bool {
 		if v == nil {
@@ -1220,7 +1220,7 @@ func (o CertifiateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.Int
 }
 
 type CertifiateCertificatePolicyLifetimeActionAction struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType string `pulumi:"actionType"`
 }
 
@@ -1236,7 +1236,7 @@ type CertifiateCertificatePolicyLifetimeActionActionInput interface {
 }
 
 type CertifiateCertificatePolicyLifetimeActionActionArgs struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 }
 
@@ -1278,15 +1278,15 @@ func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ToOutput(ctx cont
 	}
 }
 
-// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
 func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyLifetimeActionAction) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
 type CertifiateCertificatePolicyLifetimeActionTrigger struct {
-	// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
+	// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
 	DaysBeforeExpiry *int `pulumi:"daysBeforeExpiry"`
-	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `daysBeforeExpiry`.
+	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
 	LifetimePercentage *int `pulumi:"lifetimePercentage"`
 }
 
@@ -1302,9 +1302,9 @@ type CertifiateCertificatePolicyLifetimeActionTriggerInput interface {
 }
 
 type CertifiateCertificatePolicyLifetimeActionTriggerArgs struct {
-	// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
+	// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
 	DaysBeforeExpiry pulumi.IntPtrInput `pulumi:"daysBeforeExpiry"`
-	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `daysBeforeExpiry`.
+	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
 	LifetimePercentage pulumi.IntPtrInput `pulumi:"lifetimePercentage"`
 }
 
@@ -1346,18 +1346,18 @@ func (o CertifiateCertificatePolicyLifetimeActionTriggerOutput) ToOutput(ctx con
 	}
 }
 
-// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
+// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
 func (o CertifiateCertificatePolicyLifetimeActionTriggerOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyLifetimeActionTrigger) *int { return v.DaysBeforeExpiry }).(pulumi.IntPtrOutput)
 }
 
-// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `daysBeforeExpiry`.
+// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
 func (o CertifiateCertificatePolicyLifetimeActionTriggerOutput) LifetimePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyLifetimeActionTrigger) *int { return v.LifetimePercentage }).(pulumi.IntPtrOutput)
 }
 
 type CertifiateCertificatePolicySecretProperties struct {
-	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 	ContentType string `pulumi:"contentType"`
 }
 
@@ -1373,7 +1373,7 @@ type CertifiateCertificatePolicySecretPropertiesInput interface {
 }
 
 type CertifiateCertificatePolicySecretPropertiesArgs struct {
-	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 }
 
@@ -1472,7 +1472,7 @@ func (o CertifiateCertificatePolicySecretPropertiesOutput) ToOutput(ctx context.
 	}
 }
 
-// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 func (o CertifiateCertificatePolicySecretPropertiesOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicySecretProperties) string { return v.ContentType }).(pulumi.StringOutput)
 }
@@ -1507,7 +1507,7 @@ func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) Elem() CertifiateC
 	}).(CertifiateCertificatePolicySecretPropertiesOutput)
 }
 
-// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicySecretProperties) *string {
 		if v == nil {
@@ -1518,15 +1518,15 @@ func (o CertifiateCertificatePolicySecretPropertiesPtrOutput) ContentType() pulu
 }
 
 type CertifiateCertificatePolicyX509CertificateProperties struct {
-	// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+	// A list of Extended/Enhanced Key Usages.
 	ExtendedKeyUsages []string `pulumi:"extendedKeyUsages"`
-	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 	KeyUsages []string `pulumi:"keyUsages"`
-	// The Certificate's Subject. Changing this forces a new resource to be created.
+	// The Certificate's Subject.
 	Subject string `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+	// A `subjectAlternativeNames` block as defined below.
 	SubjectAlternativeNames *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+	// The Certificates Validity Period in Months.
 	ValidityInMonths int `pulumi:"validityInMonths"`
 }
 
@@ -1542,15 +1542,15 @@ type CertifiateCertificatePolicyX509CertificatePropertiesInput interface {
 }
 
 type CertifiateCertificatePolicyX509CertificatePropertiesArgs struct {
-	// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+	// A list of Extended/Enhanced Key Usages.
 	ExtendedKeyUsages pulumi.StringArrayInput `pulumi:"extendedKeyUsages"`
-	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 	KeyUsages pulumi.StringArrayInput `pulumi:"keyUsages"`
-	// The Certificate's Subject. Changing this forces a new resource to be created.
+	// The Certificate's Subject.
 	Subject pulumi.StringInput `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+	// A `subjectAlternativeNames` block as defined below.
 	SubjectAlternativeNames CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+	// The Certificates Validity Period in Months.
 	ValidityInMonths pulumi.IntInput `pulumi:"validityInMonths"`
 }
 
@@ -1649,29 +1649,29 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ToOutput(ctx
 	}
 }
 
-// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+// A list of Extended/Enhanced Key Usages.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) []string { return v.ExtendedKeyUsages }).(pulumi.StringArrayOutput)
 }
 
-// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) KeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) []string { return v.KeyUsages }).(pulumi.StringArrayOutput)
 }
 
-// The Certificate's Subject. Changing this forces a new resource to be created.
+// The Certificate's Subject.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+// A `subjectAlternativeNames` block as defined below.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) SubjectAlternativeNames() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
-// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+// The Certificates Validity Period in Months.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesOutput) ValidityInMonths() pulumi.IntOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificateProperties) int { return v.ValidityInMonths }).(pulumi.IntOutput)
 }
@@ -1706,7 +1706,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() Ce
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesOutput)
 }
 
-// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+// A list of Extended/Enhanced Key Usages.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) []string {
 		if v == nil {
@@ -1716,7 +1716,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ExtendedK
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) KeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) []string {
 		if v == nil {
@@ -1726,7 +1726,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) KeyUsages
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Certificate's Subject. Changing this forces a new resource to be created.
+// The Certificate's Subject.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *string {
 		if v == nil {
@@ -1736,7 +1736,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject()
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+// A `subjectAlternativeNames` block as defined below.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAlternativeNames() CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		if v == nil {
@@ -1746,7 +1746,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAl
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
-// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+// The Certificates Validity Period in Months.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificateProperties) *int {
 		if v == nil {
@@ -1757,11 +1757,11 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityI
 }
 
 type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames struct {
-	// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of alternative DNS names (FQDNs) identified by the Certificate.
 	DnsNames []string `pulumi:"dnsNames"`
-	// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+	// A list of email addresses identified by this Certificate.
 	Emails []string `pulumi:"emails"`
-	// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of User Principal Names identified by the Certificate.
 	Upns []string `pulumi:"upns"`
 }
 
@@ -1777,11 +1777,11 @@ type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames
 }
 
 type CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs struct {
-	// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of alternative DNS names (FQDNs) identified by the Certificate.
 	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
-	// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+	// A list of email addresses identified by this Certificate.
 	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of User Principal Names identified by the Certificate.
 	Upns pulumi.StringArrayInput `pulumi:"upns"`
 }
 
@@ -1880,21 +1880,21 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 	}
 }
 
-// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+// A list of alternative DNS names (FQDNs) identified by the Certificate.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) DnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		return v.DnsNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+// A list of email addresses identified by this Certificate.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		return v.Emails
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+// A list of User Principal Names identified by the Certificate.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) Upns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		return v.Upns
@@ -1931,7 +1931,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 	}).(CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput)
 }
 
-// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+// A list of alternative DNS names (FQDNs) identified by the Certificate.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) DnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		if v == nil {
@@ -1941,7 +1941,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+// A list of email addresses identified by this Certificate.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		if v == nil {
@@ -1951,7 +1951,7 @@ func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNa
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+// A list of User Principal Names identified by the Certificate.
 func (o CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Upns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		if v == nil {
@@ -2635,7 +2635,7 @@ func (o CertificateCertificatePolicyPtrOutput) X509CertificateProperties() Certi
 }
 
 type CertificateCertificatePolicyIssuerParameters struct {
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 	Name string `pulumi:"name"`
 }
 
@@ -2651,7 +2651,7 @@ type CertificateCertificatePolicyIssuerParametersInput interface {
 }
 
 type CertificateCertificatePolicyIssuerParametersArgs struct {
-	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+	// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2750,7 +2750,7 @@ func (o CertificateCertificatePolicyIssuerParametersOutput) ToOutput(ctx context
 	}
 }
 
-// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 func (o CertificateCertificatePolicyIssuerParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyIssuerParameters) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2785,7 +2785,7 @@ func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Elem() Certificat
 	}).(CertificateCertificatePolicyIssuerParametersOutput)
 }
 
-// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
 func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyIssuerParameters) *string {
 		if v == nil {
@@ -2796,15 +2796,15 @@ func (o CertificateCertificatePolicyIssuerParametersPtrOutput) Name() pulumi.Str
 }
 
 type CertificateCertificatePolicyKeyProperties struct {
-	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 	Curve *string `pulumi:"curve"`
-	// Is this certificate exportable? Changing this forces a new resource to be created.
+	// Is this certificate exportable?
 	Exportable bool `pulumi:"exportable"`
-	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 	KeyType string `pulumi:"keyType"`
-	// Is the key reusable? Changing this forces a new resource to be created.
+	// Is the key reusable?
 	ReuseKey bool `pulumi:"reuseKey"`
 }
 
@@ -2820,15 +2820,15 @@ type CertificateCertificatePolicyKeyPropertiesInput interface {
 }
 
 type CertificateCertificatePolicyKeyPropertiesArgs struct {
-	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 	Curve pulumi.StringPtrInput `pulumi:"curve"`
-	// Is this certificate exportable? Changing this forces a new resource to be created.
+	// Is this certificate exportable?
 	Exportable pulumi.BoolInput `pulumi:"exportable"`
-	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+	// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+	// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
-	// Is the key reusable? Changing this forces a new resource to be created.
+	// Is the key reusable?
 	ReuseKey pulumi.BoolInput `pulumi:"reuseKey"`
 }
 
@@ -2927,27 +2927,27 @@ func (o CertificateCertificatePolicyKeyPropertiesOutput) ToOutput(ctx context.Co
 	}
 }
 
-// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) Curve() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *string { return v.Curve }).(pulumi.StringPtrOutput)
 }
 
-// Is this certificate exportable? Changing this forces a new resource to be created.
+// Is this certificate exportable?
 func (o CertificateCertificatePolicyKeyPropertiesOutput) Exportable() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) bool { return v.Exportable }).(pulumi.BoolOutput)
 }
 
-// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 func (o CertificateCertificatePolicyKeyPropertiesOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
-// Is the key reusable? Changing this forces a new resource to be created.
+// Is the key reusable?
 func (o CertificateCertificatePolicyKeyPropertiesOutput) ReuseKey() pulumi.BoolOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyKeyProperties) bool { return v.ReuseKey }).(pulumi.BoolOutput)
 }
@@ -2982,7 +2982,7 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Elem() CertificateCe
 	}).(CertificateCertificatePolicyKeyPropertiesOutput)
 }
 
-// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `keyType` is `EC` or `EC-HSM`.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Curve() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -2992,7 +2992,7 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Curve() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is this certificate exportable? Changing this forces a new resource to be created.
+// Is this certificate exportable?
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *bool {
 		if v == nil {
@@ -3002,7 +3002,7 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) Exportable() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *int {
 		if v == nil {
@@ -3012,7 +3012,7 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeySize() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *string {
 		if v == nil {
@@ -3022,7 +3022,7 @@ func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) KeyType() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the key reusable? Changing this forces a new resource to be created.
+// Is the key reusable?
 func (o CertificateCertificatePolicyKeyPropertiesPtrOutput) ReuseKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyKeyProperties) *bool {
 		if v == nil {
@@ -3167,7 +3167,7 @@ func (o CertificateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.In
 }
 
 type CertificateCertificatePolicyLifetimeActionAction struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType string `pulumi:"actionType"`
 }
 
@@ -3183,7 +3183,7 @@ type CertificateCertificatePolicyLifetimeActionActionInput interface {
 }
 
 type CertificateCertificatePolicyLifetimeActionActionArgs struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 }
 
@@ -3225,15 +3225,15 @@ func (o CertificateCertificatePolicyLifetimeActionActionOutput) ToOutput(ctx con
 	}
 }
 
-// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
 func (o CertificateCertificatePolicyLifetimeActionActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyLifetimeActionAction) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
 type CertificateCertificatePolicyLifetimeActionTrigger struct {
-	// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
+	// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
 	DaysBeforeExpiry *int `pulumi:"daysBeforeExpiry"`
-	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `daysBeforeExpiry`.
+	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
 	LifetimePercentage *int `pulumi:"lifetimePercentage"`
 }
 
@@ -3249,9 +3249,9 @@ type CertificateCertificatePolicyLifetimeActionTriggerInput interface {
 }
 
 type CertificateCertificatePolicyLifetimeActionTriggerArgs struct {
-	// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
+	// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
 	DaysBeforeExpiry pulumi.IntPtrInput `pulumi:"daysBeforeExpiry"`
-	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `daysBeforeExpiry`.
+	// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
 	LifetimePercentage pulumi.IntPtrInput `pulumi:"lifetimePercentage"`
 }
 
@@ -3293,18 +3293,18 @@ func (o CertificateCertificatePolicyLifetimeActionTriggerOutput) ToOutput(ctx co
 	}
 }
 
-// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetimePercentage`.
+// The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetimePercentage`.
 func (o CertificateCertificatePolicyLifetimeActionTriggerOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyLifetimeActionTrigger) *int { return v.DaysBeforeExpiry }).(pulumi.IntPtrOutput)
 }
 
-// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `daysBeforeExpiry`.
+// The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `daysBeforeExpiry`.
 func (o CertificateCertificatePolicyLifetimeActionTriggerOutput) LifetimePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyLifetimeActionTrigger) *int { return v.LifetimePercentage }).(pulumi.IntPtrOutput)
 }
 
 type CertificateCertificatePolicySecretProperties struct {
-	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 	ContentType string `pulumi:"contentType"`
 }
 
@@ -3320,7 +3320,7 @@ type CertificateCertificatePolicySecretPropertiesInput interface {
 }
 
 type CertificateCertificatePolicySecretPropertiesArgs struct {
-	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+	// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 	ContentType pulumi.StringInput `pulumi:"contentType"`
 }
 
@@ -3419,7 +3419,7 @@ func (o CertificateCertificatePolicySecretPropertiesOutput) ToOutput(ctx context
 	}
 }
 
-// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 func (o CertificateCertificatePolicySecretPropertiesOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicySecretProperties) string { return v.ContentType }).(pulumi.StringOutput)
 }
@@ -3454,7 +3454,7 @@ func (o CertificateCertificatePolicySecretPropertiesPtrOutput) Elem() Certificat
 	}).(CertificateCertificatePolicySecretPropertiesOutput)
 }
 
-// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
 func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicySecretProperties) *string {
 		if v == nil {
@@ -3465,15 +3465,15 @@ func (o CertificateCertificatePolicySecretPropertiesPtrOutput) ContentType() pul
 }
 
 type CertificateCertificatePolicyX509CertificateProperties struct {
-	// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+	// A list of Extended/Enhanced Key Usages.
 	ExtendedKeyUsages []string `pulumi:"extendedKeyUsages"`
-	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 	KeyUsages []string `pulumi:"keyUsages"`
-	// The Certificate's Subject. Changing this forces a new resource to be created.
+	// The Certificate's Subject.
 	Subject string `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+	// A `subjectAlternativeNames` block as defined below.
 	SubjectAlternativeNames *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames `pulumi:"subjectAlternativeNames"`
-	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+	// The Certificates Validity Period in Months.
 	ValidityInMonths int `pulumi:"validityInMonths"`
 }
 
@@ -3489,15 +3489,15 @@ type CertificateCertificatePolicyX509CertificatePropertiesInput interface {
 }
 
 type CertificateCertificatePolicyX509CertificatePropertiesArgs struct {
-	// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+	// A list of Extended/Enhanced Key Usages.
 	ExtendedKeyUsages pulumi.StringArrayInput `pulumi:"extendedKeyUsages"`
-	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+	// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 	KeyUsages pulumi.StringArrayInput `pulumi:"keyUsages"`
-	// The Certificate's Subject. Changing this forces a new resource to be created.
+	// The Certificate's Subject.
 	Subject pulumi.StringInput `pulumi:"subject"`
-	// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+	// A `subjectAlternativeNames` block as defined below.
 	SubjectAlternativeNames CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrInput `pulumi:"subjectAlternativeNames"`
-	// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+	// The Certificates Validity Period in Months.
 	ValidityInMonths pulumi.IntInput `pulumi:"validityInMonths"`
 }
 
@@ -3596,29 +3596,29 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ToOutput(ct
 	}
 }
 
-// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+// A list of Extended/Enhanced Key Usages.
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) []string { return v.ExtendedKeyUsages }).(pulumi.StringArrayOutput)
 }
 
-// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) KeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) []string { return v.KeyUsages }).(pulumi.StringArrayOutput)
 }
 
-// The Certificate's Subject. Changing this forces a new resource to be created.
+// The Certificate's Subject.
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) Subject() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) string { return v.Subject }).(pulumi.StringOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+// A `subjectAlternativeNames` block as defined below.
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) SubjectAlternativeNames() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		return v.SubjectAlternativeNames
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
-// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+// The Certificates Validity Period in Months.
 func (o CertificateCertificatePolicyX509CertificatePropertiesOutput) ValidityInMonths() pulumi.IntOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificateProperties) int { return v.ValidityInMonths }).(pulumi.IntOutput)
 }
@@ -3653,7 +3653,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Elem() C
 	}).(CertificateCertificatePolicyX509CertificatePropertiesOutput)
 }
 
-// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+// A list of Extended/Enhanced Key Usages.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ExtendedKeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) []string {
 		if v == nil {
@@ -3663,7 +3663,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Extended
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) KeyUsages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) []string {
 		if v == nil {
@@ -3673,7 +3673,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) KeyUsage
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Certificate's Subject. Changing this forces a new resource to be created.
+// The Certificate's Subject.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *string {
 		if v == nil {
@@ -3683,7 +3683,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Subject(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `subjectAlternativeNames` block as defined below. Changing this forces a new resource to be created.
+// A `subjectAlternativeNames` block as defined below.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectAlternativeNames() CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
 		if v == nil {
@@ -3693,7 +3693,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) SubjectA
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput)
 }
 
-// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+// The Certificates Validity Period in Months.
 func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) ValidityInMonths() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificateProperties) *int {
 		if v == nil {
@@ -3704,11 +3704,11 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesPtrOutput) Validity
 }
 
 type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames struct {
-	// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of alternative DNS names (FQDNs) identified by the Certificate.
 	DnsNames []string `pulumi:"dnsNames"`
-	// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+	// A list of email addresses identified by this Certificate.
 	Emails []string `pulumi:"emails"`
-	// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of User Principal Names identified by the Certificate.
 	Upns []string `pulumi:"upns"`
 }
 
@@ -3724,11 +3724,11 @@ type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 }
 
 type CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs struct {
-	// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of alternative DNS names (FQDNs) identified by the Certificate.
 	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
-	// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+	// A list of email addresses identified by this Certificate.
 	Emails pulumi.StringArrayInput `pulumi:"emails"`
-	// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+	// A list of User Principal Names identified by the Certificate.
 	Upns pulumi.StringArrayInput `pulumi:"upns"`
 }
 
@@ -3827,21 +3827,21 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	}
 }
 
-// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+// A list of alternative DNS names (FQDNs) identified by the Certificate.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) DnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		return v.DnsNames
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+// A list of email addresses identified by this Certificate.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		return v.Emails
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+// A list of User Principal Names identified by the Certificate.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput) Upns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		return v.Upns
@@ -3878,7 +3878,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	}).(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesOutput)
 }
 
-// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+// A list of alternative DNS names (FQDNs) identified by the Certificate.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) DnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		if v == nil {
@@ -3888,7 +3888,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+// A list of email addresses identified by this Certificate.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Emails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		if v == nil {
@@ -3898,7 +3898,7 @@ func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeN
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+// A list of User Principal Names identified by the Certificate.
 func (o CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesPtrOutput) Upns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames) []string {
 		if v == nil {
@@ -4200,7 +4200,7 @@ type KeyRotationPolicy struct {
 	Automatic *KeyRotationPolicyAutomatic `pulumi:"automatic"`
 	// Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ExpireAfter *string `pulumi:"expireAfter"`
-	// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+	// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	NotifyBeforeExpiry *string `pulumi:"notifyBeforeExpiry"`
 }
 
@@ -4220,7 +4220,7 @@ type KeyRotationPolicyArgs struct {
 	Automatic KeyRotationPolicyAutomaticPtrInput `pulumi:"automatic"`
 	// Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	ExpireAfter pulumi.StringPtrInput `pulumi:"expireAfter"`
-	// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+	// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 	NotifyBeforeExpiry pulumi.StringPtrInput `pulumi:"notifyBeforeExpiry"`
 }
 
@@ -4329,7 +4329,7 @@ func (o KeyRotationPolicyOutput) ExpireAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyRotationPolicy) *string { return v.ExpireAfter }).(pulumi.StringPtrOutput)
 }
 
-// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 func (o KeyRotationPolicyOutput) NotifyBeforeExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyRotationPolicy) *string { return v.NotifyBeforeExpiry }).(pulumi.StringPtrOutput)
 }
@@ -4384,7 +4384,7 @@ func (o KeyRotationPolicyPtrOutput) ExpireAfter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
 func (o KeyRotationPolicyPtrOutput) NotifyBeforeExpiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyRotationPolicy) *string {
 		if v == nil {

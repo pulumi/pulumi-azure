@@ -30,7 +30,7 @@ public final class TransformOutputCustomPresetCodecH264VideoLayer {
      */
     private Integer bitrate;
     /**
-     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
      * 
      */
     private @Nullable String bufferWindow;
@@ -70,7 +70,7 @@ public final class TransformOutputCustomPresetCodecH264VideoLayer {
      */
     private @Nullable Integer maxBitrate;
     /**
-     * @return The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+     * @return The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
      * 
      */
     private @Nullable String profile;
@@ -113,7 +113,7 @@ public final class TransformOutputCustomPresetCodecH264VideoLayer {
         return this.bitrate;
     }
     /**
-     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
      * 
      */
     public Optional<String> bufferWindow() {
@@ -169,7 +169,7 @@ public final class TransformOutputCustomPresetCodecH264VideoLayer {
         return Optional.ofNullable(this.maxBitrate);
     }
     /**
-     * @return The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+     * @return The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
      * 
      */
     public Optional<String> profile() {

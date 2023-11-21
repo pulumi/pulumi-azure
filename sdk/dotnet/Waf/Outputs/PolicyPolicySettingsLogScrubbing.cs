@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// One or more `scrubbing_rule` as define below.
+        /// One or more `scrubbing_rule` blocks as define below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyPolicySettingsLogScrubbingRule> Rules;
 

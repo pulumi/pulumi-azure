@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Bot
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The Icon Url of the Azure Bot Service.
+        /// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         /// </summary>
         [Output("iconUrl")]
         public Output<string?> IconUrl { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The Icon Url of the Azure Bot Service.
+        /// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         /// </summary>
         [Input("iconUrl")]
         public Input<string>? IconUrl { get; set; }
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.Bot
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The Icon Url of the Azure Bot Service.
+        /// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         /// </summary>
         [Input("iconUrl")]
         public Input<string>? IconUrl { get; set; }

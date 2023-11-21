@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SubscriptionPolicyAssignmentOverride {
     /**
-     * @return One or more `override_selector` as defined below.
+     * @return One or more `override_selector` block as defined below.
      * 
      */
     private @Nullable List<SubscriptionPolicyAssignmentOverrideSelector> selectors;
@@ -25,7 +25,7 @@ public final class SubscriptionPolicyAssignmentOverride {
 
     private SubscriptionPolicyAssignmentOverride() {}
     /**
-     * @return One or more `override_selector` as defined below.
+     * @return One or more `override_selector` block as defined below.
      * 
      */
     public List<SubscriptionPolicyAssignmentOverrideSelector> selectors() {

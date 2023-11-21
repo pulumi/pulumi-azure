@@ -30,9 +30,17 @@ public final class NetworkSimStaticIpConfigurationArgs extends com.pulumi.resour
         return this.attachedDataNetworkId;
     }
 
+    /**
+     * The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+     * 
+     */
     @Import(name="sliceId", required=true)
     private Output<String> sliceId;
 
+    /**
+     * @return The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+     * 
+     */
     public Output<String> sliceId() {
         return this.sliceId;
     }
@@ -99,11 +107,23 @@ public final class NetworkSimStaticIpConfigurationArgs extends com.pulumi.resour
             return attachedDataNetworkId(Output.of(attachedDataNetworkId));
         }
 
+        /**
+         * @param sliceId The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sliceId(Output<String> sliceId) {
             $.sliceId = sliceId;
             return this;
         }
 
+        /**
+         * @param sliceId The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sliceId(String sliceId) {
             return sliceId(Output.of(sliceId));
         }

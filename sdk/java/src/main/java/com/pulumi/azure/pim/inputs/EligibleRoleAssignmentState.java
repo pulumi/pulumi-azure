@@ -49,7 +49,6 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
 
     /**
      * The type of principal.
-     * *
      * 
      */
     @Import(name="principalType")
@@ -57,7 +56,6 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
 
     /**
      * @return The type of principal.
-     * *
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -198,7 +196,6 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
 
         /**
          * @param principalType The type of principal.
-         * *
          * 
          * @return builder
          * 
@@ -210,7 +207,6 @@ public final class EligibleRoleAssignmentState extends com.pulumi.resources.Reso
 
         /**
          * @param principalType The type of principal.
-         * *
          * 
          * @return builder
          * 

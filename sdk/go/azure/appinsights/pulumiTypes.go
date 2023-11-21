@@ -21,7 +21,7 @@ type StandardWebTestRequest struct {
 	FollowRedirectsEnabled *bool `pulumi:"followRedirectsEnabled"`
 	// One or more `header` blocks as defined above.
 	Headers []StandardWebTestRequestHeader `pulumi:"headers"`
-	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
 	HttpVerb *string `pulumi:"httpVerb"`
 	// Should the parsing of dependend requests be enabled? Defaults to `true`.
 	ParseDependentRequestsEnabled *bool `pulumi:"parseDependentRequestsEnabled"`
@@ -47,7 +47,7 @@ type StandardWebTestRequestArgs struct {
 	FollowRedirectsEnabled pulumi.BoolPtrInput `pulumi:"followRedirectsEnabled"`
 	// One or more `header` blocks as defined above.
 	Headers StandardWebTestRequestHeaderArrayInput `pulumi:"headers"`
-	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+	// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
 	HttpVerb pulumi.StringPtrInput `pulumi:"httpVerb"`
 	// Should the parsing of dependend requests be enabled? Defaults to `true`.
 	ParseDependentRequestsEnabled pulumi.BoolPtrInput `pulumi:"parseDependentRequestsEnabled"`
@@ -165,7 +165,7 @@ func (o StandardWebTestRequestOutput) Headers() StandardWebTestRequestHeaderArra
 	return o.ApplyT(func(v StandardWebTestRequest) []StandardWebTestRequestHeader { return v.Headers }).(StandardWebTestRequestHeaderArrayOutput)
 }
 
-// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
 func (o StandardWebTestRequestOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardWebTestRequest) *string { return v.HttpVerb }).(pulumi.StringPtrOutput)
 }
@@ -240,7 +240,7 @@ func (o StandardWebTestRequestPtrOutput) Headers() StandardWebTestRequestHeaderA
 	}).(StandardWebTestRequestHeaderArrayOutput)
 }
 
-// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
 func (o StandardWebTestRequestPtrOutput) HttpVerb() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardWebTestRequest) *string {
 		if v == nil {

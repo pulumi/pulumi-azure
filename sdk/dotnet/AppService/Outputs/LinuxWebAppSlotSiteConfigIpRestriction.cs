@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSlotSiteConfigIpRestriction
     {
         /// <summary>
-        /// The action to take. Possible values are `Allow` or `Deny`.
+        /// The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>

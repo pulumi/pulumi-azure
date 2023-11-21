@@ -21,7 +21,7 @@ type AccountEncryption struct {
 	KeyVaultKeyIdentifier *string `pulumi:"keyVaultKeyIdentifier"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity *AccountEncryptionManagedIdentity `pulumi:"managedIdentity"`
-	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 	Type *string `pulumi:"type"`
 }
 
@@ -43,7 +43,7 @@ type AccountEncryptionArgs struct {
 	KeyVaultKeyIdentifier pulumi.StringPtrInput `pulumi:"keyVaultKeyIdentifier"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity AccountEncryptionManagedIdentityPtrInput `pulumi:"managedIdentity"`
-	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -157,7 +157,7 @@ func (o AccountEncryptionOutput) ManagedIdentity() AccountEncryptionManagedIdent
 	return o.ApplyT(func(v AccountEncryption) *AccountEncryptionManagedIdentity { return v.ManagedIdentity }).(AccountEncryptionManagedIdentityPtrOutput)
 }
 
-// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 func (o AccountEncryptionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountEncryption) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -222,7 +222,7 @@ func (o AccountEncryptionPtrOutput) ManagedIdentity() AccountEncryptionManagedId
 	}).(AccountEncryptionManagedIdentityPtrOutput)
 }
 
-// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountEncryption) *string {
 		if v == nil {

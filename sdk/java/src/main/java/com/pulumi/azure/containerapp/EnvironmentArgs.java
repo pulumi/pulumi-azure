@@ -18,14 +18,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     public static final EnvironmentArgs Empty = new EnvironmentArgs();
 
     /**
-     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="daprApplicationInsightsConnectionString")
     private @Nullable Output<String> daprApplicationInsightsConnectionString;
 
     /**
-     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> daprApplicationInsightsConnectionString() {
@@ -197,7 +197,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+         * @param daprApplicationInsightsConnectionString Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

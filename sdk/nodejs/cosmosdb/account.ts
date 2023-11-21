@@ -124,7 +124,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
     /**
-     * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
      */
     public readonly consistencyPolicy!: pulumi.Output<outputs.cosmosdb.AccountConsistencyPolicy>;
     /**
@@ -288,7 +288,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      */
     public readonly virtualNetworkRules!: pulumi.Output<outputs.cosmosdb.AccountVirtualNetworkRule[] | undefined>;
     /**
@@ -458,7 +458,7 @@ export interface AccountState {
      */
     connectionStrings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
      */
     consistencyPolicy?: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
     /**
@@ -622,7 +622,7 @@ export interface AccountState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      */
     virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountVirtualNetworkRule>[]>;
     /**
@@ -660,7 +660,7 @@ export interface AccountArgs {
      */
     capacity?: pulumi.Input<inputs.cosmosdb.AccountCapacity>;
     /**
-     * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
      */
     consistencyPolicy: pulumi.Input<inputs.cosmosdb.AccountConsistencyPolicy>;
     /**
@@ -768,7 +768,7 @@ export interface AccountArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      */
     virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.AccountVirtualNetworkRule>[]>;
 }

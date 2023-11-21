@@ -93,14 +93,14 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
         return this.logAnalyticsWorkspaceId;
     }
     /**
-     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="lookbackDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> lookbackDate;
 
     /**
-     * @return The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * @return The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> lookbackDate() {

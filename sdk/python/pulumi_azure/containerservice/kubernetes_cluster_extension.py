@@ -33,10 +33,10 @@ class KubernetesClusterExtensionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input['KubernetesClusterExtensionPlanArgs'] plan: A `plan` block as defined below.
+        :param pulumi.Input['KubernetesClusterExtensionPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -122,7 +122,7 @@ class KubernetesClusterExtensionArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']]:
         """
-        A `plan` block as defined below.
+        A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -158,7 +158,7 @@ class KubernetesClusterExtensionArgs:
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 
@@ -203,10 +203,10 @@ class _KubernetesClusterExtensionState:
         :param pulumi.Input[str] current_version: The current version of the extension.
         :param pulumi.Input[str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input['KubernetesClusterExtensionPlanArgs'] plan: A `plan` block as defined below.
+        :param pulumi.Input['KubernetesClusterExtensionPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         if aks_assigned_identities is not None:
@@ -322,7 +322,7 @@ class _KubernetesClusterExtensionState:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['KubernetesClusterExtensionPlanArgs']]:
         """
-        A `plan` block as defined below.
+        A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -358,7 +358,7 @@ class _KubernetesClusterExtensionState:
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 
@@ -437,10 +437,10 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterExtensionPlanArgs']] plan: A `plan` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterExtensionPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         ...
@@ -570,10 +570,10 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[str] current_version: The current version of the extension.
         :param pulumi.Input[str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterExtensionPlanArgs']] plan: A `plan` block as defined below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterExtensionPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -654,7 +654,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.KubernetesClusterExtensionPlan']]:
         """
-        A `plan` block as defined below.
+        A `plan` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "plan")
 
@@ -678,7 +678,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> pulumi.Output[str]:
         """
-        Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 

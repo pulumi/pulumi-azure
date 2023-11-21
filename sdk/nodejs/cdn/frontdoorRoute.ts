@@ -80,7 +80,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      */
     public readonly forwardingProtocol!: pulumi.Output<string | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface FrontdoorRouteState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      */
     forwardingProtocol?: pulumi.Input<string>;
     /**
@@ -279,7 +279,7 @@ export interface FrontdoorRouteArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      */
     forwardingProtocol?: pulumi.Input<string>;
     /**

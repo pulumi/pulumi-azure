@@ -108,7 +108,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly marketplaceSubscriptionStatus!: pulumi.Output<string>;
     /**
-     * Is monitoring enabled? Defaults to`true`.
+     * Is monitoring enabled? Defaults to `true`.
      */
     public readonly monitoringEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface MonitorState {
      */
     marketplaceSubscriptionStatus?: pulumi.Input<string>;
     /**
-     * Is monitoring enabled? Defaults to`true`.
+     * Is monitoring enabled? Defaults to `true`.
      */
     monitoringEnabled?: pulumi.Input<boolean>;
     /**
@@ -248,7 +248,7 @@ export interface MonitorArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Is monitoring enabled? Defaults to`true`.
+     * Is monitoring enabled? Defaults to `true`.
      */
     monitoringEnabled?: pulumi.Input<boolean>;
     /**

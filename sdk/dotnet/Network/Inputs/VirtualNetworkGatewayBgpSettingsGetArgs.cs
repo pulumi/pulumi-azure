@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.VirtualNetworkGatewayBgpSettingsPeeringAddressGetArgs>? _peeringAddresses;
 
         /// <summary>
-        /// A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        /// A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         /// </summary>
         public InputList<Inputs.VirtualNetworkGatewayBgpSettingsPeeringAddressGetArgs> PeeringAddresses
         {

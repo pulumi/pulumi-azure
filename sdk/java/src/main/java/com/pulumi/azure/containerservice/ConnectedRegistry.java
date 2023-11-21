@@ -149,28 +149,28 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
         return this.containerRegistryId;
     }
     /**
-     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logLevel;
 
     /**
-     * @return The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * @return The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      * 
      */
     public Output<Optional<String>> logLevel() {
         return Codegen.optional(this.logLevel);
     }
     /**
-     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
-     * @return The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * @return The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      * 
      */
     public Output<Optional<String>> mode() {
@@ -219,14 +219,14 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentRegistryId);
     }
     /**
-     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      * 
      */
     @Export(name="syncMessageTtl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> syncMessageTtl;
 
     /**
-     * @return The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * @return The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      * 
      */
     public Output<Optional<String>> syncMessageTtl() {

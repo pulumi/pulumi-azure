@@ -83,7 +83,7 @@ export class ChannelDirectLine extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
     public readonly sites!: pulumi.Output<outputs.bot.ChannelDirectLineSite[]>;
 
@@ -142,7 +142,7 @@ export interface ChannelDirectLineState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
     sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelDirectLineSite>[]>;
 }
@@ -164,7 +164,7 @@ export interface ChannelDirectLineArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
     sites: pulumi.Input<pulumi.Input<inputs.bot.ChannelDirectLineSite>[]>;
 }

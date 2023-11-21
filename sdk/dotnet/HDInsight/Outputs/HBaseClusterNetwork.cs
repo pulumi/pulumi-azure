@@ -20,7 +20,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string? ConnectionDirection;
         /// <summary>
-        /// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        /// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly bool? PrivateLinkEnabled;
 

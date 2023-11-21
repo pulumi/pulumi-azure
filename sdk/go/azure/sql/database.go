@@ -103,7 +103,7 @@ type Database struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringOutput `pulumi:"elasticPoolName"`
 	Encryption      pulumi.StringOutput `pulumi:"encryption"`
-	// A Database Import block as documented below. `createMode` must be set to `Default`.
+	// A `import` block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -186,7 +186,7 @@ type databaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	Encryption      *string `pulumi:"encryption"`
-	// A Database Import block as documented below. `createMode` must be set to `Default`.
+	// A `import` block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -234,7 +234,7 @@ type DatabaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
 	Encryption      pulumi.StringPtrInput
-	// A Database Import block as documented below. `createMode` must be set to `Default`.
+	// A `import` block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -281,7 +281,7 @@ type databaseArgs struct {
 	Edition *string `pulumi:"edition"`
 	// The name of the elastic database pool.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
-	// A Database Import block as documented below. `createMode` must be set to `Default`.
+	// A `import` block as documented below. `createMode` must be set to `Default`.
 	Import *DatabaseImport `pulumi:"import"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -325,7 +325,7 @@ type DatabaseArgs struct {
 	Edition pulumi.StringPtrInput
 	// The name of the elastic database pool.
 	ElasticPoolName pulumi.StringPtrInput
-	// A Database Import block as documented below. `createMode` must be set to `Default`.
+	// A `import` block as documented below. `createMode` must be set to `Default`.
 	Import DatabaseImportPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -504,7 +504,7 @@ func (o DatabaseOutput) Encryption() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Encryption }).(pulumi.StringOutput)
 }
 
-// A Database Import block as documented below. `createMode` must be set to `Default`.
+// A `import` block as documented below. `createMode` must be set to `Default`.
 func (o DatabaseOutput) Import() DatabaseImportPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseImportPtrOutput { return v.Import }).(DatabaseImportPtrOutput)
 }

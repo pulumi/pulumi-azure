@@ -55,14 +55,14 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of secondary servers as documented below
+     * A list of `partner_servers` blocks as documented below.
      * 
      */
     @Import(name="partnerServers", required=true)
     private Output<List<FailoverGroupPartnerServerArgs>> partnerServers;
 
     /**
-     * @return A list of secondary servers as documented below
+     * @return A list of `partner_servers` blocks as documented below.
      * 
      */
     public Output<List<FailoverGroupPartnerServerArgs>> partnerServers() {
@@ -70,14 +70,14 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A read/write policy as documented below
+     * A `read_write_endpoint_failover_policy` block as documented below.
      * 
      */
     @Import(name="readWriteEndpointFailoverPolicy", required=true)
     private Output<FailoverGroupReadWriteEndpointFailoverPolicyArgs> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A read/write policy as documented below
+     * @return A `read_write_endpoint_failover_policy` block as documented below.
      * 
      */
     public Output<FailoverGroupReadWriteEndpointFailoverPolicyArgs> readWriteEndpointFailoverPolicy() {
@@ -85,14 +85,14 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * a read-only policy as documented below
+     * A `readonly_endpoint_failover_policy` block as documented below.
      * 
      */
     @Import(name="readonlyEndpointFailoverPolicy")
     private @Nullable Output<FailoverGroupReadonlyEndpointFailoverPolicyArgs> readonlyEndpointFailoverPolicy;
 
     /**
-     * @return a read-only policy as documented below
+     * @return A `readonly_endpoint_failover_policy` block as documented below.
      * 
      */
     public Optional<Output<FailoverGroupReadonlyEndpointFailoverPolicyArgs>> readonlyEndpointFailoverPolicy() {
@@ -234,7 +234,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partnerServers A list of secondary servers as documented below
+         * @param partnerServers A list of `partner_servers` blocks as documented below.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partnerServers A list of secondary servers as documented below
+         * @param partnerServers A list of `partner_servers` blocks as documented below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partnerServers A list of secondary servers as documented below
+         * @param partnerServers A list of `partner_servers` blocks as documented below.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A read/write policy as documented below
+         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as documented below.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readWriteEndpointFailoverPolicy A read/write policy as documented below
+         * @param readWriteEndpointFailoverPolicy A `read_write_endpoint_failover_policy` block as documented below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readonlyEndpointFailoverPolicy a read-only policy as documented below
+         * @param readonlyEndpointFailoverPolicy A `readonly_endpoint_failover_policy` block as documented below.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readonlyEndpointFailoverPolicy a read-only policy as documented below
+         * @param readonlyEndpointFailoverPolicy A `readonly_endpoint_failover_policy` block as documented below.
          * 
          * @return builder
          * 

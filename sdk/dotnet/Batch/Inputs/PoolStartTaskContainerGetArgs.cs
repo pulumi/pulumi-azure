@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolStartTaskContainerRegistryGetArgs>? _registries;
 
         /// <summary>
-        /// The same reference as `container_registries` block defined as below.
+        /// The `container_registries` block defined as below.
         /// </summary>
         public InputList<Inputs.PoolStartTaskContainerRegistryGetArgs> Registries
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<string>? RunOptions { get; set; }
 
         /// <summary>
-        /// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+        /// A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
         /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }

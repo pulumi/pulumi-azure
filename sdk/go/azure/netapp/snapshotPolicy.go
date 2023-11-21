@@ -101,15 +101,15 @@ type SnapshotPolicy struct {
 
 	// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+	// Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
 	DailySchedule SnapshotPolicyDailyScheduleOutput `pulumi:"dailySchedule"`
 	// Defines that the NetApp Snapshot Policy is enabled or not.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+	// Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
 	HourlySchedule SnapshotPolicyHourlyScheduleOutput `pulumi:"hourlySchedule"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+	// Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
 	MonthlySchedule SnapshotPolicyMonthlyScheduleOutput `pulumi:"monthlySchedule"`
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -117,7 +117,7 @@ type SnapshotPolicy struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+	// Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
 	WeeklySchedule SnapshotPolicyWeeklyScheduleOutput `pulumi:"weeklySchedule"`
 }
 
@@ -162,15 +162,15 @@ func GetSnapshotPolicy(ctx *pulumi.Context,
 type snapshotPolicyState struct {
 	// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
-	// Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+	// Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
 	DailySchedule *SnapshotPolicyDailySchedule `pulumi:"dailySchedule"`
 	// Defines that the NetApp Snapshot Policy is enabled or not.
 	Enabled *bool `pulumi:"enabled"`
-	// Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+	// Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
 	HourlySchedule *SnapshotPolicyHourlySchedule `pulumi:"hourlySchedule"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+	// Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
 	MonthlySchedule *SnapshotPolicyMonthlySchedule `pulumi:"monthlySchedule"`
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -178,22 +178,22 @@ type snapshotPolicyState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+	// Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
 	WeeklySchedule *SnapshotPolicyWeeklySchedule `pulumi:"weeklySchedule"`
 }
 
 type SnapshotPolicyState struct {
 	// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringPtrInput
-	// Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+	// Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
 	DailySchedule SnapshotPolicyDailySchedulePtrInput
 	// Defines that the NetApp Snapshot Policy is enabled or not.
 	Enabled pulumi.BoolPtrInput
-	// Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+	// Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
 	HourlySchedule SnapshotPolicyHourlySchedulePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+	// Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
 	MonthlySchedule SnapshotPolicyMonthlySchedulePtrInput
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type SnapshotPolicyState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+	// Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
 	WeeklySchedule SnapshotPolicyWeeklySchedulePtrInput
 }
 
@@ -212,15 +212,15 @@ func (SnapshotPolicyState) ElementType() reflect.Type {
 type snapshotPolicyArgs struct {
 	// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
-	// Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+	// Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
 	DailySchedule *SnapshotPolicyDailySchedule `pulumi:"dailySchedule"`
 	// Defines that the NetApp Snapshot Policy is enabled or not.
 	Enabled bool `pulumi:"enabled"`
-	// Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+	// Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
 	HourlySchedule *SnapshotPolicyHourlySchedule `pulumi:"hourlySchedule"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+	// Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
 	MonthlySchedule *SnapshotPolicyMonthlySchedule `pulumi:"monthlySchedule"`
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -228,7 +228,7 @@ type snapshotPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+	// Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
 	WeeklySchedule *SnapshotPolicyWeeklySchedule `pulumi:"weeklySchedule"`
 }
 
@@ -236,15 +236,15 @@ type snapshotPolicyArgs struct {
 type SnapshotPolicyArgs struct {
 	// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
 	AccountName pulumi.StringInput
-	// Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+	// Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
 	DailySchedule SnapshotPolicyDailySchedulePtrInput
 	// Defines that the NetApp Snapshot Policy is enabled or not.
 	Enabled pulumi.BoolInput
-	// Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+	// Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
 	HourlySchedule SnapshotPolicyHourlySchedulePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+	// Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
 	MonthlySchedule SnapshotPolicyMonthlySchedulePtrInput
 	// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type SnapshotPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+	// Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
 	WeeklySchedule SnapshotPolicyWeeklySchedulePtrInput
 }
 
@@ -372,7 +372,7 @@ func (o SnapshotPolicyOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+// Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
 func (o SnapshotPolicyOutput) DailySchedule() SnapshotPolicyDailyScheduleOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) SnapshotPolicyDailyScheduleOutput { return v.DailySchedule }).(SnapshotPolicyDailyScheduleOutput)
 }
@@ -382,7 +382,7 @@ func (o SnapshotPolicyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+// Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
 func (o SnapshotPolicyOutput) HourlySchedule() SnapshotPolicyHourlyScheduleOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) SnapshotPolicyHourlyScheduleOutput { return v.HourlySchedule }).(SnapshotPolicyHourlyScheduleOutput)
 }
@@ -392,7 +392,7 @@ func (o SnapshotPolicyOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+// Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
 func (o SnapshotPolicyOutput) MonthlySchedule() SnapshotPolicyMonthlyScheduleOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) SnapshotPolicyMonthlyScheduleOutput { return v.MonthlySchedule }).(SnapshotPolicyMonthlyScheduleOutput)
 }
@@ -412,7 +412,7 @@ func (o SnapshotPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+// Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
 func (o SnapshotPolicyOutput) WeeklySchedule() SnapshotPolicyWeeklyScheduleOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) SnapshotPolicyWeeklyScheduleOutput { return v.WeeklySchedule }).(SnapshotPolicyWeeklyScheduleOutput)
 }

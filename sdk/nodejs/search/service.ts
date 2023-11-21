@@ -116,7 +116,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.search.ServiceIdentity | undefined>;
     /**
-     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      */
     public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface ServiceState {
      */
     identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
-     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -364,7 +364,7 @@ export interface ServiceArgs {
      */
     identity?: pulumi.Input<inputs.search.ServiceIdentity>;
     /**
-     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      */
     localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**

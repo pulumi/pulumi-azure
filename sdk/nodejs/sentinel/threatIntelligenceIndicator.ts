@@ -122,6 +122,9 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
      * The guid of this Sentinel Threat Intelligence Indicator.
      */
     public /*out*/ readonly guid!: pulumi.Output<string>;
+    /**
+     * A list of indicator types of this Threat Intelligence Indicator.
+     */
     public /*out*/ readonly indicatorTypes!: pulumi.Output<string[]>;
     /**
      * One or more `killChainPhase` blocks as defined below.
@@ -160,7 +163,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
      */
     public readonly revoked!: pulumi.Output<boolean | undefined>;
     /**
-     * Source of the Threat Intelligence Indicator.
+     * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     public readonly source!: pulumi.Output<string>;
     /**
@@ -331,6 +334,9 @@ export interface ThreatIntelligenceIndicatorState {
      * The guid of this Sentinel Threat Intelligence Indicator.
      */
     guid?: pulumi.Input<string>;
+    /**
+     * A list of indicator types of this Threat Intelligence Indicator.
+     */
     indicatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more `killChainPhase` blocks as defined below.
@@ -369,7 +375,7 @@ export interface ThreatIntelligenceIndicatorState {
      */
     revoked?: pulumi.Input<boolean>;
     /**
-     * Source of the Threat Intelligence Indicator.
+     * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     source?: pulumi.Input<string>;
     /**
@@ -455,7 +461,7 @@ export interface ThreatIntelligenceIndicatorArgs {
      */
     revoked?: pulumi.Input<boolean>;
     /**
-     * Source of the Threat Intelligence Indicator.
+     * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      */
     source: pulumi.Input<string>;
     /**

@@ -367,7 +367,7 @@ type IoTHubEndpoint struct {
 	EndpointUri *string `pulumi:"endpointUri"`
 	// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	EntityPath *string `pulumi:"entityPath"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+	// File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// The ID of the User Managed Identity used to authenticate against the endpoint.
 	//
@@ -411,7 +411,7 @@ type IoTHubEndpointArgs struct {
 	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
 	// Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
 	EntityPath pulumi.StringPtrInput `pulumi:"entityPath"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+	// File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
 	// The ID of the User Managed Identity used to authenticate against the endpoint.
 	//
@@ -533,7 +533,7 @@ func (o IoTHubEndpointOutput) EntityPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.EntityPath }).(pulumi.StringPtrOutput)
 }
 
-// File name format for the blob. Default format is “{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}“. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+// File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 func (o IoTHubEndpointOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }
@@ -739,7 +739,7 @@ type IoTHubFallbackRoute struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames []string `pulumi:"endpointNames"`
-	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source *string `pulumi:"source"`
 }
 
@@ -761,7 +761,7 @@ type IoTHubFallbackRouteArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
 	EndpointNames pulumi.StringArrayInput `pulumi:"endpointNames"`
-	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
+	// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source pulumi.StringPtrInput `pulumi:"source"`
 }
 
@@ -875,7 +875,7 @@ func (o IoTHubFallbackRouteOutput) EndpointNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) []string { return v.EndpointNames }).(pulumi.StringArrayOutput)
 }
 
-// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
 func (o IoTHubFallbackRouteOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFallbackRoute) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
@@ -940,7 +940,7 @@ func (o IoTHubFallbackRoutePtrOutput) EndpointNames() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
+// The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
 func (o IoTHubFallbackRoutePtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFallbackRoute) *string {
 		if v == nil {

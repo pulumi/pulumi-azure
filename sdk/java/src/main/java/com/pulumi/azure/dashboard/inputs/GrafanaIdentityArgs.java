@@ -17,14 +17,14 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
     public static final GrafanaIdentityArgs Empty = new GrafanaIdentityArgs();
 
     /**
-     * Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -104,7 +104,7 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GrafanaIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+         * @param identityIds Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

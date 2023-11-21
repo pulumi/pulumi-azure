@@ -1232,12 +1232,12 @@ class GroupContainerLivenessProbe(dict):
                  timeout_seconds: Optional[int] = None):
         """
         :param Sequence[str] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-        :param int failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param int failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
         :param Sequence['GroupContainerLivenessProbeHttpGetArgs'] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param int initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-        :param int period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param int success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param int timeout_seconds: Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param int period_seconds: How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
+        :param int success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
+        :param int timeout_seconds: Number of seconds after which the probe times out. Changing this forces a new resource to be created.
         """
         if execs is not None:
             pulumi.set(__self__, "execs", execs)
@@ -1266,7 +1266,7 @@ class GroupContainerLivenessProbe(dict):
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[int]:
         """
-        How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "failure_threshold")
 
@@ -1290,7 +1290,7 @@ class GroupContainerLivenessProbe(dict):
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> Optional[int]:
         """
-        How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "period_seconds")
 
@@ -1298,7 +1298,7 @@ class GroupContainerLivenessProbe(dict):
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> Optional[int]:
         """
-        Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "success_threshold")
 
@@ -1306,7 +1306,7 @@ class GroupContainerLivenessProbe(dict):
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> Optional[int]:
         """
-        Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        Number of seconds after which the probe times out. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timeout_seconds")
 
@@ -1390,7 +1390,7 @@ class GroupContainerPort(dict):
                  protocol: Optional[str] = None):
         """
         :param int port: The port number the container will expose. Changing this forces a new resource to be created.
-        :param str protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+        :param str protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
                
                > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
         """
@@ -1411,7 +1411,7 @@ class GroupContainerPort(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+        The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 
         > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
         """
@@ -1457,12 +1457,12 @@ class GroupContainerReadinessProbe(dict):
                  timeout_seconds: Optional[int] = None):
         """
         :param Sequence[str] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
-        :param int failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param int failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
         :param Sequence['GroupContainerReadinessProbeHttpGetArgs'] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param int initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
-        :param int period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param int success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param int timeout_seconds: Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        :param int period_seconds: How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
+        :param int success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
+        :param int timeout_seconds: Number of seconds after which the probe times out. Changing this forces a new resource to be created.
         """
         if execs is not None:
             pulumi.set(__self__, "execs", execs)
@@ -1491,7 +1491,7 @@ class GroupContainerReadinessProbe(dict):
     @pulumi.getter(name="failureThreshold")
     def failure_threshold(self) -> Optional[int]:
         """
-        How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+        How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "failure_threshold")
 
@@ -1515,7 +1515,7 @@ class GroupContainerReadinessProbe(dict):
     @pulumi.getter(name="periodSeconds")
     def period_seconds(self) -> Optional[int]:
         """
-        How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+        How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "period_seconds")
 
@@ -1523,7 +1523,7 @@ class GroupContainerReadinessProbe(dict):
     @pulumi.getter(name="successThreshold")
     def success_threshold(self) -> Optional[int]:
         """
-        Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "success_threshold")
 
@@ -1531,7 +1531,7 @@ class GroupContainerReadinessProbe(dict):
     @pulumi.getter(name="timeoutSeconds")
     def timeout_seconds(self) -> Optional[int]:
         """
-        Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+        Number of seconds after which the probe times out. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timeout_seconds")
 
@@ -2018,7 +2018,7 @@ class GroupExposedPort(dict):
                  protocol: Optional[str] = None):
         """
         :param int port: The port number the container will expose. Changing this forces a new resource to be created.
-        :param str protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+        :param str protocol: The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
                
                > **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
         """
@@ -2039,7 +2039,7 @@ class GroupExposedPort(dict):
     @pulumi.getter
     def protocol(self) -> Optional[str]:
         """
-        The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+        The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 
         > **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
         """
@@ -3302,10 +3302,12 @@ class KubernetesClusterDefaultNodePool(dict):
                  workload_runtime: Optional[str] = None,
                  zones: Optional[Sequence[str]] = None):
         """
-        :param str name: The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+        :param str name: The name which should be used for the default Kubernetes Node Pool.
         :param str vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         :param str capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param bool custom_ca_trust_enabled: Specifies whether to trust a Custom CA.
+               
+               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         :param bool enable_auto_scaling: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
                
                > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
@@ -3315,16 +3317,18 @@ class KubernetesClusterDefaultNodePool(dict):
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
-        :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         :param str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+        :param int max_pods: The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         :param str message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
         :param int min_count: The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
-        :param int node_count: The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+        :param int node_count: The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+               
+               > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
                
                > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
@@ -3336,9 +3340,9 @@ class KubernetesClusterDefaultNodePool(dict):
                
                > **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
         :param int os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
-        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        :param str os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
+        :param str os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        :param str pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
         :param str proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param str scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param str snapshot_id: The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
@@ -3351,7 +3355,7 @@ class KubernetesClusterDefaultNodePool(dict):
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
         :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
-        :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist.
                
                > **Note:** A Route Table must be configured on this Subnet.
         :param str workload_runtime: Specifies the workload runtime used by the node pool. Possible values are `OCIContainer` and `KataMshvVmIsolation`.
@@ -3440,7 +3444,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+        The name which should be used for the default Kubernetes Node Pool.
         """
         return pulumi.get(self, "name")
 
@@ -3465,6 +3469,8 @@ class KubernetesClusterDefaultNodePool(dict):
     def custom_ca_trust_enabled(self) -> Optional[bool]:
         """
         Specifies whether to trust a Custom CA.
+
+        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         """
         return pulumi.get(self, "custom_ca_trust_enabled")
 
@@ -3502,7 +3508,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="fipsEnabled")
     def fips_enabled(self) -> Optional[bool]:
         """
-        Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "fips_enabled")
 
@@ -3550,7 +3556,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="maxPods")
     def max_pods(self) -> Optional[int]:
         """
-        The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+        The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         """
         return pulumi.get(self, "max_pods")
 
@@ -3574,7 +3580,9 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="nodeCount")
     def node_count(self) -> Optional[int]:
         """
-        The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+        The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+
+        > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
 
         > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         """
@@ -3642,7 +3650,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[str]:
         """
-        The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+        The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -3650,7 +3658,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="osSku")
     def os_sku(self) -> Optional[str]:
         """
-        Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         """
         return pulumi.get(self, "os_sku")
 
@@ -3658,7 +3666,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="podSubnetId")
     def pod_subnet_id(self) -> Optional[str]:
         """
-        The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        The ID of the Subnet where the pods in the default Node Pool should exist.
         """
         return pulumi.get(self, "pod_subnet_id")
 
@@ -3734,7 +3742,7 @@ class KubernetesClusterDefaultNodePool(dict):
     @pulumi.getter(name="vnetSubnetId")
     def vnet_subnet_id(self) -> Optional[str]:
         """
-        The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        The ID of a Subnet where the Kubernetes Node Pool should exist.
 
         > **Note:** A Route Table must be configured on this Subnet.
         """
@@ -3810,16 +3818,16 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
                  pod_max_pid: Optional[int] = None,
                  topology_manager_policy: Optional[str] = None):
         """
-        :param Sequence[str] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
-        :param int container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
-        :param int container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
-        :param bool cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
-        :param str cpu_cfs_quota_period: Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
-        :param str cpu_manager_policy: Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
-        :param int image_gc_high_threshold: Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
-        :param int image_gc_low_threshold: Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
-        :param int pod_max_pid: Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
-        :param str topology_manager_policy: Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        :param Sequence[str] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
+        :param int container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+        :param int container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
+        :param bool cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled?
+        :param str cpu_cfs_quota_period: Specifies the CPU CFS quota period value.
+        :param str cpu_manager_policy: Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
+        :param int image_gc_high_threshold: Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
+        :param int image_gc_low_threshold: Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
+        :param int pod_max_pid: Specifies the maximum number of processes per pod.
+        :param str topology_manager_policy: Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
         """
         if allowed_unsafe_sysctls is not None:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
@@ -3846,7 +3854,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="allowedUnsafeSysctls")
     def allowed_unsafe_sysctls(self) -> Optional[Sequence[str]]:
         """
-        Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+        Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
         """
         return pulumi.get(self, "allowed_unsafe_sysctls")
 
@@ -3854,7 +3862,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="containerLogMaxLine")
     def container_log_max_line(self) -> Optional[int]:
         """
-        Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+        Specifies the maximum number of container log files that can be present for a container. must be at least 2.
         """
         return pulumi.get(self, "container_log_max_line")
 
@@ -3862,7 +3870,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="containerLogMaxSizeMb")
     def container_log_max_size_mb(self) -> Optional[int]:
         """
-        Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+        Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
         """
         return pulumi.get(self, "container_log_max_size_mb")
 
@@ -3870,7 +3878,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="cpuCfsQuotaEnabled")
     def cpu_cfs_quota_enabled(self) -> Optional[bool]:
         """
-        Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+        Is CPU CFS quota enforcement for containers enabled?
         """
         return pulumi.get(self, "cpu_cfs_quota_enabled")
 
@@ -3878,7 +3886,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="cpuCfsQuotaPeriod")
     def cpu_cfs_quota_period(self) -> Optional[str]:
         """
-        Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+        Specifies the CPU CFS quota period value.
         """
         return pulumi.get(self, "cpu_cfs_quota_period")
 
@@ -3886,7 +3894,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="cpuManagerPolicy")
     def cpu_manager_policy(self) -> Optional[str]:
         """
-        Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+        Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
         """
         return pulumi.get(self, "cpu_manager_policy")
 
@@ -3894,7 +3902,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="imageGcHighThreshold")
     def image_gc_high_threshold(self) -> Optional[int]:
         """
-        Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
         """
         return pulumi.get(self, "image_gc_high_threshold")
 
@@ -3902,7 +3910,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="imageGcLowThreshold")
     def image_gc_low_threshold(self) -> Optional[int]:
         """
-        Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+        Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
         """
         return pulumi.get(self, "image_gc_low_threshold")
 
@@ -3910,7 +3918,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="podMaxPid")
     def pod_max_pid(self) -> Optional[int]:
         """
-        Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+        Specifies the maximum number of processes per pod.
         """
         return pulumi.get(self, "pod_max_pid")
 
@@ -3918,7 +3926,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @pulumi.getter(name="topologyManagerPolicy")
     def topology_manager_policy(self) -> Optional[str]:
         """
-        Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+        Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
         """
         return pulumi.get(self, "topology_manager_policy")
 
@@ -3954,10 +3962,10 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
                  transparent_huge_page_defrag: Optional[str] = None,
                  transparent_huge_page_enabled: Optional[str] = None):
         """
-        :param int swap_file_size_mb: Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+        :param int swap_file_size_mb: Specifies the size of the swap file on each node in MB.
         :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
-        :param str transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
-        :param str transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        :param str transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
+        :param str transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
         """
         if swap_file_size_mb is not None:
             pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
@@ -3972,7 +3980,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
     @pulumi.getter(name="swapFileSizeMb")
     def swap_file_size_mb(self) -> Optional[int]:
         """
-        Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+        Specifies the size of the swap file on each node in MB.
         """
         return pulumi.get(self, "swap_file_size_mb")
 
@@ -3988,7 +3996,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
     @pulumi.getter(name="transparentHugePageDefrag")
     def transparent_huge_page_defrag(self) -> Optional[str]:
         """
-        specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+        specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
         """
         return pulumi.get(self, "transparent_huge_page_defrag")
 
@@ -3996,7 +4004,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
     @pulumi.getter(name="transparentHugePageEnabled")
     def transparent_huge_page_enabled(self) -> Optional[str]:
         """
-        Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
         """
         return pulumi.get(self, "transparent_huge_page_enabled")
 
@@ -5016,7 +5024,7 @@ class KubernetesClusterKeyManagementService(dict):
                  key_vault_network_access: Optional[str] = None):
         """
         :param str key_vault_key_id: Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
-        :param str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        :param str key_vault_network_access: Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if key_vault_network_access is not None:
@@ -5034,7 +5042,7 @@ class KubernetesClusterKeyManagementService(dict):
     @pulumi.getter(name="keyVaultNetworkAccess")
     def key_vault_network_access(self) -> Optional[str]:
         """
-        Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
         """
         return pulumi.get(self, "key_vault_network_access")
 
@@ -5069,7 +5077,7 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
         """
         :param Sequence['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param bool secret_rotation_enabled: Should the secret store CSI driver on the AKS cluster be enabled?
-        :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
                
                > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """
@@ -5100,7 +5108,7 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
     @pulumi.getter(name="secretRotationInterval")
     def secret_rotation_interval(self) -> Optional[str]:
         """
-        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
+        The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true. Defaults to `2m`.
 
         > **Note:** To enable`key_vault_secrets_provider` either `secret_rotation_enabled` or `secret_rotation_interval` must be specified.
         """
@@ -5469,7 +5477,7 @@ class KubernetesClusterLinuxProfile(dict):
                  ssh_key: 'outputs.KubernetesClusterLinuxProfileSshKey'):
         """
         :param str admin_username: The Admin Username for the Cluster. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterLinuxProfileSshKeyArgs' ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        :param 'KubernetesClusterLinuxProfileSshKeyArgs' ssh_key: An `ssh_key` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh_key", ssh_key)
@@ -5486,7 +5494,7 @@ class KubernetesClusterLinuxProfile(dict):
     @pulumi.getter(name="sshKey")
     def ssh_key(self) -> 'outputs.KubernetesClusterLinuxProfileSshKey':
         """
-        An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        An `ssh_key` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         return pulumi.get(self, "ssh_key")
 
@@ -5649,7 +5657,8 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
         :param int duration: The duration of the window for maintenance to run in hours.
         :param str frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
-        :param str day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        :param int day_of_month: The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        :param str day_of_week: The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param Sequence['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
         :param str start_date: The date on which the maintenance window begins to take effect.
         :param str start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
@@ -5702,13 +5711,16 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
     @property
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> Optional[int]:
+        """
+        The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        """
         return pulumi.get(self, "day_of_month")
 
     @property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[str]:
         """
-        The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -5829,7 +5841,8 @@ class KubernetesClusterMaintenanceWindowNodeOs(dict):
         :param int duration: The duration of the window for maintenance to run in hours.
         :param str frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
-        :param str day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        :param int day_of_month: The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        :param str day_of_week: The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param Sequence['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
         :param str start_date: The date on which the maintenance window begins to take effect.
         :param str start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
@@ -5881,13 +5894,16 @@ class KubernetesClusterMaintenanceWindowNodeOs(dict):
     @property
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> Optional[int]:
+        """
+        The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        """
         return pulumi.get(self, "day_of_month")
 
     @property
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[str]:
         """
-        The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -6172,7 +6188,7 @@ class KubernetesClusterNetworkProfile(dict):
         :param str network_plugin_mode: Specifies the network plugin mode used for building the Kubernetes network. Possible value is `overlay`.
                
                > **Note:** When `network_plugin_mode` is set to `overlay`, the `network_plugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `pod_subnet_id` must be specified.
-        :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
+        :param str network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
@@ -6324,7 +6340,7 @@ class KubernetesClusterNetworkProfile(dict):
     @pulumi.getter(name="networkPolicy")
     def network_policy(self) -> Optional[str]:
         """
-        Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
+        Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
 
         > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
 
@@ -7972,8 +7988,6 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
                  vertical_pod_autoscaler_update_mode: Optional[str] = None):
         """
         :param bool keda_enabled: Specifies whether KEDA Autoscaler can be used for workloads.
-               
-               > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         :param str vertical_pod_autoscaler_controlled_values: Which resources values should be controlled.
         :param bool vertical_pod_autoscaler_enabled: Specifies whether Vertical Pod Autoscaler should be enabled.
                
@@ -7994,8 +8008,6 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
     def keda_enabled(self) -> Optional[bool]:
         """
         Specifies whether KEDA Autoscaler can be used for workloads.
-
-        > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         """
         return pulumi.get(self, "keda_enabled")
 

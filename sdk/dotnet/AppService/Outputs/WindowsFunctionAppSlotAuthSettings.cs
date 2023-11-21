@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalLoginParameters;
         /// <summary>
-        /// an `allowed_external_redirect_urls` block as detailed below.
+        /// Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
         /// <summary>

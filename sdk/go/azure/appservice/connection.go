@@ -126,7 +126,7 @@ type Connection struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -183,7 +183,7 @@ type connectionState struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication *ConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -202,7 +202,7 @@ type ConnectionState struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -225,7 +225,7 @@ type connectionArgs struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -245,7 +245,7 @@ type ConnectionArgs struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication ConnectionAuthenticationInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -380,7 +380,7 @@ func (o ConnectionOutput) Authentication() ConnectionAuthenticationOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthenticationOutput { return v.Authentication }).(ConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 func (o ConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }

@@ -150,14 +150,14 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="preferredAppGroupType")
     private @Nullable Output<String> preferredAppGroupType;
 
     /**
-     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> preferredAppGroupType() {
@@ -471,7 +471,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+         * @param preferredAppGroupType Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

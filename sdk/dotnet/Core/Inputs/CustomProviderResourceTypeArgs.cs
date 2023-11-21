@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
+        /// The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
         /// </summary>
         [Input("routingType")]
         public Input<string>? RoutingType { get; set; }

@@ -78,7 +78,7 @@ import (
 type VaultResourceGuardAssociation struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 	//
 	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
 	//
@@ -126,7 +126,7 @@ func GetVaultResourceGuardAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
 type vaultResourceGuardAssociationState struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 	//
 	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
 	//
@@ -139,7 +139,7 @@ type vaultResourceGuardAssociationState struct {
 }
 
 type VaultResourceGuardAssociationState struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 	//
 	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
 	//
@@ -156,7 +156,7 @@ func (VaultResourceGuardAssociationState) ElementType() reflect.Type {
 }
 
 type vaultResourceGuardAssociationArgs struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 	//
 	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
 	//
@@ -170,7 +170,7 @@ type vaultResourceGuardAssociationArgs struct {
 
 // The set of arguments for constructing a VaultResourceGuardAssociation resource.
 type VaultResourceGuardAssociationArgs struct {
-	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+	// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 	//
 	// > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
 	//
@@ -293,7 +293,7 @@ func (o VaultResourceGuardAssociationOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 //
 // > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
 //

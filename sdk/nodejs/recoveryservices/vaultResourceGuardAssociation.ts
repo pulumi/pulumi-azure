@@ -67,7 +67,7 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
      *
      * > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
      *
@@ -121,7 +121,7 @@ export class VaultResourceGuardAssociation extends pulumi.CustomResource {
  */
 export interface VaultResourceGuardAssociationState {
     /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
      *
      * > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
      *
@@ -143,7 +143,7 @@ export interface VaultResourceGuardAssociationState {
  */
 export interface VaultResourceGuardAssociationArgs {
     /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
      *
      * > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
      *

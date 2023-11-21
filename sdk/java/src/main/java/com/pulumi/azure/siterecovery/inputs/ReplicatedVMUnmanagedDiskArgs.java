@@ -14,14 +14,14 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
     public static final ReplicatedVMUnmanagedDiskArgs Empty = new ReplicatedVMUnmanagedDiskArgs();
 
     /**
-     * Id of disk that should be replicated.
+     * Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskUri", required=true)
     private Output<String> diskUri;
 
     /**
-     * @return Id of disk that should be replicated.
+     * @return Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> diskUri() {
@@ -29,14 +29,14 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Storage account that should be used for caching.
+     * Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="stagingStorageAccountId", required=true)
     private Output<String> stagingStorageAccountId;
 
     /**
-     * @return Storage account that should be used for caching.
+     * @return Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> stagingStorageAccountId() {
@@ -44,14 +44,14 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Storage account disk should belong to when a failover is done.
+     * Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="targetStorageAccountId", required=true)
     private Output<String> targetStorageAccountId;
 
     /**
-     * @return Storage account disk should belong to when a failover is done.
+     * @return Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> targetStorageAccountId() {
@@ -85,7 +85,7 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param diskUri Id of disk that should be replicated.
+         * @param diskUri Id of disk that should be replicated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param diskUri Id of disk that should be replicated.
+         * @param diskUri Id of disk that should be replicated. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param stagingStorageAccountId Storage account that should be used for caching.
+         * @param stagingStorageAccountId Storage account that should be used for caching. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param stagingStorageAccountId Storage account that should be used for caching.
+         * @param stagingStorageAccountId Storage account that should be used for caching. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetStorageAccountId Storage account disk should belong to when a failover is done.
+         * @param targetStorageAccountId Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class ReplicatedVMUnmanagedDiskArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param targetStorageAccountId Storage account disk should belong to when a failover is done.
+         * @param targetStorageAccountId Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

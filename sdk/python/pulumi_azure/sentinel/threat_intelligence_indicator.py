@@ -41,7 +41,7 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[str] display_name: The display name of the Threat Intelligence Indicator.
         :param pulumi.Input[str] pattern: The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         :param pulumi.Input[str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
-        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] validate_from_utc: The start of validate date in RFC3339.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         :param pulumi.Input[int] confidence: Confidence levels of the Threat Intelligence Indicator.
@@ -134,7 +134,7 @@ class ThreatIntelligenceIndicatorArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
         """
-        Source of the Threat Intelligence Indicator.
+        Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -380,6 +380,7 @@ class _ThreatIntelligenceIndicatorState:
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorExternalReferenceArgs']]] external_references: One or more `external_reference` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorGranularMarkingArgs']]] granular_markings: One or more `granular_marking` blocks as defined below.
         :param pulumi.Input[str] guid: The guid of this Sentinel Threat Intelligence Indicator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: A list of indicator types of this Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorKillChainPhaseArgs']]] kill_chain_phases: One or more `kill_chain_phase` blocks as defined below.
         :param pulumi.Input[str] language: The language of the Threat Intelligence Indicator.
         :param pulumi.Input[str] last_updated_time_utc: The last updated time of the Threat Intelligence Indicator in UTC.
@@ -389,7 +390,7 @@ class _ThreatIntelligenceIndicatorState:
         :param pulumi.Input[str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         :param pulumi.Input[str] pattern_version: The version of a Threat Intelligence entity.
         :param pulumi.Input[bool] revoked: Whether the Threat Intelligence entity revoked.
-        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of tags of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
         :param pulumi.Input[str] validate_from_utc: The start of validate date in RFC3339.
@@ -600,6 +601,9 @@ class _ThreatIntelligenceIndicatorState:
     @property
     @pulumi.getter(name="indicatorTypes")
     def indicator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of indicator types of this Threat Intelligence Indicator.
+        """
         return pulumi.get(self, "indicator_types")
 
     @indicator_types.setter
@@ -718,7 +722,7 @@ class _ThreatIntelligenceIndicatorState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        Source of the Threat Intelligence Indicator.
+        Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 
@@ -865,7 +869,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         :param pulumi.Input[str] pattern_version: The version of a Threat Intelligence entity.
         :param pulumi.Input[bool] revoked: Whether the Threat Intelligence entity revoked.
-        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of tags of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
         :param pulumi.Input[str] validate_from_utc: The start of validate date in RFC3339.
@@ -1055,6 +1059,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorExternalReferenceArgs']]]] external_references: One or more `external_reference` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorGranularMarkingArgs']]]] granular_markings: One or more `granular_marking` blocks as defined below.
         :param pulumi.Input[str] guid: The guid of this Sentinel Threat Intelligence Indicator.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: A list of indicator types of this Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]] kill_chain_phases: One or more `kill_chain_phase` blocks as defined below.
         :param pulumi.Input[str] language: The language of the Threat Intelligence Indicator.
         :param pulumi.Input[str] last_updated_time_utc: The last updated time of the Threat Intelligence Indicator in UTC.
@@ -1064,7 +1069,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         :param pulumi.Input[str] pattern_version: The version of a Threat Intelligence entity.
         :param pulumi.Input[bool] revoked: Whether the Threat Intelligence entity revoked.
-        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator.
+        :param pulumi.Input[str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of tags of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
         :param pulumi.Input[str] validate_from_utc: The start of validate date in RFC3339.
@@ -1204,6 +1209,9 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="indicatorTypes")
     def indicator_types(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of indicator types of this Threat Intelligence Indicator.
+        """
         return pulumi.get(self, "indicator_types")
 
     @property
@@ -1282,7 +1290,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[str]:
         """
-        Source of the Threat Intelligence Indicator.
+        Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source")
 

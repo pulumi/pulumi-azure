@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Iot
         public Output<string?> EndpointUri { get; private set; } = null!;
 
         /// <summary>
-        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        /// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         /// </summary>
         [Output("fileNameFormat")]
         public Output<string?> FileNameFormat { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? EndpointUri { get; set; }
 
         /// <summary>
-        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        /// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? EndpointUri { get; set; }
 
         /// <summary>
-        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        /// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }

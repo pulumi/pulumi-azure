@@ -92,7 +92,7 @@ type Probe struct {
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrOutput `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntOutput `pulumi:"port"`
@@ -147,7 +147,7 @@ type probeState struct {
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port *int `pulumi:"port"`
@@ -167,7 +167,7 @@ type ProbeState struct {
 	LoadbalancerId pulumi.StringPtrInput
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntPtrInput
@@ -190,7 +190,7 @@ type probeArgs struct {
 	LoadbalancerId string `pulumi:"loadbalancerId"`
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes *int `pulumi:"numberOfProbes"`
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port int `pulumi:"port"`
@@ -210,7 +210,7 @@ type ProbeArgs struct {
 	LoadbalancerId pulumi.StringInput
 	// Specifies the name of the Probe. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+	// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 	NumberOfProbes pulumi.IntPtrInput
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port pulumi.IntInput
@@ -352,7 +352,7 @@ func (o ProbeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
 func (o ProbeOutput) NumberOfProbes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Probe) pulumi.IntPtrOutput { return v.NumberOfProbes }).(pulumi.IntPtrOutput)
 }

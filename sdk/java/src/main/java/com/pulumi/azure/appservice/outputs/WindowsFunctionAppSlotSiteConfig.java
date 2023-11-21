@@ -75,7 +75,7 @@ public final class WindowsFunctionAppSlotSiteConfig {
      */
     private @Nullable WindowsFunctionAppSlotSiteConfigCors cors;
     /**
-     * @return a `default_documents` block as detailed below.
+     * @return Specifies a list of Default Documents for the Windows Web App.
      * 
      */
     private @Nullable List<String> defaultDocuments;
@@ -95,7 +95,7 @@ public final class WindowsFunctionAppSlotSiteConfig {
      */
     private @Nullable String ftpsState;
     /**
-     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
      * 
      */
     private @Nullable Integer healthCheckEvictionTimeInMin;
@@ -276,7 +276,7 @@ public final class WindowsFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.cors);
     }
     /**
-     * @return a `default_documents` block as detailed below.
+     * @return Specifies a list of Default Documents for the Windows Web App.
      * 
      */
     public List<String> defaultDocuments() {
@@ -304,7 +304,7 @@ public final class WindowsFunctionAppSlotSiteConfig {
         return Optional.ofNullable(this.ftpsState);
     }
     /**
-     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+     * @return The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
      * 
      */
     public Optional<Integer> healthCheckEvictionTimeInMin() {

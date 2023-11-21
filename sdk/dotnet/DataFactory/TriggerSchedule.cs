@@ -121,7 +121,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<ImmutableDictionary<string, string>> PipelineParameters { get; private set; } = null!;
 
         /// <summary>
-        /// block as defined below.
+        /// A `pipeline` block as defined below.
         /// </summary>
         [Output("pipelines")]
         public Output<ImmutableArray<Outputs.TriggerSchedulePipeline>> Pipelines { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerSchedulePipelineArgs>? _pipelines;
 
         /// <summary>
-        /// block as defined below.
+        /// A `pipeline` block as defined below.
         /// </summary>
         public InputList<Inputs.TriggerSchedulePipelineArgs> Pipelines
         {
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.DataFactory
         private InputList<Inputs.TriggerSchedulePipelineGetArgs>? _pipelines;
 
         /// <summary>
-        /// block as defined below.
+        /// A `pipeline` block as defined below.
         /// </summary>
         public InputList<Inputs.TriggerSchedulePipelineGetArgs> Pipelines
         {

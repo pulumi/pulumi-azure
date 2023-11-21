@@ -17,14 +17,14 @@ public final class ConfigurationBackupSchedulePolicyArgs extends com.pulumi.reso
     public static final ConfigurationBackupSchedulePolicyArgs Empty = new ConfigurationBackupSchedulePolicyArgs();
 
     /**
-     * The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+     * The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
      * 
      */
     @Import(name="schedulePolicyType")
     private @Nullable Output<String> schedulePolicyType;
 
     /**
-     * @return The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+     * @return The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
      * 
      */
     public Optional<Output<String>> schedulePolicyType() {
@@ -104,7 +104,7 @@ public final class ConfigurationBackupSchedulePolicyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param schedulePolicyType The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+         * @param schedulePolicyType The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ConfigurationBackupSchedulePolicyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param schedulePolicyType The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+         * @param schedulePolicyType The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
          * 
          * @return builder
          * 

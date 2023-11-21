@@ -185,14 +185,14 @@ public class IotHubDataConnection extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      * 
      */
     @Export(name="databaseRoutingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      * 
      */
     public Output<Optional<String>> databaseRoutingType() {

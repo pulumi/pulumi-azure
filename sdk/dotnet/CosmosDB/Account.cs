@@ -138,7 +138,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<string>> ConnectionStrings { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        /// Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         /// </summary>
         [Output("consistencyPolicy")]
         public Output<Outputs.AccountConsistencyPolicy> ConsistencyPolicy { get; private set; } = null!;
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        /// Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         /// </summary>
         [Output("virtualNetworkRules")]
         public Output<ImmutableArray<Outputs.AccountVirtualNetworkRule>> VirtualNetworkRules { get; private set; } = null!;
@@ -494,7 +494,7 @@ namespace Pulumi.Azure.CosmosDB
         public Input<Inputs.AccountCapacityArgs>? Capacity { get; set; }
 
         /// <summary>
-        /// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        /// Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         /// </summary>
         [Input("consistencyPolicy", required: true)]
         public Input<Inputs.AccountConsistencyPolicyArgs> ConsistencyPolicy { get; set; } = null!;
@@ -671,7 +671,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountVirtualNetworkRuleArgs>? _virtualNetworkRules;
 
         /// <summary>
-        /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        /// Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         /// </summary>
         public InputList<Inputs.AccountVirtualNetworkRuleArgs> VirtualNetworkRules
         {
@@ -746,7 +746,7 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
-        /// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        /// Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         /// </summary>
         [Input("consistencyPolicy")]
         public Input<Inputs.AccountConsistencyPolicyGetArgs>? ConsistencyPolicy { get; set; }
@@ -1133,7 +1133,7 @@ namespace Pulumi.Azure.CosmosDB
         private InputList<Inputs.AccountVirtualNetworkRuleGetArgs>? _virtualNetworkRules;
 
         /// <summary>
-        /// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        /// Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         /// </summary>
         public InputList<Inputs.AccountVirtualNetworkRuleGetArgs> VirtualNetworkRules
         {

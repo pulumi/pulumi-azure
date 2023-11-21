@@ -1157,11 +1157,11 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Replic
 }
 
 type ReplicatedVMUnmanagedDisk struct {
-	// Id of disk that should be replicated.
+	// Id of disk that should be replicated. Changing this forces a new resource to be created.
 	DiskUri string `pulumi:"diskUri"`
-	// Storage account that should be used for caching.
+	// Storage account that should be used for caching. Changing this forces a new resource to be created.
 	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
-	// Storage account disk should belong to when a failover is done.
+	// Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
 	TargetStorageAccountId string `pulumi:"targetStorageAccountId"`
 }
 
@@ -1177,11 +1177,11 @@ type ReplicatedVMUnmanagedDiskInput interface {
 }
 
 type ReplicatedVMUnmanagedDiskArgs struct {
-	// Id of disk that should be replicated.
+	// Id of disk that should be replicated. Changing this forces a new resource to be created.
 	DiskUri pulumi.StringInput `pulumi:"diskUri"`
-	// Storage account that should be used for caching.
+	// Storage account that should be used for caching. Changing this forces a new resource to be created.
 	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
-	// Storage account disk should belong to when a failover is done.
+	// Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
 	TargetStorageAccountId pulumi.StringInput `pulumi:"targetStorageAccountId"`
 }
 
@@ -1254,17 +1254,17 @@ func (o ReplicatedVMUnmanagedDiskOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-// Id of disk that should be replicated.
+// Id of disk that should be replicated. Changing this forces a new resource to be created.
 func (o ReplicatedVMUnmanagedDiskOutput) DiskUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMUnmanagedDisk) string { return v.DiskUri }).(pulumi.StringOutput)
 }
 
-// Storage account that should be used for caching.
+// Storage account that should be used for caching. Changing this forces a new resource to be created.
 func (o ReplicatedVMUnmanagedDiskOutput) StagingStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMUnmanagedDisk) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
 }
 
-// Storage account disk should belong to when a failover is done.
+// Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
 func (o ReplicatedVMUnmanagedDiskOutput) TargetStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMUnmanagedDisk) string { return v.TargetStorageAccountId }).(pulumi.StringOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertificateCertificatePolicySecretPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        /// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertificateCertificatePolicyIssuerParameters
     {
         /// <summary>
-        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
         /// </summary>
         public readonly string Name;
 

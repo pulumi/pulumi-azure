@@ -16,14 +16,14 @@ public final class LocalRulestackArgs extends com.pulumi.resources.ResourceArgs 
     public static final LocalRulestackArgs Empty = new LocalRulestackArgs();
 
     /**
-     * The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      * 
      */
     @Import(name="antiSpywareProfile")
     private @Nullable Output<String> antiSpywareProfile;
 
     /**
-     * @return The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+     * @return The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      * 
      */
     public Optional<Output<String>> antiSpywareProfile() {
@@ -199,7 +199,7 @@ public final class LocalRulestackArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param antiSpywareProfile The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+         * @param antiSpywareProfile The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class LocalRulestackArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param antiSpywareProfile The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+         * @param antiSpywareProfile The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
          * 
          * @return builder
          * 

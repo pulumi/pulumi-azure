@@ -14,14 +14,14 @@ public final class CertificateCertificatePolicyIssuerParametersArgs extends com.
     public static final CertificateCertificatePolicyIssuerParametersArgs Empty = new CertificateCertificatePolicyIssuerParametersArgs();
 
     /**
-     * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones).
      * 
      */
     public Output<String> name() {
@@ -53,7 +53,7 @@ public final class CertificateCertificatePolicyIssuerParametersArgs extends com.
         }
 
         /**
-         * @param name The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+         * @param name The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones).
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class CertificateCertificatePolicyIssuerParametersArgs extends com.
         }
 
         /**
-         * @param name The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+         * @param name The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones).
          * 
          * @return builder
          * 

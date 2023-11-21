@@ -110,7 +110,7 @@ public final class LinuxWebAppSiteConfig {
      */
     private @Nullable Boolean localMysqlEnabled;
     /**
-     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
      * 
      */
     private @Nullable String managedPipelineMode;
@@ -298,7 +298,7 @@ public final class LinuxWebAppSiteConfig {
         return Optional.ofNullable(this.localMysqlEnabled);
     }
     /**
-     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
      * 
      */
     public Optional<String> managedPipelineMode() {

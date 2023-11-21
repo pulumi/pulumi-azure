@@ -90,7 +90,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     /**
      * The path to the App Auth settings.
      * 
-     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
      * 
      */
     @Import(name="configFilePath")
@@ -99,7 +99,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
     /**
      * @return The path to the App Auth settings.
      * 
-     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
      * 
      */
     public Optional<Output<String>> configFilePath() {
@@ -501,7 +501,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         /**
          * @param configFilePath The path to the App Auth settings.
          * 
-         * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+         * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class LinuxFunctionAppAuthSettingsV2Args extends com.pulumi.resourc
         /**
          * @param configFilePath The path to the App Auth settings.
          * 
-         * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+         * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
          * 
          * @return builder
          * 

@@ -994,7 +994,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
         :param pulumi.Input[str] description: A description for this Schedule.
         :param pulumi.Input[str] expiry_time: The end time of the schedule.
         :param pulumi.Input[int] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
-        :param pulumi.Input[bool] is_enabled: Whether the schedule is enabled.
+        :param pulumi.Input[bool] is_enabled: Whether the schedule is enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
@@ -1125,7 +1125,7 @@ class SoftwareUpdateConfigurationScheduleArgs:
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the schedule is enabled.
+        Whether the schedule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -1293,7 +1293,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Specifies a list of locations to scope the query to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
         :param pulumi.Input[str] tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]] tags: A mapping of tags used for query filter as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]] tags: A mapping of tags used for query filter. One or more `tags` block as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1344,7 +1344,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]:
         """
-        A mapping of tags used for query filter as defined below.
+        A mapping of tags used for query filter. One or more `tags` block as defined below.
         """
         return pulumi.get(self, "tags")
 

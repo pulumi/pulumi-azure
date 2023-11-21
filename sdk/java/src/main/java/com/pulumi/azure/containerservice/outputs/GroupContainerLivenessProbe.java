@@ -20,7 +20,7 @@ public final class GroupContainerLivenessProbe {
      */
     private @Nullable List<String> execs;
     /**
-     * @return How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer failureThreshold;
@@ -35,17 +35,17 @@ public final class GroupContainerLivenessProbe {
      */
     private @Nullable Integer initialDelaySeconds;
     /**
-     * @return How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer periodSeconds;
     /**
-     * @return Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer successThreshold;
     /**
-     * @return Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return Number of seconds after which the probe times out. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Integer timeoutSeconds;
@@ -59,7 +59,7 @@ public final class GroupContainerLivenessProbe {
         return this.execs == null ? List.of() : this.execs;
     }
     /**
-     * @return How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> failureThreshold() {
@@ -80,21 +80,21 @@ public final class GroupContainerLivenessProbe {
         return Optional.ofNullable(this.initialDelaySeconds);
     }
     /**
-     * @return How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> periodSeconds() {
         return Optional.ofNullable(this.periodSeconds);
     }
     /**
-     * @return Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> successThreshold() {
         return Optional.ofNullable(this.successThreshold);
     }
     /**
-     * @return Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+     * @return Number of seconds after which the probe times out. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Integer> timeoutSeconds() {

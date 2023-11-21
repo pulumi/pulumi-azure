@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         private Input<string>? _certificate;
 
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// One or more `certificate` blocks (up to 10) as defined below.
         /// </summary>
         public Input<string>? Certificate
         {

@@ -50,7 +50,7 @@ class ServiceArgs:
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
@@ -190,7 +190,7 @@ class ServiceArgs:
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
@@ -321,7 +321,7 @@ class _ServiceState:
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
@@ -450,7 +450,7 @@ class _ServiceState:
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 
@@ -697,7 +697,7 @@ class Service(pulumi.CustomResource):
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
@@ -883,7 +883,7 @@ class Service(pulumi.CustomResource):
                
                > **NOTE:** `hosting_mode` can only be configured when `sku` is set to `standard3`.
         :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        :param pulumi.Input[bool] local_authentication_enabled: Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         :param pulumi.Input[str] location: The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
         :param pulumi.Input[int] partition_count: Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`.
@@ -979,7 +979,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         """
         return pulumi.get(self, "local_authentication_enabled")
 

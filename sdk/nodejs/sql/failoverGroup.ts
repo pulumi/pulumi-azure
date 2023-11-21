@@ -102,15 +102,15 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of secondary servers as documented below
+     * A list of `partnerServers` blocks as documented below.
      */
     public readonly partnerServers!: pulumi.Output<outputs.sql.FailoverGroupPartnerServer[]>;
     /**
-     * A read/write policy as documented below
+     * A `readWriteEndpointFailoverPolicy` block as documented below.
      */
     public readonly readWriteEndpointFailoverPolicy!: pulumi.Output<outputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
-     * a read-only policy as documented below
+     * A `readonlyEndpointFailoverPolicy` block as documented below.
      */
     public readonly readonlyEndpointFailoverPolicy!: pulumi.Output<outputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
@@ -202,15 +202,15 @@ export interface FailoverGroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of secondary servers as documented below
+     * A list of `partnerServers` blocks as documented below.
      */
     partnerServers?: pulumi.Input<pulumi.Input<inputs.sql.FailoverGroupPartnerServer>[]>;
     /**
-     * A read/write policy as documented below
+     * A `readWriteEndpointFailoverPolicy` block as documented below.
      */
     readWriteEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
-     * a read-only policy as documented below
+     * A `readonlyEndpointFailoverPolicy` block as documented below.
      */
     readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**
@@ -246,15 +246,15 @@ export interface FailoverGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of secondary servers as documented below
+     * A list of `partnerServers` blocks as documented below.
      */
     partnerServers: pulumi.Input<pulumi.Input<inputs.sql.FailoverGroupPartnerServer>[]>;
     /**
-     * A read/write policy as documented below
+     * A `readWriteEndpointFailoverPolicy` block as documented below.
      */
     readWriteEndpointFailoverPolicy: pulumi.Input<inputs.sql.FailoverGroupReadWriteEndpointFailoverPolicy>;
     /**
-     * a read-only policy as documented below
+     * A `readonlyEndpointFailoverPolicy` block as documented below.
      */
     readonlyEndpointFailoverPolicy?: pulumi.Input<inputs.sql.FailoverGroupReadonlyEndpointFailoverPolicy>;
     /**

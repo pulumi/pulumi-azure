@@ -19,8 +19,14 @@ namespace Pulumi.Azure.AppService.Outputs
         /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
         /// </summary>
         public readonly string? CurrentStack;
+        /// <summary>
+        /// The name of the container to be used. This value is required with `docker_container_tag`.
+        /// </summary>
         public readonly string? DockerContainerName;
         public readonly string? DockerContainerRegistry;
+        /// <summary>
+        /// The tag of the container to be used. This value is required with `docker_container_name`.
+        /// </summary>
         public readonly string? DockerContainerTag;
         /// <summary>
         /// The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.

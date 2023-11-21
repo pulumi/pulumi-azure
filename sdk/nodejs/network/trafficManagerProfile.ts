@@ -81,7 +81,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
     }
 
     /**
-     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      */
     public readonly dnsConfig!: pulumi.Output<outputs.network.TrafficManagerProfileDnsConfig>;
     /**
@@ -95,7 +95,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
      */
     public readonly maxReturn!: pulumi.Output<number | undefined>;
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      */
     public readonly monitorConfig!: pulumi.Output<outputs.network.TrafficManagerProfileMonitorConfig>;
     /**
@@ -183,7 +183,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
  */
 export interface TrafficManagerProfileState {
     /**
-     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      */
     dnsConfig?: pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>;
     /**
@@ -197,7 +197,7 @@ export interface TrafficManagerProfileState {
      */
     maxReturn?: pulumi.Input<number>;
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      */
     monitorConfig?: pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>;
     /**
@@ -231,7 +231,7 @@ export interface TrafficManagerProfileState {
  */
 export interface TrafficManagerProfileArgs {
     /**
-     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
      */
     dnsConfig: pulumi.Input<inputs.network.TrafficManagerProfileDnsConfig>;
     /**
@@ -241,7 +241,7 @@ export interface TrafficManagerProfileArgs {
      */
     maxReturn?: pulumi.Input<number>;
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
      */
     monitorConfig: pulumi.Input<inputs.network.TrafficManagerProfileMonitorConfig>;
     /**

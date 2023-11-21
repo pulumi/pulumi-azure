@@ -132,14 +132,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionSettings);
     }
     /**
-     * Specifies if the Snapshot is incremental.
+     * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="incrementalEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> incrementalEnabled;
 
     /**
-     * @return Specifies if the Snapshot is incremental.
+     * @return Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> incrementalEnabled() {

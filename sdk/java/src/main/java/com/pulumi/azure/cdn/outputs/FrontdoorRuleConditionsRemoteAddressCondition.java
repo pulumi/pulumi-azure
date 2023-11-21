@@ -26,7 +26,7 @@ public final class FrontdoorRuleConditionsRemoteAddressCondition {
      */
     private @Nullable Boolean negateCondition;
     /**
-     * @return The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+     * @return The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
      * 
      */
     private @Nullable String operator;
@@ -49,7 +49,7 @@ public final class FrontdoorRuleConditionsRemoteAddressCondition {
         return Optional.ofNullable(this.negateCondition);
     }
     /**
-     * @return The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+     * @return The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
      * 
      */
     public Optional<String> operator() {

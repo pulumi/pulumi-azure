@@ -64,7 +64,7 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string>;
     /**
-     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      */
     public readonly lookbackDate!: pulumi.Output<string | undefined>;
     /**
@@ -119,7 +119,7 @@ export interface DataConnectorThreatIntelligenceState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string>;
     /**
-     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      */
     lookbackDate?: pulumi.Input<string>;
     /**
@@ -143,7 +143,7 @@ export interface DataConnectorThreatIntelligenceArgs {
      */
     logAnalyticsWorkspaceId: pulumi.Input<string>;
     /**
-     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      */
     lookbackDate?: pulumi.Input<string>;
     /**

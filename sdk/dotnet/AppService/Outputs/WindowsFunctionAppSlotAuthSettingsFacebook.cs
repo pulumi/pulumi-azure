@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? AppSecretSettingName;
         /// <summary>
-        /// an `oauth_scopes` block as detailed below.
+        /// Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 

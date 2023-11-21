@@ -62,14 +62,14 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+     * Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+     * @return Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -167,7 +167,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+         * @param type Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class AccountEncryptionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+         * @param type Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
          * 
          * @return builder
          * 

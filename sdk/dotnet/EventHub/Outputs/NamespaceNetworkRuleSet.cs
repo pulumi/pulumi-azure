@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class NamespaceNetworkRuleSet
     {
         /// <summary>
-        /// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>

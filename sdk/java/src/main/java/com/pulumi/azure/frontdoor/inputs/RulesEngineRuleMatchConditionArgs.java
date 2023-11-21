@@ -18,14 +18,14 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
     public static final RulesEngineRuleMatchConditionArgs Empty = new RulesEngineRuleMatchConditionArgs();
 
     /**
-     * can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+     * can be set to `true` or `false` to negate the given condition. Defaults to `false`.
      * 
      */
     @Import(name="negateCondition")
     private @Nullable Output<Boolean> negateCondition;
 
     /**
-     * @return can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+     * @return can be set to `true` or `false` to negate the given condition. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> negateCondition() {
@@ -137,7 +137,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param negateCondition can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+         * @param negateCondition can be set to `true` or `false` to negate the given condition. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class RulesEngineRuleMatchConditionArgs extends com.pulumi.resource
         }
 
         /**
-         * @param negateCondition can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+         * @param negateCondition can be set to `true` or `false` to negate the given condition. Defaults to `false`.
          * 
          * @return builder
          * 

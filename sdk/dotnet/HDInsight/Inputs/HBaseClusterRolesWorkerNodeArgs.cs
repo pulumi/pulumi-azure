@@ -12,6 +12,9 @@ namespace Pulumi.Azure.HDInsight.Inputs
 
     public sealed class HBaseClusterRolesWorkerNodeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `autoscale` block as defined below.
+        /// </summary>
         [Input("autoscale")]
         public Input<Inputs.HBaseClusterRolesWorkerNodeAutoscaleArgs>? Autoscale { get; set; }
 
@@ -37,7 +40,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<Inputs.HBaseClusterRolesWorkerNodeScriptActionArgs>? _scriptActions;
 
         /// <summary>
-        /// The script action which will run on the cluster. Changing this forces a new resource to be created.
+        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.HBaseClusterRolesWorkerNodeScriptActionArgs> ScriptActions
         {

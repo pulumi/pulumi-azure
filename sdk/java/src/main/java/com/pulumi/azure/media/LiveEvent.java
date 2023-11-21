@@ -124,14 +124,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:media/liveEvent:LiveEvent")
 public class LiveEvent extends com.pulumi.resources.CustomResource {
     /**
-     * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
+     * The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="autoStartEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoStartEnabled;
 
     /**
-     * @return The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
+     * @return The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> autoStartEnabled() {

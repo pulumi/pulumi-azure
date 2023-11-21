@@ -15,62 +15,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertificateCertificatePolicyX509CertificateProperties {
     /**
-     * @return A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+     * @return A list of Extended/Enhanced Key Usages.
      * 
      */
     private @Nullable List<String> extendedKeyUsages;
     /**
-     * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+     * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
      * 
      */
     private List<String> keyUsages;
     /**
-     * @return The Certificate&#39;s Subject. Changing this forces a new resource to be created.
+     * @return The Certificate&#39;s Subject.
      * 
      */
     private String subject;
     /**
-     * @return A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `subject_alternative_names` block as defined below.
      * 
      */
     private @Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames;
     /**
-     * @return The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+     * @return The Certificates Validity Period in Months.
      * 
      */
     private Integer validityInMonths;
 
     private CertificateCertificatePolicyX509CertificateProperties() {}
     /**
-     * @return A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+     * @return A list of Extended/Enhanced Key Usages.
      * 
      */
     public List<String> extendedKeyUsages() {
         return this.extendedKeyUsages == null ? List.of() : this.extendedKeyUsages;
     }
     /**
-     * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+     * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
      * 
      */
     public List<String> keyUsages() {
         return this.keyUsages;
     }
     /**
-     * @return The Certificate&#39;s Subject. Changing this forces a new resource to be created.
+     * @return The Certificate&#39;s Subject.
      * 
      */
     public String subject() {
         return this.subject;
     }
     /**
-     * @return A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `subject_alternative_names` block as defined below.
      * 
      */
     public Optional<CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
     /**
-     * @return The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+     * @return The Certificates Validity Period in Months.
      * 
      */
     public Integer validityInMonths() {

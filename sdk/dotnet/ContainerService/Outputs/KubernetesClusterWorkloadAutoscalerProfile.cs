@@ -15,8 +15,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     {
         /// <summary>
         /// Specifies whether KEDA Autoscaler can be used for workloads.
-        /// 
-        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
         /// </summary>
         public readonly bool? KedaEnabled;
         /// <summary>

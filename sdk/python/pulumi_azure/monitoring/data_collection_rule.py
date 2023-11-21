@@ -37,7 +37,7 @@ class DataCollectionRuleArgs:
         :param pulumi.Input['DataCollectionRuleDataSourcesArgs'] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
         :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
                > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -155,7 +155,7 @@ class DataCollectionRuleArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 
         > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
@@ -239,7 +239,7 @@ class _DataCollectionRuleState:
         :param pulumi.Input['DataCollectionRuleDestinationsArgs'] destinations: A `destinations` block as defined below.
         :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Rule.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
                > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -363,7 +363,7 @@ class _DataCollectionRuleState:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 
         > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
@@ -634,7 +634,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: A `destinations` block as defined below.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
                > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -915,7 +915,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: A `destinations` block as defined below.
         :param pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Rule.
-        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
                > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -1003,7 +1003,7 @@ class DataCollectionRule(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 
         > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """

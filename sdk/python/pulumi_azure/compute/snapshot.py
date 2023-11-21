@@ -37,7 +37,7 @@ class SnapshotArgs:
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
-        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
+        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
@@ -122,7 +122,7 @@ class SnapshotArgs:
     @pulumi.getter(name="incrementalEnabled")
     def incremental_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the Snapshot is incremental.
+        Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "incremental_enabled")
 
@@ -227,7 +227,7 @@ class _SnapshotState:
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
-        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
+        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -306,7 +306,7 @@ class _SnapshotState:
     @pulumi.getter(name="incrementalEnabled")
     def incremental_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies if the Snapshot is incremental.
+        Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "incremental_enabled")
 
@@ -468,7 +468,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
-        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
+        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -601,7 +601,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
-        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
+        :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -661,7 +661,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="incrementalEnabled")
     def incremental_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies if the Snapshot is incremental.
+        Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "incremental_enabled")
 

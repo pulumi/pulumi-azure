@@ -188,14 +188,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return this.marketplaceSubscriptionStatus;
     }
     /**
-     * Is monitoring enabled? Defaults to`true`.
+     * Is monitoring enabled? Defaults to `true`.
      * 
      */
     @Export(name="monitoringEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monitoringEnabled;
 
     /**
-     * @return Is monitoring enabled? Defaults to`true`.
+     * @return Is monitoring enabled? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> monitoringEnabled() {

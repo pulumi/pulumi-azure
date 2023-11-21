@@ -19,7 +19,7 @@ public final class PoolStartTaskContainer {
      */
     private String imageName;
     /**
-     * @return The same reference as `container_registries` block defined as below.
+     * @return The `container_registries` block defined as below.
      * 
      */
     private @Nullable List<PoolStartTaskContainerRegistry> registries;
@@ -29,7 +29,7 @@ public final class PoolStartTaskContainer {
      */
     private @Nullable String runOptions;
     /**
-     * @return A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+     * @return A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
      * 
      */
     private @Nullable String workingDirectory;
@@ -43,7 +43,7 @@ public final class PoolStartTaskContainer {
         return this.imageName;
     }
     /**
-     * @return The same reference as `container_registries` block defined as below.
+     * @return The `container_registries` block defined as below.
      * 
      */
     public List<PoolStartTaskContainerRegistry> registries() {
@@ -57,7 +57,7 @@ public final class PoolStartTaskContainer {
         return Optional.ofNullable(this.runOptions);
     }
     /**
-     * @return A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+     * @return A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
      * 
      */
     public Optional<String> workingDirectory() {

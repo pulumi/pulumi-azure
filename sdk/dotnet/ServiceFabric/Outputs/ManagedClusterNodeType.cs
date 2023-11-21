@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ServiceFabric.Outputs
         /// </summary>
         public readonly int DataDiskSizeGb;
         /// <summary>
-        /// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        /// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
         /// </summary>
         public readonly string? DataDiskType;
         /// <summary>

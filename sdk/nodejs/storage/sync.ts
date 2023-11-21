@@ -60,7 +60,7 @@ export class Sync extends pulumi.CustomResource {
     }
 
     /**
-     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      */
     public readonly incomingTrafficPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -119,7 +119,7 @@ export class Sync extends pulumi.CustomResource {
  */
 export interface SyncState {
     /**
-     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      */
     incomingTrafficPolicy?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface SyncState {
  */
 export interface SyncArgs {
     /**
-     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      */
     incomingTrafficPolicy?: pulumi.Input<string>;
     /**

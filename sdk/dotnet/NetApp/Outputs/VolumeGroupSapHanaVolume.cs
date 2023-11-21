@@ -47,7 +47,7 @@ namespace Pulumi.Azure.NetApp.Outputs
         /// </summary>
         public readonly string? ProximityPlacementGroupId;
         /// <summary>
-        /// Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         public readonly string SecurityStyle;
         /// <summary>

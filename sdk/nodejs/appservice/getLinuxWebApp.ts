@@ -67,7 +67,6 @@ export interface GetLinuxWebAppResult {
     readonly authSettingsV2s: outputs.appservice.GetLinuxWebAppAuthSettingsV2[];
     /**
      * The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-     * *
      */
     readonly availability: string;
     /**
@@ -106,6 +105,10 @@ export interface GetLinuxWebAppResult {
      * Is the Backup enabled?
      */
     readonly enabled: boolean;
+    /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     */
+    readonly ftpPublishBasicAuthenticationEnabled: boolean;
     /**
      * The ID of the App Service Environment used by App Service.
      */
@@ -155,6 +158,9 @@ export interface GetLinuxWebAppResult {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses: string;
+    /**
+     * Is Public Network Access enabled for this Linux Web App.
+     */
     readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
@@ -189,6 +195,10 @@ export interface GetLinuxWebAppResult {
      * The subnet id which the Linux Web App is vNet Integrated with.
      */
     readonly virtualNetworkSubnetId: string;
+    /**
+     * Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     */
+    readonly webdeployPublishBasicAuthenticationEnabled: boolean;
 }
 /**
  * Use this data source to access information about an existing Linux Web App.

@@ -161,14 +161,14 @@ public class Schedule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The notification setting of a schedule. A `notification_settings` as defined below.
+     * The notification setting of a schedule. A `notification_settings` block as defined below.
      * 
      */
     @Export(name="notificationSettings", refs={ScheduleNotificationSettings.class}, tree="[0]")
     private Output<ScheduleNotificationSettings> notificationSettings;
 
     /**
-     * @return The notification setting of a schedule. A `notification_settings` as defined below.
+     * @return The notification setting of a schedule. A `notification_settings` block as defined below.
      * 
      */
     public Output<ScheduleNotificationSettings> notificationSettings() {

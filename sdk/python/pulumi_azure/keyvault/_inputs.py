@@ -290,7 +290,7 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
         """
         pulumi.set(__self__, "name", name)
 
@@ -298,7 +298,7 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
         """
         return pulumi.get(self, "name")
 
@@ -316,11 +316,11 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
                  curve: Optional[pulumi.Input[str]] = None,
                  key_size: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] exportable: Is this certificate exportable? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] reuse_key: Is the key reusable? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] exportable: Is this certificate exportable?
+        :param pulumi.Input[str] key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
+        :param pulumi.Input[bool] reuse_key: Is the key reusable?
+        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+        :param pulumi.Input[int] key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         """
         pulumi.set(__self__, "exportable", exportable)
         pulumi.set(__self__, "key_type", key_type)
@@ -334,7 +334,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter
     def exportable(self) -> pulumi.Input[bool]:
         """
-        Is this certificate exportable? Changing this forces a new resource to be created.
+        Is this certificate exportable?
         """
         return pulumi.get(self, "exportable")
 
@@ -346,7 +346,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
         """
         return pulumi.get(self, "key_type")
 
@@ -358,7 +358,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="reuseKey")
     def reuse_key(self) -> pulumi.Input[bool]:
         """
-        Is the key reusable? Changing this forces a new resource to be created.
+        Is the key reusable?
         """
         return pulumi.get(self, "reuse_key")
 
@@ -370,7 +370,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter
     def curve(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
         """
         return pulumi.get(self, "curve")
 
@@ -382,7 +382,7 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         """
         return pulumi.get(self, "key_size")
 
@@ -433,7 +433,7 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
         """
         pulumi.set(__self__, "action_type", action_type)
 
@@ -441,7 +441,7 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[str]:
         """
-        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
         """
         return pulumi.get(self, "action_type")
 
@@ -456,8 +456,8 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
                  days_before_expiry: Optional[pulumi.Input[int]] = None,
                  lifetime_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
-        :param pulumi.Input[int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        :param pulumi.Input[int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+        :param pulumi.Input[int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
         """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
@@ -468,7 +468,7 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
     @pulumi.getter(name="daysBeforeExpiry")
     def days_before_expiry(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+        The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
         """
         return pulumi.get(self, "days_before_expiry")
 
@@ -480,7 +480,7 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
     @pulumi.getter(name="lifetimePercentage")
     def lifetime_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
         """
         return pulumi.get(self, "lifetime_percentage")
 
@@ -494,7 +494,7 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] content_type: The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content_type: The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         """
         pulumi.set(__self__, "content_type", content_type)
 
@@ -502,7 +502,7 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
         """
-        The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         """
         return pulumi.get(self, "content_type")
 
@@ -520,11 +520,11 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
                  extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
+        :param pulumi.Input[str] subject: The Certificate's Subject.
+        :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages.
+        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -538,7 +538,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="keyUsages")
     def key_usages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
         """
         return pulumi.get(self, "key_usages")
 
@@ -550,7 +550,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
         """
-        The Certificate's Subject. Changing this forces a new resource to be created.
+        The Certificate's Subject.
         """
         return pulumi.get(self, "subject")
 
@@ -562,7 +562,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="validityInMonths")
     def validity_in_months(self) -> pulumi.Input[int]:
         """
-        The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        The Certificates Validity Period in Months.
         """
         return pulumi.get(self, "validity_in_months")
 
@@ -574,7 +574,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="extendedKeyUsages")
     def extended_key_usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        A list of Extended/Enhanced Key Usages.
         """
         return pulumi.get(self, "extended_key_usages")
 
@@ -586,7 +586,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
         """
-        A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        A `subject_alternative_names` block as defined below.
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -602,9 +602,9 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate.
         """
         if dns_names is not None:
             pulumi.set(__self__, "dns_names", dns_names)
@@ -617,7 +617,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
     @pulumi.getter(name="dnsNames")
     def dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        A list of alternative DNS names (FQDNs) identified by the Certificate.
         """
         return pulumi.get(self, "dns_names")
 
@@ -629,7 +629,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        A list of email addresses identified by this Certificate.
         """
         return pulumi.get(self, "emails")
 
@@ -641,7 +641,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
     @pulumi.getter
     def upns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        A list of User Principal Names identified by the Certificate.
         """
         return pulumi.get(self, "upns")
 
@@ -898,7 +898,7 @@ class CertificateCertificatePolicyIssuerParametersArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
         """
         pulumi.set(__self__, "name", name)
 
@@ -906,7 +906,7 @@ class CertificateCertificatePolicyIssuerParametersArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
         """
         return pulumi.get(self, "name")
 
@@ -924,11 +924,11 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
                  curve: Optional[pulumi.Input[str]] = None,
                  key_size: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] exportable: Is this certificate exportable? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] reuse_key: Is the key reusable? Changing this forces a new resource to be created.
-        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] exportable: Is this certificate exportable?
+        :param pulumi.Input[str] key_type: Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
+        :param pulumi.Input[bool] reuse_key: Is the key reusable?
+        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+        :param pulumi.Input[int] key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         """
         pulumi.set(__self__, "exportable", exportable)
         pulumi.set(__self__, "key_type", key_type)
@@ -942,7 +942,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter
     def exportable(self) -> pulumi.Input[bool]:
         """
-        Is this certificate exportable? Changing this forces a new resource to be created.
+        Is this certificate exportable?
         """
         return pulumi.get(self, "exportable")
 
@@ -954,7 +954,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
         """
         return pulumi.get(self, "key_type")
 
@@ -966,7 +966,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="reuseKey")
     def reuse_key(self) -> pulumi.Input[bool]:
         """
-        Is the key reusable? Changing this forces a new resource to be created.
+        Is the key reusable?
         """
         return pulumi.get(self, "reuse_key")
 
@@ -978,7 +978,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter
     def curve(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
         """
         return pulumi.get(self, "curve")
 
@@ -990,7 +990,7 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         """
         return pulumi.get(self, "key_size")
 
@@ -1041,7 +1041,7 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
         """
         pulumi.set(__self__, "action_type", action_type)
 
@@ -1049,7 +1049,7 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[str]:
         """
-        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
         """
         return pulumi.get(self, "action_type")
 
@@ -1064,8 +1064,8 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
                  days_before_expiry: Optional[pulumi.Input[int]] = None,
                  lifetime_percentage: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
-        :param pulumi.Input[int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        :param pulumi.Input[int] days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+        :param pulumi.Input[int] lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
         """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
@@ -1076,7 +1076,7 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
     @pulumi.getter(name="daysBeforeExpiry")
     def days_before_expiry(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+        The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
         """
         return pulumi.get(self, "days_before_expiry")
 
@@ -1088,7 +1088,7 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
     @pulumi.getter(name="lifetimePercentage")
     def lifetime_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
         """
         return pulumi.get(self, "lifetime_percentage")
 
@@ -1102,7 +1102,7 @@ class CertificateCertificatePolicySecretPropertiesArgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] content_type: The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] content_type: The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         """
         pulumi.set(__self__, "content_type", content_type)
 
@@ -1110,7 +1110,7 @@ class CertificateCertificatePolicySecretPropertiesArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
         """
-        The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         """
         return pulumi.get(self, "content_type")
 
@@ -1128,11 +1128,11 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
                  extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
+        :param pulumi.Input[str] subject: The Certificate's Subject.
+        :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages.
+        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -1146,7 +1146,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="keyUsages")
     def key_usages(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
         """
         return pulumi.get(self, "key_usages")
 
@@ -1158,7 +1158,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter
     def subject(self) -> pulumi.Input[str]:
         """
-        The Certificate's Subject. Changing this forces a new resource to be created.
+        The Certificate's Subject.
         """
         return pulumi.get(self, "subject")
 
@@ -1170,7 +1170,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="validityInMonths")
     def validity_in_months(self) -> pulumi.Input[int]:
         """
-        The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        The Certificates Validity Period in Months.
         """
         return pulumi.get(self, "validity_in_months")
 
@@ -1182,7 +1182,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="extendedKeyUsages")
     def extended_key_usages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        A list of Extended/Enhanced Key Usages.
         """
         return pulumi.get(self, "extended_key_usages")
 
@@ -1194,7 +1194,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
         """
-        A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        A `subject_alternative_names` block as defined below.
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -1210,9 +1210,9 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_names: A list of alternative DNS names (FQDNs) identified by the Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: A list of email addresses identified by this Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] upns: A list of User Principal Names identified by the Certificate.
         """
         if dns_names is not None:
             pulumi.set(__self__, "dns_names", dns_names)
@@ -1225,7 +1225,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
     @pulumi.getter(name="dnsNames")
     def dns_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        A list of alternative DNS names (FQDNs) identified by the Certificate.
         """
         return pulumi.get(self, "dns_names")
 
@@ -1237,7 +1237,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        A list of email addresses identified by this Certificate.
         """
         return pulumi.get(self, "emails")
 
@@ -1249,7 +1249,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
     @pulumi.getter
     def upns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        A list of User Principal Names identified by the Certificate.
         """
         return pulumi.get(self, "upns")
 
@@ -1391,7 +1391,7 @@ class KeyRotationPolicyArgs:
         """
         :param pulumi.Input['KeyRotationPolicyAutomaticArgs'] automatic: An `automatic` block as defined below.
         :param pulumi.Input[str] expire_after: Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
-        :param pulumi.Input[str] notify_before_expiry: Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+        :param pulumi.Input[str] notify_before_expiry: Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -1428,7 +1428,7 @@ class KeyRotationPolicyArgs:
     @pulumi.getter(name="notifyBeforeExpiry")
     def notify_before_expiry(self) -> Optional[pulumi.Input[str]]:
         """
-        Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+        Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
         return pulumi.get(self, "notify_before_expiry")
 

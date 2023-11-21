@@ -49,7 +49,7 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -197,7 +197,7 @@ class VirtualNetworkGatewayConnectionArgs:
     @pulumi.getter(name="customBgpAddresses")
     def custom_bgp_addresses(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]:
         """
-        A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        A `custom_bgp_addresses` block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
         For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         """
@@ -449,7 +449,7 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs'] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -567,7 +567,7 @@ class _VirtualNetworkGatewayConnectionState:
     @pulumi.getter(name="customBgpAddresses")
     def custom_bgp_addresses(self) -> Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']]:
         """
-        A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        A `custom_bgp_addresses` block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
         For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         """
@@ -991,7 +991,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -1283,7 +1283,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] connection_mode: Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
         :param pulumi.Input[str] connection_protocol: The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
                > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
-        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] custom_bgp_addresses: A `custom_bgp_addresses` block which is documented below.
                The block can only be used on `IPSec` / `activeactive` connections,
                For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created.
@@ -1370,7 +1370,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     @pulumi.getter(name="customBgpAddresses")
     def custom_bgp_addresses(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayConnectionCustomBgpAddresses']]:
         """
-        A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        A `custom_bgp_addresses` block which is documented below.
         The block can only be used on `IPSec` / `activeactive` connections,
         For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         """

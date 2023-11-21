@@ -22,7 +22,7 @@ class GetLinuxFunctionAppResult:
     """
     A collection of values returned by getLinuxFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, usage=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, usage=None, virtual_network_subnet_id=None, webdeploy_publish_basic_authentication_enabled=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -68,6 +68,9 @@ class GetLinuxFunctionAppResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled and not isinstance(ftp_publish_basic_authentication_enabled, bool):
+            raise TypeError("Expected argument 'ftp_publish_basic_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if functions_extension_version and not isinstance(functions_extension_version, str):
             raise TypeError("Expected argument 'functions_extension_version' to be a str")
         pulumi.set(__self__, "functions_extension_version", functions_extension_version)
@@ -143,6 +146,9 @@ class GetLinuxFunctionAppResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if webdeploy_publish_basic_authentication_enabled and not isinstance(webdeploy_publish_basic_authentication_enabled, bool):
+            raise TypeError("Expected argument 'webdeploy_publish_basic_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -265,6 +271,14 @@ class GetLinuxFunctionAppResult:
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> bool:
+        """
+        Are the default FTP Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @property
     @pulumi.getter(name="functionsExtensionVersion")
     def functions_extension_version(self) -> str:
         """
@@ -363,6 +377,9 @@ class GetLinuxFunctionAppResult:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> bool:
+        """
+        Is Public Network Access enabled for this Linux Function App.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
@@ -458,6 +475,14 @@ class GetLinuxFunctionAppResult:
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
+    @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> bool:
+        """
+        Are the default WebDeploy Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
+
 
 class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
     # pylint: disable=using-constant-test
@@ -480,6 +505,7 @@ class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
             daily_memory_time_quota=self.daily_memory_time_quota,
             default_hostname=self.default_hostname,
             enabled=self.enabled,
+            ftp_publish_basic_authentication_enabled=self.ftp_publish_basic_authentication_enabled,
             functions_extension_version=self.functions_extension_version,
             hosting_environment_id=self.hosting_environment_id,
             https_only=self.https_only,
@@ -504,7 +530,8 @@ class AwaitableGetLinuxFunctionAppResult(GetLinuxFunctionAppResult):
             storage_uses_managed_identity=self.storage_uses_managed_identity,
             tags=self.tags,
             usage=self.usage,
-            virtual_network_subnet_id=self.virtual_network_subnet_id)
+            virtual_network_subnet_id=self.virtual_network_subnet_id,
+            webdeploy_publish_basic_authentication_enabled=self.webdeploy_publish_basic_authentication_enabled)
 
 
 def get_linux_function_app(name: Optional[str] = None,
@@ -550,6 +577,7 @@ def get_linux_function_app(name: Optional[str] = None,
         daily_memory_time_quota=pulumi.get(__ret__, 'daily_memory_time_quota'),
         default_hostname=pulumi.get(__ret__, 'default_hostname'),
         enabled=pulumi.get(__ret__, 'enabled'),
+        ftp_publish_basic_authentication_enabled=pulumi.get(__ret__, 'ftp_publish_basic_authentication_enabled'),
         functions_extension_version=pulumi.get(__ret__, 'functions_extension_version'),
         hosting_environment_id=pulumi.get(__ret__, 'hosting_environment_id'),
         https_only=pulumi.get(__ret__, 'https_only'),
@@ -574,7 +602,8 @@ def get_linux_function_app(name: Optional[str] = None,
         storage_uses_managed_identity=pulumi.get(__ret__, 'storage_uses_managed_identity'),
         tags=pulumi.get(__ret__, 'tags'),
         usage=pulumi.get(__ret__, 'usage'),
-        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
+        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
+        webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
 
 
 @_utilities.lift_output_func(get_linux_function_app)

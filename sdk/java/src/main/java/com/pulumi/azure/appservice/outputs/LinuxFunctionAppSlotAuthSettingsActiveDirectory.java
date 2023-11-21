@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -37,7 +37,7 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
 
     private LinuxFunctionAppSlotAuthSettingsActiveDirectory() {}
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 

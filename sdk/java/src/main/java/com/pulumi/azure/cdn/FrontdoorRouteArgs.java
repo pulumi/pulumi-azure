@@ -143,14 +143,14 @@ public final class FrontdoorRouteArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      * 
      */
     @Import(name="forwardingProtocol")
     private @Nullable Output<String> forwardingProtocol;
 
     /**
-     * @return The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * @return The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      * 
      */
     public Optional<Output<String>> forwardingProtocol() {
@@ -480,7 +480,7 @@ public final class FrontdoorRouteArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param forwardingProtocol The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+         * @param forwardingProtocol The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class FrontdoorRouteArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param forwardingProtocol The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+         * @param forwardingProtocol The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
          * 
          * @return builder
          * 

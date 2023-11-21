@@ -81,14 +81,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The container configuration used in the pool&#39;s VMs.
+     * The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
      * 
      */
     @Import(name="containerConfiguration")
     private @Nullable Output<PoolContainerConfigurationArgs> containerConfiguration;
 
     /**
-     * @return The container configuration used in the pool&#39;s VMs.
+     * @return The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
      * 
      */
     public Optional<Output<PoolContainerConfigurationArgs>> containerConfiguration() {
@@ -186,14 +186,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      * 
      */
     @Import(name="interNodeCommunication")
     private @Nullable Output<String> interNodeCommunication;
 
     /**
-     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      * 
      */
     public Optional<Output<String>> interNodeCommunication() {
@@ -381,14 +381,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageImageReference", required=true)
     private Output<PoolStorageImageReferenceArgs> storageImageReference;
 
     /**
-     * @return A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * @return A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<PoolStorageImageReferenceArgs> storageImageReference() {
@@ -396,14 +396,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The desired node communication mode for the pool.
+     * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      * 
      */
     @Import(name="targetNodeCommunicationMode")
     private @Nullable Output<String> targetNodeCommunicationMode;
 
     /**
-     * @return The desired node communication mode for the pool.
+     * @return The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      * 
      */
     public Optional<Output<String>> targetNodeCommunicationMode() {
@@ -411,14 +411,14 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      * 
      */
     @Import(name="taskSchedulingPolicies")
     private @Nullable Output<List<PoolTaskSchedulingPolicyArgs>> taskSchedulingPolicies;
 
     /**
-     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      * 
      */
     public Optional<Output<List<PoolTaskSchedulingPolicyArgs>>> taskSchedulingPolicies() {
@@ -604,7 +604,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerConfiguration The container configuration used in the pool&#39;s VMs.
+         * @param containerConfiguration The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
          * 
          * @return builder
          * 
@@ -615,7 +615,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param containerConfiguration The container configuration used in the pool&#39;s VMs.
+         * @param containerConfiguration The container configuration used in the pool&#39;s VMs. One `container_configuration` block as defined below.
          * 
          * @return builder
          * 
@@ -781,7 +781,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param interNodeCommunication Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+         * @param interNodeCommunication Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
@@ -792,7 +792,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param interNodeCommunication Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+         * @param interNodeCommunication Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
@@ -1074,7 +1074,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+         * @param storageImageReference A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1085,7 +1085,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageImageReference A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+         * @param storageImageReference A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1095,7 +1095,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetNodeCommunicationMode The desired node communication mode for the pool.
+         * @param targetNodeCommunicationMode The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
          * 
          * @return builder
          * 
@@ -1106,7 +1106,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetNodeCommunicationMode The desired node communication mode for the pool.
+         * @param targetNodeCommunicationMode The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
          * 
          * @return builder
          * 
@@ -1116,7 +1116,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
          * 
          * @return builder
          * 
@@ -1127,7 +1127,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
          * 
          * @return builder
          * 
@@ -1137,7 +1137,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
          * 
          * @return builder
          * 

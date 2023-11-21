@@ -7525,7 +7525,7 @@ type FactoryGithubConfiguration struct {
 	BranchName string `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 	GitUrl string `pulumi:"gitUrl"`
-	// Is automated publishing enabled? Defaults to `false`.
+	// Is automated publishing enabled? Defaults to `true`.
 	//
 	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 	PublishingEnabled *bool `pulumi:"publishingEnabled"`
@@ -7553,7 +7553,7 @@ type FactoryGithubConfigurationArgs struct {
 	BranchName pulumi.StringInput `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
 	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
-	// Is automated publishing enabled? Defaults to `false`.
+	// Is automated publishing enabled? Defaults to `true`.
 	//
 	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 	PublishingEnabled pulumi.BoolPtrInput `pulumi:"publishingEnabled"`
@@ -7673,7 +7673,7 @@ func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }
 
-// Is automated publishing enabled? Defaults to `false`.
+// Is automated publishing enabled? Defaults to `true`.
 //
 // > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 func (o FactoryGithubConfigurationOutput) PublishingEnabled() pulumi.BoolPtrOutput {
@@ -7750,7 +7750,7 @@ func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is automated publishing enabled? Defaults to `false`.
+// Is automated publishing enabled? Defaults to `true`.
 //
 // > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
 func (o FactoryGithubConfigurationPtrOutput) PublishingEnabled() pulumi.BoolPtrOutput {
@@ -8160,7 +8160,7 @@ type FactoryVstsConfiguration struct {
 	BranchName string `pulumi:"branchName"`
 	// Specifies the name of the VSTS project.
 	ProjectName string `pulumi:"projectName"`
-	// Is automated publishing enabled? Defaults to `false`.
+	// Is automated publishing enabled? Defaults to `true`.
 	PublishingEnabled *bool `pulumi:"publishingEnabled"`
 	// Specifies the name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
@@ -8188,7 +8188,7 @@ type FactoryVstsConfigurationArgs struct {
 	BranchName pulumi.StringInput `pulumi:"branchName"`
 	// Specifies the name of the VSTS project.
 	ProjectName pulumi.StringInput `pulumi:"projectName"`
-	// Is automated publishing enabled? Defaults to `false`.
+	// Is automated publishing enabled? Defaults to `true`.
 	PublishingEnabled pulumi.BoolPtrInput `pulumi:"publishingEnabled"`
 	// Specifies the name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
@@ -8308,7 +8308,7 @@ func (o FactoryVstsConfigurationOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v FactoryVstsConfiguration) string { return v.ProjectName }).(pulumi.StringOutput)
 }
 
-// Is automated publishing enabled? Defaults to `false`.
+// Is automated publishing enabled? Defaults to `true`.
 func (o FactoryVstsConfigurationOutput) PublishingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FactoryVstsConfiguration) *bool { return v.PublishingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -8388,7 +8388,7 @@ func (o FactoryVstsConfigurationPtrOutput) ProjectName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is automated publishing enabled? Defaults to `false`.
+// Is automated publishing enabled? Defaults to `true`.
 func (o FactoryVstsConfigurationPtrOutput) PublishingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FactoryVstsConfiguration) *bool {
 		if v == nil {
@@ -11341,7 +11341,7 @@ type IntegrationRuntimeManagedCatalogInfo struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
-	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
 	PricingTier *string `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
 	ServerEndpoint string `pulumi:"serverEndpoint"`
@@ -11363,7 +11363,7 @@ type IntegrationRuntimeManagedCatalogInfoArgs struct {
 	AdministratorLogin pulumi.StringPtrInput `pulumi:"administratorLogin"`
 	// Administrator login password for the SQL Server.
 	AdministratorPassword pulumi.StringPtrInput `pulumi:"administratorPassword"`
-	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+	// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
 	PricingTier pulumi.StringPtrInput `pulumi:"pricingTier"`
 	// The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
 	ServerEndpoint pulumi.StringInput `pulumi:"serverEndpoint"`
@@ -11474,7 +11474,7 @@ func (o IntegrationRuntimeManagedCatalogInfoOutput) AdministratorPassword() pulu
 	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.AdministratorPassword }).(pulumi.StringPtrOutput)
 }
 
-// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
 func (o IntegrationRuntimeManagedCatalogInfoOutput) PricingTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeManagedCatalogInfo) *string { return v.PricingTier }).(pulumi.StringPtrOutput)
 }
@@ -11534,7 +11534,7 @@ func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) AdministratorPassword() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
 func (o IntegrationRuntimeManagedCatalogInfoPtrOutput) PricingTier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManagedCatalogInfo) *string {
 		if v == nil {

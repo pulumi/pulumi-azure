@@ -35,14 +35,14 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A dns_settings block as documented below.
+     * A `dns_settings` block as documented below.
      * 
      */
     @Import(name="dnsSettings")
     private @Nullable Output<ScaleSetNetworkProfileDnsSettingsArgs> dnsSettings;
 
     /**
-     * @return A dns_settings block as documented below.
+     * @return A `dns_settings` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetNetworkProfileDnsSettingsArgs>> dnsSettings() {
@@ -50,14 +50,14 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * An ip_configuration block as documented below.
+     * An `ip_configuration` block as documented below.
      * 
      */
     @Import(name="ipConfigurations", required=true)
     private Output<List<ScaleSetNetworkProfileIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return An ip_configuration block as documented below.
+     * @return An `ip_configuration` block as documented below.
      * 
      */
     public Output<List<ScaleSetNetworkProfileIpConfigurationArgs>> ipConfigurations() {
@@ -176,7 +176,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dnsSettings A dns_settings block as documented below.
+         * @param dnsSettings A `dns_settings` block as documented below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dnsSettings A dns_settings block as documented below.
+         * @param dnsSettings A `dns_settings` block as documented below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations An ip_configuration block as documented below.
+         * @param ipConfigurations An `ip_configuration` block as documented below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations An ip_configuration block as documented below.
+         * @param ipConfigurations An `ip_configuration` block as documented below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class ScaleSetNetworkProfileArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ipConfigurations An ip_configuration block as documented below.
+         * @param ipConfigurations An `ip_configuration` block as documented below.
          * 
          * @return builder
          * 

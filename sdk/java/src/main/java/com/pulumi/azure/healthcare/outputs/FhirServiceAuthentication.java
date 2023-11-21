@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FhirServiceAuthentication {
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+     * @return The intended audience to receive authentication tokens for the service.
      * 
      */
     private String audience;
@@ -26,7 +26,7 @@ public final class FhirServiceAuthentication {
 
     private FhirServiceAuthentication() {}
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+     * @return The intended audience to receive authentication tokens for the service.
      * 
      */
     public String audience() {

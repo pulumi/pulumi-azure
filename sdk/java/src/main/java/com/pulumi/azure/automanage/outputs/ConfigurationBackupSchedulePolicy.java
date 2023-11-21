@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationBackupSchedulePolicy {
     /**
-     * @return The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+     * @return The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
      * 
      */
     private @Nullable String schedulePolicyType;
@@ -35,7 +35,7 @@ public final class ConfigurationBackupSchedulePolicy {
 
     private ConfigurationBackupSchedulePolicy() {}
     /**
-     * @return The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+     * @return The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
      * 
      */
     public Optional<String> schedulePolicyType() {

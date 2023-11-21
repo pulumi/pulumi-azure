@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Redis.Outputs
         /// </summary>
         public readonly int? MaxmemoryDelta;
         /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+        /// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
         /// </summary>
         public readonly string? MaxmemoryPolicy;
         /// <summary>

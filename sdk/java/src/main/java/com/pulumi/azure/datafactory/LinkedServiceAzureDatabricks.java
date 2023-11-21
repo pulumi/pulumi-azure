@@ -269,14 +269,14 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.existingClusterId);
     }
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+     * Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
      * 
      */
     @Export(name="instancePool", refs={LinkedServiceAzureDatabricksInstancePool.class}, tree="[0]")
     private Output</* @Nullable */ LinkedServiceAzureDatabricksInstancePool> instancePool;
 
     /**
-     * @return Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+     * @return Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
      * 
      */
     public Output<Optional<LinkedServiceAzureDatabricksInstancePool>> instancePool() {

@@ -130,7 +130,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     public readonly redisConfiguration!: pulumi.Output<outputs.redis.CacheRedisConfiguration>;
     /**
@@ -344,7 +344,7 @@ export interface CacheState {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
     /**
@@ -452,7 +452,7 @@ export interface CacheArgs {
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
-     * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     redisConfiguration?: pulumi.Input<inputs.redis.CacheRedisConfiguration>;
     /**

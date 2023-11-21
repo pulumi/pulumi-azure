@@ -16,14 +16,14 @@ public final class CertificateCertificatePolicyLifetimeActionTriggerArgs extends
     public static final CertificateCertificatePolicyLifetimeActionTriggerArgs Empty = new CertificateCertificatePolicyLifetimeActionTriggerArgs();
 
     /**
-     * The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+     * The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
      * 
      */
     @Import(name="daysBeforeExpiry")
     private @Nullable Output<Integer> daysBeforeExpiry;
 
     /**
-     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+     * @return The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
      * 
      */
     public Optional<Output<Integer>> daysBeforeExpiry() {
@@ -31,14 +31,14 @@ public final class CertificateCertificatePolicyLifetimeActionTriggerArgs extends
     }
 
     /**
-     * The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+     * The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
      * 
      */
     @Import(name="lifetimePercentage")
     private @Nullable Output<Integer> lifetimePercentage;
 
     /**
-     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+     * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
      * 
      */
     public Optional<Output<Integer>> lifetimePercentage() {
@@ -71,7 +71,7 @@ public final class CertificateCertificatePolicyLifetimeActionTriggerArgs extends
         }
 
         /**
-         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CertificateCertificatePolicyLifetimeActionTriggerArgs extends
         }
 
         /**
-         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+         * @param daysBeforeExpiry The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class CertificateCertificatePolicyLifetimeActionTriggerArgs extends
         }
 
         /**
-         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CertificateCertificatePolicyLifetimeActionTriggerArgs extends
         }
 
         /**
-         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+         * @param lifetimePercentage The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
          * 
          * @return builder
          * 

@@ -120,7 +120,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly outboundNetworkAccessRestricted!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      */
     public readonly publicIpType!: pulumi.Output<string | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface ClusterState {
      */
     outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
-     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      */
     publicIpType?: pulumi.Input<string>;
     /**
@@ -402,7 +402,7 @@ export interface ClusterArgs {
      */
     outboundNetworkAccessRestricted?: pulumi.Input<boolean>;
     /**
-     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      */
     publicIpType?: pulumi.Input<string>;
     /**

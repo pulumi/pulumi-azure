@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        /// The container registry URL. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string RegistryServer;
         /// <summary>

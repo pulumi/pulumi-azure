@@ -48,7 +48,7 @@ type ScheduledQueryRulesAlert struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Log search query.
 	Query pulumi.StringOutput `pulumi:"query"`
-	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
 	QueryType pulumi.StringPtrOutput `pulumi:"queryType"`
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -136,7 +136,7 @@ type scheduledQueryRulesAlertState struct {
 	Name *string `pulumi:"name"`
 	// Log search query.
 	Query *string `pulumi:"query"`
-	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
 	QueryType *string `pulumi:"queryType"`
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -174,7 +174,7 @@ type ScheduledQueryRulesAlertState struct {
 	Name pulumi.StringPtrInput
 	// Log search query.
 	Query pulumi.StringPtrInput
-	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
 	QueryType pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -216,7 +216,7 @@ type scheduledQueryRulesAlertArgs struct {
 	Name *string `pulumi:"name"`
 	// Log search query.
 	Query string `pulumi:"query"`
-	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
 	QueryType *string `pulumi:"queryType"`
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -255,7 +255,7 @@ type ScheduledQueryRulesAlertArgs struct {
 	Name pulumi.StringPtrInput
 	// Log search query.
 	Query pulumi.StringInput
-	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+	// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
 	QueryType pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -433,7 +433,7 @@ func (o ScheduledQueryRulesAlertOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
 
-// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `Number`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
+// The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`.
 func (o ScheduledQueryRulesAlertOutput) QueryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlert) pulumi.StringPtrOutput { return v.QueryType }).(pulumi.StringPtrOutput)
 }

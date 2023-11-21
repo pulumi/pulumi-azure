@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? PeerWeight;
         /// <summary>
-        /// A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        /// A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress> PeeringAddresses;
 

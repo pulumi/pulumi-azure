@@ -105,7 +105,7 @@ type WindowsFunctionAppSlot struct {
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
 	ConnectionStrings WindowsFunctionAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -119,6 +119,8 @@ type WindowsFunctionAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Is the Windows Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -170,6 +172,8 @@ type WindowsFunctionAppSlot struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 // NewWindowsFunctionAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -231,7 +235,7 @@ type windowsFunctionAppSlotState struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
 	ConnectionStrings []WindowsFunctionAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -245,6 +249,8 @@ type windowsFunctionAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Is the Windows Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId *string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -296,6 +302,8 @@ type windowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 type WindowsFunctionAppSlotState struct {
@@ -313,7 +321,7 @@ type WindowsFunctionAppSlotState struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// a `connectionString` block as detailed below.
 	ConnectionStrings WindowsFunctionAppSlotConnectionStringArrayInput
@@ -327,6 +335,8 @@ type WindowsFunctionAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Is the Windows Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringPtrInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -378,6 +388,8 @@ type WindowsFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
 func (WindowsFunctionAppSlotState) ElementType() reflect.Type {
@@ -399,7 +411,7 @@ type windowsFunctionAppSlotArgs struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
 	ConnectionStrings []WindowsFunctionAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -409,6 +421,8 @@ type windowsFunctionAppSlotArgs struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Is the Windows Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -446,6 +460,8 @@ type windowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 // The set of arguments for constructing a WindowsFunctionAppSlot resource.
@@ -464,7 +480,7 @@ type WindowsFunctionAppSlotArgs struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// a `connectionString` block as detailed below.
 	ConnectionStrings WindowsFunctionAppSlotConnectionStringArrayInput
@@ -474,6 +490,8 @@ type WindowsFunctionAppSlotArgs struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Is the Windows Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -511,6 +529,8 @@ type WindowsFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
 func (WindowsFunctionAppSlotArgs) ElementType() reflect.Type {
@@ -659,7 +679,7 @@ func (o WindowsFunctionAppSlotOutput) ClientCertificateExclusionPaths() pulumi.S
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
-// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 func (o WindowsFunctionAppSlotOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
@@ -694,6 +714,11 @@ func (o WindowsFunctionAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 // Is the Windows Function App Slot enabled. Defaults to `true`.
 func (o WindowsFunctionAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+func (o WindowsFunctionAppSlotOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -818,6 +843,13 @@ func (o WindowsFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 
 func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+func (o WindowsFunctionAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput {
+		return v.WebdeployPublishBasicAuthenticationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WindowsFunctionAppSlotArrayOutput struct{ *pulumi.OutputState }

@@ -83,7 +83,7 @@ type Snapshot struct {
 	//
 	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
-	// Specifies if the Snapshot is incremental.
+	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled pulumi.BoolPtrOutput `pulumi:"incrementalEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -149,7 +149,7 @@ type snapshotState struct {
 	//
 	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
-	// Specifies if the Snapshot is incremental.
+	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -180,7 +180,7 @@ type SnapshotState struct {
 	//
 	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
-	// Specifies if the Snapshot is incremental.
+	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -215,7 +215,7 @@ type snapshotArgs struct {
 	//
 	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
-	// Specifies if the Snapshot is incremental.
+	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -245,7 +245,7 @@ type SnapshotArgs struct {
 	//
 	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
-	// Specifies if the Snapshot is incremental.
+	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o SnapshotOutput) EncryptionSettings() SnapshotEncryptionSettingsPtrOutput
 	return o.ApplyT(func(v *Snapshot) SnapshotEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(SnapshotEncryptionSettingsPtrOutput)
 }
 
-// Specifies if the Snapshot is incremental.
+// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 func (o SnapshotOutput) IncrementalEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.IncrementalEnabled }).(pulumi.BoolPtrOutput)
 }

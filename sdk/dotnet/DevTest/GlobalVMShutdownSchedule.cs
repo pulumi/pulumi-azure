@@ -141,7 +141,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// The notification setting of a schedule. A `notification_settings` block as defined below.
         /// </summary>
         [Output("notificationSettings")]
         public Output<Outputs.GlobalVMShutdownScheduleNotificationSettings> NotificationSettings { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// The notification setting of a schedule. A `notification_settings` block as defined below.
         /// </summary>
         [Input("notificationSettings", required: true)]
         public Input<Inputs.GlobalVMShutdownScheduleNotificationSettingsArgs> NotificationSettings { get; set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// The notification setting of a schedule. A `notification_settings` block as defined below.
         /// </summary>
         [Input("notificationSettings")]
         public Input<Inputs.GlobalVMShutdownScheduleNotificationSettingsGetArgs>? NotificationSettings { get; set; }

@@ -29,6 +29,7 @@ class LinuxWebAppArgs:
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['LinuxWebAppIdentityArgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -40,6 +41,7 @@ class LinuxWebAppArgs:
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LinuxWebApp resource.
@@ -53,9 +55,10 @@ class LinuxWebAppArgs:
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
@@ -65,6 +68,9 @@ class LinuxWebAppArgs:
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+               
+               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
@@ -92,6 +98,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "connection_strings", connection_strings)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
@@ -114,6 +122,8 @@ class LinuxWebAppArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if webdeploy_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
@@ -241,7 +251,7 @@ class LinuxWebAppArgs:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -272,6 +282,18 @@ class LinuxWebAppArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @ftp_publish_basic_authentication_enabled.setter
+    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="httpsOnly")
@@ -400,6 +422,20 @@ class LinuxWebAppArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+
+        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
+
+    @webdeploy_publish_basic_authentication_enabled.setter
+    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
@@ -429,6 +465,7 @@ class _LinuxWebAppState:
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  default_hostname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  hosting_environment_id: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['LinuxWebAppIdentityArgs']] = None,
@@ -450,6 +487,7 @@ class _LinuxWebAppState:
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinuxWebApp resources.
@@ -460,11 +498,12 @@ class _LinuxWebAppState:
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
@@ -474,7 +513,7 @@ class _LinuxWebAppState:
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound ip address.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
@@ -484,6 +523,9 @@ class _LinuxWebAppState:
         :param pulumi.Input['LinuxWebAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+               
+               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
@@ -512,6 +554,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "default_hostname", default_hostname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if hosting_environment_id is not None:
             pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
         if https_only is not None:
@@ -554,6 +598,8 @@ class _LinuxWebAppState:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if webdeploy_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
         if zip_deploy_file is not None:
             pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
 
@@ -645,7 +691,7 @@ class _LinuxWebAppState:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -700,6 +746,18 @@ class _LinuxWebAppState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @ftp_publish_basic_authentication_enabled.setter
+    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="hostingEnvironmentId")
@@ -822,7 +880,7 @@ class _LinuxWebAppState:
     @pulumi.getter(name="possibleOutboundIpAddressLists")
     def possible_outbound_ip_address_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A `possible_outbound_ip_address_list` block as defined below.
+        A list of possible outbound ip address.
         """
         return pulumi.get(self, "possible_outbound_ip_address_lists")
 
@@ -948,6 +1006,20 @@ class _LinuxWebAppState:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
     @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+
+        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
+
+    @webdeploy_publish_basic_authentication_enabled.setter
+    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
+
+    @property
     @pulumi.getter(name="zipDeployFile")
     def zip_deploy_file(self) -> Optional[pulumi.Input[str]]:
         """
@@ -977,6 +1049,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -991,6 +1064,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -1032,9 +1106,10 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
@@ -1047,6 +1122,9 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+               
+               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
@@ -1112,6 +1190,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
                  connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
@@ -1126,6 +1205,7 @@ class LinuxWebApp(pulumi.CustomResource):
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1146,6 +1226,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["client_certificate_mode"] = client_certificate_mode
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
@@ -1166,6 +1247,7 @@ class LinuxWebApp(pulumi.CustomResource):
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
@@ -1200,6 +1282,7 @@ class LinuxWebApp(pulumi.CustomResource):
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             hosting_environment_id: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']]] = None,
@@ -1221,6 +1304,7 @@ class LinuxWebApp(pulumi.CustomResource):
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+            webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'LinuxWebApp':
         """
         Get an existing LinuxWebApp resource's state with the given name, id, and optional extra
@@ -1236,11 +1320,12 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by App Service.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']] identity: An `identity` block as defined below.
@@ -1250,7 +1335,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound ip address.
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
@@ -1260,6 +1345,9 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LinuxWebAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+               
+               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
                
                > **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
@@ -1280,6 +1368,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["custom_domain_verification_id"] = custom_domain_verification_id
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
         __props__.__dict__["hosting_environment_id"] = hosting_environment_id
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
@@ -1301,6 +1390,7 @@ class LinuxWebApp(pulumi.CustomResource):
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+        __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
         return LinuxWebApp(resource_name, opts=opts, __props__=__props__)
 
@@ -1364,7 +1454,7 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -1399,6 +1489,14 @@ class LinuxWebApp(pulumi.CustomResource):
         Should the Linux Web App be enabled? Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="hostingEnvironmentId")
@@ -1481,7 +1579,7 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="possibleOutboundIpAddressLists")
     def possible_outbound_ip_address_lists(self) -> pulumi.Output[Sequence[str]]:
         """
-        A `possible_outbound_ip_address_list` block as defined below.
+        A list of possible outbound ip address.
         """
         return pulumi.get(self, "possible_outbound_ip_address_lists")
 
@@ -1561,6 +1659,16 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+
+        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="zipDeployFile")

@@ -188,14 +188,14 @@ public class EndpointStorageContainer extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.endpointUri);
     }
     /**
-     * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     @Export(name="fileNameFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileNameFormat;
 
     /**
-     * @return File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * @return File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     public Output<Optional<String>> fileNameFormat() {

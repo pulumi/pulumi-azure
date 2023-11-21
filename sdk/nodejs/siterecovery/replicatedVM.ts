@@ -219,7 +219,6 @@ export class ReplicatedVM extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     /**
      * One or more `networkInterface` block as defined below.
-     * *
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.siterecovery.ReplicatedVMNetworkInterface[]>;
     /**
@@ -295,7 +294,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
      */
     public readonly testNetworkId!: pulumi.Output<string>;
     /**
-     * One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+     * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly unmanagedDisks!: pulumi.Output<outputs.siterecovery.ReplicatedVMUnmanagedDisk[] | undefined>;
 
@@ -411,7 +410,6 @@ export interface ReplicatedVMState {
     name?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` block as defined below.
-     * *
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     /**
@@ -487,7 +485,7 @@ export interface ReplicatedVMState {
      */
     testNetworkId?: pulumi.Input<string>;
     /**
-     * One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+     * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
     unmanagedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMUnmanagedDisk>[]>;
 }
@@ -510,7 +508,6 @@ export interface ReplicatedVMArgs {
     name?: pulumi.Input<string>;
     /**
      * One or more `networkInterface` block as defined below.
-     * *
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMNetworkInterface>[]>;
     /**
@@ -586,7 +583,7 @@ export interface ReplicatedVMArgs {
      */
     testNetworkId?: pulumi.Input<string>;
     /**
-     * One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+     * One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
      */
     unmanagedDisks?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicatedVMUnmanagedDisk>[]>;
 }

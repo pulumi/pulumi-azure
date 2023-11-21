@@ -15,14 +15,14 @@ public final class CacheDefaultAccessPolicyArgs extends com.pulumi.resources.Res
     public static final CacheDefaultAccessPolicyArgs Empty = new CacheDefaultAccessPolicyArgs();
 
     /**
-     * One to three `access_rule` blocks as defined above.
+     * One or more `access_rule` blocks (up to three) as defined above.
      * 
      */
     @Import(name="accessRules", required=true)
     private Output<List<CacheDefaultAccessPolicyAccessRuleArgs>> accessRules;
 
     /**
-     * @return One to three `access_rule` blocks as defined above.
+     * @return One or more `access_rule` blocks (up to three) as defined above.
      * 
      */
     public Output<List<CacheDefaultAccessPolicyAccessRuleArgs>> accessRules() {
@@ -54,7 +54,7 @@ public final class CacheDefaultAccessPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accessRules One to three `access_rule` blocks as defined above.
+         * @param accessRules One or more `access_rule` blocks (up to three) as defined above.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CacheDefaultAccessPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accessRules One to three `access_rule` blocks as defined above.
+         * @param accessRules One or more `access_rule` blocks (up to three) as defined above.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class CacheDefaultAccessPolicyArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param accessRules One to three `access_rule` blocks as defined above.
+         * @param accessRules One or more `access_rule` blocks (up to three) as defined above.
          * 
          * @return builder
          * 

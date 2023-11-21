@@ -134,14 +134,14 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+     * The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
      */
     @Import(name="transport")
     private @Nullable Output<String> transport;
 
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+     * @return The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
      */
     public Optional<Output<String>> transport() {
@@ -347,7 +347,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transport The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+         * @param transport The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transport The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+         * @param transport The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
          * 
          * @return builder
          * 

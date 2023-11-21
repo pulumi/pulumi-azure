@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>
-        /// an `oauth_scopes` block as detailed below.
+        /// an `oauth_scopes`.
         /// </summary>
         public readonly ImmutableArray<string> OauthScopes;
 

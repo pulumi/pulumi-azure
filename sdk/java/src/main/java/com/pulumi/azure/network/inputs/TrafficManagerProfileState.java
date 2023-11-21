@@ -21,14 +21,14 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
     public static final TrafficManagerProfileState Empty = new TrafficManagerProfileState();
 
     /**
-     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<TrafficManagerProfileDnsConfigArgs> dnsConfig;
 
     /**
-     * @return This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * @return This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
      * 
      */
     public Optional<Output<TrafficManagerProfileDnsConfigArgs>> dnsConfig() {
@@ -70,14 +70,14 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
     }
 
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
      * 
      */
     @Import(name="monitorConfig")
     private @Nullable Output<TrafficManagerProfileMonitorConfigArgs> monitorConfig;
 
     /**
-     * @return This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
      * 
      */
     public Optional<Output<TrafficManagerProfileMonitorConfigArgs>> monitorConfig() {
@@ -208,7 +208,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dnsConfig This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dnsConfig This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
          * 
          * @return builder
          * 

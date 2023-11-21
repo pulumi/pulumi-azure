@@ -132,8 +132,9 @@ type LiveEventOutputResource struct {
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
-	OutputSnapTimeInSeconds pulumi.IntPtrOutput    `pulumi:"outputSnapTimeInSeconds"`
-	RewindWindowDuration    pulumi.StringPtrOutput `pulumi:"rewindWindowDuration"`
+	OutputSnapTimeInSeconds pulumi.IntPtrOutput `pulumi:"outputSnapTimeInSeconds"`
+	// `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+	RewindWindowDuration pulumi.StringPtrOutput `pulumi:"rewindWindowDuration"`
 }
 
 // NewLiveEventOutputResource registers a new resource with the given unique name, arguments, and options.
@@ -190,8 +191,9 @@ type liveEventOutputResourceState struct {
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
 	Name *string `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
-	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
-	RewindWindowDuration    *string `pulumi:"rewindWindowDuration"`
+	OutputSnapTimeInSeconds *int `pulumi:"outputSnapTimeInSeconds"`
+	// `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+	RewindWindowDuration *string `pulumi:"rewindWindowDuration"`
 }
 
 type LiveEventOutputResourceState struct {
@@ -211,7 +213,8 @@ type LiveEventOutputResourceState struct {
 	Name pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrInput
-	RewindWindowDuration    pulumi.StringPtrInput
+	// `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+	RewindWindowDuration pulumi.StringPtrInput
 }
 
 func (LiveEventOutputResourceState) ElementType() reflect.Type {
@@ -234,8 +237,9 @@ type liveEventOutputResourceArgs struct {
 	// The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
 	Name *string `pulumi:"name"`
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
-	OutputSnapTimeInSeconds *int    `pulumi:"outputSnapTimeInSeconds"`
-	RewindWindowDuration    *string `pulumi:"rewindWindowDuration"`
+	OutputSnapTimeInSeconds *int `pulumi:"outputSnapTimeInSeconds"`
+	// `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+	RewindWindowDuration *string `pulumi:"rewindWindowDuration"`
 }
 
 // The set of arguments for constructing a LiveEventOutputResource resource.
@@ -256,7 +260,8 @@ type LiveEventOutputResourceArgs struct {
 	Name pulumi.StringPtrInput
 	// The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
 	OutputSnapTimeInSeconds pulumi.IntPtrInput
-	RewindWindowDuration    pulumi.StringPtrInput
+	// `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+	RewindWindowDuration pulumi.StringPtrInput
 }
 
 func (LiveEventOutputResourceArgs) ElementType() reflect.Type {
@@ -410,6 +415,7 @@ func (o LiveEventOutputResourceOutput) OutputSnapTimeInSeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v *LiveEventOutputResource) pulumi.IntPtrOutput { return v.OutputSnapTimeInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
 func (o LiveEventOutputResourceOutput) RewindWindowDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventOutputResource) pulumi.StringPtrOutput { return v.RewindWindowDuration }).(pulumi.StringPtrOutput)
 }

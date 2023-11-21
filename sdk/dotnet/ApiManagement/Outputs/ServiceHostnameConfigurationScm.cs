@@ -14,7 +14,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     public sealed class ServiceHostnameConfigurationScm
     {
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// One or more `certificate` blocks (up to 10) as defined below.
         /// </summary>
         public readonly string? Certificate;
         /// <summary>

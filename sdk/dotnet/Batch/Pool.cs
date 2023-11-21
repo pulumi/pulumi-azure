@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<Outputs.PoolCertificate>> Certificates { get; private set; } = null!;
 
         /// <summary>
-        /// The container configuration used in the pool's VMs.
+        /// The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         /// </summary>
         [Output("containerConfiguration")]
         public Output<Outputs.PoolContainerConfiguration?> ContainerConfiguration { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
         /// </summary>
         [Output("interNodeCommunication")]
         public Output<string?> InterNodeCommunication { get; private set; } = null!;
@@ -286,19 +286,19 @@ namespace Pulumi.Azure.Batch
         public Output<bool?> StopPendingResizeOperation { get; private set; } = null!;
 
         /// <summary>
-        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+        /// A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageImageReference")]
         public Output<Outputs.PoolStorageImageReference> StorageImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// The desired node communication mode for the pool.
+        /// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
         /// </summary>
         [Output("targetNodeCommunicationMode")]
         public Output<string?> TargetNodeCommunicationMode { get; private set; } = null!;
 
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
         /// </summary>
         [Output("taskSchedulingPolicies")]
         public Output<ImmutableArray<Outputs.PoolTaskSchedulingPolicy>> TaskSchedulingPolicies { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// The container configuration used in the pool's VMs.
+        /// The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         /// </summary>
         [Input("containerConfiguration")]
         public Input<Inputs.PoolContainerConfigurationArgs>? ContainerConfiguration { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("interNodeCommunication")]
         public Input<string>? InterNodeCommunication { get; set; }
@@ -552,13 +552,13 @@ namespace Pulumi.Azure.Batch
         public Input<bool>? StopPendingResizeOperation { get; set; }
 
         /// <summary>
-        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+        /// A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference", required: true)]
         public Input<Inputs.PoolStorageImageReferenceArgs> StorageImageReference { get; set; } = null!;
 
         /// <summary>
-        /// The desired node communication mode for the pool.
+        /// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
         /// </summary>
         [Input("targetNodeCommunicationMode")]
         public Input<string>? TargetNodeCommunicationMode { get; set; }
@@ -567,7 +567,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolTaskSchedulingPolicyArgs>? _taskSchedulingPolicies;
 
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
         /// </summary>
         public InputList<Inputs.PoolTaskSchedulingPolicyArgs> TaskSchedulingPolicies
         {
@@ -642,7 +642,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// The container configuration used in the pool's VMs.
+        /// The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
         /// </summary>
         [Input("containerConfiguration")]
         public Input<Inputs.PoolContainerConfigurationGetArgs>? ContainerConfiguration { get; set; }
@@ -702,7 +702,7 @@ namespace Pulumi.Azure.Batch
         public Input<Inputs.PoolIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
         /// </summary>
         [Input("interNodeCommunication")]
         public Input<string>? InterNodeCommunication { get; set; }
@@ -798,13 +798,13 @@ namespace Pulumi.Azure.Batch
         public Input<bool>? StopPendingResizeOperation { get; set; }
 
         /// <summary>
-        /// A `storage_image_reference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+        /// A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageImageReference")]
         public Input<Inputs.PoolStorageImageReferenceGetArgs>? StorageImageReference { get; set; }
 
         /// <summary>
-        /// The desired node communication mode for the pool.
+        /// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
         /// </summary>
         [Input("targetNodeCommunicationMode")]
         public Input<string>? TargetNodeCommunicationMode { get; set; }
@@ -813,7 +813,7 @@ namespace Pulumi.Azure.Batch
         private InputList<Inputs.PoolTaskSchedulingPolicyGetArgs>? _taskSchedulingPolicies;
 
         /// <summary>
-        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
         /// </summary>
         public InputList<Inputs.PoolTaskSchedulingPolicyGetArgs> TaskSchedulingPolicies
         {

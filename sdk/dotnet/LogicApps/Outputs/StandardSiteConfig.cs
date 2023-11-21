@@ -50,7 +50,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
         /// 
         /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// </summary>
         public readonly bool? RuntimeScaleMonitoringEnabled;
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        /// A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
         /// 
         /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>

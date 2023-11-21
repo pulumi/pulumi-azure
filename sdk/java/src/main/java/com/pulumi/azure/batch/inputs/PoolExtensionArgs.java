@@ -35,7 +35,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
      * 
-     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+     * &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
      * 
      */
     @Import(name="automaticUpgradeEnabled")
@@ -44,7 +44,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
      * 
-     * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+     * &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
      * 
      */
     public Optional<Output<Boolean>> automaticUpgradeEnabled() {
@@ -212,7 +212,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param automaticUpgradeEnabled Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
          * 
-         * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+         * &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class PoolExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param automaticUpgradeEnabled Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
          * 
-         * **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+         * &gt; **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
          * 
          * @return builder
          * 

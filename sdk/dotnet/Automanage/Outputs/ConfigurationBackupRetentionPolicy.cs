@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Automanage.Outputs
         /// </summary>
         public readonly Outputs.ConfigurationBackupRetentionPolicyDailySchedule? DailySchedule;
         /// <summary>
-        /// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+        /// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
         /// </summary>
         public readonly string? RetentionPolicyType;
         /// <summary>

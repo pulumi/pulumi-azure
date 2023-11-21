@@ -28,7 +28,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
      */
     private Integer priority;
     /**
-     * @return One or more `network_rule` (network rule) blocks as defined below.
+     * @return One or more `network_rule` blocks as defined below.
      * 
      */
     private List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules;
@@ -56,7 +56,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
         return this.priority;
     }
     /**
-     * @return One or more `network_rule` (network rule) blocks as defined below.
+     * @return One or more `network_rule` blocks as defined below.
      * 
      */
     public List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules() {

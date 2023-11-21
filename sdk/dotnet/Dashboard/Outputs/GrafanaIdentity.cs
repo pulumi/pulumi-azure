@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Dashboard.Outputs
     public sealed class GrafanaIdentity
     {
         /// <summary>
-        /// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+        /// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

@@ -94,14 +94,14 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Icon Url of the Azure Bot Service.
+     * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     @Import(name="iconUrl")
     private @Nullable Output<String> iconUrl;
 
     /**
-     * @return The Icon Url of the Azure Bot Service.
+     * @return The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     public Optional<Output<String>> iconUrl() {
@@ -451,7 +451,7 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iconUrl The Icon Url of the Azure Bot Service.
+         * @param iconUrl The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class ServiceAzureBotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iconUrl The Icon Url of the Azure Bot Service.
+         * @param iconUrl The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
          * 
          * @return builder
          * 

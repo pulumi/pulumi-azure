@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// </summary>
         public readonly string? StackHciClusterId;
         /// <summary>
-        /// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+        /// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
         /// </summary>
         public readonly string Type;
 

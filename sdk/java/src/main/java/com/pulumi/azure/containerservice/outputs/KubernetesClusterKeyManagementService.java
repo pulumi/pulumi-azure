@@ -17,7 +17,7 @@ public final class KubernetesClusterKeyManagementService {
      */
     private String keyVaultKeyId;
     /**
-     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     private @Nullable String keyVaultNetworkAccess;
@@ -31,7 +31,7 @@ public final class KubernetesClusterKeyManagementService {
         return this.keyVaultKeyId;
     }
     /**
-     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     public Optional<String> keyVaultNetworkAccess() {

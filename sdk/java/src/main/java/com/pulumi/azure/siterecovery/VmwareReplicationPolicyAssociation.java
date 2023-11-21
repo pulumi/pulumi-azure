@@ -81,32 +81,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation")
 public class VmwareReplicationPolicyAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * The name of the replication policy association. Changing this forces a new association to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * @return The name of the replication policy association. Changing this forces a new association to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      * 
      */
     @Export(name="policyId", refs={String.class}, tree="[0]")
     private Output<String> policyId;
 
     /**
-     * @return The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * @return The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      * 
      */
     public Output<String> policyId() {

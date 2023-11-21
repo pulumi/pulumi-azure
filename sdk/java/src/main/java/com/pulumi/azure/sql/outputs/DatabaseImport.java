@@ -27,7 +27,7 @@ public final class DatabaseImport {
      */
     private String authenticationType;
     /**
-     * @return Specifies the type of import operation being performed. The only allowable value is `Import`.
+     * @return Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
      * 
      */
     private @Nullable String operationMode;
@@ -70,7 +70,7 @@ public final class DatabaseImport {
         return this.authenticationType;
     }
     /**
-     * @return Specifies the type of import operation being performed. The only allowable value is `Import`.
+     * @return Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
      * 
      */
     public Optional<String> operationMode() {

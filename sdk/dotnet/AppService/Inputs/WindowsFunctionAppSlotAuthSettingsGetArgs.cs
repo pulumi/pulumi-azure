@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _allowedExternalRedirectUrls;
 
         /// <summary>
-        /// an `allowed_external_redirect_urls` block as detailed below.
+        /// Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         /// </summary>
         public InputList<string> AllowedExternalRedirectUrls
         {

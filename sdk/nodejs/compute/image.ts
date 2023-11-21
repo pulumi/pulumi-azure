@@ -44,11 +44,11 @@ export class Image extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `dataDisk` elements as defined below.
+     * One or more `dataDisk` blocks as defined below.
      */
     public readonly dataDisks!: pulumi.Output<outputs.compute.ImageDataDisk[] | undefined>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      *
      * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      */
@@ -63,7 +63,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+     * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
     /**
@@ -131,11 +131,11 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageState {
     /**
-     * One or more `dataDisk` elements as defined below.
+     * One or more `dataDisk` blocks as defined below.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      *
      * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      */
@@ -150,7 +150,7 @@ export interface ImageState {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+     * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
@@ -177,11 +177,11 @@ export interface ImageState {
  */
 export interface ImageArgs {
     /**
-     * One or more `dataDisk` elements as defined below.
+     * One or more `dataDisk` blocks as defined below.
      */
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ImageDataDisk>[]>;
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      *
      * > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      */
@@ -196,7 +196,7 @@ export interface ImageArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+     * One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**

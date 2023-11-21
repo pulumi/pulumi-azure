@@ -105,7 +105,7 @@ type ServiceAzureBot struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The Azure Bot Service endpoint.
 	Endpoint pulumi.StringPtrOutput `pulumi:"endpoint"`
-	// The Icon Url of the Azure Bot Service.
+	// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
 	IconUrl pulumi.StringPtrOutput `pulumi:"iconUrl"`
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
@@ -195,7 +195,7 @@ type serviceAzureBotState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Azure Bot Service endpoint.
 	Endpoint *string `pulumi:"endpoint"`
-	// The Icon Url of the Azure Bot Service.
+	// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
 	IconUrl *string `pulumi:"iconUrl"`
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
@@ -236,7 +236,7 @@ type ServiceAzureBotState struct {
 	DisplayName pulumi.StringPtrInput
 	// The Azure Bot Service endpoint.
 	Endpoint pulumi.StringPtrInput
-	// The Icon Url of the Azure Bot Service.
+	// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
 	IconUrl pulumi.StringPtrInput
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
@@ -281,7 +281,7 @@ type serviceAzureBotArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The Azure Bot Service endpoint.
 	Endpoint *string `pulumi:"endpoint"`
-	// The Icon Url of the Azure Bot Service.
+	// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
 	IconUrl *string `pulumi:"iconUrl"`
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
@@ -323,7 +323,7 @@ type ServiceAzureBotArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The Azure Bot Service endpoint.
 	Endpoint pulumi.StringPtrInput
-	// The Icon Url of the Azure Bot Service.
+	// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
 	IconUrl pulumi.StringPtrInput
 	// Is local authentication enabled? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
@@ -489,7 +489,7 @@ func (o ServiceAzureBotOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// The Icon Url of the Azure Bot Service.
+// The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
 func (o ServiceAzureBotOutput) IconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAzureBot) pulumi.StringPtrOutput { return v.IconUrl }).(pulumi.StringPtrOutput)
 }

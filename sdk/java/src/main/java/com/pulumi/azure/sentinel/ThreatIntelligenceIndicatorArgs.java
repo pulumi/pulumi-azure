@@ -232,14 +232,14 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
     }
 
     /**
-     * Source of the Threat Intelligence Indicator.
+     * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return Source of the Threat Intelligence Indicator.
+     * @return Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> source() {
@@ -699,7 +699,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param source Source of the Threat Intelligence Indicator.
+         * @param source Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -710,7 +710,7 @@ public final class ThreatIntelligenceIndicatorArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param source Source of the Threat Intelligence Indicator.
+         * @param source Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

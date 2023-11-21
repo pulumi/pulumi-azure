@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HBaseClusterRolesWorkerNode {
+    /**
+     * @return A `autoscale` block as defined below.
+     * 
+     */
     private @Nullable HBaseClusterRolesWorkerNodeAutoscale autoscale;
     /**
      * @return The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -24,7 +28,7 @@ public final class HBaseClusterRolesWorkerNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<HBaseClusterRolesWorkerNodeScriptAction> scriptActions;
@@ -62,6 +66,10 @@ public final class HBaseClusterRolesWorkerNode {
     private String vmSize;
 
     private HBaseClusterRolesWorkerNode() {}
+    /**
+     * @return A `autoscale` block as defined below.
+     * 
+     */
     public Optional<HBaseClusterRolesWorkerNodeAutoscale> autoscale() {
         return Optional.ofNullable(this.autoscale);
     }
@@ -75,7 +83,7 @@ public final class HBaseClusterRolesWorkerNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public List<HBaseClusterRolesWorkerNodeScriptAction> scriptActions() {

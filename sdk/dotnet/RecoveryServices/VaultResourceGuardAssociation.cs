@@ -62,7 +62,7 @@ namespace Pulumi.Azure.RecoveryServices
     public partial class VaultResourceGuardAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
         /// 
         /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         /// </summary>
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultResourceGuardAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
         /// 
         /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         /// </summary>
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.RecoveryServices
     public sealed class VaultResourceGuardAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        /// Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
         /// 
         /// &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         /// </summary>

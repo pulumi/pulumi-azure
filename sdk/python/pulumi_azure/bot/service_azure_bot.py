@@ -43,7 +43,7 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
-        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service.
+        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
@@ -191,7 +191,7 @@ class ServiceAzureBotArgs:
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Icon Url of the Azure Bot Service.
+        The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
@@ -349,7 +349,7 @@ class _ServiceAzureBotState:
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
-        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service.
+        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
@@ -467,7 +467,7 @@ class _ServiceAzureBotState:
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Icon Url of the Azure Bot Service.
+        The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 
@@ -709,7 +709,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
-        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service.
+        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
@@ -886,7 +886,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] developer_app_insights_key: The Application Insight Key to associate with this Azure Bot Service.
         :param pulumi.Input[str] display_name: The name that the Azure Bot Service will be displayed as. This defaults to the value set for `name` if not specified.
         :param pulumi.Input[str] endpoint: The Azure Bot Service endpoint.
-        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service.
+        :param pulumi.Input[str] icon_url: The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled? Defaults to `true`.
         :param pulumi.Input[str] location: The supported Azure location where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: A list of LUIS App IDs to associate with this Azure Bot Service.
@@ -970,7 +970,7 @@ class ServiceAzureBot(pulumi.CustomResource):
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> pulumi.Output[Optional[str]]:
         """
-        The Icon Url of the Azure Bot Service.
+        The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         """
         return pulumi.get(self, "icon_url")
 

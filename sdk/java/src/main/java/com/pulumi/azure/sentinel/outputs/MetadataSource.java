@@ -17,7 +17,7 @@ public final class MetadataSource {
      */
     private @Nullable String id;
     /**
-     * @return The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+     * @return The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
      * 
      */
     private String kind;
@@ -36,7 +36,7 @@ public final class MetadataSource {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+     * @return The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
      * 
      */
     public String kind() {

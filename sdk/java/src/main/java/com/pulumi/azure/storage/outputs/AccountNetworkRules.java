@@ -23,12 +23,12 @@ public final class AccountNetworkRules {
      */
     private String defaultAction;
     /**
-     * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+     * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
      * 
      */
     private @Nullable List<String> ipRules;
     /**
-     * @return One or More `private_link_access` block as defined below.
+     * @return One or more `private_link_access` block as defined below.
      * 
      * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
      * 
@@ -62,14 +62,14 @@ public final class AccountNetworkRules {
         return this.defaultAction;
     }
     /**
-     * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+     * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
      * 
      */
     public List<String> ipRules() {
         return this.ipRules == null ? List.of() : this.ipRules;
     }
     /**
-     * @return One or More `private_link_access` block as defined below.
+     * @return One or more `private_link_access` block as defined below.
      * 
      * &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
      * 

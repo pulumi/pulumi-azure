@@ -168,15 +168,15 @@ type VolumeQuotaRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Quota size in kibibytes.
 	QuotaSizeInKib pulumi.IntOutput `pulumi:"quotaSizeInKib"`
-	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
 	//
 	// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
 	QuotaTarget pulumi.StringPtrOutput `pulumi:"quotaTarget"`
-	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
 	QuotaType pulumi.StringOutput `pulumi:"quotaType"`
-	// The NetApp volume ID where the Volume Quota Rule is assigned to.
+	// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 }
 
@@ -225,15 +225,15 @@ type volumeQuotaRuleState struct {
 	Name *string `pulumi:"name"`
 	// Quota size in kibibytes.
 	QuotaSizeInKib *int `pulumi:"quotaSizeInKib"`
-	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
 	//
 	// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
 	QuotaTarget *string `pulumi:"quotaTarget"`
-	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
 	QuotaType *string `pulumi:"quotaType"`
-	// The NetApp volume ID where the Volume Quota Rule is assigned to.
+	// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
 	VolumeId *string `pulumi:"volumeId"`
 }
 
@@ -244,15 +244,15 @@ type VolumeQuotaRuleState struct {
 	Name pulumi.StringPtrInput
 	// Quota size in kibibytes.
 	QuotaSizeInKib pulumi.IntPtrInput
-	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
 	//
 	// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
 	QuotaTarget pulumi.StringPtrInput
-	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
 	QuotaType pulumi.StringPtrInput
-	// The NetApp volume ID where the Volume Quota Rule is assigned to.
+	// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
 	VolumeId pulumi.StringPtrInput
 }
 
@@ -267,15 +267,15 @@ type volumeQuotaRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// Quota size in kibibytes.
 	QuotaSizeInKib int `pulumi:"quotaSizeInKib"`
-	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
 	//
 	// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
 	QuotaTarget *string `pulumi:"quotaTarget"`
-	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
 	QuotaType string `pulumi:"quotaType"`
-	// The NetApp volume ID where the Volume Quota Rule is assigned to.
+	// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
 	VolumeId string `pulumi:"volumeId"`
 }
 
@@ -287,15 +287,15 @@ type VolumeQuotaRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// Quota size in kibibytes.
 	QuotaSizeInKib pulumi.IntInput
-	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+	// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
 	//
 	// > **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
 	QuotaTarget pulumi.StringPtrInput
-	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+	// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
 	QuotaType pulumi.StringInput
-	// The NetApp volume ID where the Volume Quota Rule is assigned to.
+	// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
 	VolumeId pulumi.StringInput
 }
 
@@ -425,7 +425,7 @@ func (o VolumeQuotaRuleOutput) QuotaSizeInKib() pulumi.IntOutput {
 	return o.ApplyT(func(v *VolumeQuotaRule) pulumi.IntOutput { return v.QuotaSizeInKib }).(pulumi.IntOutput)
 }
 
-// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+// Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 //
 // > **NOTE:** ` quotaTarget  ` must be used when `quotaType` is `IndividualGroupQuota` or `IndividualUserQuota`
 //
@@ -434,12 +434,12 @@ func (o VolumeQuotaRuleOutput) QuotaTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeQuotaRule) pulumi.StringPtrOutput { return v.QuotaTarget }).(pulumi.StringPtrOutput)
 }
 
-// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+// Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
 func (o VolumeQuotaRuleOutput) QuotaType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeQuotaRule) pulumi.StringOutput { return v.QuotaType }).(pulumi.StringOutput)
 }
 
-// The NetApp volume ID where the Volume Quota Rule is assigned to.
+// The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
 func (o VolumeQuotaRuleOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeQuotaRule) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
 }

@@ -16,14 +16,14 @@ public final class PoolNodePlacementArgs extends com.pulumi.resources.ResourceAr
     public static final PoolNodePlacementArgs Empty = new PoolNodePlacementArgs();
 
     /**
-     * The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing.
+     * The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing.
+     * @return The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -55,7 +55,7 @@ public final class PoolNodePlacementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing.
+         * @param policy The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PoolNodePlacementArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param policy The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing.
+         * @param policy The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
          * 
          * @return builder
          * 

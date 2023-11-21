@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Sql
         public Output<string> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// A Database Import block as documented below. `create_mode` must be set to `Default`.
+        /// A `import` block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Output("import")]
         public Output<Outputs.DatabaseImport?> Import { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? ElasticPoolName { get; set; }
 
         /// <summary>
-        /// A Database Import block as documented below. `create_mode` must be set to `Default`.
+        /// A `import` block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Input("import")]
         public Input<Inputs.DatabaseImportArgs>? Import { get; set; }
@@ -426,7 +426,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Encryption { get; set; }
 
         /// <summary>
-        /// A Database Import block as documented below. `create_mode` must be set to `Default`.
+        /// A `import` block as documented below. `create_mode` must be set to `Default`.
         /// </summary>
         [Input("import")]
         public Input<Inputs.DatabaseImportGetArgs>? Import { get; set; }

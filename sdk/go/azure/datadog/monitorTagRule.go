@@ -101,7 +101,7 @@ type MonitorTagRule struct {
 	Logs MonitorTagRuleLogArrayOutput `pulumi:"logs"`
 	// A `metric` block as defined below.
 	Metrics MonitorTagRuleMetricArrayOutput `pulumi:"metrics"`
-	// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+	// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -144,7 +144,7 @@ type monitorTagRuleState struct {
 	Logs []MonitorTagRuleLog `pulumi:"logs"`
 	// A `metric` block as defined below.
 	Metrics []MonitorTagRuleMetric `pulumi:"metrics"`
-	// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+	// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
 	Name *string `pulumi:"name"`
 }
 
@@ -155,7 +155,7 @@ type MonitorTagRuleState struct {
 	Logs MonitorTagRuleLogArrayInput
 	// A `metric` block as defined below.
 	Metrics MonitorTagRuleMetricArrayInput
-	// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+	// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
 	Name pulumi.StringPtrInput
 }
 
@@ -170,7 +170,7 @@ type monitorTagRuleArgs struct {
 	Logs []MonitorTagRuleLog `pulumi:"logs"`
 	// A `metric` block as defined below.
 	Metrics []MonitorTagRuleMetric `pulumi:"metrics"`
-	// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+	// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
 	Name *string `pulumi:"name"`
 }
 
@@ -182,7 +182,7 @@ type MonitorTagRuleArgs struct {
 	Logs MonitorTagRuleLogArrayInput
 	// A `metric` block as defined below.
 	Metrics MonitorTagRuleMetricArrayInput
-	// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+	// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
 	Name pulumi.StringPtrInput
 }
 
@@ -312,7 +312,7 @@ func (o MonitorTagRuleOutput) Metrics() MonitorTagRuleMetricArrayOutput {
 	return o.ApplyT(func(v *MonitorTagRule) MonitorTagRuleMetricArrayOutput { return v.Metrics }).(MonitorTagRuleMetricArrayOutput)
 }
 
-// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
 func (o MonitorTagRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorTagRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

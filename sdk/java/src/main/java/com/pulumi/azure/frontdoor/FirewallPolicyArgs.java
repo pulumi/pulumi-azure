@@ -97,14 +97,14 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * @return The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -330,7 +330,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mode The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+         * @param mode The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param mode The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+         * @param mode The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
          * 
          * @return builder
          * 

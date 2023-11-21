@@ -66,14 +66,14 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Is monitoring enabled? Defaults to`true`.
+     * Is monitoring enabled? Defaults to `true`.
      * 
      */
     @Import(name="monitoringEnabled")
     private @Nullable Output<Boolean> monitoringEnabled;
 
     /**
-     * @return Is monitoring enabled? Defaults to`true`.
+     * @return Is monitoring enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> monitoringEnabled() {
@@ -251,7 +251,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringEnabled Is monitoring enabled? Defaults to`true`.
+         * @param monitoringEnabled Is monitoring enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitoringEnabled Is monitoring enabled? Defaults to`true`.
+         * @param monitoringEnabled Is monitoring enabled? Defaults to `true`.
          * 
          * @return builder
          * 

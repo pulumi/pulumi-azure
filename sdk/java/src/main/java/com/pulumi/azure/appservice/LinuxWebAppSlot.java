@@ -98,14 +98,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/linuxWebAppSlot:LinuxWebAppSlot")
 public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     /**
-     * A `app_metadata` block as defined below.
+     * A `app_metadata`.
      * 
      */
     @Export(name="appMetadata", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> appMetadata;
 
     /**
-     * @return A `app_metadata` block as defined below.
+     * @return A `app_metadata`.
      * 
      */
     public Output<Map<String,String>> appMetadata() {
@@ -224,14 +224,14 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateExclusionPaths);
     }
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
@@ -292,6 +292,20 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="ftpPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ftpPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> ftpPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.ftpPublishBasicAuthenticationEnabled);
     }
     /**
      * The ID of the App Service Environment used by App Service Slot.
@@ -412,14 +426,14 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return this.outboundIpAddresses;
     }
     /**
-     * A `possible_outbound_ip_address_list` block as defined below.
+     * A `possible_outbound_ip_address_list`.
      * 
      */
     @Export(name="possibleOutboundIpAddressLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> possibleOutboundIpAddressLists;
 
     /**
-     * @return A `possible_outbound_ip_address_list` block as defined below.
+     * @return A `possible_outbound_ip_address_list`.
      * 
      */
     public Output<List<String>> possibleOutboundIpAddressLists() {
@@ -528,6 +542,24 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * 
+     */
+    @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> webdeployPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * 
+     */
+    public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.webdeployPublishBasicAuthenticationEnabled);
     }
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.

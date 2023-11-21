@@ -249,7 +249,7 @@ func (o DomainIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainInboundIpRule struct {
-	// The action to take when the rule is matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
 	// The IP mask (CIDR) to match on.
 	IpMask string `pulumi:"ipMask"`
@@ -267,7 +267,7 @@ type DomainInboundIpRuleInput interface {
 }
 
 type DomainInboundIpRuleArgs struct {
-	// The action to take when the rule is matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The IP mask (CIDR) to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
@@ -342,7 +342,7 @@ func (o DomainInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
-// The action to take when the rule is matched. Possible values are `Allow`.
+// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 func (o DomainInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -1068,7 +1068,7 @@ func (o EventGridTopicIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type EventGridTopicInboundIpRule struct {
-	// The action to take when the rule is matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
 	// The IP mask (CIDR) to match on.
 	IpMask string `pulumi:"ipMask"`
@@ -1086,7 +1086,7 @@ type EventGridTopicInboundIpRuleInput interface {
 }
 
 type EventGridTopicInboundIpRuleArgs struct {
-	// The action to take when the rule is matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The IP mask (CIDR) to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
@@ -1161,7 +1161,7 @@ func (o EventGridTopicInboundIpRuleOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
-// The action to take when the rule is matched. Possible values are `Allow`.
+// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 func (o EventGridTopicInboundIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventGridTopicInboundIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -2616,7 +2616,7 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) VirtualNetworkRules() EventHu
 }
 
 type EventHubNamespaceNetworkRulesetsIpRule struct {
-	// The action to take when the rule is matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
 	// The IP mask to match on.
 	IpMask string `pulumi:"ipMask"`
@@ -2634,7 +2634,7 @@ type EventHubNamespaceNetworkRulesetsIpRuleInput interface {
 }
 
 type EventHubNamespaceNetworkRulesetsIpRuleArgs struct {
-	// The action to take when the rule is matched. Possible values are `Allow`.
+	// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// The IP mask to match on.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
@@ -2709,7 +2709,7 @@ func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) ToOutput(ctx context.Conte
 	}
 }
 
-// The action to take when the rule is matched. Possible values are `Allow`.
+// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
 func (o EventHubNamespaceNetworkRulesetsIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesetsIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
@@ -8132,7 +8132,7 @@ func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type NamespaceNetworkRuleSet struct {
-	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
@@ -8156,7 +8156,7 @@ type NamespaceNetworkRuleSetInput interface {
 }
 
 type NamespaceNetworkRuleSetArgs struct {
-	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
@@ -8263,7 +8263,7 @@ func (o NamespaceNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
-// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o NamespaceNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
@@ -8318,7 +8318,7 @@ func (o NamespaceNetworkRuleSetPtrOutput) Elem() NamespaceNetworkRuleSetOutput {
 	}).(NamespaceNetworkRuleSetOutput)
 }
 
-// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o NamespaceNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSet) *string {
 		if v == nil {

@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerapp/environment:Environment")
 public class Environment extends com.pulumi.resources.CustomResource {
     /**
-     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="daprApplicationInsightsConnectionString", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> daprApplicationInsightsConnectionString;
 
     /**
-     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * @return Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> daprApplicationInsightsConnectionString() {

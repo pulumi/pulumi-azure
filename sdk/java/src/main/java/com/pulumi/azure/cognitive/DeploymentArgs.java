@@ -78,18 +78,33 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `scale` block as defined below. Changing this forces a new resource to be created.
+     * A `scale` block as defined below.
      * 
      */
     @Import(name="scale", required=true)
     private Output<DeploymentScaleArgs> scale;
 
     /**
-     * @return A `scale` block as defined below. Changing this forces a new resource to be created.
+     * @return A `scale` block as defined below.
      * 
      */
     public Output<DeploymentScaleArgs> scale() {
         return this.scale;
+    }
+
+    /**
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="versionUpgradeOption")
+    private @Nullable Output<String> versionUpgradeOption;
+
+    /**
+     * @return Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> versionUpgradeOption() {
+        return Optional.ofNullable(this.versionUpgradeOption);
     }
 
     private DeploymentArgs() {}
@@ -100,6 +115,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.raiPolicyName = $.raiPolicyName;
         this.scale = $.scale;
+        this.versionUpgradeOption = $.versionUpgradeOption;
     }
 
     public static Builder builder() {
@@ -205,7 +221,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scale A `scale` block as defined below. Changing this forces a new resource to be created.
+         * @param scale A `scale` block as defined below.
          * 
          * @return builder
          * 
@@ -216,13 +232,34 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scale A `scale` block as defined below. Changing this forces a new resource to be created.
+         * @param scale A `scale` block as defined below.
          * 
          * @return builder
          * 
          */
         public Builder scale(DeploymentScaleArgs scale) {
             return scale(Output.of(scale));
+        }
+
+        /**
+         * @param versionUpgradeOption Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionUpgradeOption(@Nullable Output<String> versionUpgradeOption) {
+            $.versionUpgradeOption = versionUpgradeOption;
+            return this;
+        }
+
+        /**
+         * @param versionUpgradeOption Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionUpgradeOption(String versionUpgradeOption) {
+            return versionUpgradeOption(Output.of(versionUpgradeOption));
         }
 
         public DeploymentArgs build() {

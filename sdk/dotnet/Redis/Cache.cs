@@ -147,7 +147,7 @@ namespace Pulumi.Azure.Redis
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        /// A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Output("redisConfiguration")]
         public Output<Outputs.CacheRedisConfiguration> RedisConfiguration { get; private set; } = null!;
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Redis
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        /// A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Input("redisConfiguration")]
         public Input<Inputs.CacheRedisConfigurationArgs>? RedisConfiguration { get; set; }
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.Redis
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
-        /// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        /// A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         /// </summary>
         [Input("redisConfiguration")]
         public Input<Inputs.CacheRedisConfigurationGetArgs>? RedisConfiguration { get; set; }

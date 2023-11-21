@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? BlobUri { get; set; }
 
         /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
         /// </summary>
         [Input("caching")]
         public Input<string>? Caching { get; set; }

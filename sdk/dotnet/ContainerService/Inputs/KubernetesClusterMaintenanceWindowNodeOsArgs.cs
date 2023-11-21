@@ -12,11 +12,14 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class KubernetesClusterMaintenanceWindowNodeOsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        /// </summary>
         [Input("dayOfMonth")]
         public Input<int>? DayOfMonth { get; set; }
 
         /// <summary>
-        /// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        /// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         [Input("dayOfWeek")]
         public Input<string>? DayOfWeek { get; set; }

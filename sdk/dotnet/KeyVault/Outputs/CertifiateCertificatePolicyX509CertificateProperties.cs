@@ -14,23 +14,23 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertifiateCertificatePolicyX509CertificateProperties
     {
         /// <summary>
-        /// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        /// A list of Extended/Enhanced Key Usages.
         /// </summary>
         public readonly ImmutableArray<string> ExtendedKeyUsages;
         /// <summary>
-        /// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        /// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
         /// </summary>
         public readonly ImmutableArray<string> KeyUsages;
         /// <summary>
-        /// The Certificate's Subject. Changing this forces a new resource to be created.
+        /// The Certificate's Subject.
         /// </summary>
         public readonly string Subject;
         /// <summary>
-        /// A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        /// A `subject_alternative_names` block as defined below.
         /// </summary>
         public readonly Outputs.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames? SubjectAlternativeNames;
         /// <summary>
-        /// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        /// The Certificates Validity Period in Months.
         /// </summary>
         public readonly int ValidityInMonths;
 

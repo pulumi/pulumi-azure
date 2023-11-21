@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Mobile.Inputs
         [Input("attachedDataNetworkId", required: true)]
         public Input<string> AttachedDataNetworkId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        /// </summary>
         [Input("sliceId", required: true)]
         public Input<string> SliceId { get; set; } = null!;
 

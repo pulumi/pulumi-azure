@@ -282,14 +282,14 @@ public class RunBook extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The published runbook content link.
+     * One `publish_content_link` block as defined below.
      * 
      */
     @Export(name="publishContentLink", refs={RunBookPublishContentLink.class}, tree="[0]")
     private Output</* @Nullable */ RunBookPublishContentLink> publishContentLink;
 
     /**
-     * @return The published runbook content link.
+     * @return One `publish_content_link` block as defined below.
      * 
      */
     public Output<Optional<RunBookPublishContentLink>> publishContentLink() {

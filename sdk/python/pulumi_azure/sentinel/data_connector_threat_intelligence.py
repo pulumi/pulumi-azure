@@ -21,7 +21,7 @@ class DataConnectorThreatIntelligenceArgs:
         """
         The set of arguments for constructing a DataConnectorThreatIntelligence resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
-        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
                
@@ -51,7 +51,7 @@ class DataConnectorThreatIntelligenceArgs:
     @pulumi.getter(name="lookbackDate")
     def lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lookback_date")
 
@@ -96,7 +96,7 @@ class _DataConnectorThreatIntelligenceState:
         """
         Input properties used for looking up and filtering DataConnectorThreatIntelligence resources.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
-        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
                
@@ -127,7 +127,7 @@ class _DataConnectorThreatIntelligenceState:
     @pulumi.getter(name="lookbackDate")
     def lookback_date(self) -> Optional[pulumi.Input[str]]:
         """
-        The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lookback_date")
 
@@ -201,7 +201,7 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
-        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
                
@@ -295,7 +295,7 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace that this Threat Intelligence Data Connector resides in. Changing this forces a new Threat Intelligence Data Connector to be created.
-        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        :param pulumi.Input[str] lookback_date: The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Threat Intelligence Data Connector. Changing this forces a new Threat Intelligence Data Connector to be created.
         :param pulumi.Input[str] tenant_id: The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created.
                
@@ -323,7 +323,7 @@ class DataConnectorThreatIntelligence(pulumi.CustomResource):
     @pulumi.getter(name="lookbackDate")
     def lookback_date(self) -> pulumi.Output[Optional[str]]:
         """
-        The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+        The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "lookback_date")
 

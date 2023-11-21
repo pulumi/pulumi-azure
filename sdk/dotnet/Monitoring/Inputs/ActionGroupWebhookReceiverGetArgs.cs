@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
     public sealed class ActionGroupWebhookReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `aad_auth` block as defined below
+        /// The `aad_auth` block as defined below.
         /// 
         /// &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         /// </summary>

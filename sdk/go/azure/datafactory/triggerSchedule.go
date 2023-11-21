@@ -96,7 +96,7 @@ type TriggerSchedule struct {
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapOutput `pulumi:"pipelineParameters"`
-	// block as defined below.
+	// A `pipeline` block as defined below.
 	Pipelines TriggerSchedulePipelineArrayOutput `pulumi:"pipelines"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrOutput `pulumi:"schedule"`
@@ -159,7 +159,7 @@ type triggerScheduleState struct {
 	PipelineName *string `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
-	// block as defined below.
+	// A `pipeline` block as defined below.
 	Pipelines []TriggerSchedulePipeline `pulumi:"pipelines"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
@@ -190,7 +190,7 @@ type TriggerScheduleState struct {
 	PipelineName pulumi.StringPtrInput
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapInput
-	// block as defined below.
+	// A `pipeline` block as defined below.
 	Pipelines TriggerSchedulePipelineArrayInput
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrInput
@@ -225,7 +225,7 @@ type triggerScheduleArgs struct {
 	PipelineName *string `pulumi:"pipelineName"`
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters map[string]string `pulumi:"pipelineParameters"`
-	// block as defined below.
+	// A `pipeline` block as defined below.
 	Pipelines []TriggerSchedulePipeline `pulumi:"pipelines"`
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule *TriggerScheduleSchedule `pulumi:"schedule"`
@@ -257,7 +257,7 @@ type TriggerScheduleArgs struct {
 	PipelineName pulumi.StringPtrInput
 	// The pipeline parameters that the trigger will act upon.
 	PipelineParameters pulumi.StringMapInput
-	// block as defined below.
+	// A `pipeline` block as defined below.
 	Pipelines TriggerSchedulePipelineArrayInput
 	// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
 	Schedule TriggerScheduleSchedulePtrInput
@@ -428,7 +428,7 @@ func (o TriggerScheduleOutput) PipelineParameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TriggerSchedule) pulumi.StringMapOutput { return v.PipelineParameters }).(pulumi.StringMapOutput)
 }
 
-// block as defined below.
+// A `pipeline` block as defined below.
 func (o TriggerScheduleOutput) Pipelines() TriggerSchedulePipelineArrayOutput {
 	return o.ApplyT(func(v *TriggerSchedule) TriggerSchedulePipelineArrayOutput { return v.Pipelines }).(TriggerSchedulePipelineArrayOutput)
 }

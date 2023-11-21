@@ -76,7 +76,7 @@ namespace Pulumi.Azure.DataBricks
     public partial class VirtualNetworkPeering : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        /// A list of address blocks reserved for this virtual network in CIDR notation.
         /// </summary>
         [Output("addressSpacePrefixes")]
         public Output<ImmutableArray<string>> AddressSpacePrefixes { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.DataBricks
         private InputList<string>? _addressSpacePrefixes;
 
         /// <summary>
-        /// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        /// A list of address blocks reserved for this virtual network in CIDR notation.
         /// </summary>
         public InputList<string> AddressSpacePrefixes
         {

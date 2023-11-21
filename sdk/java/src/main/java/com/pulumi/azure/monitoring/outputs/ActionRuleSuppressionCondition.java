@@ -38,7 +38,7 @@ public final class ActionRuleSuppressionCondition {
      */
     private @Nullable ActionRuleSuppressionConditionMonitor monitor;
     /**
-     * @return A `monitor_service` as block defined below.
+     * @return A `monitor_service` block as defined below.
      * 
      */
     private @Nullable ActionRuleSuppressionConditionMonitorService monitorService;
@@ -83,7 +83,7 @@ public final class ActionRuleSuppressionCondition {
         return Optional.ofNullable(this.monitor);
     }
     /**
-     * @return A `monitor_service` as block defined below.
+     * @return A `monitor_service` block as defined below.
      * 
      */
     public Optional<ActionRuleSuppressionConditionMonitorService> monitorService() {

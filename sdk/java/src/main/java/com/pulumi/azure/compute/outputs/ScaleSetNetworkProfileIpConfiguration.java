@@ -49,7 +49,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
      */
     private Boolean primary;
     /**
-     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The public_ip_address_configuration is documented below.
+     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
      * 
      */
     private @Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration;
@@ -107,7 +107,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         return this.primary;
     }
     /**
-     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The public_ip_address_configuration is documented below.
+     * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
      * 
      */
     public Optional<ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration> publicIpAddressConfiguration() {

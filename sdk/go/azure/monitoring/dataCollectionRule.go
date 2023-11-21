@@ -323,7 +323,7 @@ type DataCollectionRule struct {
 	Identity DataCollectionRuleIdentityPtrOutput `pulumi:"identity"`
 	// The immutable ID of the Data Collection Rule.
 	ImmutableId pulumi.StringOutput `pulumi:"immutableId"`
-	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
 	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
@@ -392,7 +392,7 @@ type dataCollectionRuleState struct {
 	Identity *DataCollectionRuleIdentity `pulumi:"identity"`
 	// The immutable ID of the Data Collection Rule.
 	ImmutableId *string `pulumi:"immutableId"`
-	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
 	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind *string `pulumi:"kind"`
@@ -423,7 +423,7 @@ type DataCollectionRuleState struct {
 	Identity DataCollectionRuleIdentityPtrInput
 	// The immutable ID of the Data Collection Rule.
 	ImmutableId pulumi.StringPtrInput
-	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
 	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind pulumi.StringPtrInput
@@ -456,7 +456,7 @@ type dataCollectionRuleArgs struct {
 	Destinations DataCollectionRuleDestinations `pulumi:"destinations"`
 	// An `identity` block as defined below.
 	Identity *DataCollectionRuleIdentity `pulumi:"identity"`
-	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
 	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind *string `pulumi:"kind"`
@@ -486,7 +486,7 @@ type DataCollectionRuleArgs struct {
 	Destinations DataCollectionRuleDestinationsInput
 	// An `identity` block as defined below.
 	Identity DataCollectionRuleIdentityPtrInput
-	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+	// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 	//
 	// > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 	Kind pulumi.StringPtrInput
@@ -648,7 +648,7 @@ func (o DataCollectionRuleOutput) ImmutableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.ImmutableId }).(pulumi.StringOutput)
 }
 
-// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windowsEventLog` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 //
 // > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
 func (o DataCollectionRuleOutput) Kind() pulumi.StringPtrOutput {

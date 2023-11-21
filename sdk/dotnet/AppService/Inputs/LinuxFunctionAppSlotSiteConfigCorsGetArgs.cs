@@ -16,7 +16,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _allowedOrigins;
 
         /// <summary>
-        /// an `allowed_origins` block as detailed below.
+        /// Specifies a list of origins that should be allowed to make cross-origin calls.
         /// </summary>
         public InputList<string> AllowedOrigins
         {

@@ -22,8 +22,8 @@ class NetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Network resource.
-        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
-        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
@@ -43,7 +43,7 @@ class NetworkArgs:
     @pulumi.getter(name="mobileCountryCode")
     def mobile_country_code(self) -> pulumi.Input[str]:
         """
-        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mobile_country_code")
 
@@ -55,7 +55,7 @@ class NetworkArgs:
     @pulumi.getter(name="mobileNetworkCode")
     def mobile_network_code(self) -> pulumi.Input[str]:
         """
-        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mobile_network_code")
 
@@ -125,8 +125,8 @@ class _NetworkState:
         """
         Input properties used for looking up and filtering Network resources.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
-        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
-        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[str] service_key: The mobile network resource identifier.
@@ -163,7 +163,7 @@ class _NetworkState:
     @pulumi.getter(name="mobileCountryCode")
     def mobile_country_code(self) -> Optional[pulumi.Input[str]]:
         """
-        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mobile_country_code")
 
@@ -175,7 +175,7 @@ class _NetworkState:
     @pulumi.getter(name="mobileNetworkCode")
     def mobile_network_code(self) -> Optional[pulumi.Input[str]]:
         """
-        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mobile_network_code")
 
@@ -275,8 +275,8 @@ class Network(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
-        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
-        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network.
@@ -383,8 +383,8 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network should exist. Changing this forces a new Mobile Network to be created. The possible values are `eastus` and `northeurope`.
-        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
-        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        :param pulumi.Input[str] mobile_country_code: Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
+        :param pulumi.Input[str] mobile_network_code: Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network should exist. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[str] service_key: The mobile network resource identifier.
@@ -415,7 +415,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="mobileCountryCode")
     def mobile_country_code(self) -> pulumi.Output[str]:
         """
-        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mobile_country_code")
 
@@ -423,7 +423,7 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="mobileNetworkCode")
     def mobile_network_code(self) -> pulumi.Output[str]:
         """
-        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+        Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "mobile_network_code")
 

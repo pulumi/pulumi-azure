@@ -95,7 +95,7 @@ type WindowsWebAppSlot struct {
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -105,6 +105,8 @@ type WindowsWebAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Should the Windows Web App Slot require HTTPS connections.
@@ -122,7 +124,7 @@ type WindowsWebAppSlot struct {
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
-	// A `possibleOutboundIpAddressList` block as defined below.
+	// A list of possible outbound ip address.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
@@ -141,6 +143,10 @@ type WindowsWebAppSlot struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile pulumi.StringOutput `pulumi:"zipDeployFile"`
 }
@@ -202,7 +208,7 @@ type windowsWebAppSlotState struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []WindowsWebAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -212,6 +218,8 @@ type windowsWebAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Should the Windows Web App Slot require HTTPS connections.
@@ -229,7 +237,7 @@ type windowsWebAppSlotState struct {
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
-	// A `possibleOutboundIpAddressList` block as defined below.
+	// A list of possible outbound ip address.
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
@@ -248,6 +256,10 @@ type windowsWebAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
@@ -269,7 +281,7 @@ type WindowsWebAppSlotState struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppSlotConnectionStringArrayInput
@@ -279,6 +291,8 @@ type WindowsWebAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringPtrInput
 	// Should the Windows Web App Slot require HTTPS connections.
@@ -296,7 +310,7 @@ type WindowsWebAppSlotState struct {
 	OutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses pulumi.StringPtrInput
-	// A `possibleOutboundIpAddressList` block as defined below.
+	// A list of possible outbound ip address.
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
@@ -315,6 +329,10 @@ type WindowsWebAppSlotState struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile pulumi.StringPtrInput
 }
@@ -340,12 +358,14 @@ type windowsWebAppSlotArgs struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []WindowsWebAppSlotConnectionString `pulumi:"connectionStrings"`
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// Should the Windows Web App Slot require HTTPS connections.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -368,6 +388,10 @@ type windowsWebAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile *string `pulumi:"zipDeployFile"`
 }
@@ -390,12 +414,14 @@ type WindowsWebAppSlotArgs struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppSlotConnectionStringArrayInput
 	// Should the Windows Web App Slot be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// Should the Windows Web App Slot require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -418,6 +444,10 @@ type WindowsWebAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Windows Web App Slot.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
 	ZipDeployFile pulumi.StringPtrInput
 }
@@ -573,7 +603,7 @@ func (o WindowsWebAppSlotOutput) ClientCertificateExclusionPaths() pulumi.String
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
-// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 func (o WindowsWebAppSlotOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
@@ -596,6 +626,11 @@ func (o WindowsWebAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 // Should the Windows Web App Slot be enabled? Defaults to `true`.
 func (o WindowsWebAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+func (o WindowsWebAppSlotOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the App Service Environment used by App Service Slot.
@@ -642,7 +677,7 @@ func (o WindowsWebAppSlotOutput) OutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringOutput { return v.OutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// A `possibleOutboundIpAddressList` block as defined below.
+// A list of possible outbound ip address.
 func (o WindowsWebAppSlotOutput) PossibleOutboundIpAddressLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringArrayOutput { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
@@ -686,6 +721,13 @@ func (o WindowsWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 
 func (o WindowsWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+//
+// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+func (o WindowsWebAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.BoolPtrOutput { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The local path and filename of the Zip packaged application to deploy to this Windows Web App.

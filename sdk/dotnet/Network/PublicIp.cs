@@ -115,7 +115,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> IpTags { get; private set; } = null!;
 
         /// <summary>
-        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         /// 
         /// &gt; **Note** Only `static` IP address allocation is supported for IPv6.
         /// </summary>
@@ -283,7 +283,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         /// 
         /// &gt; **Note** Only `static` IP address allocation is supported for IPv6.
         /// </summary>
@@ -437,7 +437,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         /// 
         /// &gt; **Note** Only `static` IP address allocation is supported for IPv6.
         /// </summary>

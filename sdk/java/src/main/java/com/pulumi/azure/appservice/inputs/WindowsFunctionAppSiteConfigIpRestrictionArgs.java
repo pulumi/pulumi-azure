@@ -18,14 +18,14 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
     public static final WindowsFunctionAppSiteConfigIpRestrictionArgs Empty = new WindowsFunctionAppSiteConfigIpRestrictionArgs();
 
     /**
-     * The action to take. Possible values are `Allow` or `Deny`.
+     * The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return The action to take. Possible values are `Allow` or `Deny`.
+     * @return The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -157,7 +157,7 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
         }
 
         /**
-         * @param action The action to take. Possible values are `Allow` or `Deny`.
+         * @param action The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class WindowsFunctionAppSiteConfigIpRestrictionArgs extends com.pul
         }
 
         /**
-         * @param action The action to take. Possible values are `Allow` or `Deny`.
+         * @param action The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 

@@ -66,6 +66,18 @@ namespace Pulumi.Azure.Network.Inputs
             set => _destinationUrls = value;
         }
 
+        [Input("httpHeaders")]
+        private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>? _httpHeaders;
+
+        /// <summary>
+        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        /// </summary>
+        public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs> HttpHeaders
+        {
+            get => _httpHeaders ?? (_httpHeaders = new InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>());
+            set => _httpHeaders = value;
+        }
+
         /// <summary>
         /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>

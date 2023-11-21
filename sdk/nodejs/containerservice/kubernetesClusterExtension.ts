@@ -100,7 +100,7 @@ export class KubernetesClusterExtension extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly plan!: pulumi.Output<outputs.containerservice.KubernetesClusterExtensionPlan | undefined>;
     /**
@@ -112,7 +112,7 @@ export class KubernetesClusterExtension extends pulumi.CustomResource {
      */
     public readonly releaseTrain!: pulumi.Output<string>;
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
     public readonly targetNamespace!: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export interface KubernetesClusterExtensionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.containerservice.KubernetesClusterExtensionPlan>;
     /**
@@ -216,7 +216,7 @@ export interface KubernetesClusterExtensionState {
      */
     releaseTrain?: pulumi.Input<string>;
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
     targetNamespace?: pulumi.Input<string>;
     /**
@@ -250,7 +250,7 @@ export interface KubernetesClusterExtensionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      */
     plan?: pulumi.Input<inputs.containerservice.KubernetesClusterExtensionPlan>;
     /**
@@ -262,7 +262,7 @@ export interface KubernetesClusterExtensionArgs {
      */
     releaseTrain?: pulumi.Input<string>;
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      */
     targetNamespace?: pulumi.Input<string>;
     /**

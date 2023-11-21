@@ -95,7 +95,7 @@ export class AlertRuleAnomalyDuplicate extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -252,7 +252,7 @@ export interface AlertRuleAnomalyDuplicateState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      */
     displayName?: pulumi.Input<string>;
     /**
@@ -324,7 +324,7 @@ export interface AlertRuleAnomalyDuplicateArgs {
      */
     builtInRuleId: pulumi.Input<string>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      */
     displayName: pulumi.Input<string>;
     /**

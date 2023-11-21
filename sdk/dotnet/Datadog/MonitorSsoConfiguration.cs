@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Datadog
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The state of SingleSignOn configuration.
+        /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         /// </summary>
         [Output("singleSignOnEnabled")]
         public Output<string> SingleSignOnEnabled { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The state of SingleSignOn configuration.
+        /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         /// </summary>
         [Input("singleSignOnEnabled", required: true)]
         public Input<string> SingleSignOnEnabled { get; set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The state of SingleSignOn configuration.
+        /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         /// </summary>
         [Input("singleSignOnEnabled")]
         public Input<string>? SingleSignOnEnabled { get; set; }

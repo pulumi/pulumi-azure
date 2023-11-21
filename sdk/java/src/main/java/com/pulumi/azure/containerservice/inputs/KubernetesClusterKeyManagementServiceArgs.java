@@ -31,14 +31,14 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
     }
 
     /**
-     * Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+     * Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     @Import(name="keyVaultNetworkAccess")
     private @Nullable Output<String> keyVaultNetworkAccess;
 
     /**
-     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+     * @return Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
      * 
      */
     public Optional<Output<String>> keyVaultNetworkAccess() {
@@ -92,7 +92,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class KubernetesClusterKeyManagementServiceArgs extends com.pulumi.
         }
 
         /**
-         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+         * @param keyVaultNetworkAccess Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
          * 
          * @return builder
          * 

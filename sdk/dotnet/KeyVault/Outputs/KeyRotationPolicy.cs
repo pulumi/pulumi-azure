@@ -22,7 +22,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// </summary>
         public readonly string? ExpireAfter;
         /// <summary>
-        /// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+        /// Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         /// </summary>
         public readonly string? NotifyBeforeExpiry;
 

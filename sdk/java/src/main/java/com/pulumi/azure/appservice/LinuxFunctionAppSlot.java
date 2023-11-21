@@ -207,14 +207,14 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateExclusionPaths);
     }
     /**
-     * The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * @return The mode of the Function App Slot&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
@@ -303,6 +303,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    @Export(name="ftpPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ftpPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Output<Optional<Boolean>> ftpPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.ftpPublishBasicAuthenticationEnabled);
     }
     /**
      * The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -629,6 +643,20 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     */
+    @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> webdeployPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     */
+    public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.webdeployPublishBasicAuthenticationEnabled);
     }
 
     /**

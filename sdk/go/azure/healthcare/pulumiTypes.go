@@ -482,7 +482,7 @@ func (o DicomServicePrivateEndpointArrayOutput) Index(i pulumi.IntInput) DicomSe
 }
 
 type FhirServiceAuthentication struct {
-	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+	// The intended audience to receive authentication tokens for the service.
 	Audience  string `pulumi:"audience"`
 	Authority string `pulumi:"authority"`
 	// Whether smart proxy is enabled.
@@ -501,7 +501,7 @@ type FhirServiceAuthenticationInput interface {
 }
 
 type FhirServiceAuthenticationArgs struct {
-	// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+	// The intended audience to receive authentication tokens for the service.
 	Audience  pulumi.StringInput `pulumi:"audience"`
 	Authority pulumi.StringInput `pulumi:"authority"`
 	// Whether smart proxy is enabled.
@@ -603,7 +603,7 @@ func (o FhirServiceAuthenticationOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+// The intended audience to receive authentication tokens for the service.
 func (o FhirServiceAuthenticationOutput) Audience() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceAuthentication) string { return v.Audience }).(pulumi.StringOutput)
 }
@@ -647,7 +647,7 @@ func (o FhirServiceAuthenticationPtrOutput) Elem() FhirServiceAuthenticationOutp
 	}).(FhirServiceAuthenticationOutput)
 }
 
-// The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+// The intended audience to receive authentication tokens for the service.
 func (o FhirServiceAuthenticationPtrOutput) Audience() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirServiceAuthentication) *string {
 		if v == nil {
@@ -918,7 +918,7 @@ type FhirServiceIdentity struct {
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
-	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -938,7 +938,7 @@ type FhirServiceIdentityArgs struct {
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
-	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+	// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1050,7 +1050,7 @@ func (o FhirServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FhirServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
 func (o FhirServiceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FhirServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1113,7 +1113,7 @@ func (o FhirServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
 func (o FhirServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirServiceIdentity) *string {
 		if v == nil {
@@ -1263,6 +1263,7 @@ func (o FhirServiceOciArtifactArrayOutput) Index(i pulumi.IntInput) FhirServiceO
 }
 
 type MedtechServiceIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1284,6 +1285,7 @@ type MedtechServiceIdentityInput interface {
 }
 
 type MedtechServiceIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1388,6 +1390,7 @@ func (o MedtechServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
 func (o MedtechServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MedtechServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1437,6 +1440,7 @@ func (o MedtechServiceIdentityPtrOutput) Elem() MedtechServiceIdentityOutput {
 	}).(MedtechServiceIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
 func (o MedtechServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MedtechServiceIdentity) []string {
 		if v == nil {

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Sql.Inputs
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the type of import operation being performed. The only allowable value is `Import`.
+        /// Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
         /// </summary>
         [Input("operationMode")]
         public Input<string>? OperationMode { get; set; }

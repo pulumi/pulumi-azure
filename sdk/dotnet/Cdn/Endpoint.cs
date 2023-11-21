@@ -98,13 +98,13 @@ namespace Pulumi.Azure.Cdn
         public Output<bool?> IsCompressionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Defaults to `true`.
+        /// Specifies if http allowed. Defaults to `true`.
         /// </summary>
         [Output("isHttpAllowed")]
         public Output<bool?> IsHttpAllowed { get; private set; } = null!;
 
         /// <summary>
-        /// Defaults to `true`.
+        /// Specifies if https allowed. Defaults to `true`.
         /// </summary>
         [Output("isHttpsAllowed")]
         public Output<bool?> IsHttpsAllowed { get; private set; } = null!;
@@ -272,13 +272,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? IsCompressionEnabled { get; set; }
 
         /// <summary>
-        /// Defaults to `true`.
+        /// Specifies if http allowed. Defaults to `true`.
         /// </summary>
         [Input("isHttpAllowed")]
         public Input<bool>? IsHttpAllowed { get; set; }
 
         /// <summary>
-        /// Defaults to `true`.
+        /// Specifies if https allowed. Defaults to `true`.
         /// </summary>
         [Input("isHttpsAllowed")]
         public Input<bool>? IsHttpsAllowed { get; set; }
@@ -426,13 +426,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? IsCompressionEnabled { get; set; }
 
         /// <summary>
-        /// Defaults to `true`.
+        /// Specifies if http allowed. Defaults to `true`.
         /// </summary>
         [Input("isHttpAllowed")]
         public Input<bool>? IsHttpAllowed { get; set; }
 
         /// <summary>
-        /// Defaults to `true`.
+        /// Specifies if https allowed. Defaults to `true`.
         /// </summary>
         [Input("isHttpsAllowed")]
         public Input<bool>? IsHttpsAllowed { get; set; }

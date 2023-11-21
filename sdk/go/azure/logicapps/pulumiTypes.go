@@ -2061,7 +2061,7 @@ type StandardSiteConfig struct {
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled *bool `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	//
 	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions []StandardSiteConfigIpRestriction `pulumi:"ipRestrictions"`
@@ -2073,7 +2073,7 @@ type StandardSiteConfig struct {
 	PreWarmedInstanceCount *int `pulumi:"preWarmedInstanceCount"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled *bool `pulumi:"runtimeScaleMonitoringEnabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	//
 	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions []StandardSiteConfigScmIpRestriction `pulumi:"scmIpRestrictions"`
@@ -2123,7 +2123,7 @@ type StandardSiteConfigArgs struct {
 	HealthCheckPath pulumi.StringPtrInput `pulumi:"healthCheckPath"`
 	// Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
 	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+	// A list of `ipRestriction` objects representing IP restrictions as defined below.
 	//
 	// > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 	IpRestrictions StandardSiteConfigIpRestrictionArrayInput `pulumi:"ipRestrictions"`
@@ -2135,7 +2135,7 @@ type StandardSiteConfigArgs struct {
 	PreWarmedInstanceCount pulumi.IntPtrInput `pulumi:"preWarmedInstanceCount"`
 	// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
 	RuntimeScaleMonitoringEnabled pulumi.BoolPtrInput `pulumi:"runtimeScaleMonitoringEnabled"`
-	// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+	// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 	//
 	// > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 	ScmIpRestrictions StandardSiteConfigScmIpRestrictionArrayInput `pulumi:"scmIpRestrictions"`
@@ -2295,7 +2295,7 @@ func (o StandardSiteConfigOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+// A list of `ipRestriction` objects representing IP restrictions as defined below.
 //
 // > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
@@ -2322,7 +2322,7 @@ func (o StandardSiteConfigOutput) RuntimeScaleMonitoringEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v StandardSiteConfig) *bool { return v.RuntimeScaleMonitoringEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 //
 // > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
@@ -2481,7 +2481,7 @@ func (o StandardSiteConfigPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+// A list of `ipRestriction` objects representing IP restrictions as defined below.
 //
 // > **NOTE** User has to explicitly set `ipRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigPtrOutput) IpRestrictions() StandardSiteConfigIpRestrictionArrayOutput {
@@ -2533,7 +2533,7 @@ func (o StandardSiteConfigPtrOutput) RuntimeScaleMonitoringEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+// A list of `scmIpRestriction` objects representing SCM IP restrictions as defined below.
 //
 // > **NOTE** User has to explicitly set `scmIpRestriction` to empty slice (`[]`) to remove it.
 func (o StandardSiteConfigPtrOutput) ScmIpRestrictions() StandardSiteConfigScmIpRestrictionArrayOutput {
@@ -2790,7 +2790,7 @@ func (o StandardSiteConfigCorsPtrOutput) SupportCredentials() pulumi.BoolPtrOutp
 type StandardSiteConfigIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
-	// The headers for this specific `ipRestriction` as defined below.
+	// The `headers` block for this specific as a `ipRestriction` block as defined below.
 	Headers *StandardSiteConfigIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -2820,7 +2820,7 @@ type StandardSiteConfigIpRestrictionInput interface {
 type StandardSiteConfigIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The headers for this specific `ipRestriction` as defined below.
+	// The `headers` block for this specific as a `ipRestriction` block as defined below.
 	Headers StandardSiteConfigIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -2910,7 +2910,7 @@ func (o StandardSiteConfigIpRestrictionOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The headers for this specific `ipRestriction` as defined below.
+// The `headers` block for this specific as a `ipRestriction` block as defined below.
 func (o StandardSiteConfigIpRestrictionOutput) Headers() StandardSiteConfigIpRestrictionHeadersPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigIpRestriction) *StandardSiteConfigIpRestrictionHeaders { return v.Headers }).(StandardSiteConfigIpRestrictionHeadersPtrOutput)
 }
@@ -3189,7 +3189,7 @@ func (o StandardSiteConfigIpRestrictionHeadersPtrOutput) XForwardedHosts() pulum
 type StandardSiteConfigScmIpRestriction struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
-	// The headers for this specific `ipRestriction` as defined below.
+	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers *StandardSiteConfigScmIpRestrictionHeaders `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress *string `pulumi:"ipAddress"`
@@ -3219,7 +3219,7 @@ type StandardSiteConfigScmIpRestrictionInput interface {
 type StandardSiteConfigScmIpRestrictionArgs struct {
 	// Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The headers for this specific `ipRestriction` as defined below.
+	// The `headers` block for this specific `ipRestriction` as defined below.
 	Headers StandardSiteConfigScmIpRestrictionHeadersPtrInput `pulumi:"headers"`
 	// The IP Address used for this IP Restriction in CIDR notation.
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
@@ -3309,7 +3309,7 @@ func (o StandardSiteConfigScmIpRestrictionOutput) Action() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The headers for this specific `ipRestriction` as defined below.
+// The `headers` block for this specific `ipRestriction` as defined below.
 func (o StandardSiteConfigScmIpRestrictionOutput) Headers() StandardSiteConfigScmIpRestrictionHeadersPtrOutput {
 	return o.ApplyT(func(v StandardSiteConfigScmIpRestriction) *StandardSiteConfigScmIpRestrictionHeaders {
 		return v.Headers

@@ -32,7 +32,7 @@ class StandardWebTestRequestArgs:
         :param pulumi.Input[str] body: The WebTest request body.
         :param pulumi.Input[bool] follow_redirects_enabled: Should the following of redirects be enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]] headers: One or more `header` blocks as defined above.
-        :param pulumi.Input[str] http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+        :param pulumi.Input[str] http_verb: Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
         :param pulumi.Input[bool] parse_dependent_requests_enabled: Should the parsing of dependend requests be enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "url", url)
@@ -99,7 +99,7 @@ class StandardWebTestRequestArgs:
     @pulumi.getter(name="httpVerb")
     def http_verb(self) -> Optional[pulumi.Input[str]]:
         """
-        Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+        Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
         """
         return pulumi.get(self, "http_verb")
 

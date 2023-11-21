@@ -61,13 +61,13 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> Cidrs { get; private set; } = null!;
 
         /// <summary>
-        /// A `firewall_ids` block as defined below.
+        /// A list of ID of Firewall.
         /// </summary>
         [Output("firewallIds")]
         public Output<ImmutableArray<string>> FirewallIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `firewall_policy_ids` block as defined below.
+        /// A list of ID of Firewall Policy`.
         /// </summary>
         [Output("firewallPolicyIds")]
         public Output<ImmutableArray<string>> FirewallPolicyIds { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _firewallIds;
 
         /// <summary>
-        /// A `firewall_ids` block as defined below.
+        /// A list of ID of Firewall.
         /// </summary>
         public InputList<string> FirewallIds
         {
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.Network
         private InputList<string>? _firewallPolicyIds;
 
         /// <summary>
-        /// A `firewall_policy_ids` block as defined below.
+        /// A list of ID of Firewall Policy`.
         /// </summary>
         public InputList<string> FirewallPolicyIds
         {

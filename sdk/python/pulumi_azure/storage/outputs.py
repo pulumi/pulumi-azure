@@ -816,8 +816,8 @@ class AccountNetworkRules(dict):
         """
         :param str default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param Sequence[str] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-        :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
-        :param Sequence['AccountNetworkRulesPrivateLinkAccessArgs'] private_link_accesses: One or More `private_link_access` block as defined below.
+        :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
+        :param Sequence['AccountNetworkRulesPrivateLinkAccessArgs'] private_link_accesses: One or more `private_link_access` block as defined below.
                
                > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
                
@@ -858,7 +858,7 @@ class AccountNetworkRules(dict):
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[Sequence[str]]:
         """
-        List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+        List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -866,7 +866,7 @@ class AccountNetworkRules(dict):
     @pulumi.getter(name="privateLinkAccesses")
     def private_link_accesses(self) -> Optional[Sequence['outputs.AccountNetworkRulesPrivateLinkAccess']]:
         """
-        One or More `private_link_access` block as defined below.
+        One or more `private_link_access` block as defined below.
 
         > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
 
@@ -2959,7 +2959,7 @@ class ObjectReplicationRule(dict):
         """
         :param str destination_container_name: The destination storage container name. Changing this forces a new Storage Object Replication to be created.
         :param str source_container_name: The source storage container name. Changing this forces a new Storage Object Replication to be created.
-        :param str copy_blobs_created_after: The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+        :param str copy_blobs_created_after: The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
         :param Sequence[str] filter_out_blobs_with_prefixes: Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
         """
         pulumi.set(__self__, "destination_container_name", destination_container_name)
@@ -2991,7 +2991,7 @@ class ObjectReplicationRule(dict):
     @pulumi.getter(name="copyBlobsCreatedAfter")
     def copy_blobs_created_after(self) -> Optional[str]:
         """
-        The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+        The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
         """
         return pulumi.get(self, "copy_blobs_created_after")
 

@@ -99,7 +99,7 @@ namespace Pulumi.Azure.DataFactory
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         /// </summary>
         [Output("maxParallelExecutionsPerNode")]
         public Output<int?> MaxParallelExecutionsPerNode { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         /// </summary>
         [Input("maxParallelExecutionsPerNode")]
         public Input<int>? MaxParallelExecutionsPerNode { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         /// </summary>
         [Input("maxParallelExecutionsPerNode")]
         public Input<int>? MaxParallelExecutionsPerNode { get; set; }

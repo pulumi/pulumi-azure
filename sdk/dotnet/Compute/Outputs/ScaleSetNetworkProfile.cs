@@ -18,11 +18,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? AcceleratedNetworking;
         /// <summary>
-        /// A dns_settings block as documented below.
+        /// A `dns_settings` block as documented below.
         /// </summary>
         public readonly Outputs.ScaleSetNetworkProfileDnsSettings? DnsSettings;
         /// <summary>
-        /// An ip_configuration block as documented below.
+        /// An `ip_configuration` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScaleSetNetworkProfileIpConfiguration> IpConfigurations;
         /// <summary>

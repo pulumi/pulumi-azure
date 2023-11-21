@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<bool>? RequestBodyCheck { get; set; }
 
         /// <summary>
-        /// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+        /// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
         /// </summary>
         [Input("ruleSetType")]
         public Input<string>? RuleSetType { get; set; }

@@ -208,14 +208,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.appSettings;
     }
     /**
-     * If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     @Export(name="bundleVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleVersion;
 
     /**
-     * @return If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * @return If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     public Output<Optional<String>> bundleVersion() {
@@ -508,14 +508,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.useExtensionBundle);
     }
     /**
-     * The runtime version associated with the Logic App Defaults to `~3`.
+     * The runtime version associated with the Logic App. Defaults to `~3`.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> version;
 
     /**
-     * @return The runtime version associated with the Logic App Defaults to `~3`.
+     * @return The runtime version associated with the Logic App. Defaults to `~3`.
      * 
      */
     public Output<Optional<String>> version() {

@@ -17,14 +17,14 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
     public static final VirtualMachineAssessmentScheduleArgs Empty = new VirtualMachineAssessmentScheduleArgs();
 
     /**
-     * What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+     * What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     @Import(name="dayOfWeek", required=true)
     private Output<String> dayOfWeek;
 
     /**
-     * @return What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+     * @return What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     public Output<String> dayOfWeek() {
@@ -108,7 +108,7 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dayOfWeek What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+         * @param dayOfWeek What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VirtualMachineAssessmentScheduleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dayOfWeek What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+         * @param dayOfWeek What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 

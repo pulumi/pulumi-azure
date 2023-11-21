@@ -48,14 +48,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boot diagnostics profile block as referenced below.
+     * A `boot_diagnostics` block as referenced below.
      * 
      */
     @Import(name="bootDiagnostics")
     private @Nullable Output<ScaleSetBootDiagnosticsArgs> bootDiagnostics;
 
     /**
-     * @return A boot diagnostics profile block as referenced below.
+     * @return A `boot_diagnostics` block as referenced below.
      * 
      */
     public Optional<Output<ScaleSetBootDiagnosticsArgs>> bootDiagnostics() {
@@ -172,14 +172,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of network profile block as documented below.
+     * A collection of `network_profile` blocks as documented below.
      * 
      */
     @Import(name="networkProfiles", required=true)
     private Output<List<ScaleSetNetworkProfileArgs>> networkProfiles;
 
     /**
-     * @return A collection of network profile block as documented below.
+     * @return A collection of `network_profile` blocks as documented below.
      * 
      */
     public Output<List<ScaleSetNetworkProfileArgs>> networkProfiles() {
@@ -187,14 +187,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Virtual Machine OS Profile block as documented below.
+     * A `os_profile` block as documented below.
      * 
      */
     @Import(name="osProfile", required=true)
     private Output<ScaleSetOsProfileArgs> osProfile;
 
     /**
-     * @return A Virtual Machine OS Profile block as documented below.
+     * @return A `os_profile` block as documented below.
      * 
      */
     public Output<ScaleSetOsProfileArgs> osProfile() {
@@ -202,14 +202,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Linux config block as documented below.
+     * A `os_profile_linux_config` block as documented below.
      * 
      */
     @Import(name="osProfileLinuxConfig")
     private @Nullable Output<ScaleSetOsProfileLinuxConfigArgs> osProfileLinuxConfig;
 
     /**
-     * @return A Linux config block as documented below.
+     * @return A `os_profile_linux_config` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileLinuxConfigArgs>> osProfileLinuxConfig() {
@@ -217,14 +217,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A collection of Secret blocks as documented below.
+     * A collection of `os_profile_secrets` blocks as documented below.
      * 
      */
     @Import(name="osProfileSecrets")
     private @Nullable Output<List<ScaleSetOsProfileSecretArgs>> osProfileSecrets;
 
     /**
-     * @return A collection of Secret blocks as documented below.
+     * @return A collection of `os_profile_secrets` blocks as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileSecretArgs>>> osProfileSecrets() {
@@ -232,14 +232,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Windows config block as documented below.
+     * A `os_profile_windows_config` block as documented below.
      * 
      */
     @Import(name="osProfileWindowsConfig")
     private @Nullable Output<ScaleSetOsProfileWindowsConfigArgs> osProfileWindowsConfig;
 
     /**
-     * @return A Windows config block as documented below.
+     * @return A `os_profile_windows_config` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetOsProfileWindowsConfigArgs>> osProfileWindowsConfig() {
@@ -262,14 +262,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A plan block as documented below.
+     * A `plan` block as documented below.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<ScaleSetPlanArgs> plan;
 
     /**
-     * @return A plan block as documented below.
+     * @return A `plan` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetPlanArgs>> plan() {
@@ -337,14 +337,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      * 
      */
     @Import(name="singlePlacementGroup")
     private @Nullable Output<Boolean> singlePlacementGroup;
 
     /**
-     * @return Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * @return Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> singlePlacementGroup() {
@@ -352,14 +352,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A SKU block as documented below.
+     * A `sku` block as documented below.
      * 
      */
     @Import(name="sku", required=true)
     private Output<ScaleSetSkuArgs> sku;
 
     /**
-     * @return A SKU block as documented below.
+     * @return A `sku` block as documented below.
      * 
      */
     public Output<ScaleSetSkuArgs> sku() {
@@ -367,14 +367,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A storage profile data disk block as documented below
+     * A `storage_profile_data_disk` block as documented below.
      * 
      */
     @Import(name="storageProfileDataDisks")
     private @Nullable Output<List<ScaleSetStorageProfileDataDiskArgs>> storageProfileDataDisks;
 
     /**
-     * @return A storage profile data disk block as documented below
+     * @return A `storage_profile_data_disk` block as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetStorageProfileDataDiskArgs>>> storageProfileDataDisks() {
@@ -382,14 +382,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A storage profile image reference block as documented below.
+     * A `storage_profile_image_reference` block as documented below.
      * 
      */
     @Import(name="storageProfileImageReference")
     private @Nullable Output<ScaleSetStorageProfileImageReferenceArgs> storageProfileImageReference;
 
     /**
-     * @return A storage profile image reference block as documented below.
+     * @return A `storage_profile_image_reference` block as documented below.
      * 
      */
     public Optional<Output<ScaleSetStorageProfileImageReferenceArgs>> storageProfileImageReference() {
@@ -397,14 +397,14 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A storage profile os disk block as documented below
+     * A `storage_profile_os_disk` block as documented below.
      * 
      */
     @Import(name="storageProfileOsDisk", required=true)
     private Output<ScaleSetStorageProfileOsDiskArgs> storageProfileOsDisk;
 
     /**
-     * @return A storage profile os disk block as documented below
+     * @return A `storage_profile_os_disk` block as documented below.
      * 
      */
     public Output<ScaleSetStorageProfileOsDiskArgs> storageProfileOsDisk() {
@@ -533,7 +533,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootDiagnostics A boot diagnostics profile block as referenced below.
+         * @param bootDiagnostics A `boot_diagnostics` block as referenced below.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootDiagnostics A boot diagnostics profile block as referenced below.
+         * @param bootDiagnostics A `boot_diagnostics` block as referenced below.
          * 
          * @return builder
          * 
@@ -715,7 +715,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of network profile block as documented below.
+         * @param networkProfiles A collection of `network_profile` blocks as documented below.
          * 
          * @return builder
          * 
@@ -726,7 +726,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of network profile block as documented below.
+         * @param networkProfiles A collection of `network_profile` blocks as documented below.
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfiles A collection of network profile block as documented below.
+         * @param networkProfiles A collection of `network_profile` blocks as documented below.
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfile A Virtual Machine OS Profile block as documented below.
+         * @param osProfile A `os_profile` block as documented below.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfile A Virtual Machine OS Profile block as documented below.
+         * @param osProfile A `os_profile` block as documented below.
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileLinuxConfig A Linux config block as documented below.
+         * @param osProfileLinuxConfig A `os_profile_linux_config` block as documented below.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileLinuxConfig A Linux config block as documented below.
+         * @param osProfileLinuxConfig A `os_profile_linux_config` block as documented below.
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of Secret blocks as documented below.
+         * @param osProfileSecrets A collection of `os_profile_secrets` blocks as documented below.
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of Secret blocks as documented below.
+         * @param osProfileSecrets A collection of `os_profile_secrets` blocks as documented below.
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileSecrets A collection of Secret blocks as documented below.
+         * @param osProfileSecrets A collection of `os_profile_secrets` blocks as documented below.
          * 
          * @return builder
          * 
@@ -819,7 +819,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileWindowsConfig A Windows config block as documented below.
+         * @param osProfileWindowsConfig A `os_profile_windows_config` block as documented below.
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param osProfileWindowsConfig A Windows config block as documented below.
+         * @param osProfileWindowsConfig A `os_profile_windows_config` block as documented below.
          * 
          * @return builder
          * 
@@ -861,7 +861,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plan A plan block as documented below.
+         * @param plan A `plan` block as documented below.
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param plan A plan block as documented below.
+         * @param plan A `plan` block as documented below.
          * 
          * @return builder
          * 
@@ -966,7 +966,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singlePlacementGroup Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+         * @param singlePlacementGroup Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -977,7 +977,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param singlePlacementGroup Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+         * @param singlePlacementGroup Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A SKU block as documented below.
+         * @param sku A `sku` block as documented below.
          * 
          * @return builder
          * 
@@ -998,7 +998,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku A SKU block as documented below.
+         * @param sku A `sku` block as documented below.
          * 
          * @return builder
          * 
@@ -1008,7 +1008,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A storage profile data disk block as documented below
+         * @param storageProfileDataDisks A `storage_profile_data_disk` block as documented below.
          * 
          * @return builder
          * 
@@ -1019,7 +1019,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A storage profile data disk block as documented below
+         * @param storageProfileDataDisks A `storage_profile_data_disk` block as documented below.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileDataDisks A storage profile data disk block as documented below
+         * @param storageProfileDataDisks A `storage_profile_data_disk` block as documented below.
          * 
          * @return builder
          * 
@@ -1039,7 +1039,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileImageReference A storage profile image reference block as documented below.
+         * @param storageProfileImageReference A `storage_profile_image_reference` block as documented below.
          * 
          * @return builder
          * 
@@ -1050,7 +1050,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileImageReference A storage profile image reference block as documented below.
+         * @param storageProfileImageReference A `storage_profile_image_reference` block as documented below.
          * 
          * @return builder
          * 
@@ -1060,7 +1060,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileOsDisk A storage profile os disk block as documented below
+         * @param storageProfileOsDisk A `storage_profile_os_disk` block as documented below.
          * 
          * @return builder
          * 
@@ -1071,7 +1071,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageProfileOsDisk A storage profile os disk block as documented below
+         * @param storageProfileOsDisk A `storage_profile_os_disk` block as documented below.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
     public static final VirtualNetworkPeeringState Empty = new VirtualNetworkPeeringState();
 
     /**
-     * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+     * A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
     @Import(name="addressSpacePrefixes")
     private @Nullable Output<List<String>> addressSpacePrefixes;
 
     /**
-     * @return A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+     * @return A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
     public Optional<Output<List<String>>> addressSpacePrefixes() {
@@ -229,7 +229,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param addressSpacePrefixes A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+         * @param addressSpacePrefixes A list of address blocks reserved for this virtual network in CIDR notation.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param addressSpacePrefixes A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+         * @param addressSpacePrefixes A list of address blocks reserved for this virtual network in CIDR notation.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class VirtualNetworkPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param addressSpacePrefixes A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+         * @param addressSpacePrefixes A list of address blocks reserved for this virtual network in CIDR notation.
          * 
          * @return builder
          * 

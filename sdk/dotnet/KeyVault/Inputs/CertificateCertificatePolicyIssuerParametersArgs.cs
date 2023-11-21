@@ -13,7 +13,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertificateCertificatePolicyIssuerParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+        /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

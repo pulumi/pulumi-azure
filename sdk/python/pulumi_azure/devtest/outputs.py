@@ -380,8 +380,8 @@ class VirtualNetworkSubnet(dict):
                  use_public_ip_address: Optional[str] = None):
         """
         :param str name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        :param str use_in_virtual_machine_creation: Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
-        :param str use_public_ip_address: Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+        :param str use_in_virtual_machine_creation: Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
+        :param str use_public_ip_address: Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -402,7 +402,7 @@ class VirtualNetworkSubnet(dict):
     @pulumi.getter(name="useInVirtualMachineCreation")
     def use_in_virtual_machine_creation(self) -> Optional[str]:
         """
-        Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+        Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "use_in_virtual_machine_creation")
 
@@ -410,7 +410,7 @@ class VirtualNetworkSubnet(dict):
     @pulumi.getter(name="usePublicIpAddress")
     def use_public_ip_address(self) -> Optional[str]:
         """
-        Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+        Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "use_public_ip_address")
 

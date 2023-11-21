@@ -126,7 +126,7 @@ type AlertRuleScheduled struct {
 	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
-	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
 	TriggerOperator pulumi.StringPtrOutput `pulumi:"triggerOperator"`
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold pulumi.IntPtrOutput `pulumi:"triggerThreshold"`
@@ -222,7 +222,7 @@ type alertRuleScheduledState struct {
 	Tactics []string `pulumi:"tactics"`
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques []string `pulumi:"techniques"`
-	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
 	TriggerOperator *string `pulumi:"triggerOperator"`
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold *int `pulumi:"triggerThreshold"`
@@ -277,7 +277,7 @@ type AlertRuleScheduledState struct {
 	Tactics pulumi.StringArrayInput
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayInput
-	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
 	TriggerOperator pulumi.StringPtrInput
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold pulumi.IntPtrInput
@@ -336,7 +336,7 @@ type alertRuleScheduledArgs struct {
 	Tactics []string `pulumi:"tactics"`
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques []string `pulumi:"techniques"`
-	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
 	TriggerOperator *string `pulumi:"triggerOperator"`
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold *int `pulumi:"triggerThreshold"`
@@ -392,7 +392,7 @@ type AlertRuleScheduledArgs struct {
 	Tactics pulumi.StringArrayInput
 	// A list of techniques of attacks by which to classify the rule.
 	Techniques pulumi.StringArrayInput
-	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
 	TriggerOperator pulumi.StringPtrInput
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
 	TriggerThreshold pulumi.IntPtrInput
@@ -626,7 +626,7 @@ func (o AlertRuleScheduledOutput) Techniques() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringArrayOutput { return v.Techniques }).(pulumi.StringArrayOutput)
 }
 
-// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
 func (o AlertRuleScheduledOutput) TriggerOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringPtrOutput { return v.TriggerOperator }).(pulumi.StringPtrOutput)
 }

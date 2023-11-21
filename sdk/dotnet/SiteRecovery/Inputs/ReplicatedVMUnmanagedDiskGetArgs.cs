@@ -13,19 +13,19 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
     public sealed class ReplicatedVMUnmanagedDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Id of disk that should be replicated.
+        /// Id of disk that should be replicated. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskUri", required: true)]
         public Input<string> DiskUri { get; set; } = null!;
 
         /// <summary>
-        /// Storage account that should be used for caching.
+        /// Storage account that should be used for caching. Changing this forces a new resource to be created.
         /// </summary>
         [Input("stagingStorageAccountId", required: true)]
         public Input<string> StagingStorageAccountId { get; set; } = null!;
 
         /// <summary>
-        /// Storage account disk should belong to when a failover is done.
+        /// Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         [Input("targetStorageAccountId", required: true)]
         public Input<string> TargetStorageAccountId { get; set; } = null!;

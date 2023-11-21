@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -400,7 +400,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        /// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

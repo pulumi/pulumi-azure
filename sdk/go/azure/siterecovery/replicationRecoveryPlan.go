@@ -301,7 +301,7 @@ import (
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState
 
-	// An `azureToAzureSettings` block defined as block.
+	// An `azureToAzureSettings` block as defined below.
 	AzureToAzureSettings ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput `pulumi:"azureToAzureSettings"`
 	// One or more `bootRecoveryGroup` blocks as defined below.
 	//
@@ -315,7 +315,7 @@ type ReplicationRecoveryPlan struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Three or more `recoveryGroup` block defined as below.
 	//
-	// **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
 	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayOutput `pulumi:"recoveryGroups"`
@@ -370,7 +370,7 @@ func GetReplicationRecoveryPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
 type replicationRecoveryPlanState struct {
-	// An `azureToAzureSettings` block defined as block.
+	// An `azureToAzureSettings` block as defined below.
 	AzureToAzureSettings *ReplicationRecoveryPlanAzureToAzureSettings `pulumi:"azureToAzureSettings"`
 	// One or more `bootRecoveryGroup` blocks as defined below.
 	//
@@ -384,7 +384,7 @@ type replicationRecoveryPlanState struct {
 	Name *string `pulumi:"name"`
 	// Three or more `recoveryGroup` block defined as below.
 	//
-	// **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
 	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
@@ -401,7 +401,7 @@ type replicationRecoveryPlanState struct {
 }
 
 type ReplicationRecoveryPlanState struct {
-	// An `azureToAzureSettings` block defined as block.
+	// An `azureToAzureSettings` block as defined below.
 	AzureToAzureSettings ReplicationRecoveryPlanAzureToAzureSettingsPtrInput
 	// One or more `bootRecoveryGroup` blocks as defined below.
 	//
@@ -415,7 +415,7 @@ type ReplicationRecoveryPlanState struct {
 	Name pulumi.StringPtrInput
 	// Three or more `recoveryGroup` block defined as below.
 	//
-	// **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
 	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
@@ -436,7 +436,7 @@ func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
 }
 
 type replicationRecoveryPlanArgs struct {
-	// An `azureToAzureSettings` block defined as block.
+	// An `azureToAzureSettings` block as defined below.
 	AzureToAzureSettings *ReplicationRecoveryPlanAzureToAzureSettings `pulumi:"azureToAzureSettings"`
 	// One or more `bootRecoveryGroup` blocks as defined below.
 	//
@@ -450,7 +450,7 @@ type replicationRecoveryPlanArgs struct {
 	Name *string `pulumi:"name"`
 	// Three or more `recoveryGroup` block defined as below.
 	//
-	// **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
 	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
 	RecoveryGroups []ReplicationRecoveryPlanRecoveryGroup `pulumi:"recoveryGroups"`
@@ -468,7 +468,7 @@ type replicationRecoveryPlanArgs struct {
 
 // The set of arguments for constructing a ReplicationRecoveryPlan resource.
 type ReplicationRecoveryPlanArgs struct {
-	// An `azureToAzureSettings` block defined as block.
+	// An `azureToAzureSettings` block as defined below.
 	AzureToAzureSettings ReplicationRecoveryPlanAzureToAzureSettingsPtrInput
 	// One or more `bootRecoveryGroup` blocks as defined below.
 	//
@@ -482,7 +482,7 @@ type ReplicationRecoveryPlanArgs struct {
 	Name pulumi.StringPtrInput
 	// Three or more `recoveryGroup` block defined as below.
 	//
-	// **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+	// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 	//
 	// Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
 	RecoveryGroups ReplicationRecoveryPlanRecoveryGroupArrayInput
@@ -609,7 +609,7 @@ func (o ReplicationRecoveryPlanOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
-// An `azureToAzureSettings` block defined as block.
+// An `azureToAzureSettings` block as defined below.
 func (o ReplicationRecoveryPlanOutput) AzureToAzureSettings() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
 	return o.ApplyT(func(v *ReplicationRecoveryPlan) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
 		return v.AzureToAzureSettings
@@ -641,7 +641,7 @@ func (o ReplicationRecoveryPlanOutput) Name() pulumi.StringOutput {
 
 // Three or more `recoveryGroup` block defined as below.
 //
-// **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+// > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
 //
 // Deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
 func (o ReplicationRecoveryPlanOutput) RecoveryGroups() ReplicationRecoveryPlanRecoveryGroupArrayOutput {

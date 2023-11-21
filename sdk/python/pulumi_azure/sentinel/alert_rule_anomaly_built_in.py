@@ -26,10 +26,10 @@ class AlertRuleAnomalyBuiltInArgs:
         :param pulumi.Input[bool] enabled: Should the Built-in Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
                
                > **Note:** One of `name` or `display_name` block must be specified.
-        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -79,7 +79,7 @@ class AlertRuleAnomalyBuiltInArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        The Display Name of the built-in Anomaly Alert Rule.
 
         > **Note:** One of `name` or `display_name` block must be specified.
         """
@@ -93,7 +93,7 @@ class AlertRuleAnomalyBuiltInArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 
@@ -127,7 +127,7 @@ class _AlertRuleAnomalyBuiltInState:
         :param pulumi.Input[int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
         :param pulumi.Input[str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[str] description: The description of the threshold observation.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
                
                > **Note:** One of `name` or `display_name` block must be specified.
         :param pulumi.Input[bool] enabled: Should the Built-in Anomaly Alert Rule be enabled?
@@ -135,7 +135,7 @@ class _AlertRuleAnomalyBuiltInState:
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInMultiSelectObservationArgs']]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
-        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs']]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[str] settings_definition_id: The ID of the anomaly settings definition Id.
@@ -219,7 +219,7 @@ class _AlertRuleAnomalyBuiltInState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        The Display Name of the built-in Anomaly Alert Rule.
 
         > **Note:** One of `name` or `display_name` block must be specified.
         """
@@ -293,7 +293,7 @@ class _AlertRuleAnomalyBuiltInState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 
@@ -431,13 +431,13 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
                
                > **Note:** One of `name` or `display_name` block must be specified.
         :param pulumi.Input[bool] enabled: Should the Built-in Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule.
         """
         ...
     @overload
@@ -566,7 +566,7 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         :param pulumi.Input[int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
         :param pulumi.Input[str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[str] description: The description of the threshold observation.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
                
                > **Note:** One of `name` or `display_name` block must be specified.
         :param pulumi.Input[bool] enabled: Should the Built-in Anomaly Alert Rule be enabled?
@@ -574,7 +574,7 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyBuiltInMultiSelectObservationArgs']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
-        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] name: The Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs']]]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[str] settings_definition_id: The ID of the anomaly settings definition Id.
@@ -634,7 +634,7 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        The Display Name of the built-in Anomaly Alert Rule.
 
         > **Note:** One of `name` or `display_name` block must be specified.
         """
@@ -684,7 +684,7 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        The Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "name")
 

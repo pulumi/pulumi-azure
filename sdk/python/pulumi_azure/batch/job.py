@@ -27,7 +27,7 @@ class JobArgs:
         :param pulumi.Input[str] display_name: The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[str] name: The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[int] priority: The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
-        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         pulumi.set(__self__, "batch_pool_id", batch_pool_id)
         if common_environment_properties is not None:
@@ -105,7 +105,7 @@ class JobArgs:
     @pulumi.getter(name="taskRetryMaximum")
     def task_retry_maximum(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         return pulumi.get(self, "task_retry_maximum")
 
@@ -130,7 +130,7 @@ class _JobState:
         :param pulumi.Input[str] display_name: The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[str] name: The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[int] priority: The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
-        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         if batch_pool_id is not None:
             pulumi.set(__self__, "batch_pool_id", batch_pool_id)
@@ -209,7 +209,7 @@ class _JobState:
     @pulumi.getter(name="taskRetryMaximum")
     def task_retry_maximum(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         return pulumi.get(self, "task_retry_maximum")
 
@@ -275,7 +275,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[str] name: The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[int] priority: The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
-        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         ...
     @overload
@@ -387,7 +387,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[str] name: The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         :param pulumi.Input[int] priority: The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
-        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        :param pulumi.Input[int] task_retry_maximum: The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -445,7 +445,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter(name="taskRetryMaximum")
     def task_retry_maximum(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         """
         return pulumi.get(self, "task_retry_maximum")
 

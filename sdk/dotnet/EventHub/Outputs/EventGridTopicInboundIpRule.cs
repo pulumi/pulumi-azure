@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventGridTopicInboundIpRule
     {
         /// <summary>
-        /// The action to take when the rule is matched. Possible values are `Allow`.
+        /// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         /// </summary>
         public readonly string? Action;
         /// <summary>

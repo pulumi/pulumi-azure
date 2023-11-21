@@ -62,7 +62,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
@@ -73,7 +73,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> quotaTarget;
 
     /**
-     * @return Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+     * @return Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
@@ -85,14 +85,14 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+     * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="quotaType", required=true)
     private Output<String> quotaType;
 
     /**
-     * @return Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+     * @return Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> quotaType() {
@@ -100,14 +100,14 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The NetApp volume ID where the Volume Quota Rule is assigned to.
+     * The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="volumeId", required=true)
     private Output<String> volumeId;
 
     /**
-     * @return The NetApp volume ID where the Volume Quota Rule is assigned to.
+     * @return The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> volumeId() {
@@ -207,7 +207,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param quotaTarget Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+         * @param quotaTarget Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
          * 
@@ -222,7 +222,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param quotaTarget Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+         * @param quotaTarget Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
          * 
@@ -236,7 +236,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param quotaType Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+         * @param quotaType Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param quotaType Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+         * @param quotaType Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumeId The NetApp volume ID where the Volume Quota Rule is assigned to.
+         * @param volumeId The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param volumeId The NetApp volume ID where the Volume Quota Rule is assigned to.
+         * @param volumeId The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

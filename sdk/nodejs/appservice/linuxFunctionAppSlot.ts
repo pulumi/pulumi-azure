@@ -107,7 +107,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
     /**
-     * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
     /**
@@ -134,6 +134,10 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     */
+    public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
      */
@@ -229,6 +233,10 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     */
+    public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LinuxFunctionAppSlot resource with the given unique name, arguments, and options.
@@ -257,6 +265,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state ? state.ftpPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["functionAppId"] = state ? state.functionAppId : undefined;
             resourceInputs["functionsExtensionVersion"] = state ? state.functionsExtensionVersion : undefined;
             resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
@@ -280,6 +289,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
         } else {
             const args = argsOrState as LinuxFunctionAppSlotArgs | undefined;
             if ((!args || args.functionAppId === undefined) && !opts.urn) {
@@ -300,6 +310,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["contentShareForceDisabled"] = args ? args.contentShareForceDisabled : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args ? args.ftpPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
             resourceInputs["functionsExtensionVersion"] = args ? args.functionsExtensionVersion : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
@@ -316,6 +327,7 @@ export class LinuxFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["hostingEnvironmentId"] = undefined /*out*/;
@@ -366,7 +378,7 @@ export interface LinuxFunctionAppSlotState {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -393,6 +405,10 @@ export interface LinuxFunctionAppSlotState {
      * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     */
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
      */
@@ -488,6 +504,10 @@ export interface LinuxFunctionAppSlotState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     */
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -523,7 +543,7 @@ export interface LinuxFunctionAppSlotArgs {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -542,6 +562,10 @@ export interface LinuxFunctionAppSlotArgs {
      * Is the Linux Function App Slot enabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     */
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
      */
@@ -609,4 +633,8 @@ export interface LinuxFunctionAppSlotArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     */
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
 }

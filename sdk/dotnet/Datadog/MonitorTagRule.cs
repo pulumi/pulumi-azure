@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Datadog
         public Output<ImmutableArray<Outputs.MonitorTagRuleMetric>> Metrics { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+        /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Datadog
         }
 
         /// <summary>
-        /// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+        /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -234,7 +234,7 @@ namespace Pulumi.Azure.Datadog
         }
 
         /// <summary>
-        /// The name of the Tag Rules configuration. The allowed value is `default`. It defaults to `default`.
+        /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

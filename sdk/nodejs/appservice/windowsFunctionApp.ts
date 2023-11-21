@@ -104,7 +104,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      */
     public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
     /**
-     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
     /**
@@ -131,6 +131,10 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
      * Is the Function App enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     */
+    public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The runtime version associated with the Function App. Defaults to `~4`.
      */
@@ -235,6 +239,12 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     *
+     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     */
+    public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -268,6 +278,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["dailyMemoryTimeQuota"] = state ? state.dailyMemoryTimeQuota : undefined;
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state ? state.ftpPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["functionsExtensionVersion"] = state ? state.functionsExtensionVersion : undefined;
             resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
@@ -293,6 +304,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as WindowsFunctionAppArgs | undefined;
@@ -317,6 +329,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["contentShareForceDisabled"] = args ? args.contentShareForceDisabled : undefined;
             resourceInputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args ? args.ftpPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["functionsExtensionVersion"] = args ? args.functionsExtensionVersion : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -335,6 +348,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
@@ -387,7 +401,7 @@ export interface WindowsFunctionAppState {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -414,6 +428,10 @@ export interface WindowsFunctionAppState {
      * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     */
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The runtime version associated with the Function App. Defaults to `~4`.
      */
@@ -518,6 +536,12 @@ export interface WindowsFunctionAppState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     *
+     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     */
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      *
      * > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-technologies) for further details.
@@ -559,7 +583,7 @@ export interface WindowsFunctionAppArgs {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -578,6 +602,10 @@ export interface WindowsFunctionAppArgs {
      * Is the Function App enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     */
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The runtime version associated with the Function App. Defaults to `~4`.
      */
@@ -653,6 +681,12 @@ export interface WindowsFunctionAppArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     *
+     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     */
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Function App.
      *

@@ -32,21 +32,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/image:Image")
 public class Image extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `data_disk` elements as defined below.
+     * One or more `data_disk` blocks as defined below.
      * 
      */
     @Export(name="dataDisks", refs={List.class,ImageDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageDataDisk>> dataDisks;
 
     /**
-     * @return One or more `data_disk` elements as defined below.
+     * @return One or more `data_disk` blocks as defined below.
      * 
      */
     public Output<Optional<List<ImageDataDisk>>> dataDisks() {
         return Codegen.optional(this.dataDisks);
     }
     /**
-     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      * 
@@ -55,7 +55,7 @@ public class Image extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> hyperVGeneration;
 
     /**
-     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+     * @return The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
      * 
@@ -94,14 +94,14 @@ public class Image extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
+     * One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="osDisk", refs={ImageOsDisk.class}, tree="[0]")
     private Output</* @Nullable */ ImageOsDisk> osDisk;
 
     /**
-     * @return One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
+     * @return One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<ImageOsDisk>> osDisk() {

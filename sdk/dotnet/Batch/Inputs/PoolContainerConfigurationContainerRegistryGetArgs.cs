@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Batch.Inputs
         }
 
         /// <summary>
-        /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        /// The container registry URL. Changing this forces a new resource to be created.
         /// </summary>
         [Input("registryServer", required: true)]
         public Input<string> RegistryServer { get; set; } = null!;

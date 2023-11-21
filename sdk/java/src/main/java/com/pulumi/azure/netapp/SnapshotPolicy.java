@@ -126,14 +126,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
-     * Sets a daily snapshot schedule. See details in below `daily_schedule` block.
+     * Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
      * 
      */
     @Export(name="dailySchedule", refs={SnapshotPolicyDailySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyDailySchedule> dailySchedule;
 
     /**
-     * @return Sets a daily snapshot schedule. See details in below `daily_schedule` block.
+     * @return Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
      * 
      */
     public Output<SnapshotPolicyDailySchedule> dailySchedule() {
@@ -154,14 +154,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
         return this.enabled;
     }
     /**
-     * Sets an hourly snapshot schedule. See details in below `hourly_schedule` block.
+     * Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
      * 
      */
     @Export(name="hourlySchedule", refs={SnapshotPolicyHourlySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyHourlySchedule> hourlySchedule;
 
     /**
-     * @return Sets an hourly snapshot schedule. See details in below `hourly_schedule` block.
+     * @return Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
      * 
      */
     public Output<SnapshotPolicyHourlySchedule> hourlySchedule() {
@@ -182,14 +182,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
+     * Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
      * 
      */
     @Export(name="monthlySchedule", refs={SnapshotPolicyMonthlySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyMonthlySchedule> monthlySchedule;
 
     /**
-     * @return Sets a monthly snapshot schedule. See details in below `monthly_schedule` block.
+     * @return Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
      * 
      */
     public Output<SnapshotPolicyMonthlySchedule> monthlySchedule() {
@@ -238,14 +238,14 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
+     * Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
      * 
      */
     @Export(name="weeklySchedule", refs={SnapshotPolicyWeeklySchedule.class}, tree="[0]")
     private Output<SnapshotPolicyWeeklySchedule> weeklySchedule;
 
     /**
-     * @return Sets a weekly snapshot schedule. See details in below `weekly_schedule` block.
+     * @return Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
      * 
      */
     public Output<SnapshotPolicyWeeklySchedule> weeklySchedule() {

@@ -31,14 +31,14 @@ public final class DataConnectorThreatIntelligenceArgs extends com.pulumi.resour
     }
 
     /**
-     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="lookbackDate")
     private @Nullable Output<String> lookbackDate;
 
     /**
-     * @return The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+     * @return The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> lookbackDate() {
@@ -128,7 +128,7 @@ public final class DataConnectorThreatIntelligenceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param lookbackDate The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+         * @param lookbackDate The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DataConnectorThreatIntelligenceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param lookbackDate The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`.
+         * @param lookbackDate The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

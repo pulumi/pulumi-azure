@@ -72,7 +72,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
-     * One or multiple `frontendIpConfiguration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as documented below.
      */
     public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.LoadBalancerFrontendIpConfiguration[] | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface LoadBalancerState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * One or multiple `frontendIpConfiguration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as documented below.
      */
     frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.LoadBalancerFrontendIpConfiguration>[]>;
     /**
@@ -211,7 +211,7 @@ export interface LoadBalancerArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * One or multiple `frontendIpConfiguration` blocks as documented below.
+     * One or more `frontendIpConfiguration` blocks as documented below.
      */
     frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.LoadBalancerFrontendIpConfiguration>[]>;
     /**

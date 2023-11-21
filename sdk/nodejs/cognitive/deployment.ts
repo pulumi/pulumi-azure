@@ -88,9 +88,13 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly raiPolicyName!: pulumi.Output<string | undefined>;
     /**
-     * A `scale` block as defined below. Changing this forces a new resource to be created.
+     * A `scale` block as defined below.
      */
     public readonly scale!: pulumi.Output<outputs.cognitive.DeploymentScale>;
+    /**
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     */
+    public readonly versionUpgradeOption!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -110,6 +114,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["raiPolicyName"] = state ? state.raiPolicyName : undefined;
             resourceInputs["scale"] = state ? state.scale : undefined;
+            resourceInputs["versionUpgradeOption"] = state ? state.versionUpgradeOption : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
             if ((!args || args.cognitiveAccountId === undefined) && !opts.urn) {
@@ -126,6 +131,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["raiPolicyName"] = args ? args.raiPolicyName : undefined;
             resourceInputs["scale"] = args ? args.scale : undefined;
+            resourceInputs["versionUpgradeOption"] = args ? args.versionUpgradeOption : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);
@@ -153,9 +159,13 @@ export interface DeploymentState {
      */
     raiPolicyName?: pulumi.Input<string>;
     /**
-     * A `scale` block as defined below. Changing this forces a new resource to be created.
+     * A `scale` block as defined below.
      */
     scale?: pulumi.Input<inputs.cognitive.DeploymentScale>;
+    /**
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     */
+    versionUpgradeOption?: pulumi.Input<string>;
 }
 
 /**
@@ -179,7 +189,11 @@ export interface DeploymentArgs {
      */
     raiPolicyName?: pulumi.Input<string>;
     /**
-     * A `scale` block as defined below. Changing this forces a new resource to be created.
+     * A `scale` block as defined below.
      */
     scale: pulumi.Input<inputs.cognitive.DeploymentScale>;
+    /**
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     */
+    versionUpgradeOption?: pulumi.Input<string>;
 }

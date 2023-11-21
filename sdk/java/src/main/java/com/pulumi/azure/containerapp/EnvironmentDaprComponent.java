@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent")
 public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResource {
     /**
-     * The Dapr Component Type. For example `state.azure.blobstorage`.
+     * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="componentType", refs={String.class}, tree="[0]")
     private Output<String> componentType;
 
     /**
-     * @return The Dapr Component Type. For example `state.azure.blobstorage`.
+     * @return The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> componentType() {
@@ -130,14 +130,14 @@ public class EnvironmentDaprComponent extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.ignoreErrors);
     }
     /**
-     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      * 
      */
     @Export(name="initTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initTimeout;
 
     /**
-     * @return The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * @return The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      * 
      */
     public Output<Optional<String>> initTimeout() {

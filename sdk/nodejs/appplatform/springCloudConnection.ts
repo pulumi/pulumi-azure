@@ -104,7 +104,7 @@ export class SpringCloudConnection extends pulumi.CustomResource {
      */
     public readonly authentication!: pulumi.Output<outputs.appplatform.SpringCloudConnectionAuthentication>;
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      */
     public readonly clientType!: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export interface SpringCloudConnectionState {
      */
     authentication?: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication>;
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      */
     clientType?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface SpringCloudConnectionArgs {
      */
     authentication: pulumi.Input<inputs.appplatform.SpringCloudConnectionAuthentication>;
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      */
     clientType?: pulumi.Input<string>;
     /**

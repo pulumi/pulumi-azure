@@ -192,14 +192,14 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
     }
 
     /**
-     * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     @Import(name="wwwAuthenticationDisabled")
     private @Nullable Output<Boolean> wwwAuthenticationDisabled;
 
     /**
-     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> wwwAuthenticationDisabled() {
@@ -543,7 +543,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         }
 
         /**
-         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args extends co
         }
 
         /**
-         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
          * 
          * @return builder
          * 

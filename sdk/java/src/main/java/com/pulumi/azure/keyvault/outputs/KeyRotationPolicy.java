@@ -23,7 +23,7 @@ public final class KeyRotationPolicy {
      */
     private @Nullable String expireAfter;
     /**
-     * @return Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+     * @return Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      * 
      */
     private @Nullable String notifyBeforeExpiry;
@@ -44,7 +44,7 @@ public final class KeyRotationPolicy {
         return Optional.ofNullable(this.expireAfter);
     }
     /**
-     * @return Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+     * @return Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      * 
      */
     public Optional<String> notifyBeforeExpiry() {

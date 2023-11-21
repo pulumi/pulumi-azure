@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Automanage.Outputs
         /// </summary>
         public readonly int? Count;
         /// <summary>
-        /// The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+        /// The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
         /// </summary>
         public readonly string? DurationType;
 

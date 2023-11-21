@@ -109,7 +109,7 @@ export class NetworkPacketCoreControlPlane extends pulumi.CustomResource {
      */
     public readonly controlPlaneAccessName!: pulumi.Output<string | undefined>;
     /**
-     * The core network technology generation. Possible values are `EPG` and `5GC`.
+     * The core network technology generation. Possible values are `5GC` and `EPC`.
      */
     public readonly coreNetworkTechnology!: pulumi.Output<string | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface NetworkPacketCoreControlPlaneState {
      */
     controlPlaneAccessName?: pulumi.Input<string>;
     /**
-     * The core network technology generation. Possible values are `EPG` and `5GC`.
+     * The core network technology generation. Possible values are `5GC` and `EPC`.
      */
     coreNetworkTechnology?: pulumi.Input<string>;
     /**
@@ -323,7 +323,7 @@ export interface NetworkPacketCoreControlPlaneArgs {
      */
     controlPlaneAccessName?: pulumi.Input<string>;
     /**
-     * The core network technology generation. Possible values are `EPG` and `5GC`.
+     * The core network technology generation. Possible values are `5GC` and `EPC`.
      */
     coreNetworkTechnology?: pulumi.Input<string>;
     /**

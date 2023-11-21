@@ -84,7 +84,7 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
@@ -110,7 +110,7 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
      */
     public /*out*/ readonly multiSelectObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation[]>;
     /**
-     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Name of the built-in Anomaly Alert Rule.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -223,7 +223,7 @@ export interface AlertRuleAnomalyBuiltInState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
@@ -249,7 +249,7 @@ export interface AlertRuleAnomalyBuiltInState {
      */
     multiSelectObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyBuiltInMultiSelectObservation>[]>;
     /**
-     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Name of the built-in Anomaly Alert Rule.
      */
     name?: pulumi.Input<string>;
     /**
@@ -287,7 +287,7 @@ export interface AlertRuleAnomalyBuiltInState {
  */
 export interface AlertRuleAnomalyBuiltInArgs {
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      *
      * > **Note:** One of `name` or `displayName` block must be specified.
      */
@@ -305,7 +305,7 @@ export interface AlertRuleAnomalyBuiltInArgs {
      */
     mode: pulumi.Input<string>;
     /**
-     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Name of the built-in Anomaly Alert Rule.
      */
     name?: pulumi.Input<string>;
 }

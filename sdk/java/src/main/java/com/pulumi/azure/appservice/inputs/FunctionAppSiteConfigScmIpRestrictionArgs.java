@@ -33,14 +33,14 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
     }
 
     /**
-     * The headers for this specific `scm_ip_restriction` as defined below.
+     * The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<FunctionAppSiteConfigScmIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The headers for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<Output<FunctionAppSiteConfigScmIpRestrictionHeadersArgs>> headers() {
@@ -178,7 +178,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param headers The headers for this specific `scm_ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `scm_ip_restriction` as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FunctionAppSiteConfigScmIpRestrictionArgs extends com.pulumi.
         }
 
         /**
-         * @param headers The headers for this specific `scm_ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `scm_ip_restriction` as defined below.
          * 
          * @return builder
          * 

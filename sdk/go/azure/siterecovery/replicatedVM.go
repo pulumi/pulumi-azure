@@ -291,7 +291,6 @@ type ReplicatedVM struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
-	// *
 	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
@@ -329,7 +328,7 @@ type ReplicatedVM struct {
 	TargetZone pulumi.StringPtrOutput `pulumi:"targetZone"`
 	// Network to use when a test failover is done.
 	TestNetworkId pulumi.StringOutput `pulumi:"testNetworkId"`
-	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	// One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
 	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayOutput `pulumi:"unmanagedDisks"`
 }
 
@@ -397,7 +396,6 @@ type replicatedVMState struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
-	// *
 	NetworkInterfaces []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
@@ -435,7 +433,7 @@ type replicatedVMState struct {
 	TargetZone *string `pulumi:"targetZone"`
 	// Network to use when a test failover is done.
 	TestNetworkId *string `pulumi:"testNetworkId"`
-	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	// One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
 	UnmanagedDisks []ReplicatedVMUnmanagedDisk `pulumi:"unmanagedDisks"`
 }
 
@@ -447,7 +445,6 @@ type ReplicatedVMState struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
-	// *
 	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayInput
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
@@ -485,7 +482,7 @@ type ReplicatedVMState struct {
 	TargetZone pulumi.StringPtrInput
 	// Network to use when a test failover is done.
 	TestNetworkId pulumi.StringPtrInput
-	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	// One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
 	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayInput
 }
 
@@ -501,7 +498,6 @@ type replicatedVMArgs struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `networkInterface` block as defined below.
-	// *
 	NetworkInterfaces []ReplicatedVMNetworkInterface `pulumi:"networkInterfaces"`
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
@@ -539,7 +535,7 @@ type replicatedVMArgs struct {
 	TargetZone *string `pulumi:"targetZone"`
 	// Network to use when a test failover is done.
 	TestNetworkId *string `pulumi:"testNetworkId"`
-	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	// One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
 	UnmanagedDisks []ReplicatedVMUnmanagedDisk `pulumi:"unmanagedDisks"`
 }
 
@@ -552,7 +548,6 @@ type ReplicatedVMArgs struct {
 	// The name of the replication for the replicated VM. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `networkInterface` block as defined below.
-	// *
 	NetworkInterfaces ReplicatedVMNetworkInterfaceArrayInput
 	// Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringInput
@@ -590,7 +585,7 @@ type ReplicatedVMArgs struct {
 	TargetZone pulumi.StringPtrInput
 	// Network to use when a test failover is done.
 	TestNetworkId pulumi.StringPtrInput
-	// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+	// One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
 	UnmanagedDisks ReplicatedVMUnmanagedDiskArrayInput
 }
 
@@ -721,7 +716,6 @@ func (o ReplicatedVMOutput) Name() pulumi.StringOutput {
 }
 
 // One or more `networkInterface` block as defined below.
-// *
 func (o ReplicatedVMOutput) NetworkInterfaces() ReplicatedVMNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(ReplicatedVMNetworkInterfaceArrayOutput)
 }
@@ -816,7 +810,7 @@ func (o ReplicatedVMOutput) TestNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicatedVM) pulumi.StringOutput { return v.TestNetworkId }).(pulumi.StringOutput)
 }
 
-// One or more `unmanagedDisk` block. Changing this forces a new resource to be created.
+// One or more `unmanagedDisk` block as defined below. Changing this forces a new resource to be created.
 func (o ReplicatedVMOutput) UnmanagedDisks() ReplicatedVMUnmanagedDiskArrayOutput {
 	return o.ApplyT(func(v *ReplicatedVM) ReplicatedVMUnmanagedDiskArrayOutput { return v.UnmanagedDisks }).(ReplicatedVMUnmanagedDiskArrayOutput)
 }

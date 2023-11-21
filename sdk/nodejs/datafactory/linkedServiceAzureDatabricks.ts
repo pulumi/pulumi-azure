@@ -154,7 +154,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     public readonly existingClusterId!: pulumi.Output<string | undefined>;
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+     * Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      */
     public readonly instancePool!: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksInstancePool | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface LinkedServiceAzureDatabricksState {
      */
     existingClusterId?: pulumi.Input<string>;
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+     * Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      */
     instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
     /**
@@ -334,7 +334,7 @@ export interface LinkedServiceAzureDatabricksArgs {
      */
     existingClusterId?: pulumi.Input<string>;
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+     * Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
      */
     instancePool?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksInstancePool>;
     /**

@@ -99,11 +99,11 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      */
     public readonly containerRegistryId!: pulumi.Output<string>;
     /**
-     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      */
     public readonly logLevel!: pulumi.Output<string | undefined>;
     /**
-     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
@@ -119,7 +119,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      */
     public readonly parentRegistryId!: pulumi.Output<string | undefined>;
     /**
-     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      */
     public readonly syncMessageTtl!: pulumi.Output<string | undefined>;
     /**
@@ -205,11 +205,11 @@ export interface ConnectedRegistryState {
      */
     containerRegistryId?: pulumi.Input<string>;
     /**
-     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface ConnectedRegistryState {
      */
     parentRegistryId?: pulumi.Input<string>;
     /**
-     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      */
     syncMessageTtl?: pulumi.Input<string>;
     /**
@@ -261,11 +261,11 @@ export interface ConnectedRegistryArgs {
      */
     containerRegistryId: pulumi.Input<string>;
     /**
-     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -281,7 +281,7 @@ export interface ConnectedRegistryArgs {
      */
     parentRegistryId?: pulumi.Input<string>;
     /**
-     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      */
     syncMessageTtl?: pulumi.Input<string>;
     /**

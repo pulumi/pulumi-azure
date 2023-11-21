@@ -34,7 +34,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
     }
 
     /**
-     * an `allowed_audiences` block as detailed below.
+     * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -43,7 +43,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -192,14 +192,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
     }
 
     /**
-     * Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     @Import(name="wwwAuthenticationDisabled")
     private @Nullable Output<Boolean> wwwAuthenticationDisabled;
 
     /**
-     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> wwwAuthenticationDisabled() {
@@ -273,7 +273,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
         }
 
         /**
-         * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
          * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 
@@ -286,7 +286,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
         }
 
         /**
-         * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
          * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 
@@ -298,7 +298,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
         }
 
         /**
-         * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
          * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 
@@ -543,7 +543,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
         }
 
         /**
-         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args exten
         }
 
         /**
-         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+         * @param wwwAuthenticationDisabled Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
          * 
          * @return builder
          * 

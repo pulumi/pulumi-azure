@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RulesEngineRuleMatchCondition {
     /**
-     * @return can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+     * @return can be set to `true` or `false` to negate the given condition. Defaults to `false`.
      * 
      */
     private @Nullable Boolean negateCondition;
@@ -46,7 +46,7 @@ public final class RulesEngineRuleMatchCondition {
 
     private RulesEngineRuleMatchCondition() {}
     /**
-     * @return can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+     * @return can be set to `true` or `false` to negate the given condition. Defaults to `false`.
      * 
      */
     public Optional<Boolean> negateCondition() {

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> CompatibilityLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
         /// </summary>
         [Output("contentStoragePolicy")]
         public Output<string?> ContentStoragePolicy { get; private set; } = null!;
@@ -83,13 +83,13 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> DataLocale { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
         /// </summary>
         [Output("eventsLateArrivalMaxDelayInSeconds")]
         public Output<int?> EventsLateArrivalMaxDelayInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+        /// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         /// </summary>
         [Output("eventsOutOfOrderMaxDelayInSeconds")]
         public Output<int?> EventsOutOfOrderMaxDelayInSeconds { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? CompatibilityLevel { get; set; }
 
         /// <summary>
-        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
         /// </summary>
         [Input("contentStoragePolicy")]
         public Input<string>? ContentStoragePolicy { get; set; }
@@ -243,13 +243,13 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? DataLocale { get; set; }
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
         /// </summary>
         [Input("eventsLateArrivalMaxDelayInSeconds")]
         public Input<int>? EventsLateArrivalMaxDelayInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+        /// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         /// </summary>
         [Input("eventsOutOfOrderMaxDelayInSeconds")]
         public Input<int>? EventsOutOfOrderMaxDelayInSeconds { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? CompatibilityLevel { get; set; }
 
         /// <summary>
-        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+        /// The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
         /// </summary>
         [Input("contentStoragePolicy")]
         public Input<string>? ContentStoragePolicy { get; set; }
@@ -371,13 +371,13 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? DataLocale { get; set; }
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+        /// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
         /// </summary>
         [Input("eventsLateArrivalMaxDelayInSeconds")]
         public Input<int>? EventsLateArrivalMaxDelayInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+        /// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         /// </summary>
         [Input("eventsOutOfOrderMaxDelayInSeconds")]
         public Input<int>? EventsOutOfOrderMaxDelayInSeconds { get; set; }

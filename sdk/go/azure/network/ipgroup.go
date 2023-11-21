@@ -70,9 +70,9 @@ type IPGroup struct {
 	pulumi.CustomResourceState
 
 	Cidrs pulumi.StringArrayOutput `pulumi:"cidrs"`
-	// A `firewallIds` block as defined below.
+	// A list of ID of Firewall.
 	FirewallIds pulumi.StringArrayOutput `pulumi:"firewallIds"`
-	// A `firewallPolicyIds` block as defined below.
+	// A list of ID of Firewall Policy`.
 	FirewallPolicyIds pulumi.StringArrayOutput `pulumi:"firewallPolicyIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -118,9 +118,9 @@ func GetIPGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering IPGroup resources.
 type ipgroupState struct {
 	Cidrs []string `pulumi:"cidrs"`
-	// A `firewallIds` block as defined below.
+	// A list of ID of Firewall.
 	FirewallIds []string `pulumi:"firewallIds"`
-	// A `firewallPolicyIds` block as defined below.
+	// A list of ID of Firewall Policy`.
 	FirewallPolicyIds []string `pulumi:"firewallPolicyIds"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -134,9 +134,9 @@ type ipgroupState struct {
 
 type IPGroupState struct {
 	Cidrs pulumi.StringArrayInput
-	// A `firewallIds` block as defined below.
+	// A list of ID of Firewall.
 	FirewallIds pulumi.StringArrayInput
-	// A `firewallPolicyIds` block as defined below.
+	// A list of ID of Firewall Policy`.
 	FirewallPolicyIds pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -292,12 +292,12 @@ func (o IPGroupOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// A `firewallIds` block as defined below.
+// A list of ID of Firewall.
 func (o IPGroupOutput) FirewallIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.FirewallIds }).(pulumi.StringArrayOutput)
 }
 
-// A `firewallPolicyIds` block as defined below.
+// A list of ID of Firewall Policy`.
 func (o IPGroupOutput) FirewallPolicyIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IPGroup) pulumi.StringArrayOutput { return v.FirewallPolicyIds }).(pulumi.StringArrayOutput)
 }

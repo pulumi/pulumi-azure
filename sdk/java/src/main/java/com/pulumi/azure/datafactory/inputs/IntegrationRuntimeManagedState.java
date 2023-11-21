@@ -125,14 +125,14 @@ public final class IntegrationRuntimeManagedState extends com.pulumi.resources.R
     }
 
     /**
-     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      * 
      */
     @Import(name="maxParallelExecutionsPerNode")
     private @Nullable Output<Integer> maxParallelExecutionsPerNode;
 
     /**
-     * @return Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * @return Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      * 
      */
     public Optional<Output<Integer>> maxParallelExecutionsPerNode() {
@@ -382,7 +382,7 @@ public final class IntegrationRuntimeManagedState extends com.pulumi.resources.R
         }
 
         /**
-         * @param maxParallelExecutionsPerNode Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+         * @param maxParallelExecutionsPerNode Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class IntegrationRuntimeManagedState extends com.pulumi.resources.R
         }
 
         /**
-         * @param maxParallelExecutionsPerNode Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+         * @param maxParallelExecutionsPerNode Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
          * 
          * @return builder
          * 

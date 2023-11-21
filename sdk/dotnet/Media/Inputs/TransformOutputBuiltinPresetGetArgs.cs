@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Media.Inputs
     public sealed class TransformOutputBuiltinPresetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A `present_configuration` block as defined below.
+        /// A `preset_configuration` block as defined below.
         /// </summary>
         [Input("presetConfiguration")]
         public Input<Inputs.TransformOutputBuiltinPresetPresetConfigurationGetArgs>? PresetConfiguration { get; set; }

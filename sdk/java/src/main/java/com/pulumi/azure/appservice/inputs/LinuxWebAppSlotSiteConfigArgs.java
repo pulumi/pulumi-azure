@@ -319,14 +319,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
     @Import(name="managedPipelineMode")
     private @Nullable Output<String> managedPipelineMode;
 
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
     public Optional<Output<String>> managedPipelineMode() {
@@ -976,7 +976,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
          * 
          * @return builder
          * 
@@ -987,7 +987,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
          * 
          * @return builder
          * 

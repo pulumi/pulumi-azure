@@ -33,7 +33,7 @@ class MonitorArgs:
         :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below.
         :param pulumi.Input['MonitorIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
-        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to`true`.
+        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Datadog Monitor.
         """
@@ -128,7 +128,7 @@ class MonitorArgs:
     @pulumi.getter(name="monitoringEnabled")
     def monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is monitoring enabled? Defaults to`true`.
+        Is monitoring enabled? Defaults to `true`.
         """
         return pulumi.get(self, "monitoring_enabled")
 
@@ -180,7 +180,7 @@ class _MonitorState:
         :param pulumi.Input['MonitorIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to`true`.
+        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] sku_name: The name which should be used for this sku.
@@ -260,7 +260,7 @@ class _MonitorState:
     @pulumi.getter(name="monitoringEnabled")
     def monitoring_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is monitoring enabled? Defaults to`true`.
+        Is monitoring enabled? Defaults to `true`.
         """
         return pulumi.get(self, "monitoring_enabled")
 
@@ -402,7 +402,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MonitorDatadogOrganizationArgs']] datadog_organization: A `datadog_organization` block as defined below.
         :param pulumi.Input[pulumi.InputType['MonitorIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
-        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to`true`.
+        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] sku_name: The name which should be used for this sku.
@@ -550,7 +550,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MonitorIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to`true`.
+        :param pulumi.Input[bool] monitoring_enabled: Is monitoring enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[str] sku_name: The name which should be used for this sku.
@@ -609,7 +609,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="monitoringEnabled")
     def monitoring_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is monitoring enabled? Defaults to`true`.
+        Is monitoring enabled? Defaults to `true`.
         """
         return pulumi.get(self, "monitoring_enabled")
 

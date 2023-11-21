@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Datadog
         public Output<string> MarketplaceSubscriptionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Is monitoring enabled? Defaults to`true`.
+        /// Is monitoring enabled? Defaults to `true`.
         /// </summary>
         [Output("monitoringEnabled")]
         public Output<bool?> MonitoringEnabled { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Is monitoring enabled? Defaults to`true`.
+        /// Is monitoring enabled? Defaults to `true`.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Datadog
         public Input<string>? MarketplaceSubscriptionStatus { get; set; }
 
         /// <summary>
-        /// Is monitoring enabled? Defaults to`true`.
+        /// Is monitoring enabled? Defaults to `true`.
         /// </summary>
         [Input("monitoringEnabled")]
         public Input<bool>? MonitoringEnabled { get; set; }

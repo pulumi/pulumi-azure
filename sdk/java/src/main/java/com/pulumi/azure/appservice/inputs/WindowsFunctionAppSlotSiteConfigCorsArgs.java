@@ -18,14 +18,14 @@ public final class WindowsFunctionAppSlotSiteConfigCorsArgs extends com.pulumi.r
     public static final WindowsFunctionAppSlotSiteConfigCorsArgs Empty = new WindowsFunctionAppSlotSiteConfigCorsArgs();
 
     /**
-     * an `allowed_origins` block as detailed below.
+     * Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
     @Import(name="allowedOrigins")
     private @Nullable Output<List<String>> allowedOrigins;
 
     /**
-     * @return an `allowed_origins` block as detailed below.
+     * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
     public Optional<Output<List<String>>> allowedOrigins() {
@@ -73,7 +73,7 @@ public final class WindowsFunctionAppSlotSiteConfigCorsArgs extends com.pulumi.r
         }
 
         /**
-         * @param allowedOrigins an `allowed_origins` block as detailed below.
+         * @param allowedOrigins Specifies a list of origins that should be allowed to make cross-origin calls.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class WindowsFunctionAppSlotSiteConfigCorsArgs extends com.pulumi.r
         }
 
         /**
-         * @param allowedOrigins an `allowed_origins` block as detailed below.
+         * @param allowedOrigins Specifies a list of origins that should be allowed to make cross-origin calls.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class WindowsFunctionAppSlotSiteConfigCorsArgs extends com.pulumi.r
         }
 
         /**
-         * @param allowedOrigins an `allowed_origins` block as detailed below.
+         * @param allowedOrigins Specifies a list of origins that should be allowed to make cross-origin calls.
          * 
          * @return builder
          * 

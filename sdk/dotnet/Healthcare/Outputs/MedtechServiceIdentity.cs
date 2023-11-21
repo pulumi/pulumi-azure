@@ -13,6 +13,9 @@ namespace Pulumi.Azure.Healthcare.Outputs
     [OutputType]
     public sealed class MedtechServiceIdentity
     {
+        /// <summary>
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+        /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
         /// The Principal ID associated with this System Assigned Managed Service Identity.

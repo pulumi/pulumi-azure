@@ -124,7 +124,7 @@ type Monitor struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus pulumi.StringOutput `pulumi:"marketplaceSubscriptionStatus"`
-	// Is monitoring enabled? Defaults to`true`.
+	// Is monitoring enabled? Defaults to `true`.
 	MonitoringEnabled pulumi.BoolPtrOutput `pulumi:"monitoringEnabled"`
 	// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -188,7 +188,7 @@ type monitorState struct {
 	Location *string `pulumi:"location"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus *string `pulumi:"marketplaceSubscriptionStatus"`
-	// Is monitoring enabled? Defaults to`true`.
+	// Is monitoring enabled? Defaults to `true`.
 	MonitoringEnabled *bool `pulumi:"monitoringEnabled"`
 	// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
 	Name *string `pulumi:"name"`
@@ -211,7 +211,7 @@ type MonitorState struct {
 	Location pulumi.StringPtrInput
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
 	MarketplaceSubscriptionStatus pulumi.StringPtrInput
-	// Is monitoring enabled? Defaults to`true`.
+	// Is monitoring enabled? Defaults to `true`.
 	MonitoringEnabled pulumi.BoolPtrInput
 	// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
 	Name pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type monitorArgs struct {
 	Identity *MonitorIdentity `pulumi:"identity"`
 	// The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
 	Location *string `pulumi:"location"`
-	// Is monitoring enabled? Defaults to`true`.
+	// Is monitoring enabled? Defaults to `true`.
 	MonitoringEnabled *bool `pulumi:"monitoringEnabled"`
 	// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
 	Name *string `pulumi:"name"`
@@ -258,7 +258,7 @@ type MonitorArgs struct {
 	Identity MonitorIdentityPtrInput
 	// The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
 	Location pulumi.StringPtrInput
-	// Is monitoring enabled? Defaults to`true`.
+	// Is monitoring enabled? Defaults to `true`.
 	MonitoringEnabled pulumi.BoolPtrInput
 	// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
 	Name pulumi.StringPtrInput
@@ -403,7 +403,7 @@ func (o MonitorOutput) MarketplaceSubscriptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.MarketplaceSubscriptionStatus }).(pulumi.StringOutput)
 }
 
-// Is monitoring enabled? Defaults to`true`.
+// Is monitoring enabled? Defaults to `true`.
 func (o MonitorOutput) MonitoringEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.BoolPtrOutput { return v.MonitoringEnabled }).(pulumi.BoolPtrOutput)
 }

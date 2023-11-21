@@ -28,7 +28,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollection {
      */
     private Integer priority;
     /**
-     * @return One or more `application_rule` (application rule) blocks as defined below.
+     * @return One or more `application_rule` blocks as defined below.
      * 
      */
     private List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule> rules;
@@ -56,7 +56,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollection {
         return this.priority;
     }
     /**
-     * @return One or more `application_rule` (application rule) blocks as defined below.
+     * @return One or more `application_rule` blocks as defined below.
      * 
      */
     public List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule> rules() {

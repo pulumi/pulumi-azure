@@ -74,14 +74,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.packageData);
     }
     /**
-     * One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     @Export(name="protectedFiles", refs={List.class,ConfigurationProtectedFile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConfigurationProtectedFile>> protectedFiles;
 
     /**
-     * @return One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     public Output<Optional<List<ConfigurationProtectedFile>>> protectedFiles() {

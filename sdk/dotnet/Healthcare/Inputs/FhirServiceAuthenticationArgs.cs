@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
     public sealed class FhirServiceAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+        /// The intended audience to receive authentication tokens for the service.
         /// </summary>
         [Input("audience", required: true)]
         public Input<string> Audience { get; set; } = null!;

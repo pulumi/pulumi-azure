@@ -181,7 +181,7 @@ type LinkedServiceAzureDatabricks struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId pulumi.StringPtrOutput `pulumi:"existingClusterId"`
-	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
 	InstancePool LinkedServiceAzureDatabricksInstancePoolPtrOutput `pulumi:"instancePool"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
@@ -254,7 +254,7 @@ type linkedServiceAzureDatabricksState struct {
 	Description *string `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId *string `pulumi:"existingClusterId"`
-	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
 	InstancePool *LinkedServiceAzureDatabricksInstancePool `pulumi:"instancePool"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
@@ -285,7 +285,7 @@ type LinkedServiceAzureDatabricksState struct {
 	Description pulumi.StringPtrInput
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId pulumi.StringPtrInput
-	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
 	InstancePool LinkedServiceAzureDatabricksInstancePoolPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
@@ -320,7 +320,7 @@ type linkedServiceAzureDatabricksArgs struct {
 	Description *string `pulumi:"description"`
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId *string `pulumi:"existingClusterId"`
-	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
 	InstancePool *LinkedServiceAzureDatabricksInstancePool `pulumi:"instancePool"`
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
@@ -352,7 +352,7 @@ type LinkedServiceAzureDatabricksArgs struct {
 	Description pulumi.StringPtrInput
 	// The clusterId of an existing cluster within the linked ADB instance.
 	ExistingClusterId pulumi.StringPtrInput
-	// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+	// Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
 	InstancePool LinkedServiceAzureDatabricksInstancePoolPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
@@ -514,7 +514,7 @@ func (o LinkedServiceAzureDatabricksOutput) ExistingClusterId() pulumi.StringPtr
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringPtrOutput { return v.ExistingClusterId }).(pulumi.StringPtrOutput)
 }
 
-// Leverages an instance pool within the linked ADB instance as defined by `instancePool` block below.
+// Leverages an instance pool within the linked ADB instance as one `instancePool` block defined below.
 func (o LinkedServiceAzureDatabricksOutput) InstancePool() LinkedServiceAzureDatabricksInstancePoolPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) LinkedServiceAzureDatabricksInstancePoolPtrOutput {
 		return v.InstancePool

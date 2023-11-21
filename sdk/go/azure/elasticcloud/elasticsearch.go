@@ -39,7 +39,7 @@ import (
 //			_, err = elasticcloud.NewElasticsearch(ctx, "testElasticsearch", &elasticcloud.ElasticsearchArgs{
 //				ResourceGroupName:        testResourceGroup.Name,
 //				Location:                 testResourceGroup.Location,
-//				SkuName:                  pulumi.String("ess-monthly-consumption_Monthly"),
+//				SkuName:                  pulumi.String("ess-consumption-2024_Monthly"),
 //				ElasticCloudEmailAddress: pulumi.String("user@example.com"),
 //			})
 //			if err != nil {
@@ -88,6 +88,10 @@ type Elasticsearch struct {
 	// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+	//
+	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Elasticsearch resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -157,6 +161,10 @@ type elasticsearchState struct {
 	// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+	//
+	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Elasticsearch resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -188,6 +196,10 @@ type ElasticsearchState struct {
 	// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+	//
+	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Elasticsearch resource.
 	Tags pulumi.StringMapInput
@@ -211,6 +223,10 @@ type elasticsearchArgs struct {
 	// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+	//
+	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Elasticsearch resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -231,6 +247,10 @@ type ElasticsearchArgs struct {
 	// The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+	//
+	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Elasticsearch resource.
 	Tags pulumi.StringMapInput
@@ -408,6 +428,10 @@ func (o ElasticsearchOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+//
+// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 func (o ElasticsearchOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Elasticsearch) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

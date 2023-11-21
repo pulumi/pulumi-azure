@@ -10,38 +10,38 @@ import java.util.Objects;
 @CustomType
 public final class ReplicatedVMUnmanagedDisk {
     /**
-     * @return Id of disk that should be replicated.
+     * @return Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     private String diskUri;
     /**
-     * @return Storage account that should be used for caching.
+     * @return Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     private String stagingStorageAccountId;
     /**
-     * @return Storage account disk should belong to when a failover is done.
+     * @return Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     private String targetStorageAccountId;
 
     private ReplicatedVMUnmanagedDisk() {}
     /**
-     * @return Id of disk that should be replicated.
+     * @return Id of disk that should be replicated. Changing this forces a new resource to be created.
      * 
      */
     public String diskUri() {
         return this.diskUri;
     }
     /**
-     * @return Storage account that should be used for caching.
+     * @return Storage account that should be used for caching. Changing this forces a new resource to be created.
      * 
      */
     public String stagingStorageAccountId() {
         return this.stagingStorageAccountId;
     }
     /**
-     * @return Storage account disk should belong to when a failover is done.
+     * @return Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
      * 
      */
     public String targetStorageAccountId() {

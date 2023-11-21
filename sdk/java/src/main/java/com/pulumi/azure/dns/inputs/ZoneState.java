@@ -95,14 +95,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `soa_record` block as defined below. Changing this forces a new resource to be created.
+     * An `soa_record` block as defined below.
      * 
      */
     @Import(name="soaRecord")
     private @Nullable Output<ZoneSoaRecordArgs> soaRecord;
 
     /**
-     * @return An `soa_record` block as defined below. Changing this forces a new resource to be created.
+     * @return An `soa_record` block as defined below.
      * 
      */
     public Optional<Output<ZoneSoaRecordArgs>> soaRecord() {
@@ -270,7 +270,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param soaRecord An `soa_record` block as defined below. Changing this forces a new resource to be created.
+         * @param soaRecord An `soa_record` block as defined below.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param soaRecord An `soa_record` block as defined below. Changing this forces a new resource to be created.
+         * @param soaRecord An `soa_record` block as defined below.
          * 
          * @return builder
          * 

@@ -63,14 +63,14 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
     @Import(name="sites")
     private @Nullable Output<List<ChannelDirectLineSiteArgs>> sites;
 
     /**
-     * @return A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * @return A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
     public Optional<Output<List<ChannelDirectLineSiteArgs>>> sites() {
@@ -168,7 +168,7 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sites A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+         * @param sites A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sites A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+         * @param sites A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sites A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+         * @param sites A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
          * 
          * @return builder
          * 

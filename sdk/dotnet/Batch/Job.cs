@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Batch
         public Output<int?> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         /// </summary>
         [Output("taskRetryMaximum")]
         public Output<int?> TaskRetryMaximum { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Batch
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         /// </summary>
         [Input("taskRetryMaximum")]
         public Input<int>? TaskRetryMaximum { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Batch
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+        /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         /// </summary>
         [Input("taskRetryMaximum")]
         public Input<int>? TaskRetryMaximum { get; set; }

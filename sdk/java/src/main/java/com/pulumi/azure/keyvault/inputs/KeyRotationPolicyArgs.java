@@ -47,14 +47,14 @@ public final class KeyRotationPolicyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+     * Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      * 
      */
     @Import(name="notifyBeforeExpiry")
     private @Nullable Output<String> notifyBeforeExpiry;
 
     /**
-     * @return Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+     * @return Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
      * 
      */
     public Optional<Output<String>> notifyBeforeExpiry() {
@@ -130,7 +130,7 @@ public final class KeyRotationPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyBeforeExpiry Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+         * @param notifyBeforeExpiry Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class KeyRotationPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param notifyBeforeExpiry Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
+         * @param notifyBeforeExpiry Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
          * 
          * @return builder
          * 

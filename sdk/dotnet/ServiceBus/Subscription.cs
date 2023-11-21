@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ServiceBus
         public Output<Outputs.SubscriptionClientScopedSubscription?> ClientScopedSubscription { get; private set; } = null!;
 
         /// <summary>
-        /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// whether the subscription is scoped to a client id. Defaults to `false`.
         /// 
         /// &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<Inputs.SubscriptionClientScopedSubscriptionArgs>? ClientScopedSubscription { get; set; }
 
         /// <summary>
-        /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// whether the subscription is scoped to a client id. Defaults to `false`.
         /// 
         /// &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.ServiceBus
         public Input<Inputs.SubscriptionClientScopedSubscriptionGetArgs>? ClientScopedSubscription { get; set; }
 
         /// <summary>
-        /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// whether the subscription is scoped to a client id. Defaults to `false`.
         /// 
         /// &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         /// </summary>

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const testElasticsearch = new azure.elasticcloud.Elasticsearch("testElasticsearch", {
  *     resourceGroupName: testResourceGroup.name,
  *     location: testResourceGroup.location,
- *     skuName: "ess-monthly-consumption_Monthly",
+ *     skuName: "ess-consumption-2024_Monthly",
  *     elasticCloudEmailAddress: "user@example.com",
  * });
  * ```
@@ -110,6 +110,10 @@ export class Elasticsearch extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+     *
+     * > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+     * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -229,6 +233,10 @@ export interface ElasticsearchState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+     *
+     * > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+     * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -267,6 +275,10 @@ export interface ElasticsearchArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+     *
+     * > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
+     * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      */
     skuName: pulumi.Input<string>;
     /**

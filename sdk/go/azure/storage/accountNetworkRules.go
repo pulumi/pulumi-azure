@@ -126,7 +126,7 @@ type AccountNetworkRules struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayOutput `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
@@ -186,7 +186,7 @@ type accountNetworkRulesState struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules []string `pulumi:"ipRules"`
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
@@ -211,7 +211,7 @@ type AccountNetworkRulesState struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules pulumi.StringArrayInput
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringPtrInput
@@ -240,7 +240,7 @@ type accountNetworkRulesArgs struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules []string `pulumi:"ipRules"`
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules []AccountNetworkRulesPrivateLinkAccessRule `pulumi:"privateLinkAccessRules"`
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -266,7 +266,7 @@ type AccountNetworkRulesArgs struct {
 	//
 	// > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
 	IpRules pulumi.StringArrayInput
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	PrivateLinkAccessRules AccountNetworkRulesPrivateLinkAccessRuleArrayInput
 	// Specifies the ID of the storage account. Changing this forces a new resource to be created.
 	StorageAccountId pulumi.StringInput
@@ -410,7 +410,7 @@ func (o AccountNetworkRulesOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) pulumi.StringArrayOutput { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
-// One or More `privateLinkAccess` block as defined below.
+// One or more `privateLinkAccess` block as defined below.
 func (o AccountNetworkRulesOutput) PrivateLinkAccessRules() AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRules) AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
 		return v.PrivateLinkAccessRules

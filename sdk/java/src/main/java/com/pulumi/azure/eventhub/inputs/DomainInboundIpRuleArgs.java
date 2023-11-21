@@ -16,14 +16,14 @@ public final class DomainInboundIpRuleArgs extends com.pulumi.resources.Resource
     public static final DomainInboundIpRuleArgs Empty = new DomainInboundIpRuleArgs();
 
     /**
-     * The action to take when the rule is matched. Possible values are `Allow`.
+     * The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return The action to take when the rule is matched. Possible values are `Allow`.
+     * @return The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -71,7 +71,7 @@ public final class DomainInboundIpRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param action The action to take when the rule is matched. Possible values are `Allow`.
+         * @param action The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DomainInboundIpRuleArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param action The action to take when the rule is matched. Possible values are `Allow`.
+         * @param action The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
          * 
          * @return builder
          * 

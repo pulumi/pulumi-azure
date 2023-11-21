@@ -70,7 +70,6 @@ type LookupLinuxWebAppResult struct {
 	// An `authSettingsV2` block as defined below.
 	AuthSettingsV2s []GetLinuxWebAppAuthSettingsV2 `pulumi:"authSettingsV2s"`
 	// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-	// *
 	Availability string `pulumi:"availability"`
 	// A `backup` block as defined below.
 	Backups []GetLinuxWebAppBackup `pulumi:"backups"`
@@ -90,6 +89,8 @@ type LookupLinuxWebAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Backup enabled?
 	Enabled bool `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service.
 	HostingEnvironmentId string `pulumi:"hostingEnvironmentId"`
 	// Should the Linux Web App require HTTPS connections.
@@ -115,8 +116,9 @@ type LookupLinuxWebAppResult struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	PublicNetworkAccessEnabled  bool   `pulumi:"publicNetworkAccessEnabled"`
-	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	// Is Public Network Access enabled for this Linux Web App.
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan that this Linux Web App exists in.
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -133,6 +135,8 @@ type LookupLinuxWebAppResult struct {
 	Usage string `pulumi:"usage"`
 	// The subnet id which the Linux Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+	WebdeployPublishBasicAuthenticationEnabled bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 func LookupLinuxWebAppOutput(ctx *pulumi.Context, args LookupLinuxWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxWebAppResultOutput {
@@ -202,7 +206,6 @@ func (o LookupLinuxWebAppResultOutput) AuthSettingsV2s() GetLinuxWebAppAuthSetti
 }
 
 // The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-// *
 func (o LookupLinuxWebAppResultOutput) Availability() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.Availability }).(pulumi.StringOutput)
 }
@@ -250,6 +253,11 @@ func (o LookupLinuxWebAppResultOutput) DefaultHostname() pulumi.StringOutput {
 // Is the Backup enabled?
 func (o LookupLinuxWebAppResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Are the default FTP Basic Authentication publishing credentials enabled.
+func (o LookupLinuxWebAppResultOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 // The ID of the App Service Environment used by App Service.
@@ -316,6 +324,7 @@ func (o LookupLinuxWebAppResultOutput) PossibleOutboundIpAddresses() pulumi.Stri
 	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// Is Public Network Access enabled for this Linux Web App.
 func (o LookupLinuxWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
@@ -362,6 +371,11 @@ func (o LookupLinuxWebAppResultOutput) Usage() pulumi.StringOutput {
 // The subnet id which the Linux Web App is vNet Integrated with.
 func (o LookupLinuxWebAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxWebAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+func (o LookupLinuxWebAppResultOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxWebAppResult) bool { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Healthcare
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         /// </summary>
         [Output("ociArtifacts")]
         public Output<ImmutableArray<Outputs.FhirServiceOciArtifact>> OciArtifacts { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.Healthcare
         private InputList<Inputs.FhirServiceOciArtifactArgs>? _ociArtifacts;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         /// </summary>
         public InputList<Inputs.FhirServiceOciArtifactArgs> OciArtifacts
         {
@@ -405,7 +405,7 @@ namespace Pulumi.Azure.Healthcare
         private InputList<Inputs.FhirServiceOciArtifactGetArgs>? _ociArtifacts;
 
         /// <summary>
-        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         /// </summary>
         public InputList<Inputs.FhirServiceOciArtifactGetArgs> OciArtifacts
         {

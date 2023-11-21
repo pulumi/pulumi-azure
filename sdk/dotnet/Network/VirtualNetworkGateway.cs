@@ -179,7 +179,7 @@ namespace Pulumi.Azure.Network
         public Output<string> Generation { get; private set; } = null!;
 
         /// <summary>
-        /// One, two or three `ip_configuration` blocks documented below.
+        /// One or more (up to 3) `ip_configuration` blocks documented below.
         /// An active-standby gateway requires exactly one `ip_configuration` block,
         /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
         /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
@@ -339,7 +339,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkGatewayIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One, two or three `ip_configuration` blocks documented below.
+        /// One or more (up to 3) `ip_configuration` blocks documented below.
         /// An active-standby gateway requires exactly one `ip_configuration` block,
         /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
         /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
@@ -470,7 +470,7 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.VirtualNetworkGatewayIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// One, two or three `ip_configuration` blocks documented below.
+        /// One or more (up to 3) `ip_configuration` blocks documented below.
         /// An active-standby gateway requires exactly one `ip_configuration` block,
         /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
         /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.

@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Compute
     public partial class Image : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `data_disk` elements as defined below.
+        /// One or more `data_disk` blocks as defined below.
         /// </summary>
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.ImageDataDisk>> DataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         /// </summary>
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
+        /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("osDisk")]
         public Output<Outputs.ImageOsDisk?> OsDisk { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ImageDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` elements as defined below.
+        /// One or more `data_disk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ImageDataDiskArgs> DataDisks
         {
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         /// </summary>
@@ -159,7 +159,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
+        /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.ImageOsDiskArgs>? OsDisk { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ImageDataDiskGetArgs>? _dataDisks;
 
         /// <summary>
-        /// One or more `data_disk` elements as defined below.
+        /// One or more `data_disk` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ImageDataDiskGetArgs> DataDisks
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+        /// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones.
         /// </summary>
@@ -237,7 +237,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// One or more `os_disk` elements as defined below. Changing this forces a new resource to be created.
+        /// One or more `os_disk` blocks as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.ImageOsDiskGetArgs>? OsDisk { get; set; }

@@ -19,14 +19,14 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
     public static final CertificateCertificatePolicyX509CertificatePropertiesArgs Empty = new CertificateCertificatePolicyX509CertificatePropertiesArgs();
 
     /**
-     * A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+     * A list of Extended/Enhanced Key Usages.
      * 
      */
     @Import(name="extendedKeyUsages")
     private @Nullable Output<List<String>> extendedKeyUsages;
 
     /**
-     * @return A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+     * @return A list of Extended/Enhanced Key Usages.
      * 
      */
     public Optional<Output<List<String>>> extendedKeyUsages() {
@@ -34,14 +34,14 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
     }
 
     /**
-     * A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+     * A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
      * 
      */
     @Import(name="keyUsages", required=true)
     private Output<List<String>> keyUsages;
 
     /**
-     * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+     * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
      * 
      */
     public Output<List<String>> keyUsages() {
@@ -49,14 +49,14 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
     }
 
     /**
-     * The Certificate&#39;s Subject. Changing this forces a new resource to be created.
+     * The Certificate&#39;s Subject.
      * 
      */
     @Import(name="subject", required=true)
     private Output<String> subject;
 
     /**
-     * @return The Certificate&#39;s Subject. Changing this forces a new resource to be created.
+     * @return The Certificate&#39;s Subject.
      * 
      */
     public Output<String> subject() {
@@ -64,14 +64,14 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
     }
 
     /**
-     * A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+     * A `subject_alternative_names` block as defined below.
      * 
      */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs> subjectAlternativeNames;
 
     /**
-     * @return A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+     * @return A `subject_alternative_names` block as defined below.
      * 
      */
     public Optional<Output<CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs>> subjectAlternativeNames() {
@@ -79,14 +79,14 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
     }
 
     /**
-     * The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+     * The Certificates Validity Period in Months.
      * 
      */
     @Import(name="validityInMonths", required=true)
     private Output<Integer> validityInMonths;
 
     /**
-     * @return The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+     * @return The Certificates Validity Period in Months.
      * 
      */
     public Output<Integer> validityInMonths() {
@@ -122,7 +122,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param extendedKeyUsages A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+         * @param extendedKeyUsages A list of Extended/Enhanced Key Usages.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param extendedKeyUsages A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+         * @param extendedKeyUsages A list of Extended/Enhanced Key Usages.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param extendedKeyUsages A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+         * @param extendedKeyUsages A list of Extended/Enhanced Key Usages.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param keyUsages A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+         * @param keyUsages A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param keyUsages A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+         * @param keyUsages A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param keyUsages A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+         * @param keyUsages A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param subject The Certificate&#39;s Subject. Changing this forces a new resource to be created.
+         * @param subject The Certificate&#39;s Subject.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param subject The Certificate&#39;s Subject. Changing this forces a new resource to be created.
+         * @param subject The Certificate&#39;s Subject.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param subjectAlternativeNames A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+         * @param subjectAlternativeNames A `subject_alternative_names` block as defined below.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param subjectAlternativeNames A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+         * @param subjectAlternativeNames A `subject_alternative_names` block as defined below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param validityInMonths The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+         * @param validityInMonths The Certificates Validity Period in Months.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesArgs ext
         }
 
         /**
-         * @param validityInMonths The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+         * @param validityInMonths The Certificates Validity Period in Months.
          * 
          * @return builder
          * 

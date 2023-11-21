@@ -89,7 +89,7 @@ type CertificateOrder struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Certificate product type, such as `Standard` or `WildCard`.
+	// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
 	ProductType pulumi.StringPtrOutput `pulumi:"productType"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -164,7 +164,7 @@ type certificateOrderState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Certificate product type, such as `Standard` or `WildCard`.
+	// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
 	ProductType *string `pulumi:"productType"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -207,7 +207,7 @@ type CertificateOrderState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Certificate product type, such as `Standard` or `WildCard`.
+	// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
 	ProductType pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type certificateOrderArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Certificate product type, such as `Standard` or `WildCard`.
+	// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
 	ProductType *string `pulumi:"productType"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -268,7 +268,7 @@ type CertificateOrderArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the certificate. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Certificate product type, such as `Standard` or `WildCard`.
+	// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
 	ProductType pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -451,7 +451,7 @@ func (o CertificateOrderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Certificate product type, such as `Standard` or `WildCard`.
+// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
 func (o CertificateOrderOutput) ProductType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateOrder) pulumi.StringPtrOutput { return v.ProductType }).(pulumi.StringPtrOutput)
 }

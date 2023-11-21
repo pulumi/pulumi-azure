@@ -150,7 +150,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableDictionary<string, string>> AppSettings { get; private set; } = null!;
 
         /// <summary>
-        /// If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+        /// If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         /// </summary>
         [Output("bundleVersion")]
         public Output<string?> BundleVersion { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<bool?> UseExtensionBundle { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime version associated with the Logic App Defaults to `~3`.
+        /// The runtime version associated with the Logic App. Defaults to `~3`.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+        /// If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         /// </summary>
         [Input("bundleVersion")]
         public Input<string>? BundleVersion { get; set; }
@@ -473,7 +473,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? UseExtensionBundle { get; set; }
 
         /// <summary>
-        /// The runtime version associated with the Logic App Defaults to `~3`.
+        /// The runtime version associated with the Logic App. Defaults to `~3`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.LogicApps
         }
 
         /// <summary>
-        /// If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+        /// If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         /// </summary>
         [Input("bundleVersion")]
         public Input<string>? BundleVersion { get; set; }
@@ -667,7 +667,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? UseExtensionBundle { get; set; }
 
         /// <summary>
-        /// The runtime version associated with the Logic App Defaults to `~3`.
+        /// The runtime version associated with the Logic App. Defaults to `~3`.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

@@ -431,7 +431,7 @@ class PoolCertificateArgs:
         :param pulumi.Input[str] store_location: The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
                
                > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
-        :param pulumi.Input[str] store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+        :param pulumi.Input[str] store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] visibilities: Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
         """
         pulumi.set(__self__, "id", id)
@@ -471,7 +471,7 @@ class PoolCertificateArgs:
     @pulumi.getter(name="storeName")
     def store_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+        The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
         """
         return pulumi.get(self, "store_name")
 
@@ -555,7 +555,7 @@ class PoolContainerConfigurationContainerRegistryArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_server: The container registry URL. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to log into the registry server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_name: The user name to log into the registry server. Changing this forces a new resource to be created.
@@ -572,7 +572,7 @@ class PoolContainerConfigurationContainerRegistryArgs:
     @pulumi.getter(name="registryServer")
     def registry_server(self) -> pulumi.Input[str]:
         """
-        The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        The container registry URL. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "registry_server")
 
@@ -627,8 +627,8 @@ class PoolDataDiskArgs:
         """
         :param pulumi.Input[int] disk_size_gb: The initial disk size in GB when creating new data disk.
         :param pulumi.Input[int] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
-        :param pulumi.Input[str] caching: Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[str] storage_account_type: The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+        :param pulumi.Input[str] caching: Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
+        :param pulumi.Input[str] storage_account_type: The storage account type to be used for the data disk. Values are: Possible values are `Standard_LRS` - The data disk should use standard locally redundant storage. `Premium_LRS` - The data disk should use premium locally redundant storage. Defaults to `Standard_LRS`.
         """
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         pulumi.set(__self__, "lun", lun)
@@ -665,7 +665,7 @@ class PoolDataDiskArgs:
     @pulumi.getter
     def caching(self) -> Optional[pulumi.Input[str]]:
         """
-        Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
         """
         return pulumi.get(self, "caching")
 
@@ -677,7 +677,7 @@ class PoolDataDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+        The storage account type to be used for the data disk. Values are: Possible values are `Standard_LRS` - The data disk should use standard locally redundant storage. `Premium_LRS` - The data disk should use premium locally redundant storage. Defaults to `Standard_LRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -727,7 +727,7 @@ class PoolExtensionArgs:
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
                
-               **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+               > **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
         :param pulumi.Input[str] protected_settings: The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
         :param pulumi.Input[str] settings_json: JSON formatted public settings for the extension.
@@ -803,7 +803,7 @@ class PoolExtensionArgs:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 
-        **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
+        > **NOTE:** When `automatic_upgrade_enabled` is set to `true`, the `type_handler_version` is automatically updated by the Azure platform when a new version is available and any change in `type_handler_version` should be manually ignored by user.
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
 
@@ -1385,8 +1385,8 @@ class PoolNetworkConfigurationArgs:
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] accelerated_networking_enabled: Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]] endpoint_configurations: A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] dynamic_vnet_assignment_scope: The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]] endpoint_configurations: A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_address_provisioning_type: Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
@@ -1420,7 +1420,7 @@ class PoolNetworkConfigurationArgs:
     @pulumi.getter(name="dynamicVnetAssignmentScope")
     def dynamic_vnet_assignment_scope(self) -> Optional[pulumi.Input[str]]:
         """
-        The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+        The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
         """
         return pulumi.get(self, "dynamic_vnet_assignment_scope")
 
@@ -1432,7 +1432,7 @@ class PoolNetworkConfigurationArgs:
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]]]:
         """
-        A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "endpoint_configurations")
 
@@ -1633,7 +1633,7 @@ class PoolNodePlacementArgs:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] policy: The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+        :param pulumi.Input[str] policy: The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -1642,7 +1642,7 @@ class PoolNodePlacementArgs:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+        The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
         """
         return pulumi.get(self, "policy")
 
@@ -1665,7 +1665,7 @@ class PoolStartTaskArgs:
         :param pulumi.Input[str] command_line: The command line executed by the start task.
         :param pulumi.Input['PoolStartTaskUserIdentityArgs'] user_identity: A `user_identity` block that describes the user identity under which the start task runs as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] common_environment_properties: A map of strings (key,value) that represents the environment variables to set in the start task.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]] containers: A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]] containers: A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]] resource_files: One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
         :param pulumi.Input[int] task_retry_maximum: The number of retry count.
         :param pulumi.Input[bool] wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
@@ -1723,7 +1723,7 @@ class PoolStartTaskArgs:
     @pulumi.getter
     def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]]]:
         """
-        A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+        A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
         """
         return pulumi.get(self, "containers")
 
@@ -1777,9 +1777,9 @@ class PoolStartTaskContainerArgs:
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] image_name: The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
-        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]] registries: The same reference as `container_registries` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]] registries: The `container_registries` block defined as below.
         :param pulumi.Input[str] run_options: Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
-        :param pulumi.Input[str] working_directory: A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+        :param pulumi.Input[str] working_directory: A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
         """
         pulumi.set(__self__, "image_name", image_name)
         if registries is not None:
@@ -1805,7 +1805,7 @@ class PoolStartTaskContainerArgs:
     @pulumi.getter
     def registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]]:
         """
-        The same reference as `container_registries` block defined as below.
+        The `container_registries` block defined as below.
         """
         return pulumi.get(self, "registries")
 
@@ -1829,7 +1829,7 @@ class PoolStartTaskContainerArgs:
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
         """
-        A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+        A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
         """
         return pulumi.get(self, "working_directory")
 
@@ -1846,7 +1846,7 @@ class PoolStartTaskContainerRegistryArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        :param pulumi.Input[str] registry_server: The container registry URL. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The password to use for authentication against the CIFS file system.
         :param pulumi.Input[str] user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_name: The user to use for authentication against the CIFS file system.
@@ -1863,7 +1863,7 @@ class PoolStartTaskContainerRegistryArgs:
     @pulumi.getter(name="registryServer")
     def registry_server(self) -> pulumi.Input[str]:
         """
-        The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        The container registry URL. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "registry_server")
 
@@ -2393,7 +2393,7 @@ class PoolWindowArgs:
     def __init__(__self__, *,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] enable_automatic_updates: Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+        :param pulumi.Input[bool] enable_automatic_updates: Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
         """
         if enable_automatic_updates is not None:
             pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
@@ -2402,7 +2402,7 @@ class PoolWindowArgs:
     @pulumi.getter(name="enableAutomaticUpdates")
     def enable_automatic_updates(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+        Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
         """
         return pulumi.get(self, "enable_automatic_updates")
 

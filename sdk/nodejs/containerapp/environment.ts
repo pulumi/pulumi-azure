@@ -64,7 +64,7 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
-     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
     public readonly daprApplicationInsightsConnectionString!: pulumi.Output<string | undefined>;
     /**
@@ -185,7 +185,7 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentState {
     /**
-     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
     daprApplicationInsightsConnectionString?: pulumi.Input<string>;
     /**
@@ -253,7 +253,7 @@ export interface EnvironmentState {
  */
 export interface EnvironmentArgs {
     /**
-     * Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
     daprApplicationInsightsConnectionString?: pulumi.Input<string>;
     /**

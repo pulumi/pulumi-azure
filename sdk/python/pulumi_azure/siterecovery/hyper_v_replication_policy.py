@@ -23,6 +23,7 @@ class HyperVReplicationPolicyArgs:
         The set of arguments for constructing a HyperVReplicationPolicy resource.
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
         :param pulumi.Input[int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
+        :param pulumi.Input[str] recovery_vault_id: The id of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] replication_interval_in_seconds: Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         """
@@ -60,6 +61,9 @@ class HyperVReplicationPolicyArgs:
     @property
     @pulumi.getter(name="recoveryVaultId")
     def recovery_vault_id(self) -> pulumi.Input[str]:
+        """
+        The id of the vault that should be updated. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
@@ -104,6 +108,7 @@ class _HyperVReplicationPolicyState:
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
+        :param pulumi.Input[str] recovery_vault_id: The id of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] replication_interval_in_seconds: Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         """
         if application_consistent_snapshot_frequency_in_hours is not None:
@@ -156,6 +161,9 @@ class _HyperVReplicationPolicyState:
     @property
     @pulumi.getter(name="recoveryVaultId")
     def recovery_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the vault that should be updated. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "recovery_vault_id")
 
     @recovery_vault_id.setter
@@ -220,6 +228,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
+        :param pulumi.Input[str] recovery_vault_id: The id of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] replication_interval_in_seconds: Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         """
         ...
@@ -324,6 +333,7 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         :param pulumi.Input[int] application_consistent_snapshot_frequency_in_hours: Specifies the frequency at which to create application consistent recovery points.
         :param pulumi.Input[str] name: The name of the replication policy. Changing this forces a new resource to be created.
         :param pulumi.Input[int] recovery_point_retention_in_hours: The duration in hours for which the recovery points need to be stored.
+        :param pulumi.Input[str] recovery_vault_id: The id of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] replication_interval_in_seconds: Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -364,6 +374,9 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="recoveryVaultId")
     def recovery_vault_id(self) -> pulumi.Output[str]:
+        """
+        The id of the vault that should be updated. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "recovery_vault_id")
 
     @property

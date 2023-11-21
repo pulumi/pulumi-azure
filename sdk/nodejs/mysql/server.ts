@@ -79,7 +79,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
-     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
     public readonly autoGrowEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface ServerState {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
     autoGrowEnabled?: pulumi.Input<boolean>;
     /**
@@ -345,7 +345,7 @@ export interface ServerArgs {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      */
     autoGrowEnabled?: pulumi.Input<boolean>;
     /**

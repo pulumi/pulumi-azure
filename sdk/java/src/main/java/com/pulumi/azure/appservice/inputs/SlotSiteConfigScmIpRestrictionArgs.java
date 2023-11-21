@@ -33,14 +33,14 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
     }
 
     /**
-     * The headers for this specific `scm_ip_restriction` as defined below.
+     * The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<SlotSiteConfigScmIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The headers for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<Output<SlotSiteConfigScmIpRestrictionHeadersArgs>> headers() {
@@ -178,7 +178,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers The headers for this specific `scm_ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `scm_ip_restriction` as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class SlotSiteConfigScmIpRestrictionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers The headers for this specific `scm_ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific `scm_ip_restriction` as defined below.
          * 
          * @return builder
          * 

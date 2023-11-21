@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WindowsFunctionAppSlotSiteConfigScmIpRestriction {
     /**
-     * @return The action to take. Possible values are `Allow` or `Deny`.
+     * @return The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String action;
@@ -53,7 +53,7 @@ public final class WindowsFunctionAppSlotSiteConfigScmIpRestriction {
 
     private WindowsFunctionAppSlotSiteConfigScmIpRestriction() {}
     /**
-     * @return The action to take. Possible values are `Allow` or `Deny`.
+     * @return The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> action() {

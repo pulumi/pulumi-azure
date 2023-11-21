@@ -199,7 +199,7 @@ class _EnvironmentV3State:
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_suffix: the DNS suffix for this App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external inbound IP addresses of the App Service Environment V3.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]] inbound_network_dependencies: An Inbound Network Dependencies block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]] inbound_network_dependencies: An `inbound_network_dependencies` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ip_ssl_address_count: The number of IP SSL addresses reserved for the App Service Environment V3.
@@ -319,7 +319,7 @@ class _EnvironmentV3State:
     @pulumi.getter(name="inboundNetworkDependencies")
     def inbound_network_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]]:
         """
-        An Inbound Network Dependencies block as defined below.
+        An `inbound_network_dependencies` block as defined below.
         """
         return pulumi.get(self, "inbound_network_dependencies")
 
@@ -626,7 +626,7 @@ class EnvironmentV3(pulumi.CustomResource):
         :param pulumi.Input[int] dedicated_host_count: This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_suffix: the DNS suffix for this App Service Environment V3.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_inbound_ip_addresses: The external inbound IP addresses of the App Service Environment V3.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3InboundNetworkDependencyArgs']]]] inbound_network_dependencies: An Inbound Network Dependencies block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentV3InboundNetworkDependencyArgs']]]] inbound_network_dependencies: An `inbound_network_dependencies` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_inbound_ip_addresses: The internal inbound IP addresses of the App Service Environment V3.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ip_ssl_address_count: The number of IP SSL addresses reserved for the App Service Environment V3.
@@ -713,7 +713,7 @@ class EnvironmentV3(pulumi.CustomResource):
     @pulumi.getter(name="inboundNetworkDependencies")
     def inbound_network_dependencies(self) -> pulumi.Output[Sequence['outputs.EnvironmentV3InboundNetworkDependency']]:
         """
-        An Inbound Network Dependencies block as defined below.
+        An `inbound_network_dependencies` block as defined below.
         """
         return pulumi.get(self, "inbound_network_dependencies")
 

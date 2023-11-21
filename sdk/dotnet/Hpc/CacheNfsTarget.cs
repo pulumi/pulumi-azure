@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Hpc
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         /// </summary>
         [Output("namespaceJunctions")]
         public Output<ImmutableArray<Outputs.CacheNfsTargetNamespaceJunction>> NamespaceJunctions { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Hpc
         private InputList<Inputs.CacheNfsTargetNamespaceJunctionArgs>? _namespaceJunctions;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.CacheNfsTargetNamespaceJunctionArgs> NamespaceJunctions
         {
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Hpc
         private InputList<Inputs.CacheNfsTargetNamespaceJunctionGetArgs>? _namespaceJunctions;
 
         /// <summary>
-        /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_juntion` block supports fields documented below.
+        /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         /// </summary>
         public InputList<Inputs.CacheNfsTargetNamespaceJunctionGetArgs> NamespaceJunctions
         {

@@ -28,7 +28,7 @@ public final class FactoryVstsConfiguration {
      */
     private String projectName;
     /**
-     * @return Is automated publishing enabled? Defaults to `false`.
+     * @return Is automated publishing enabled? Defaults to `true`.
      * 
      */
     private @Nullable Boolean publishingEnabled;
@@ -71,7 +71,7 @@ public final class FactoryVstsConfiguration {
         return this.projectName;
     }
     /**
-     * @return Is automated publishing enabled? Defaults to `false`.
+     * @return Is automated publishing enabled? Defaults to `true`.
      * 
      */
     public Optional<Boolean> publishingEnabled() {

@@ -21,14 +21,14 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
     public static final HadoopClusterRolesEdgeNodeArgs Empty = new HadoopClusterRolesEdgeNodeArgs();
 
     /**
-     * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+     * The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
      * 
      */
     @Import(name="httpsEndpoints")
     private @Nullable Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>> httpsEndpoints;
 
     /**
-     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
      * 
      */
     public Optional<Output<List<HadoopClusterRolesEdgeNodeHttpsEndpointArgs>>> httpsEndpoints() {
@@ -124,7 +124,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class HadoopClusterRolesEdgeNodeArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+         * @param httpsEndpoints The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
          * 
          * @return builder
          * 

@@ -175,7 +175,7 @@ class CacheDefaultAccessPolicy(dict):
     def __init__(__self__, *,
                  access_rules: Sequence['outputs.CacheDefaultAccessPolicyAccessRule']):
         """
-        :param Sequence['CacheDefaultAccessPolicyAccessRuleArgs'] access_rules: One to three `access_rule` blocks as defined above.
+        :param Sequence['CacheDefaultAccessPolicyAccessRuleArgs'] access_rules: One or more `access_rule` blocks (up to three) as defined above.
         """
         pulumi.set(__self__, "access_rules", access_rules)
 
@@ -183,7 +183,7 @@ class CacheDefaultAccessPolicy(dict):
     @pulumi.getter(name="accessRules")
     def access_rules(self) -> Sequence['outputs.CacheDefaultAccessPolicyAccessRule']:
         """
-        One to three `access_rule` blocks as defined above.
+        One or more `access_rule` blocks (up to three) as defined above.
         """
         return pulumi.get(self, "access_rules")
 

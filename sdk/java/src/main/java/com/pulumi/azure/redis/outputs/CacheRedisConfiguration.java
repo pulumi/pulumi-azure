@@ -77,7 +77,7 @@ public final class CacheRedisConfiguration {
      */
     private @Nullable Integer maxmemoryDelta;
     /**
-     * @return How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+     * @return How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
      * 
      */
     private @Nullable String maxmemoryPolicy;
@@ -246,7 +246,7 @@ public final class CacheRedisConfiguration {
         return Optional.ofNullable(this.maxmemoryDelta);
     }
     /**
-     * @return How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+     * @return How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
      * 
      */
     public Optional<String> maxmemoryPolicy() {

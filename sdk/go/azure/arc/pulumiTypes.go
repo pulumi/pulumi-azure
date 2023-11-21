@@ -17,7 +17,7 @@ var _ = internal.GetEnvOrDefault
 type ResourceBridgeApplianceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	TenantId    *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -35,7 +35,7 @@ type ResourceBridgeApplianceIdentityInput interface {
 type ResourceBridgeApplianceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -142,7 +142,7 @@ func (o ResourceBridgeApplianceIdentityOutput) TenantId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ResourceBridgeApplianceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o ResourceBridgeApplianceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceBridgeApplianceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -195,7 +195,7 @@ func (o ResourceBridgeApplianceIdentityPtrOutput) TenantId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o ResourceBridgeApplianceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceBridgeApplianceIdentity) *string {
 		if v == nil {

@@ -15,14 +15,14 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
     public static final PolicyFileShareBackupHourlyArgs Empty = new PolicyFileShareBackupHourlyArgs();
 
     /**
-     * Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+     * Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
      * 
      */
     @Import(name="interval", required=true)
     private Output<Integer> interval;
 
     /**
-     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
      * 
      */
     public Output<Integer> interval() {
@@ -30,14 +30,14 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
      * 
      */
     @Import(name="startTime", required=true)
     private Output<String> startTime;
 
     /**
-     * @return Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * @return Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
      * 
      */
     public Output<String> startTime() {
@@ -45,14 +45,14 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
     }
 
     /**
-     * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+     * Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     @Import(name="windowDuration", required=true)
     private Output<Integer> windowDuration;
 
     /**
-     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     public Output<Integer> windowDuration() {
@@ -86,7 +86,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param interval Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+         * @param interval Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param interval Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+         * @param interval Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param startTime Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         * @param startTime Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param startTime Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+         * @param startTime Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class PolicyFileShareBackupHourlyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+         * @param windowDuration Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Dashboard.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+        /// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<string> IdentityIds
         {

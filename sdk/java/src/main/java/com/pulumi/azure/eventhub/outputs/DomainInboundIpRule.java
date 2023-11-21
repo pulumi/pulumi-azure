@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainInboundIpRule {
     /**
-     * @return The action to take when the rule is matched. Possible values are `Allow`.
+     * @return The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
      * 
      */
     private @Nullable String action;
@@ -24,7 +24,7 @@ public final class DomainInboundIpRule {
 
     private DomainInboundIpRule() {}
     /**
-     * @return The action to take when the rule is matched. Possible values are `Allow`.
+     * @return The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
      * 
      */
     public Optional<String> action() {

@@ -34,14 +34,14 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+     * The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
      * 
      */
     @Import(name="dynamicVnetAssignmentScope")
     private @Nullable Output<String> dynamicVnetAssignmentScope;
 
     /**
-     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
      * 
      */
     public Optional<Output<String>> dynamicVnetAssignmentScope() {
@@ -49,14 +49,14 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+     * A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="endpointConfigurations")
     private @Nullable Output<List<PoolNetworkConfigurationEndpointConfigurationArgs>> endpointConfigurations;
 
     /**
-     * @return A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+     * @return A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<PoolNetworkConfigurationEndpointConfigurationArgs>>> endpointConfigurations() {
@@ -159,7 +159,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param endpointConfigurations A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+         * @param endpointConfigurations A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param endpointConfigurations A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+         * @param endpointConfigurations A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param endpointConfigurations A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+         * @param endpointConfigurations A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

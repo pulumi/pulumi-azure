@@ -552,7 +552,7 @@ class VolumeGroupSapHanaVolumeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] protocols: The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
-        :param pulumi.Input[str] security_style: Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[str] security_style: Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] service_level: Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[bool] snapshot_directory_visible: Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[int] storage_quota_in_gb: The maximum Storage Quota allowed for a file system in Gigabytes.
@@ -643,7 +643,7 @@ class VolumeGroupSapHanaVolumeArgs:
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> pulumi.Input[str]:
         """
-        Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "security_style")
 
@@ -813,7 +813,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
                  replication_frequency: pulumi.Input[str],
                  endpoint_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] remote_volume_location: Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[str] remote_volume_location: Location of the primary volume.
         :param pulumi.Input[str] remote_volume_resource_id: Resource ID of the primary volume.
         :param pulumi.Input[str] replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
         :param pulumi.Input[str] endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
@@ -828,7 +828,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> pulumi.Input[str]:
         """
-        Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        Location of the primary volume.
         """
         return pulumi.get(self, "remote_volume_location")
 

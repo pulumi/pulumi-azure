@@ -62,7 +62,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Is automated publishing enabled? Defaults to `false`.
+     * Is automated publishing enabled? Defaults to `true`.
      * 
      * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
@@ -71,7 +71,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
     private @Nullable Output<Boolean> publishingEnabled;
 
     /**
-     * @return Is automated publishing enabled? Defaults to `false`.
+     * @return Is automated publishing enabled? Defaults to `true`.
      * 
      * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
@@ -203,7 +203,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `true`.
          * 
          * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
          * 
@@ -216,7 +216,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `true`.
          * 
          * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
          * 

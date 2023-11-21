@@ -29,7 +29,7 @@ public final class PoolStartTask {
      */
     private @Nullable Map<String,String> commonEnvironmentProperties;
     /**
-     * @return A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+     * @return A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
      * 
      */
     private @Nullable List<PoolStartTaskContainer> containers;
@@ -70,7 +70,7 @@ public final class PoolStartTask {
         return this.commonEnvironmentProperties == null ? Map.of() : this.commonEnvironmentProperties;
     }
     /**
-     * @return A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+     * @return A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
      * 
      */
     public List<PoolStartTaskContainer> containers() {

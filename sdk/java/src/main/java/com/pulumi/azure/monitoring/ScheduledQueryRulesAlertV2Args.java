@@ -97,14 +97,14 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * @return Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -480,7 +480,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param enabled Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+         * @param enabled Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class ScheduledQueryRulesAlertV2Args extends com.pulumi.resources.R
         }
 
         /**
-         * @param enabled Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+         * @param enabled Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
          * 
          * @return builder
          * 

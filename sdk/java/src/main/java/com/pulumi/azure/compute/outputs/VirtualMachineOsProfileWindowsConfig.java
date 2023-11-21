@@ -21,7 +21,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
      */
     private @Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
     /**
-     * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+     * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
      * 
      */
     private @Nullable Boolean enableAutomaticUpgrades;
@@ -52,7 +52,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
         return this.additionalUnattendConfigs == null ? List.of() : this.additionalUnattendConfigs;
     }
     /**
-     * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+     * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
      * 
      */
     public Optional<Boolean> enableAutomaticUpgrades() {

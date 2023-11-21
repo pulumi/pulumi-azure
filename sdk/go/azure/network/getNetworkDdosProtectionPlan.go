@@ -57,8 +57,6 @@ type GetNetworkDdosProtectionPlanArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the resource group where the Network DDoS Protection Plan exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the resource.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkDdosProtectionPlan.
@@ -94,8 +92,6 @@ type GetNetworkDdosProtectionPlanOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group where the Network DDoS Protection Plan exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetNetworkDdosProtectionPlanOutputArgs) ElementType() reflect.Type {

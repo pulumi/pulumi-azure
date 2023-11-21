@@ -19,6 +19,10 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      * 
      */
     private @Nullable String currentStack;
+    /**
+     * @return The name of the container to be used. This value is required with `docker_container_tag`.
+     * 
+     */
     private @Nullable String dockerContainerName;
     /**
      * @deprecated
@@ -27,6 +31,10 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      */
     @Deprecated /* This property has been deprecated and will be removed in a future release of the provider. */
     private @Nullable String dockerContainerRegistry;
+    /**
+     * @return The tag of the container to be used. This value is required with `docker_container_name`.
+     * 
+     */
     private @Nullable String dockerContainerTag;
     /**
      * @return The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
@@ -138,6 +146,10 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     public Optional<String> currentStack() {
         return Optional.ofNullable(this.currentStack);
     }
+    /**
+     * @return The name of the container to be used. This value is required with `docker_container_tag`.
+     * 
+     */
     public Optional<String> dockerContainerName() {
         return Optional.ofNullable(this.dockerContainerName);
     }
@@ -150,6 +162,10 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     public Optional<String> dockerContainerRegistry() {
         return Optional.ofNullable(this.dockerContainerRegistry);
     }
+    /**
+     * @return The tag of the container to be used. This value is required with `docker_container_name`.
+     * 
+     */
     public Optional<String> dockerContainerTag() {
         return Optional.ofNullable(this.dockerContainerTag);
     }

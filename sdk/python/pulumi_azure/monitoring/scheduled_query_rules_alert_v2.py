@@ -46,7 +46,7 @@ class ScheduledQueryRulesAlertV2Args:
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
-        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
                
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
@@ -211,7 +211,7 @@ class ScheduledQueryRulesAlertV2Args:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -369,7 +369,7 @@ class _ScheduledQueryRulesAlertV2State:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
-        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
                
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
@@ -515,7 +515,7 @@ class _ScheduledQueryRulesAlertV2State:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -755,7 +755,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
-        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
                
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
@@ -915,7 +915,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
-        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] evaluation_frequency: How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
                
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
@@ -1020,7 +1020,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+        Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

@@ -137,7 +137,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.description;
     }
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      * 
      * &gt; **Note:** One of `name` or `display_name` block must be specified.
      * 
@@ -146,7 +146,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
     private Output<String> displayName;
 
     /**
-     * @return The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * @return The Display Name of the built-in Anomaly Alert Rule.
      * 
      * &gt; **Note:** One of `name` or `display_name` block must be specified.
      * 
@@ -225,14 +225,14 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.multiSelectObservations;
     }
     /**
-     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Name of the built-in Anomaly Alert Rule.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * @return The Name of the built-in Anomaly Alert Rule.
      * 
      */
     public Output<String> name() {

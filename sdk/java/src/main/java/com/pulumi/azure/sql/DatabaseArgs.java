@@ -80,14 +80,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * A `import` block as documented below. `create_mode` must be set to `Default`.
      * 
      */
     @Import(name="import")
     private @Nullable Output<DatabaseImportArgs> import_;
 
     /**
-     * @return A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * @return A `import` block as documented below. `create_mode` must be set to `Default`.
      * 
      */
     public Optional<Output<DatabaseImportArgs>> import_() {
@@ -441,7 +441,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A Database Import block as documented below. `create_mode` must be set to `Default`.
+         * @param import_ A `import` block as documented below. `create_mode` must be set to `Default`.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A Database Import block as documented below. `create_mode` must be set to `Default`.
+         * @param import_ A `import` block as documented below. `create_mode` must be set to `Default`.
          * 
          * @return builder
          * 

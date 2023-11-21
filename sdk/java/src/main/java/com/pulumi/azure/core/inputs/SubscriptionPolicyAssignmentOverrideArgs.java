@@ -18,14 +18,14 @@ public final class SubscriptionPolicyAssignmentOverrideArgs extends com.pulumi.r
     public static final SubscriptionPolicyAssignmentOverrideArgs Empty = new SubscriptionPolicyAssignmentOverrideArgs();
 
     /**
-     * One or more `override_selector` as defined below.
+     * One or more `override_selector` block as defined below.
      * 
      */
     @Import(name="selectors")
     private @Nullable Output<List<SubscriptionPolicyAssignmentOverrideSelectorArgs>> selectors;
 
     /**
-     * @return One or more `override_selector` as defined below.
+     * @return One or more `override_selector` block as defined below.
      * 
      */
     public Optional<Output<List<SubscriptionPolicyAssignmentOverrideSelectorArgs>>> selectors() {
@@ -73,7 +73,7 @@ public final class SubscriptionPolicyAssignmentOverrideArgs extends com.pulumi.r
         }
 
         /**
-         * @param selectors One or more `override_selector` as defined below.
+         * @param selectors One or more `override_selector` block as defined below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class SubscriptionPolicyAssignmentOverrideArgs extends com.pulumi.r
         }
 
         /**
-         * @param selectors One or more `override_selector` as defined below.
+         * @param selectors One or more `override_selector` block as defined below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class SubscriptionPolicyAssignmentOverrideArgs extends com.pulumi.r
         }
 
         /**
-         * @param selectors One or more `override_selector` as defined below.
+         * @param selectors One or more `override_selector` block as defined below.
          * 
          * @return builder
          * 

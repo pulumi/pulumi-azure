@@ -3970,7 +3970,7 @@ func (o RulesEngineRuleActionResponseHeaderArrayOutput) Index(i pulumi.IntInput)
 }
 
 type RulesEngineRuleMatchCondition struct {
-	// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+	// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
 	Operator string `pulumi:"operator"`
@@ -3996,7 +3996,7 @@ type RulesEngineRuleMatchConditionInput interface {
 }
 
 type RulesEngineRuleMatchConditionArgs struct {
-	// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+	// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -4079,7 +4079,7 @@ func (o RulesEngineRuleMatchConditionOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
 func (o RulesEngineRuleMatchConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RulesEngineRuleMatchCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }

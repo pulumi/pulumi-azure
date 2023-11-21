@@ -28,7 +28,7 @@ class RouteArgs:
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
-        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -105,7 +105,7 @@ class RouteArgs:
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
         """
-        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         """
         return pulumi.get(self, "condition")
 
@@ -138,7 +138,7 @@ class _RouteState:
                  source: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
-        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
@@ -165,7 +165,7 @@ class _RouteState:
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
         """
-        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         """
         return pulumi.get(self, "condition")
 
@@ -274,7 +274,7 @@ class Route(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
@@ -373,7 +373,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
@@ -398,7 +398,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional[str]]:
         """
-        The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         """
         return pulumi.get(self, "condition")
 

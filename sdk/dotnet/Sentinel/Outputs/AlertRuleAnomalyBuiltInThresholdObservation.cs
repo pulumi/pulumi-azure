@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? Min;
         /// <summary>
-        /// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Name of the built-in Anomaly Alert Rule.
         /// </summary>
         public readonly string? Name;
         /// <summary>

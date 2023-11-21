@@ -107,14 +107,14 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     @Import(name="fileNameFormat")
     private @Nullable Output<String> fileNameFormat;
 
     /**
-     * @return File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * @return File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     public Optional<Output<String>> fileNameFormat() {
@@ -362,7 +362,7 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param fileNameFormat File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+         * @param fileNameFormat File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class EndpointStorageContainerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param fileNameFormat File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+         * @param fileNameFormat File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
          * 
          * @return builder
          * 

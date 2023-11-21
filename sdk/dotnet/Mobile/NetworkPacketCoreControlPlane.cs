@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Mobile
         public Output<string?> ControlPlaneAccessName { get; private set; } = null!;
 
         /// <summary>
-        /// The core network technology generation. Possible values are `EPG` and `5GC`.
+        /// The core network technology generation. Possible values are `5GC` and `EPC`.
         /// </summary>
         [Output("coreNetworkTechnology")]
         public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? ControlPlaneAccessName { get; set; }
 
         /// <summary>
-        /// The core network technology generation. Possible values are `EPG` and `5GC`.
+        /// The core network technology generation. Possible values are `5GC` and `EPC`.
         /// </summary>
         [Input("coreNetworkTechnology")]
         public Input<string>? CoreNetworkTechnology { get; set; }
@@ -390,7 +390,7 @@ namespace Pulumi.Azure.Mobile
         public Input<string>? ControlPlaneAccessName { get; set; }
 
         /// <summary>
-        /// The core network technology generation. Possible values are `EPG` and `5GC`.
+        /// The core network technology generation. Possible values are `5GC` and `EPC`.
         /// </summary>
         [Input("coreNetworkTechnology")]
         public Input<string>? CoreNetworkTechnology { get; set; }

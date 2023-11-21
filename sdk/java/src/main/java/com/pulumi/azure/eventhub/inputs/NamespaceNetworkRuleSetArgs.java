@@ -19,14 +19,14 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
     public static final NamespaceNetworkRuleSetArgs Empty = new NamespaceNetworkRuleSetArgs();
 
     /**
-     * Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="defaultAction")
     private @Nullable Output<String> defaultAction;
 
     /**
-     * @return Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> defaultAction() {
@@ -122,7 +122,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defaultAction Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * @param defaultAction Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param defaultAction Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * @param defaultAction Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 

@@ -101,7 +101,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// The notification setting of a schedule. A `notification_settings` block as defined below.
         /// </summary>
         [Output("notificationSettings")]
         public Output<Outputs.ScheduleNotificationSettings> NotificationSettings { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// The notification setting of a schedule. A `notification_settings` block as defined below.
         /// </summary>
         [Input("notificationSettings", required: true)]
         public Input<Inputs.ScheduleNotificationSettingsArgs> NotificationSettings { get; set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The notification setting of a schedule. A `notification_settings` as defined below.
+        /// The notification setting of a schedule. A `notification_settings` block as defined below.
         /// </summary>
         [Input("notificationSettings")]
         public Input<Inputs.ScheduleNotificationSettingsGetArgs>? NotificationSettings { get; set; }

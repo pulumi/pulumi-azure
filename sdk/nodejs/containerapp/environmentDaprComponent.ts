@@ -71,7 +71,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
     }
 
     /**
-     * The Dapr Component Type. For example `state.azure.blobstorage`.
+     * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      */
     public readonly componentType!: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
      */
     public readonly ignoreErrors!: pulumi.Output<boolean | undefined>;
     /**
-     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      */
     public readonly initTimeout!: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
  */
 export interface EnvironmentDaprComponentState {
     /**
-     * The Dapr Component Type. For example `state.azure.blobstorage`.
+     * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      */
     componentType?: pulumi.Input<string>;
     /**
@@ -176,7 +176,7 @@ export interface EnvironmentDaprComponentState {
      */
     ignoreErrors?: pulumi.Input<boolean>;
     /**
-     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      */
     initTimeout?: pulumi.Input<string>;
     /**
@@ -208,7 +208,7 @@ export interface EnvironmentDaprComponentState {
  */
 export interface EnvironmentDaprComponentArgs {
     /**
-     * The Dapr Component Type. For example `state.azure.blobstorage`.
+     * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      */
     componentType: pulumi.Input<string>;
     /**
@@ -220,7 +220,7 @@ export interface EnvironmentDaprComponentArgs {
      */
     ignoreErrors?: pulumi.Input<boolean>;
     /**
-     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      */
     initTimeout?: pulumi.Input<string>;
     /**

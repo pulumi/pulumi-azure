@@ -198,7 +198,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> Techniques { get; private set; } = null!;
 
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         /// </summary>
         [Output("triggerOperator")]
         public Output<string?> TriggerOperator { get; private set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         /// </summary>
         [Input("triggerOperator")]
         public Input<string>? TriggerOperator { get; set; }
@@ -612,7 +612,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+        /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
         /// </summary>
         [Input("triggerOperator")]
         public Input<string>? TriggerOperator { get; set; }

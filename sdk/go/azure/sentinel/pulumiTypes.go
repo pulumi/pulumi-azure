@@ -17,7 +17,7 @@ var _ = internal.GetEnvOrDefault
 type AlertRuleAnomalyBuiltInMultiSelectObservation struct {
 	// The description of the threshold observation.
 	Description *string `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name *string `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -39,7 +39,7 @@ type AlertRuleAnomalyBuiltInMultiSelectObservationInput interface {
 type AlertRuleAnomalyBuiltInMultiSelectObservationArgs struct {
 	// The description of the threshold observation.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -121,7 +121,7 @@ func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Description() pulum
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+// The Name of the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -167,7 +167,7 @@ type AlertRuleAnomalyBuiltInPrioritizedExcludeObservation struct {
 	Description *string `pulumi:"description"`
 	// The excluded value per `description`.
 	Exclude *string `pulumi:"exclude"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name *string `pulumi:"name"`
 	// The prioritized value per `description`.
 	Prioritize *string `pulumi:"prioritize"`
@@ -189,7 +189,7 @@ type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The excluded value per `description`.
 	Exclude pulumi.StringPtrInput `pulumi:"exclude"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The prioritized value per `description`.
 	Prioritize pulumi.StringPtrInput `pulumi:"prioritize"`
@@ -274,7 +274,7 @@ func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Exclude() pu
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Exclude }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+// The Name of the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -443,7 +443,7 @@ func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) Index(i pulumi.
 type AlertRuleAnomalyBuiltInSingleSelectObservation struct {
 	// The description of the threshold observation.
 	Description *string `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name *string `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -465,7 +465,7 @@ type AlertRuleAnomalyBuiltInSingleSelectObservationInput interface {
 type AlertRuleAnomalyBuiltInSingleSelectObservationArgs struct {
 	// The description of the threshold observation.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -547,7 +547,7 @@ func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Description() pulu
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+// The Name of the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -595,7 +595,7 @@ type AlertRuleAnomalyBuiltInThresholdObservation struct {
 	Max *string `pulumi:"max"`
 	// The min value of the threshold observation.
 	Min *string `pulumi:"min"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name *string `pulumi:"name"`
 	// The value of the threshold observation.
 	Value *string `pulumi:"value"`
@@ -619,7 +619,7 @@ type AlertRuleAnomalyBuiltInThresholdObservationArgs struct {
 	Max pulumi.StringPtrInput `pulumi:"max"`
 	// The min value of the threshold observation.
 	Min pulumi.StringPtrInput `pulumi:"min"`
-	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+	// The Name of the built-in Anomaly Alert Rule.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The value of the threshold observation.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -709,7 +709,7 @@ func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Min() pulumi.StringPt
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Min }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+// The Name of the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4665,7 +4665,7 @@ func (o AuthomationRuleActionPlaybookArrayOutput) Index(i pulumi.IntInput) Autho
 type AuthomationRuleCondition struct {
 	// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
 	Operator string `pulumi:"operator"`
-	// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+	// The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
 	Property string `pulumi:"property"`
 	// Specifies a list of values to use for evaluate the condition.
 	Values []string `pulumi:"values"`
@@ -4685,7 +4685,7 @@ type AuthomationRuleConditionInput interface {
 type AuthomationRuleConditionArgs struct {
 	// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+	// The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
 	Property pulumi.StringInput `pulumi:"property"`
 	// Specifies a list of values to use for evaluate the condition.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -4765,7 +4765,7 @@ func (o AuthomationRuleConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthomationRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+// The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
 func (o AuthomationRuleConditionOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AuthomationRuleCondition) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -5136,7 +5136,7 @@ func (o AutomationRuleActionPlaybookArrayOutput) Index(i pulumi.IntInput) Automa
 type AutomationRuleCondition struct {
 	// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
 	Operator string `pulumi:"operator"`
-	// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+	// The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
 	Property string `pulumi:"property"`
 	// Specifies a list of values to use for evaluate the condition.
 	Values []string `pulumi:"values"`
@@ -5156,7 +5156,7 @@ type AutomationRuleConditionInput interface {
 type AutomationRuleConditionArgs struct {
 	// The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
 	Operator pulumi.StringInput `pulumi:"operator"`
-	// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+	// The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
 	Property pulumi.StringInput `pulumi:"property"`
 	// Specifies a list of values to use for evaluate the condition.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -5236,7 +5236,7 @@ func (o AutomationRuleConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
-// The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
+// The property to use for evaluate the condition. Possible values are `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AlertAnalyticRuleIds`, `AlertProductNames`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentCustomDetailsKey`, `IncidentCustomDetailsValue`, `IncidentDescription`, `IncidentLabel`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IncidentUpdatedBySource`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData` and `Url`.
 func (o AutomationRuleConditionOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleCondition) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -5654,7 +5654,7 @@ func (o MetadataCategoryPtrOutput) Verticals() pulumi.StringArrayOutput {
 type MetadataSource struct {
 	// The id of the content source, the solution ID, Log Analytics Workspace name etc.
 	Id *string `pulumi:"id"`
-	// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+	// The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
 	Kind string `pulumi:"kind"`
 	// The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
 	Name *string `pulumi:"name"`
@@ -5674,7 +5674,7 @@ type MetadataSourceInput interface {
 type MetadataSourceArgs struct {
 	// The id of the content source, the solution ID, Log Analytics Workspace name etc.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+	// The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -5780,7 +5780,7 @@ func (o MetadataSourceOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetadataSource) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+// The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
 func (o MetadataSourceOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v MetadataSource) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -5830,7 +5830,7 @@ func (o MetadataSourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+// The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
 func (o MetadataSourcePtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetadataSource) *string {
 		if v == nil {

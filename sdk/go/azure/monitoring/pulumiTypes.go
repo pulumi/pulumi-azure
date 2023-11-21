@@ -1948,7 +1948,7 @@ func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 }
 
 type ActionGroupWebhookReceiver struct {
-	// The `aadAuth` block as defined below
+	// The `aadAuth` block as defined below.
 	//
 	// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 	AadAuth *ActionGroupWebhookReceiverAadAuth `pulumi:"aadAuth"`
@@ -1972,7 +1972,7 @@ type ActionGroupWebhookReceiverInput interface {
 }
 
 type ActionGroupWebhookReceiverArgs struct {
-	// The `aadAuth` block as defined below
+	// The `aadAuth` block as defined below.
 	//
 	// > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 	AadAuth ActionGroupWebhookReceiverAadAuthPtrInput `pulumi:"aadAuth"`
@@ -2053,7 +2053,7 @@ func (o ActionGroupWebhookReceiverOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
-// The `aadAuth` block as defined below
+// The `aadAuth` block as defined below.
 //
 // > **NOTE:** Before adding a secure webhook receiver by setting `aadAuth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
 func (o ActionGroupWebhookReceiverOutput) AadAuth() ActionGroupWebhookReceiverAadAuthPtrOutput {
@@ -2309,7 +2309,7 @@ type ActionRuleActionGroupCondition struct {
 	Description *ActionRuleActionGroupConditionDescription `pulumi:"description"`
 	// A `monitor` block as defined below.
 	Monitor *ActionRuleActionGroupConditionMonitor `pulumi:"monitor"`
-	// A `monitorService` as block defined below.
+	// A `monitorService` block as defined below.
 	MonitorService *ActionRuleActionGroupConditionMonitorService `pulumi:"monitorService"`
 	// A `severity` block as defined below.
 	Severity *ActionRuleActionGroupConditionSeverity `pulumi:"severity"`
@@ -2337,7 +2337,7 @@ type ActionRuleActionGroupConditionArgs struct {
 	Description ActionRuleActionGroupConditionDescriptionPtrInput `pulumi:"description"`
 	// A `monitor` block as defined below.
 	Monitor ActionRuleActionGroupConditionMonitorPtrInput `pulumi:"monitor"`
-	// A `monitorService` as block defined below.
+	// A `monitorService` block as defined below.
 	MonitorService ActionRuleActionGroupConditionMonitorServicePtrInput `pulumi:"monitorService"`
 	// A `severity` block as defined below.
 	Severity ActionRuleActionGroupConditionSeverityPtrInput `pulumi:"severity"`
@@ -2466,7 +2466,7 @@ func (o ActionRuleActionGroupConditionOutput) Monitor() ActionRuleActionGroupCon
 	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitor { return v.Monitor }).(ActionRuleActionGroupConditionMonitorPtrOutput)
 }
 
-// A `monitorService` as block defined below.
+// A `monitorService` block as defined below.
 func (o ActionRuleActionGroupConditionOutput) MonitorService() ActionRuleActionGroupConditionMonitorServicePtrOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitorService {
 		return v.MonitorService
@@ -2555,7 +2555,7 @@ func (o ActionRuleActionGroupConditionPtrOutput) Monitor() ActionRuleActionGroup
 	}).(ActionRuleActionGroupConditionMonitorPtrOutput)
 }
 
-// A `monitorService` as block defined below.
+// A `monitorService` block as defined below.
 func (o ActionRuleActionGroupConditionPtrOutput) MonitorService() ActionRuleActionGroupConditionMonitorServicePtrOutput {
 	return o.ApplyT(func(v *ActionRuleActionGroupCondition) *ActionRuleActionGroupConditionMonitorService {
 		if v == nil {
@@ -4034,7 +4034,7 @@ type ActionRuleSuppressionCondition struct {
 	Description *ActionRuleSuppressionConditionDescription `pulumi:"description"`
 	// A `monitor` block as defined below.
 	Monitor *ActionRuleSuppressionConditionMonitor `pulumi:"monitor"`
-	// A `monitorService` as block defined below.
+	// A `monitorService` block as defined below.
 	MonitorService *ActionRuleSuppressionConditionMonitorService `pulumi:"monitorService"`
 	// A `severity` block as defined below.
 	Severity *ActionRuleSuppressionConditionSeverity `pulumi:"severity"`
@@ -4062,7 +4062,7 @@ type ActionRuleSuppressionConditionArgs struct {
 	Description ActionRuleSuppressionConditionDescriptionPtrInput `pulumi:"description"`
 	// A `monitor` block as defined below.
 	Monitor ActionRuleSuppressionConditionMonitorPtrInput `pulumi:"monitor"`
-	// A `monitorService` as block defined below.
+	// A `monitorService` block as defined below.
 	MonitorService ActionRuleSuppressionConditionMonitorServicePtrInput `pulumi:"monitorService"`
 	// A `severity` block as defined below.
 	Severity ActionRuleSuppressionConditionSeverityPtrInput `pulumi:"severity"`
@@ -4191,7 +4191,7 @@ func (o ActionRuleSuppressionConditionOutput) Monitor() ActionRuleSuppressionCon
 	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitor { return v.Monitor }).(ActionRuleSuppressionConditionMonitorPtrOutput)
 }
 
-// A `monitorService` as block defined below.
+// A `monitorService` block as defined below.
 func (o ActionRuleSuppressionConditionOutput) MonitorService() ActionRuleSuppressionConditionMonitorServicePtrOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitorService {
 		return v.MonitorService
@@ -4280,7 +4280,7 @@ func (o ActionRuleSuppressionConditionPtrOutput) Monitor() ActionRuleSuppression
 	}).(ActionRuleSuppressionConditionMonitorPtrOutput)
 }
 
-// A `monitorService` as block defined below.
+// A `monitorService` block as defined below.
 func (o ActionRuleSuppressionConditionPtrOutput) MonitorService() ActionRuleSuppressionConditionMonitorServicePtrOutput {
 	return o.ApplyT(func(v *ActionRuleSuppressionCondition) *ActionRuleSuppressionConditionMonitorService {
 		if v == nil {
@@ -15952,7 +15952,7 @@ type DataCollectionRuleDataFlow struct {
 	Destinations []string `pulumi:"destinations"`
 	// The output stream of the transform. Only required if the data flow changes data to a different stream.
 	OutputStream *string `pulumi:"outputStream"`
-	// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`, and `Microsoft-PrometheusMetrics`.
 	Streams []string `pulumi:"streams"`
 	// The KQL query to transform stream data.
 	TransformKql *string `pulumi:"transformKql"`
@@ -15976,7 +15976,7 @@ type DataCollectionRuleDataFlowArgs struct {
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
 	// The output stream of the transform. Only required if the data flow changes data to a different stream.
 	OutputStream pulumi.StringPtrInput `pulumi:"outputStream"`
-	// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+	// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`, and `Microsoft-PrometheusMetrics`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
 	// The KQL query to transform stream data.
 	TransformKql pulumi.StringPtrInput `pulumi:"transformKql"`
@@ -16066,7 +16066,7 @@ func (o DataCollectionRuleDataFlowOutput) OutputStream() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v DataCollectionRuleDataFlow) *string { return v.OutputStream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+// Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`, and `Microsoft-PrometheusMetrics`.
 func (o DataCollectionRuleDataFlowOutput) Streams() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataFlow) []string { return v.Streams }).(pulumi.StringArrayOutput)
 }
@@ -25333,7 +25333,7 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) MetricName() pulumi.StringPtrOu
 type ScheduledQueryRulesLogCriteriaDimension struct {
 	// Name of the dimension.
 	Name string `pulumi:"name"`
-	// Operator for dimension values, - 'Include'.
+	// Operator for dimension values, - 'Include'. Defaults to `Include`.
 	Operator *string `pulumi:"operator"`
 	// List of dimension values.
 	Values []string `pulumi:"values"`
@@ -25353,7 +25353,7 @@ type ScheduledQueryRulesLogCriteriaDimensionInput interface {
 type ScheduledQueryRulesLogCriteriaDimensionArgs struct {
 	// Name of the dimension.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Operator for dimension values, - 'Include'.
+	// Operator for dimension values, - 'Include'. Defaults to `Include`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 	// List of dimension values.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -25433,7 +25433,7 @@ func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Name() pulumi.StringOutpu
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Operator for dimension values, - 'Include'.
+// Operator for dimension values, - 'Include'. Defaults to `Include`.
 func (o ScheduledQueryRulesLogCriteriaDimensionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteriaDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }

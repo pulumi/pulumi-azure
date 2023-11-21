@@ -173,14 +173,14 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.controlPlaneAccessName);
     }
     /**
-     * The core network technology generation. Possible values are `EPG` and `5GC`.
+     * The core network technology generation. Possible values are `5GC` and `EPC`.
      * 
      */
     @Export(name="coreNetworkTechnology", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> coreNetworkTechnology;
 
     /**
-     * @return The core network technology generation. Possible values are `EPG` and `5GC`.
+     * @return The core network technology generation. Possible values are `5GC` and `EPC`.
      * 
      */
     public Output<Optional<String>> coreNetworkTechnology() {

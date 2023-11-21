@@ -111,7 +111,7 @@ public final class WindowsWebAppSiteConfig {
      */
     private @Nullable Boolean localMysqlEnabled;
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
     private @Nullable String managedPipelineMode;
@@ -305,7 +305,7 @@ public final class WindowsWebAppSiteConfig {
         return Optional.ofNullable(this.localMysqlEnabled);
     }
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
     public Optional<String> managedPipelineMode() {

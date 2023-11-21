@@ -169,28 +169,28 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isCompressionEnabled);
     }
     /**
-     * Defaults to `true`.
+     * Specifies if http allowed. Defaults to `true`.
      * 
      */
     @Export(name="isHttpAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isHttpAllowed;
 
     /**
-     * @return Defaults to `true`.
+     * @return Specifies if http allowed. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> isHttpAllowed() {
         return Codegen.optional(this.isHttpAllowed);
     }
     /**
-     * Defaults to `true`.
+     * Specifies if https allowed. Defaults to `true`.
      * 
      */
     @Export(name="isHttpsAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isHttpsAllowed;
 
     /**
-     * @return Defaults to `true`.
+     * @return Specifies if https allowed. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> isHttpsAllowed() {

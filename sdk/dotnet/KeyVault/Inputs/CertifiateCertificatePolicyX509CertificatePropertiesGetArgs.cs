@@ -16,7 +16,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _extendedKeyUsages;
 
         /// <summary>
-        /// A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        /// A list of Extended/Enhanced Key Usages.
         /// </summary>
         public InputList<string> ExtendedKeyUsages
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _keyUsages;
 
         /// <summary>
-        /// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        /// A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
         /// </summary>
         public InputList<string> KeyUsages
         {
@@ -37,19 +37,19 @@ namespace Pulumi.Azure.KeyVault.Inputs
         }
 
         /// <summary>
-        /// The Certificate's Subject. Changing this forces a new resource to be created.
+        /// The Certificate's Subject.
         /// </summary>
         [Input("subject", required: true)]
         public Input<string> Subject { get; set; } = null!;
 
         /// <summary>
-        /// A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        /// A `subject_alternative_names` block as defined below.
         /// </summary>
         [Input("subjectAlternativeNames")]
         public Input<Inputs.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesGetArgs>? SubjectAlternativeNames { get; set; }
 
         /// <summary>
-        /// The Certificates Validity Period in Months. Changing this forces a new resource to be created.
+        /// The Certificates Validity Period in Months.
         /// </summary>
         [Input("validityInMonths", required: true)]
         public Input<int> ValidityInMonths { get; set; } = null!;

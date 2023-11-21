@@ -21,7 +21,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<string>? ConnectionDirection { get; set; }
 
         /// <summary>
-        /// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        /// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("privateLinkEnabled")]
         public Input<bool>? PrivateLinkEnabled { get; set; }

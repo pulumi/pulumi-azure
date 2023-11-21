@@ -27,7 +27,7 @@ public final class AlertRuleAnomalyBuiltInThresholdObservation {
      */
     private @Nullable String min;
     /**
-     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * @return The Name of the built-in Anomaly Alert Rule.
      * 
      */
     private @Nullable String name;
@@ -60,7 +60,7 @@ public final class AlertRuleAnomalyBuiltInThresholdObservation {
         return Optional.ofNullable(this.min);
     }
     /**
-     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * @return The Name of the built-in Anomaly Alert Rule.
      * 
      */
     public Optional<String> name() {

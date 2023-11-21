@@ -83,7 +83,7 @@ type Configuration struct {
 	Scope pulumi.StringOutput `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
 	// A `window` block as defined below.
 	Window ConfigurationWindowPtrOutput `pulumi:"window"`
@@ -143,7 +143,7 @@ type configurationState struct {
 	Scope *string `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags map[string]string `pulumi:"tags"`
-	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
 	Visibility *string `pulumi:"visibility"`
 	// A `window` block as defined below.
 	Window *ConfigurationWindow `pulumi:"window"`
@@ -168,7 +168,7 @@ type ConfigurationState struct {
 	Scope pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapInput
-	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
 	Visibility pulumi.StringPtrInput
 	// A `window` block as defined below.
 	Window ConfigurationWindowPtrInput
@@ -197,7 +197,7 @@ type configurationArgs struct {
 	Scope string `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags map[string]string `pulumi:"tags"`
-	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
 	Visibility *string `pulumi:"visibility"`
 	// A `window` block as defined below.
 	Window *ConfigurationWindow `pulumi:"window"`
@@ -223,7 +223,7 @@ type ConfigurationArgs struct {
 	Scope pulumi.StringInput
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapInput
-	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
 	Visibility pulumi.StringPtrInput
 	// A `window` block as defined below.
 	Window ConfigurationWindowPtrInput
@@ -382,7 +382,7 @@ func (o ConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
 func (o ConfigurationOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }

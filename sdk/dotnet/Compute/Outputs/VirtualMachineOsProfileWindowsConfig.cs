@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> AdditionalUnattendConfigs;
         /// <summary>
-        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
         /// </summary>
         public readonly bool? EnableAutomaticUpgrades;
         /// <summary>

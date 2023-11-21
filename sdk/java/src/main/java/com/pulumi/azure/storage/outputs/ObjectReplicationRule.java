@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ObjectReplicationRule {
     /**
-     * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+     * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
      * 
      */
     private @Nullable String copyBlobsCreatedAfter;
@@ -36,7 +36,7 @@ public final class ObjectReplicationRule {
 
     private ObjectReplicationRule() {}
     /**
-     * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+     * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
      * 
      */
     public Optional<String> copyBlobsCreatedAfter() {

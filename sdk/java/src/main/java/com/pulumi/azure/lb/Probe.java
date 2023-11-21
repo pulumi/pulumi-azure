@@ -138,14 +138,14 @@ public class Probe extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+     * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      * 
      */
     @Export(name="numberOfProbes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfProbes;
 
     /**
-     * @return The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+     * @return The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      * 
      */
     public Output<Optional<Integer>> numberOfProbes() {

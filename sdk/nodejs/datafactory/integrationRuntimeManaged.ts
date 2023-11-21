@@ -94,7 +94,7 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      */
     public readonly maxParallelExecutionsPerNode!: pulumi.Output<number | undefined>;
     /**
@@ -198,7 +198,7 @@ export interface IntegrationRuntimeManagedState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      */
     maxParallelExecutionsPerNode?: pulumi.Input<number>;
     /**
@@ -252,7 +252,7 @@ export interface IntegrationRuntimeManagedArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      */
     maxParallelExecutionsPerNode?: pulumi.Input<number>;
     /**

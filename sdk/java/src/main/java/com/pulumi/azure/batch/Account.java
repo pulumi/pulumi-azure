@@ -114,14 +114,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.allowedAuthenticationModes;
     }
     /**
-     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      * 
      */
     @Export(name="encryption", refs={AccountEncryption.class}, tree="[0]")
     private Output</* @Nullable */ AccountEncryption> encryption;
 
     /**
-     * @return Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * @return Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      * 
      */
     public Output<Optional<AccountEncryption>> encryption() {

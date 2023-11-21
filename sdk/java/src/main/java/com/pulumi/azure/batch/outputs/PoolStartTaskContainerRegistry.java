@@ -17,7 +17,7 @@ public final class PoolStartTaskContainerRegistry {
      */
     private @Nullable String password;
     /**
-     * @return The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
+     * @return The container registry URL. Changing this forces a new resource to be created.
      * 
      */
     private String registryServer;
@@ -41,7 +41,7 @@ public final class PoolStartTaskContainerRegistry {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
+     * @return The container registry URL. Changing this forces a new resource to be created.
      * 
      */
     public String registryServer() {

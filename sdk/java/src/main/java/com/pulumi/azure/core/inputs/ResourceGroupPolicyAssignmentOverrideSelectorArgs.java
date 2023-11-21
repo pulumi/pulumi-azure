@@ -32,14 +32,14 @@ public final class ResourceGroupPolicyAssignmentOverrideSelectorArgs extends com
     }
 
     /**
-     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     @Import(name="kind")
     private @Nullable Output<String> kind;
 
     /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     public Optional<Output<String>> kind() {
@@ -119,7 +119,7 @@ public final class ResourceGroupPolicyAssignmentOverrideSelectorArgs extends com
         }
 
         /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ResourceGroupPolicyAssignmentOverrideSelectorArgs extends com
         }
 
         /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
          * 
          * @return builder
          * 

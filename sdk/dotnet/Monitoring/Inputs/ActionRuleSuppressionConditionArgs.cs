@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<Inputs.ActionRuleSuppressionConditionMonitorArgs>? Monitor { get; set; }
 
         /// <summary>
-        /// A `monitor_service` as block defined below.
+        /// A `monitor_service` block as defined below.
         /// </summary>
         [Input("monitorService")]
         public Input<Inputs.ActionRuleSuppressionConditionMonitorServiceArgs>? MonitorService { get; set; }

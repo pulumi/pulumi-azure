@@ -126,7 +126,7 @@ export class FhirService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      */
     public readonly ociArtifacts!: pulumi.Output<outputs.healthcare.FhirServiceOciArtifact[] | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface FhirServiceState {
      */
     name?: pulumi.Input<string>;
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      */
     ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
     /**
@@ -307,7 +307,7 @@ export interface FhirServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `ociArtifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      */
     ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
     /**

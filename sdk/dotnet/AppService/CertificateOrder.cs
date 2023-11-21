@@ -124,7 +124,7 @@ namespace Pulumi.Azure.AppService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Certificate product type, such as `Standard` or `WildCard`.
+        /// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         /// </summary>
         [Output("productType")]
         public Output<string?> ProductType { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Certificate product type, such as `Standard` or `WildCard`.
+        /// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         /// </summary>
         [Input("productType")]
         public Input<string>? ProductType { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Certificate product type, such as `Standard` or `WildCard`.
+        /// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         /// </summary>
         [Input("productType")]
         public Input<string>? ProductType { get; set; }

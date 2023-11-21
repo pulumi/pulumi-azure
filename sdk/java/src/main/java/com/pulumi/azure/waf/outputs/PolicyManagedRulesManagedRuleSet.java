@@ -19,7 +19,7 @@ public final class PolicyManagedRulesManagedRuleSet {
      */
     private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides;
     /**
-     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     private @Nullable String type;
@@ -38,7 +38,7 @@ public final class PolicyManagedRulesManagedRuleSet {
         return this.ruleGroupOverrides == null ? List.of() : this.ruleGroupOverrides;
     }
     /**
-     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     public Optional<String> type() {

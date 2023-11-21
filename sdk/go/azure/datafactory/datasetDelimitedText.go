@@ -124,7 +124,7 @@ type DatasetDelimitedText struct {
 	LinkedServiceName pulumi.StringOutput `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The null value string. Defaults to an empty string. Defaults to `""`.
+	// The null value string. Defaults to `""`.
 	NullValue pulumi.StringPtrOutput `pulumi:"nullValue"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
@@ -208,7 +208,7 @@ type datasetDelimitedTextState struct {
 	LinkedServiceName *string `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// The null value string. Defaults to an empty string. Defaults to `""`.
+	// The null value string. Defaults to `""`.
 	NullValue *string `pulumi:"nullValue"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -257,7 +257,7 @@ type DatasetDelimitedTextState struct {
 	LinkedServiceName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// The null value string. Defaults to an empty string. Defaults to `""`.
+	// The null value string. Defaults to `""`.
 	NullValue pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
@@ -310,7 +310,7 @@ type datasetDelimitedTextArgs struct {
 	LinkedServiceName string `pulumi:"linkedServiceName"`
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
-	// The null value string. Defaults to an empty string. Defaults to `""`.
+	// The null value string. Defaults to `""`.
 	NullValue *string `pulumi:"nullValue"`
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters map[string]string `pulumi:"parameters"`
@@ -360,7 +360,7 @@ type DatasetDelimitedTextArgs struct {
 	LinkedServiceName pulumi.StringInput
 	// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
-	// The null value string. Defaults to an empty string. Defaults to `""`.
+	// The null value string. Defaults to `""`.
 	NullValue pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Dataset.
 	Parameters pulumi.StringMapInput
@@ -573,7 +573,7 @@ func (o DatasetDelimitedTextOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatasetDelimitedText) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The null value string. Defaults to an empty string. Defaults to `""`.
+// The null value string. Defaults to `""`.
 func (o DatasetDelimitedTextOutput) NullValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDelimitedText) pulumi.StringPtrOutput { return v.NullValue }).(pulumi.StringPtrOutput)
 }

@@ -17,14 +17,14 @@ public final class ServiceHostnameConfigurationDeveloperPortalArgs extends com.p
     public static final ServiceHostnameConfigurationDeveloperPortalArgs Empty = new ServiceHostnameConfigurationDeveloperPortalArgs();
 
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -224,7 +224,7 @@ public final class ServiceHostnameConfigurationDeveloperPortalArgs extends com.p
         }
 
         /**
-         * @param certificate One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificate One or more `certificate` blocks (up to 10) as defined below.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class ServiceHostnameConfigurationDeveloperPortalArgs extends com.p
         }
 
         /**
-         * @param certificate One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificate One or more `certificate` blocks (up to 10) as defined below.
          * 
          * @return builder
          * 

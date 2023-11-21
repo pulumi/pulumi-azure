@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:lighthouse/definition:Definition")
 public class Definition extends com.pulumi.resources.CustomResource {
     /**
-     * An authorization block as defined below.
+     * An `authorization` block as defined below.
      * 
      */
     @Export(name="authorizations", refs={List.class,DefinitionAuthorization.class}, tree="[0,1]")
     private Output<List<DefinitionAuthorization>> authorizations;
 
     /**
-     * @return An authorization block as defined below.
+     * @return An `authorization` block as defined below.
      * 
      */
     public Output<List<DefinitionAuthorization>> authorizations() {

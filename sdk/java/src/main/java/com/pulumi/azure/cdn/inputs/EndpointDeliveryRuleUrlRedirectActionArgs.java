@@ -61,14 +61,14 @@ public final class EndpointDeliveryRuleUrlRedirectActionArgs extends com.pulumi.
     }
 
     /**
-     * Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+     * Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
      * 
      */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
     /**
-     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
      * 
      */
     public Optional<Output<String>> protocol() {
@@ -198,7 +198,7 @@ public final class EndpointDeliveryRuleUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param protocol Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+         * @param protocol Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class EndpointDeliveryRuleUrlRedirectActionArgs extends com.pulumi.
         }
 
         /**
-         * @param protocol Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+         * @param protocol Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
          * 
          * @return builder
          * 

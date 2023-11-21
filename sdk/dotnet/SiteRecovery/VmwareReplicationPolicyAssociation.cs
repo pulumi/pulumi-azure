@@ -62,15 +62,13 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class VmwareReplicationPolicyAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the replication policy association. Changing this forces a new association to be
-        /// created.
+        /// The name of the replication policy association. Changing this forces a new association to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-        /// association to be created.
+        /// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         /// </summary>
         [Output("policyId")]
         public Output<string> PolicyId { get; private set; } = null!;
@@ -129,15 +127,13 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class VmwareReplicationPolicyAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the replication policy association. Changing this forces a new association to be
-        /// created.
+        /// The name of the replication policy association. Changing this forces a new association to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-        /// association to be created.
+        /// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
@@ -158,15 +154,13 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class VmwareReplicationPolicyAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the replication policy association. Changing this forces a new association to be
-        /// created.
+        /// The name of the replication policy association. Changing this forces a new association to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-        /// association to be created.
+        /// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }

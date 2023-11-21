@@ -65,7 +65,7 @@ type ScheduledAction struct {
 
 	// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
 	DayOfMonth pulumi.IntPtrOutput `pulumi:"dayOfMonth"`
-	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DaysOfWeeks pulumi.StringArrayOutput `pulumi:"daysOfWeeks"`
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
@@ -87,9 +87,9 @@ type ScheduledAction struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The start date and time of the Scheduled Action (UTC).
 	StartDate pulumi.StringOutput `pulumi:"startDate"`
-	// The ID of the Cost Management View that is used by the Scheduled Action.
+	// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
 	ViewId pulumi.StringOutput `pulumi:"viewId"`
-	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
 	WeeksOfMonths pulumi.StringArrayOutput `pulumi:"weeksOfMonths"`
 }
 
@@ -149,7 +149,7 @@ func GetScheduledAction(ctx *pulumi.Context,
 type scheduledActionState struct {
 	// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
 	DayOfMonth *int `pulumi:"dayOfMonth"`
-	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName *string `pulumi:"displayName"`
@@ -171,16 +171,16 @@ type scheduledActionState struct {
 	Name *string `pulumi:"name"`
 	// The start date and time of the Scheduled Action (UTC).
 	StartDate *string `pulumi:"startDate"`
-	// The ID of the Cost Management View that is used by the Scheduled Action.
+	// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
 	ViewId *string `pulumi:"viewId"`
-	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
 type ScheduledActionState struct {
 	// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
 	DayOfMonth pulumi.IntPtrInput
-	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DaysOfWeeks pulumi.StringArrayInput
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName pulumi.StringPtrInput
@@ -202,9 +202,9 @@ type ScheduledActionState struct {
 	Name pulumi.StringPtrInput
 	// The start date and time of the Scheduled Action (UTC).
 	StartDate pulumi.StringPtrInput
-	// The ID of the Cost Management View that is used by the Scheduled Action.
+	// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
 	ViewId pulumi.StringPtrInput
-	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
 	WeeksOfMonths pulumi.StringArrayInput
 }
 
@@ -215,7 +215,7 @@ func (ScheduledActionState) ElementType() reflect.Type {
 type scheduledActionArgs struct {
 	// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
 	DayOfMonth *int `pulumi:"dayOfMonth"`
-	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName string `pulumi:"displayName"`
@@ -237,9 +237,9 @@ type scheduledActionArgs struct {
 	Name *string `pulumi:"name"`
 	// The start date and time of the Scheduled Action (UTC).
 	StartDate string `pulumi:"startDate"`
-	// The ID of the Cost Management View that is used by the Scheduled Action.
+	// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
 	ViewId string `pulumi:"viewId"`
-	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
 	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
 }
 
@@ -247,7 +247,7 @@ type scheduledActionArgs struct {
 type ScheduledActionArgs struct {
 	// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
 	DayOfMonth pulumi.IntPtrInput
-	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+	// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DaysOfWeeks pulumi.StringArrayInput
 	// User visible input name of the Cost Management Scheduled Action.
 	DisplayName pulumi.StringInput
@@ -269,9 +269,9 @@ type ScheduledActionArgs struct {
 	Name pulumi.StringPtrInput
 	// The start date and time of the Scheduled Action (UTC).
 	StartDate pulumi.StringInput
-	// The ID of the Cost Management View that is used by the Scheduled Action.
+	// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
 	ViewId pulumi.StringInput
-	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+	// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
 	WeeksOfMonths pulumi.StringArrayInput
 }
 
@@ -391,7 +391,7 @@ func (o ScheduledActionOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.IntPtrOutput { return v.DayOfMonth }).(pulumi.IntPtrOutput)
 }
 
-// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o ScheduledActionOutput) DaysOfWeeks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringArrayOutput { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
 }
@@ -446,12 +446,12 @@ func (o ScheduledActionOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
 }
 
-// The ID of the Cost Management View that is used by the Scheduled Action.
+// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
 func (o ScheduledActionOutput) ViewId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ViewId }).(pulumi.StringOutput)
 }
 
-// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
 func (o ScheduledActionOutput) WeeksOfMonths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringArrayOutput { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
 }

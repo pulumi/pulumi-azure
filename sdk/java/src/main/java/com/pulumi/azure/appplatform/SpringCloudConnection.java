@@ -147,14 +147,14 @@ public class SpringCloudConnection extends com.pulumi.resources.CustomResource {
         return this.authentication;
     }
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      * 
      */
     @Export(name="clientType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientType;
 
     /**
-     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      * 
      */
     public Output<Optional<String>> clientType() {

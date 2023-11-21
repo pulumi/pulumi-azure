@@ -61,14 +61,14 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the type of import operation being performed. The only allowable value is `Import`.
+     * Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
      * 
      */
     @Import(name="operationMode")
     private @Nullable Output<String> operationMode;
 
     /**
-     * @return Specifies the type of import operation being performed. The only allowable value is `Import`.
+     * @return Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
      * 
      */
     public Optional<Output<String>> operationMode() {
@@ -214,7 +214,7 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param operationMode Specifies the type of import operation being performed. The only allowable value is `Import`.
+         * @param operationMode Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DatabaseImportArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param operationMode Specifies the type of import operation being performed. The only allowable value is `Import`.
+         * @param operationMode Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
          * 
          * @return builder
          * 

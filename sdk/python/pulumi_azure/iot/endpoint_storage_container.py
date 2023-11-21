@@ -36,7 +36,7 @@ class EndpointStorageContainerArgs:
         :param pulumi.Input[str] connection_string: The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint_uri: URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
-        :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        :param pulumi.Input[str] file_name_format: File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
                
                > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
@@ -165,7 +165,7 @@ class EndpointStorageContainerArgs:
     @pulumi.getter(name="fileNameFormat")
     def file_name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         """
         return pulumi.get(self, "file_name_format")
 
@@ -235,7 +235,7 @@ class _EndpointStorageContainerState:
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint_uri: URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
-        :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        :param pulumi.Input[str] file_name_format: File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
                
                > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
@@ -345,7 +345,7 @@ class _EndpointStorageContainerState:
     @pulumi.getter(name="fileNameFormat")
     def file_name_format(self) -> Optional[pulumi.Input[str]]:
         """
-        File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         """
         return pulumi.get(self, "file_name_format")
 
@@ -488,7 +488,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint_uri: URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
-        :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        :param pulumi.Input[str] file_name_format: File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
                
                > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
@@ -640,7 +640,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint_uri: URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
-        :param pulumi.Input[str] file_name_format: File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        :param pulumi.Input[str] file_name_format: File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         :param pulumi.Input[str] identity_id: ID of the User Managed Identity used to authenticate against the storage endpoint.
                
                > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
@@ -719,7 +719,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
     @pulumi.getter(name="fileNameFormat")
     def file_name_format(self) -> pulumi.Output[Optional[str]]:
         """
-        File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+        File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         """
         return pulumi.get(self, "file_name_format")
 

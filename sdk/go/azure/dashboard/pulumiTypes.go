@@ -136,7 +136,7 @@ func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GrafanaIdentity struct {
-	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -158,7 +158,7 @@ type GrafanaIdentityInput interface {
 }
 
 type GrafanaIdentityArgs struct {
-	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+	// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -263,7 +263,7 @@ func (o GrafanaIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[Graf
 	}
 }
 
-// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
 func (o GrafanaIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GrafanaIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -313,7 +313,7 @@ func (o GrafanaIdentityPtrOutput) Elem() GrafanaIdentityOutput {
 	}).(GrafanaIdentityOutput)
 }
 
-// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+// Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
 func (o GrafanaIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GrafanaIdentity) []string {
 		if v == nil {

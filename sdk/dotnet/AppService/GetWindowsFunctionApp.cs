@@ -180,6 +180,10 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// Are the default FTP Basic Authentication publishing credentials enabled.
+        /// </summary>
+        public readonly bool FtpPublishBasicAuthenticationEnabled;
+        /// <summary>
         /// The runtime version associated with the Function App.
         /// </summary>
         public readonly string FunctionsExtensionVersion;
@@ -227,6 +231,9 @@ namespace Pulumi.Azure.AppService
         /// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
+        /// <summary>
+        /// Is Public Network Access enabled for the Windows Function App.
+        /// </summary>
         public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -269,6 +276,10 @@ namespace Pulumi.Azure.AppService
         /// The subnet id which the Windows Function App is vNet Integrated with.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
+        /// <summary>
+        /// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+        /// </summary>
+        public readonly bool WebdeployPublishBasicAuthenticationEnabled;
 
         [OutputConstructor]
         private GetWindowsFunctionAppResult(
@@ -299,6 +310,8 @@ namespace Pulumi.Azure.AppService
             string defaultHostname,
 
             bool enabled,
+
+            bool ftpPublishBasicAuthenticationEnabled,
 
             string functionsExtensionVersion,
 
@@ -346,7 +359,9 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags,
 
-            string virtualNetworkSubnetId)
+            string virtualNetworkSubnetId,
+
+            bool webdeployPublishBasicAuthenticationEnabled)
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
@@ -362,6 +377,7 @@ namespace Pulumi.Azure.AppService
             DailyMemoryTimeQuota = dailyMemoryTimeQuota;
             DefaultHostname = defaultHostname;
             Enabled = enabled;
+            FtpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             FunctionsExtensionVersion = functionsExtensionVersion;
             HostingEnvironmentId = hostingEnvironmentId;
             HttpsOnly = httpsOnly;
@@ -386,6 +402,7 @@ namespace Pulumi.Azure.AppService
             StorageUsesManagedIdentity = storageUsesManagedIdentity;
             Tags = tags;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
+            WebdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
         }
     }
 }

@@ -247,7 +247,7 @@ class AppIngress(dict):
                > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
         :param bool external_enabled: Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         :param str fqdn: The FQDN of the ingress.
-        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+        :param str transport: The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
         """
         pulumi.set(__self__, "target_port", target_port)
         pulumi.set(__self__, "traffic_weights", traffic_weights)
@@ -328,7 +328,7 @@ class AppIngress(dict):
     @pulumi.getter
     def transport(self) -> Optional[str]:
         """
-        The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+        The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
         """
         return pulumi.get(self, "transport")
 
@@ -884,7 +884,7 @@ class AppTemplateContainer(dict):
                
                > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param str image: The image to use to create the container.
-        :param str memory: The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+        :param str memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. 
                
                > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         :param str name: The name of the container
@@ -942,7 +942,7 @@ class AppTemplateContainer(dict):
     @pulumi.getter
     def memory(self) -> str:
         """
-        The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`. 
+        The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. 
 
         > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
@@ -1977,7 +1977,7 @@ class AppTemplateVolume(dict):
         """
         :param str name: The name of the volume.
         :param str storage_name: The name of the `AzureFile` storage.
-        :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+        :param str storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
         if storage_name is not None:
@@ -2005,7 +2005,7 @@ class AppTemplateVolume(dict):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[str]:
         """
-        The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+        The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
         """
         return pulumi.get(self, "storage_type")
 

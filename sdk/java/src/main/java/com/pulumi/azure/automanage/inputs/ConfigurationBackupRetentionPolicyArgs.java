@@ -33,14 +33,14 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
     }
 
     /**
-     * The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+     * The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
      * 
      */
     @Import(name="retentionPolicyType")
     private @Nullable Output<String> retentionPolicyType;
 
     /**
-     * @return The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+     * @return The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
      * 
      */
     public Optional<Output<String>> retentionPolicyType() {
@@ -110,7 +110,7 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param retentionPolicyType The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+         * @param retentionPolicyType The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ConfigurationBackupRetentionPolicyArgs extends com.pulumi.res
         }
 
         /**
-         * @param retentionPolicyType The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+         * @param retentionPolicyType The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
          * 
          * @return builder
          * 

@@ -27,6 +27,8 @@ public final class KubernetesClusterDefaultNodePool {
     /**
      * @return Specifies whether to trust a Custom CA.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
      */
     private @Nullable Boolean customCaTrustEnabled;
     /**
@@ -51,7 +53,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Boolean enableNodePublicIp;
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     private @Nullable Boolean fipsEnabled;
@@ -81,7 +83,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer maxCount;
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+     * @return The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     private @Nullable Integer maxPods;
@@ -96,12 +98,14 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer minCount;
     /**
-     * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * @return The name which should be used for the default Kubernetes Node Pool.
      * 
      */
     private String name;
     /**
-     * @return The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+     * 
+     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -145,17 +149,17 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Integer osDiskSizeGb;
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable String osDiskType;
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     private @Nullable String osSku;
     /**
-     * @return The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where the pods in the default Node Pool should exist.
      * 
      */
     private @Nullable String podSubnetId;
@@ -209,7 +213,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private String vmSize;
     /**
-     * @return The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of a Subnet where the Kubernetes Node Pool should exist.
      * 
      * &gt; **Note:** A Route Table must be configured on this Subnet.
      * 
@@ -240,6 +244,8 @@ public final class KubernetesClusterDefaultNodePool {
     }
     /**
      * @return Specifies whether to trust a Custom CA.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Optional<Boolean> customCaTrustEnabled() {
@@ -273,7 +279,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.enableNodePublicIp);
     }
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<Boolean> fipsEnabled() {
@@ -315,7 +321,7 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.maxCount);
     }
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+     * @return The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     public Optional<Integer> maxPods() {
@@ -336,14 +342,16 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.minCount);
     }
     /**
-     * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * @return The name which should be used for the default Kubernetes Node Pool.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+     * 
+     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -403,21 +411,21 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.osDiskSizeGb);
     }
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<String> osDiskType() {
         return Optional.ofNullable(this.osDiskType);
     }
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<String> osSku() {
         return Optional.ofNullable(this.osSku);
     }
     /**
-     * @return The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where the pods in the default Node Pool should exist.
      * 
      */
     public Optional<String> podSubnetId() {
@@ -491,7 +499,7 @@ public final class KubernetesClusterDefaultNodePool {
         return this.vmSize;
     }
     /**
-     * @return The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of a Subnet where the Kubernetes Node Pool should exist.
      * 
      * &gt; **Note:** A Route Table must be configured on this Subnet.
      * 

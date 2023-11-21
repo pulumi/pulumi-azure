@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -33,14 +33,14 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
     }
 
     /**
-     * The headers for this specific `ip_restriction` as defined below.
+     * The `headers` block for this specific as a `ip_restriction` block as defined below.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<StandardSiteConfigIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The headers for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific as a `ip_restriction` block as defined below.
      * 
      */
     public Optional<Output<StandardSiteConfigIpRestrictionHeadersArgs>> headers() {
@@ -178,7 +178,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param headers The headers for this specific `ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific as a `ip_restriction` block as defined below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class StandardSiteConfigIpRestrictionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param headers The headers for this specific `ip_restriction` as defined below.
+         * @param headers The `headers` block for this specific as a `ip_restriction` block as defined below.
          * 
          * @return builder
          * 

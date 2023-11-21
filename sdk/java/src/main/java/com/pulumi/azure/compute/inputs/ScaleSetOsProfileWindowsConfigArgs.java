@@ -19,14 +19,14 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
     public static final ScaleSetOsProfileWindowsConfigArgs Empty = new ScaleSetOsProfileWindowsConfigArgs();
 
     /**
-     * An Additional Unattended Config block as documented below.
+     * An `additional_unattend_config` block as documented below.
      * 
      */
     @Import(name="additionalUnattendConfigs")
     private @Nullable Output<List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs>> additionalUnattendConfigs;
 
     /**
-     * @return An Additional Unattended Config block as documented below.
+     * @return An `additional_unattend_config` block as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs>>> additionalUnattendConfigs() {
@@ -64,14 +64,14 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * A collection of WinRM configuration blocks as documented below.
+     * A collection of `winrm` blocks as documented below.
      * 
      */
     @Import(name="winrms")
     private @Nullable Output<List<ScaleSetOsProfileWindowsConfigWinrmArgs>> winrms;
 
     /**
-     * @return A collection of WinRM configuration blocks as documented below.
+     * @return A collection of `winrm` blocks as documented below.
      * 
      */
     public Optional<Output<List<ScaleSetOsProfileWindowsConfigWinrmArgs>>> winrms() {
@@ -106,7 +106,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param additionalUnattendConfigs An Additional Unattended Config block as documented below.
+         * @param additionalUnattendConfigs An `additional_unattend_config` block as documented below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param additionalUnattendConfigs An Additional Unattended Config block as documented below.
+         * @param additionalUnattendConfigs An `additional_unattend_config` block as documented below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param additionalUnattendConfigs An Additional Unattended Config block as documented below.
+         * @param additionalUnattendConfigs An `additional_unattend_config` block as documented below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param winrms A collection of WinRM configuration blocks as documented below.
+         * @param winrms A collection of `winrm` blocks as documented below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param winrms A collection of WinRM configuration blocks as documented below.
+         * @param winrms A collection of `winrm` blocks as documented below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class ScaleSetOsProfileWindowsConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param winrms A collection of WinRM configuration blocks as documented below.
+         * @param winrms A collection of `winrm` blocks as documented below.
          * 
          * @return builder
          * 

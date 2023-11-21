@@ -25,7 +25,7 @@ class SpringCloudCertificateArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         """
@@ -80,7 +80,7 @@ class SpringCloudCertificateArgs:
     @pulumi.getter(name="excludePrivateKey")
     def exclude_private_key(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_private_key")
 
@@ -126,7 +126,7 @@ class _SpringCloudCertificateState:
         """
         Input properties used for looking up and filtering SpringCloudCertificate resources.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -164,7 +164,7 @@ class _SpringCloudCertificateState:
     @pulumi.getter(name="excludePrivateKey")
     def exclude_private_key(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_private_key")
 
@@ -345,7 +345,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -520,7 +520,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_content: The content of uploaded certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        :param pulumi.Input[bool] exclude_private_key: Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Certificate. Changing this forces a new resource to be created.
@@ -552,7 +552,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
     @pulumi.getter(name="excludePrivateKey")
     def exclude_private_key(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+        Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
         """
         return pulumi.get(self, "exclude_private_key")
 

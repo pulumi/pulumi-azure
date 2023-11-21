@@ -41,12 +41,16 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     /**
      * Specifies whether to trust a Custom CA.
      * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+     * 
      */
     @Import(name="customCaTrustEnabled")
     private @Nullable Output<Boolean> customCaTrustEnabled;
 
     /**
      * @return Specifies whether to trust a Custom CA.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
      * 
      */
     public Optional<Output<Boolean>> customCaTrustEnabled() {
@@ -111,14 +115,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     @Import(name="fipsEnabled")
     private @Nullable Output<Boolean> fipsEnabled;
 
     /**
-     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+     * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
      * 
      */
     public Optional<Output<Boolean>> fipsEnabled() {
@@ -201,14 +205,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+     * The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     @Import(name="maxPods")
     private @Nullable Output<Integer> maxPods;
 
     /**
-     * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+     * @return The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
      * 
      */
     public Optional<Output<Integer>> maxPods() {
@@ -246,14 +250,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * The name which should be used for the default Kubernetes Node Pool.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+     * @return The name which should be used for the default Kubernetes Node Pool.
      * 
      */
     public Output<String> name() {
@@ -261,7 +265,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+     * The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+     * 
+     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -270,7 +276,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     private @Nullable Output<Integer> nodeCount;
 
     /**
-     * @return The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+     * 
+     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -389,14 +397,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+     * The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     @Import(name="osDiskType")
     private @Nullable Output<String> osDiskType;
 
     /**
-     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<Output<String>> osDiskType() {
@@ -404,14 +412,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     @Import(name="osSku")
     private @Nullable Output<String> osSku;
 
     /**
-     * @return Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+     * @return Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
      * 
      */
     public Optional<Output<String>> osSku() {
@@ -419,14 +427,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of the Subnet where the pods in the default Node Pool should exist.
      * 
      */
     @Import(name="podSubnetId")
     private @Nullable Output<String> podSubnetId;
 
     /**
-     * @return The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of the Subnet where the pods in the default Node Pool should exist.
      * 
      */
     public Optional<Output<String>> podSubnetId() {
@@ -577,7 +585,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+     * The ID of a Subnet where the Kubernetes Node Pool should exist.
      * 
      * &gt; **Note:** A Route Table must be configured on this Subnet.
      * 
@@ -586,7 +594,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     private @Nullable Output<String> vnetSubnetId;
 
     /**
-     * @return The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+     * @return The ID of a Subnet where the Kubernetes Node Pool should exist.
      * 
      * &gt; **Note:** A Route Table must be configured on this Subnet.
      * 
@@ -718,6 +726,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         /**
          * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
          * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+         * 
          * @return builder
          * 
          */
@@ -728,6 +738,8 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
         /**
          * @param customCaTrustEnabled Specifies whether to trust a Custom CA.
+         * 
+         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
          * 
          * @return builder
          * 
@@ -812,7 +824,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
          * 
          * @return builder
          * 
@@ -823,7 +835,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+         * @param fipsEnabled Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
          * 
          * @return builder
          * 
@@ -938,7 +950,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param maxPods The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+         * @param maxPods The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
          * 
          * @return builder
          * 
@@ -949,7 +961,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param maxPods The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+         * @param maxPods The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
          * 
          * @return builder
          * 
@@ -1001,7 +1013,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+         * @param name The name which should be used for the default Kubernetes Node Pool.
          * 
          * @return builder
          * 
@@ -1012,7 +1024,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+         * @param name The name which should be used for the default Kubernetes Node Pool.
          * 
          * @return builder
          * 
@@ -1022,7 +1034,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeCount The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+         * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+         * 
+         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
          * 
          * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
          * 
@@ -1035,7 +1049,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param nodeCount The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+         * @param nodeCount The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+         * 
+         * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
          * 
          * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
          * 
@@ -1208,7 +1224,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
          * 
          * @return builder
          * 
@@ -1219,7 +1235,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+         * @param osDiskType The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
          * 
          * @return builder
          * 
@@ -1229,7 +1245,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param osSku Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+         * @param osSku Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
          * 
          * @return builder
          * 
@@ -1240,7 +1256,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param osSku Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+         * @param osSku Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
          * 
          * @return builder
          * 
@@ -1250,7 +1266,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param podSubnetId The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+         * @param podSubnetId The ID of the Subnet where the pods in the default Node Pool should exist.
          * 
          * @return builder
          * 
@@ -1261,7 +1277,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param podSubnetId The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+         * @param podSubnetId The ID of the Subnet where the pods in the default Node Pool should exist.
          * 
          * @return builder
          * 
@@ -1468,7 +1484,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param vnetSubnetId The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+         * @param vnetSubnetId The ID of a Subnet where the Kubernetes Node Pool should exist.
          * 
          * &gt; **Note:** A Route Table must be configured on this Subnet.
          * 
@@ -1481,7 +1497,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param vnetSubnetId The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+         * @param vnetSubnetId The ID of a Subnet where the Kubernetes Node Pool should exist.
          * 
          * &gt; **Note:** A Route Table must be configured on this Subnet.
          * 

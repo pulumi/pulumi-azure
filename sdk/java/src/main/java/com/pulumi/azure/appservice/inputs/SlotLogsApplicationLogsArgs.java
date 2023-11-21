@@ -32,14 +32,14 @@ public final class SlotLogsApplicationLogsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+     * The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
      * 
      */
     @Import(name="fileSystemLevel")
     private @Nullable Output<String> fileSystemLevel;
 
     /**
-     * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+     * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
      * 
      */
     public Optional<Output<String>> fileSystemLevel() {
@@ -93,7 +93,7 @@ public final class SlotLogsApplicationLogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fileSystemLevel The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+         * @param fileSystemLevel The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class SlotLogsApplicationLogsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fileSystemLevel The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+         * @param fileSystemLevel The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
          * 
          * @return builder
          * 

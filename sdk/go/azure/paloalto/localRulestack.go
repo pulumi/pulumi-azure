@@ -61,7 +61,7 @@ import (
 type LocalRulestack struct {
 	pulumi.CustomResourceState
 
-	// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 	AntiSpywareProfile pulumi.StringPtrOutput `pulumi:"antiSpywareProfile"`
 	// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
 	AntiVirusProfile pulumi.StringPtrOutput `pulumi:"antiVirusProfile"`
@@ -116,7 +116,7 @@ func GetLocalRulestack(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalRulestack resources.
 type localRulestackState struct {
-	// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 	AntiSpywareProfile *string `pulumi:"antiSpywareProfile"`
 	// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
 	AntiVirusProfile *string `pulumi:"antiVirusProfile"`
@@ -139,7 +139,7 @@ type localRulestackState struct {
 }
 
 type LocalRulestackState struct {
-	// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 	AntiSpywareProfile pulumi.StringPtrInput
 	// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
 	AntiVirusProfile pulumi.StringPtrInput
@@ -166,7 +166,7 @@ func (LocalRulestackState) ElementType() reflect.Type {
 }
 
 type localRulestackArgs struct {
-	// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 	AntiSpywareProfile *string `pulumi:"antiSpywareProfile"`
 	// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
 	AntiVirusProfile *string `pulumi:"antiVirusProfile"`
@@ -190,7 +190,7 @@ type localRulestackArgs struct {
 
 // The set of arguments for constructing a LocalRulestack resource.
 type LocalRulestackArgs struct {
-	// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+	// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 	AntiSpywareProfile pulumi.StringPtrInput
 	// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
 	AntiVirusProfile pulumi.StringPtrInput
@@ -323,7 +323,7 @@ func (o LocalRulestackOutput) ToOutput(ctx context.Context) pulumix.Output[*Loca
 	}
 }
 
-// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
 func (o LocalRulestackOutput) AntiSpywareProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRulestack) pulumi.StringPtrOutput { return v.AntiSpywareProfile }).(pulumi.StringPtrOutput)
 }

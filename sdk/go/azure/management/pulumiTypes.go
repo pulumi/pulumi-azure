@@ -371,7 +371,7 @@ func (o GroupPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.Int
 }
 
 type GroupPolicyAssignmentOverride struct {
-	// One or more `overrideSelector` as defined below.
+	// One or more `overrideSelector` block as defined below.
 	Selectors []GroupPolicyAssignmentOverrideSelector `pulumi:"selectors"`
 	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
 	Value string `pulumi:"value"`
@@ -389,7 +389,7 @@ type GroupPolicyAssignmentOverrideInput interface {
 }
 
 type GroupPolicyAssignmentOverrideArgs struct {
-	// One or more `overrideSelector` as defined below.
+	// One or more `overrideSelector` block as defined below.
 	Selectors GroupPolicyAssignmentOverrideSelectorArrayInput `pulumi:"selectors"`
 	// Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
 	Value pulumi.StringInput `pulumi:"value"`
@@ -464,7 +464,7 @@ func (o GroupPolicyAssignmentOverrideOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// One or more `overrideSelector` as defined below.
+// One or more `overrideSelector` block as defined below.
 func (o GroupPolicyAssignmentOverrideOutput) Selectors() GroupPolicyAssignmentOverrideSelectorArrayOutput {
 	return o.ApplyT(func(v GroupPolicyAssignmentOverride) []GroupPolicyAssignmentOverrideSelector { return v.Selectors }).(GroupPolicyAssignmentOverrideSelectorArrayOutput)
 }
@@ -503,7 +503,7 @@ func (o GroupPolicyAssignmentOverrideArrayOutput) Index(i pulumi.IntInput) Group
 type GroupPolicyAssignmentOverrideSelector struct {
 	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
 	Ins []string `pulumi:"ins"`
-	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
 	Kind *string `pulumi:"kind"`
 	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
 	NotIns []string `pulumi:"notIns"`
@@ -523,7 +523,7 @@ type GroupPolicyAssignmentOverrideSelectorInput interface {
 type GroupPolicyAssignmentOverrideSelectorArgs struct {
 	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
 	Ins pulumi.StringArrayInput `pulumi:"ins"`
-	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
 	NotIns pulumi.StringArrayInput `pulumi:"notIns"`
@@ -603,7 +603,7 @@ func (o GroupPolicyAssignmentOverrideSelectorOutput) Ins() pulumi.StringArrayOut
 	return o.ApplyT(func(v GroupPolicyAssignmentOverrideSelector) []string { return v.Ins }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
 func (o GroupPolicyAssignmentOverrideSelectorOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupPolicyAssignmentOverrideSelector) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
@@ -774,7 +774,7 @@ func (o GroupPolicyAssignmentResourceSelectorArrayOutput) Index(i pulumi.IntInpu
 type GroupPolicyAssignmentResourceSelectorSelector struct {
 	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
 	Ins []string `pulumi:"ins"`
-	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
 	Kind string `pulumi:"kind"`
 	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
 	NotIns []string `pulumi:"notIns"`
@@ -794,7 +794,7 @@ type GroupPolicyAssignmentResourceSelectorSelectorInput interface {
 type GroupPolicyAssignmentResourceSelectorSelectorArgs struct {
 	// Specify the list of policy reference id values to filter in. Cannot be used with `notIn`.
 	Ins pulumi.StringArrayInput `pulumi:"ins"`
-	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+	// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Specify the list of policy reference id values to filter out. Cannot be used with `in`.
 	NotIns pulumi.StringArrayInput `pulumi:"notIns"`
@@ -874,7 +874,7 @@ func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) Ins() pulumi.String
 	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelectorSelector) []string { return v.Ins }).(pulumi.StringArrayOutput)
 }
 
-// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
 func (o GroupPolicyAssignmentResourceSelectorSelectorOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupPolicyAssignmentResourceSelectorSelector) string { return v.Kind }).(pulumi.StringOutput)
 }

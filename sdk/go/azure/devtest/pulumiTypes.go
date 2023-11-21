@@ -1293,9 +1293,9 @@ func (o ScheduleWeeklyRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
 type VirtualNetworkSubnet struct {
 	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 	UseInVirtualMachineCreation *string `pulumi:"useInVirtualMachineCreation"`
-	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 	UsePublicIpAddress *string `pulumi:"usePublicIpAddress"`
 }
 
@@ -1313,9 +1313,9 @@ type VirtualNetworkSubnetInput interface {
 type VirtualNetworkSubnetArgs struct {
 	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 	UseInVirtualMachineCreation pulumi.StringPtrInput `pulumi:"useInVirtualMachineCreation"`
-	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 	UsePublicIpAddress pulumi.StringPtrInput `pulumi:"usePublicIpAddress"`
 }
 
@@ -1419,12 +1419,12 @@ func (o VirtualNetworkSubnetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 func (o VirtualNetworkSubnetOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UseInVirtualMachineCreation }).(pulumi.StringPtrOutput)
 }
 
-// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 func (o VirtualNetworkSubnetOutput) UsePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UsePublicIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -1469,7 +1469,7 @@ func (o VirtualNetworkSubnetPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 func (o VirtualNetworkSubnetPtrOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkSubnet) *string {
 		if v == nil {
@@ -1479,7 +1479,7 @@ func (o VirtualNetworkSubnetPtrOutput) UseInVirtualMachineCreation() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 func (o VirtualNetworkSubnetPtrOutput) UsePublicIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkSubnet) *string {
 		if v == nil {

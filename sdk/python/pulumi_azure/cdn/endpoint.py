@@ -44,8 +44,8 @@ class EndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input['EndpointGlobalDeliveryRuleArgs'] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
-        :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
-        :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
+        :param pulumi.Input[bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
+        :param pulumi.Input[bool] is_https_allowed: Specifies if https allowed. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
@@ -191,7 +191,7 @@ class EndpointArgs:
     @pulumi.getter(name="isHttpAllowed")
     def is_http_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defaults to `true`.
+        Specifies if http allowed. Defaults to `true`.
         """
         return pulumi.get(self, "is_http_allowed")
 
@@ -203,7 +203,7 @@ class EndpointArgs:
     @pulumi.getter(name="isHttpsAllowed")
     def is_https_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defaults to `true`.
+        Specifies if https allowed. Defaults to `true`.
         """
         return pulumi.get(self, "is_https_allowed")
 
@@ -340,8 +340,8 @@ class _EndpointState:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input['EndpointGlobalDeliveryRuleArgs'] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
-        :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
-        :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
+        :param pulumi.Input[bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
+        :param pulumi.Input[bool] is_https_allowed: Specifies if https allowed. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
@@ -471,7 +471,7 @@ class _EndpointState:
     @pulumi.getter(name="isHttpAllowed")
     def is_http_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defaults to `true`.
+        Specifies if http allowed. Defaults to `true`.
         """
         return pulumi.get(self, "is_http_allowed")
 
@@ -483,7 +483,7 @@ class _EndpointState:
     @pulumi.getter(name="isHttpsAllowed")
     def is_https_allowed(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defaults to `true`.
+        Specifies if https allowed. Defaults to `true`.
         """
         return pulumi.get(self, "is_https_allowed")
 
@@ -687,8 +687,8 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGeoFilterArgs']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input[pulumi.InputType['EndpointGlobalDeliveryRuleArgs']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
-        :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
-        :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
+        :param pulumi.Input[bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
+        :param pulumi.Input[bool] is_https_allowed: Specifies if https allowed. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
@@ -848,8 +848,8 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGeoFilterArgs']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input[pulumi.InputType['EndpointGlobalDeliveryRuleArgs']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled.
-        :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
-        :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
+        :param pulumi.Input[bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
+        :param pulumi.Input[bool] is_https_allowed: Specifies if https allowed. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
@@ -941,7 +941,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="isHttpAllowed")
     def is_http_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
-        Defaults to `true`.
+        Specifies if http allowed. Defaults to `true`.
         """
         return pulumi.get(self, "is_http_allowed")
 
@@ -949,7 +949,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="isHttpsAllowed")
     def is_https_allowed(self) -> pulumi.Output[Optional[bool]]:
         """
-        Defaults to `true`.
+        Specifies if https allowed. Defaults to `true`.
         """
         return pulumi.get(self, "is_https_allowed")
 

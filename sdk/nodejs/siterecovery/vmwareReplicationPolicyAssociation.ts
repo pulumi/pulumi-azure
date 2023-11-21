@@ -67,13 +67,11 @@ export class VmwareReplicationPolicyAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * The name of the replication policy association. Changing this forces a new association to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
@@ -120,13 +118,11 @@ export class VmwareReplicationPolicyAssociation extends pulumi.CustomResource {
  */
 export interface VmwareReplicationPolicyAssociationState {
     /**
-     * The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * The name of the replication policy association. Changing this forces a new association to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      */
     policyId?: pulumi.Input<string>;
     /**
@@ -141,13 +137,11 @@ export interface VmwareReplicationPolicyAssociationState {
  */
 export interface VmwareReplicationPolicyAssociationArgs {
     /**
-     * The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * The name of the replication policy association. Changing this forces a new association to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      */
     policyId: pulumi.Input<string>;
     /**

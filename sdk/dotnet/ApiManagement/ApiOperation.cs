@@ -127,7 +127,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<Outputs.ApiOperationResponse>> Responses { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
+        /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         /// </summary>
         [Output("templateParameters")]
         public Output<ImmutableArray<Outputs.ApiOperationTemplateParameter>> TemplateParameters { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ApiOperationTemplateParameterArgs>? _templateParameters;
 
         /// <summary>
-        /// One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
+        /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         /// </summary>
         public InputList<Inputs.ApiOperationTemplateParameterArgs> TemplateParameters
         {
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ApiOperationTemplateParameterGetArgs>? _templateParameters;
 
         /// <summary>
-        /// One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
+        /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         /// </summary>
         public InputList<Inputs.ApiOperationTemplateParameterGetArgs> TemplateParameters
         {

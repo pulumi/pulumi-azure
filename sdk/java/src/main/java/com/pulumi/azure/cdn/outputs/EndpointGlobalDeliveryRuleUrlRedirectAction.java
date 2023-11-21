@@ -27,7 +27,7 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectAction {
      */
     private @Nullable String path;
     /**
-     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
      * 
      */
     private @Nullable String protocol;
@@ -65,7 +65,7 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectAction {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+     * @return Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
      * 
      */
     public Optional<String> protocol() {

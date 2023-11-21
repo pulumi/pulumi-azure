@@ -87,7 +87,7 @@ type ChannelDirectLine struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelDirectLineSiteArrayOutput `pulumi:"sites"`
 }
 
@@ -136,7 +136,7 @@ type channelDirectLineState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelDirectLineSite `pulumi:"sites"`
 }
 
@@ -147,7 +147,7 @@ type ChannelDirectLineState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelDirectLineSiteArrayInput
 }
 
@@ -162,7 +162,7 @@ type channelDirectLineArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelDirectLineSite `pulumi:"sites"`
 }
 
@@ -174,7 +174,7 @@ type ChannelDirectLineArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelDirectLineSiteArrayInput
 }
 
@@ -304,7 +304,7 @@ func (o ChannelDirectLineOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelDirectLine) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 func (o ChannelDirectLineOutput) Sites() ChannelDirectLineSiteArrayOutput {
 	return o.ApplyT(func(v *ChannelDirectLine) ChannelDirectLineSiteArrayOutput { return v.Sites }).(ChannelDirectLineSiteArrayOutput)
 }

@@ -23,14 +23,14 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     public static final LocalRulestackRuleArgs Empty = new LocalRulestackRuleArgs();
 
     /**
-     * The action to take on the rule being triggered.
+     * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return The action to take on the rule being triggered.
+     * @return The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      * 
      */
     public Output<String> action() {
@@ -83,14 +83,14 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      * 
      */
     @Import(name="decryptionRuleType")
     private @Nullable Output<String> decryptionRuleType;
 
     /**
-     * @return The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * @return The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      * 
      */
     public Optional<Output<String>> decryptionRuleType() {
@@ -354,7 +354,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param action The action to take on the rule being triggered.
+         * @param action The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param action The action to take on the rule being triggered.
+         * @param action The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param decryptionRuleType The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+         * @param decryptionRuleType The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class LocalRulestackRuleArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param decryptionRuleType The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+         * @param decryptionRuleType The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
          * 
          * @return builder
          * 

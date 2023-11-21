@@ -412,7 +412,7 @@ type CacheRedisConfiguration struct {
 	MaxfragmentationmemoryReserved *int `pulumi:"maxfragmentationmemoryReserved"`
 	// The max-memory delta for this Redis instance. Defaults are shown below.
 	MaxmemoryDelta *int `pulumi:"maxmemoryDelta"`
-	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+	// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
 	MaxmemoryPolicy *string `pulumi:"maxmemoryPolicy"`
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved *int `pulumi:"maxmemoryReserved"`
@@ -492,7 +492,7 @@ type CacheRedisConfigurationArgs struct {
 	MaxfragmentationmemoryReserved pulumi.IntPtrInput `pulumi:"maxfragmentationmemoryReserved"`
 	// The max-memory delta for this Redis instance. Defaults are shown below.
 	MaxmemoryDelta pulumi.IntPtrInput `pulumi:"maxmemoryDelta"`
-	// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+	// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
 	MaxmemoryPolicy pulumi.StringPtrInput `pulumi:"maxmemoryPolicy"`
 	// Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 	MaxmemoryReserved pulumi.IntPtrInput `pulumi:"maxmemoryReserved"`
@@ -679,7 +679,7 @@ func (o CacheRedisConfigurationOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *int { return v.MaxmemoryDelta }).(pulumi.IntPtrOutput)
 }
 
-// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
 func (o CacheRedisConfigurationOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.MaxmemoryPolicy }).(pulumi.StringPtrOutput)
 }
@@ -858,7 +858,7 @@ func (o CacheRedisConfigurationPtrOutput) MaxmemoryDelta() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
 func (o CacheRedisConfigurationPtrOutput) MaxmemoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {

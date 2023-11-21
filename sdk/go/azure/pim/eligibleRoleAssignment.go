@@ -155,7 +155,6 @@ type EligibleRoleAssignment struct {
 	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The type of principal.
-	// *
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
 	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
 	RoleDefinitionId pulumi.StringOutput `pulumi:"roleDefinitionId"`
@@ -211,7 +210,6 @@ type eligibleRoleAssignmentState struct {
 	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
 	PrincipalId *string `pulumi:"principalId"`
 	// The type of principal.
-	// *
 	PrincipalType *string `pulumi:"principalType"`
 	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
@@ -229,7 +227,6 @@ type EligibleRoleAssignmentState struct {
 	// The principal id. Changing this forces a new Pim Eligible Role Assignment to be created.
 	PrincipalId pulumi.StringPtrInput
 	// The type of principal.
-	// *
 	PrincipalType pulumi.StringPtrInput
 	// The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created.
 	RoleDefinitionId pulumi.StringPtrInput
@@ -398,7 +395,6 @@ func (o EligibleRoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
 }
 
 // The type of principal.
-// *
 func (o EligibleRoleAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EligibleRoleAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
 }

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? AcceleratedNetworking { get; set; }
 
         /// <summary>
-        /// A dns_settings block as documented below.
+        /// A `dns_settings` block as documented below.
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.ScaleSetNetworkProfileDnsSettingsArgs>? DnsSettings { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.ScaleSetNetworkProfileIpConfigurationArgs>? _ipConfigurations;
 
         /// <summary>
-        /// An ip_configuration block as documented below.
+        /// An `ip_configuration` block as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetNetworkProfileIpConfigurationArgs> IpConfigurations
         {

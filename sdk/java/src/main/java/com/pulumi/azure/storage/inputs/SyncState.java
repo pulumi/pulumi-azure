@@ -17,14 +17,14 @@ public final class SyncState extends com.pulumi.resources.ResourceArgs {
     public static final SyncState Empty = new SyncState();
 
     /**
-     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      * 
      */
     @Import(name="incomingTrafficPolicy")
     private @Nullable Output<String> incomingTrafficPolicy;
 
     /**
-     * @return Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * @return Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      * 
      */
     public Optional<Output<String>> incomingTrafficPolicy() {
@@ -120,7 +120,7 @@ public final class SyncState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param incomingTrafficPolicy Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+         * @param incomingTrafficPolicy Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class SyncState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param incomingTrafficPolicy Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+         * @param incomingTrafficPolicy Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
          * 
          * @return builder
          * 

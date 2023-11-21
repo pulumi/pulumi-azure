@@ -79,7 +79,7 @@ import (
 type LinuxWebAppSlot struct {
 	pulumi.CustomResourceState
 
-	// A `appMetadata` block as defined below.
+	// A `appMetadata`.
 	AppMetadata pulumi.StringMapOutput `pulumi:"appMetadata"`
 	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId pulumi.StringOutput `pulumi:"appServiceId"`
@@ -97,7 +97,7 @@ type LinuxWebAppSlot struct {
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -107,6 +107,8 @@ type LinuxWebAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringOutput `pulumi:"hostingEnvironmentId"`
 	// Should the Linux Web App require HTTPS connections.
@@ -124,7 +126,7 @@ type LinuxWebAppSlot struct {
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
-	// A `possibleOutboundIpAddressList` block as defined below.
+	// A `possibleOutboundIpAddressList`.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
@@ -141,6 +143,10 @@ type LinuxWebAppSlot struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
 	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
@@ -188,7 +194,7 @@ func GetLinuxWebAppSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinuxWebAppSlot resources.
 type linuxWebAppSlotState struct {
-	// A `appMetadata` block as defined below.
+	// A `appMetadata`.
 	AppMetadata map[string]string `pulumi:"appMetadata"`
 	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId *string `pulumi:"appServiceId"`
@@ -206,7 +212,7 @@ type linuxWebAppSlotState struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []LinuxWebAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -216,6 +222,8 @@ type linuxWebAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId *string `pulumi:"hostingEnvironmentId"`
 	// Should the Linux Web App require HTTPS connections.
@@ -233,7 +241,7 @@ type linuxWebAppSlotState struct {
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
-	// A `possibleOutboundIpAddressList` block as defined below.
+	// A `possibleOutboundIpAddressList`.
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
@@ -250,6 +258,10 @@ type linuxWebAppSlotState struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
 	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
@@ -257,7 +269,7 @@ type linuxWebAppSlotState struct {
 }
 
 type LinuxWebAppSlotState struct {
-	// A `appMetadata` block as defined below.
+	// A `appMetadata`.
 	AppMetadata pulumi.StringMapInput
 	// The ID of the Linux Web App this Deployment Slot will be part of.
 	AppServiceId pulumi.StringPtrInput
@@ -275,7 +287,7 @@ type LinuxWebAppSlotState struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppSlotConnectionStringArrayInput
@@ -285,6 +297,8 @@ type LinuxWebAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the App Service Environment used by App Service Slot.
 	HostingEnvironmentId pulumi.StringPtrInput
 	// Should the Linux Web App require HTTPS connections.
@@ -302,7 +316,7 @@ type LinuxWebAppSlotState struct {
 	OutboundIpAddressLists pulumi.StringArrayInput
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses pulumi.StringPtrInput
-	// A `possibleOutboundIpAddressList` block as defined below.
+	// A `possibleOutboundIpAddressList`.
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
@@ -319,6 +333,10 @@ type LinuxWebAppSlotState struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
 	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
@@ -346,12 +364,14 @@ type linuxWebAppSlotArgs struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []LinuxWebAppSlotConnectionString `pulumi:"connectionStrings"`
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// Should the Linux Web App require HTTPS connections.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
@@ -372,6 +392,10 @@ type linuxWebAppSlotArgs struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
 	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
@@ -396,12 +420,14 @@ type LinuxWebAppSlotArgs struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppSlotConnectionStringArrayInput
 	// Should the Linux Web App be enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// Should the Linux Web App require HTTPS connections.
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
@@ -422,6 +448,10 @@ type LinuxWebAppSlotArgs struct {
 	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	//
+	// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
 	//
 	// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `appSettings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
@@ -539,7 +569,7 @@ func (o LinuxWebAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*Lin
 	}
 }
 
-// A `appMetadata` block as defined below.
+// A `appMetadata`.
 func (o LinuxWebAppSlotOutput) AppMetadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.AppMetadata }).(pulumi.StringMapOutput)
 }
@@ -584,7 +614,7 @@ func (o LinuxWebAppSlotOutput) ClientCertificateExclusionPaths() pulumi.StringPt
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
-// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
 func (o LinuxWebAppSlotOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
@@ -607,6 +637,11 @@ func (o LinuxWebAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 // Should the Linux Web App be enabled? Defaults to `true`.
 func (o LinuxWebAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+func (o LinuxWebAppSlotOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the App Service Environment used by App Service Slot.
@@ -653,7 +688,7 @@ func (o LinuxWebAppSlotOutput) OutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.OutboundIpAddresses }).(pulumi.StringOutput)
 }
 
-// A `possibleOutboundIpAddressList` block as defined below.
+// A `possibleOutboundIpAddressList`.
 func (o LinuxWebAppSlotOutput) PossibleOutboundIpAddressLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringArrayOutput { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
@@ -695,6 +730,13 @@ func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 
 func (o LinuxWebAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+//
+// > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+func (o LinuxWebAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.BoolPtrOutput { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The local path and filename of the Zip packaged application to deploy to this Linux Web App.

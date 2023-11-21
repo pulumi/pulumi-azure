@@ -304,14 +304,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+     * Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
      * 
      */
     @Import(name="managedPipelineMode")
     private @Nullable Output<String> managedPipelineMode;
 
     /**
-     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
      * 
      */
     public Optional<Output<String>> managedPipelineMode() {
@@ -939,7 +939,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
          * 
          * @return builder
          * 
@@ -950,7 +950,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
          * 
          * @return builder
          * 

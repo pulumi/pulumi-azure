@@ -43,7 +43,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<bool>? SystemDbOnDataDiskEnabled { get; set; }
 
         /// <summary>
-        /// An `temp_db_settings` as defined below.
+        /// An `temp_db_settings` block as defined below.
         /// </summary>
         [Input("tempDbSettings")]
         public Input<Inputs.VirtualMachineStorageConfigurationTempDbSettingsArgs>? TempDbSettings { get; set; }

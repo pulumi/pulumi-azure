@@ -209,14 +209,14 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
         return this.location;
     }
     /**
-     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      * 
      */
     @Export(name="maxParallelExecutionsPerNode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxParallelExecutionsPerNode;
 
     /**
-     * @return Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+     * @return Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
      * 
      */
     public Output<Optional<Integer>> maxParallelExecutionsPerNode() {

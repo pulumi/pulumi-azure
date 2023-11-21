@@ -1286,7 +1286,7 @@ type EndpointDeliveryRuleDeviceCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -1306,7 +1306,7 @@ type EndpointDeliveryRuleDeviceConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -1415,7 +1415,7 @@ func (o EndpointDeliveryRuleDeviceConditionOutput) NegateCondition() pulumi.Bool
 	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleDeviceConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleDeviceCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -1470,7 +1470,7 @@ func (o EndpointDeliveryRuleDeviceConditionPtrOutput) NegateCondition() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleDeviceConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleDeviceCondition) *string {
 		if v == nil {
@@ -1485,7 +1485,7 @@ type EndpointDeliveryRuleHttpVersionCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -1505,7 +1505,7 @@ type EndpointDeliveryRuleHttpVersionConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -1588,7 +1588,7 @@ func (o EndpointDeliveryRuleHttpVersionConditionOutput) NegateCondition() pulumi
 	return o.ApplyT(func(v EndpointDeliveryRuleHttpVersionCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleHttpVersionConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleHttpVersionCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -2651,7 +2651,7 @@ type EndpointDeliveryRuleRequestMethodCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -2671,7 +2671,7 @@ type EndpointDeliveryRuleRequestMethodConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -2780,7 +2780,7 @@ func (o EndpointDeliveryRuleRequestMethodConditionOutput) NegateCondition() pulu
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleRequestMethodConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestMethodCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -2835,7 +2835,7 @@ func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) NegateCondition() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleRequestMethodConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleRequestMethodCondition) *string {
 		if v == nil {
@@ -2850,7 +2850,7 @@ type EndpointDeliveryRuleRequestSchemeCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -2870,7 +2870,7 @@ type EndpointDeliveryRuleRequestSchemeConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// Defaults to `false`.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// Valid values are `Equal`.
+	// Valid values are `Equal`. Defaults to `Equal`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -2979,7 +2979,7 @@ func (o EndpointDeliveryRuleRequestSchemeConditionOutput) NegateCondition() pulu
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleRequestSchemeConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleRequestSchemeCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -3034,7 +3034,7 @@ func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) NegateCondition() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `Equal`.
+// Valid values are `Equal`. Defaults to `Equal`.
 func (o EndpointDeliveryRuleRequestSchemeConditionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleRequestSchemeCondition) *string {
 		if v == nil {
@@ -3643,7 +3643,7 @@ type EndpointDeliveryRuleUrlRedirectAction struct {
 	Hostname *string `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path *string `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 	Protocol *string `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString *string `pulumi:"queryString"`
@@ -3669,7 +3669,7 @@ type EndpointDeliveryRuleUrlRedirectActionArgs struct {
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
@@ -3787,7 +3787,7 @@ func (o EndpointDeliveryRuleUrlRedirectActionOutput) Path() pulumi.StringPtrOutp
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 func (o EndpointDeliveryRuleUrlRedirectActionOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -3862,7 +3862,7 @@ func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRedirectAction) *string {
 		if v == nil {
@@ -3895,7 +3895,7 @@ func (o EndpointDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pulumi.St
 type EndpointDeliveryRuleUrlRewriteAction struct {
 	// This value must start with a `/` and can't be longer than 260 characters.
 	Destination string `pulumi:"destination"`
-	// Defaults to `true`.
+	// Whether preserve an unmatched path. Defaults to `true`.
 	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
 	// This value must start with a `/` and can't be longer than 260 characters.
 	SourcePattern string `pulumi:"sourcePattern"`
@@ -3915,7 +3915,7 @@ type EndpointDeliveryRuleUrlRewriteActionInput interface {
 type EndpointDeliveryRuleUrlRewriteActionArgs struct {
 	// This value must start with a `/` and can't be longer than 260 characters.
 	Destination pulumi.StringInput `pulumi:"destination"`
-	// Defaults to `true`.
+	// Whether preserve an unmatched path. Defaults to `true`.
 	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
 	// This value must start with a `/` and can't be longer than 260 characters.
 	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
@@ -4021,7 +4021,7 @@ func (o EndpointDeliveryRuleUrlRewriteActionOutput) Destination() pulumi.StringO
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// Defaults to `true`.
+// Whether preserve an unmatched path. Defaults to `true`.
 func (o EndpointDeliveryRuleUrlRewriteActionOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
 }
@@ -4071,7 +4071,7 @@ func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defaults to `true`.
+// Whether preserve an unmatched path. Defaults to `true`.
 func (o EndpointDeliveryRuleUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointDeliveryRuleUrlRewriteAction) *bool {
 		if v == nil {
@@ -5143,7 +5143,7 @@ type EndpointGlobalDeliveryRuleUrlRedirectAction struct {
 	Hostname *string `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path *string `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 	Protocol *string `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString *string `pulumi:"queryString"`
@@ -5169,7 +5169,7 @@ type EndpointGlobalDeliveryRuleUrlRedirectActionArgs struct {
 	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
 	// Specifies the path part of the URL. This value must begin with a `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+	// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
@@ -5287,7 +5287,7 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Path() pulumi.StringP
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRedirectAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -5362,7 +5362,7 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Path() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
 func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRedirectAction) *string {
 		if v == nil {
@@ -5395,7 +5395,7 @@ func (o EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput) RedirectType() pul
 type EndpointGlobalDeliveryRuleUrlRewriteAction struct {
 	// This value must start with a `/` and can't be longer than 260 characters.
 	Destination string `pulumi:"destination"`
-	// Defaults to `true`.
+	// Whether preserve an unmatched path. Defaults to `true`.
 	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
 	// This value must start with a `/` and can't be longer than 260 characters.
 	SourcePattern string `pulumi:"sourcePattern"`
@@ -5415,7 +5415,7 @@ type EndpointGlobalDeliveryRuleUrlRewriteActionInput interface {
 type EndpointGlobalDeliveryRuleUrlRewriteActionArgs struct {
 	// This value must start with a `/` and can't be longer than 260 characters.
 	Destination pulumi.StringInput `pulumi:"destination"`
-	// Defaults to `true`.
+	// Whether preserve an unmatched path. Defaults to `true`.
 	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
 	// This value must start with a `/` and can't be longer than 260 characters.
 	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
@@ -5521,7 +5521,7 @@ func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) Destination() pulumi.S
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
 }
 
-// Defaults to `true`.
+// Whether preserve an unmatched path. Defaults to `true`.
 func (o EndpointGlobalDeliveryRuleUrlRewriteActionOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointGlobalDeliveryRuleUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
 }
@@ -5571,7 +5571,7 @@ func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) Destination() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defaults to `true`.
+// Whether preserve an unmatched path. Defaults to `true`.
 func (o EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointGlobalDeliveryRuleUrlRewriteAction) *bool {
 		if v == nil {
@@ -7877,7 +7877,7 @@ type FrontdoorRouteCache struct {
 	CompressionEnabled *bool `pulumi:"compressionEnabled"`
 	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
-	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
 	//
 	// > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
@@ -7903,7 +7903,7 @@ type FrontdoorRouteCacheArgs struct {
 	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
 	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
 	ContentTypesToCompresses pulumi.StringArrayInput `pulumi:"contentTypesToCompresses"`
-	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
 	//
 	// > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
@@ -8018,7 +8018,7 @@ func (o FrontdoorRouteCacheOutput) ContentTypesToCompresses() pulumi.StringArray
 	return o.ApplyT(func(v FrontdoorRouteCache) []string { return v.ContentTypesToCompresses }).(pulumi.StringArrayOutput)
 }
 
-// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
 //
 // > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 func (o FrontdoorRouteCacheOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
@@ -8082,7 +8082,7 @@ func (o FrontdoorRouteCachePtrOutput) ContentTypesToCompresses() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+// Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
 //
 // > **NOTE:** The value of the `queryStringCachingBehavior` determines if the `queryStrings` field will be used as an include list or an ignore list.
 func (o FrontdoorRouteCachePtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
@@ -8951,13 +8951,13 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStri
 }
 
 type FrontdoorRuleActionsUrlRedirectAction struct {
-	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
+	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
 	DestinationFragment *string `pulumi:"destinationFragment"`
 	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 	DestinationHostname string `pulumi:"destinationHostname"`
-	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
+	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
 	DestinationPath *string `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
 	QueryString *string `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol *string `pulumi:"redirectProtocol"`
@@ -8977,13 +8977,13 @@ type FrontdoorRuleActionsUrlRedirectActionInput interface {
 }
 
 type FrontdoorRuleActionsUrlRedirectActionArgs struct {
-	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
+	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
 	DestinationFragment pulumi.StringPtrInput `pulumi:"destinationFragment"`
 	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
 	DestinationHostname pulumi.StringInput `pulumi:"destinationHostname"`
-	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
+	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
 	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
@@ -9086,7 +9086,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToOutput(ctx context.Contex
 	}
 }
 
-// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
+// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationFragment }).(pulumi.StringPtrOutput)
 }
@@ -9096,12 +9096,12 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationHostname() pulum
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) string { return v.DestinationHostname }).(pulumi.StringOutput)
 }
 
-// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
+// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
@@ -9146,7 +9146,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) Elem() FrontdoorRuleActi
 	}).(FrontdoorRuleActionsUrlRedirectActionOutput)
 }
 
-// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
+// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -9166,7 +9166,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationHostname() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
+// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -9176,7 +9176,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -10976,7 +10976,7 @@ type FrontdoorRuleConditionsRemoteAddressCondition struct {
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
-	// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+	// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -10998,7 +10998,7 @@ type FrontdoorRuleConditionsRemoteAddressConditionArgs struct {
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
-	// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+	// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -11083,7 +11083,7 @@ func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) NegateCondition() p
 	return o.ApplyT(func(v FrontdoorRuleConditionsRemoteAddressCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
 }
 
-// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
 func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRemoteAddressCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }

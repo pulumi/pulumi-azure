@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.SlotLogsApplicationLogsAzureBlobStorageArgs>? AzureBlobStorage { get; set; }
 
         /// <summary>
-        /// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+        /// The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
         /// </summary>
         [Input("fileSystemLevel")]
         public Input<string>? FileSystemLevel { get; set; }

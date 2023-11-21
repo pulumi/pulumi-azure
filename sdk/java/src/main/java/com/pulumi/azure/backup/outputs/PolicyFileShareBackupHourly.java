@@ -11,38 +11,38 @@ import java.util.Objects;
 @CustomType
 public final class PolicyFileShareBackupHourly {
     /**
-     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
      * 
      */
     private Integer interval;
     /**
-     * @return Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * @return Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
      * 
      */
     private String startTime;
     /**
-     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     private Integer windowDuration;
 
     private PolicyFileShareBackupHourly() {}
     /**
-     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+     * @return Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
      * 
      */
     public Integer interval() {
         return this.interval;
     }
     /**
-     * @return Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+     * @return Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
      * 
      */
     public String startTime() {
         return this.startTime;
     }
     /**
-     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+     * @return Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
      * 
      */
     public Integer windowDuration() {

@@ -166,7 +166,7 @@ class FhirServiceAuthenticationArgs:
                  authority: pulumi.Input[str],
                  smart_proxy_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] audience: The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+        :param pulumi.Input[str] audience: The intended audience to receive authentication tokens for the service.
         :param pulumi.Input[bool] smart_proxy_enabled: Whether smart proxy is enabled.
         """
         pulumi.set(__self__, "audience", audience)
@@ -178,7 +178,7 @@ class FhirServiceAuthenticationArgs:
     @pulumi.getter
     def audience(self) -> pulumi.Input[str]:
         """
-        The intended audience to receive authentication tokens for the service. The default value is `https://<name>.fhir.azurehealthcareapis.com`.
+        The intended audience to receive authentication tokens for the service.
         """
         return pulumi.get(self, "audience")
 
@@ -300,7 +300,7 @@ class FhirServiceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        :param pulumi.Input[str] type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
@@ -315,7 +315,7 @@ class FhirServiceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -417,6 +417,7 @@ class MedtechServiceIdentityArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
         """
@@ -443,6 +444,9 @@ class MedtechServiceIdentityArgs:
     @property
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+        """
         return pulumi.get(self, "identity_ids")
 
     @identity_ids.setter

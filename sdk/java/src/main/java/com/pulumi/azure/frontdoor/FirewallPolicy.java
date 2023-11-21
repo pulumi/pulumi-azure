@@ -258,14 +258,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.managedRules);
     }
     /**
-     * The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
-     * @return The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * @return The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      * 
      */
     public Output<Optional<String>> mode() {

@@ -252,7 +252,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly automaticOsUpgrade!: pulumi.Output<boolean | undefined>;
     /**
-     * A boot diagnostics profile block as referenced below.
+     * A `bootDiagnostics` block as referenced below.
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.ScaleSetBootDiagnostics | undefined>;
     /**
@@ -286,23 +286,23 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A collection of network profile block as documented below.
+     * A collection of `networkProfile` blocks as documented below.
      */
     public readonly networkProfiles!: pulumi.Output<outputs.compute.ScaleSetNetworkProfile[]>;
     /**
-     * A Virtual Machine OS Profile block as documented below.
+     * A `osProfile` block as documented below.
      */
     public readonly osProfile!: pulumi.Output<outputs.compute.ScaleSetOsProfile>;
     /**
-     * A Linux config block as documented below.
+     * A `osProfileLinuxConfig` block as documented below.
      */
     public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.ScaleSetOsProfileLinuxConfig>;
     /**
-     * A collection of Secret blocks as documented below.
+     * A collection of `osProfileSecrets` blocks as documented below.
      */
     public readonly osProfileSecrets!: pulumi.Output<outputs.compute.ScaleSetOsProfileSecret[] | undefined>;
     /**
-     * A Windows config block as documented below.
+     * A `osProfileWindowsConfig` block as documented below.
      */
     public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.ScaleSetOsProfileWindowsConfig | undefined>;
     /**
@@ -310,7 +310,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly overprovision!: pulumi.Output<boolean | undefined>;
     /**
-     * A plan block as documented below.
+     * A `plan` block as documented below.
      */
     public readonly plan!: pulumi.Output<outputs.compute.ScaleSetPlan | undefined>;
     /**
@@ -330,23 +330,23 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.ScaleSetRollingUpgradePolicy | undefined>;
     /**
-     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
-     * A SKU block as documented below.
+     * A `sku` block as documented below.
      */
     public readonly sku!: pulumi.Output<outputs.compute.ScaleSetSku>;
     /**
-     * A storage profile data disk block as documented below
+     * A `storageProfileDataDisk` block as documented below.
      */
     public readonly storageProfileDataDisks!: pulumi.Output<outputs.compute.ScaleSetStorageProfileDataDisk[] | undefined>;
     /**
-     * A storage profile image reference block as documented below.
+     * A `storageProfileImageReference` block as documented below.
      */
     public readonly storageProfileImageReference!: pulumi.Output<outputs.compute.ScaleSetStorageProfileImageReference>;
     /**
-     * A storage profile os disk block as documented below
+     * A `storageProfileOsDisk` block as documented below.
      */
     public readonly storageProfileOsDisk!: pulumi.Output<outputs.compute.ScaleSetStorageProfileOsDisk>;
     /**
@@ -468,7 +468,7 @@ export interface ScaleSetState {
      */
     automaticOsUpgrade?: pulumi.Input<boolean>;
     /**
-     * A boot diagnostics profile block as referenced below.
+     * A `bootDiagnostics` block as referenced below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.ScaleSetBootDiagnostics>;
     /**
@@ -502,23 +502,23 @@ export interface ScaleSetState {
      */
     name?: pulumi.Input<string>;
     /**
-     * A collection of network profile block as documented below.
+     * A collection of `networkProfile` blocks as documented below.
      */
     networkProfiles?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetNetworkProfile>[]>;
     /**
-     * A Virtual Machine OS Profile block as documented below.
+     * A `osProfile` block as documented below.
      */
     osProfile?: pulumi.Input<inputs.compute.ScaleSetOsProfile>;
     /**
-     * A Linux config block as documented below.
+     * A `osProfileLinuxConfig` block as documented below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileLinuxConfig>;
     /**
-     * A collection of Secret blocks as documented below.
+     * A collection of `osProfileSecrets` blocks as documented below.
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetOsProfileSecret>[]>;
     /**
-     * A Windows config block as documented below.
+     * A `osProfileWindowsConfig` block as documented below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileWindowsConfig>;
     /**
@@ -526,7 +526,7 @@ export interface ScaleSetState {
      */
     overprovision?: pulumi.Input<boolean>;
     /**
-     * A plan block as documented below.
+     * A `plan` block as documented below.
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan>;
     /**
@@ -546,23 +546,23 @@ export interface ScaleSetState {
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.ScaleSetRollingUpgradePolicy>;
     /**
-     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * A SKU block as documented below.
+     * A `sku` block as documented below.
      */
     sku?: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**
-     * A storage profile data disk block as documented below
+     * A `storageProfileDataDisk` block as documented below.
      */
     storageProfileDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetStorageProfileDataDisk>[]>;
     /**
-     * A storage profile image reference block as documented below.
+     * A `storageProfileImageReference` block as documented below.
      */
     storageProfileImageReference?: pulumi.Input<inputs.compute.ScaleSetStorageProfileImageReference>;
     /**
-     * A storage profile os disk block as documented below
+     * A `storageProfileOsDisk` block as documented below.
      */
     storageProfileOsDisk?: pulumi.Input<inputs.compute.ScaleSetStorageProfileOsDisk>;
     /**
@@ -590,7 +590,7 @@ export interface ScaleSetArgs {
      */
     automaticOsUpgrade?: pulumi.Input<boolean>;
     /**
-     * A boot diagnostics profile block as referenced below.
+     * A `bootDiagnostics` block as referenced below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.ScaleSetBootDiagnostics>;
     /**
@@ -624,23 +624,23 @@ export interface ScaleSetArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A collection of network profile block as documented below.
+     * A collection of `networkProfile` blocks as documented below.
      */
     networkProfiles: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetNetworkProfile>[]>;
     /**
-     * A Virtual Machine OS Profile block as documented below.
+     * A `osProfile` block as documented below.
      */
     osProfile: pulumi.Input<inputs.compute.ScaleSetOsProfile>;
     /**
-     * A Linux config block as documented below.
+     * A `osProfileLinuxConfig` block as documented below.
      */
     osProfileLinuxConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileLinuxConfig>;
     /**
-     * A collection of Secret blocks as documented below.
+     * A collection of `osProfileSecrets` blocks as documented below.
      */
     osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetOsProfileSecret>[]>;
     /**
-     * A Windows config block as documented below.
+     * A `osProfileWindowsConfig` block as documented below.
      */
     osProfileWindowsConfig?: pulumi.Input<inputs.compute.ScaleSetOsProfileWindowsConfig>;
     /**
@@ -648,7 +648,7 @@ export interface ScaleSetArgs {
      */
     overprovision?: pulumi.Input<boolean>;
     /**
-     * A plan block as documented below.
+     * A `plan` block as documented below.
      */
     plan?: pulumi.Input<inputs.compute.ScaleSetPlan>;
     /**
@@ -668,23 +668,23 @@ export interface ScaleSetArgs {
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.ScaleSetRollingUpgradePolicy>;
     /**
-     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * A SKU block as documented below.
+     * A `sku` block as documented below.
      */
     sku: pulumi.Input<inputs.compute.ScaleSetSku>;
     /**
-     * A storage profile data disk block as documented below
+     * A `storageProfileDataDisk` block as documented below.
      */
     storageProfileDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.ScaleSetStorageProfileDataDisk>[]>;
     /**
-     * A storage profile image reference block as documented below.
+     * A `storageProfileImageReference` block as documented below.
      */
     storageProfileImageReference?: pulumi.Input<inputs.compute.ScaleSetStorageProfileImageReference>;
     /**
-     * A storage profile os disk block as documented below
+     * A `storageProfileOsDisk` block as documented below.
      */
     storageProfileOsDisk: pulumi.Input<inputs.compute.ScaleSetStorageProfileOsDisk>;
     /**

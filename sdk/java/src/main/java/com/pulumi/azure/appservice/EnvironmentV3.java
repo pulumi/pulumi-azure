@@ -103,14 +103,14 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
         return this.externalInboundIpAddresses;
     }
     /**
-     * An Inbound Network Dependencies block as defined below.
+     * An `inbound_network_dependencies` block as defined below.
      * 
      */
     @Export(name="inboundNetworkDependencies", refs={List.class,EnvironmentV3InboundNetworkDependency.class}, tree="[0,1]")
     private Output<List<EnvironmentV3InboundNetworkDependency>> inboundNetworkDependencies;
 
     /**
-     * @return An Inbound Network Dependencies block as defined below.
+     * @return An `inbound_network_dependencies` block as defined below.
      * 
      */
     public Output<List<EnvironmentV3InboundNetworkDependency>> inboundNetworkDependencies() {

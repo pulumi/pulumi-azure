@@ -380,7 +380,7 @@ namespace Pulumi.Azure.Monitoring
         public Output<string> ImmutableId { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// 
         /// &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
@@ -506,7 +506,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<Inputs.DataCollectionRuleIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// 
         /// &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>
@@ -612,7 +612,7 @@ namespace Pulumi.Azure.Monitoring
         public Input<string>? ImmutableId { get; set; }
 
         /// <summary>
-        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
+        /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
         /// 
         /// &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         /// </summary>

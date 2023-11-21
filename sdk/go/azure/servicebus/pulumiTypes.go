@@ -440,7 +440,7 @@ func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type NamespaceNetworkRuleSetType struct {
-	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
@@ -464,7 +464,7 @@ type NamespaceNetworkRuleSetTypeInput interface {
 }
 
 type NamespaceNetworkRuleSetTypeArgs struct {
-	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
@@ -571,7 +571,7 @@ func (o NamespaceNetworkRuleSetTypeOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
-// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o NamespaceNetworkRuleSetTypeOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSetType) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
@@ -626,7 +626,7 @@ func (o NamespaceNetworkRuleSetTypePtrOutput) Elem() NamespaceNetworkRuleSetType
 	}).(NamespaceNetworkRuleSetTypeOutput)
 }
 
-// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o NamespaceNetworkRuleSetTypePtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSetType) *string {
 		if v == nil {

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *         var testElasticsearch = new Elasticsearch(&#34;testElasticsearch&#34;, ElasticsearchArgs.builder()        
  *             .resourceGroupName(testResourceGroup.name())
  *             .location(testResourceGroup.location())
- *             .skuName(&#34;ess-monthly-consumption_Monthly&#34;)
+ *             .skuName(&#34;ess-consumption-2024_Monthly&#34;)
  *             .elasticCloudEmailAddress(&#34;user@example.com&#34;)
  *             .build());
  * 
@@ -241,12 +241,20 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
      * 
+     * &gt; **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * Ex: If the plan ID is &#34;planXYZ&#34; and term is &#34;Yearly&#34;, the SKU will be &#34;planXYZ_Yearly&#34;.
+     * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
+     * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
      * @return Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
+     * 
+     * &gt; **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+     * Ex: If the plan ID is &#34;planXYZ&#34; and term is &#34;Yearly&#34;, the SKU will be &#34;planXYZ_Yearly&#34;.
+     * You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
      * 
      */
     public Output<String> skuName() {

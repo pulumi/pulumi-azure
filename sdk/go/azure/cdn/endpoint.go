@@ -86,9 +86,9 @@ type Endpoint struct {
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrOutput `pulumi:"globalDeliveryRule"`
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrOutput `pulumi:"isCompressionEnabled"`
-	// Defaults to `true`.
+	// Specifies if http allowed. Defaults to `true`.
 	IsHttpAllowed pulumi.BoolPtrOutput `pulumi:"isHttpAllowed"`
-	// Defaults to `true`.
+	// Specifies if https allowed. Defaults to `true`.
 	IsHttpsAllowed pulumi.BoolPtrOutput `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -167,9 +167,9 @@ type endpointState struct {
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
-	// Defaults to `true`.
+	// Specifies if http allowed. Defaults to `true`.
 	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
-	// Defaults to `true`.
+	// Specifies if https allowed. Defaults to `true`.
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -210,9 +210,9 @@ type EndpointState struct {
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrInput
-	// Defaults to `true`.
+	// Specifies if http allowed. Defaults to `true`.
 	IsHttpAllowed pulumi.BoolPtrInput
-	// Defaults to `true`.
+	// Specifies if https allowed. Defaults to `true`.
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -255,9 +255,9 @@ type endpointArgs struct {
 	GlobalDeliveryRule *EndpointGlobalDeliveryRule `pulumi:"globalDeliveryRule"`
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
-	// Defaults to `true`.
+	// Specifies if http allowed. Defaults to `true`.
 	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
-	// Defaults to `true`.
+	// Specifies if https allowed. Defaults to `true`.
 	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -297,9 +297,9 @@ type EndpointArgs struct {
 	GlobalDeliveryRule EndpointGlobalDeliveryRulePtrInput
 	// Indicates whether compression is to be enabled.
 	IsCompressionEnabled pulumi.BoolPtrInput
-	// Defaults to `true`.
+	// Specifies if http allowed. Defaults to `true`.
 	IsHttpAllowed pulumi.BoolPtrInput
-	// Defaults to `true`.
+	// Specifies if https allowed. Defaults to `true`.
 	IsHttpsAllowed pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -468,12 +468,12 @@ func (o EndpointOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Defaults to `true`.
+// Specifies if http allowed. Defaults to `true`.
 func (o EndpointOutput) IsHttpAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.IsHttpAllowed }).(pulumi.BoolPtrOutput)
 }
 
-// Defaults to `true`.
+// Specifies if https allowed. Defaults to `true`.
 func (o EndpointOutput) IsHttpsAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.IsHttpsAllowed }).(pulumi.BoolPtrOutput)
 }

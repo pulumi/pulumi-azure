@@ -162,14 +162,14 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
         return this.ipRules;
     }
     /**
-     * One or More `private_link_access` block as defined below.
+     * One or more `private_link_access` block as defined below.
      * 
      */
     @Export(name="privateLinkAccessRules", refs={List.class,AccountNetworkRulesPrivateLinkAccessRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountNetworkRulesPrivateLinkAccessRule>> privateLinkAccessRules;
 
     /**
-     * @return One or More `private_link_access` block as defined below.
+     * @return One or more `private_link_access` block as defined below.
      * 
      */
     public Output<Optional<List<AccountNetworkRulesPrivateLinkAccessRule>>> privateLinkAccessRules() {

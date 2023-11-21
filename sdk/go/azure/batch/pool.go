@@ -165,7 +165,7 @@ type Pool struct {
 	AutoScale PoolAutoScalePtrOutput `pulumi:"autoScale"`
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
 	Certificates PoolCertificateArrayOutput `pulumi:"certificates"`
-	// The container configuration used in the pool's VMs.
+	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrOutput `pulumi:"containerConfiguration"`
 	// A `dataDisks` block describes the data disk settings as defined below.
 	DataDisks PoolDataDiskArrayOutput `pulumi:"dataDisks"`
@@ -179,7 +179,7 @@ type Pool struct {
 	FixedScale PoolFixedScalePtrOutput `pulumi:"fixedScale"`
 	// An `identity` block as defined below.
 	Identity PoolIdentityPtrOutput `pulumi:"identity"`
-	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	InterNodeCommunication pulumi.StringPtrOutput `pulumi:"interNodeCommunication"`
 	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
@@ -205,11 +205,11 @@ type Pool struct {
 	StartTask PoolStartTaskPtrOutput `pulumi:"startTask"`
 	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation pulumi.BoolPtrOutput `pulumi:"stopPendingResizeOperation"`
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+	// A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
-	// The desired node communication mode for the pool.
+	// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
 	TargetNodeCommunicationMode pulumi.StringPtrOutput `pulumi:"targetNodeCommunicationMode"`
-	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayOutput `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
 	UserAccounts PoolUserAccountArrayOutput `pulumi:"userAccounts"`
@@ -274,7 +274,7 @@ type poolState struct {
 	AutoScale *PoolAutoScale `pulumi:"autoScale"`
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
 	Certificates []PoolCertificate `pulumi:"certificates"`
-	// The container configuration used in the pool's VMs.
+	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
 	// A `dataDisks` block describes the data disk settings as defined below.
 	DataDisks []PoolDataDisk `pulumi:"dataDisks"`
@@ -288,7 +288,7 @@ type poolState struct {
 	FixedScale *PoolFixedScale `pulumi:"fixedScale"`
 	// An `identity` block as defined below.
 	Identity *PoolIdentity `pulumi:"identity"`
-	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
 	LicenseType *string `pulumi:"licenseType"`
@@ -314,11 +314,11 @@ type poolState struct {
 	StartTask *PoolStartTask `pulumi:"startTask"`
 	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+	// A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
 	StorageImageReference *PoolStorageImageReference `pulumi:"storageImageReference"`
-	// The desired node communication mode for the pool.
+	// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
 	TargetNodeCommunicationMode *string `pulumi:"targetNodeCommunicationMode"`
-	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
 	UserAccounts []PoolUserAccount `pulumi:"userAccounts"`
@@ -339,7 +339,7 @@ type PoolState struct {
 	AutoScale PoolAutoScalePtrInput
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
 	Certificates PoolCertificateArrayInput
-	// The container configuration used in the pool's VMs.
+	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
 	// A `dataDisks` block describes the data disk settings as defined below.
 	DataDisks PoolDataDiskArrayInput
@@ -353,7 +353,7 @@ type PoolState struct {
 	FixedScale PoolFixedScalePtrInput
 	// An `identity` block as defined below.
 	Identity PoolIdentityPtrInput
-	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	InterNodeCommunication pulumi.StringPtrInput
 	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
 	LicenseType pulumi.StringPtrInput
@@ -379,11 +379,11 @@ type PoolState struct {
 	StartTask PoolStartTaskPtrInput
 	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation pulumi.BoolPtrInput
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+	// A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferencePtrInput
-	// The desired node communication mode for the pool.
+	// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
 	TargetNodeCommunicationMode pulumi.StringPtrInput
-	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
 	UserAccounts PoolUserAccountArrayInput
@@ -408,7 +408,7 @@ type poolArgs struct {
 	AutoScale *PoolAutoScale `pulumi:"autoScale"`
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
 	Certificates []PoolCertificate `pulumi:"certificates"`
-	// The container configuration used in the pool's VMs.
+	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
 	// A `dataDisks` block describes the data disk settings as defined below.
 	DataDisks []PoolDataDisk `pulumi:"dataDisks"`
@@ -422,7 +422,7 @@ type poolArgs struct {
 	FixedScale *PoolFixedScale `pulumi:"fixedScale"`
 	// An `identity` block as defined below.
 	Identity *PoolIdentity `pulumi:"identity"`
-	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
 	LicenseType *string `pulumi:"licenseType"`
@@ -448,11 +448,11 @@ type poolArgs struct {
 	StartTask *PoolStartTask `pulumi:"startTask"`
 	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation *bool `pulumi:"stopPendingResizeOperation"`
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+	// A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReference `pulumi:"storageImageReference"`
-	// The desired node communication mode for the pool.
+	// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
 	TargetNodeCommunicationMode *string `pulumi:"targetNodeCommunicationMode"`
-	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
 	UserAccounts []PoolUserAccount `pulumi:"userAccounts"`
@@ -474,7 +474,7 @@ type PoolArgs struct {
 	AutoScale PoolAutoScalePtrInput
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool as defined below.
 	Certificates PoolCertificateArrayInput
-	// The container configuration used in the pool's VMs.
+	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
 	// A `dataDisks` block describes the data disk settings as defined below.
 	DataDisks PoolDataDiskArrayInput
@@ -488,7 +488,7 @@ type PoolArgs struct {
 	FixedScale PoolFixedScalePtrInput
 	// An `identity` block as defined below.
 	Identity PoolIdentityPtrInput
-	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
 	InterNodeCommunication pulumi.StringPtrInput
 	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
 	LicenseType pulumi.StringPtrInput
@@ -514,11 +514,11 @@ type PoolArgs struct {
 	StartTask PoolStartTaskPtrInput
 	// Whether to stop if there is a pending resize operation on this pool.
 	StopPendingResizeOperation pulumi.BoolPtrInput
-	// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+	// A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
 	StorageImageReference PoolStorageImageReferenceInput
-	// The desired node communication mode for the pool.
+	// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
 	TargetNodeCommunicationMode pulumi.StringPtrInput
-	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
 	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
 	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
 	UserAccounts PoolUserAccountArrayInput
@@ -658,7 +658,7 @@ func (o PoolOutput) Certificates() PoolCertificateArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolCertificateArrayOutput { return v.Certificates }).(PoolCertificateArrayOutput)
 }
 
-// The container configuration used in the pool's VMs.
+// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 func (o PoolOutput) ContainerConfiguration() PoolContainerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolContainerConfigurationPtrOutput { return v.ContainerConfiguration }).(PoolContainerConfigurationPtrOutput)
 }
@@ -693,7 +693,7 @@ func (o PoolOutput) Identity() PoolIdentityPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolIdentityPtrOutput { return v.Identity }).(PoolIdentityPtrOutput)
 }
 
-// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
 func (o PoolOutput) InterNodeCommunication() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.InterNodeCommunication }).(pulumi.StringPtrOutput)
 }
@@ -758,17 +758,17 @@ func (o PoolOutput) StopPendingResizeOperation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.StopPendingResizeOperation }).(pulumi.BoolPtrOutput)
 }
 
-// A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+// A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
 func (o PoolOutput) StorageImageReference() PoolStorageImageReferenceOutput {
 	return o.ApplyT(func(v *Pool) PoolStorageImageReferenceOutput { return v.StorageImageReference }).(PoolStorageImageReferenceOutput)
 }
 
-// The desired node communication mode for the pool.
+// The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
 func (o PoolOutput) TargetNodeCommunicationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.TargetNodeCommunicationMode }).(pulumi.StringPtrOutput)
 }
 
-// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
 func (o PoolOutput) TaskSchedulingPolicies() PoolTaskSchedulingPolicyArrayOutput {
 	return o.ApplyT(func(v *Pool) PoolTaskSchedulingPolicyArrayOutput { return v.TaskSchedulingPolicies }).(PoolTaskSchedulingPolicyArrayOutput)
 }

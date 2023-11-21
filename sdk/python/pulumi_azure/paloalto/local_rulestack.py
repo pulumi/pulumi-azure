@@ -27,7 +27,7 @@ class LocalRulestackArgs:
         """
         The set of arguments for constructing a LocalRulestack resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
-        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] description: The description for this Local Rulestack.
         :param pulumi.Input[str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
@@ -73,7 +73,7 @@ class LocalRulestackArgs:
     @pulumi.getter(name="antiSpywareProfile")
     def anti_spyware_profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_spyware_profile")
 
@@ -193,7 +193,7 @@ class _LocalRulestackState:
                  vulnerability_profile: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LocalRulestack resources.
-        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] description: The description for this Local Rulestack.
         :param pulumi.Input[str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
@@ -229,7 +229,7 @@ class _LocalRulestackState:
     @pulumi.getter(name="antiSpywareProfile")
     def anti_spyware_profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_spyware_profile")
 
@@ -387,7 +387,7 @@ class LocalRulestack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] description: The description for this Local Rulestack.
         :param pulumi.Input[str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
@@ -500,7 +500,7 @@ class LocalRulestack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        :param pulumi.Input[str] anti_spyware_profile: The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] anti_virus_profile: The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         :param pulumi.Input[str] description: The description for this Local Rulestack.
         :param pulumi.Input[str] dns_subscription: TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
@@ -531,7 +531,7 @@ class LocalRulestack(pulumi.CustomResource):
     @pulumi.getter(name="antiSpywareProfile")
     def anti_spyware_profile(self) -> pulumi.Output[Optional[str]]:
         """
-        The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         """
         return pulumi.get(self, "anti_spyware_profile")
 

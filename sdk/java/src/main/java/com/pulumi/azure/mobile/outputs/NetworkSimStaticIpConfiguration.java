@@ -16,6 +16,10 @@ public final class NetworkSimStaticIpConfiguration {
      * 
      */
     private String attachedDataNetworkId;
+    /**
+     * @return The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+     * 
+     */
     private String sliceId;
     /**
      * @return The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
@@ -31,6 +35,10 @@ public final class NetworkSimStaticIpConfiguration {
     public String attachedDataNetworkId() {
         return this.attachedDataNetworkId;
     }
+    /**
+     * @return The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+     * 
+     */
     public String sliceId() {
         return this.sliceId;
     }

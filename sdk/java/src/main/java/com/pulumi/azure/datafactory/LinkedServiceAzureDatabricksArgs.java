@@ -126,14 +126,14 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
     }
 
     /**
-     * Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+     * Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
      * 
      */
     @Import(name="instancePool")
     private @Nullable Output<LinkedServiceAzureDatabricksInstancePoolArgs> instancePool;
 
     /**
-     * @return Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+     * @return Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
      * 
      */
     public Optional<Output<LinkedServiceAzureDatabricksInstancePoolArgs>> instancePool() {
@@ -425,7 +425,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instancePool Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+         * @param instancePool Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class LinkedServiceAzureDatabricksArgs extends com.pulumi.resources
         }
 
         /**
-         * @param instancePool Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+         * @param instancePool Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
          * 
          * @return builder
          * 

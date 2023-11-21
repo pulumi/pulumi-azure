@@ -89,11 +89,11 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
-	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 	AutoPauseDelayInMinutes pulumi.IntOutput `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringOutput `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	//
@@ -105,7 +105,7 @@ type Database struct {
 	//
 	// > **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
 	GeoBackupEnabled pulumi.BoolPtrOutput `pulumi:"geoBackupEnabled"`
-	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as documented below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrOutput `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolOutput `pulumi:"ledgerEnabled"`
@@ -121,7 +121,7 @@ type Database struct {
 	//
 	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
 	MaxSizeGb pulumi.IntOutput `pulumi:"maxSizeGb"`
-	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity pulumi.Float64Output `pulumi:"minCapacity"`
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -147,7 +147,7 @@ type Database struct {
 	//
 	// > **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 	StorageAccountType pulumi.StringPtrOutput `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -194,11 +194,11 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	//
@@ -210,7 +210,7 @@ type databaseState struct {
 	//
 	// > **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
-	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as documented below. Mutually exclusive with `createMode`.
 	Import *DatabaseImport `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled *bool `pulumi:"ledgerEnabled"`
@@ -226,7 +226,7 @@ type databaseState struct {
 	//
 	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
 	MaxSizeGb *int `pulumi:"maxSizeGb"`
-	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -252,7 +252,7 @@ type databaseState struct {
 	//
 	// > **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
 	SkuName *string `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -267,11 +267,11 @@ type databaseState struct {
 }
 
 type DatabaseState struct {
-	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
 	CreateMode pulumi.StringPtrInput
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	//
@@ -283,7 +283,7 @@ type DatabaseState struct {
 	//
 	// > **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
 	GeoBackupEnabled pulumi.BoolPtrInput
-	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as documented below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrInput
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolPtrInput
@@ -299,7 +299,7 @@ type DatabaseState struct {
 	//
 	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
 	MaxSizeGb pulumi.IntPtrInput
-	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity pulumi.Float64PtrInput
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -325,7 +325,7 @@ type DatabaseState struct {
 	//
 	// > **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
 	SkuName pulumi.StringPtrInput
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -344,11 +344,11 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
-	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 	AutoPauseDelayInMinutes *int `pulumi:"autoPauseDelayInMinutes"`
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
 	CreateMode *string `pulumi:"createMode"`
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	//
@@ -360,7 +360,7 @@ type databaseArgs struct {
 	//
 	// > **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
 	GeoBackupEnabled *bool `pulumi:"geoBackupEnabled"`
-	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as documented below. Mutually exclusive with `createMode`.
 	Import *DatabaseImport `pulumi:"import"`
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled *bool `pulumi:"ledgerEnabled"`
@@ -376,7 +376,7 @@ type databaseArgs struct {
 	//
 	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
 	MaxSizeGb *int `pulumi:"maxSizeGb"`
-	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -402,7 +402,7 @@ type databaseArgs struct {
 	//
 	// > **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
 	SkuName *string `pulumi:"skuName"`
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -418,11 +418,11 @@ type databaseArgs struct {
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+	// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 	AutoPauseDelayInMinutes pulumi.IntPtrInput
 	// Specifies the collation of the database. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+	// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
 	CreateMode pulumi.StringPtrInput
 	// The ID of the source database from which to create the new database. This should only be used for databases with `createMode` values that use another database as reference. Changing this forces a new resource to be created.
 	//
@@ -434,7 +434,7 @@ type DatabaseArgs struct {
 	//
 	// > **Note:** `geoBackupEnabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
 	GeoBackupEnabled pulumi.BoolPtrInput
-	// A Database Import block as documented below. Mutually exclusive with `createMode`.
+	// A `import` block as documented below. Mutually exclusive with `createMode`.
 	Import DatabaseImportPtrInput
 	// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
 	LedgerEnabled pulumi.BoolPtrInput
@@ -450,7 +450,7 @@ type DatabaseArgs struct {
 	//
 	// > **Note:** This value should not be configured when the `createMode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
 	MaxSizeGb pulumi.IntPtrInput
-	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+	// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 	MinCapacity pulumi.Float64PtrInput
 	// The name of the MS SQL Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -476,7 +476,7 @@ type DatabaseArgs struct {
 	//
 	// > **Note:** The default `skuName` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creationSourceDatabaseId` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `skuName` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `skuName` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
 	SkuName pulumi.StringPtrInput
-	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+	// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 	StorageAccountType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -601,7 +601,7 @@ func (o DatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*Database] 
 	}
 }
 
-// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
 func (o DatabaseOutput) AutoPauseDelayInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.AutoPauseDelayInMinutes }).(pulumi.IntOutput)
 }
@@ -611,7 +611,7 @@ func (o DatabaseOutput) Collation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Collation }).(pulumi.StringOutput)
 }
 
-// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
 func (o DatabaseOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
@@ -635,7 +635,7 @@ func (o DatabaseOutput) GeoBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.GeoBackupEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A Database Import block as documented below. Mutually exclusive with `createMode`.
+// A `import` block as documented below. Mutually exclusive with `createMode`.
 func (o DatabaseOutput) Import() DatabaseImportPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseImportPtrOutput { return v.Import }).(DatabaseImportPtrOutput)
 }
@@ -669,7 +669,7 @@ func (o DatabaseOutput) MaxSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.MaxSizeGb }).(pulumi.IntOutput)
 }
 
-// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
 func (o DatabaseOutput) MinCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.MinCapacity }).(pulumi.Float64Output)
 }
@@ -728,7 +728,7 @@ func (o DatabaseOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
 func (o DatabaseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }

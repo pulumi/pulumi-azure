@@ -83,6 +83,11 @@ public final class GetWindowsWebAppResult {
      */
     private Boolean enabled;
     /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    private Boolean ftpPublishBasicAuthenticationEnabled;
+    /**
      * @return The ID of the App Service Environment used by App Service.
      * 
      */
@@ -142,6 +147,10 @@ public final class GetWindowsWebAppResult {
      * 
      */
     private String possibleOutboundIpAddresses;
+    /**
+     * @return Is Public Network Access enabled for the Windows Web App.
+     * 
+     */
     private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
@@ -179,6 +188,11 @@ public final class GetWindowsWebAppResult {
      * 
      */
     private String virtualNetworkSubnetId;
+    /**
+     * @return Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     * 
+     */
+    private Boolean webdeployPublishBasicAuthenticationEnabled;
 
     private GetWindowsWebAppResult() {}
     /**
@@ -266,6 +280,13 @@ public final class GetWindowsWebAppResult {
         return this.enabled;
     }
     /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Boolean ftpPublishBasicAuthenticationEnabled() {
+        return this.ftpPublishBasicAuthenticationEnabled;
+    }
+    /**
      * @return The ID of the App Service Environment used by App Service.
      * 
      */
@@ -349,6 +370,10 @@ public final class GetWindowsWebAppResult {
     public String possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    /**
+     * @return Is Public Network Access enabled for the Windows Web App.
+     * 
+     */
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
@@ -404,6 +429,13 @@ public final class GetWindowsWebAppResult {
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }
+    /**
+     * @return Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Boolean webdeployPublishBasicAuthenticationEnabled() {
+        return this.webdeployPublishBasicAuthenticationEnabled;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -426,6 +458,7 @@ public final class GetWindowsWebAppResult {
         private String customDomainVerificationId;
         private String defaultHostname;
         private Boolean enabled;
+        private Boolean ftpPublishBasicAuthenticationEnabled;
         private String hostingEnvironmentId;
         private Boolean httpsOnly;
         private String id;
@@ -447,6 +480,7 @@ public final class GetWindowsWebAppResult {
         private List<GetWindowsWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
         private String virtualNetworkSubnetId;
+        private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
         public Builder(GetWindowsWebAppResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -462,6 +496,7 @@ public final class GetWindowsWebAppResult {
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
+    	      this.ftpPublishBasicAuthenticationEnabled = defaults.ftpPublishBasicAuthenticationEnabled;
     	      this.hostingEnvironmentId = defaults.hostingEnvironmentId;
     	      this.httpsOnly = defaults.httpsOnly;
     	      this.id = defaults.id;
@@ -483,6 +518,7 @@ public final class GetWindowsWebAppResult {
     	      this.storageAccounts = defaults.storageAccounts;
     	      this.tags = defaults.tags;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
+    	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
 
         @CustomType.Setter
@@ -555,6 +591,11 @@ public final class GetWindowsWebAppResult {
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
+            this.ftpPublishBasicAuthenticationEnabled = Objects.requireNonNull(ftpPublishBasicAuthenticationEnabled);
             return this;
         }
         @CustomType.Setter
@@ -686,6 +727,11 @@ public final class GetWindowsWebAppResult {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
         }
+        @CustomType.Setter
+        public Builder webdeployPublishBasicAuthenticationEnabled(Boolean webdeployPublishBasicAuthenticationEnabled) {
+            this.webdeployPublishBasicAuthenticationEnabled = Objects.requireNonNull(webdeployPublishBasicAuthenticationEnabled);
+            return this;
+        }
         public GetWindowsWebAppResult build() {
             final var _resultValue = new GetWindowsWebAppResult();
             _resultValue.appSettings = appSettings;
@@ -700,6 +746,7 @@ public final class GetWindowsWebAppResult {
             _resultValue.customDomainVerificationId = customDomainVerificationId;
             _resultValue.defaultHostname = defaultHostname;
             _resultValue.enabled = enabled;
+            _resultValue.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             _resultValue.hostingEnvironmentId = hostingEnvironmentId;
             _resultValue.httpsOnly = httpsOnly;
             _resultValue.id = id;
@@ -721,6 +768,7 @@ public final class GetWindowsWebAppResult {
             _resultValue.storageAccounts = storageAccounts;
             _resultValue.tags = tags;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;
         }
     }

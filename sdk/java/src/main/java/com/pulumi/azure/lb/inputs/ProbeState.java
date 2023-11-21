@@ -70,14 +70,14 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+     * The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      * 
      */
     @Import(name="numberOfProbes")
     private @Nullable Output<Integer> numberOfProbes;
 
     /**
-     * @return The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+     * @return The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      * 
      */
     public Optional<Output<Integer>> numberOfProbes() {
@@ -253,7 +253,7 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfProbes The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+         * @param numberOfProbes The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ProbeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param numberOfProbes The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+         * @param numberOfProbes The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
          * 
          * @return builder
          * 

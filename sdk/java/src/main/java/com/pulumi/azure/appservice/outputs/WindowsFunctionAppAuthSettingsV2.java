@@ -46,7 +46,7 @@ public final class WindowsFunctionAppAuthSettingsV2 {
     /**
      * @return The path to the App Auth settings.
      * 
-     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
      * 
      */
     private @Nullable String configFilePath;
@@ -172,7 +172,7 @@ public final class WindowsFunctionAppAuthSettingsV2 {
     /**
      * @return The path to the App Auth settings.
      * 
-     * * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+     * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
      * 
      */
     public Optional<String> configFilePath() {

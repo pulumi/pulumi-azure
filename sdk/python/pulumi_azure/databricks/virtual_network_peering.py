@@ -183,7 +183,7 @@ class _VirtualNetworkPeeringState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VirtualNetworkPeering resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_space_prefixes: A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_space_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         :param pulumi.Input[bool] allow_forwarded_traffic: Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
@@ -228,7 +228,7 @@ class _VirtualNetworkPeeringState:
     @pulumi.getter(name="addressSpacePrefixes")
     def address_space_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_space_prefixes")
 
@@ -558,7 +558,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_space_prefixes: A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_space_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         :param pulumi.Input[bool] allow_forwarded_traffic: Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Can the gateway links be used in the remote virtual network to link to the Databricks virtual network? Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Can the VMs in the local virtual network space access the VMs in the remote virtual network space? Defaults to `true`.
@@ -597,7 +597,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     @pulumi.getter(name="addressSpacePrefixes")
     def address_space_prefixes(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+        A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_space_prefixes")
 

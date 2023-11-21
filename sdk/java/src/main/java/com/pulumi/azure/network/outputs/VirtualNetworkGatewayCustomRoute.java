@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNetworkGatewayCustomRoute {
     /**
-     * @return A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+     * @return A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
     private @Nullable List<String> addressPrefixes;
 
     private VirtualNetworkGatewayCustomRoute() {}
     /**
-     * @return A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+     * @return A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
     public List<String> addressPrefixes() {

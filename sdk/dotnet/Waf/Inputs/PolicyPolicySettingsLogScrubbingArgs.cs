@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Waf.Inputs
         private InputList<Inputs.PolicyPolicySettingsLogScrubbingRuleArgs>? _rules;
 
         /// <summary>
-        /// One or more `scrubbing_rule` as define below.
+        /// One or more `scrubbing_rule` blocks as define below.
         /// </summary>
         public InputList<Inputs.PolicyPolicySettingsLogScrubbingRuleArgs> Rules
         {

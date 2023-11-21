@@ -66,7 +66,6 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * One or more `network_interface` block as defined below.
-     * *
      * 
      */
     @Import(name="networkInterfaces")
@@ -74,7 +73,6 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return One or more `network_interface` block as defined below.
-     * *
      * 
      */
     public Optional<Output<List<ReplicatedVMNetworkInterfaceArgs>>> networkInterfaces() {
@@ -352,14 +350,14 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="unmanagedDisks")
     private @Nullable Output<List<ReplicatedVMUnmanagedDiskArgs>> unmanagedDisks;
 
     /**
-     * @return One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * @return One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<ReplicatedVMUnmanagedDiskArgs>>> unmanagedDisks() {
@@ -487,7 +485,6 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkInterfaces One or more `network_interface` block as defined below.
-         * *
          * 
          * @return builder
          * 
@@ -499,7 +496,6 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkInterfaces One or more `network_interface` block as defined below.
-         * *
          * 
          * @return builder
          * 
@@ -510,7 +506,6 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param networkInterfaces One or more `network_interface` block as defined below.
-         * *
          * 
          * @return builder
          * 
@@ -898,7 +893,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unmanagedDisks One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+         * @param unmanagedDisks One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -909,7 +904,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unmanagedDisks One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+         * @param unmanagedDisks One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -919,7 +914,7 @@ public final class ReplicatedVMArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unmanagedDisks One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+         * @param unmanagedDisks One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

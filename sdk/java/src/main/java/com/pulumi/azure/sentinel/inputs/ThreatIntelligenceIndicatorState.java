@@ -202,9 +202,17 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         return Optional.ofNullable(this.guid);
     }
 
+    /**
+     * A list of indicator types of this Threat Intelligence Indicator.
+     * 
+     */
     @Import(name="indicatorTypes")
     private @Nullable Output<List<String>> indicatorTypes;
 
+    /**
+     * @return A list of indicator types of this Threat Intelligence Indicator.
+     * 
+     */
     public Optional<Output<List<String>>> indicatorTypes() {
         return Optional.ofNullable(this.indicatorTypes);
     }
@@ -345,14 +353,14 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
     }
 
     /**
-     * Source of the Threat Intelligence Indicator.
+     * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return Source of the Threat Intelligence Indicator.
+     * @return Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> source() {
@@ -757,15 +765,33 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
             return guid(Output.of(guid));
         }
 
+        /**
+         * @param indicatorTypes A list of indicator types of this Threat Intelligence Indicator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indicatorTypes(@Nullable Output<List<String>> indicatorTypes) {
             $.indicatorTypes = indicatorTypes;
             return this;
         }
 
+        /**
+         * @param indicatorTypes A list of indicator types of this Threat Intelligence Indicator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indicatorTypes(List<String> indicatorTypes) {
             return indicatorTypes(Output.of(indicatorTypes));
         }
 
+        /**
+         * @param indicatorTypes A list of indicator types of this Threat Intelligence Indicator.
+         * 
+         * @return builder
+         * 
+         */
         public Builder indicatorTypes(String... indicatorTypes) {
             return indicatorTypes(List.of(indicatorTypes));
         }
@@ -990,7 +1016,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param source Source of the Threat Intelligence Indicator.
+         * @param source Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1001,7 +1027,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param source Source of the Threat Intelligence Indicator.
+         * @param source Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -145,7 +145,7 @@ type InterationServiceEnvironment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
 	//
 	// > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
@@ -210,7 +210,7 @@ type interationServiceEnvironmentState struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
 	//
 	// > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
 	SkuName *string `pulumi:"skuName"`
@@ -237,7 +237,7 @@ type InterationServiceEnvironmentState struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
 	//
 	// > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
 	SkuName pulumi.StringPtrInput
@@ -264,7 +264,7 @@ type interationServiceEnvironmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
 	//
 	// > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
 	SkuName *string `pulumi:"skuName"`
@@ -284,7 +284,7 @@ type InterationServiceEnvironmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+	// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
 	//
 	// > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
 	SkuName pulumi.StringPtrInput
@@ -435,7 +435,7 @@ func (o InterationServiceEnvironmentOutput) ResourceGroupName() pulumi.StringOut
 	return o.ApplyT(func(v *InterationServiceEnvironment) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+// The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
 //
 // > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
 func (o InterationServiceEnvironmentOutput) SkuName() pulumi.StringPtrOutput {

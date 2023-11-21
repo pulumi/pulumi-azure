@@ -28,7 +28,7 @@ public final class WindowsFunctionAppSlotAuthSettingsFacebook {
      */
     private @Nullable String appSecretSettingName;
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
      * 
      */
     private @Nullable List<String> oauthScopes;
@@ -56,7 +56,7 @@ public final class WindowsFunctionAppSlotAuthSettingsFacebook {
         return Optional.ofNullable(this.appSecretSettingName);
     }
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
      * 
      */
     public List<String> oauthScopes() {

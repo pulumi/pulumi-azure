@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DisabledAlerts;
         /// <summary>
-        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
         /// </summary>
         public readonly string? EmailAccountAdmins;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly int? RetentionDays;
         /// <summary>
-        /// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        /// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
         /// </summary>
         public readonly string? State;
         /// <summary>

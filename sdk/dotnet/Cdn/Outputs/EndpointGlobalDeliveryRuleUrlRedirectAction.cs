@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string? Path;
         /// <summary>
-        /// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+        /// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
         /// </summary>
         public readonly string? Protocol;
         /// <summary>

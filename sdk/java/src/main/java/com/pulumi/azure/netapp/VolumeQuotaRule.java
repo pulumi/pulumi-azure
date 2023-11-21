@@ -196,7 +196,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
         return this.quotaSizeInKib;
     }
     /**
-     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+     * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
@@ -207,7 +207,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> quotaTarget;
 
     /**
-     * @return Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes.
+     * @return Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
@@ -218,28 +218,28 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.quotaTarget);
     }
     /**
-     * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+     * Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="quotaType", refs={String.class}, tree="[0]")
     private Output<String> quotaType;
 
     /**
-     * @return Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes.
+     * @return Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> quotaType() {
         return this.quotaType;
     }
     /**
-     * The NetApp volume ID where the Volume Quota Rule is assigned to.
+     * The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output<String> volumeId;
 
     /**
-     * @return The NetApp volume ID where the Volume Quota Rule is assigned to.
+     * @return The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> volumeId() {

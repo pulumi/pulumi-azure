@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+        /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         /// </summary>
         [Output("defaultPrincipalModificationKind")]
         public Output<string?> DefaultPrincipalModificationKind { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+        /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         /// </summary>
         [Input("defaultPrincipalModificationKind")]
         public Input<string>? DefaultPrincipalModificationKind { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+        /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         /// </summary>
         [Input("defaultPrincipalModificationKind")]
         public Input<string>? DefaultPrincipalModificationKind { get; set; }

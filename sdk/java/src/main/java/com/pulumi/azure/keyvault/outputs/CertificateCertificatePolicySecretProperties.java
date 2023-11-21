@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class CertificateCertificatePolicySecretProperties {
     /**
-     * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+     * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
      * 
      */
     private String contentType;
 
     private CertificateCertificatePolicySecretProperties() {}
     /**
-     * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+     * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
      * 
      */
     public String contentType() {

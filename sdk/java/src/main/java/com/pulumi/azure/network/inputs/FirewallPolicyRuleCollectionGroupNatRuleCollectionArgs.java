@@ -62,14 +62,14 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs extend
     }
 
     /**
-     * A `nat_rule` (NAT rule) block as defined below.
+     * A `nat_rule` block as defined below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs>> rules;
 
     /**
-     * @return A `nat_rule` (NAT rule) block as defined below.
+     * @return A `nat_rule` block as defined below.
      * 
      */
     public Output<List<FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs>> rules() {
@@ -167,7 +167,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs extend
         }
 
         /**
-         * @param rules A `nat_rule` (NAT rule) block as defined below.
+         * @param rules A `nat_rule` block as defined below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs extend
         }
 
         /**
-         * @param rules A `nat_rule` (NAT rule) block as defined below.
+         * @param rules A `nat_rule` block as defined below.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs extend
         }
 
         /**
-         * @param rules A `nat_rule` (NAT rule) block as defined below.
+         * @param rules A `nat_rule` block as defined below.
          * 
          * @return builder
          * 

@@ -1640,7 +1640,7 @@ type VolumeGroupSapHanaVolume struct {
 	Protocols string `pulumi:"protocols"`
 	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
-	// Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle string `pulumi:"securityStyle"`
 	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ServiceLevel string `pulumi:"serviceLevel"`
@@ -1689,7 +1689,7 @@ type VolumeGroupSapHanaVolumeArgs struct {
 	Protocols pulumi.StringInput `pulumi:"protocols"`
 	// The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
-	// Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
 	// Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
@@ -1828,7 +1828,7 @@ func (o VolumeGroupSapHanaVolumeOutput) ProximityPlacementGroupId() pulumi.Strin
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
-// Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupSapHanaVolumeOutput) SecurityStyle() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolume) string { return v.SecurityStyle }).(pulumi.StringOutput)
 }
@@ -1902,7 +1902,7 @@ func (o VolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGrou
 type VolumeGroupSapHanaVolumeDataProtectionReplication struct {
 	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
 	EndpointType *string `pulumi:"endpointType"`
-	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Location of the primary volume.
 	RemoteVolumeLocation string `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
@@ -1924,7 +1924,7 @@ type VolumeGroupSapHanaVolumeDataProtectionReplicationInput interface {
 type VolumeGroupSapHanaVolumeDataProtectionReplicationArgs struct {
 	// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
-	// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// Location of the primary volume.
 	RemoteVolumeLocation pulumi.StringInput `pulumi:"remoteVolumeLocation"`
 	// Resource ID of the primary volume.
 	RemoteVolumeResourceId pulumi.StringInput `pulumi:"remoteVolumeResourceId"`
@@ -2032,7 +2032,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) EndpointType() 
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Location of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) RemoteVolumeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionReplication) string { return v.RemoteVolumeLocation }).(pulumi.StringOutput)
 }
@@ -2087,7 +2087,7 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) EndpointType
 	}).(pulumi.StringPtrOutput)
 }
 
-// Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+// Location of the primary volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) RemoteVolumeLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeGroupSapHanaVolumeDataProtectionReplication) *string {
 		if v == nil {

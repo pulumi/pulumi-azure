@@ -19,7 +19,7 @@ public final class FunctionAppSlotSiteConfigScmIpRestriction {
      */
     private @Nullable String action;
     /**
-     * @return The headers for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     private @Nullable FunctionAppSlotSiteConfigScmIpRestrictionHeaders headers;
@@ -60,7 +60,7 @@ public final class FunctionAppSlotSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The headers for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<FunctionAppSlotSiteConfigScmIpRestrictionHeaders> headers() {

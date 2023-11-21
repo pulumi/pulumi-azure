@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? Caching;
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this image.
+        /// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>

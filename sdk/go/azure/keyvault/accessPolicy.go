@@ -124,7 +124,7 @@ type AccessPolicy struct {
 	KeyPermissions pulumi.StringArrayOutput `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringOutput `pulumi:"objectId"`
 	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayOutput `pulumi:"secretPermissions"`
@@ -181,7 +181,7 @@ type accessPolicyState struct {
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
 	ObjectId *string `pulumi:"objectId"`
 	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
@@ -200,7 +200,7 @@ type AccessPolicyState struct {
 	KeyPermissions pulumi.StringArrayInput
 	// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringPtrInput
 	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayInput
@@ -223,7 +223,7 @@ type accessPolicyArgs struct {
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
 	ObjectId string `pulumi:"objectId"`
 	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions []string `pulumi:"secretPermissions"`
@@ -243,7 +243,7 @@ type AccessPolicyArgs struct {
 	KeyPermissions pulumi.StringArrayInput
 	// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
-	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+	// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
 	ObjectId pulumi.StringInput
 	// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
 	SecretPermissions pulumi.StringArrayInput
@@ -384,7 +384,7 @@ func (o AccessPolicyOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
 }
 
-// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
 func (o AccessPolicyOutput) ObjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
 }

@@ -97,7 +97,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
     public readonly notificationSettings!: pulumi.Output<outputs.devtest.ScheduleNotificationSettings>;
     /**
@@ -210,7 +210,7 @@ export interface ScheduleState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
     notificationSettings?: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
     /**
@@ -264,7 +264,7 @@ export interface ScheduleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
     notificationSettings: pulumi.Input<inputs.devtest.ScheduleNotificationSettings>;
     /**

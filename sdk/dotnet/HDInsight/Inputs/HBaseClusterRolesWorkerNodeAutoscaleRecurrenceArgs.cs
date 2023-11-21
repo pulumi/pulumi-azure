@@ -14,12 +14,19 @@ namespace Pulumi.Azure.HDInsight.Inputs
     {
         [Input("schedules", required: true)]
         private InputList<Inputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>? _schedules;
+
+        /// <summary>
+        /// A list of `schedule` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs> Schedules
         {
             get => _schedules ?? (_schedules = new InputList<Inputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>());
             set => _schedules = value;
         }
 
+        /// <summary>
+        /// The time zone for the autoscale schedule times.
+        /// </summary>
         [Input("timezone", required: true)]
         public Input<string> Timezone { get; set; } = null!;
 

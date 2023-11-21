@@ -14,14 +14,14 @@ public final class CertifiateCertificatePolicySecretPropertiesArgs extends com.p
     public static final CertifiateCertificatePolicySecretPropertiesArgs Empty = new CertifiateCertificatePolicySecretPropertiesArgs();
 
     /**
-     * The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+     * The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
      * 
      */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
     /**
-     * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+     * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
      * 
      */
     public Output<String> contentType() {
@@ -53,7 +53,7 @@ public final class CertifiateCertificatePolicySecretPropertiesArgs extends com.p
         }
 
         /**
-         * @param contentType The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+         * @param contentType The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class CertifiateCertificatePolicySecretPropertiesArgs extends com.p
         }
 
         /**
-         * @param contentType The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+         * @param contentType The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
          * 
          * @return builder
          * 

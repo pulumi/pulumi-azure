@@ -93,7 +93,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly inputMappingFields!: pulumi.Output<outputs.eventhub.DomainInputMappingFields | undefined>;
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     public readonly inputSchema!: pulumi.Output<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface DomainState {
      */
     inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     inputSchema?: pulumi.Input<string>;
     /**
@@ -289,7 +289,7 @@ export interface DomainArgs {
      */
     inputMappingFields?: pulumi.Input<inputs.eventhub.DomainInputMappingFields>;
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      */
     inputSchema?: pulumi.Input<string>;
     /**

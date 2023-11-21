@@ -32,7 +32,7 @@ public final class WindowsFunctionAppSlotAuthSettings {
      */
     private @Nullable Map<String,String> additionalLoginParameters;
     /**
-     * @return an `allowed_external_redirect_urls` block as detailed below.
+     * @return Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
      * 
      */
     private @Nullable List<String> allowedExternalRedirectUrls;
@@ -117,7 +117,7 @@ public final class WindowsFunctionAppSlotAuthSettings {
         return this.additionalLoginParameters == null ? Map.of() : this.additionalLoginParameters;
     }
     /**
-     * @return an `allowed_external_redirect_urls` block as detailed below.
+     * @return Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
      * 
      */
     public List<String> allowedExternalRedirectUrls() {

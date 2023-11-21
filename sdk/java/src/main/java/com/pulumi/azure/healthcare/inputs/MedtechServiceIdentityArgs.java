@@ -16,9 +16,17 @@ public final class MedtechServiceIdentityArgs extends com.pulumi.resources.Resou
 
     public static final MedtechServiceIdentityArgs Empty = new MedtechServiceIdentityArgs();
 
+    /**
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+     * 
+     */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+     * 
+     */
     public Optional<Output<List<String>>> identityIds() {
         return Optional.ofNullable(this.identityIds);
     }
@@ -95,15 +103,33 @@ public final class MedtechServiceIdentityArgs extends com.pulumi.resources.Resou
             $ = new MedtechServiceIdentityArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(List<String> identityIds) {
             return identityIds(Output.of(identityIds));
         }
 
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }

@@ -172,14 +172,14 @@ public final class TriggerScheduleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * block as defined below.
+     * A `pipeline` block as defined below.
      * 
      */
     @Import(name="pipelines")
     private @Nullable Output<List<TriggerSchedulePipelineArgs>> pipelines;
 
     /**
-     * @return block as defined below.
+     * @return A `pipeline` block as defined below.
      * 
      */
     public Optional<Output<List<TriggerSchedulePipelineArgs>>> pipelines() {
@@ -489,7 +489,7 @@ public final class TriggerScheduleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pipelines block as defined below.
+         * @param pipelines A `pipeline` block as defined below.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class TriggerScheduleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pipelines block as defined below.
+         * @param pipelines A `pipeline` block as defined below.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class TriggerScheduleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param pipelines block as defined below.
+         * @param pipelines A `pipeline` block as defined below.
          * 
          * @return builder
          * 

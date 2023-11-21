@@ -1582,7 +1582,7 @@ type PoolCertificate struct {
 	//
 	// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 	StoreLocation string `pulumi:"storeLocation"`
-	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
 	StoreName *string `pulumi:"storeName"`
 	// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
 	Visibilities []string `pulumi:"visibilities"`
@@ -1606,7 +1606,7 @@ type PoolCertificateArgs struct {
 	//
 	// > **NOTE:** This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a 'certs' directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 	StoreLocation pulumi.StringInput `pulumi:"storeLocation"`
-	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+	// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
 	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
 	// Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
 	Visibilities pulumi.StringArrayInput `pulumi:"visibilities"`
@@ -1693,7 +1693,7 @@ func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
 }
 
-// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
+// The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used.
 func (o PoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
@@ -1933,7 +1933,7 @@ func (o PoolContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 type PoolContainerConfigurationContainerRegistry struct {
 	// The password to log into the registry server. Changing this forces a new resource to be created.
 	Password *string `pulumi:"password"`
-	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+	// The container registry URL. Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -1955,7 +1955,7 @@ type PoolContainerConfigurationContainerRegistryInput interface {
 type PoolContainerConfigurationContainerRegistryArgs struct {
 	// The password to log into the registry server. Changing this forces a new resource to be created.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+	// The container registry URL. Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
@@ -2037,7 +2037,7 @@ func (o PoolContainerConfigurationContainerRegistryOutput) Password() pulumi.Str
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+// The container registry URL. Changing this forces a new resource to be created.
 func (o PoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
@@ -2079,13 +2079,13 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.I
 }
 
 type PoolDataDisk struct {
-	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
 	Caching *string `pulumi:"caching"`
 	// The initial disk size in GB when creating new data disk.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun int `pulumi:"lun"`
-	// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+	// The storage account type to be used for the data disk. Values are: Possible values are `Standard_LRS` - The data disk should use standard locally redundant storage. `Premium_LRS` - The data disk should use premium locally redundant storage. Defaults to `Standard_LRS`.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -2101,13 +2101,13 @@ type PoolDataDiskInput interface {
 }
 
 type PoolDataDiskArgs struct {
-	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
 	// The initial disk size in GB when creating new data disk.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 	Lun pulumi.IntInput `pulumi:"lun"`
-	// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+	// The storage account type to be used for the data disk. Values are: Possible values are `Standard_LRS` - The data disk should use standard locally redundant storage. `Premium_LRS` - The data disk should use premium locally redundant storage. Defaults to `Standard_LRS`.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -2180,7 +2180,7 @@ func (o PoolDataDiskOutput) ToOutput(ctx context.Context) pulumix.Output[PoolDat
 	}
 }
 
-// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
 func (o PoolDataDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
@@ -2195,7 +2195,7 @@ func (o PoolDataDiskOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v PoolDataDisk) int { return v.Lun }).(pulumi.IntOutput)
 }
 
-// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+// The storage account type to be used for the data disk. Values are: Possible values are `Standard_LRS` - The data disk should use standard locally redundant storage. `Premium_LRS` - The data disk should use premium locally redundant storage. Defaults to `Standard_LRS`.
 func (o PoolDataDiskOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolDataDisk) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -2352,7 +2352,7 @@ type PoolExtension struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 	//
-	// **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name string `pulumi:"name"`
@@ -2386,7 +2386,7 @@ type PoolExtensionArgs struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 	//
-	// **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput `pulumi:"automaticUpgradeEnabled"`
 	// The name of the virtual machine extension.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2480,7 +2480,7 @@ func (o PoolExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 
 // Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`.
 //
-// **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
+// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` should be manually ignored by user.
 func (o PoolExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolExtension) *bool { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3823,9 +3823,9 @@ func (o PoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) PoolMountNfsMount
 type PoolNetworkConfiguration struct {
 	// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkingEnabled *bool `pulumi:"acceleratedNetworkingEnabled"`
-	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
 	DynamicVnetAssignmentScope *string `pulumi:"dynamicVnetAssignmentScope"`
-	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
+	// A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
 	PublicAddressProvisioningType *string `pulumi:"publicAddressProvisioningType"`
@@ -3849,9 +3849,9 @@ type PoolNetworkConfigurationInput interface {
 type PoolNetworkConfigurationArgs struct {
 	// Whether to enable accelerated networking. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkingEnabled pulumi.BoolPtrInput `pulumi:"acceleratedNetworkingEnabled"`
-	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
 	DynamicVnetAssignmentScope pulumi.StringPtrInput `pulumi:"dynamicVnetAssignmentScope"`
-	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
+	// A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
 	// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
 	PublicAddressProvisioningType pulumi.StringPtrInput `pulumi:"publicAddressProvisioningType"`
@@ -3961,12 +3961,12 @@ func (o PoolNetworkConfigurationOutput) AcceleratedNetworkingEnabled() pulumi.Bo
 	return o.ApplyT(func(v PoolNetworkConfiguration) *bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
 func (o PoolNetworkConfigurationOutput) DynamicVnetAssignmentScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) *string { return v.DynamicVnetAssignmentScope }).(pulumi.StringPtrOutput)
 }
 
-// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
+// A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
 		return v.EndpointConfigurations
@@ -4028,7 +4028,7 @@ func (o PoolNetworkConfigurationPtrOutput) AcceleratedNetworkingEnabled() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
 func (o PoolNetworkConfigurationPtrOutput) DynamicVnetAssignmentScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolNetworkConfiguration) *string {
 		if v == nil {
@@ -4038,7 +4038,7 @@ func (o PoolNetworkConfigurationPtrOutput) DynamicVnetAssignmentScope() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
+// A list of `endpointConfiguration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationPtrOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v *PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
 		if v == nil {
@@ -4390,7 +4390,7 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 }
 
 type PoolNodePlacement struct {
-	// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+	// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
 	Policy *string `pulumi:"policy"`
 }
 
@@ -4406,7 +4406,7 @@ type PoolNodePlacementInput interface {
 }
 
 type PoolNodePlacementArgs struct {
-	// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+	// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
 }
 
@@ -4479,7 +4479,7 @@ func (o PoolNodePlacementOutput) ToOutput(ctx context.Context) pulumix.Output[Po
 	}
 }
 
-// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
 func (o PoolNodePlacementOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolNodePlacement) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
@@ -4515,7 +4515,7 @@ type PoolStartTask struct {
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
-	// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+	// A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 	Containers []PoolStartTaskContainer `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
@@ -4543,7 +4543,7 @@ type PoolStartTaskArgs struct {
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
-	// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+	// A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 	Containers PoolStartTaskContainerArrayInput `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node as defined below.
 	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
@@ -4660,7 +4660,7 @@ func (o PoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOutpu
 	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
 }
 
-// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+// A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 func (o PoolStartTaskOutput) Containers() PoolStartTaskContainerArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskContainer { return v.Containers }).(PoolStartTaskContainerArrayOutput)
 }
@@ -4735,7 +4735,7 @@ func (o PoolStartTaskPtrOutput) CommonEnvironmentProperties() pulumi.StringMapOu
 	}).(pulumi.StringMapOutput)
 }
 
-// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+// A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
 func (o PoolStartTaskPtrOutput) Containers() PoolStartTaskContainerArrayOutput {
 	return o.ApplyT(func(v *PoolStartTask) []PoolStartTaskContainer {
 		if v == nil {
@@ -4788,11 +4788,11 @@ func (o PoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 type PoolStartTaskContainer struct {
 	// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName string `pulumi:"imageName"`
-	// The same reference as `containerRegistries` block defined as below.
+	// The `containerRegistries` block defined as below.
 	Registries []PoolStartTaskContainerRegistry `pulumi:"registries"`
 	// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
 	RunOptions *string `pulumi:"runOptions"`
-	// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+	// A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
@@ -4810,11 +4810,11 @@ type PoolStartTaskContainerInput interface {
 type PoolStartTaskContainerArgs struct {
 	// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// The same reference as `containerRegistries` block defined as below.
+	// The `containerRegistries` block defined as below.
 	Registries PoolStartTaskContainerRegistryArrayInput `pulumi:"registries"`
 	// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
 	RunOptions pulumi.StringPtrInput `pulumi:"runOptions"`
-	// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+	// A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
 	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
 }
 
@@ -4892,7 +4892,7 @@ func (o PoolStartTaskContainerOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolStartTaskContainer) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// The same reference as `containerRegistries` block defined as below.
+// The `containerRegistries` block defined as below.
 func (o PoolStartTaskContainerOutput) Registries() PoolStartTaskContainerRegistryArrayOutput {
 	return o.ApplyT(func(v PoolStartTaskContainer) []PoolStartTaskContainerRegistry { return v.Registries }).(PoolStartTaskContainerRegistryArrayOutput)
 }
@@ -4902,7 +4902,7 @@ func (o PoolStartTaskContainerOutput) RunOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskContainer) *string { return v.RunOptions }).(pulumi.StringPtrOutput)
 }
 
-// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+// A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
 func (o PoolStartTaskContainerOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskContainer) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
@@ -4936,7 +4936,7 @@ func (o PoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) PoolStartTas
 type PoolStartTaskContainerRegistry struct {
 	// The password to use for authentication against the CIFS file system.
 	Password *string `pulumi:"password"`
-	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+	// The container registry URL. Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
@@ -4958,7 +4958,7 @@ type PoolStartTaskContainerRegistryInput interface {
 type PoolStartTaskContainerRegistryArgs struct {
 	// The password to use for authentication against the CIFS file system.
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+	// The container registry URL. Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
@@ -5040,7 +5040,7 @@ func (o PoolStartTaskContainerRegistryOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+// The container registry URL. Changing this forces a new resource to be created.
 func (o PoolStartTaskContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
@@ -6414,7 +6414,7 @@ func (o PoolUserAccountWindowsUserConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type PoolWindow struct {
-	// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+	// Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 }
 
@@ -6430,7 +6430,7 @@ type PoolWindowInput interface {
 }
 
 type PoolWindowArgs struct {
-	// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+	// Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
 }
 
@@ -6503,7 +6503,7 @@ func (o PoolWindowOutput) ToOutput(ctx context.Context) pulumix.Output[PoolWindo
 	}
 }
 
-// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+// Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
 func (o PoolWindowOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PoolWindow) *bool { return v.EnableAutomaticUpdates }).(pulumi.BoolPtrOutput)
 }

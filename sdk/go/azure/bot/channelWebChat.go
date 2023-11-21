@@ -92,7 +92,7 @@ type ChannelWebChat struct {
 	//
 	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames pulumi.StringArrayOutput `pulumi:"siteNames"`
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayOutput `pulumi:"sites"`
 }
 
@@ -144,7 +144,7 @@ type channelWebChatState struct {
 	//
 	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames []string `pulumi:"siteNames"`
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelWebChatSite `pulumi:"sites"`
 }
 
@@ -161,7 +161,7 @@ type ChannelWebChatState struct {
 	//
 	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames pulumi.StringArrayInput
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayInput
 }
 
@@ -182,7 +182,7 @@ type channelWebChatArgs struct {
 	//
 	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames []string `pulumi:"siteNames"`
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites []ChannelWebChatSite `pulumi:"sites"`
 }
 
@@ -200,7 +200,7 @@ type ChannelWebChatArgs struct {
 	//
 	// Deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
 	SiteNames pulumi.StringArrayInput
-	// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+	// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 	Sites ChannelWebChatSiteArrayInput
 }
 
@@ -339,7 +339,7 @@ func (o ChannelWebChatOutput) SiteNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ChannelWebChat) pulumi.StringArrayOutput { return v.SiteNames }).(pulumi.StringArrayOutput)
 }
 
-// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
 func (o ChannelWebChatOutput) Sites() ChannelWebChatSiteArrayOutput {
 	return o.ApplyT(func(v *ChannelWebChat) ChannelWebChatSiteArrayOutput { return v.Sites }).(ChannelWebChatSiteArrayOutput)
 }

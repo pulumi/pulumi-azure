@@ -96,14 +96,14 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The notification setting of a schedule. A `notification_settings` as defined below.
+     * The notification setting of a schedule. A `notification_settings` block as defined below.
      * 
      */
     @Import(name="notificationSettings", required=true)
     private Output<ScheduleNotificationSettingsArgs> notificationSettings;
 
     /**
-     * @return The notification setting of a schedule. A `notification_settings` as defined below.
+     * @return The notification setting of a schedule. A `notification_settings` block as defined below.
      * 
      */
     public Output<ScheduleNotificationSettingsArgs> notificationSettings() {
@@ -341,7 +341,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSettings The notification setting of a schedule. A `notification_settings` as defined below.
+         * @param notificationSettings The notification setting of a schedule. A `notification_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ScheduleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param notificationSettings The notification setting of a schedule. A `notification_settings` as defined below.
+         * @param notificationSettings The notification setting of a schedule. A `notification_settings` block as defined below.
          * 
          * @return builder
          * 

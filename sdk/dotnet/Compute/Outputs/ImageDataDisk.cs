@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? BlobUri;
         /// <summary>
-        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+        /// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
         /// </summary>
         public readonly string? Caching;
         /// <summary>

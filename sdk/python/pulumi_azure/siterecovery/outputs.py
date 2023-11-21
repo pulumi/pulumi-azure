@@ -540,9 +540,9 @@ class ReplicatedVMUnmanagedDisk(dict):
                  staging_storage_account_id: str,
                  target_storage_account_id: str):
         """
-        :param str disk_uri: Id of disk that should be replicated.
-        :param str staging_storage_account_id: Storage account that should be used for caching.
-        :param str target_storage_account_id: Storage account disk should belong to when a failover is done.
+        :param str disk_uri: Id of disk that should be replicated. Changing this forces a new resource to be created.
+        :param str staging_storage_account_id: Storage account that should be used for caching. Changing this forces a new resource to be created.
+        :param str target_storage_account_id: Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "disk_uri", disk_uri)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -552,7 +552,7 @@ class ReplicatedVMUnmanagedDisk(dict):
     @pulumi.getter(name="diskUri")
     def disk_uri(self) -> str:
         """
-        Id of disk that should be replicated.
+        Id of disk that should be replicated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_uri")
 
@@ -560,7 +560,7 @@ class ReplicatedVMUnmanagedDisk(dict):
     @pulumi.getter(name="stagingStorageAccountId")
     def staging_storage_account_id(self) -> str:
         """
-        Storage account that should be used for caching.
+        Storage account that should be used for caching. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "staging_storage_account_id")
 
@@ -568,7 +568,7 @@ class ReplicatedVMUnmanagedDisk(dict):
     @pulumi.getter(name="targetStorageAccountId")
     def target_storage_account_id(self) -> str:
         """
-        Storage account disk should belong to when a failover is done.
+        Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_storage_account_id")
 

@@ -17,12 +17,12 @@ public final class VirtualNetworkSubnet {
      */
     private @Nullable String name;
     /**
-     * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+     * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String useInVirtualMachineCreation;
     /**
-     * @return Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+     * @return Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String usePublicIpAddress;
@@ -36,14 +36,14 @@ public final class VirtualNetworkSubnet {
         return Optional.ofNullable(this.name);
     }
     /**
-     * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+     * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> useInVirtualMachineCreation() {
         return Optional.ofNullable(this.useInVirtualMachineCreation);
     }
     /**
-     * @return Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+     * @return Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> usePublicIpAddress() {

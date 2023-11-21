@@ -17,14 +17,14 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
     public static final TransformOutputBuiltinPresetArgs Empty = new TransformOutputBuiltinPresetArgs();
 
     /**
-     * A `present_configuration` block as defined below.
+     * A `preset_configuration` block as defined below.
      * 
      */
     @Import(name="presetConfiguration")
     private @Nullable Output<TransformOutputBuiltinPresetPresetConfigurationArgs> presetConfiguration;
 
     /**
-     * @return A `present_configuration` block as defined below.
+     * @return A `preset_configuration` block as defined below.
      * 
      */
     public Optional<Output<TransformOutputBuiltinPresetPresetConfigurationArgs>> presetConfiguration() {
@@ -72,7 +72,7 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
         }
 
         /**
-         * @param presetConfiguration A `present_configuration` block as defined below.
+         * @param presetConfiguration A `preset_configuration` block as defined below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TransformOutputBuiltinPresetArgs extends com.pulumi.resources
         }
 
         /**
-         * @param presetConfiguration A `present_configuration` block as defined below.
+         * @param presetConfiguration A `preset_configuration` block as defined below.
          * 
          * @return builder
          * 

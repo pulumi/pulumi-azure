@@ -41,7 +41,7 @@ public final class VirtualMachineStorageConfiguration {
      */
     private @Nullable Boolean systemDbOnDataDiskEnabled;
     /**
-     * @return An `temp_db_settings` as defined below.
+     * @return An `temp_db_settings` block as defined below.
      * 
      */
     private @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
@@ -83,7 +83,7 @@ public final class VirtualMachineStorageConfiguration {
         return Optional.ofNullable(this.systemDbOnDataDiskEnabled);
     }
     /**
-     * @return An `temp_db_settings` as defined below.
+     * @return An `temp_db_settings` block as defined below.
      * 
      */
     public Optional<VirtualMachineStorageConfigurationTempDbSettings> tempDbSettings() {

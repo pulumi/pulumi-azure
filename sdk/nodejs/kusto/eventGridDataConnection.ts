@@ -133,7 +133,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
     public readonly databaseRoutingType!: pulumi.Output<string | undefined>;
     /**
@@ -273,7 +273,7 @@ export interface EventGridDataConnectionState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**
@@ -343,7 +343,7 @@ export interface EventGridDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      */
     databaseRoutingType?: pulumi.Input<string>;
     /**

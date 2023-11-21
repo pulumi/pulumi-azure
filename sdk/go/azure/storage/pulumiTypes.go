@@ -2258,9 +2258,9 @@ type AccountNetworkRulesType struct {
 	Bypasses []string `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction string `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
 	IpRules []string `pulumi:"ipRules"`
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	//
 	// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 	//
@@ -2290,9 +2290,9 @@ type AccountNetworkRulesTypeArgs struct {
 	Bypasses pulumi.StringArrayInput `pulumi:"bypasses"`
 	// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
-	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+	// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
-	// One or More `privateLinkAccess` block as defined below.
+	// One or more `privateLinkAccess` block as defined below.
 	//
 	// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 	//
@@ -2411,12 +2411,12 @@ func (o AccountNetworkRulesTypeOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
 
-// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
 func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountNetworkRulesType) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
 
-// One or More `privateLinkAccess` block as defined below.
+// One or more `privateLinkAccess` block as defined below.
 //
 // > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 //
@@ -2484,7 +2484,7 @@ func (o AccountNetworkRulesTypePtrOutput) DefaultAction() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
 func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountNetworkRulesType) []string {
 		if v == nil {
@@ -2494,7 +2494,7 @@ func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// One or More `privateLinkAccess` block as defined below.
+// One or more `privateLinkAccess` block as defined below.
 //
 // > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 //
@@ -7692,7 +7692,7 @@ func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) Index(i pulumi.
 }
 
 type ObjectReplicationRule struct {
-	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
 	CopyBlobsCreatedAfter *string `pulumi:"copyBlobsCreatedAfter"`
 	// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
 	DestinationContainerName string `pulumi:"destinationContainerName"`
@@ -7715,7 +7715,7 @@ type ObjectReplicationRuleInput interface {
 }
 
 type ObjectReplicationRuleArgs struct {
-	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+	// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
 	CopyBlobsCreatedAfter pulumi.StringPtrInput `pulumi:"copyBlobsCreatedAfter"`
 	// The destination storage container name. Changing this forces a new Storage Object Replication to be created.
 	DestinationContainerName pulumi.StringInput `pulumi:"destinationContainerName"`
@@ -7795,7 +7795,7 @@ func (o ObjectReplicationRuleOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
 func (o ObjectReplicationRuleOutput) CopyBlobsCreatedAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectReplicationRule) *string { return v.CopyBlobsCreatedAfter }).(pulumi.StringPtrOutput)
 }

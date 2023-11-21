@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelDirectLineSite {
     /**
-     * @return Enables/Disables this site. Enabled by default Defaults to `true`.
+     * @return Enables/Disables this site. Defaults to `true`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -64,19 +64,19 @@ public final class ChannelDirectLineSite {
      */
     private @Nullable Boolean userUploadEnabled;
     /**
-     * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * @return Enables v1 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     private @Nullable Boolean v1Allowed;
     /**
-     * @return Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * @return Enables v3 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     private @Nullable Boolean v3Allowed;
 
     private ChannelDirectLineSite() {}
     /**
-     * @return Enables/Disables this site. Enabled by default Defaults to `true`.
+     * @return Enables/Disables this site. Defaults to `true`.
      * 
      */
     public Optional<Boolean> enabled() {
@@ -146,14 +146,14 @@ public final class ChannelDirectLineSite {
         return Optional.ofNullable(this.userUploadEnabled);
     }
     /**
-     * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * @return Enables v1 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     public Optional<Boolean> v1Allowed() {
         return Optional.ofNullable(this.v1Allowed);
     }
     /**
-     * @return Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * @return Enables v3 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     public Optional<Boolean> v3Allowed() {

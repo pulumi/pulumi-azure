@@ -32,7 +32,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The path to the App Auth settings.
         /// 
-        /// * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+        /// &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
         /// </summary>
         public readonly string? ConfigFilePath;
         /// <summary>

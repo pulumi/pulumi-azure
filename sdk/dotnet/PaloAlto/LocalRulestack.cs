@@ -48,7 +48,7 @@ namespace Pulumi.Azure.PaloAlto
     public partial class LocalRulestack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        /// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         /// </summary>
         [Output("antiSpywareProfile")]
         public Output<string?> AntiSpywareProfile { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.PaloAlto
     public sealed class LocalRulestackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        /// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         /// </summary>
         [Input("antiSpywareProfile")]
         public Input<string>? AntiSpywareProfile { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.PaloAlto
     public sealed class LocalRulestackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+        /// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         /// </summary>
         [Input("antiSpywareProfile")]
         public Input<string>? AntiSpywareProfile { get; set; }

@@ -16,14 +16,14 @@ public final class PoolWindowArgs extends com.pulumi.resources.ResourceArgs {
     public static final PoolWindowArgs Empty = new PoolWindowArgs();
 
     /**
-     * Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+     * Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
      * 
      */
     @Import(name="enableAutomaticUpdates")
     private @Nullable Output<Boolean> enableAutomaticUpdates;
 
     /**
-     * @return Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+     * @return Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enableAutomaticUpdates() {
@@ -55,7 +55,7 @@ public final class PoolWindowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAutomaticUpdates Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+         * @param enableAutomaticUpdates Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PoolWindowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAutomaticUpdates Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+         * @param enableAutomaticUpdates Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
          * 
          * @return builder
          * 

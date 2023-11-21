@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<string>? _ipRules;
 
         /// <summary>
-        /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
+        /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
         /// </summary>
         public InputList<string> IpRules
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Storage.Inputs
         private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessArgs>? _privateLinkAccesses;
 
         /// <summary>
-        /// One or More `private_link_access` block as defined below.
+        /// One or more `private_link_access` block as defined below.
         /// 
         /// &gt; **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
         /// 

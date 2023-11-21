@@ -104,7 +104,7 @@ type ClusterExtension struct {
 	ReleaseNamespace pulumi.StringOutput `pulumi:"releaseNamespace"`
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ReleaseTrain pulumi.StringOutput `pulumi:"releaseTrain"`
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	TargetNamespace pulumi.StringOutput `pulumi:"targetNamespace"`
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -167,7 +167,7 @@ type clusterExtensionState struct {
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ReleaseTrain *string `pulumi:"releaseTrain"`
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Version *string `pulumi:"version"`
@@ -192,7 +192,7 @@ type ClusterExtensionState struct {
 	ReleaseNamespace pulumi.StringPtrInput
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ReleaseTrain pulumi.StringPtrInput
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	TargetNamespace pulumi.StringPtrInput
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Version pulumi.StringPtrInput
@@ -219,7 +219,7 @@ type clusterExtensionArgs struct {
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ReleaseTrain *string `pulumi:"releaseTrain"`
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Version *string `pulumi:"version"`
@@ -243,7 +243,7 @@ type ClusterExtensionArgs struct {
 	ReleaseNamespace pulumi.StringPtrInput
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	ReleaseTrain pulumi.StringPtrInput
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	TargetNamespace pulumi.StringPtrInput
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 	Version pulumi.StringPtrInput
@@ -405,7 +405,7 @@ func (o ClusterExtensionOutput) ReleaseTrain() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterExtension) pulumi.StringOutput { return v.ReleaseTrain }).(pulumi.StringOutput)
 }
 
-// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
 func (o ClusterExtensionOutput) TargetNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterExtension) pulumi.StringOutput { return v.TargetNamespace }).(pulumi.StringOutput)
 }

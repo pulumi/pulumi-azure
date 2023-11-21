@@ -159,7 +159,7 @@ type Assignment struct {
 	LockExcludeActions pulumi.StringArrayOutput `pulumi:"lockExcludeActions"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals pulumi.StringArrayOutput `pulumi:"lockExcludePrincipals"`
-	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
 	LockMode pulumi.StringPtrOutput `pulumi:"lockMode"`
 	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -232,7 +232,7 @@ type assignmentState struct {
 	LockExcludeActions []string `pulumi:"lockExcludeActions"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals []string `pulumi:"lockExcludePrincipals"`
-	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
 	LockMode *string `pulumi:"lockMode"`
 	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -267,7 +267,7 @@ type AssignmentState struct {
 	LockExcludeActions pulumi.StringArrayInput
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals pulumi.StringArrayInput
-	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
 	LockMode pulumi.StringPtrInput
 	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -300,7 +300,7 @@ type assignmentArgs struct {
 	LockExcludeActions []string `pulumi:"lockExcludeActions"`
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals []string `pulumi:"lockExcludePrincipals"`
-	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
 	LockMode *string `pulumi:"lockMode"`
 	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -328,7 +328,7 @@ type AssignmentArgs struct {
 	LockExcludeActions pulumi.StringArrayInput
 	// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
 	LockExcludePrincipals pulumi.StringArrayInput
-	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+	// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
 	LockMode pulumi.StringPtrInput
 	// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -492,7 +492,7 @@ func (o AssignmentOutput) LockExcludePrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringArrayOutput { return v.LockExcludePrincipals }).(pulumi.StringArrayOutput)
 }
 
-// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
 func (o AssignmentOutput) LockMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.LockMode }).(pulumi.StringPtrOutput)
 }

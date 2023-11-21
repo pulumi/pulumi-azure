@@ -17,6 +17,9 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
         /// </summary>
         public readonly int? IcmpPinholeTimeoutInSeconds;
+        /// <summary>
+        /// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+        /// </summary>
         public readonly int? PinholeMaximumNumber;
         /// <summary>
         /// A `port_range` block as defined below.

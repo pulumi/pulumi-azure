@@ -583,7 +583,8 @@ func (o FileSystemIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type FileSystemMaintenanceWindow struct {
 	// The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-	DayOfWeek      string `pulumi:"dayOfWeek"`
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The time of day (in UTC) to start the maintenance window.
 	TimeOfDayInUtc string `pulumi:"timeOfDayInUtc"`
 }
 
@@ -600,7 +601,8 @@ type FileSystemMaintenanceWindowInput interface {
 
 type FileSystemMaintenanceWindowArgs struct {
 	// The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-	DayOfWeek      pulumi.StringInput `pulumi:"dayOfWeek"`
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The time of day (in UTC) to start the maintenance window.
 	TimeOfDayInUtc pulumi.StringInput `pulumi:"timeOfDayInUtc"`
 }
 
@@ -704,6 +706,7 @@ func (o FileSystemMaintenanceWindowOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemMaintenanceWindow) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
+// The time of day (in UTC) to start the maintenance window.
 func (o FileSystemMaintenanceWindowOutput) TimeOfDayInUtc() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemMaintenanceWindow) string { return v.TimeOfDayInUtc }).(pulumi.StringOutput)
 }
@@ -748,6 +751,7 @@ func (o FileSystemMaintenanceWindowPtrOutput) DayOfWeek() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The time of day (in UTC) to start the maintenance window.
 func (o FileSystemMaintenanceWindowPtrOutput) TimeOfDayInUtc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemMaintenanceWindow) *string {
 		if v == nil {

@@ -13,9 +13,12 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class KubernetesClusterMaintenanceWindowAutoUpgrade
     {
+        /// <summary>
+        /// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+        /// </summary>
         public readonly int? DayOfMonth;
         /// <summary>
-        /// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+        /// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         public readonly string? DayOfWeek;
         /// <summary>

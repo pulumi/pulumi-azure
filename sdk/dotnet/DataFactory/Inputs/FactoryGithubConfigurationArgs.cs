@@ -31,7 +31,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> GitUrl { get; set; } = null!;
 
         /// <summary>
-        /// Is automated publishing enabled? Defaults to `false`.
+        /// Is automated publishing enabled? Defaults to `true`.
         /// 
         /// &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         /// </summary>

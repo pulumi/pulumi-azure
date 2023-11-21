@@ -16,7 +16,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _dnsNames;
 
         /// <summary>
-        /// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        /// A list of alternative DNS names (FQDNs) identified by the Certificate.
         /// </summary>
         public InputList<string> DnsNames
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _emails;
 
         /// <summary>
-        /// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        /// A list of email addresses identified by this Certificate.
         /// </summary>
         public InputList<string> Emails
         {
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
         private InputList<string>? _upns;
 
         /// <summary>
-        /// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        /// A list of User Principal Names identified by the Certificate.
         /// </summary>
         public InputList<string> Upns
         {

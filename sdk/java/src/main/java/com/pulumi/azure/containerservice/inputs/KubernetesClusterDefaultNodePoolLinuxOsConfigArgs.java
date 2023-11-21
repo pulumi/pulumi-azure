@@ -18,14 +18,14 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     public static final KubernetesClusterDefaultNodePoolLinuxOsConfigArgs Empty = new KubernetesClusterDefaultNodePoolLinuxOsConfigArgs();
 
     /**
-     * Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+     * Specifies the size of the swap file on each node in MB.
      * 
      */
     @Import(name="swapFileSizeMb")
     private @Nullable Output<Integer> swapFileSizeMb;
 
     /**
-     * @return Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+     * @return Specifies the size of the swap file on each node in MB.
      * 
      */
     public Optional<Output<Integer>> swapFileSizeMb() {
@@ -48,14 +48,14 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     }
 
     /**
-     * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
     @Import(name="transparentHugePageDefrag")
     private @Nullable Output<String> transparentHugePageDefrag;
 
     /**
-     * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
      * 
      */
     public Optional<Output<String>> transparentHugePageDefrag() {
@@ -63,14 +63,14 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
     }
 
     /**
-     * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
      * 
      */
     @Import(name="transparentHugePageEnabled")
     private @Nullable Output<String> transparentHugePageEnabled;
 
     /**
-     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+     * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
      * 
      */
     public Optional<Output<String>> transparentHugePageEnabled() {
@@ -105,7 +105,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param swapFileSizeMb Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+         * @param swapFileSizeMb Specifies the size of the swap file on each node in MB.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param swapFileSizeMb Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+         * @param swapFileSizeMb Specifies the size of the swap file on each node in MB.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param transparentHugePageDefrag specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+         * @param transparentHugePageDefrag specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param transparentHugePageDefrag specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+         * @param transparentHugePageDefrag specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param transparentHugePageEnabled Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+         * @param transparentHugePageEnabled Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         }
 
         /**
-         * @param transparentHugePageEnabled Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+         * @param transparentHugePageEnabled Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
          * 
          * @return builder
          * 

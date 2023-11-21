@@ -106,7 +106,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
      */
     public readonly pipelineParameters!: pulumi.Output<{[key: string]: string}>;
     /**
-     * block as defined below.
+     * A `pipeline` block as defined below.
      */
     public readonly pipelines!: pulumi.Output<outputs.datafactory.TriggerSchedulePipeline[]>;
     /**
@@ -219,7 +219,7 @@ export interface TriggerScheduleState {
      */
     pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * block as defined below.
+     * A `pipeline` block as defined below.
      */
     pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[]>;
     /**
@@ -281,7 +281,7 @@ export interface TriggerScheduleArgs {
      */
     pipelineParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * block as defined below.
+     * A `pipeline` block as defined below.
      */
     pipelines?: pulumi.Input<pulumi.Input<inputs.datafactory.TriggerSchedulePipeline>[]>;
     /**

@@ -196,7 +196,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensions!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetExtension[]>;
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
@@ -308,7 +308,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
@@ -612,7 +612,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
@@ -724,7 +724,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     sku?: pulumi.Input<string>;
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */
@@ -879,7 +879,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
@@ -991,7 +991,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     sku: pulumi.Input<string>;
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      *
      * > **NOTE:** One of either `sourceImageId` or `sourceImageReference` must be set.
      */

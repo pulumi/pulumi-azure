@@ -105,7 +105,7 @@ type LinuxFunctionAppSlot struct {
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
 	ConnectionStrings LinuxFunctionAppSlotConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -119,6 +119,8 @@ type LinuxFunctionAppSlot struct {
 	DefaultHostname pulumi.StringOutput `pulumi:"defaultHostname"`
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -170,6 +172,8 @@ type LinuxFunctionAppSlot struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 // NewLinuxFunctionAppSlot registers a new resource with the given unique name, arguments, and options.
@@ -231,7 +235,7 @@ type linuxFunctionAppSlotState struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
 	ConnectionStrings []LinuxFunctionAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -245,6 +249,8 @@ type linuxFunctionAppSlotState struct {
 	DefaultHostname *string `pulumi:"defaultHostname"`
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId *string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -296,6 +302,8 @@ type linuxFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 type LinuxFunctionAppSlotState struct {
@@ -313,7 +321,7 @@ type LinuxFunctionAppSlotState struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// a `connectionString` block as detailed below.
 	ConnectionStrings LinuxFunctionAppSlotConnectionStringArrayInput
@@ -327,6 +335,8 @@ type LinuxFunctionAppSlotState struct {
 	DefaultHostname pulumi.StringPtrInput
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringPtrInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -378,6 +388,8 @@ type LinuxFunctionAppSlotState struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
 func (LinuxFunctionAppSlotState) ElementType() reflect.Type {
@@ -399,7 +411,7 @@ type linuxFunctionAppSlotArgs struct {
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// a `connectionString` block as detailed below.
 	ConnectionStrings []LinuxFunctionAppSlotConnectionString `pulumi:"connectionStrings"`
@@ -409,6 +421,8 @@ type linuxFunctionAppSlotArgs struct {
 	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled *bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId string `pulumi:"functionAppId"`
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -446,6 +460,8 @@ type linuxFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   map[string]string `pulumi:"tags"`
 	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled *bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 // The set of arguments for constructing a LinuxFunctionAppSlot resource.
@@ -464,7 +480,7 @@ type LinuxFunctionAppSlotArgs struct {
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
-	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
 	// a `connectionString` block as detailed below.
 	ConnectionStrings LinuxFunctionAppSlotConnectionStringArrayInput
@@ -474,6 +490,8 @@ type LinuxFunctionAppSlotArgs struct {
 	DailyMemoryTimeQuota pulumi.IntPtrInput
 	// Is the Linux Function App Slot enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 	// The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringInput
 	// The runtime version associated with the Function App Slot. Defaults to `~4`.
@@ -511,6 +529,8 @@ type LinuxFunctionAppSlotArgs struct {
 	// A mapping of tags which should be assigned to the Linux Function App.
 	Tags                   pulumi.StringMapInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
+	// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+	WebdeployPublishBasicAuthenticationEnabled pulumi.BoolPtrInput
 }
 
 func (LinuxFunctionAppSlotArgs) ElementType() reflect.Type {
@@ -659,7 +679,7 @@ func (o LinuxFunctionAppSlotOutput) ClientCertificateExclusionPaths() pulumi.Str
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }
 
-// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 func (o LinuxFunctionAppSlotOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }
@@ -694,6 +714,11 @@ func (o LinuxFunctionAppSlotOutput) DefaultHostname() pulumi.StringOutput {
 // Is the Linux Function App Slot enabled. Defaults to `true`.
 func (o LinuxFunctionAppSlotOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Are the default FTP Basic Authentication publishing credentials enabled.
+func (o LinuxFunctionAppSlotOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -814,6 +839,13 @@ func (o LinuxFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 
 func (o LinuxFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+func (o LinuxFunctionAppSlotOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxFunctionAppSlot) pulumi.BoolPtrOutput {
+		return v.WebdeployPublishBasicAuthenticationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type LinuxFunctionAppSlotArrayOutput struct{ *pulumi.OutputState }

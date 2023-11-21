@@ -37,7 +37,7 @@ class LocalRulestackRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LocalRulestackRule resource.
-        :param pulumi.Input[str] action: The action to take on the rule being triggered.
+        :param pulumi.Input[str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input['LocalRulestackRuleDestinationArgs'] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[int] priority: The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
@@ -47,7 +47,7 @@ class LocalRulestackRuleArgs:
         :param pulumi.Input['LocalRulestackRuleSourceArgs'] source: One or more `source` blocks as defined below.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input['LocalRulestackRuleCategoryArgs'] category: A `category` block as defined below.
-        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] inspection_certificate_id: The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
@@ -96,7 +96,7 @@ class LocalRulestackRuleArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
         """
-        The action to take on the rule being triggered.
+        The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         """
         return pulumi.get(self, "action")
 
@@ -194,7 +194,7 @@ class LocalRulestackRuleArgs:
     @pulumi.getter(name="decryptionRuleType")
     def decryption_rule_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         """
         return pulumi.get(self, "decryption_rule_type")
 
@@ -347,11 +347,11 @@ class _LocalRulestackRuleState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LocalRulestackRule resources.
-        :param pulumi.Input[str] action: The action to take on the rule being triggered.
+        :param pulumi.Input[str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input['LocalRulestackRuleCategoryArgs'] category: A `category` block as defined below.
-        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
         :param pulumi.Input['LocalRulestackRuleDestinationArgs'] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
@@ -412,7 +412,7 @@ class _LocalRulestackRuleState:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action to take on the rule being triggered.
+        The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         """
         return pulumi.get(self, "action")
 
@@ -460,7 +460,7 @@ class _LocalRulestackRuleState:
     @pulumi.getter(name="decryptionRuleType")
     def decryption_rule_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         """
         return pulumi.get(self, "decryption_rule_type")
 
@@ -700,11 +700,11 @@ class LocalRulestackRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: The action to take on the rule being triggered.
+        :param pulumi.Input[str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']] category: A `category` block as defined below.
-        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
         :param pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
@@ -872,11 +872,11 @@ class LocalRulestackRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: The action to take on the rule being triggered.
+        :param pulumi.Input[str] action: The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: Specifies a list of Applications.
         :param pulumi.Input[str] audit_comment: The comment for Audit purposes.
         :param pulumi.Input[pulumi.InputType['LocalRulestackRuleCategoryArgs']] category: A `category` block as defined below.
-        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        :param pulumi.Input[str] decryption_rule_type: The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         :param pulumi.Input[str] description: The description for the rule.
         :param pulumi.Input[pulumi.InputType['LocalRulestackRuleDestinationArgs']] destination: One or more `destination` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should this Rule be enabled? Defaults to `true`.
@@ -923,7 +923,7 @@ class LocalRulestackRule(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
         """
-        The action to take on the rule being triggered.
+        The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         """
         return pulumi.get(self, "action")
 
@@ -955,7 +955,7 @@ class LocalRulestackRule(pulumi.CustomResource):
     @pulumi.getter(name="decryptionRuleType")
     def decryption_rule_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         """
         return pulumi.get(self, "decryption_rule_type")
 

@@ -870,7 +870,7 @@ func (o ConfigurationBackupPtrOutput) TimeZone() pulumi.StringPtrOutput {
 type ConfigurationBackupRetentionPolicy struct {
 	// A `dailySchedule` block as defined below.
 	DailySchedule *ConfigurationBackupRetentionPolicyDailySchedule `pulumi:"dailySchedule"`
-	// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+	// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
 	RetentionPolicyType *string `pulumi:"retentionPolicyType"`
 	// A `weeklySchedule` block as defined below.
 	WeeklySchedule *ConfigurationBackupRetentionPolicyWeeklySchedule `pulumi:"weeklySchedule"`
@@ -890,7 +890,7 @@ type ConfigurationBackupRetentionPolicyInput interface {
 type ConfigurationBackupRetentionPolicyArgs struct {
 	// A `dailySchedule` block as defined below.
 	DailySchedule ConfigurationBackupRetentionPolicyDailySchedulePtrInput `pulumi:"dailySchedule"`
-	// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+	// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
 	RetentionPolicyType pulumi.StringPtrInput `pulumi:"retentionPolicyType"`
 	// A `weeklySchedule` block as defined below.
 	WeeklySchedule ConfigurationBackupRetentionPolicyWeeklySchedulePtrInput `pulumi:"weeklySchedule"`
@@ -998,7 +998,7 @@ func (o ConfigurationBackupRetentionPolicyOutput) DailySchedule() ConfigurationB
 	}).(ConfigurationBackupRetentionPolicyDailySchedulePtrOutput)
 }
 
-// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
 func (o ConfigurationBackupRetentionPolicyOutput) RetentionPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationBackupRetentionPolicy) *string { return v.RetentionPolicyType }).(pulumi.StringPtrOutput)
 }
@@ -1050,7 +1050,7 @@ func (o ConfigurationBackupRetentionPolicyPtrOutput) DailySchedule() Configurati
 	}).(ConfigurationBackupRetentionPolicyDailySchedulePtrOutput)
 }
 
-// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
 func (o ConfigurationBackupRetentionPolicyPtrOutput) RetentionPolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationBackupRetentionPolicy) *string {
 		if v == nil {
@@ -1255,7 +1255,7 @@ func (o ConfigurationBackupRetentionPolicyDailySchedulePtrOutput) RetentionTimes
 type ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration struct {
 	// The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
 	Count *int `pulumi:"count"`
-	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 	DurationType *string `pulumi:"durationType"`
 }
 
@@ -1273,7 +1273,7 @@ type ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationInput inter
 type ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs struct {
 	// The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 	DurationType pulumi.StringPtrInput `pulumi:"durationType"`
 }
 
@@ -1377,7 +1377,7 @@ func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput) 
 	return o.ApplyT(func(v ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput) DurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration) *string {
 		return v.DurationType
@@ -1424,7 +1424,7 @@ func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput) DurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration) *string {
 		if v == nil {
@@ -1619,7 +1619,7 @@ func (o ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput) RetentionTime
 type ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration struct {
 	// The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
 	Count *int `pulumi:"count"`
-	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 	DurationType *string `pulumi:"durationType"`
 }
 
@@ -1637,7 +1637,7 @@ type ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationInput inte
 type ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs struct {
 	// The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+	// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 	DurationType pulumi.StringPtrInput `pulumi:"durationType"`
 }
 
@@ -1741,7 +1741,7 @@ func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput)
 	return o.ApplyT(func(v ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput) DurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration) *string {
 		return v.DurationType
@@ -1788,7 +1788,7 @@ func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`.
+// The duration type of the retention duration of the backup policy. Valid value inside `dailySchedule` is `Days` and inside `weeklySchedule` is `Weeks`. Defaults to `Days`.
 func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput) DurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration) *string {
 		if v == nil {
@@ -1799,7 +1799,7 @@ func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutp
 }
 
 type ConfigurationBackupSchedulePolicy struct {
-	// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+	// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
 	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
 	// The schedule run days of the backup policy. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
@@ -1821,7 +1821,7 @@ type ConfigurationBackupSchedulePolicyInput interface {
 }
 
 type ConfigurationBackupSchedulePolicyArgs struct {
-	// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+	// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
 	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
 	// The schedule run days of the backup policy. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
@@ -1926,7 +1926,7 @@ func (o ConfigurationBackupSchedulePolicyOutput) ToOutput(ctx context.Context) p
 	}
 }
 
-// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
 func (o ConfigurationBackupSchedulePolicyOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationBackupSchedulePolicy) *string { return v.SchedulePolicyType }).(pulumi.StringPtrOutput)
 }
@@ -1976,7 +1976,7 @@ func (o ConfigurationBackupSchedulePolicyPtrOutput) Elem() ConfigurationBackupSc
 	}).(ConfigurationBackupSchedulePolicyOutput)
 }
 
-// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
 func (o ConfigurationBackupSchedulePolicyPtrOutput) SchedulePolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationBackupSchedulePolicy) *string {
 		if v == nil {

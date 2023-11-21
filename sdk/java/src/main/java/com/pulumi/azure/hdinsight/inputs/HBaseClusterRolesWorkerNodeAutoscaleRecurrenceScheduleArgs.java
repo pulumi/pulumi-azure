@@ -15,31 +15,47 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
 
     public static final HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs Empty = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs();
 
+    /**
+     * The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+     * 
+     */
     @Import(name="days", required=true)
     private Output<List<String>> days;
 
+    /**
+     * @return The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+     * 
+     */
     public Output<List<String>> days() {
         return this.days;
     }
 
     /**
-     * The number of instances which should be run for the Worker Nodes.
+     * The number of worker nodes to autoscale at the specified time.
      * 
      */
     @Import(name="targetInstanceCount", required=true)
     private Output<Integer> targetInstanceCount;
 
     /**
-     * @return The number of instances which should be run for the Worker Nodes.
+     * @return The number of worker nodes to autoscale at the specified time.
      * 
      */
     public Output<Integer> targetInstanceCount() {
         return this.targetInstanceCount;
     }
 
+    /**
+     * The time of day to perform the autoscale in 24hour format.
+     * 
+     */
     @Import(name="time", required=true)
     private Output<String> time;
 
+    /**
+     * @return The time of day to perform the autoscale in 24hour format.
+     * 
+     */
     public Output<String> time() {
         return this.time;
     }
@@ -70,21 +86,39 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
             $ = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param days The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder days(Output<List<String>> days) {
             $.days = days;
             return this;
         }
 
+        /**
+         * @param days The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder days(List<String> days) {
             return days(Output.of(days));
         }
 
+        /**
+         * @param days The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder days(String... days) {
             return days(List.of(days));
         }
 
         /**
-         * @param targetInstanceCount The number of instances which should be run for the Worker Nodes.
+         * @param targetInstanceCount The number of worker nodes to autoscale at the specified time.
          * 
          * @return builder
          * 
@@ -95,7 +129,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
         }
 
         /**
-         * @param targetInstanceCount The number of instances which should be run for the Worker Nodes.
+         * @param targetInstanceCount The number of worker nodes to autoscale at the specified time.
          * 
          * @return builder
          * 
@@ -104,11 +138,23 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs ex
             return targetInstanceCount(Output.of(targetInstanceCount));
         }
 
+        /**
+         * @param time The time of day to perform the autoscale in 24hour format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder time(Output<String> time) {
             $.time = time;
             return this;
         }
 
+        /**
+         * @param time The time of day to perform the autoscale in 24hour format.
+         * 
+         * @return builder
+         * 
+         */
         public Builder time(String time) {
             return time(Output.of(time));
         }

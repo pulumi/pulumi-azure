@@ -134,7 +134,13 @@ export class Metadata extends pulumi.CustomResource {
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      */
     public readonly parentId!: pulumi.Output<string>;
+    /**
+     * Specifies a list of preview image file names. These will be taken from solution artifacts.
+     */
     public readonly previewImages!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     */
     public readonly previewImagesDarks!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a list of providers for the solution content item.
@@ -149,7 +155,7 @@ export class Metadata extends pulumi.CustomResource {
      */
     public readonly support!: pulumi.Output<outputs.sentinel.MetadataSupport | undefined>;
     /**
-     * Specifies a list of tactics the resource covers.
+     * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      */
     public readonly threatAnalysisTactics!: pulumi.Output<string[] | undefined>;
     /**
@@ -292,7 +298,13 @@ export interface MetadataState {
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      */
     parentId?: pulumi.Input<string>;
+    /**
+     * Specifies a list of preview image file names. These will be taken from solution artifacts.
+     */
     previewImages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     */
     previewImagesDarks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a list of providers for the solution content item.
@@ -307,7 +319,7 @@ export interface MetadataState {
      */
     support?: pulumi.Input<inputs.sentinel.MetadataSupport>;
     /**
-     * Specifies a list of tactics the resource covers.
+     * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      */
     threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -376,7 +388,13 @@ export interface MetadataArgs {
      * The ID of the parent resource ID of the content item, which the metadata belongs to.
      */
     parentId: pulumi.Input<string>;
+    /**
+     * Specifies a list of preview image file names. These will be taken from solution artifacts.
+     */
     previewImages?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     */
     previewImagesDarks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a list of providers for the solution content item.
@@ -391,7 +409,7 @@ export interface MetadataArgs {
      */
     support?: pulumi.Input<inputs.sentinel.MetadataSupport>;
     /**
-     * Specifies a list of tactics the resource covers.
+     * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      */
     threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

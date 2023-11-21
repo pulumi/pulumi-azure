@@ -85,6 +85,8 @@ type LookupWindowsWebAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Backup enabled?
 	Enabled bool `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The ID of the App Service Environment used by App Service.
 	HostingEnvironmentId string `pulumi:"hostingEnvironmentId"`
 	// Does the Windows Web App require HTTPS connections.
@@ -109,8 +111,9 @@ type LookupWindowsWebAppResult struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	PublicNetworkAccessEnabled  bool   `pulumi:"publicNetworkAccessEnabled"`
-	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	// Is Public Network Access enabled for the Windows Web App.
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The ID of the Service Plan in which this Windows Web App resides.
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -125,6 +128,8 @@ type LookupWindowsWebAppResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The subnet id which the Windows Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+	WebdeployPublishBasicAuthenticationEnabled bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 func LookupWindowsWebAppOutput(ctx *pulumi.Context, args LookupWindowsWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsWebAppResultOutput {
@@ -233,6 +238,11 @@ func (o LookupWindowsWebAppResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Are the default FTP Basic Authentication publishing credentials enabled.
+func (o LookupWindowsWebAppResultOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
+}
+
 // The ID of the App Service Environment used by App Service.
 func (o LookupWindowsWebAppResultOutput) HostingEnvironmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.HostingEnvironmentId }).(pulumi.StringOutput)
@@ -293,6 +303,7 @@ func (o LookupWindowsWebAppResultOutput) PossibleOutboundIpAddresses() pulumi.St
 	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// Is Public Network Access enabled for the Windows Web App.
 func (o LookupWindowsWebAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
@@ -334,6 +345,11 @@ func (o LookupWindowsWebAppResultOutput) Tags() pulumi.StringMapOutput {
 // The subnet id which the Windows Web App is vNet Integrated with.
 func (o LookupWindowsWebAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+func (o LookupWindowsWebAppResultOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

@@ -125,7 +125,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> TenantAuthEndpoint { get; set; } = null!;
 
         /// <summary>
-        /// Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        /// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         /// </summary>
         [Input("wwwAuthenticationDisabled")]
         public Input<bool>? WwwAuthenticationDisabled { get; set; }

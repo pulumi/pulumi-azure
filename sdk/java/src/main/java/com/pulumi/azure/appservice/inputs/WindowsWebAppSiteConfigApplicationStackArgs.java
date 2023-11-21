@@ -35,9 +35,17 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         return Optional.ofNullable(this.currentStack);
     }
 
+    /**
+     * The name of the container to be used. This value is required with `docker_container_tag`.
+     * 
+     */
     @Import(name="dockerContainerName")
     private @Nullable Output<String> dockerContainerName;
 
+    /**
+     * @return The name of the container to be used. This value is required with `docker_container_tag`.
+     * 
+     */
     public Optional<Output<String>> dockerContainerName() {
         return Optional.ofNullable(this.dockerContainerName);
     }
@@ -61,9 +69,17 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         return Optional.ofNullable(this.dockerContainerRegistry);
     }
 
+    /**
+     * The tag of the container to be used. This value is required with `docker_container_name`.
+     * 
+     */
     @Import(name="dockerContainerTag")
     private @Nullable Output<String> dockerContainerTag;
 
+    /**
+     * @return The tag of the container to be used. This value is required with `docker_container_name`.
+     * 
+     */
     public Optional<Output<String>> dockerContainerTag() {
         return Optional.ofNullable(this.dockerContainerTag);
     }
@@ -408,11 +424,23 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
             return currentStack(Output.of(currentStack));
         }
 
+        /**
+         * @param dockerContainerName The name of the container to be used. This value is required with `docker_container_tag`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dockerContainerName(@Nullable Output<String> dockerContainerName) {
             $.dockerContainerName = dockerContainerName;
             return this;
         }
 
+        /**
+         * @param dockerContainerName The name of the container to be used. This value is required with `docker_container_tag`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dockerContainerName(String dockerContainerName) {
             return dockerContainerName(Output.of(dockerContainerName));
         }
@@ -442,11 +470,23 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
             return dockerContainerRegistry(Output.of(dockerContainerRegistry));
         }
 
+        /**
+         * @param dockerContainerTag The tag of the container to be used. This value is required with `docker_container_name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dockerContainerTag(@Nullable Output<String> dockerContainerTag) {
             $.dockerContainerTag = dockerContainerTag;
             return this;
         }
 
+        /**
+         * @param dockerContainerTag The tag of the container to be used. This value is required with `docker_container_name`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dockerContainerTag(String dockerContainerTag) {
             return dockerContainerTag(Output.of(dockerContainerTag));
         }

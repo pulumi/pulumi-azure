@@ -68,14 +68,14 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+     * @return The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -83,14 +83,14 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+     * @return The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -143,14 +143,14 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      * 
      */
     @Import(name="syncMessageTtl")
     private @Nullable Output<String> syncMessageTtl;
 
     /**
-     * @return The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+     * @return The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
      * 
      */
     public Optional<Output<String>> syncMessageTtl() {
@@ -315,7 +315,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logLevel The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+         * @param logLevel The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logLevel The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+         * @param logLevel The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mode The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+         * @param mode The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param mode The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+         * @param mode The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param syncMessageTtl The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+         * @param syncMessageTtl The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ConnectedRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param syncMessageTtl The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+         * @param syncMessageTtl The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
          * 
          * @return builder
          * 

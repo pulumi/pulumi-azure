@@ -115,7 +115,7 @@ type Account struct {
 	Capacity AccountCapacityOutput `pulumi:"capacity"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayOutput `pulumi:"connectionStrings"`
-	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyOutput `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrOutput `pulumi:"corsRule"`
@@ -203,7 +203,7 @@ type Account struct {
 	SecondarySqlConnectionString pulumi.StringOutput `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules AccountVirtualNetworkRuleArrayOutput `pulumi:"virtualNetworkRules"`
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints pulumi.StringArrayOutput `pulumi:"writeEndpoints"`
@@ -281,7 +281,7 @@ type accountState struct {
 	Capacity *AccountCapacity `pulumi:"capacity"`
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings []string `pulumi:"connectionStrings"`
-	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy *AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
@@ -369,7 +369,7 @@ type accountState struct {
 	SecondarySqlConnectionString *string `pulumi:"secondarySqlConnectionString"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules []AccountVirtualNetworkRule `pulumi:"virtualNetworkRules"`
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints []string `pulumi:"writeEndpoints"`
@@ -390,7 +390,7 @@ type AccountState struct {
 	Capacity AccountCapacityPtrInput
 	// A list of connection strings available for this CosmosDB account.
 	ConnectionStrings pulumi.StringArrayInput
-	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyPtrInput
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrInput
@@ -478,7 +478,7 @@ type AccountState struct {
 	SecondarySqlConnectionString pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules AccountVirtualNetworkRuleArrayInput
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints pulumi.StringArrayInput
@@ -501,7 +501,7 @@ type accountArgs struct {
 	Capabilities []AccountCapability `pulumi:"capabilities"`
 	// A `capacity` block as defined below.
 	Capacity *AccountCapacity `pulumi:"capacity"`
-	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// A `corsRule` block as defined below.
 	CorsRule *AccountCorsRule `pulumi:"corsRule"`
@@ -561,7 +561,7 @@ type accountArgs struct {
 	Restore *AccountRestore `pulumi:"restore"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules []AccountVirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
 
@@ -579,7 +579,7 @@ type AccountArgs struct {
 	Capabilities AccountCapabilityArrayInput
 	// A `capacity` block as defined below.
 	Capacity AccountCapacityPtrInput
-	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy AccountConsistencyPolicyInput
 	// A `corsRule` block as defined below.
 	CorsRule AccountCorsRulePtrInput
@@ -639,7 +639,7 @@ type AccountArgs struct {
 	Restore AccountRestorePtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules AccountVirtualNetworkRuleArrayInput
 }
 
@@ -789,7 +789,7 @@ func (o AccountOutput) ConnectionStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.ConnectionStrings }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
+// Specifies one `consistencyPolicy` block as defined below, used to define the consistency policy for this CosmosDB account.
 func (o AccountOutput) ConsistencyPolicy() AccountConsistencyPolicyOutput {
 	return o.ApplyT(func(v *Account) AccountConsistencyPolicyOutput { return v.ConsistencyPolicy }).(AccountConsistencyPolicyOutput)
 }
@@ -991,7 +991,7 @@ func (o AccountOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
+// Specifies a `virtualNetworkRule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
 func (o AccountOutput) VirtualNetworkRules() AccountVirtualNetworkRuleArrayOutput {
 	return o.ApplyT(func(v *Account) AccountVirtualNetworkRuleArrayOutput { return v.VirtualNetworkRules }).(AccountVirtualNetworkRuleArrayOutput)
 }

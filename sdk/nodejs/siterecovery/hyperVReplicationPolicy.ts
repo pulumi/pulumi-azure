@@ -75,6 +75,9 @@ export class HyperVReplicationPolicy extends pulumi.CustomResource {
      * The duration in hours for which the recovery points need to be stored.
      */
     public readonly recoveryPointRetentionInHours!: pulumi.Output<number>;
+    /**
+     * The id of the vault that should be updated. Changing this forces a new resource to be created.
+     */
     public readonly recoveryVaultId!: pulumi.Output<string>;
     /**
      * Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
@@ -140,6 +143,9 @@ export interface HyperVReplicationPolicyState {
      * The duration in hours for which the recovery points need to be stored.
      */
     recoveryPointRetentionInHours?: pulumi.Input<number>;
+    /**
+     * The id of the vault that should be updated. Changing this forces a new resource to be created.
+     */
     recoveryVaultId?: pulumi.Input<string>;
     /**
      * Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
@@ -163,6 +169,9 @@ export interface HyperVReplicationPolicyArgs {
      * The duration in hours for which the recovery points need to be stored.
      */
     recoveryPointRetentionInHours: pulumi.Input<number>;
+    /**
+     * The id of the vault that should be updated. Changing this forces a new resource to be created.
+     */
     recoveryVaultId: pulumi.Input<string>;
     /**
      * Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.

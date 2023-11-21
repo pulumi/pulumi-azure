@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class HadoopClusterRolesEdgeNode {
     /**
-     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
      * 
      */
     private @Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints;
@@ -43,7 +43,7 @@ public final class HadoopClusterRolesEdgeNode {
 
     private HadoopClusterRolesEdgeNode() {}
     /**
-     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+     * @return The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
      * 
      */
     public List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints() {

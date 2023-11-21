@@ -503,7 +503,7 @@ class PolicyManagedRulesManagedRuleSetArgs:
         """
         :param pulumi.Input[str] version: The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]] rule_group_overrides: One or more `rule_group_override` block defined below.
-        :param pulumi.Input[str] type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+        :param pulumi.Input[str] type: The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
         """
         pulumi.set(__self__, "version", version)
         if rule_group_overrides is not None:
@@ -539,7 +539,7 @@ class PolicyManagedRulesManagedRuleSetArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+        The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
         """
         return pulumi.get(self, "type")
 
@@ -784,7 +784,7 @@ class PolicyPolicySettingsLogScrubbingArgs:
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether the log scrubbing is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]] rules: One or more `scrubbing_rule` as define below.
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]] rules: One or more `scrubbing_rule` blocks as define below.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -807,7 +807,7 @@ class PolicyPolicySettingsLogScrubbingArgs:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]]:
         """
-        One or more `scrubbing_rule` as define below.
+        One or more `scrubbing_rule` blocks as define below.
         """
         return pulumi.get(self, "rules")
 

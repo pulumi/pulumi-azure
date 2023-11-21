@@ -21,14 +21,14 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProfileArgs Empty = new ProfileArgs();
 
     /**
-     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
      * 
      */
     @Import(name="dnsConfig", required=true)
     private Output<ProfileDnsConfigArgs> dnsConfig;
 
     /**
-     * @return This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * @return This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
      * 
      */
     public Output<ProfileDnsConfigArgs> dnsConfig() {
@@ -55,14 +55,14 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
      * 
      */
     @Import(name="monitorConfig", required=true)
     private Output<ProfileMonitorConfigArgs> monitorConfig;
 
     /**
-     * @return This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
      * 
      */
     public Output<ProfileMonitorConfigArgs> monitorConfig() {
@@ -192,7 +192,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+         * @param dnsConfig This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ProfileArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+         * @param monitorConfig This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
          * 
          * @return builder
          * 

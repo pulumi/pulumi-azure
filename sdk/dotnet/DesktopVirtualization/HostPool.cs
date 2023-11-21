@@ -121,7 +121,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("preferredAppGroupType")]
         public Output<string?> PreferredAppGroupType { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
-        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `None`. Changing this forces a new resource to be created.
+        /// Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("preferredAppGroupType")]
         public Input<string>? PreferredAppGroupType { get; set; }

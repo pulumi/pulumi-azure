@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// A `nat_rule` (NAT rule) block as defined below.
+        /// A `nat_rule` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule> Rules;
 

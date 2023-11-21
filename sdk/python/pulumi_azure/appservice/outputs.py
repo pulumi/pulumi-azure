@@ -2007,7 +2007,7 @@ class AppServiceSiteConfig(dict):
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
-        :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -2289,7 +2289,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.AppServiceSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -2427,7 +2427,7 @@ class AppServiceSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'AppServiceSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'AppServiceSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -2463,7 +2463,7 @@ class AppServiceSiteConfigIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.AppServiceSiteConfigIpRestrictionHeaders']:
         """
-        The headers for this specific `ip_restriction` as defined below.
+        The `headers` block for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -2621,7 +2621,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'AppServiceSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'AppServiceSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -2657,7 +2657,7 @@ class AppServiceSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.AppServiceSiteConfigScmIpRestrictionHeaders']:
         """
-        The headers for this specific `scm_ip_restriction` as defined below.
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -4087,7 +4087,7 @@ class FunctionAppSiteConfig(dict):
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSiteConfigIpRestrictionArgs'] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param str java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
@@ -4095,7 +4095,7 @@ class FunctionAppSiteConfig(dict):
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
@@ -4230,7 +4230,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSiteConfigIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `ip_restriction` objects representing IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -4280,7 +4280,7 @@ class FunctionAppSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -4412,7 +4412,7 @@ class FunctionAppSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'FunctionAppSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -4448,7 +4448,7 @@ class FunctionAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.FunctionAppSiteConfigIpRestrictionHeaders']:
         """
-        The headers for this specific `ip_restriction` as defined below.
+        The `headers` block for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -4606,7 +4606,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'FunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -4642,7 +4642,7 @@ class FunctionAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.FunctionAppSiteConfigScmIpRestrictionHeaders']:
         """
-        The headers for this specific `scm_ip_restriction` as defined below.
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -5512,13 +5512,13 @@ class FunctionAppSlotSiteConfig(dict):
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
         :param str health_check_path: Path which will be checked for this function app health.
         :param bool http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
         :param str java_version: Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
         :param str linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
         :param str min_tls_version: The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
         :param int pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
         :param bool runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param Sequence['FunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['FunctionAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
@@ -5651,7 +5651,7 @@ class FunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSlotSiteConfigIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `ip_restriction` objects representing IP restrictions as defined below.
         """
         return pulumi.get(self, "ip_restrictions")
 
@@ -5699,7 +5699,7 @@ class FunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.FunctionAppSlotSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -5831,7 +5831,7 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below.
+        :param 'FunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -5867,7 +5867,7 @@ class FunctionAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.FunctionAppSlotSiteConfigIpRestrictionHeaders']:
         """
-        The headers for this specific `ip_restriction` as defined below.
+        The `headers` block for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -6025,7 +6025,7 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -6061,7 +6061,7 @@ class FunctionAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.FunctionAppSlotSiteConfigScmIpRestrictionHeaders']:
         """
-        The headers for this specific `scm_ip_restriction` as defined below.
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -7074,7 +7074,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         :param 'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -7186,7 +7186,7 @@ class LinuxFunctionAppAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -7393,7 +7393,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -7514,7 +7514,7 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -8771,7 +8771,7 @@ class LinuxFunctionAppSiteConfig(dict):
         :param Sequence['LinuxFunctionAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
-        :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+        :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
         :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux Function App.
@@ -9106,7 +9106,7 @@ class LinuxFunctionAppSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[bool]:
         """
-        Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+        Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -9500,7 +9500,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -9529,7 +9529,7 @@ class LinuxFunctionAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -9694,7 +9694,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -9723,7 +9723,7 @@ class LinuxFunctionAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -9940,7 +9940,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
         :param bool enabled: Should the Authentication / Authorization feature be enabled?
         :param 'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
-        :param Sequence[str] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
+        :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
@@ -10015,7 +10015,7 @@ class LinuxFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="allowedExternalRedirectUrls")
     def allowed_external_redirect_urls(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_external_redirect_urls` block as detailed below.
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
@@ -10144,7 +10144,7 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectory(dict):
                  client_secret_setting_name: Optional[str] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param str client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
@@ -10170,7 +10170,7 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectory(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -10654,7 +10654,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         :param 'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -10766,7 +10766,7 @@ class LinuxFunctionAppSlotAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -10961,7 +10961,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
@@ -10973,7 +10973,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -11026,7 +11026,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -11094,7 +11094,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -11540,7 +11540,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
@@ -11572,7 +11572,7 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -11800,7 +11800,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
@@ -11832,7 +11832,7 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -12336,11 +12336,11 @@ class LinuxFunctionAppSlotSiteConfig(dict):
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxFunctionAppSlotSiteConfigCorsArgs' cors: a `cors` block as detailed below.
-        :param Sequence[str] default_documents: a `default_documents` block as detailed below.
+        :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
         :param bool detailed_error_logging_enabled: Is detailed error logging enabled
         :param int elastic_instance_minimum: The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
-        :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this function app health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
@@ -12546,7 +12546,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="defaultDocuments")
     def default_documents(self) -> Optional[Sequence[str]]:
         """
-        a `default_documents` block as detailed below.
+        Specifies a list of Default Documents for the Linux Web App.
         """
         return pulumi.get(self, "default_documents")
 
@@ -12578,7 +12578,7 @@ class LinuxFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
     def health_check_eviction_time_in_min(self) -> Optional[int]:
         """
-        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         """
         return pulumi.get(self, "health_check_eviction_time_in_min")
 
@@ -13045,7 +13045,7 @@ class LinuxFunctionAppSlotSiteConfigCors(dict):
                  allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
-        :param Sequence[str] allowed_origins: an `allowed_origins` block as detailed below.
+        :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
         if allowed_origins is not None:
@@ -13057,7 +13057,7 @@ class LinuxFunctionAppSlotSiteConfigCors(dict):
     @pulumi.getter(name="allowedOrigins")
     def allowed_origins(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_origins` block as detailed below.
+        Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
@@ -13102,7 +13102,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -13131,7 +13131,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -13296,7 +13296,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -13325,7 +13325,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -14500,7 +14500,7 @@ class LinuxWebAppAuthSettingsV2(dict):
         :param 'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings. 
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['LinuxWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -14612,7 +14612,7 @@ class LinuxWebAppAuthSettingsV2(dict):
         """
         The path to the App Auth settings. 
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -14819,7 +14819,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -14940,7 +14940,7 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -16498,7 +16498,7 @@ class LinuxWebAppSiteConfig(dict):
         :param Sequence['LinuxWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
-        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -16732,7 +16732,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="managedPipelineMode")
     def managed_pipeline_mode(self) -> Optional[str]:
         """
-        Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+        Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
@@ -16904,7 +16904,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param str php_version: The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+        :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
@@ -17049,7 +17049,7 @@ class LinuxWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
 
         > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -17491,7 +17491,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxWebAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -17520,7 +17520,7 @@ class LinuxWebAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -17685,7 +17685,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -17714,7 +17714,7 @@ class LinuxWebAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -18641,7 +18641,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         :param 'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -18753,7 +18753,7 @@ class LinuxWebAppSlotAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -18960,7 +18960,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -19081,7 +19081,7 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -20643,7 +20643,7 @@ class LinuxWebAppSlotSiteConfig(dict):
         :param Sequence['LinuxWebAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
-        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -20887,7 +20887,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="managedPipelineMode")
     def managed_pipeline_mode(self) -> Optional[str]:
         """
-        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
@@ -21059,7 +21059,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
         :param str node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, and `18-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param str php_version: The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+        :param str php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param str python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10` and `3.11`.
@@ -21204,7 +21204,7 @@ class LinuxWebAppSlotSiteConfigApplicationStack(dict):
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[str]:
         """
-        The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
 
         > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -21646,7 +21646,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -21675,7 +21675,7 @@ class LinuxWebAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -21840,7 +21840,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -21869,7 +21869,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -23043,7 +23043,7 @@ class SlotLogsApplicationLogs(dict):
                  file_system_level: Optional[str] = None):
         """
         :param 'SlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
-        :param str file_system_level: The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+        :param str file_system_level: The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
         """
         if azure_blob_storage is not None:
             pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
@@ -23062,7 +23062,7 @@ class SlotLogsApplicationLogs(dict):
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> Optional[str]:
         """
-        The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+        The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -23416,7 +23416,7 @@ class SlotSiteConfig(dict):
         :param str python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
         :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
-        :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -23697,7 +23697,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[Sequence['outputs.SlotSiteConfigScmIpRestriction']]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -23832,7 +23832,7 @@ class SlotSiteConfigIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param 'SlotSiteConfigIpRestrictionHeadersArgs' headers: The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        :param 'SlotSiteConfigIpRestrictionHeadersArgs' headers: The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -23868,7 +23868,7 @@ class SlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.SlotSiteConfigIpRestrictionHeaders']:
         """
-        The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
         """
         return pulumi.get(self, "headers")
 
@@ -24026,7 +24026,7 @@ class SlotSiteConfigScmIpRestriction(dict):
                  virtual_network_subnet_id: Optional[str] = None):
         """
         :param str action: Allow or Deny access for this IP range. Defaults to `Allow`.
-        :param 'SlotSiteConfigScmIpRestrictionHeadersArgs' headers: The headers for this specific `scm_ip_restriction` as defined below.
+        :param 'SlotSiteConfigScmIpRestrictionHeadersArgs' headers: The `headers` block for this specific `scm_ip_restriction` as defined below.
         :param str ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param str name: The name for this IP Restriction.
         :param int priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
@@ -24062,7 +24062,7 @@ class SlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def headers(self) -> Optional['outputs.SlotSiteConfigScmIpRestrictionHeaders']:
         """
-        The headers for this specific `scm_ip_restriction` as defined below.
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -25553,7 +25553,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         :param 'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -25665,7 +25665,7 @@ class WindowsFunctionAppAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -25872,7 +25872,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -25993,7 +25993,7 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -27677,7 +27677,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
                  use_custom_runtime: Optional[bool] = None,
                  use_dotnet_isolated_runtime: Optional[bool] = None):
         """
-        :param str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
+        :param str dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`. Defaults to `v4.0`.
         :param str java_version: The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
         :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
@@ -27703,7 +27703,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[str]:
         """
-        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`.
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -27832,7 +27832,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -27861,7 +27861,7 @@ class WindowsFunctionAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -28026,7 +28026,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -28055,7 +28055,7 @@ class WindowsFunctionAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -28272,7 +28272,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
         :param bool enabled: Should the Authentication / Authorization feature be enabled?
         :param 'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs' active_directory: an `active_directory` block as detailed below.
         :param Mapping[str, str] additional_login_parameters: Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
-        :param Sequence[str] allowed_external_redirect_urls: an `allowed_external_redirect_urls` block as detailed below.
+        :param Sequence[str] allowed_external_redirect_urls: Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
                > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
@@ -28347,7 +28347,7 @@ class WindowsFunctionAppSlotAuthSettings(dict):
     @pulumi.getter(name="allowedExternalRedirectUrls")
     def allowed_external_redirect_urls(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_external_redirect_urls` block as detailed below.
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
@@ -28476,7 +28476,7 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectory(dict):
                  client_secret_setting_name: Optional[str] = None):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param str client_secret: The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
@@ -28502,7 +28502,7 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectory(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -28559,7 +28559,7 @@ class WindowsFunctionAppSlotAuthSettingsFacebook(dict):
         :param str app_id: The App ID of the Facebook app used for login.
         :param str app_secret: The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
         :param str app_secret_setting_name: The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
-        :param Sequence[str] oauth_scopes: an `oauth_scopes` block as detailed below.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
         """
         pulumi.set(__self__, "app_id", app_id)
         if app_secret is not None:
@@ -28597,7 +28597,7 @@ class WindowsFunctionAppSlotAuthSettingsFacebook(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        an `oauth_scopes` block as detailed below.
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -28636,7 +28636,7 @@ class WindowsFunctionAppSlotAuthSettingsGithub(dict):
         :param str client_id: The ID of the GitHub app used for login.
         :param str client_secret: The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: an `oauth_scopes` block as detailed below.
+        :param Sequence[str] oauth_scopes: an `oauth_scopes`.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -28674,7 +28674,7 @@ class WindowsFunctionAppSlotAuthSettingsGithub(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        an `oauth_scopes` block as detailed below.
+        an `oauth_scopes`.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -28713,7 +28713,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
         :param str client_id: The OpenID Connect Client ID for the Google web application.
         :param str client_secret: The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
         :param str client_secret_setting_name: The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
-        :param Sequence[str] oauth_scopes: an `oauth_scopes` block as detailed below.
+        :param Sequence[str] oauth_scopes: Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
@@ -28751,7 +28751,7 @@ class WindowsFunctionAppSlotAuthSettingsGoogle(dict):
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> Optional[Sequence[str]]:
         """
-        an `oauth_scopes` block as detailed below.
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -28986,7 +28986,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         :param 'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -29098,7 +29098,7 @@ class WindowsFunctionAppSlotAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -29293,7 +29293,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str tenant_auth_endpoint: The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`
         :param Sequence[str] allowed_applications: The list of allowed Applications for the Default Authorisation Policy.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] allowed_groups: The list of allowed Group Names for the Default Authorisation Policy.
@@ -29305,7 +29305,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -29358,7 +29358,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -29426,7 +29426,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -29872,7 +29872,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
@@ -29904,7 +29904,7 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -30132,7 +30132,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
         """
         :param str client_id: The ID of the Client to use to authenticate with Azure Active Directory.
         :param str client_secret_setting_name: The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-        :param Sequence[str] allowed_audiences: an `allowed_audiences` block as detailed below.
+        :param Sequence[str] allowed_audiences: Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
                
                > **Note:** The `client_id` value is always considered an allowed audience.
         :param Sequence[str] login_scopes: The list of Login scopes that should be requested as part of Microsoft Account authentication.
@@ -30164,7 +30164,7 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2(dict):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_audiences` block as detailed below.
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
         > **Note:** The `client_id` value is always considered an allowed audience.
         """
@@ -30660,11 +30660,11 @@ class WindowsFunctionAppSlotSiteConfig(dict):
         :param 'WindowsFunctionAppSlotSiteConfigApplicationStackArgs' application_stack: an `application_stack` block as detailed below.
         :param str auto_swap_slot_name: The name of the slot to automatically swap with when this slot is successfully deployed.
         :param 'WindowsFunctionAppSlotSiteConfigCorsArgs' cors: a `cors` block as detailed below.
-        :param Sequence[str] default_documents: a `default_documents` block as detailed below.
+        :param Sequence[str] default_documents: Specifies a list of Default Documents for the Windows Web App.
         :param bool detailed_error_logging_enabled: Is detailed error logging enabled
         :param int elastic_instance_minimum: The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
         :param str ftps_state: State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
-        :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        :param int health_check_eviction_time_in_min: The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to be checked for this function app health.
         :param bool http2_enabled: Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
         :param Sequence['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: an `ip_restriction` block as detailed below.
@@ -30850,7 +30850,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="defaultDocuments")
     def default_documents(self) -> Optional[Sequence[str]]:
         """
-        a `default_documents` block as detailed below.
+        Specifies a list of Default Documents for the Windows Web App.
         """
         return pulumi.get(self, "default_documents")
 
@@ -30882,7 +30882,7 @@ class WindowsFunctionAppSlotSiteConfig(dict):
     @pulumi.getter(name="healthCheckEvictionTimeInMin")
     def health_check_eviction_time_in_min(self) -> Optional[int]:
         """
-        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         """
         return pulumi.get(self, "health_check_eviction_time_in_min")
 
@@ -31226,7 +31226,7 @@ class WindowsFunctionAppSlotSiteConfigCors(dict):
                  allowed_origins: Optional[Sequence[str]] = None,
                  support_credentials: Optional[bool] = None):
         """
-        :param Sequence[str] allowed_origins: an `allowed_origins` block as detailed below.
+        :param Sequence[str] allowed_origins: Specifies a list of origins that should be allowed to make cross-origin calls.
         :param bool support_credentials: Are credentials allowed in CORS requests? Defaults to `false`.
         """
         if allowed_origins is not None:
@@ -31238,7 +31238,7 @@ class WindowsFunctionAppSlotSiteConfigCors(dict):
     @pulumi.getter(name="allowedOrigins")
     def allowed_origins(self) -> Optional[Sequence[str]]:
         """
-        an `allowed_origins` block as detailed below.
+        Specifies a list of origins that should be allowed to make cross-origin calls.
         """
         return pulumi.get(self, "allowed_origins")
 
@@ -31283,7 +31283,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -31312,7 +31312,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -31477,7 +31477,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: a `headers` block as detailed below.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -31506,7 +31506,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -32681,7 +32681,7 @@ class WindowsWebAppAuthSettingsV2(dict):
         :param 'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['WindowsWebAppAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -32793,7 +32793,7 @@ class WindowsWebAppAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -33000,7 +33000,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -33121,7 +33121,7 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -34689,7 +34689,7 @@ class WindowsWebAppSiteConfig(dict):
         :param Sequence['WindowsWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
-        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -34928,7 +34928,7 @@ class WindowsWebAppSiteConfig(dict):
     @pulumi.getter(name="managedPipelineMode")
     def managed_pipeline_mode(self) -> Optional[str]:
         """
-        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
@@ -35108,6 +35108,8 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
         :param str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        :param str docker_container_name: The name of the container to be used. This value is required with `docker_container_tag`.
+        :param str docker_container_tag: The tag of the container to be used. This value is required with `docker_container_name`.
         :param str docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         :param str docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
@@ -35191,6 +35193,9 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @property
     @pulumi.getter(name="dockerContainerName")
     def docker_container_name(self) -> Optional[str]:
+        """
+        The name of the container to be used. This value is required with `docker_container_tag`.
+        """
         return pulumi.get(self, "docker_container_name")
 
     @property
@@ -35204,6 +35209,9 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @property
     @pulumi.getter(name="dockerContainerTag")
     def docker_container_tag(self) -> Optional[str]:
+        """
+        The tag of the container to be used. This value is required with `docker_container_name`.
+        """
         return pulumi.get(self, "docker_container_tag")
 
     @property
@@ -35820,7 +35828,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsWebAppSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -35849,7 +35857,7 @@ class WindowsWebAppSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -36014,7 +36022,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -36043,7 +36051,7 @@ class WindowsWebAppSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -37097,7 +37105,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         :param 'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args' azure_static_web_app_v2: An `azure_static_web_app_v2` block as defined below.
         :param str config_file_path: The path to the App Auth settings.
                
-               * > **Note:** Relative Paths are evaluated from the Site Root directory.
+               > **Note:** Relative Paths are evaluated from the Site Root directory.
         :param Sequence['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args'] custom_oidc_v2s: Zero or more `custom_oidc_v2` blocks as defined below.
         :param str default_provider: The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
                
@@ -37209,7 +37217,7 @@ class WindowsWebAppSlotAuthSettingsV2(dict):
         """
         The path to the App Auth settings.
 
-        * > **Note:** Relative Paths are evaluated from the Site Root directory.
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
         """
         return pulumi.get(self, "config_file_path")
 
@@ -37416,7 +37424,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
         :param Sequence[str] jwt_allowed_client_applications: A list of Allowed Client Applications in the JWT Claim.
         :param Sequence[str] jwt_allowed_groups: A list of Allowed Groups in the JWT Claim.
         :param Mapping[str, str] login_parameters: A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        :param bool www_authentication_disabled: Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "tenant_auth_endpoint", tenant_auth_endpoint)
@@ -37537,7 +37545,7 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2(dict):
     @pulumi.getter(name="wwwAuthenticationDisabled")
     def www_authentication_disabled(self) -> Optional[bool]:
         """
-        Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         """
         return pulumi.get(self, "www_authentication_disabled")
 
@@ -38080,7 +38088,7 @@ class WindowsWebAppSlotAuthSettingsV2Login(dict):
         """
         :param Sequence[str] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
                
-               * > **Note:** URLs within the current domain are always implicitly allowed.
+               > **Note:** URLs within the current domain are always implicitly allowed.
         :param str cookie_expiration_convention: The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
         :param str cookie_expiration_time: The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
         :param str logout_endpoint: The endpoint to which logout requests should be made.
@@ -38121,7 +38129,7 @@ class WindowsWebAppSlotAuthSettingsV2Login(dict):
         """
         External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
 
-        * > **Note:** URLs within the current domain are always implicitly allowed.
+        > **Note:** URLs within the current domain are always implicitly allowed.
         """
         return pulumi.get(self, "allowed_external_redirect_urls")
 
@@ -39102,7 +39110,7 @@ class WindowsWebAppSlotSiteConfig(dict):
         :param Sequence['WindowsWebAppSlotSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
-        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
         :param bool remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
@@ -39344,7 +39352,7 @@ class WindowsWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="managedPipelineMode")
     def managed_pipeline_mode(self) -> Optional[str]:
         """
-        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
@@ -39524,6 +39532,8 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
         :param str current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        :param str docker_container_name: The name of the container to be used. This value is required with `docker_container_tag`.
+        :param str docker_container_tag: The tag of the container to be used. This value is required with `docker_container_name`.
         :param str docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
         :param str docker_registry_password: The User Name to use for authentication against the registry to pull the image.
                
@@ -39599,6 +39609,9 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @property
     @pulumi.getter(name="dockerContainerName")
     def docker_container_name(self) -> Optional[str]:
+        """
+        The name of the container to be used. This value is required with `docker_container_tag`.
+        """
         return pulumi.get(self, "docker_container_name")
 
     @property
@@ -39612,6 +39625,9 @@ class WindowsWebAppSlotSiteConfigApplicationStack(dict):
     @property
     @pulumi.getter(name="dockerContainerTag")
     def docker_container_tag(self) -> Optional[str]:
+        """
+        The tag of the container to be used. This value is required with `docker_container_name`.
+        """
         return pulumi.get(self, "docker_container_tag")
 
     @property
@@ -40220,7 +40236,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -40249,7 +40265,7 @@ class WindowsWebAppSlotSiteConfigIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -40414,7 +40430,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
                  service_tag: Optional[str] = None,
                  virtual_network_subnet_id: Optional[str] = None):
         """
-        :param str action: The action to take. Possible values are `Allow` or `Deny`.
+        :param str action: The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         :param 'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs' headers: A `headers` block as defined above.
         :param str ip_address: The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
         :param str name: The name which should be used for this `ip_restriction`.
@@ -40443,7 +40459,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestriction(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take. Possible values are `Allow` or `Deny`.
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 

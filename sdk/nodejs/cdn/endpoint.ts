@@ -91,11 +91,11 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly isCompressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Defaults to `true`.
+     * Specifies if http allowed. Defaults to `true`.
      */
     public readonly isHttpAllowed!: pulumi.Output<boolean | undefined>;
     /**
-     * Defaults to `true`.
+     * Specifies if https allowed. Defaults to `true`.
      */
     public readonly isHttpsAllowed!: pulumi.Output<boolean | undefined>;
     /**
@@ -242,11 +242,11 @@ export interface EndpointState {
      */
     isCompressionEnabled?: pulumi.Input<boolean>;
     /**
-     * Defaults to `true`.
+     * Specifies if http allowed. Defaults to `true`.
      */
     isHttpAllowed?: pulumi.Input<boolean>;
     /**
-     * Defaults to `true`.
+     * Specifies if https allowed. Defaults to `true`.
      */
     isHttpsAllowed?: pulumi.Input<boolean>;
     /**
@@ -322,11 +322,11 @@ export interface EndpointArgs {
      */
     isCompressionEnabled?: pulumi.Input<boolean>;
     /**
-     * Defaults to `true`.
+     * Specifies if http allowed. Defaults to `true`.
      */
     isHttpAllowed?: pulumi.Input<boolean>;
     /**
-     * Defaults to `true`.
+     * Specifies if https allowed. Defaults to `true`.
      */
     isHttpsAllowed?: pulumi.Input<boolean>;
     /**

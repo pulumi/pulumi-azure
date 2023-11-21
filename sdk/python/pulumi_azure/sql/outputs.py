@@ -70,7 +70,7 @@ class DatabaseImport(dict):
         :param str storage_key: Specifies the access key for the storage account.
         :param str storage_key_type: Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
         :param str storage_uri: Specifies the blob URI of the .bacpac file.
-        :param str operation_mode: Specifies the type of import operation being performed. The only allowable value is `Import`.
+        :param str operation_mode: Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
         """
         pulumi.set(__self__, "administrator_login", administrator_login)
         pulumi.set(__self__, "administrator_login_password", administrator_login_password)
@@ -133,7 +133,7 @@ class DatabaseImport(dict):
     @pulumi.getter(name="operationMode")
     def operation_mode(self) -> Optional[str]:
         """
-        Specifies the type of import operation being performed. The only allowable value is `Import`.
+        Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
         """
         return pulumi.get(self, "operation_mode")
 
@@ -177,10 +177,10 @@ class DatabaseThreatDetectionPolicy(dict):
                  storage_endpoint: Optional[str] = None):
         """
         :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
         :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
@@ -211,7 +211,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[str]:
         """
-        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "email_account_admins")
 
@@ -235,7 +235,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "state")
 
@@ -609,7 +609,7 @@ class SqlServerThreatDetectionPolicy(dict):
         :param bool email_account_admins: Should the account administrators be emailed when this alert is triggered?
         :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param str state: The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+        :param str state: The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
@@ -664,7 +664,7 @@ class SqlServerThreatDetectionPolicy(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+        The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "state")
 

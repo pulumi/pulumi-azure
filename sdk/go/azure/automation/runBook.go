@@ -154,7 +154,7 @@ type RunBook struct {
 	LogVerbose pulumi.BoolOutput `pulumi:"logVerbose"`
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The published runbook content link.
+	// One `publishContentLink` block as defined below.
 	PublishContentLink RunBookPublishContentLinkPtrOutput `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -230,7 +230,7 @@ type runBookState struct {
 	LogVerbose *bool `pulumi:"logVerbose"`
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The published runbook content link.
+	// One `publishContentLink` block as defined below.
 	PublishContentLink *RunBookPublishContentLink `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -262,7 +262,7 @@ type RunBookState struct {
 	LogVerbose pulumi.BoolPtrInput
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The published runbook content link.
+	// One `publishContentLink` block as defined below.
 	PublishContentLink RunBookPublishContentLinkPtrInput
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -298,7 +298,7 @@ type runBookArgs struct {
 	LogVerbose bool `pulumi:"logVerbose"`
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The published runbook content link.
+	// One `publishContentLink` block as defined below.
 	PublishContentLink *RunBookPublishContentLink `pulumi:"publishContentLink"`
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -331,7 +331,7 @@ type RunBookArgs struct {
 	LogVerbose pulumi.BoolInput
 	// Specifies the name of the Runbook. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The published runbook content link.
+	// One `publishContentLink` block as defined below.
 	PublishContentLink RunBookPublishContentLinkPtrInput
 	// The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -503,7 +503,7 @@ func (o RunBookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The published runbook content link.
+// One `publishContentLink` block as defined below.
 func (o RunBookOutput) PublishContentLink() RunBookPublishContentLinkPtrOutput {
 	return o.ApplyT(func(v *RunBook) RunBookPublishContentLinkPtrOutput { return v.PublishContentLink }).(RunBookPublishContentLinkPtrOutput)
 }

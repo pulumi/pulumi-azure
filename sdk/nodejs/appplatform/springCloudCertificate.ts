@@ -140,7 +140,7 @@ export class SpringCloudCertificate extends pulumi.CustomResource {
      */
     public readonly certificateContent!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly excludePrivateKey!: pulumi.Output<boolean | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface SpringCloudCertificateState {
      */
     certificateContent?: pulumi.Input<string>;
     /**
-     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      */
     excludePrivateKey?: pulumi.Input<boolean>;
     /**
@@ -248,7 +248,7 @@ export interface SpringCloudCertificateArgs {
      */
     certificateContent?: pulumi.Input<string>;
     /**
-     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      */
     excludePrivateKey?: pulumi.Input<boolean>;
     /**

@@ -76,7 +76,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     }
 
     /**
-     * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+     * A list of address blocks reserved for this virtual network in CIDR notation.
      */
     public /*out*/ readonly addressSpacePrefixes!: pulumi.Output<string[]>;
     /**
@@ -186,7 +186,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
  */
 export interface VirtualNetworkPeeringState {
     /**
-     * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+     * A list of address blocks reserved for this virtual network in CIDR notation.
      */
     addressSpacePrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

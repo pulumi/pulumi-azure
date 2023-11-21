@@ -79,7 +79,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly clientScopedSubscription!: pulumi.Output<outputs.servicebus.SubscriptionClientScopedSubscription | undefined>;
     /**
-     * whether the subscription is scoped to a client id. Defaults to `False`.
+     * whether the subscription is scoped to a client id. Defaults to `false`.
      *
      * > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
@@ -205,7 +205,7 @@ export interface SubscriptionState {
      */
     clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription>;
     /**
-     * whether the subscription is scoped to a client id. Defaults to `False`.
+     * whether the subscription is scoped to a client id. Defaults to `false`.
      *
      * > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
@@ -273,7 +273,7 @@ export interface SubscriptionArgs {
      */
     clientScopedSubscription?: pulumi.Input<inputs.servicebus.SubscriptionClientScopedSubscription>;
     /**
-     * whether the subscription is scoped to a client id. Defaults to `False`.
+     * whether the subscription is scoped to a client id. Defaults to `false`.
      *
      * > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */

@@ -109,7 +109,7 @@ type EndpointStorageContainer struct {
 	Encoding pulumi.StringPtrOutput `pulumi:"encoding"`
 	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri pulumi.StringPtrOutput `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+	// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat pulumi.StringPtrOutput `pulumi:"fileNameFormat"`
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	//
@@ -183,7 +183,7 @@ type endpointStorageContainerState struct {
 	Encoding *string `pulumi:"encoding"`
 	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri *string `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+	// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	//
@@ -212,7 +212,7 @@ type EndpointStorageContainerState struct {
 	Encoding pulumi.StringPtrInput
 	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri pulumi.StringPtrInput
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+	// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	//
@@ -245,7 +245,7 @@ type endpointStorageContainerArgs struct {
 	Encoding *string `pulumi:"encoding"`
 	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri *string `pulumi:"endpointUri"`
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+	// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	//
@@ -275,7 +275,7 @@ type EndpointStorageContainerArgs struct {
 	Encoding pulumi.StringPtrInput
 	// URI of the Storage Container endpoint. This corresponds to the `primaryBlobEndpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authenticationType` is `identityBased`.
 	EndpointUri pulumi.StringPtrInput
-	// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+	// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 	FileNameFormat pulumi.StringPtrInput
 	// ID of the User Managed Identity used to authenticate against the storage endpoint.
 	//
@@ -432,7 +432,7 @@ func (o EndpointStorageContainerOutput) EndpointUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointStorageContainer) pulumi.StringPtrOutput { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
-// File name format for the blob. Default format is “{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}“. All parameters are mandatory but can be reordered.
+// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
 func (o EndpointStorageContainerOutput) FileNameFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointStorageContainer) pulumi.StringPtrOutput { return v.FileNameFormat }).(pulumi.StringPtrOutput)
 }

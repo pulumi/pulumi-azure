@@ -227,14 +227,14 @@ public class TriggerSchedule extends com.pulumi.resources.CustomResource {
         return this.pipelineParameters;
     }
     /**
-     * block as defined below.
+     * A `pipeline` block as defined below.
      * 
      */
     @Export(name="pipelines", refs={List.class,TriggerSchedulePipeline.class}, tree="[0,1]")
     private Output<List<TriggerSchedulePipeline>> pipelines;
 
     /**
-     * @return block as defined below.
+     * @return A `pipeline` block as defined below.
      * 
      */
     public Output<List<TriggerSchedulePipeline>> pipelines() {

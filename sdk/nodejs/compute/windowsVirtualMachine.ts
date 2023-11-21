@@ -180,7 +180,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
@@ -569,7 +569,7 @@ export interface WindowsVirtualMachineState {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
@@ -810,7 +810,7 @@ export interface WindowsVirtualMachineArgs {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**

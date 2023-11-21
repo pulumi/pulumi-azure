@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Operator for dimension values, - 'Include'.
+        /// Operator for dimension values, - 'Include'. Defaults to `Include`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }

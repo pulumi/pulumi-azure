@@ -690,14 +690,14 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[str] ftps_state: State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
         :param pulumi.Input[str] health_check_path: Path which will be checked for this Logic App health.
         :param pulumi.Input[bool] http2_enabled: Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]] ip_restrictions: A list of `ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
         :param pulumi.Input[int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         :param pulumi.Input[bool] runtime_scale_monitoring_enabled: Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param pulumi.Input[str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
@@ -864,7 +864,7 @@ class StandardSiteConfigArgs:
     @pulumi.getter(name="ipRestrictions")
     def ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        A list of `ip_restriction` objects representing IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -926,7 +926,7 @@ class StandardSiteConfigArgs:
     @pulumi.getter(name="scmIpRestrictions")
     def scm_ip_restrictions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]:
         """
-        A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing SCM IP restrictions as defined below.
+        A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
 
         > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         """
@@ -1061,7 +1061,7 @@ class StandardSiteConfigIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs'] headers: The `headers` block for this specific as a `ip_restriction` block as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -1101,7 +1101,7 @@ class StandardSiteConfigIpRestrictionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']]:
         """
-        The headers for this specific `ip_restriction` as defined below.
+        The `headers` block for this specific as a `ip_restriction` block as defined below.
         """
         return pulumi.get(self, "headers")
 
@@ -1255,7 +1255,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] action: Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
-        :param pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs'] headers: The headers for this specific `ip_restriction` as defined below.
+        :param pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs'] headers: The `headers` block for this specific `ip_restriction` as defined below.
         :param pulumi.Input[str] ip_address: The IP Address used for this IP Restriction in CIDR notation.
         :param pulumi.Input[str] name: The name for this IP Restriction.
         :param pulumi.Input[int] priority: The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
@@ -1295,7 +1295,7 @@ class StandardSiteConfigScmIpRestrictionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']]:
         """
-        The headers for this specific `ip_restriction` as defined below.
+        The `headers` block for this specific `ip_restriction` as defined below.
         """
         return pulumi.get(self, "headers")
 

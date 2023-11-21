@@ -98,6 +98,10 @@ export interface GetWindowsWebAppResult {
      */
     readonly enabled: boolean;
     /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     */
+    readonly ftpPublishBasicAuthenticationEnabled: boolean;
+    /**
      * The ID of the App Service Environment used by App Service.
      */
     readonly hostingEnvironmentId: string;
@@ -145,6 +149,9 @@ export interface GetWindowsWebAppResult {
      * The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
      */
     readonly possibleOutboundIpAddresses: string;
+    /**
+     * Is Public Network Access enabled for the Windows Web App.
+     */
     readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
@@ -175,6 +182,10 @@ export interface GetWindowsWebAppResult {
      * The subnet id which the Windows Web App is vNet Integrated with.
      */
     readonly virtualNetworkSubnetId: string;
+    /**
+     * Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     */
+    readonly webdeployPublishBasicAuthenticationEnabled: boolean;
 }
 /**
  * Use this data source to access information about an existing Windows Web App.

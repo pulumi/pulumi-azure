@@ -80,14 +80,14 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
     }
 
     /**
-     * Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+     * Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+     * @return Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
      * 
      */
     public Output<String> type() {
@@ -211,7 +211,7 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
         }
 
         /**
-         * @param type Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+         * @param type Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class NetworkPacketCoreControlPlanePlatformArgs extends com.pulumi.
         }
 
         /**
-         * @param type Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+         * @param type Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
          * 
          * @return builder
          * 

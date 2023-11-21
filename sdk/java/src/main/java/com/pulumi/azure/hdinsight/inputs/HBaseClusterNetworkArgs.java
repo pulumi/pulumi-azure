@@ -36,14 +36,14 @@ public final class HBaseClusterNetworkArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+     * Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateLinkEnabled")
     private @Nullable Output<Boolean> privateLinkEnabled;
 
     /**
-     * @return Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+     * @return Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> privateLinkEnabled() {
@@ -101,7 +101,7 @@ public final class HBaseClusterNetworkArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkEnabled Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+         * @param privateLinkEnabled Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class HBaseClusterNetworkArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param privateLinkEnabled Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+         * @param privateLinkEnabled Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

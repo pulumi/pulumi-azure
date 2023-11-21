@@ -91,6 +91,8 @@ type LookupLinuxFunctionAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is this backup job enabled?
 	Enabled bool `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The runtime version associated with the Function App.
 	FunctionsExtensionVersion string `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App.
@@ -115,8 +117,9 @@ type LookupLinuxFunctionAppResult struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	PublicNetworkAccessEnabled  bool   `pulumi:"publicNetworkAccessEnabled"`
-	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	// Is Public Network Access enabled for this Linux Function App.
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan within which this Function App has been created.
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -139,6 +142,8 @@ type LookupLinuxFunctionAppResult struct {
 	Usage string `pulumi:"usage"`
 	// The Virtual Network Subnet ID used for this IP Restriction.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+	WebdeployPublishBasicAuthenticationEnabled bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 func LookupLinuxFunctionAppOutput(ctx *pulumi.Context, args LookupLinuxFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxFunctionAppResultOutput {
@@ -262,6 +267,11 @@ func (o LookupLinuxFunctionAppResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Are the default FTP Basic Authentication publishing credentials enabled.
+func (o LookupLinuxFunctionAppResultOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
+}
+
 // The runtime version associated with the Function App.
 func (o LookupLinuxFunctionAppResultOutput) FunctionsExtensionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.FunctionsExtensionVersion }).(pulumi.StringOutput)
@@ -322,6 +332,7 @@ func (o LookupLinuxFunctionAppResultOutput) PossibleOutboundIpAddresses() pulumi
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// Is Public Network Access enabled for this Linux Function App.
 func (o LookupLinuxFunctionAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
@@ -383,6 +394,11 @@ func (o LookupLinuxFunctionAppResultOutput) Usage() pulumi.StringOutput {
 // The Virtual Network Subnet ID used for this IP Restriction.
 func (o LookupLinuxFunctionAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinuxFunctionAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+func (o LookupLinuxFunctionAppResultOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLinuxFunctionAppResult) bool { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {
