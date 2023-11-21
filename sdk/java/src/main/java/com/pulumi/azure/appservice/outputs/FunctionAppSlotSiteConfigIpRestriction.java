@@ -19,7 +19,7 @@ public final class FunctionAppSlotSiteConfigIpRestriction {
      */
     private @Nullable String action;
     /**
-     * @return The headers for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ip_restriction` as defined below.
      * 
      */
     private @Nullable FunctionAppSlotSiteConfigIpRestrictionHeaders headers;
@@ -60,7 +60,7 @@ public final class FunctionAppSlotSiteConfigIpRestriction {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The headers for this specific `ip_restriction` as defined below.
+     * @return The `headers` block for this specific `ip_restriction` as defined below.
      * 
      */
     public Optional<FunctionAppSlotSiteConfigIpRestrictionHeaders> headers() {

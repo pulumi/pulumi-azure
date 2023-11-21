@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Bot
         public Output<ImmutableArray<string>> SiteNames { get; private set; } = null!;
 
         /// <summary>
-        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         /// </summary>
         [Output("sites")]
         public Output<ImmutableArray<Outputs.ChannelWebChatSite>> Sites { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelWebChatSiteArgs>? _sites;
 
         /// <summary>
-        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelWebChatSiteArgs> Sites
         {
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Bot
         private InputList<Inputs.ChannelWebChatSiteGetArgs>? _sites;
 
         /// <summary>
-        /// A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ChannelWebChatSiteGetArgs> Sites
         {

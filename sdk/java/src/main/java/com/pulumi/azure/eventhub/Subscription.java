@@ -117,7 +117,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientScopedSubscription);
     }
     /**
-     * whether the subscription is scoped to a client id. Defaults to `False`.
+     * whether the subscription is scoped to a client id. Defaults to `false`.
      * 
      * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 
@@ -126,7 +126,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Boolean> clientScopedSubscriptionEnabled;
 
     /**
-     * @return whether the subscription is scoped to a client id. Defaults to `False`.
+     * @return whether the subscription is scoped to a client id. Defaults to `false`.
      * 
      * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 

@@ -62,14 +62,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArg
     }
 
     /**
-     * One or more `application_rule` (application rule) blocks as defined below.
+     * One or more `application_rule` blocks as defined below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs>> rules;
 
     /**
-     * @return One or more `application_rule` (application rule) blocks as defined below.
+     * @return One or more `application_rule` blocks as defined below.
      * 
      */
     public Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs>> rules() {
@@ -167,7 +167,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArg
         }
 
         /**
-         * @param rules One or more `application_rule` (application rule) blocks as defined below.
+         * @param rules One or more `application_rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArg
         }
 
         /**
-         * @param rules One or more `application_rule` (application rule) blocks as defined below.
+         * @param rules One or more `application_rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArg
         }
 
         /**
-         * @param rules One or more `application_rule` (application rule) blocks as defined below.
+         * @param rules One or more `application_rule` blocks as defined below.
          * 
          * @return builder
          * 

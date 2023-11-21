@@ -24,7 +24,7 @@ public final class EndpointDeliveryRuleRequestMethodCondition {
      */
     private @Nullable Boolean negateCondition;
     /**
-     * @return Valid values are `Equal`.
+     * @return Valid values are `Equal`. Defaults to `Equal`.
      * 
      */
     private @Nullable String operator;
@@ -45,7 +45,7 @@ public final class EndpointDeliveryRuleRequestMethodCondition {
         return Optional.ofNullable(this.negateCondition);
     }
     /**
-     * @return Valid values are `Equal`.
+     * @return Valid values are `Equal`. Defaults to `Equal`.
      * 
      */
     public Optional<String> operator() {

@@ -9,6 +9,10 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Namespace Network Rule Set.
  *
+ * > The `azure.servicebus.NamespaceNetworkRuleSet` resource is deprecated
+ * and will be removed in version 4.0 of the AzureRM provider. Please use
+ * `networkRuleSet` inside the `azure.servicebus.Namespace` resource instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -86,7 +90,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      */
     public readonly defaultAction!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +157,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
  */
 export interface NamespaceNetworkRuleSetState {
     /**
-     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      */
     defaultAction?: pulumi.Input<string>;
     /**
@@ -185,7 +189,7 @@ export interface NamespaceNetworkRuleSetState {
  */
 export interface NamespaceNetworkRuleSetArgs {
     /**
-     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      */
     defaultAction?: pulumi.Input<string>;
     /**

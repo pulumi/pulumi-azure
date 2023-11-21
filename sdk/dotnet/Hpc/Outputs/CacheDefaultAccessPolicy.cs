@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Hpc.Outputs
     public sealed class CacheDefaultAccessPolicy
     {
         /// <summary>
-        /// One to three `access_rule` blocks as defined above.
+        /// One or more `access_rule` blocks (up to three) as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.CacheDefaultAccessPolicyAccessRule> AccessRules;
 

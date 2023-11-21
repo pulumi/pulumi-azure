@@ -69,7 +69,7 @@ import (
 type Definition struct {
 	pulumi.CustomResourceState
 
-	// An authorization block as defined below.
+	// An `authorization` block as defined below.
 	Authorizations DefinitionAuthorizationArrayOutput `pulumi:"authorizations"`
 	// A description of the Lighthouse Definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -126,7 +126,7 @@ func GetDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Definition resources.
 type definitionState struct {
-	// An authorization block as defined below.
+	// An `authorization` block as defined below.
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`
 	// A description of the Lighthouse Definition.
 	Description *string `pulumi:"description"`
@@ -145,7 +145,7 @@ type definitionState struct {
 }
 
 type DefinitionState struct {
-	// An authorization block as defined below.
+	// An `authorization` block as defined below.
 	Authorizations DefinitionAuthorizationArrayInput
 	// A description of the Lighthouse Definition.
 	Description pulumi.StringPtrInput
@@ -168,7 +168,7 @@ func (DefinitionState) ElementType() reflect.Type {
 }
 
 type definitionArgs struct {
-	// An authorization block as defined below.
+	// An `authorization` block as defined below.
 	Authorizations []DefinitionAuthorization `pulumi:"authorizations"`
 	// A description of the Lighthouse Definition.
 	Description *string `pulumi:"description"`
@@ -188,7 +188,7 @@ type definitionArgs struct {
 
 // The set of arguments for constructing a Definition resource.
 type DefinitionArgs struct {
-	// An authorization block as defined below.
+	// An `authorization` block as defined below.
 	Authorizations DefinitionAuthorizationArrayInput
 	// A description of the Lighthouse Definition.
 	Description pulumi.StringPtrInput
@@ -317,7 +317,7 @@ func (o DefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*Definiti
 	}
 }
 
-// An authorization block as defined below.
+// An `authorization` block as defined below.
 func (o DefinitionOutput) Authorizations() DefinitionAuthorizationArrayOutput {
 	return o.ApplyT(func(v *Definition) DefinitionAuthorizationArrayOutput { return v.Authorizations }).(DefinitionAuthorizationArrayOutput)
 }

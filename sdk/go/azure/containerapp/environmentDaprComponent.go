@@ -80,13 +80,13 @@ import (
 type EnvironmentDaprComponent struct {
 	pulumi.CustomResourceState
 
-	// The Dapr Component Type. For example `state.azure.blobstorage`.
+	// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 	ComponentType pulumi.StringOutput `pulumi:"componentType"`
 	// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringOutput `pulumi:"containerAppEnvironmentId"`
 	// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
 	IgnoreErrors pulumi.BoolPtrOutput `pulumi:"ignoreErrors"`
-	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
 	InitTimeout pulumi.StringPtrOutput `pulumi:"initTimeout"`
 	// One or more `metadata` blocks as detailed below.
 	Metadatas EnvironmentDaprComponentMetadataArrayOutput `pulumi:"metadatas"`
@@ -148,13 +148,13 @@ func GetEnvironmentDaprComponent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentDaprComponent resources.
 type environmentDaprComponentState struct {
-	// The Dapr Component Type. For example `state.azure.blobstorage`.
+	// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 	ComponentType *string `pulumi:"componentType"`
 	// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId *string `pulumi:"containerAppEnvironmentId"`
 	// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
 	IgnoreErrors *bool `pulumi:"ignoreErrors"`
-	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
 	InitTimeout *string `pulumi:"initTimeout"`
 	// One or more `metadata` blocks as detailed below.
 	Metadatas []EnvironmentDaprComponentMetadata `pulumi:"metadatas"`
@@ -171,13 +171,13 @@ type environmentDaprComponentState struct {
 }
 
 type EnvironmentDaprComponentState struct {
-	// The Dapr Component Type. For example `state.azure.blobstorage`.
+	// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 	ComponentType pulumi.StringPtrInput
 	// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringPtrInput
 	// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
 	IgnoreErrors pulumi.BoolPtrInput
-	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
 	InitTimeout pulumi.StringPtrInput
 	// One or more `metadata` blocks as detailed below.
 	Metadatas EnvironmentDaprComponentMetadataArrayInput
@@ -198,13 +198,13 @@ func (EnvironmentDaprComponentState) ElementType() reflect.Type {
 }
 
 type environmentDaprComponentArgs struct {
-	// The Dapr Component Type. For example `state.azure.blobstorage`.
+	// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 	ComponentType string `pulumi:"componentType"`
 	// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId string `pulumi:"containerAppEnvironmentId"`
 	// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
 	IgnoreErrors *bool `pulumi:"ignoreErrors"`
-	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
 	InitTimeout *string `pulumi:"initTimeout"`
 	// One or more `metadata` blocks as detailed below.
 	Metadatas []EnvironmentDaprComponentMetadata `pulumi:"metadatas"`
@@ -222,13 +222,13 @@ type environmentDaprComponentArgs struct {
 
 // The set of arguments for constructing a EnvironmentDaprComponent resource.
 type EnvironmentDaprComponentArgs struct {
-	// The Dapr Component Type. For example `state.azure.blobstorage`.
+	// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 	ComponentType pulumi.StringInput
 	// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
 	ContainerAppEnvironmentId pulumi.StringInput
 	// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
 	IgnoreErrors pulumi.BoolPtrInput
-	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+	// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
 	InitTimeout pulumi.StringPtrInput
 	// One or more `metadata` blocks as detailed below.
 	Metadatas EnvironmentDaprComponentMetadataArrayInput
@@ -355,7 +355,7 @@ func (o EnvironmentDaprComponentOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// The Dapr Component Type. For example `state.azure.blobstorage`.
+// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
 func (o EnvironmentDaprComponentOutput) ComponentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) pulumi.StringOutput { return v.ComponentType }).(pulumi.StringOutput)
 }
@@ -370,7 +370,7 @@ func (o EnvironmentDaprComponentOutput) IgnoreErrors() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) pulumi.BoolPtrOutput { return v.IgnoreErrors }).(pulumi.BoolPtrOutput)
 }
 
-// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
 func (o EnvironmentDaprComponentOutput) InitTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) pulumi.StringPtrOutput { return v.InitTimeout }).(pulumi.StringPtrOutput)
 }

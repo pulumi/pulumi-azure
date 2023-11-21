@@ -22,7 +22,7 @@ public final class CustomProviderResourceType {
      */
     private String name;
     /**
-     * @return The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
+     * @return The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
      * 
      */
     private @Nullable String routingType;
@@ -43,7 +43,7 @@ public final class CustomProviderResourceType {
         return this.name;
     }
     /**
-     * @return The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. This value defaults to `ResourceTypeRoutingProxy`.
+     * @return The routing type that is supported for the resource request. Valid values are `Proxy` and `Proxy,Cache`. Defaults to `Proxy`.
      * 
      */
     public Optional<String> routingType() {

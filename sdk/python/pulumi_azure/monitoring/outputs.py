@@ -1167,7 +1167,7 @@ class ActionGroupWebhookReceiver(dict):
         """
         :param str name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
         :param str service_uri: The URI where webhooks should be sent.
-        :param 'ActionGroupWebhookReceiverAadAuthArgs' aad_auth: The `aad_auth` block as defined below
+        :param 'ActionGroupWebhookReceiverAadAuthArgs' aad_auth: The `aad_auth` block as defined below.
                
                > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         :param bool use_common_alert_schema: Enables or disables the common alert schema.
@@ -1199,7 +1199,7 @@ class ActionGroupWebhookReceiver(dict):
     @pulumi.getter(name="aadAuth")
     def aad_auth(self) -> Optional['outputs.ActionGroupWebhookReceiverAadAuth']:
         """
-        The `aad_auth` block as defined below
+        The `aad_auth` block as defined below.
 
         > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
         """
@@ -1315,7 +1315,7 @@ class ActionRuleActionGroupCondition(dict):
         :param 'ActionRuleActionGroupConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined below.
         :param 'ActionRuleActionGroupConditionDescriptionArgs' description: A `description` block as defined below.
         :param 'ActionRuleActionGroupConditionMonitorArgs' monitor: A `monitor` block as defined below.
-        :param 'ActionRuleActionGroupConditionMonitorServiceArgs' monitor_service: A `monitor_service` as block defined below.
+        :param 'ActionRuleActionGroupConditionMonitorServiceArgs' monitor_service: A `monitor_service` block as defined below.
         :param 'ActionRuleActionGroupConditionSeverityArgs' severity: A `severity` block as defined below.
         :param 'ActionRuleActionGroupConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
         """
@@ -1370,7 +1370,7 @@ class ActionRuleActionGroupCondition(dict):
     @pulumi.getter(name="monitorService")
     def monitor_service(self) -> Optional['outputs.ActionRuleActionGroupConditionMonitorService']:
         """
-        A `monitor_service` as block defined below.
+        A `monitor_service` block as defined below.
         """
         return pulumi.get(self, "monitor_service")
 
@@ -1678,7 +1678,7 @@ class ActionRuleSuppressionCondition(dict):
         :param 'ActionRuleSuppressionConditionAlertRuleIdArgs' alert_rule_id: A `alert_rule_id` block as defined below.
         :param 'ActionRuleSuppressionConditionDescriptionArgs' description: A `description` block as defined below.
         :param 'ActionRuleSuppressionConditionMonitorArgs' monitor: A `monitor` block as defined below.
-        :param 'ActionRuleSuppressionConditionMonitorServiceArgs' monitor_service: A `monitor_service` as block defined below.
+        :param 'ActionRuleSuppressionConditionMonitorServiceArgs' monitor_service: A `monitor_service` block as defined below.
         :param 'ActionRuleSuppressionConditionSeverityArgs' severity: A `severity` block as defined below.
         :param 'ActionRuleSuppressionConditionTargetResourceTypeArgs' target_resource_type: A `target_resource_type` block as defined below.
         """
@@ -1733,7 +1733,7 @@ class ActionRuleSuppressionCondition(dict):
     @pulumi.getter(name="monitorService")
     def monitor_service(self) -> Optional['outputs.ActionRuleSuppressionConditionMonitorService']:
         """
-        A `monitor_service` as block defined below.
+        A `monitor_service` block as defined below.
         """
         return pulumi.get(self, "monitor_service")
 
@@ -5170,7 +5170,7 @@ class DataCollectionRuleDataFlow(dict):
                  transform_kql: Optional[str] = None):
         """
         :param Sequence[str] destinations: Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
-        :param Sequence[str] streams: Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        :param Sequence[str] streams: Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`, and `Microsoft-PrometheusMetrics`.
         :param str built_in_transform: The built-in transform to transform stream data.
         :param str output_stream: The output stream of the transform. Only required if the data flow changes data to a different stream.
         :param str transform_kql: The KQL query to transform stream data.
@@ -5196,7 +5196,7 @@ class DataCollectionRuleDataFlow(dict):
     @pulumi.getter
     def streams(self) -> Sequence[str]:
         """
-        Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
+        Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`, and `Microsoft-PrometheusMetrics`.
         """
         return pulumi.get(self, "streams")
 
@@ -8432,7 +8432,7 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
         """
         :param str name: Name of the dimension.
         :param Sequence[str] values: List of dimension values.
-        :param str operator: Operator for dimension values, - 'Include'.
+        :param str operator: Operator for dimension values, - 'Include'. Defaults to `Include`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -8459,7 +8459,7 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        Operator for dimension values, - 'Include'.
+        Operator for dimension values, - 'Include'. Defaults to `Include`.
         """
         return pulumi.get(self, "operator")
 

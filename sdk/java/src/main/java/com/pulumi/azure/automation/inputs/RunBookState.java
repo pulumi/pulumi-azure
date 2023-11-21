@@ -169,14 +169,14 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The published runbook content link.
+     * One `publish_content_link` block as defined below.
      * 
      */
     @Import(name="publishContentLink")
     private @Nullable Output<RunBookPublishContentLinkArgs> publishContentLink;
 
     /**
-     * @return The published runbook content link.
+     * @return One `publish_content_link` block as defined below.
      * 
      */
     public Optional<Output<RunBookPublishContentLinkArgs>> publishContentLink() {
@@ -472,7 +472,7 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publishContentLink The published runbook content link.
+         * @param publishContentLink One `publish_content_link` block as defined below.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publishContentLink The published runbook content link.
+         * @param publishContentLink One `publish_content_link` block as defined below.
          * 
          * @return builder
          * 

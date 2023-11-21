@@ -57,14 +57,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     @Import(name="bundleVersion")
     private @Nullable Output<String> bundleVersion;
 
     /**
-     * @return If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * @return If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      * 
      */
     public Optional<Output<String>> bundleVersion() {
@@ -379,14 +379,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The runtime version associated with the Logic App Defaults to `~3`.
+     * The runtime version associated with the Logic App. Defaults to `~3`.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The runtime version associated with the Logic App Defaults to `~3`.
+     * @return The runtime version associated with the Logic App. Defaults to `~3`.
      * 
      */
     public Optional<Output<String>> version() {
@@ -496,7 +496,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleVersion If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+         * @param bundleVersion If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
          * 
          * @return builder
          * 
@@ -507,7 +507,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleVersion If `use_extension_bundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+         * @param bundleVersion If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
          * 
          * @return builder
          * 
@@ -966,7 +966,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The runtime version associated with the Logic App Defaults to `~3`.
+         * @param version The runtime version associated with the Logic App. Defaults to `~3`.
          * 
          * @return builder
          * 
@@ -977,7 +977,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The runtime version associated with the Logic App Defaults to `~3`.
+         * @param version The runtime version associated with the Logic App. Defaults to `~3`.
          * 
          * @return builder
          * 

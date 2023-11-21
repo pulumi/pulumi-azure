@@ -17,7 +17,7 @@ var _ = internal.GetEnvOrDefault
 type ConfigurationFeatureTargetingFilter struct {
 	// A number representing the percentage of the entire user base.
 	DefaultRolloutPercentage int `pulumi:"defaultRolloutPercentage"`
-	// One or more blocks of type `groups` as defined below.
+	// One or more `groups` blocks as defined below.
 	Groups []ConfigurationFeatureTargetingFilterGroup `pulumi:"groups"`
 	// A list of users to target for this feature.
 	Users []string `pulumi:"users"`
@@ -37,7 +37,7 @@ type ConfigurationFeatureTargetingFilterInput interface {
 type ConfigurationFeatureTargetingFilterArgs struct {
 	// A number representing the percentage of the entire user base.
 	DefaultRolloutPercentage pulumi.IntInput `pulumi:"defaultRolloutPercentage"`
-	// One or more blocks of type `groups` as defined below.
+	// One or more `groups` blocks as defined below.
 	Groups ConfigurationFeatureTargetingFilterGroupArrayInput `pulumi:"groups"`
 	// A list of users to target for this feature.
 	Users pulumi.StringArrayInput `pulumi:"users"`
@@ -117,7 +117,7 @@ func (o ConfigurationFeatureTargetingFilterOutput) DefaultRolloutPercentage() pu
 	return o.ApplyT(func(v ConfigurationFeatureTargetingFilter) int { return v.DefaultRolloutPercentage }).(pulumi.IntOutput)
 }
 
-// One or more blocks of type `groups` as defined below.
+// One or more `groups` blocks as defined below.
 func (o ConfigurationFeatureTargetingFilterOutput) Groups() ConfigurationFeatureTargetingFilterGroupArrayOutput {
 	return o.ApplyT(func(v ConfigurationFeatureTargetingFilter) []ConfigurationFeatureTargetingFilterGroup {
 		return v.Groups
@@ -1104,9 +1104,9 @@ type ConfigurationStoreReplica struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The ID of the Access Key.
 	Id *string `pulumi:"id"`
-	// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+	// Specifies the supported Azure location where the replica exists.
 	Location string `pulumi:"location"`
-	// Specifies the name of the replica. Changing this forces a new replica to be created.
+	// Specifies the name of the replica.
 	Name string `pulumi:"name"`
 }
 
@@ -1126,9 +1126,9 @@ type ConfigurationStoreReplicaArgs struct {
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 	// The ID of the Access Key.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+	// Specifies the supported Azure location where the replica exists.
 	Location pulumi.StringInput `pulumi:"location"`
-	// Specifies the name of the replica. Changing this forces a new replica to be created.
+	// Specifies the name of the replica.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1211,12 +1211,12 @@ func (o ConfigurationStoreReplicaOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationStoreReplica) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+// Specifies the supported Azure location where the replica exists.
 func (o ConfigurationStoreReplicaOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationStoreReplica) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the replica. Changing this forces a new replica to be created.
+// Specifies the name of the replica.
 func (o ConfigurationStoreReplicaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationStoreReplica) string { return v.Name }).(pulumi.StringOutput)
 }

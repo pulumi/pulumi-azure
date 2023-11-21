@@ -14,7 +14,7 @@ namespace Pulumi.Azure.FrontDoor.Outputs
     public sealed class RulesEngineRuleMatchCondition
     {
         /// <summary>
-        /// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+        /// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>

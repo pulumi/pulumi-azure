@@ -33,14 +33,14 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<String>> daysOfWeeks;
 
     /**
-     * @return Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * @return Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     public Optional<Output<List<String>>> daysOfWeeks() {
@@ -198,14 +198,14 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the Cost Management View that is used by the Scheduled Action.
+     * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="viewId")
     private @Nullable Output<String> viewId;
 
     /**
-     * @return The ID of the Cost Management View that is used by the Scheduled Action.
+     * @return The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> viewId() {
@@ -213,14 +213,14 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      * 
      */
     @Import(name="weeksOfMonths")
     private @Nullable Output<List<String>> weeksOfMonths;
 
     /**
-     * @return Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+     * @return Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      * 
      */
     public Optional<Output<List<String>>> weeksOfMonths() {
@@ -286,7 +286,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param daysOfWeeks Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+         * @param daysOfWeeks Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param daysOfWeeks Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+         * @param daysOfWeeks Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param daysOfWeeks Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+         * @param daysOfWeeks Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param viewId The ID of the Cost Management View that is used by the Scheduled Action.
+         * @param viewId The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param viewId The ID of the Cost Management View that is used by the Scheduled Action.
+         * @param viewId The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param weeksOfMonths Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+         * @param weeksOfMonths Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
          * 
          * @return builder
          * 
@@ -569,7 +569,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param weeksOfMonths Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+         * @param weeksOfMonths Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param weeksOfMonths Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+         * @param weeksOfMonths Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
          * 
          * @return builder
          * 

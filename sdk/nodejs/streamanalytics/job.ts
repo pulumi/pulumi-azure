@@ -79,7 +79,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
-     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      */
     public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
     /**
@@ -87,11 +87,11 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly dataLocale!: pulumi.Output<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
     public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      */
     public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface JobState {
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
-     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      */
     contentStoragePolicy?: pulumi.Input<string>;
     /**
@@ -233,11 +233,11 @@ export interface JobState {
      */
     dataLocale?: pulumi.Input<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
     eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      */
     eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
@@ -309,7 +309,7 @@ export interface JobArgs {
      */
     compatibilityLevel?: pulumi.Input<string>;
     /**
-     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      */
     contentStoragePolicy?: pulumi.Input<string>;
     /**
@@ -317,11 +317,11 @@ export interface JobArgs {
      */
     dataLocale?: pulumi.Input<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      */
     eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      */
     eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**

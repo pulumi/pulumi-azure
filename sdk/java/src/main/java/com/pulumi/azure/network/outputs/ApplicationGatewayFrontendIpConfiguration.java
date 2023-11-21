@@ -27,7 +27,7 @@ public final class ApplicationGatewayFrontendIpConfiguration {
      */
     private @Nullable String privateIpAddress;
     /**
-     * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+     * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     private @Nullable String privateIpAddressAllocation;
@@ -75,7 +75,7 @@ public final class ApplicationGatewayFrontendIpConfiguration {
         return Optional.ofNullable(this.privateIpAddress);
     }
     /**
-     * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+     * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     public Optional<String> privateIpAddressAllocation() {

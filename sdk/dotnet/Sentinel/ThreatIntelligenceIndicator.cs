@@ -143,6 +143,9 @@ namespace Pulumi.Azure.Sentinel
         [Output("guid")]
         public Output<string> Guid { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of indicator types of this Threat Intelligence Indicator.
+        /// </summary>
         [Output("indicatorTypes")]
         public Output<ImmutableArray<string>> IndicatorTypes { get; private set; } = null!;
 
@@ -201,7 +204,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<bool?> Revoked { get; private set; } = null!;
 
         /// <summary>
-        /// Source of the Threat Intelligence Indicator.
+        /// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
@@ -391,7 +394,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<bool>? Revoked { get; set; }
 
         /// <summary>
-        /// Source of the Threat Intelligence Indicator.
+        /// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
@@ -532,6 +535,10 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("indicatorTypes")]
         private InputList<string>? _indicatorTypes;
+
+        /// <summary>
+        /// A list of indicator types of this Threat Intelligence Indicator.
+        /// </summary>
         public InputList<string> IndicatorTypes
         {
             get => _indicatorTypes ?? (_indicatorTypes = new InputList<string>());
@@ -611,7 +618,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<bool>? Revoked { get; set; }
 
         /// <summary>
-        /// Source of the Threat Intelligence Indicator.
+        /// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

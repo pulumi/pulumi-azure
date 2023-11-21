@@ -534,7 +534,7 @@ class ImageDataDiskArgs:
                  size_gb: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image.
-        :param pulumi.Input[str] caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+        :param pulumi.Input[str] caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
         :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[int] size_gb: Specifies the size of the image to be created. The target size can't be smaller than the source size.
@@ -566,7 +566,7 @@ class ImageDataDiskArgs:
     @pulumi.getter
     def caching(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+        Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
         """
         return pulumi.get(self, "caching")
 
@@ -624,7 +624,7 @@ class ImageOsDiskArgs:
         """
         :param pulumi.Input[str] blob_uri: Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] caching: Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
-        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this image.
+        :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: Specifies the ID of the managed disk resource that you want to use to create the image.
         :param pulumi.Input[str] os_state: Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are `Generalized` and `Specialized`.
         :param pulumi.Input[str] os_type: Specifies the type of operating system contained in the virtual machine image. Possible values are: `Windows` or `Linux`.
@@ -673,7 +673,7 @@ class ImageOsDiskArgs:
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Disk Encryption Set which should be used to encrypt this image.
+        The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -1303,7 +1303,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
                  grace_period: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-        :param pulumi.Input[str] grace_period: Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        :param pulumi.Input[str] grace_period: Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if grace_period is not None:
@@ -1325,7 +1325,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[pulumi.Input[str]]:
         """
-        Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         return pulumi.get(self, "grace_period")
 
@@ -2909,7 +2909,7 @@ class LinuxVirtualMachineScaleSetSpotRestoreArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] timeout: The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] timeout: The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2932,7 +2932,7 @@ class LinuxVirtualMachineScaleSetSpotRestoreArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+        The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timeout")
 
@@ -3358,7 +3358,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
                  grace_period: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
-        :param pulumi.Input[str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+        :param pulumi.Input[str] grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if grace_period is not None:
@@ -3380,7 +3380,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[pulumi.Input[str]]:
         """
-        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
         """
         return pulumi.get(self, "grace_period")
 
@@ -3431,6 +3431,8 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
         :param pulumi.Input[str] create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        :param pulumi.Input[int] ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -3523,6 +3525,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
     def ultra_ssd_disk_iops_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @ultra_ssd_disk_iops_read_write.setter
@@ -3532,6 +3537,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
     def ultra_ssd_disk_mbps_read_write(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @ultra_ssd_disk_mbps_read_write.setter
@@ -5634,11 +5642,11 @@ class ScaleSetNetworkProfileArgs:
                  ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]] ip_configurations: An ip_configuration block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]] ip_configurations: An `ip_configuration` block as documented below.
         :param pulumi.Input[str] name: Specifies the name of the network interface configuration.
         :param pulumi.Input[bool] primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param pulumi.Input[bool] accelerated_networking: Specifies whether to enable accelerated networking or not.
-        :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs'] dns_settings: A dns_settings block as documented below.
+        :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs'] dns_settings: A `dns_settings` block as documented below.
         :param pulumi.Input[bool] ip_forwarding: Whether IP forwarding is enabled on this NIC. Defaults to `false`.
         :param pulumi.Input[str] network_security_group_id: Specifies the identifier for the network security group.
         """
@@ -5658,7 +5666,7 @@ class ScaleSetNetworkProfileArgs:
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]]:
         """
-        An ip_configuration block as documented below.
+        An `ip_configuration` block as documented below.
         """
         return pulumi.get(self, "ip_configurations")
 
@@ -5706,7 +5714,7 @@ class ScaleSetNetworkProfileArgs:
     @pulumi.getter(name="dnsSettings")
     def dns_settings(self) -> Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs']]:
         """
-        A dns_settings block as documented below.
+        A `dns_settings` block as documented below.
         """
         return pulumi.get(self, "dns_settings")
 
@@ -5784,7 +5792,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
                
                > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
-        :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
+        :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "primary", primary)
@@ -5892,7 +5900,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
     @pulumi.getter(name="publicIpAddressConfiguration")
     def public_ip_address_configuration(self) -> Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']]:
         """
-        Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
+        Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
@@ -6203,10 +6211,10 @@ class ScaleSetOsProfileWindowsConfigArgs:
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  winrms: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An Additional Unattended Config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as documented below.
         :param pulumi.Input[bool] enable_automatic_upgrades: Indicates whether virtual machines in the scale set are enabled for automatic updates.
         :param pulumi.Input[bool] provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]] winrms: A collection of WinRM configuration blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]] winrms: A collection of `winrm` blocks as documented below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -6221,7 +6229,7 @@ class ScaleSetOsProfileWindowsConfigArgs:
     @pulumi.getter(name="additionalUnattendConfigs")
     def additional_unattend_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]:
         """
-        An Additional Unattended Config block as documented below.
+        An `additional_unattend_config` block as documented below.
         """
         return pulumi.get(self, "additional_unattend_configs")
 
@@ -6257,7 +6265,7 @@ class ScaleSetOsProfileWindowsConfigArgs:
     @pulumi.getter
     def winrms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]]:
         """
-        A collection of WinRM configuration blocks as documented below.
+        A collection of `winrm` blocks as documented below.
         """
         return pulumi.get(self, "winrms")
 
@@ -6618,7 +6626,7 @@ class ScaleSetRollingUpgradePolicyArgs:
         :param pulumi.Input[int] max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
         :param pulumi.Input[int] max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
         :param pulumi.Input[int] max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
-        :param pulumi.Input[str] pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
+        :param pulumi.Input[str] pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `PT0S` seconds represented as `PT0S`.
         """
         if max_batch_instance_percent is not None:
             pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -6669,7 +6677,7 @@ class ScaleSetRollingUpgradePolicyArgs:
     @pulumi.getter(name="pauseTimeBetweenBatches")
     def pause_time_between_batches(self) -> Optional[pulumi.Input[str]]:
         """
-        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
+        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `PT0S` seconds represented as `PT0S`.
         """
         return pulumi.get(self, "pause_time_between_batches")
 
@@ -7857,7 +7865,7 @@ class VirtualMachineOsProfileWindowsConfigArgs:
                  winrms: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as defined below.
-        :param pulumi.Input[bool] enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        :param pulumi.Input[bool] enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
                
                > **NOTE:** This is different from the Default value used for this field within Azure.
@@ -7891,7 +7899,7 @@ class VirtualMachineOsProfileWindowsConfigArgs:
     @pulumi.getter(name="enableAutomaticUpgrades")
     def enable_automatic_upgrades(self) -> Optional[pulumi.Input[bool]]:
         """
-        Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
         """
         return pulumi.get(self, "enable_automatic_upgrades")
 
@@ -9133,7 +9141,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
                  grace_period: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-        :param pulumi.Input[str] grace_period: Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        :param pulumi.Input[str] grace_period: Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if grace_period is not None:
@@ -9155,7 +9163,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[pulumi.Input[str]]:
         """
-        Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
         """
         return pulumi.get(self, "grace_period")
 
@@ -10750,7 +10758,7 @@ class WindowsVirtualMachineScaleSetSpotRestoreArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] timeout: The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] timeout: The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -10773,7 +10781,7 @@ class WindowsVirtualMachineScaleSetSpotRestoreArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+        The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "timeout")
 

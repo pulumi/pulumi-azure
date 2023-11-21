@@ -18,22 +18,30 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
 
     public static final KubernetesClusterMaintenanceWindowNodeOsArgs Empty = new KubernetesClusterMaintenanceWindowNodeOsArgs();
 
+    /**
+     * The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * 
+     */
     @Import(name="dayOfMonth")
     private @Nullable Output<Integer> dayOfMonth;
 
+    /**
+     * @return The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * 
+     */
     public Optional<Output<Integer>> dayOfMonth() {
         return Optional.ofNullable(this.dayOfMonth);
     }
 
     /**
-     * The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+     * The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     @Import(name="dayOfWeek")
     private @Nullable Output<String> dayOfWeek;
 
     /**
-     * @return The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+     * @return The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     public Optional<Output<String>> dayOfWeek() {
@@ -193,17 +201,29 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
             $ = new KubernetesClusterMaintenanceWindowNodeOsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dayOfMonth The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder dayOfMonth(@Nullable Output<Integer> dayOfMonth) {
             $.dayOfMonth = dayOfMonth;
             return this;
         }
 
+        /**
+         * @param dayOfMonth The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+         * 
+         * @return builder
+         * 
+         */
         public Builder dayOfMonth(Integer dayOfMonth) {
             return dayOfMonth(Output.of(dayOfMonth));
         }
 
         /**
-         * @param dayOfWeek The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+         * @param dayOfWeek The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 
@@ -214,7 +234,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param dayOfWeek The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+         * @param dayOfWeek The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
          * 
          * @return builder
          * 

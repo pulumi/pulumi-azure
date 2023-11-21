@@ -183,7 +183,7 @@ type FirewallPolicy struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
-	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+	// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -242,7 +242,7 @@ type firewallPolicyState struct {
 	Location *string `pulumi:"location"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FirewallPolicyManagedRule `pulumi:"managedRules"`
-	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+	// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -269,7 +269,7 @@ type FirewallPolicyState struct {
 	Location pulumi.StringPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayInput
-	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+	// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -296,7 +296,7 @@ type firewallPolicyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FirewallPolicyManagedRule `pulumi:"managedRules"`
-	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+	// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -320,7 +320,7 @@ type FirewallPolicyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FirewallPolicyManagedRuleArrayInput
-	// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+	// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 	Mode pulumi.StringPtrInput
 	// The name of the policy. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -478,7 +478,7 @@ func (o FirewallPolicyOutput) ManagedRules() FirewallPolicyManagedRuleArrayOutpu
 	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyManagedRuleArrayOutput { return v.ManagedRules }).(FirewallPolicyManagedRuleArrayOutput)
 }
 
-// The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
 func (o FirewallPolicyOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
 }

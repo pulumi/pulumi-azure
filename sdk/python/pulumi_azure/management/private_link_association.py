@@ -22,7 +22,7 @@ class PrivateLinkAssociationArgs:
         The set of arguments for constructing a PrivateLinkAssociation resource.
         :param pulumi.Input[str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
                
-               **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+               > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[str] resource_management_private_link_id: The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
@@ -49,7 +49,7 @@ class PrivateLinkAssociationArgs:
         """
         Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 
-        **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+        > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         """
         return pulumi.get(self, "management_group_id")
 
@@ -116,7 +116,7 @@ class _PrivateLinkAssociationState:
         Input properties used for looking up and filtering PrivateLinkAssociation resources.
         :param pulumi.Input[str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
                
-               **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+               > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
                
                ```python
@@ -149,7 +149,7 @@ class _PrivateLinkAssociationState:
         """
         Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 
-        **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+        > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         """
         return pulumi.get(self, "management_group_id")
 
@@ -261,7 +261,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
                
-               **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+               > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
                
                ```python
@@ -376,7 +376,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] management_group_id: Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
                
-               **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+               > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         :param pulumi.Input[str] name: Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
                
                ```python
@@ -409,7 +409,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         """
         Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
 
-        **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+        > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         """
         return pulumi.get(self, "management_group_id")
 

@@ -53,7 +53,7 @@ class CacheArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -256,7 +256,7 @@ class CacheArgs:
     @pulumi.getter(name="redisConfiguration")
     def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
         """
-        A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 
@@ -412,7 +412,7 @@ class _CacheState:
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input['CacheRedisConfigurationArgs'] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -662,7 +662,7 @@ class _CacheState:
     @pulumi.getter(name="redisConfiguration")
     def redis_configuration(self) -> Optional[pulumi.Input['CacheRedisConfigurationArgs']]:
         """
-        A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 
@@ -910,7 +910,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CachePatchScheduleArgs']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -1114,7 +1114,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] primary_connection_string: The primary connection string of the Redis Instance.
         :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[pulumi.InputType['CacheRedisConfigurationArgs']] redis_configuration: A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] redis_version: Redis version. Only major version needed. Valid values: `4`, `6`.
         :param pulumi.Input[int] replicas_per_master: Amount of replicas to create per master for this Redis Cache.
                
@@ -1285,7 +1285,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="redisConfiguration")
     def redis_configuration(self) -> pulumi.Output['outputs.CacheRedisConfiguration']:
         """
-        A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
         """
         return pulumi.get(self, "redis_configuration")
 

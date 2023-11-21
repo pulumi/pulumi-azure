@@ -47,7 +47,7 @@ class PublicIpArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
                
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
-        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
                > **Note** Only `static` IP address allocation is supported for IPv6.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
@@ -204,7 +204,7 @@ class PublicIpArgs:
     @pulumi.getter(name="ipVersion")
     def ip_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
         > **Note** Only `static` IP address allocation is supported for IPv6.
         """
@@ -356,7 +356,7 @@ class _PublicIpState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
                
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
-        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
                > **Note** Only `static` IP address allocation is supported for IPv6.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
@@ -532,7 +532,7 @@ class _PublicIpState:
     @pulumi.getter(name="ipVersion")
     def ip_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
         > **Note** Only `static` IP address allocation is supported for IPv6.
         """
@@ -724,7 +724,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
                
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
-        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
                > **Note** Only `static` IP address allocation is supported for IPv6.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
@@ -893,7 +893,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ip_tags: A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
                
                > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
-        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
                
                > **Note** Only `static` IP address allocation is supported for IPv6.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Public IP should exist. Changing this forces a new resource to be created.
@@ -1019,7 +1019,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter(name="ipVersion")
     def ip_version(self) -> pulumi.Output[Optional[str]]:
         """
-        The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+        The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 
         > **Note** Only `static` IP address allocation is supported for IPv6.
         """

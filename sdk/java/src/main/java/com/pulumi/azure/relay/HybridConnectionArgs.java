@@ -47,14 +47,14 @@ public final class HybridConnectionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+     * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     @Import(name="requiresClientAuthorization")
     private @Nullable Output<Boolean> requiresClientAuthorization;
 
     /**
-     * @return Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+     * @return Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> requiresClientAuthorization() {
@@ -162,7 +162,7 @@ public final class HybridConnectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class HybridConnectionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+         * @param requiresClientAuthorization Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
          * 
          * @return builder
          * 

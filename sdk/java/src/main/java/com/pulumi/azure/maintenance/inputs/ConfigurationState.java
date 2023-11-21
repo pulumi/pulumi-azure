@@ -143,14 +143,14 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      * 
      */
     @Import(name="visibility")
     private @Nullable Output<String> visibility;
 
     /**
-     * @return The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * @return The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      * 
      */
     public Optional<Output<String>> visibility() {
@@ -378,7 +378,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param visibility The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+         * @param visibility The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param visibility The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+         * @param visibility The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
          * 
          * @return builder
          * 

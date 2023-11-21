@@ -91,13 +91,13 @@ type KubernetesClusterExtension struct {
 	ExtensionType pulumi.StringOutput `pulumi:"extensionType"`
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan KubernetesClusterExtensionPlanPtrOutput `pulumi:"plan"`
 	// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseNamespace pulumi.StringOutput `pulumi:"releaseNamespace"`
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseTrain pulumi.StringOutput `pulumi:"releaseTrain"`
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	TargetNamespace pulumi.StringOutput `pulumi:"targetNamespace"`
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -153,13 +153,13 @@ type kubernetesClusterExtensionState struct {
 	ExtensionType *string `pulumi:"extensionType"`
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name *string `pulumi:"name"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *KubernetesClusterExtensionPlan `pulumi:"plan"`
 	// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseTrain *string `pulumi:"releaseTrain"`
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Version *string `pulumi:"version"`
@@ -180,13 +180,13 @@ type KubernetesClusterExtensionState struct {
 	ExtensionType pulumi.StringPtrInput
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name pulumi.StringPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan KubernetesClusterExtensionPlanPtrInput
 	// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseNamespace pulumi.StringPtrInput
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseTrain pulumi.StringPtrInput
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	TargetNamespace pulumi.StringPtrInput
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Version pulumi.StringPtrInput
@@ -207,13 +207,13 @@ type kubernetesClusterExtensionArgs struct {
 	ExtensionType string `pulumi:"extensionType"`
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name *string `pulumi:"name"`
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *KubernetesClusterExtensionPlan `pulumi:"plan"`
 	// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseNamespace *string `pulumi:"releaseNamespace"`
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseTrain *string `pulumi:"releaseTrain"`
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Version *string `pulumi:"version"`
@@ -231,13 +231,13 @@ type KubernetesClusterExtensionArgs struct {
 	ExtensionType pulumi.StringInput
 	// Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Name pulumi.StringPtrInput
-	// A `plan` block as defined below.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan KubernetesClusterExtensionPlanPtrInput
 	// Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseNamespace pulumi.StringPtrInput
 	// The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
 	ReleaseTrain pulumi.StringPtrInput
-	// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+	// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 	TargetNamespace pulumi.StringPtrInput
 	// User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Kubernetes Cluster Extension to be created.
 	Version pulumi.StringPtrInput
@@ -391,7 +391,7 @@ func (o KubernetesClusterExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `plan` block as defined below.
+// A `plan` block as defined below. Changing this forces a new resource to be created.
 func (o KubernetesClusterExtensionOutput) Plan() KubernetesClusterExtensionPlanPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtension) KubernetesClusterExtensionPlanPtrOutput { return v.Plan }).(KubernetesClusterExtensionPlanPtrOutput)
 }
@@ -406,7 +406,7 @@ func (o KubernetesClusterExtensionOutput) ReleaseTrain() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtension) pulumi.StringOutput { return v.ReleaseTrain }).(pulumi.StringOutput)
 }
 
-// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
 func (o KubernetesClusterExtensionOutput) TargetNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtension) pulumi.StringOutput { return v.TargetNamespace }).(pulumi.StringOutput)
 }

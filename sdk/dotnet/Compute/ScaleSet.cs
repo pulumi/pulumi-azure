@@ -361,7 +361,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutomaticOsUpgrade { get; private set; } = null!;
 
         /// <summary>
-        /// A boot diagnostics profile block as referenced below.
+        /// A `boot_diagnostics` block as referenced below.
         /// </summary>
         [Output("bootDiagnostics")]
         public Output<Outputs.ScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
@@ -411,31 +411,31 @@ namespace Pulumi.Azure.Compute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of network profile block as documented below.
+        /// A collection of `network_profile` blocks as documented below.
         /// </summary>
         [Output("networkProfiles")]
         public Output<ImmutableArray<Outputs.ScaleSetNetworkProfile>> NetworkProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// A Virtual Machine OS Profile block as documented below.
+        /// A `os_profile` block as documented below.
         /// </summary>
         [Output("osProfile")]
         public Output<Outputs.ScaleSetOsProfile> OsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// A Linux config block as documented below.
+        /// A `os_profile_linux_config` block as documented below.
         /// </summary>
         [Output("osProfileLinuxConfig")]
         public Output<Outputs.ScaleSetOsProfileLinuxConfig> OsProfileLinuxConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A collection of Secret blocks as documented below.
+        /// A collection of `os_profile_secrets` blocks as documented below.
         /// </summary>
         [Output("osProfileSecrets")]
         public Output<ImmutableArray<Outputs.ScaleSetOsProfileSecret>> OsProfileSecrets { get; private set; } = null!;
 
         /// <summary>
-        /// A Windows config block as documented below.
+        /// A `os_profile_windows_config` block as documented below.
         /// </summary>
         [Output("osProfileWindowsConfig")]
         public Output<Outputs.ScaleSetOsProfileWindowsConfig?> OsProfileWindowsConfig { get; private set; } = null!;
@@ -447,7 +447,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> Overprovision { get; private set; } = null!;
 
         /// <summary>
-        /// A plan block as documented below.
+        /// A `plan` block as documented below.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.ScaleSetPlan?> Plan { get; private set; } = null!;
@@ -477,31 +477,31 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.ScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+        /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
         /// </summary>
         [Output("singlePlacementGroup")]
         public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// A SKU block as documented below.
+        /// A `sku` block as documented below.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ScaleSetSku> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// A storage profile data disk block as documented below
+        /// A `storage_profile_data_disk` block as documented below.
         /// </summary>
         [Output("storageProfileDataDisks")]
         public Output<ImmutableArray<Outputs.ScaleSetStorageProfileDataDisk>> StorageProfileDataDisks { get; private set; } = null!;
 
         /// <summary>
-        /// A storage profile image reference block as documented below.
+        /// A `storage_profile_image_reference` block as documented below.
         /// </summary>
         [Output("storageProfileImageReference")]
         public Output<Outputs.ScaleSetStorageProfileImageReference> StorageProfileImageReference { get; private set; } = null!;
 
         /// <summary>
-        /// A storage profile os disk block as documented below
+        /// A `storage_profile_os_disk` block as documented below.
         /// </summary>
         [Output("storageProfileOsDisk")]
         public Output<Outputs.ScaleSetStorageProfileOsDisk> StorageProfileOsDisk { get; private set; } = null!;
@@ -579,7 +579,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticOsUpgrade { get; set; }
 
         /// <summary>
-        /// A boot diagnostics profile block as referenced below.
+        /// A `boot_diagnostics` block as referenced below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.ScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
@@ -638,7 +638,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetNetworkProfileArgs>? _networkProfiles;
 
         /// <summary>
-        /// A collection of network profile block as documented below.
+        /// A collection of `network_profile` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetNetworkProfileArgs> NetworkProfiles
         {
@@ -647,13 +647,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A Virtual Machine OS Profile block as documented below.
+        /// A `os_profile` block as documented below.
         /// </summary>
         [Input("osProfile", required: true)]
         public Input<Inputs.ScaleSetOsProfileArgs> OsProfile { get; set; } = null!;
 
         /// <summary>
-        /// A Linux config block as documented below.
+        /// A `os_profile_linux_config` block as documented below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.ScaleSetOsProfileLinuxConfigArgs>? OsProfileLinuxConfig { get; set; }
@@ -662,7 +662,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetOsProfileSecretArgs>? _osProfileSecrets;
 
         /// <summary>
-        /// A collection of Secret blocks as documented below.
+        /// A collection of `os_profile_secrets` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileSecretArgs> OsProfileSecrets
         {
@@ -671,7 +671,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A Windows config block as documented below.
+        /// A `os_profile_windows_config` block as documented below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.ScaleSetOsProfileWindowsConfigArgs>? OsProfileWindowsConfig { get; set; }
@@ -683,7 +683,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A plan block as documented below.
+        /// A `plan` block as documented below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.ScaleSetPlanArgs>? Plan { get; set; }
@@ -713,13 +713,13 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
 
         /// <summary>
-        /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+        /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// A SKU block as documented below.
+        /// A `sku` block as documented below.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.ScaleSetSkuArgs> Sku { get; set; } = null!;
@@ -728,7 +728,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetStorageProfileDataDiskArgs>? _storageProfileDataDisks;
 
         /// <summary>
-        /// A storage profile data disk block as documented below
+        /// A `storage_profile_data_disk` block as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetStorageProfileDataDiskArgs> StorageProfileDataDisks
         {
@@ -737,13 +737,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A storage profile image reference block as documented below.
+        /// A `storage_profile_image_reference` block as documented below.
         /// </summary>
         [Input("storageProfileImageReference")]
         public Input<Inputs.ScaleSetStorageProfileImageReferenceArgs>? StorageProfileImageReference { get; set; }
 
         /// <summary>
-        /// A storage profile os disk block as documented below
+        /// A `storage_profile_os_disk` block as documented below.
         /// </summary>
         [Input("storageProfileOsDisk", required: true)]
         public Input<Inputs.ScaleSetStorageProfileOsDiskArgs> StorageProfileOsDisk { get; set; } = null!;
@@ -795,7 +795,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticOsUpgrade { get; set; }
 
         /// <summary>
-        /// A boot diagnostics profile block as referenced below.
+        /// A `boot_diagnostics` block as referenced below.
         /// </summary>
         [Input("bootDiagnostics")]
         public Input<Inputs.ScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
@@ -854,7 +854,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetNetworkProfileGetArgs>? _networkProfiles;
 
         /// <summary>
-        /// A collection of network profile block as documented below.
+        /// A collection of `network_profile` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetNetworkProfileGetArgs> NetworkProfiles
         {
@@ -863,13 +863,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A Virtual Machine OS Profile block as documented below.
+        /// A `os_profile` block as documented below.
         /// </summary>
         [Input("osProfile")]
         public Input<Inputs.ScaleSetOsProfileGetArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// A Linux config block as documented below.
+        /// A `os_profile_linux_config` block as documented below.
         /// </summary>
         [Input("osProfileLinuxConfig")]
         public Input<Inputs.ScaleSetOsProfileLinuxConfigGetArgs>? OsProfileLinuxConfig { get; set; }
@@ -878,7 +878,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetOsProfileSecretGetArgs>? _osProfileSecrets;
 
         /// <summary>
-        /// A collection of Secret blocks as documented below.
+        /// A collection of `os_profile_secrets` blocks as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetOsProfileSecretGetArgs> OsProfileSecrets
         {
@@ -887,7 +887,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A Windows config block as documented below.
+        /// A `os_profile_windows_config` block as documented below.
         /// </summary>
         [Input("osProfileWindowsConfig")]
         public Input<Inputs.ScaleSetOsProfileWindowsConfigGetArgs>? OsProfileWindowsConfig { get; set; }
@@ -899,7 +899,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? Overprovision { get; set; }
 
         /// <summary>
-        /// A plan block as documented below.
+        /// A `plan` block as documented below.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.ScaleSetPlanGetArgs>? Plan { get; set; }
@@ -929,13 +929,13 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.ScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }
 
         /// <summary>
-        /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+        /// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
         /// </summary>
         [Input("singlePlacementGroup")]
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// A SKU block as documented below.
+        /// A `sku` block as documented below.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ScaleSetSkuGetArgs>? Sku { get; set; }
@@ -944,7 +944,7 @@ namespace Pulumi.Azure.Compute
         private InputList<Inputs.ScaleSetStorageProfileDataDiskGetArgs>? _storageProfileDataDisks;
 
         /// <summary>
-        /// A storage profile data disk block as documented below
+        /// A `storage_profile_data_disk` block as documented below.
         /// </summary>
         public InputList<Inputs.ScaleSetStorageProfileDataDiskGetArgs> StorageProfileDataDisks
         {
@@ -953,13 +953,13 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// A storage profile image reference block as documented below.
+        /// A `storage_profile_image_reference` block as documented below.
         /// </summary>
         [Input("storageProfileImageReference")]
         public Input<Inputs.ScaleSetStorageProfileImageReferenceGetArgs>? StorageProfileImageReference { get; set; }
 
         /// <summary>
-        /// A storage profile os disk block as documented below
+        /// A `storage_profile_os_disk` block as documented below.
         /// </summary>
         [Input("storageProfileOsDisk")]
         public Input<Inputs.ScaleSetStorageProfileOsDiskGetArgs>? StorageProfileOsDisk { get; set; }

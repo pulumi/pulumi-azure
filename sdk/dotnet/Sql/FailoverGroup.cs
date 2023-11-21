@@ -111,19 +111,19 @@ namespace Pulumi.Azure.Sql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of secondary servers as documented below
+        /// A list of `partner_servers` blocks as documented below.
         /// </summary>
         [Output("partnerServers")]
         public Output<ImmutableArray<Outputs.FailoverGroupPartnerServer>> PartnerServers { get; private set; } = null!;
 
         /// <summary>
-        /// A read/write policy as documented below
+        /// A `read_write_endpoint_failover_policy` block as documented below.
         /// </summary>
         [Output("readWriteEndpointFailoverPolicy")]
         public Output<Outputs.FailoverGroupReadWriteEndpointFailoverPolicy> ReadWriteEndpointFailoverPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// a read-only policy as documented below
+        /// A `readonly_endpoint_failover_policy` block as documented below.
         /// </summary>
         [Output("readonlyEndpointFailoverPolicy")]
         public Output<Outputs.FailoverGroupReadonlyEndpointFailoverPolicy> ReadonlyEndpointFailoverPolicy { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Sql
         private InputList<Inputs.FailoverGroupPartnerServerArgs>? _partnerServers;
 
         /// <summary>
-        /// A list of secondary servers as documented below
+        /// A list of `partner_servers` blocks as documented below.
         /// </summary>
         public InputList<Inputs.FailoverGroupPartnerServerArgs> PartnerServers
         {
@@ -231,13 +231,13 @@ namespace Pulumi.Azure.Sql
         }
 
         /// <summary>
-        /// A read/write policy as documented below
+        /// A `read_write_endpoint_failover_policy` block as documented below.
         /// </summary>
         [Input("readWriteEndpointFailoverPolicy", required: true)]
         public Input<Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs> ReadWriteEndpointFailoverPolicy { get; set; } = null!;
 
         /// <summary>
-        /// a read-only policy as documented below
+        /// A `readonly_endpoint_failover_policy` block as documented below.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicy")]
         public Input<Inputs.FailoverGroupReadonlyEndpointFailoverPolicyArgs>? ReadonlyEndpointFailoverPolicy { get; set; }
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.Sql
         private InputList<Inputs.FailoverGroupPartnerServerGetArgs>? _partnerServers;
 
         /// <summary>
-        /// A list of secondary servers as documented below
+        /// A list of `partner_servers` blocks as documented below.
         /// </summary>
         public InputList<Inputs.FailoverGroupPartnerServerGetArgs> PartnerServers
         {
@@ -313,13 +313,13 @@ namespace Pulumi.Azure.Sql
         }
 
         /// <summary>
-        /// A read/write policy as documented below
+        /// A `read_write_endpoint_failover_policy` block as documented below.
         /// </summary>
         [Input("readWriteEndpointFailoverPolicy")]
         public Input<Inputs.FailoverGroupReadWriteEndpointFailoverPolicyGetArgs>? ReadWriteEndpointFailoverPolicy { get; set; }
 
         /// <summary>
-        /// a read-only policy as documented below
+        /// A `readonly_endpoint_failover_policy` block as documented below.
         /// </summary>
         [Input("readonlyEndpointFailoverPolicy")]
         public Input<Inputs.FailoverGroupReadonlyEndpointFailoverPolicyGetArgs>? ReadonlyEndpointFailoverPolicy { get; set; }

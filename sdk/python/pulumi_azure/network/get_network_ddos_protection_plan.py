@@ -69,7 +69,7 @@ class GetNetworkDdosProtectionPlanResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
+    def tags(self) -> Mapping[str, str]:
         """
         A mapping of tags assigned to the resource.
         """
@@ -100,7 +100,6 @@ class AwaitableGetNetworkDdosProtectionPlanResult(GetNetworkDdosProtectionPlanRe
 
 def get_network_ddos_protection_plan(name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
-                                     tags: Optional[Mapping[str, str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkDdosProtectionPlanResult:
     """
     Use this data source to access information about an existing Azure Network DDoS Protection Plan.
@@ -119,12 +118,10 @@ def get_network_ddos_protection_plan(name: Optional[str] = None,
 
     :param str name: The name of the Network DDoS Protection Plan.
     :param str resource_group_name: The name of the resource group where the Network DDoS Protection Plan exists.
-    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan', __args__, opts=opts, typ=GetNetworkDdosProtectionPlanResult).value
 
@@ -140,7 +137,6 @@ def get_network_ddos_protection_plan(name: Optional[str] = None,
 @_utilities.lift_output_func(get_network_ddos_protection_plan)
 def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDdosProtectionPlanResult]:
     """
     Use this data source to access information about an existing Azure Network DDoS Protection Plan.
@@ -159,6 +155,5 @@ def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[str]] = 
 
     :param str name: The name of the Network DDoS Protection Plan.
     :param str resource_group_name: The name of the resource group where the Network DDoS Protection Plan exists.
-    :param Mapping[str, str] tags: A mapping of tags assigned to the resource.
     """
     ...

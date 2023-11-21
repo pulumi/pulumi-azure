@@ -138,7 +138,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? LocalMysqlEnabled { get; set; }
 
         /// <summary>
-        /// Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+        /// Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
         /// </summary>
         [Input("managedPipelineMode")]
         public Input<string>? ManagedPipelineMode { get; set; }

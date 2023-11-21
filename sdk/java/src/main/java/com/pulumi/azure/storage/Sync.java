@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/sync:Sync")
 public class Sync extends com.pulumi.resources.CustomResource {
     /**
-     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      * 
      */
     @Export(name="incomingTrafficPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> incomingTrafficPolicy;
 
     /**
-     * @return Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+     * @return Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
      * 
      */
     public Output<Optional<String>> incomingTrafficPolicy() {

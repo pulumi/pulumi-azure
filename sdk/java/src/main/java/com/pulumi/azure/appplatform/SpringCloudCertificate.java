@@ -174,14 +174,14 @@ public class SpringCloudCertificate extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.certificateContent);
     }
     /**
-     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     @Export(name="excludePrivateKey", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> excludePrivateKey;
 
     /**
-     * @return Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * @return Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> excludePrivateKey() {

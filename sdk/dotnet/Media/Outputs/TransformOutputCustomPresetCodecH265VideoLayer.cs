@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly int Bitrate;
         /// <summary>
-        /// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        /// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
         /// </summary>
         public readonly string? BufferWindow;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly int? MaxBitrate;
         /// <summary>
-        /// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        /// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         /// </summary>
         public readonly string? Profile;
         /// <summary>

@@ -31,14 +31,14 @@ public final class MetadataSourceArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+     * The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
      * 
      */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
     /**
-     * @return The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+     * @return The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
      * 
      */
     public Output<String> kind() {
@@ -108,7 +108,7 @@ public final class MetadataSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param kind The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+         * @param kind The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class MetadataSourceArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param kind The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+         * @param kind The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
          * 
          * @return builder
          * 

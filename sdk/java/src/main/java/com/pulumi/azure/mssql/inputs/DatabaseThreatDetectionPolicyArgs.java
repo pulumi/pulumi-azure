@@ -33,14 +33,14 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+     * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
      * 
      */
     @Import(name="emailAccountAdmins")
     private @Nullable Output<String> emailAccountAdmins;
 
     /**
-     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
      * 
      */
     public Optional<Output<String>> emailAccountAdmins() {
@@ -78,14 +78,14 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+     * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+     * @return The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
      * 
      */
     public Optional<Output<String>> state() {
@@ -184,7 +184,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param state The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         * @param state The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param state The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+         * @param state The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
          * 
          * @return builder
          * 

@@ -20,7 +20,7 @@ public final class KafkaClusterNetwork {
      */
     private @Nullable String connectionDirection;
     /**
-     * @return Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+     * @return Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean privateLinkEnabled;
@@ -36,7 +36,7 @@ public final class KafkaClusterNetwork {
         return Optional.ofNullable(this.connectionDirection);
     }
     /**
-     * @return Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+     * @return Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> privateLinkEnabled() {

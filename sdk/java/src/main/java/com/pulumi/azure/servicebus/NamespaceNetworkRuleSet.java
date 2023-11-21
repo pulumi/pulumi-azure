@@ -20,6 +20,10 @@ import javax.annotation.Nullable;
 /**
  * Manages a ServiceBus Namespace Network Rule Set.
  * 
+ * &gt; The `azure.servicebus.NamespaceNetworkRuleSet` resource is deprecated
+ * and will be removed in version 4.0 of the AzureRM provider. Please use
+ * `network_rule_set` inside the `azure.servicebus.Namespace` resource instead.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -105,14 +109,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet")
 public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Export(name="defaultAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAction;
 
     /**
-     * @return Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Output<Optional<String>> defaultAction() {

@@ -64,7 +64,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      */
     public /*out*/ readonly externalInboundIpAddresses!: pulumi.Output<string[]>;
     /**
-     * An Inbound Network Dependencies block as defined below.
+     * An `inboundNetworkDependencies` block as defined below.
      */
     public /*out*/ readonly inboundNetworkDependencies!: pulumi.Output<outputs.appservice.EnvironmentV3InboundNetworkDependency[]>;
     /**
@@ -207,7 +207,7 @@ export interface EnvironmentV3State {
      */
     externalInboundIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An Inbound Network Dependencies block as defined below.
+     * An `inboundNetworkDependencies` block as defined below.
      */
     inboundNetworkDependencies?: pulumi.Input<pulumi.Input<inputs.appservice.EnvironmentV3InboundNetworkDependency>[]>;
     /**

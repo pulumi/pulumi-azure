@@ -107,7 +107,7 @@ export class EndpointStorageContainer extends pulumi.CustomResource {
      */
     public readonly endpointUri!: pulumi.Output<string | undefined>;
     /**
-     * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      */
     public readonly fileNameFormat!: pulumi.Output<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface EndpointStorageContainerState {
      */
     endpointUri?: pulumi.Input<string>;
     /**
-     * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      */
     fileNameFormat?: pulumi.Input<string>;
     /**
@@ -274,7 +274,7 @@ export interface EndpointStorageContainerArgs {
      */
     endpointUri?: pulumi.Input<string>;
     /**
-     * File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered.
+     * File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      */
     fileNameFormat?: pulumi.Input<string>;
     /**

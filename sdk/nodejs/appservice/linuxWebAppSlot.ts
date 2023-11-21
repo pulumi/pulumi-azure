@@ -71,7 +71,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
     }
 
     /**
-     * A `appMetadata` block as defined below.
+     * A `appMetadata`.
      */
     public /*out*/ readonly appMetadata!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -107,7 +107,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly clientCertificateExclusionPaths!: pulumi.Output<string | undefined>;
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
     /**
@@ -126,6 +126,10 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      * Should the Linux Web App be enabled? Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     */
+    public readonly ftpPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The ID of the App Service Environment used by App Service Slot.
      */
@@ -160,7 +164,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
     /**
-     * A `possibleOutboundIpAddressList` block as defined below.
+     * A `possibleOutboundIpAddressList`.
      */
     public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
     /**
@@ -192,6 +196,12 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     *
+     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     */
+    public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
@@ -226,6 +236,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["customDomainVerificationId"] = state ? state.customDomainVerificationId : undefined;
             resourceInputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state ? state.ftpPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["hostingEnvironmentId"] = state ? state.hostingEnvironmentId : undefined;
             resourceInputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -244,6 +255,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as LinuxWebAppSlotArgs | undefined;
@@ -264,6 +276,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["clientCertificateMode"] = args ? args.clientCertificateMode : undefined;
             resourceInputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args ? args.ftpPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultReferenceIdentityId"] = args ? args.keyVaultReferenceIdentityId : undefined;
@@ -275,6 +288,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["appMetadata"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
@@ -299,7 +313,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
  */
 export interface LinuxWebAppSlotState {
     /**
-     * A `appMetadata` block as defined below.
+     * A `appMetadata`.
      */
     appMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -335,7 +349,7 @@ export interface LinuxWebAppSlotState {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -354,6 +368,10 @@ export interface LinuxWebAppSlotState {
      * Should the Linux Web App be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     */
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The ID of the App Service Environment used by App Service Slot.
      */
@@ -388,7 +406,7 @@ export interface LinuxWebAppSlotState {
      */
     outboundIpAddresses?: pulumi.Input<string>;
     /**
-     * A `possibleOutboundIpAddressList` block as defined below.
+     * A `possibleOutboundIpAddressList`.
      */
     possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -420,6 +438,12 @@ export interface LinuxWebAppSlotState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     *
+     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     */
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *
@@ -465,7 +489,7 @@ export interface LinuxWebAppSlotArgs {
      */
     clientCertificateExclusionPaths?: pulumi.Input<string>;
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -476,6 +500,10 @@ export interface LinuxWebAppSlotArgs {
      * Should the Linux Web App be enabled? Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     */
+    ftpPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * Should the Linux Web App require HTTPS connections.
      */
@@ -514,6 +542,12 @@ export interface LinuxWebAppSlotArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     *
+     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     */
+    webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      *

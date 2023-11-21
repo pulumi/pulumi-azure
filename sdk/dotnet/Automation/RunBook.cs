@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The published runbook content link.
+        /// One `publish_content_link` block as defined below.
         /// </summary>
         [Output("publishContentLink")]
         public Output<Outputs.RunBookPublishContentLink?> PublishContentLink { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The published runbook content link.
+        /// One `publish_content_link` block as defined below.
         /// </summary>
         [Input("publishContentLink")]
         public Input<Inputs.RunBookPublishContentLinkArgs>? PublishContentLink { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The published runbook content link.
+        /// One `publish_content_link` block as defined below.
         /// </summary>
         [Input("publishContentLink")]
         public Input<Inputs.RunBookPublishContentLinkGetArgs>? PublishContentLink { get; set; }

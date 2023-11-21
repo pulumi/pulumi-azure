@@ -87,7 +87,7 @@ type IntegrationRuntimeSsis struct {
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode pulumi.IntPtrOutput `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -157,7 +157,7 @@ type integrationRuntimeSsisState struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode *int `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -192,7 +192,7 @@ type IntegrationRuntimeSsisState struct {
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode pulumi.IntPtrInput
 	// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type integrationRuntimeSsisArgs struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode *int `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -267,7 +267,7 @@ type IntegrationRuntimeSsisArgs struct {
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode pulumi.IntPtrInput
 	// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -445,7 +445,7 @@ func (o IntegrationRuntimeSsisOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 func (o IntegrationRuntimeSsisOutput) MaxParallelExecutionsPerNode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) pulumi.IntPtrOutput { return v.MaxParallelExecutionsPerNode }).(pulumi.IntPtrOutput)
 }

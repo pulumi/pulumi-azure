@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceHostnameConfigurationDeveloperPortal {
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     private @Nullable String certificate;
@@ -74,7 +74,7 @@ public final class ServiceHostnameConfigurationDeveloperPortal {
 
     private ServiceHostnameConfigurationDeveloperPortal() {}
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     public Optional<String> certificate() {

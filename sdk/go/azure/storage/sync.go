@@ -64,7 +64,7 @@ import (
 type Sync struct {
 	pulumi.CustomResourceState
 
-	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 	IncomingTrafficPolicy pulumi.StringPtrOutput `pulumi:"incomingTrafficPolicy"`
 	// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -109,7 +109,7 @@ func GetSync(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Sync resources.
 type syncState struct {
-	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 	IncomingTrafficPolicy *string `pulumi:"incomingTrafficPolicy"`
 	// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	Location *string `pulumi:"location"`
@@ -122,7 +122,7 @@ type syncState struct {
 }
 
 type SyncState struct {
-	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 	IncomingTrafficPolicy pulumi.StringPtrInput
 	// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	Location pulumi.StringPtrInput
@@ -139,7 +139,7 @@ func (SyncState) ElementType() reflect.Type {
 }
 
 type syncArgs struct {
-	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 	IncomingTrafficPolicy *string `pulumi:"incomingTrafficPolicy"`
 	// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	Location *string `pulumi:"location"`
@@ -153,7 +153,7 @@ type syncArgs struct {
 
 // The set of arguments for constructing a Sync resource.
 type SyncArgs struct {
-	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+	// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 	IncomingTrafficPolicy pulumi.StringPtrInput
 	// The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
 	Location pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o SyncOutput) ToOutput(ctx context.Context) pulumix.Output[*Sync] {
 	}
 }
 
-// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
 func (o SyncOutput) IncomingTrafficPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sync) pulumi.StringPtrOutput { return v.IncomingTrafficPolicy }).(pulumi.StringPtrOutput)
 }

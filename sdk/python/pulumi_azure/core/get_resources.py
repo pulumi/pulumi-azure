@@ -114,7 +114,7 @@ def get_resources(name: Optional[str] = None,
     :param str name: The name of the Resource.
     :param Mapping[str, str] required_tags: A mapping of tags which the resource has to have in order to be included in the result.
     :param str resource_group_name: The name of the Resource group where the Resources are located.
-    :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
+    :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
     """
     __args__ = dict()
     __args__['name'] = name
@@ -146,6 +146,6 @@ def get_resources_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     :param str name: The name of the Resource.
     :param Mapping[str, str] required_tags: A mapping of tags which the resource has to have in order to be included in the result.
     :param str resource_group_name: The name of the Resource group where the Resources are located.
-    :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
+    :param str type: The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A resource type's name follows the format: `{resource-provider}/{resource-type}`. The resource type for a key vault is `Microsoft.KeyVault/vaults`. A full list of available Resource Providers can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers). A full list of Resources Types can be found [here](https://learn.microsoft.com/en-us/azure/templates/#find-resources).
     """
     ...

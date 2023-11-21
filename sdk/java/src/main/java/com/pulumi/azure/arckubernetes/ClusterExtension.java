@@ -207,14 +207,14 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
         return this.releaseTrain;
     }
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
     @Export(name="targetNamespace", refs={String.class}, tree="[0]")
     private Output<String> targetNamespace;
 
     /**
-     * @return Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * @return Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      * 
      */
     public Output<String> targetNamespace() {

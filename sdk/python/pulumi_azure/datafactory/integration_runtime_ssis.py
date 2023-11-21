@@ -44,7 +44,7 @@ class IntegrationRuntimeSsisArgs:
         :param pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs'] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]] package_stores: One or more `package_store` block as defined below.
@@ -206,7 +206,7 @@ class IntegrationRuntimeSsisArgs:
     @pulumi.getter(name="maxParallelExecutionsPerNode")
     def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[int]]:
         """
-        Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
@@ -305,7 +305,7 @@ class _IntegrationRuntimeSsisState:
         :param pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs'] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
@@ -458,7 +458,7 @@ class _IntegrationRuntimeSsisState:
     @pulumi.getter(name="maxParallelExecutionsPerNode")
     def max_parallel_executions_per_node(self) -> Optional[pulumi.Input[int]]:
         """
-        Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 
@@ -599,7 +599,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
@@ -742,7 +742,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         :param pulumi.Input[str] name: Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[str] node_size: The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
@@ -848,7 +848,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
     @pulumi.getter(name="maxParallelExecutionsPerNode")
     def max_parallel_executions_per_node(self) -> pulumi.Output[Optional[int]]:
         """
-        Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+        Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         """
         return pulumi.get(self, "max_parallel_executions_per_node")
 

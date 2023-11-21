@@ -305,14 +305,14 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
     @Import(name="managedPipelineMode")
     private @Nullable Output<String> managedPipelineMode;
 
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
     public Optional<Output<String>> managedPipelineMode() {
@@ -964,7 +964,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
          * 
          * @return builder
          * 
@@ -975,7 +975,7 @@ public final class WindowsWebAppSiteConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
          * 
          * @return builder
          * 

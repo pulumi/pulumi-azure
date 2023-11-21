@@ -28,7 +28,7 @@ class SpringCloudConnectionArgs:
         :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
-        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
@@ -85,7 +85,7 @@ class SpringCloudConnectionArgs:
     @pulumi.getter(name="clientType")
     def client_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         """
         return pulumi.get(self, "client_type")
 
@@ -143,7 +143,7 @@ class _SpringCloudConnectionState:
         """
         Input properties used for looking up and filtering SpringCloudConnection resources.
         :param pulumi.Input['SpringCloudConnectionAuthenticationArgs'] authentication: The authentication info. An `authentication` block as defined below.
-        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
@@ -181,7 +181,7 @@ class _SpringCloudConnectionState:
     @pulumi.getter(name="clientType")
     def client_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         """
         return pulumi.get(self, "client_type")
 
@@ -325,7 +325,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
-        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
@@ -466,7 +466,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
-        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        :param pulumi.Input[str] client_type: The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
@@ -498,7 +498,7 @@ class SpringCloudConnection(pulumi.CustomResource):
     @pulumi.getter(name="clientType")
     def client_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+        The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
         """
         return pulumi.get(self, "client_type")
 

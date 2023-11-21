@@ -182,7 +182,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.SlotSiteConfigScmIpRestrictionArgs>? _scmIpRestrictions;
 
         /// <summary>
-        /// A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+        /// A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
         /// 
         /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>

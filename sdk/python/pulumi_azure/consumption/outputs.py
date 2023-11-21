@@ -125,7 +125,7 @@ class BudgetManagementGroupFilterDimension(dict):
         """
         :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param Sequence[str] values: Specifies a list of values for the column.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -152,7 +152,7 @@ class BudgetManagementGroupFilterDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -197,7 +197,7 @@ class BudgetManagementGroupFilterNotDimension(dict):
         """
         :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param Sequence[str] values: Specifies a list of values for the column.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -224,7 +224,7 @@ class BudgetManagementGroupFilterNotDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -238,7 +238,7 @@ class BudgetManagementGroupFilterNotTag(dict):
         """
         :param str name: The name of the tag to use for the filter.
         :param Sequence[str] values: Specifies a list of values for the tag.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -265,7 +265,7 @@ class BudgetManagementGroupFilterNotTag(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -279,7 +279,7 @@ class BudgetManagementGroupFilterTag(dict):
         """
         :param str name: The name of the tag to use for the filter.
         :param Sequence[str] values: Specifies a list of values for the tag.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -306,7 +306,7 @@ class BudgetManagementGroupFilterTag(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -515,7 +515,7 @@ class BudgetResourceGroupFilterDimension(dict):
         """
         :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param Sequence[str] values: Specifies a list of values for the column.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -542,7 +542,7 @@ class BudgetResourceGroupFilterDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -587,7 +587,7 @@ class BudgetResourceGroupFilterNotDimension(dict):
         """
         :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param Sequence[str] values: Specifies a list of values for the column.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -614,7 +614,7 @@ class BudgetResourceGroupFilterNotDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -628,7 +628,7 @@ class BudgetResourceGroupFilterNotTag(dict):
         """
         :param str name: The name of the tag to use for the filter.
         :param Sequence[str] values: Specifies a list of values for the tag.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -655,7 +655,7 @@ class BudgetResourceGroupFilterNotTag(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -669,7 +669,7 @@ class BudgetResourceGroupFilterTag(dict):
         """
         :param str name: The name of the tag to use for the filter.
         :param Sequence[str] values: Specifies a list of values for the tag.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -696,7 +696,7 @@ class BudgetResourceGroupFilterTag(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -938,7 +938,7 @@ class BudgetSubscriptionFilterDimension(dict):
         """
         :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param Sequence[str] values: Specifies a list of values for the column.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -965,7 +965,7 @@ class BudgetSubscriptionFilterDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -1010,7 +1010,7 @@ class BudgetSubscriptionFilterNotDimension(dict):
         """
         :param str name: The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
         :param Sequence[str] values: Specifies a list of values for the column.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -1037,7 +1037,7 @@ class BudgetSubscriptionFilterNotDimension(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -1051,7 +1051,7 @@ class BudgetSubscriptionFilterNotTag(dict):
         """
         :param str name: The name of the tag to use for the filter.
         :param Sequence[str] values: Specifies a list of values for the tag.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -1078,7 +1078,7 @@ class BudgetSubscriptionFilterNotTag(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 
@@ -1092,7 +1092,7 @@ class BudgetSubscriptionFilterTag(dict):
         """
         :param str name: The name of the tag to use for the filter.
         :param Sequence[str] values: Specifies a list of values for the tag.
-        :param str operator: The operator to use for comparison. The allowed values are `In`.
+        :param str operator: The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -1119,7 +1119,7 @@ class BudgetSubscriptionFilterTag(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        The operator to use for comparison. The allowed values are `In`.
+        The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         """
         return pulumi.get(self, "operator")
 

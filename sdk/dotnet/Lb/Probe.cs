@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Lb
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         /// </summary>
         [Output("numberOfProbes")]
         public Output<int?> NumberOfProbes { get; private set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         /// </summary>
         [Input("numberOfProbes")]
         public Input<int>? NumberOfProbes { get; set; }
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Lb
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
+        /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         /// </summary>
         [Input("numberOfProbes")]
         public Input<int>? NumberOfProbes { get; set; }

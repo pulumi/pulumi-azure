@@ -48,7 +48,7 @@ public final class IoTHubEndpoint {
      */
     private @Nullable String entityPath;
     /**
-     * @return File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+     * @return File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     private @Nullable String fileNameFormat;
@@ -133,7 +133,7 @@ public final class IoTHubEndpoint {
         return Optional.ofNullable(this.entityPath);
     }
     /**
-     * @return File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+     * @return File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
      * 
      */
     public Optional<String> fileNameFormat() {

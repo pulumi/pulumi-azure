@@ -140,7 +140,7 @@ type GlobalVMShutdownSchedule struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings GlobalVMShutdownScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -198,7 +198,7 @@ type globalVMShutdownScheduleState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings *GlobalVMShutdownScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -215,7 +215,7 @@ type GlobalVMShutdownScheduleState struct {
 	Enabled pulumi.BoolPtrInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings GlobalVMShutdownScheduleNotificationSettingsPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -236,7 +236,7 @@ type globalVMShutdownScheduleArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings GlobalVMShutdownScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -254,7 +254,7 @@ type GlobalVMShutdownScheduleArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The location where the schedule is created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings GlobalVMShutdownScheduleNotificationSettingsInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -390,7 +390,7 @@ func (o GlobalVMShutdownScheduleOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalVMShutdownSchedule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The notification setting of a schedule. A `notificationSettings` as defined below.
+// The notification setting of a schedule. A `notificationSettings` block as defined below.
 func (o GlobalVMShutdownScheduleOutput) NotificationSettings() GlobalVMShutdownScheduleNotificationSettingsOutput {
 	return o.ApplyT(func(v *GlobalVMShutdownSchedule) GlobalVMShutdownScheduleNotificationSettingsOutput {
 		return v.NotificationSettings

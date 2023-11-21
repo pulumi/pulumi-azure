@@ -98,14 +98,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defaults to `true`.
+     * Specifies if http allowed. Defaults to `true`.
      * 
      */
     @Import(name="isHttpAllowed")
     private @Nullable Output<Boolean> isHttpAllowed;
 
     /**
-     * @return Defaults to `true`.
+     * @return Specifies if http allowed. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> isHttpAllowed() {
@@ -113,14 +113,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defaults to `true`.
+     * Specifies if https allowed. Defaults to `true`.
      * 
      */
     @Import(name="isHttpsAllowed")
     private @Nullable Output<Boolean> isHttpsAllowed;
 
     /**
-     * @return Defaults to `true`.
+     * @return Specifies if https allowed. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> isHttpsAllowed() {
@@ -473,7 +473,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isHttpAllowed Defaults to `true`.
+         * @param isHttpAllowed Specifies if http allowed. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isHttpAllowed Defaults to `true`.
+         * @param isHttpAllowed Specifies if http allowed. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isHttpsAllowed Defaults to `true`.
+         * @param isHttpsAllowed Specifies if https allowed. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isHttpsAllowed Defaults to `true`.
+         * @param isHttpsAllowed Specifies if https allowed. Defaults to `true`.
          * 
          * @return builder
          * 

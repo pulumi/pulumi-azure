@@ -22,14 +22,14 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     public static final ReplicationRecoveryPlanArgs Empty = new ReplicationRecoveryPlanArgs();
 
     /**
-     * An `azure_to_azure_settings` block defined as block.
+     * An `azure_to_azure_settings` block as defined below.
      * 
      */
     @Import(name="azureToAzureSettings")
     private @Nullable Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs> azureToAzureSettings;
 
     /**
-     * @return An `azure_to_azure_settings` block defined as block.
+     * @return An `azure_to_azure_settings` block as defined below.
      * 
      */
     public Optional<Output<ReplicationRecoveryPlanAzureToAzureSettingsArgs>> azureToAzureSettings() {
@@ -92,7 +92,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     /**
      * Three or more `recovery_group` block defined as below.
      * 
-     * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
      * 
      * @deprecated
      * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
@@ -105,7 +105,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
     /**
      * @return Three or more `recovery_group` block defined as below.
      * 
-     * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+     * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
      * 
      * @deprecated
      * the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
@@ -213,7 +213,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureToAzureSettings An `azure_to_azure_settings` block defined as block.
+         * @param azureToAzureSettings An `azure_to_azure_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azureToAzureSettings An `azure_to_azure_settings` block defined as block.
+         * @param azureToAzureSettings An `azure_to_azure_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
-         * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
-         * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ReplicationRecoveryPlanArgs extends com.pulumi.resources.Reso
         /**
          * @param recoveryGroups Three or more `recovery_group` block defined as below.
          * 
-         * **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+         * &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
          * 
          * @return builder
          * 

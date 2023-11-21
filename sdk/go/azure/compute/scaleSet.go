@@ -383,7 +383,7 @@ type ScaleSet struct {
 
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade pulumi.BoolPtrOutput `pulumi:"automaticOsUpgrade"`
-	// A boot diagnostics profile block as referenced below.
+	// A `bootDiagnostics` block as referenced below.
 	BootDiagnostics ScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
@@ -401,19 +401,19 @@ type ScaleSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A collection of network profile block as documented below.
+	// A collection of `networkProfile` blocks as documented below.
 	NetworkProfiles ScaleSetNetworkProfileArrayOutput `pulumi:"networkProfiles"`
-	// A Virtual Machine OS Profile block as documented below.
+	// A `osProfile` block as documented below.
 	OsProfile ScaleSetOsProfileOutput `pulumi:"osProfile"`
-	// A Linux config block as documented below.
+	// A `osProfileLinuxConfig` block as documented below.
 	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigOutput `pulumi:"osProfileLinuxConfig"`
-	// A collection of Secret blocks as documented below.
+	// A collection of `osProfileSecrets` blocks as documented below.
 	OsProfileSecrets ScaleSetOsProfileSecretArrayOutput `pulumi:"osProfileSecrets"`
-	// A Windows config block as documented below.
+	// A `osProfileWindowsConfig` block as documented below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrOutput `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
-	// A plan block as documented below.
+	// A `plan` block as documented below.
 	Plan ScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
@@ -423,15 +423,15 @@ type ScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
-	// A SKU block as documented below.
+	// A `sku` block as documented below.
 	Sku ScaleSetSkuOutput `pulumi:"sku"`
-	// A storage profile data disk block as documented below
+	// A `storageProfileDataDisk` block as documented below.
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayOutput `pulumi:"storageProfileDataDisks"`
-	// A storage profile image reference block as documented below.
+	// A `storageProfileImageReference` block as documented below.
 	StorageProfileImageReference ScaleSetStorageProfileImageReferenceOutput `pulumi:"storageProfileImageReference"`
-	// A storage profile os disk block as documented below
+	// A `storageProfileOsDisk` block as documented below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDiskOutput `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -493,7 +493,7 @@ func GetScaleSet(ctx *pulumi.Context,
 type scaleSetState struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade *bool `pulumi:"automaticOsUpgrade"`
-	// A boot diagnostics profile block as referenced below.
+	// A `bootDiagnostics` block as referenced below.
 	BootDiagnostics *ScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
@@ -511,19 +511,19 @@ type scaleSetState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A collection of network profile block as documented below.
+	// A collection of `networkProfile` blocks as documented below.
 	NetworkProfiles []ScaleSetNetworkProfile `pulumi:"networkProfiles"`
-	// A Virtual Machine OS Profile block as documented below.
+	// A `osProfile` block as documented below.
 	OsProfile *ScaleSetOsProfile `pulumi:"osProfile"`
-	// A Linux config block as documented below.
+	// A `osProfileLinuxConfig` block as documented below.
 	OsProfileLinuxConfig *ScaleSetOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
-	// A collection of Secret blocks as documented below.
+	// A collection of `osProfileSecrets` blocks as documented below.
 	OsProfileSecrets []ScaleSetOsProfileSecret `pulumi:"osProfileSecrets"`
-	// A Windows config block as documented below.
+	// A `osProfileWindowsConfig` block as documented below.
 	OsProfileWindowsConfig *ScaleSetOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A plan block as documented below.
+	// A `plan` block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
@@ -533,15 +533,15 @@ type scaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// A SKU block as documented below.
+	// A `sku` block as documented below.
 	Sku *ScaleSetSku `pulumi:"sku"`
-	// A storage profile data disk block as documented below
+	// A `storageProfileDataDisk` block as documented below.
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
-	// A storage profile image reference block as documented below.
+	// A `storageProfileImageReference` block as documented below.
 	StorageProfileImageReference *ScaleSetStorageProfileImageReference `pulumi:"storageProfileImageReference"`
-	// A storage profile os disk block as documented below
+	// A `storageProfileOsDisk` block as documented below.
 	StorageProfileOsDisk *ScaleSetStorageProfileOsDisk `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -556,7 +556,7 @@ type scaleSetState struct {
 type ScaleSetState struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade pulumi.BoolPtrInput
-	// A boot diagnostics profile block as referenced below.
+	// A `bootDiagnostics` block as referenced below.
 	BootDiagnostics ScaleSetBootDiagnosticsPtrInput
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
@@ -574,19 +574,19 @@ type ScaleSetState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A collection of network profile block as documented below.
+	// A collection of `networkProfile` blocks as documented below.
 	NetworkProfiles ScaleSetNetworkProfileArrayInput
-	// A Virtual Machine OS Profile block as documented below.
+	// A `osProfile` block as documented below.
 	OsProfile ScaleSetOsProfilePtrInput
-	// A Linux config block as documented below.
+	// A `osProfileLinuxConfig` block as documented below.
 	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigPtrInput
-	// A collection of Secret blocks as documented below.
+	// A collection of `osProfileSecrets` blocks as documented below.
 	OsProfileSecrets ScaleSetOsProfileSecretArrayInput
-	// A Windows config block as documented below.
+	// A `osProfileWindowsConfig` block as documented below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrInput
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A plan block as documented below.
+	// A `plan` block as documented below.
 	Plan ScaleSetPlanPtrInput
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
@@ -596,15 +596,15 @@ type ScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// A SKU block as documented below.
+	// A `sku` block as documented below.
 	Sku ScaleSetSkuPtrInput
-	// A storage profile data disk block as documented below
+	// A `storageProfileDataDisk` block as documented below.
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput
-	// A storage profile image reference block as documented below.
+	// A `storageProfileImageReference` block as documented below.
 	StorageProfileImageReference ScaleSetStorageProfileImageReferencePtrInput
-	// A storage profile os disk block as documented below
+	// A `storageProfileOsDisk` block as documented below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDiskPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -623,7 +623,7 @@ func (ScaleSetState) ElementType() reflect.Type {
 type scaleSetArgs struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade *bool `pulumi:"automaticOsUpgrade"`
-	// A boot diagnostics profile block as referenced below.
+	// A `bootDiagnostics` block as referenced below.
 	BootDiagnostics *ScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
@@ -641,19 +641,19 @@ type scaleSetArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A collection of network profile block as documented below.
+	// A collection of `networkProfile` blocks as documented below.
 	NetworkProfiles []ScaleSetNetworkProfile `pulumi:"networkProfiles"`
-	// A Virtual Machine OS Profile block as documented below.
+	// A `osProfile` block as documented below.
 	OsProfile ScaleSetOsProfile `pulumi:"osProfile"`
-	// A Linux config block as documented below.
+	// A `osProfileLinuxConfig` block as documented below.
 	OsProfileLinuxConfig *ScaleSetOsProfileLinuxConfig `pulumi:"osProfileLinuxConfig"`
-	// A collection of Secret blocks as documented below.
+	// A collection of `osProfileSecrets` blocks as documented below.
 	OsProfileSecrets []ScaleSetOsProfileSecret `pulumi:"osProfileSecrets"`
-	// A Windows config block as documented below.
+	// A `osProfileWindowsConfig` block as documented below.
 	OsProfileWindowsConfig *ScaleSetOsProfileWindowsConfig `pulumi:"osProfileWindowsConfig"`
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A plan block as documented below.
+	// A `plan` block as documented below.
 	Plan *ScaleSetPlan `pulumi:"plan"`
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
@@ -663,15 +663,15 @@ type scaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy *ScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// A SKU block as documented below.
+	// A `sku` block as documented below.
 	Sku ScaleSetSku `pulumi:"sku"`
-	// A storage profile data disk block as documented below
+	// A `storageProfileDataDisk` block as documented below.
 	StorageProfileDataDisks []ScaleSetStorageProfileDataDisk `pulumi:"storageProfileDataDisks"`
-	// A storage profile image reference block as documented below.
+	// A `storageProfileImageReference` block as documented below.
 	StorageProfileImageReference *ScaleSetStorageProfileImageReference `pulumi:"storageProfileImageReference"`
-	// A storage profile os disk block as documented below
+	// A `storageProfileOsDisk` block as documented below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDisk `pulumi:"storageProfileOsDisk"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -687,7 +687,7 @@ type scaleSetArgs struct {
 type ScaleSetArgs struct {
 	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade pulumi.BoolPtrInput
-	// A boot diagnostics profile block as referenced below.
+	// A `bootDiagnostics` block as referenced below.
 	BootDiagnostics ScaleSetBootDiagnosticsPtrInput
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
@@ -705,19 +705,19 @@ type ScaleSetArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A collection of network profile block as documented below.
+	// A collection of `networkProfile` blocks as documented below.
 	NetworkProfiles ScaleSetNetworkProfileArrayInput
-	// A Virtual Machine OS Profile block as documented below.
+	// A `osProfile` block as documented below.
 	OsProfile ScaleSetOsProfileInput
-	// A Linux config block as documented below.
+	// A `osProfileLinuxConfig` block as documented below.
 	OsProfileLinuxConfig ScaleSetOsProfileLinuxConfigPtrInput
-	// A collection of Secret blocks as documented below.
+	// A collection of `osProfileSecrets` blocks as documented below.
 	OsProfileSecrets ScaleSetOsProfileSecretArrayInput
-	// A Windows config block as documented below.
+	// A `osProfileWindowsConfig` block as documented below.
 	OsProfileWindowsConfig ScaleSetOsProfileWindowsConfigPtrInput
 	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A plan block as documented below.
+	// A `plan` block as documented below.
 	Plan ScaleSetPlanPtrInput
 	// Specifies the priority for the Virtual Machines in the Scale Set. Possible values are `Low` and `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
@@ -727,15 +727,15 @@ type ScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy ScaleSetRollingUpgradePolicyPtrInput
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// A SKU block as documented below.
+	// A `sku` block as documented below.
 	Sku ScaleSetSkuInput
-	// A storage profile data disk block as documented below
+	// A `storageProfileDataDisk` block as documented below.
 	StorageProfileDataDisks ScaleSetStorageProfileDataDiskArrayInput
-	// A storage profile image reference block as documented below.
+	// A `storageProfileImageReference` block as documented below.
 	StorageProfileImageReference ScaleSetStorageProfileImageReferencePtrInput
-	// A storage profile os disk block as documented below
+	// A `storageProfileOsDisk` block as documented below.
 	StorageProfileOsDisk ScaleSetStorageProfileOsDiskInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -863,7 +863,7 @@ func (o ScaleSetOutput) AutomaticOsUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.BoolPtrOutput { return v.AutomaticOsUpgrade }).(pulumi.BoolPtrOutput)
 }
 
-// A boot diagnostics profile block as referenced below.
+// A `bootDiagnostics` block as referenced below.
 func (o ScaleSetOutput) BootDiagnostics() ScaleSetBootDiagnosticsPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetBootDiagnosticsPtrOutput { return v.BootDiagnostics }).(ScaleSetBootDiagnosticsPtrOutput)
 }
@@ -905,27 +905,27 @@ func (o ScaleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A collection of network profile block as documented below.
+// A collection of `networkProfile` blocks as documented below.
 func (o ScaleSetOutput) NetworkProfiles() ScaleSetNetworkProfileArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetNetworkProfileArrayOutput { return v.NetworkProfiles }).(ScaleSetNetworkProfileArrayOutput)
 }
 
-// A Virtual Machine OS Profile block as documented below.
+// A `osProfile` block as documented below.
 func (o ScaleSetOutput) OsProfile() ScaleSetOsProfileOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileOutput { return v.OsProfile }).(ScaleSetOsProfileOutput)
 }
 
-// A Linux config block as documented below.
+// A `osProfileLinuxConfig` block as documented below.
 func (o ScaleSetOutput) OsProfileLinuxConfig() ScaleSetOsProfileLinuxConfigOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileLinuxConfigOutput { return v.OsProfileLinuxConfig }).(ScaleSetOsProfileLinuxConfigOutput)
 }
 
-// A collection of Secret blocks as documented below.
+// A collection of `osProfileSecrets` blocks as documented below.
 func (o ScaleSetOutput) OsProfileSecrets() ScaleSetOsProfileSecretArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileSecretArrayOutput { return v.OsProfileSecrets }).(ScaleSetOsProfileSecretArrayOutput)
 }
 
-// A Windows config block as documented below.
+// A `osProfileWindowsConfig` block as documented below.
 func (o ScaleSetOutput) OsProfileWindowsConfig() ScaleSetOsProfileWindowsConfigPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetOsProfileWindowsConfigPtrOutput { return v.OsProfileWindowsConfig }).(ScaleSetOsProfileWindowsConfigPtrOutput)
 }
@@ -935,7 +935,7 @@ func (o ScaleSetOutput) Overprovision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.BoolPtrOutput { return v.Overprovision }).(pulumi.BoolPtrOutput)
 }
 
-// A plan block as documented below.
+// A `plan` block as documented below.
 func (o ScaleSetOutput) Plan() ScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetPlanPtrOutput { return v.Plan }).(ScaleSetPlanPtrOutput)
 }
@@ -960,27 +960,27 @@ func (o ScaleSetOutput) RollingUpgradePolicy() ScaleSetRollingUpgradePolicyPtrOu
 	return o.ApplyT(func(v *ScaleSet) ScaleSetRollingUpgradePolicyPtrOutput { return v.RollingUpgradePolicy }).(ScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
 func (o ScaleSetOutput) SinglePlacementGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.BoolPtrOutput { return v.SinglePlacementGroup }).(pulumi.BoolPtrOutput)
 }
 
-// A SKU block as documented below.
+// A `sku` block as documented below.
 func (o ScaleSetOutput) Sku() ScaleSetSkuOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetSkuOutput { return v.Sku }).(ScaleSetSkuOutput)
 }
 
-// A storage profile data disk block as documented below
+// A `storageProfileDataDisk` block as documented below.
 func (o ScaleSetOutput) StorageProfileDataDisks() ScaleSetStorageProfileDataDiskArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetStorageProfileDataDiskArrayOutput { return v.StorageProfileDataDisks }).(ScaleSetStorageProfileDataDiskArrayOutput)
 }
 
-// A storage profile image reference block as documented below.
+// A `storageProfileImageReference` block as documented below.
 func (o ScaleSetOutput) StorageProfileImageReference() ScaleSetStorageProfileImageReferenceOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetStorageProfileImageReferenceOutput { return v.StorageProfileImageReference }).(ScaleSetStorageProfileImageReferenceOutput)
 }
 
-// A storage profile os disk block as documented below
+// A `storageProfileOsDisk` block as documented below.
 func (o ScaleSetOutput) StorageProfileOsDisk() ScaleSetStorageProfileOsDiskOutput {
 	return o.ApplyT(func(v *ScaleSet) ScaleSetStorageProfileOsDiskOutput { return v.StorageProfileOsDisk }).(ScaleSetStorageProfileOsDiskOutput)
 }

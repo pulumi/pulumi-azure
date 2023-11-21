@@ -33,14 +33,14 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
     }
 
     /**
-     * The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+     * The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+     * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -120,7 +120,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class PolicyManagedRulesManagedRuleSetArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+         * @param type The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
          * 
          * @return builder
          * 

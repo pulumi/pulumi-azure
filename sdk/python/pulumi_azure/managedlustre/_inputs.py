@@ -154,6 +154,7 @@ class FileSystemMaintenanceWindowArgs:
                  time_of_day_in_utc: pulumi.Input[str]):
         """
         :param pulumi.Input[str] day_of_week: The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        :param pulumi.Input[str] time_of_day_in_utc: The time of day (in UTC) to start the maintenance window.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "time_of_day_in_utc", time_of_day_in_utc)
@@ -173,6 +174,9 @@ class FileSystemMaintenanceWindowArgs:
     @property
     @pulumi.getter(name="timeOfDayInUtc")
     def time_of_day_in_utc(self) -> pulumi.Input[str]:
+        """
+        The time of day (in UTC) to start the maintenance window.
+        """
         return pulumi.get(self, "time_of_day_in_utc")
 
     @time_of_day_in_utc.setter

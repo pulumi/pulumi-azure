@@ -133,14 +133,14 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -175,6 +175,21 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="ftpPublishBasicAuthenticationEnabled")
+    private @Nullable Output<Boolean> ftpPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> ftpPublishBasicAuthenticationEnabled() {
+        return Optional.ofNullable(this.ftpPublishBasicAuthenticationEnabled);
     }
 
     /**
@@ -372,6 +387,25 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * 
+     */
+    @Import(name="webdeployPublishBasicAuthenticationEnabled")
+    private @Nullable Output<Boolean> webdeployPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * 
+     */
+    public Optional<Output<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
+        return Optional.ofNullable(this.webdeployPublishBasicAuthenticationEnabled);
+    }
+
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Web App.
      * 
      * &gt; **Note:** Using this value requires either `WEBSITE_RUN_FROM_PACKAGE=1` or `SCM_DO_BUILD_DURING_DEPLOYMENT=true` to be set on the App in `app_settings`. Refer to the Azure docs on [running the Web App directly from the Zip package](https://learn.microsoft.com/en-us/azure/app-service/deploy-run-package), or [automating the build for Zip deploy](https://learn.microsoft.com/en-us/azure/app-service/deploy-zip#enable-build-automation-for-zip-deploy) for further details.
@@ -403,6 +437,7 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
         this.clientCertificateMode = $.clientCertificateMode;
         this.connectionStrings = $.connectionStrings;
         this.enabled = $.enabled;
+        this.ftpPublishBasicAuthenticationEnabled = $.ftpPublishBasicAuthenticationEnabled;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
         this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
@@ -417,6 +452,7 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
         this.storageAccounts = $.storageAccounts;
         this.tags = $.tags;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
+        this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
         this.zipDeployFile = $.zipDeployFile;
     }
 
@@ -586,7 +622,7 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -597,7 +633,7 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -656,6 +692,27 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        /**
+         * @param ftpPublishBasicAuthenticationEnabled Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ftpPublishBasicAuthenticationEnabled(@Nullable Output<Boolean> ftpPublishBasicAuthenticationEnabled) {
+            $.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param ftpPublishBasicAuthenticationEnabled Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
+            return ftpPublishBasicAuthenticationEnabled(Output.of(ftpPublishBasicAuthenticationEnabled));
         }
 
         /**
@@ -936,6 +993,31 @@ public final class LinuxWebAppArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
+        }
+
+        /**
+         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+         * 
+         * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webdeployPublishBasicAuthenticationEnabled(@Nullable Output<Boolean> webdeployPublishBasicAuthenticationEnabled) {
+            $.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param webdeployPublishBasicAuthenticationEnabled Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+         * 
+         * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder webdeployPublishBasicAuthenticationEnabled(Boolean webdeployPublishBasicAuthenticationEnabled) {
+            return webdeployPublishBasicAuthenticationEnabled(Output.of(webdeployPublishBasicAuthenticationEnabled));
         }
 
         /**

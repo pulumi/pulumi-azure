@@ -97,14 +97,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:hpc/cacheAccessPolicy:CacheAccessPolicy")
 public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Up to three `access_rule` blocks as defined below.
+     * One or more `access_rule` blocks (up to three) as defined below.
      * 
      */
     @Export(name="accessRules", refs={List.class,CacheAccessPolicyAccessRule.class}, tree="[0,1]")
     private Output<List<CacheAccessPolicyAccessRule>> accessRules;
 
     /**
-     * @return Up to three `access_rule` blocks as defined below.
+     * @return One or more `access_rule` blocks (up to three) as defined below.
      * 
      */
     public Output<List<CacheAccessPolicyAccessRule>> accessRules() {

@@ -141,7 +141,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly certificates!: pulumi.Output<outputs.batch.PoolCertificate[] | undefined>;
     /**
-     * The container configuration used in the pool's VMs.
+     * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
     public readonly containerConfiguration!: pulumi.Output<outputs.batch.PoolContainerConfiguration | undefined>;
     /**
@@ -169,7 +169,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.batch.PoolIdentity | undefined>;
     /**
-     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
     public readonly interNodeCommunication!: pulumi.Output<string | undefined>;
     /**
@@ -221,15 +221,15 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
     /**
-     * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      */
     public readonly storageImageReference!: pulumi.Output<outputs.batch.PoolStorageImageReference>;
     /**
-     * The desired node communication mode for the pool.
+     * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      */
     public readonly targetNodeCommunicationMode!: pulumi.Output<string | undefined>;
     /**
-     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      */
     public readonly taskSchedulingPolicies!: pulumi.Output<outputs.batch.PoolTaskSchedulingPolicy[]>;
     /**
@@ -360,7 +360,7 @@ export interface PoolState {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
-     * The container configuration used in the pool's VMs.
+     * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
     containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
     /**
@@ -388,7 +388,7 @@ export interface PoolState {
      */
     identity?: pulumi.Input<inputs.batch.PoolIdentity>;
     /**
-     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
     interNodeCommunication?: pulumi.Input<string>;
     /**
@@ -440,15 +440,15 @@ export interface PoolState {
      */
     stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
-     * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      */
     storageImageReference?: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
-     * The desired node communication mode for the pool.
+     * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      */
     targetNodeCommunicationMode?: pulumi.Input<string>;
     /**
-     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      */
     taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[]>;
     /**
@@ -486,7 +486,7 @@ export interface PoolArgs {
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[]>;
     /**
-     * The container configuration used in the pool's VMs.
+     * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
     containerConfiguration?: pulumi.Input<inputs.batch.PoolContainerConfiguration>;
     /**
@@ -514,7 +514,7 @@ export interface PoolArgs {
      */
     identity?: pulumi.Input<inputs.batch.PoolIdentity>;
     /**
-     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
      */
     interNodeCommunication?: pulumi.Input<string>;
     /**
@@ -566,15 +566,15 @@ export interface PoolArgs {
      */
     stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
-     * A `storageImageReference` for the virtual machines that will compose the Batch pool. Changing this forces a new resource to be created.
+     * A `storageImageReference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
      */
     storageImageReference: pulumi.Input<inputs.batch.PoolStorageImageReference>;
     /**
-     * The desired node communication mode for the pool.
+     * The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
      */
     targetNodeCommunicationMode?: pulumi.Input<string>;
     /**
-     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread as defined below.
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
      */
     taskSchedulingPolicies?: pulumi.Input<pulumi.Input<inputs.batch.PoolTaskSchedulingPolicy>[]>;
     /**

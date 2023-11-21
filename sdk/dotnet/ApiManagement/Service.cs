@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<ImmutableArray<Outputs.ServiceAdditionalLocation>> AdditionalLocations { get; private set; } = null!;
 
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// One or more `certificate` blocks (up to 10) as defined below.
         /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.ServiceCertificate>> Certificates { get; private set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<Outputs.ServiceVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
         /// &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ServiceCertificateArgs>? _certificates;
 
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// One or more `certificate` blocks (up to 10) as defined below.
         /// </summary>
         public InputList<Inputs.ServiceCertificateArgs> Certificates
         {
@@ -493,7 +493,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ServiceVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
         /// &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
@@ -538,7 +538,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<Inputs.ServiceCertificateGetArgs>? _certificates;
 
         /// <summary>
-        /// One or more (up to 10) `certificate` blocks as defined below.
+        /// One or more `certificate` blocks (up to 10) as defined below.
         /// </summary>
         public InputList<Inputs.ServiceCertificateGetArgs> Certificates
         {
@@ -759,7 +759,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<Inputs.ServiceVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+        /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
         /// &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>

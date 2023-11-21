@@ -106,7 +106,7 @@ export class Database extends pulumi.CustomResource {
     public readonly elasticPoolName!: pulumi.Output<string>;
     public /*out*/ readonly encryption!: pulumi.Output<string>;
     /**
-     * A Database Import block as documented below. `createMode` must be set to `Default`.
+     * A `import` block as documented below. `createMode` must be set to `Default`.
      */
     public readonly import!: pulumi.Output<outputs.sql.DatabaseImport | undefined>;
     /**
@@ -271,7 +271,7 @@ export interface DatabaseState {
     elasticPoolName?: pulumi.Input<string>;
     encryption?: pulumi.Input<string>;
     /**
-     * A Database Import block as documented below. `createMode` must be set to `Default`.
+     * A `import` block as documented below. `createMode` must be set to `Default`.
      */
     import?: pulumi.Input<inputs.sql.DatabaseImport>;
     /**
@@ -355,7 +355,7 @@ export interface DatabaseArgs {
      */
     elasticPoolName?: pulumi.Input<string>;
     /**
-     * A Database Import block as documented below. `createMode` must be set to `Default`.
+     * A `import` block as documented below. `createMode` must be set to `Default`.
      */
     import?: pulumi.Input<inputs.sql.DatabaseImport>;
     /**

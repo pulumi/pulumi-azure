@@ -127,7 +127,7 @@ type SpringCloudConnection struct {
 
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -182,7 +182,7 @@ func GetSpringCloudConnection(ctx *pulumi.Context,
 type springCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication *SpringCloudConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -199,7 +199,7 @@ type springCloudConnectionState struct {
 type SpringCloudConnectionState struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -220,7 +220,7 @@ func (SpringCloudConnectionState) ElementType() reflect.Type {
 type springCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType *string `pulumi:"clientType"`
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -238,7 +238,7 @@ type springCloudConnectionArgs struct {
 type SpringCloudConnectionArgs struct {
 	// The authentication info. An `authentication` block as defined below.
 	Authentication SpringCloudConnectionAuthenticationInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrInput
 	// The name of the service connection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -368,7 +368,7 @@ func (o SpringCloudConnectionOutput) Authentication() SpringCloudConnectionAuthe
 	return o.ApplyT(func(v *SpringCloudConnection) SpringCloudConnectionAuthenticationOutput { return v.Authentication }).(SpringCloudConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 func (o SpringCloudConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudConnection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }

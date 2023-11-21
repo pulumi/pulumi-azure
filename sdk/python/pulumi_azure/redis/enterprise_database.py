@@ -29,9 +29,9 @@ class EnterpriseDatabaseArgs:
         """
         The set of arguments for constructing a EnterpriseDatabase resource.
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] clustering_policy: Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] eviction_policy: Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
@@ -82,7 +82,7 @@ class EnterpriseDatabaseArgs:
     @pulumi.getter(name="clientProtocol")
     def client_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "client_protocol")
 
@@ -94,7 +94,7 @@ class EnterpriseDatabaseArgs:
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -106,7 +106,7 @@ class EnterpriseDatabaseArgs:
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -211,10 +211,10 @@ class _EnterpriseDatabaseState:
                  secondary_access_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnterpriseDatabase resources.
-        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] clustering_policy: Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] eviction_policy: Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
@@ -260,7 +260,7 @@ class _EnterpriseDatabaseState:
     @pulumi.getter(name="clientProtocol")
     def client_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "client_protocol")
 
@@ -284,7 +284,7 @@ class _EnterpriseDatabaseState:
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -296,7 +296,7 @@ class _EnterpriseDatabaseState:
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -466,10 +466,10 @@ class EnterpriseDatabase(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] clustering_policy: Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] eviction_policy: Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
@@ -606,10 +606,10 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] cluster_id: The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
-        :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] clustering_policy: Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        :param pulumi.Input[str] eviction_policy: Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         :param pulumi.Input[str] linked_database_group_nickname: Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
@@ -645,7 +645,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
     @pulumi.getter(name="clientProtocol")
     def client_protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+        Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "client_protocol")
 
@@ -661,7 +661,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+        Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -669,7 +669,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
     @pulumi.getter(name="evictionPolicy")
     def eviction_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+        Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
         """
         return pulumi.get(self, "eviction_policy")
 

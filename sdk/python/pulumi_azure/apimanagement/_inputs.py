@@ -4982,26 +4982,25 @@ class LoggerApplicationInsightsArgs:
 @pulumi.input_type
 class LoggerEventhubArgs:
     def __init__(__self__, *,
-                 connection_string: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 connection_string: Optional[pulumi.Input[str]] = None,
+                 endpoint_uri: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_client_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] connection_string: The connection string of an EventHub Namespace.
         :param pulumi.Input[str] name: The name of an EventHub.
+        :param pulumi.Input[str] connection_string: The connection string of an EventHub Namespace.
+               
+               > **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+        :param pulumi.Input[str] endpoint_uri: The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+        :param pulumi.Input[str] user_assigned_identity_client_id: The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> pulumi.Input[str]:
-        """
-        The connection string of an EventHub Namespace.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: pulumi.Input[str]):
-        pulumi.set(self, "connection_string", value)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
+        if endpoint_uri is not None:
+            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        if user_assigned_identity_client_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_client_id", user_assigned_identity_client_id)
 
     @property
     @pulumi.getter
@@ -5014,6 +5013,44 @@ class LoggerEventhubArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connection string of an EventHub Namespace.
+
+        > **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+        """
+        return pulumi.get(self, "connection_string")
+
+    @connection_string.setter
+    def connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter(name="endpointUri")
+    def endpoint_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+        """
+        return pulumi.get(self, "endpoint_uri")
+
+    @endpoint_uri.setter
+    def endpoint_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_uri", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityClientId")
+    def user_assigned_identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+        """
+        return pulumi.get(self, "user_assigned_identity_client_id")
+
+    @user_assigned_identity_client_id.setter
+    def user_assigned_identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_client_id", value)
 
 
 @pulumi.input_type
@@ -5505,7 +5542,7 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: The Hostname to use for the Management API.
-        :param pulumi.Input[str] certificate: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[str] certificate: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[str] certificate_password: The password for the certificate.
         :param pulumi.Input[str] certificate_source: The source of the certificate.
         :param pulumi.Input[str] certificate_status: The status of the certificate.
@@ -5558,7 +5595,7 @@ class ServiceHostnameConfigurationDeveloperPortalArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more `certificate` blocks (up to 10) as defined below.
         """
         return pulumi.get(self, "certificate")
 
@@ -5889,7 +5926,7 @@ class ServiceHostnameConfigurationPortalArgs:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: The Hostname to use for the Management API.
-        :param pulumi.Input[str] certificate: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[str] certificate: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[str] certificate_password: The password for the certificate.
         :param pulumi.Input[str] certificate_source: The source of the certificate.
         :param pulumi.Input[str] certificate_status: The status of the certificate.
@@ -5942,7 +5979,7 @@ class ServiceHostnameConfigurationPortalArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more `certificate` blocks (up to 10) as defined below.
         """
         return pulumi.get(self, "certificate")
 
@@ -6285,7 +6322,7 @@ class ServiceHostnameConfigurationScmArgs:
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] host_name: The Hostname to use for the Management API.
-        :param pulumi.Input[str] certificate: One or more (up to 10) `certificate` blocks as defined below.
+        :param pulumi.Input[str] certificate: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[str] certificate_password: The password for the certificate.
         :param pulumi.Input[str] certificate_source: The source of the certificate.
         :param pulumi.Input[str] certificate_status: The status of the certificate.
@@ -6338,7 +6375,7 @@ class ServiceHostnameConfigurationScmArgs:
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         """
-        One or more (up to 10) `certificate` blocks as defined below.
+        One or more `certificate` blocks (up to 10) as defined below.
         """
         return pulumi.get(self, "certificate")
 

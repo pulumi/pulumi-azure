@@ -39,7 +39,7 @@ type ScheduledQueryRulesAlertV2 struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the display name of the alert rule.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	//
@@ -138,7 +138,7 @@ type scheduledQueryRulesAlertV2State struct {
 	Description *string `pulumi:"description"`
 	// Specifies the display name of the alert rule.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	//
@@ -193,7 +193,7 @@ type ScheduledQueryRulesAlertV2State struct {
 	Description pulumi.StringPtrInput
 	// Specifies the display name of the alert rule.
 	DisplayName pulumi.StringPtrInput
-	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	//
@@ -250,7 +250,7 @@ type scheduledQueryRulesAlertV2Args struct {
 	Description *string `pulumi:"description"`
 	// Specifies the display name of the alert rule.
 	DisplayName *string `pulumi:"displayName"`
-	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	//
@@ -300,7 +300,7 @@ type ScheduledQueryRulesAlertV2Args struct {
 	Description pulumi.StringPtrInput
 	// Specifies the display name of the alert rule.
 	DisplayName pulumi.StringPtrInput
-	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+	// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
 	//
@@ -479,7 +479,7 @@ func (o ScheduledQueryRulesAlertV2Output) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+// Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
 func (o ScheduledQueryRulesAlertV2Output) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

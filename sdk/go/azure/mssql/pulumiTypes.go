@@ -690,13 +690,13 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) RetentionDays() pulumi.IntPtr
 type DatabaseThreatDetectionPolicy struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays *int `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -718,13 +718,13 @@ type DatabaseThreatDetectionPolicyInput interface {
 type DatabaseThreatDetectionPolicyArgs struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 	EmailAccountAdmins pulumi.StringPtrInput `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
@@ -832,7 +832,7 @@ func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArray
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
 }
@@ -847,7 +847,7 @@ func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -902,7 +902,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -932,7 +932,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -3604,7 +3604,7 @@ func (o VirtualMachineAssessmentPtrOutput) Schedule() VirtualMachineAssessmentSc
 }
 
 type VirtualMachineAssessmentSchedule struct {
-	// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+	// What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek string `pulumi:"dayOfWeek"`
 	// How many months between assessment runs. Valid values are between `1` and `5`.
 	//
@@ -3628,7 +3628,7 @@ type VirtualMachineAssessmentScheduleInput interface {
 }
 
 type VirtualMachineAssessmentScheduleArgs struct {
-	// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+	// What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
 	// How many months between assessment runs. Valid values are between `1` and `5`.
 	//
@@ -3735,7 +3735,7 @@ func (o VirtualMachineAssessmentScheduleOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+// What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o VirtualMachineAssessmentScheduleOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineAssessmentSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
@@ -3787,7 +3787,7 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) Elem() VirtualMachineAssessme
 	}).(VirtualMachineAssessmentScheduleOutput)
 }
 
-// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+// What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o VirtualMachineAssessmentSchedulePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineAssessmentSchedule) *string {
 		if v == nil {
@@ -5911,7 +5911,7 @@ type VirtualMachineStorageConfiguration struct {
 	StorageWorkloadType string `pulumi:"storageWorkloadType"`
 	// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
 	SystemDbOnDataDiskEnabled *bool `pulumi:"systemDbOnDataDiskEnabled"`
-	// An `tempDbSettings` as defined below.
+	// An `tempDbSettings` block as defined below.
 	TempDbSettings *VirtualMachineStorageConfigurationTempDbSettings `pulumi:"tempDbSettings"`
 }
 
@@ -5937,7 +5937,7 @@ type VirtualMachineStorageConfigurationArgs struct {
 	StorageWorkloadType pulumi.StringInput `pulumi:"storageWorkloadType"`
 	// Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
 	SystemDbOnDataDiskEnabled pulumi.BoolPtrInput `pulumi:"systemDbOnDataDiskEnabled"`
-	// An `tempDbSettings` as defined below.
+	// An `tempDbSettings` block as defined below.
 	TempDbSettings VirtualMachineStorageConfigurationTempDbSettingsPtrInput `pulumi:"tempDbSettings"`
 }
 
@@ -6065,7 +6065,7 @@ func (o VirtualMachineStorageConfigurationOutput) SystemDbOnDataDiskEnabled() pu
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *bool { return v.SystemDbOnDataDiskEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// An `tempDbSettings` as defined below.
+// An `tempDbSettings` block as defined below.
 func (o VirtualMachineStorageConfigurationOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
 		return v.TempDbSettings
@@ -6152,7 +6152,7 @@ func (o VirtualMachineStorageConfigurationPtrOutput) SystemDbOnDataDiskEnabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// An `tempDbSettings` as defined below.
+// An `tempDbSettings` block as defined below.
 func (o VirtualMachineStorageConfigurationPtrOutput) TempDbSettings() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineStorageConfiguration) *VirtualMachineStorageConfigurationTempDbSettings {
 		if v == nil {

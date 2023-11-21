@@ -55,7 +55,7 @@ class AppServiceArgs:
         :param pulumi.Input['AppServiceLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceSiteConfigArgs'] site_config: A `site_config` block as defined below.
-        :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A Source Control block as defined below
+        :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A `source_control` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -306,7 +306,7 @@ class AppServiceArgs:
     @pulumi.getter(name="sourceControl")
     def source_control(self) -> Optional[pulumi.Input['AppServiceSourceControlArgs']]:
         """
-        A Source Control block as defined below
+        A `source_control` block as defined below.
         """
         return pulumi.get(self, "source_control")
 
@@ -395,7 +395,7 @@ class _AppServiceState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input['AppServiceSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A Source Control block as defined below
+        :param pulumi.Input['AppServiceSourceControlArgs'] source_control: A `source_control` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -746,7 +746,7 @@ class _AppServiceState:
     @pulumi.getter(name="sourceControl")
     def source_control(self) -> Optional[pulumi.Input['AppServiceSourceControlArgs']]:
         """
-        A Source Control block as defined below
+        A `source_control` block as defined below.
         """
         return pulumi.get(self, "source_control")
 
@@ -873,7 +873,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A Source Control block as defined below
+        :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A `source_control` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -1075,7 +1075,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['AppServiceSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A Source Control block as defined below
+        :param pulumi.Input[pulumi.InputType['AppServiceSourceControlArgs']] source_control: A `source_control` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppServiceStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -1308,7 +1308,7 @@ class AppService(pulumi.CustomResource):
     @pulumi.getter(name="sourceControl")
     def source_control(self) -> pulumi.Output['outputs.AppServiceSourceControl']:
         """
-        A Source Control block as defined below
+        A `source_control` block as defined below.
         """
         return pulumi.get(self, "source_control")
 

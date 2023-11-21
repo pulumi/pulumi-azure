@@ -187,14 +187,14 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      * 
      */
     @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> visibility;
 
     /**
-     * @return The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * @return The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      * 
      */
     public Output<Optional<String>> visibility() {

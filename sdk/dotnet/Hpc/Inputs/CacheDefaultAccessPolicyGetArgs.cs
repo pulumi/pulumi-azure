@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Hpc.Inputs
         private InputList<Inputs.CacheDefaultAccessPolicyAccessRuleGetArgs>? _accessRules;
 
         /// <summary>
-        /// One to three `access_rule` blocks as defined above.
+        /// One or more `access_rule` blocks (up to three) as defined above.
         /// </summary>
         public InputList<Inputs.CacheDefaultAccessPolicyAccessRuleGetArgs> AccessRules
         {

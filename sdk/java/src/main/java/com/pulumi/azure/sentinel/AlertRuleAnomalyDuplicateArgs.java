@@ -37,14 +37,14 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      * 
      */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
     /**
-     * @return The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * @return The Display Name of the built-in Anomaly Alert Rule.
      * 
      */
     public Output<String> displayName() {
@@ -214,7 +214,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param displayName The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+         * @param displayName The Display Name of the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class AlertRuleAnomalyDuplicateArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param displayName The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+         * @param displayName The Display Name of the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 

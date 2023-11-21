@@ -691,7 +691,7 @@ class HBaseClusterNetwork(dict):
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
                > **NOTE:** To enable the private link the `connection_direction` must be set to `Outbound`.
-        :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        :param bool private_link_enabled: Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
             pulumi.set(__self__, "connection_direction", connection_direction)
@@ -712,7 +712,7 @@ class HBaseClusterNetwork(dict):
     @pulumi.getter(name="privateLinkEnabled")
     def private_link_enabled(self) -> Optional[bool]:
         """
-        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
@@ -819,7 +819,7 @@ class HBaseClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HBaseClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HBaseClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -869,7 +869,7 @@ class HBaseClusterRolesHeadNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.HBaseClusterRolesHeadNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -984,10 +984,11 @@ class HBaseClusterRolesWorkerNode(dict):
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str username: The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        :param 'HBaseClusterRolesWorkerNodeAutoscaleArgs' autoscale: A `autoscale` block as defined below.
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HBaseClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HBaseClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -1037,6 +1038,9 @@ class HBaseClusterRolesWorkerNode(dict):
     @property
     @pulumi.getter
     def autoscale(self) -> Optional['outputs.HBaseClusterRolesWorkerNodeAutoscale']:
+        """
+        A `autoscale` block as defined below.
+        """
         return pulumi.get(self, "autoscale")
 
     @property
@@ -1053,7 +1057,7 @@ class HBaseClusterRolesWorkerNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.HBaseClusterRolesWorkerNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -1088,12 +1092,22 @@ class HBaseClusterRolesWorkerNode(dict):
 class HBaseClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
+        """
+        :param 'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
+               
+               > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        """
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
 
     @property
     @pulumi.getter
     def recurrence(self) -> Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence']:
+        """
+        A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        """
         return pulumi.get(self, "recurrence")
 
 
@@ -1102,17 +1116,27 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
+        """
+        :param Sequence['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
+        :param str timezone: The time zone for the autoscale schedule times.
+        """
         pulumi.set(__self__, "schedules", schedules)
         pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter
     def schedules(self) -> Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule']:
+        """
+        A list of `schedule` blocks as defined below.
+        """
         return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter
     def timezone(self) -> str:
+        """
+        The time zone for the autoscale schedule times.
+        """
         return pulumi.get(self, "timezone")
 
 
@@ -1140,7 +1164,9 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
                  target_instance_count: int,
                  time: str):
         """
-        :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
+        :param Sequence[str] days: The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        :param int target_instance_count: The number of worker nodes to autoscale at the specified time.
+        :param str time: The time of day to perform the autoscale in 24hour format.
         """
         pulumi.set(__self__, "days", days)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
@@ -1149,19 +1175,25 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
     @property
     @pulumi.getter
     def days(self) -> Sequence[str]:
+        """
+        The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
         return pulumi.get(self, "days")
 
     @property
     @pulumi.getter(name="targetInstanceCount")
     def target_instance_count(self) -> int:
         """
-        The number of instances which should be run for the Worker Nodes.
+        The number of worker nodes to autoscale at the specified time.
         """
         return pulumi.get(self, "target_instance_count")
 
     @property
     @pulumi.getter
     def time(self) -> str:
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
         return pulumi.get(self, "time")
 
 
@@ -1247,7 +1279,7 @@ class HBaseClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HBaseClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HBaseClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -1297,7 +1329,7 @@ class HBaseClusterRolesZookeeperNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.HBaseClusterRolesZookeeperNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -2198,7 +2230,7 @@ class HadoopClusterNetwork(dict):
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
-        :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        :param bool private_link_enabled: Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
             pulumi.set(__self__, "connection_direction", connection_direction)
@@ -2219,7 +2251,7 @@ class HadoopClusterNetwork(dict):
     @pulumi.getter(name="privateLinkEnabled")
     def private_link_enabled(self) -> Optional[bool]:
         """
-        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
@@ -2336,7 +2368,7 @@ class HadoopClusterRolesEdgeNode(dict):
         :param Sequence['HadoopClusterRolesEdgeNodeInstallScriptActionArgs'] install_script_actions: A `install_script_action` block as defined below.
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         :param str vm_size: The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
-        :param Sequence['HadoopClusterRolesEdgeNodeHttpsEndpointArgs'] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        :param Sequence['HadoopClusterRolesEdgeNodeHttpsEndpointArgs'] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
         :param Sequence['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs'] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "install_script_actions", install_script_actions)
@@ -2375,7 +2407,7 @@ class HadoopClusterRolesEdgeNode(dict):
     @pulumi.getter(name="httpsEndpoints")
     def https_endpoints(self) -> Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint']]:
         """
-        The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
         """
         return pulumi.get(self, "https_endpoints")
 
@@ -2603,7 +2635,7 @@ class HadoopClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HadoopClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -2653,7 +2685,7 @@ class HadoopClusterRolesHeadNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.HadoopClusterRolesHeadNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -2772,7 +2804,7 @@ class HadoopClusterRolesWorkerNode(dict):
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HadoopClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -2841,7 +2873,7 @@ class HadoopClusterRolesWorkerNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.HadoopClusterRolesWorkerNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -3123,7 +3155,7 @@ class HadoopClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['HadoopClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['HadoopClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -3173,7 +3205,7 @@ class HadoopClusterRolesZookeeperNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.HadoopClusterRolesZookeeperNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -4091,7 +4123,7 @@ class InteractiveQueryClusterNetwork(dict):
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
-        :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        :param bool private_link_enabled: Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
             pulumi.set(__self__, "connection_direction", connection_direction)
@@ -4112,7 +4144,7 @@ class InteractiveQueryClusterNetwork(dict):
     @pulumi.getter(name="privateLinkEnabled")
     def private_link_enabled(self) -> Optional[bool]:
         """
-        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
@@ -4221,7 +4253,7 @@ class InteractiveQueryClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['InteractiveQueryClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['InteractiveQueryClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4273,7 +4305,7 @@ class InteractiveQueryClusterRolesHeadNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.InteractiveQueryClusterRolesHeadNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -4394,7 +4426,7 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4465,7 +4497,7 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.InteractiveQueryClusterRolesWorkerNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -4732,7 +4764,7 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -4782,7 +4814,7 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.InteractiveQueryClusterRolesZookeeperNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -5683,7 +5715,7 @@ class KafkaClusterNetwork(dict):
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
-        :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        :param bool private_link_enabled: Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
             pulumi.set(__self__, "connection_direction", connection_direction)
@@ -5704,7 +5736,7 @@ class KafkaClusterNetwork(dict):
     @pulumi.getter(name="privateLinkEnabled")
     def private_link_enabled(self) -> Optional[bool]:
         """
-        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
@@ -5881,7 +5913,7 @@ class KafkaClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -5931,7 +5963,7 @@ class KafkaClusterRolesHeadNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.KafkaClusterRolesHeadNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -6044,7 +6076,7 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         :param str password: The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesKafkaManagementNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesKafkaManagementNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6094,7 +6126,7 @@ class KafkaClusterRolesKafkaManagementNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.KafkaClusterRolesKafkaManagementNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -6215,7 +6247,7 @@ class KafkaClusterRolesWorkerNode(dict):
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6283,7 +6315,7 @@ class KafkaClusterRolesWorkerNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.KafkaClusterRolesWorkerNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -6396,7 +6428,7 @@ class KafkaClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['KafkaClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['KafkaClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -6446,7 +6478,7 @@ class KafkaClusterRolesZookeeperNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.KafkaClusterRolesZookeeperNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -7347,7 +7379,7 @@ class SparkClusterNetwork(dict):
         :param str connection_direction: The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
                
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
-        :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        :param bool private_link_enabled: Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         if connection_direction is not None:
             pulumi.set(__self__, "connection_direction", connection_direction)
@@ -7368,7 +7400,7 @@ class SparkClusterNetwork(dict):
     @pulumi.getter(name="privateLinkEnabled")
     def private_link_enabled(self) -> Optional[bool]:
         """
-        Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_link_enabled")
 
@@ -7475,7 +7507,7 @@ class SparkClusterRolesHeadNode(dict):
         :param str password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['SparkClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['SparkClusterRolesHeadNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -7525,7 +7557,7 @@ class SparkClusterRolesHeadNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.SparkClusterRolesHeadNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -7644,7 +7676,7 @@ class SparkClusterRolesWorkerNode(dict):
         :param str password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['SparkClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['SparkClusterRolesWorkerNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -7713,7 +7745,7 @@ class SparkClusterRolesWorkerNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.SparkClusterRolesWorkerNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 
@@ -7995,7 +8027,7 @@ class SparkClusterRolesZookeeperNode(dict):
         :param str password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
-        :param Sequence['SparkClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. Changing this forces a new resource to be created.
+        :param Sequence['SparkClusterRolesZookeeperNodeScriptActionArgs'] script_actions: The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         :param Sequence[str] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
                
                > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
@@ -8045,7 +8077,7 @@ class SparkClusterRolesZookeeperNode(dict):
     @pulumi.getter(name="scriptActions")
     def script_actions(self) -> Optional[Sequence['outputs.SparkClusterRolesZookeeperNodeScriptAction']]:
         """
-        The script action which will run on the cluster. Changing this forces a new resource to be created.
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "script_actions")
 

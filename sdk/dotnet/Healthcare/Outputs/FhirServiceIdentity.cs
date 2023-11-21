@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Healthcare.Outputs
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 

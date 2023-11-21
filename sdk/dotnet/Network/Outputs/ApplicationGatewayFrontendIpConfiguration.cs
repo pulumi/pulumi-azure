@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>
-        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
         /// </summary>
         public readonly string? PrivateIpAddressAllocation;
         /// <summary>

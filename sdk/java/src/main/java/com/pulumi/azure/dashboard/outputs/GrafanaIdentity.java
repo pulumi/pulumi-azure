@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GrafanaIdentity {
     /**
-     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -35,7 +35,7 @@ public final class GrafanaIdentity {
 
     private GrafanaIdentity() {}
     /**
-     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+     * @return Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
      * 
      */
     public List<String> identityIds() {

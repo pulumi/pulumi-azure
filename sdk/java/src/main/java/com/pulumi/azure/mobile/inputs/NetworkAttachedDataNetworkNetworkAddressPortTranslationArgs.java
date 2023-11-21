@@ -31,9 +31,17 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs e
         return Optional.ofNullable(this.icmpPinholeTimeoutInSeconds);
     }
 
+    /**
+     * Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+     * 
+     */
     @Import(name="pinholeMaximumNumber")
     private @Nullable Output<Integer> pinholeMaximumNumber;
 
+    /**
+     * @return Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+     * 
+     */
     public Optional<Output<Integer>> pinholeMaximumNumber() {
         return Optional.ofNullable(this.pinholeMaximumNumber);
     }
@@ -164,11 +172,23 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs e
             return icmpPinholeTimeoutInSeconds(Output.of(icmpPinholeTimeoutInSeconds));
         }
 
+        /**
+         * @param pinholeMaximumNumber Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pinholeMaximumNumber(@Nullable Output<Integer> pinholeMaximumNumber) {
             $.pinholeMaximumNumber = pinholeMaximumNumber;
             return this;
         }
 
+        /**
+         * @param pinholeMaximumNumber Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pinholeMaximumNumber(Integer pinholeMaximumNumber) {
             return pinholeMaximumNumber(Output.of(pinholeMaximumNumber));
         }

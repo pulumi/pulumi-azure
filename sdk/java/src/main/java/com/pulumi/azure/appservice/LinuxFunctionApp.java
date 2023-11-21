@@ -202,14 +202,14 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateExclusionPaths);
     }
     /**
-     * The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * @return The mode of the Function App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
@@ -298,6 +298,20 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
+    }
+    /**
+     * Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="ftpPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ftpPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> ftpPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.ftpPublishBasicAuthenticationEnabled);
     }
     /**
      * The runtime version associated with the Function App. Defaults to `~4`.
@@ -652,6 +666,24 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> virtualNetworkSubnetId() {
         return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
+     * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * 
+     */
+    @Export(name="webdeployPublishBasicAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> webdeployPublishBasicAuthenticationEnabled;
+
+    /**
+     * @return Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+     * 
+     * &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+     * 
+     */
+    public Output<Optional<Boolean>> webdeployPublishBasicAuthenticationEnabled() {
+        return Codegen.optional(this.webdeployPublishBasicAuthenticationEnabled);
     }
     /**
      * The local path and filename of the Zip packaged application to deploy to this Linux Function App.

@@ -168,7 +168,7 @@ type Standard struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
-	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+	// If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
 	BundleVersion pulumi.StringPtrOutput `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolOutput `pulumi:"clientAffinityEnabled"`
@@ -211,7 +211,7 @@ type Standard struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrOutput `pulumi:"useExtensionBundle"`
-	// The runtime version associated with the Logic App Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~3`.
 	Version                pulumi.StringPtrOutput `pulumi:"version"`
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
@@ -271,7 +271,7 @@ type standardState struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings map[string]string `pulumi:"appSettings"`
-	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+	// If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
 	BundleVersion *string `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
@@ -314,7 +314,7 @@ type standardState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
-	// The runtime version associated with the Logic App Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~3`.
 	Version                *string `pulumi:"version"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -326,7 +326,7 @@ type StandardState struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings pulumi.StringMapInput
-	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+	// If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
 	BundleVersion pulumi.StringPtrInput
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
@@ -369,7 +369,7 @@ type StandardState struct {
 	Tags pulumi.StringMapInput
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrInput
-	// The runtime version associated with the Logic App Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~3`.
 	Version                pulumi.StringPtrInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
@@ -385,7 +385,7 @@ type standardArgs struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings map[string]string `pulumi:"appSettings"`
-	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+	// If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
 	BundleVersion *string `pulumi:"bundleVersion"`
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
@@ -416,7 +416,7 @@ type standardArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
-	// The runtime version associated with the Logic App Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~3`.
 	Version                *string `pulumi:"version"`
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
@@ -429,7 +429,7 @@ type StandardArgs struct {
 	//
 	// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
 	AppSettings pulumi.StringMapInput
-	// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+	// If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
 	BundleVersion pulumi.StringPtrInput
 	// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled pulumi.BoolPtrInput
@@ -460,7 +460,7 @@ type StandardArgs struct {
 	Tags pulumi.StringMapInput
 	// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
 	UseExtensionBundle pulumi.BoolPtrInput
-	// The runtime version associated with the Logic App Defaults to `~3`.
+	// The runtime version associated with the Logic App. Defaults to `~3`.
 	Version                pulumi.StringPtrInput
 	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
@@ -588,7 +588,7 @@ func (o StandardOutput) AppSettings() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
 
-// If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+// If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
 func (o StandardOutput) BundleVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.BundleVersion }).(pulumi.StringPtrOutput)
 }
@@ -697,7 +697,7 @@ func (o StandardOutput) UseExtensionBundle() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.BoolPtrOutput { return v.UseExtensionBundle }).(pulumi.BoolPtrOutput)
 }
 
-// The runtime version associated with the Logic App Defaults to `~3`.
+// The runtime version associated with the Logic App. Defaults to `~3`.
 func (o StandardOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }

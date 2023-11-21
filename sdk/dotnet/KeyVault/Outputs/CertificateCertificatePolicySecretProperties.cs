@@ -14,7 +14,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertificateCertificatePolicySecretProperties
     {
         /// <summary>
-        /// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        /// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         /// </summary>
         public readonly string ContentType;
 

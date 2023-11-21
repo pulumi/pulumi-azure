@@ -80,7 +80,7 @@ type Domain struct {
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrOutput `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields DomainInputMappingFieldsPtrOutput `pulumi:"inputMappingFields"`
-	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrOutput `pulumi:"inputSchema"`
 	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -152,7 +152,7 @@ type domainState struct {
 	InputMappingDefaultValues *DomainInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields *DomainInputMappingFields `pulumi:"inputMappingFields"`
-	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -187,7 +187,7 @@ type DomainState struct {
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrInput
 	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields DomainInputMappingFieldsPtrInput
-	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
 	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -224,7 +224,7 @@ type domainArgs struct {
 	InputMappingDefaultValues *DomainInputMappingDefaultValues `pulumi:"inputMappingDefaultValues"`
 	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields *DomainInputMappingFields `pulumi:"inputMappingFields"`
-	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -254,7 +254,7 @@ type DomainArgs struct {
 	InputMappingDefaultValues DomainInputMappingDefaultValuesPtrInput
 	// A `inputMappingFields` block as defined below. Changing this forces a new resource to be created.
 	InputMappingFields DomainInputMappingFieldsPtrInput
-	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	InputSchema pulumi.StringPtrInput
 	// Whether local authentication methods is enabled for the EventGrid Domain. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -416,7 +416,7 @@ func (o DomainOutput) InputMappingFields() DomainInputMappingFieldsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainInputMappingFieldsPtrOutput { return v.InputMappingFields }).(DomainInputMappingFieldsPtrOutput)
 }
 
-// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+// Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 func (o DomainOutput) InputSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.InputSchema }).(pulumi.StringPtrOutput)
 }

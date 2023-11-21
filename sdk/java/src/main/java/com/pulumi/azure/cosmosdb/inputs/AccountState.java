@@ -134,14 +134,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
      * 
      */
     @Import(name="consistencyPolicy")
     private @Nullable Output<AccountConsistencyPolicyArgs> consistencyPolicy;
 
     /**
-     * @return Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * @return Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
      * 
      */
     public Optional<Output<AccountConsistencyPolicyArgs>> consistencyPolicy() {
@@ -728,14 +728,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      * 
      */
     @Import(name="virtualNetworkRules")
     private @Nullable Output<List<AccountVirtualNetworkRuleArgs>> virtualNetworkRules;
 
     /**
-     * @return Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * @return Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      * 
      */
     public Optional<Output<List<AccountVirtualNetworkRuleArgs>>> virtualNetworkRules() {
@@ -995,7 +995,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consistencyPolicy Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+         * @param consistencyPolicy Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
          * 
          * @return builder
          * 
@@ -1006,7 +1006,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param consistencyPolicy Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+         * @param consistencyPolicy Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
          * 
          * @return builder
          * 
@@ -1847,7 +1847,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkRules Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+         * @param virtualNetworkRules Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
          * 
          * @return builder
          * 
@@ -1858,7 +1858,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkRules Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+         * @param virtualNetworkRules Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
          * 
          * @return builder
          * 
@@ -1868,7 +1868,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkRules Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+         * @param virtualNetworkRules Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
          * 
          * @return builder
          * 

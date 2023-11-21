@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? Caching { get; set; }
 
         /// <summary>
-        /// The ID of the Disk Encryption Set which should be used to encrypt this image.
+        /// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }

@@ -92,7 +92,7 @@ type Schedule struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings ScheduleNotificationSettingsOutput `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -163,7 +163,7 @@ type scheduleState struct {
 	Location *string `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings *ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -190,7 +190,7 @@ type ScheduleState struct {
 	Location pulumi.StringPtrInput
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings ScheduleNotificationSettingsPtrInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -221,7 +221,7 @@ type scheduleArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings ScheduleNotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -249,7 +249,7 @@ type ScheduleArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the dev test lab schedule. Valid value for name depends on the `taskType`. For instance for taskType `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The notification setting of a schedule. A `notificationSettings` as defined below.
+	// The notification setting of a schedule. A `notificationSettings` block as defined below.
 	NotificationSettings ScheduleNotificationSettingsInput
 	// The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -401,7 +401,7 @@ func (o ScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The notification setting of a schedule. A `notificationSettings` as defined below.
+// The notification setting of a schedule. A `notificationSettings` block as defined below.
 func (o ScheduleOutput) NotificationSettings() ScheduleNotificationSettingsOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleNotificationSettingsOutput { return v.NotificationSettings }).(ScheduleNotificationSettingsOutput)
 }

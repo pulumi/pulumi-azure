@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Batch.Inputs
     public sealed class PoolDataDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: &lt;https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/&gt;. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. For information about the caching options see: &lt;https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/&gt;. Possible values are `None`, `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
         /// </summary>
         [Input("caching")]
         public Input<string>? Caching { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<int> Lun { get; set; } = null!;
 
         /// <summary>
-        /// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+        /// The storage account type to be used for the data disk. Values are: Possible values are `Standard_LRS` - The data disk should use standard locally redundant storage. `Premium_LRS` - The data disk should use premium locally redundant storage. Defaults to `Standard_LRS`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

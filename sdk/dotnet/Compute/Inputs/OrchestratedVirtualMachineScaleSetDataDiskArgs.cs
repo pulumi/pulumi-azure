@@ -48,9 +48,15 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
         [Input("ultraSsdDiskIopsReadWrite")]
         public Input<int>? UltraSsdDiskIopsReadWrite { get; set; }
 
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
         [Input("ultraSsdDiskMbpsReadWrite")]
         public Input<int>? UltraSsdDiskMbpsReadWrite { get; set; }
 

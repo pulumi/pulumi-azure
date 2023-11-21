@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Compute.Inputs
         }
 
         /// <summary>
-        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+        /// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
         /// </summary>
         [Input("enableAutomaticUpgrades")]
         public Input<bool>? EnableAutomaticUpgrades { get; set; }

@@ -134,7 +134,6 @@ namespace Pulumi.Azure.Pim
 
         /// <summary>
         /// The type of principal.
-        /// *
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
@@ -267,7 +266,6 @@ namespace Pulumi.Azure.Pim
 
         /// <summary>
         /// The type of principal.
-        /// *
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }

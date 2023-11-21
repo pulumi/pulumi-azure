@@ -133,7 +133,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
-     * If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      */
     public readonly bundleVersion!: pulumi.Output<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export class Standard extends pulumi.CustomResource {
      */
     public readonly useExtensionBundle!: pulumi.Output<boolean | undefined>;
     /**
-     * The runtime version associated with the Logic App Defaults to `~3`.
+     * The runtime version associated with the Logic App. Defaults to `~3`.
      */
     public readonly version!: pulumi.Output<string | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
@@ -325,7 +325,7 @@ export interface StandardState {
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      */
     bundleVersion?: pulumi.Input<string>;
     /**
@@ -410,7 +410,7 @@ export interface StandardState {
      */
     useExtensionBundle?: pulumi.Input<boolean>;
     /**
-     * The runtime version associated with the Logic App Defaults to `~3`.
+     * The runtime version associated with the Logic App. Defaults to `~3`.
      */
     version?: pulumi.Input<string>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
@@ -431,7 +431,7 @@ export interface StandardArgs {
      */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * If `useExtensionBundle` then controls the allowed range for bundle versions. Default `[1.*, 2.0.0)`
+     * If `useExtensionBundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
      */
     bundleVersion?: pulumi.Input<string>;
     /**
@@ -492,7 +492,7 @@ export interface StandardArgs {
      */
     useExtensionBundle?: pulumi.Input<boolean>;
     /**
-     * The runtime version associated with the Logic App Defaults to `~3`.
+     * The runtime version associated with the Logic App. Defaults to `~3`.
      */
     version?: pulumi.Input<string>;
     virtualNetworkSubnetId?: pulumi.Input<string>;

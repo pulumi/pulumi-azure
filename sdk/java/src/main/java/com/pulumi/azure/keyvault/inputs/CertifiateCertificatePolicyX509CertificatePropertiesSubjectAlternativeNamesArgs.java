@@ -17,14 +17,14 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
     public static final CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs Empty = new CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs();
 
     /**
-     * A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+     * A list of alternative DNS names (FQDNs) identified by the Certificate.
      * 
      */
     @Import(name="dnsNames")
     private @Nullable Output<List<String>> dnsNames;
 
     /**
-     * @return A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+     * @return A list of alternative DNS names (FQDNs) identified by the Certificate.
      * 
      */
     public Optional<Output<List<String>>> dnsNames() {
@@ -32,14 +32,14 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
     }
 
     /**
-     * A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+     * A list of email addresses identified by this Certificate.
      * 
      */
     @Import(name="emails")
     private @Nullable Output<List<String>> emails;
 
     /**
-     * @return A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+     * @return A list of email addresses identified by this Certificate.
      * 
      */
     public Optional<Output<List<String>>> emails() {
@@ -47,14 +47,14 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
     }
 
     /**
-     * A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+     * A list of User Principal Names identified by the Certificate.
      * 
      */
     @Import(name="upns")
     private @Nullable Output<List<String>> upns;
 
     /**
-     * @return A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+     * @return A list of User Principal Names identified by the Certificate.
      * 
      */
     public Optional<Output<List<String>>> upns() {
@@ -88,7 +88,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param dnsNames A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+         * @param dnsNames A list of alternative DNS names (FQDNs) identified by the Certificate.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param dnsNames A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+         * @param dnsNames A list of alternative DNS names (FQDNs) identified by the Certificate.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param dnsNames A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+         * @param dnsNames A list of alternative DNS names (FQDNs) identified by the Certificate.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param emails A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+         * @param emails A list of email addresses identified by this Certificate.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param emails A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+         * @param emails A list of email addresses identified by this Certificate.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param emails A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+         * @param emails A list of email addresses identified by this Certificate.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param upns A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+         * @param upns A list of User Principal Names identified by the Certificate.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param upns A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+         * @param upns A list of User Principal Names identified by the Certificate.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
         }
 
         /**
-         * @param upns A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+         * @param upns A list of User Principal Names identified by the Certificate.
          * 
          * @return builder
          * 

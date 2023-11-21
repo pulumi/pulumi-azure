@@ -89,6 +89,8 @@ type LookupWindowsFunctionAppResult struct {
 	DefaultHostname string `pulumi:"defaultHostname"`
 	// Is the Backup Job enabled?
 	Enabled bool `pulumi:"enabled"`
+	// Are the default FTP Basic Authentication publishing credentials enabled.
+	FtpPublishBasicAuthenticationEnabled bool `pulumi:"ftpPublishBasicAuthenticationEnabled"`
 	// The runtime version associated with the Function App.
 	FunctionsExtensionVersion string `pulumi:"functionsExtensionVersion"`
 	// The ID of the App Service Environment used by Function App.
@@ -113,8 +115,9 @@ type LookupWindowsFunctionAppResult struct {
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
 	// A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses string `pulumi:"possibleOutboundIpAddresses"`
-	PublicNetworkAccessEnabled  bool   `pulumi:"publicNetworkAccessEnabled"`
-	ResourceGroupName           string `pulumi:"resourceGroupName"`
+	// Is Public Network Access enabled for the Windows Function App.
+	PublicNetworkAccessEnabled bool   `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
 	// The ID of the App Service Plan.
 	ServicePlanId string `pulumi:"servicePlanId"`
 	// A `siteConfig` block as defined below.
@@ -135,6 +138,8 @@ type LookupWindowsFunctionAppResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The subnet id which the Windows Function App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
+	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+	WebdeployPublishBasicAuthenticationEnabled bool `pulumi:"webdeployPublishBasicAuthenticationEnabled"`
 }
 
 func LookupWindowsFunctionAppOutput(ctx *pulumi.Context, args LookupWindowsFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFunctionAppResultOutput {
@@ -255,6 +260,11 @@ func (o LookupWindowsFunctionAppResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Are the default FTP Basic Authentication publishing credentials enabled.
+func (o LookupWindowsFunctionAppResultOutput) FtpPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsFunctionAppResult) bool { return v.FtpPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
+}
+
 // The runtime version associated with the Function App.
 func (o LookupWindowsFunctionAppResultOutput) FunctionsExtensionVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.FunctionsExtensionVersion }).(pulumi.StringOutput)
@@ -315,6 +325,7 @@ func (o LookupWindowsFunctionAppResultOutput) PossibleOutboundIpAddresses() pulu
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
 
+// Is Public Network Access enabled for the Windows Function App.
 func (o LookupWindowsFunctionAppResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
@@ -371,6 +382,11 @@ func (o LookupWindowsFunctionAppResultOutput) Tags() pulumi.StringMapOutput {
 // The subnet id which the Windows Function App is vNet Integrated with.
 func (o LookupWindowsFunctionAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
+// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+func (o LookupWindowsFunctionAppResultOutput) WebdeployPublishBasicAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsFunctionAppResult) bool { return v.WebdeployPublishBasicAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

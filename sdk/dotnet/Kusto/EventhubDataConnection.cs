@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Kusto
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         /// </summary>
         [Output("databaseRoutingType")]
         public Output<string?> DatabaseRoutingType { get; private set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         /// </summary>
         [Input("databaseRoutingType")]
         public Input<string>? DatabaseRoutingType { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Kusto
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         /// </summary>
         [Input("databaseRoutingType")]
         public Input<string>? DatabaseRoutingType { get; set; }

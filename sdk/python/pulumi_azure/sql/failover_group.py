@@ -26,15 +26,15 @@ class FailoverGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of secondary servers as documented below
-        :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A read/write policy as documented below
+        :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of `partner_servers` blocks as documented below.
+        :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: A list of database ids to add to the failover group
                
                > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
-        :param pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs'] readonly_endpoint_failover_policy: a read-only policy as documented below
+        :param pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs'] readonly_endpoint_failover_policy: A `readonly_endpoint_failover_policy` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "partner_servers", partner_servers)
@@ -54,7 +54,7 @@ class FailoverGroupArgs:
     @pulumi.getter(name="partnerServers")
     def partner_servers(self) -> pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]:
         """
-        A list of secondary servers as documented below
+        A list of `partner_servers` blocks as documented below.
         """
         return pulumi.get(self, "partner_servers")
 
@@ -66,7 +66,7 @@ class FailoverGroupArgs:
     @pulumi.getter(name="readWriteEndpointFailoverPolicy")
     def read_write_endpoint_failover_policy(self) -> pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']:
         """
-        A read/write policy as documented below
+        A `read_write_endpoint_failover_policy` block as documented below.
         """
         return pulumi.get(self, "read_write_endpoint_failover_policy")
 
@@ -128,7 +128,7 @@ class FailoverGroupArgs:
     @pulumi.getter(name="readonlyEndpointFailoverPolicy")
     def readonly_endpoint_failover_policy(self) -> Optional[pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs']]:
         """
-        a read-only policy as documented below
+        A `readonly_endpoint_failover_policy` block as documented below.
         """
         return pulumi.get(self, "readonly_endpoint_failover_policy")
 
@@ -169,9 +169,9 @@ class _FailoverGroupState:
                > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of secondary servers as documented below
-        :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A read/write policy as documented below
-        :param pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs'] readonly_endpoint_failover_policy: a read-only policy as documented below
+        :param pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]] partner_servers: A list of `partner_servers` blocks as documented below.
+        :param pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs'] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as documented below.
+        :param pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs'] readonly_endpoint_failover_policy: A `readonly_endpoint_failover_policy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: local replication role of the failover group instance.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
@@ -240,7 +240,7 @@ class _FailoverGroupState:
     @pulumi.getter(name="partnerServers")
     def partner_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FailoverGroupPartnerServerArgs']]]]:
         """
-        A list of secondary servers as documented below
+        A list of `partner_servers` blocks as documented below.
         """
         return pulumi.get(self, "partner_servers")
 
@@ -252,7 +252,7 @@ class _FailoverGroupState:
     @pulumi.getter(name="readWriteEndpointFailoverPolicy")
     def read_write_endpoint_failover_policy(self) -> Optional[pulumi.Input['FailoverGroupReadWriteEndpointFailoverPolicyArgs']]:
         """
-        A read/write policy as documented below
+        A `read_write_endpoint_failover_policy` block as documented below.
         """
         return pulumi.get(self, "read_write_endpoint_failover_policy")
 
@@ -264,7 +264,7 @@ class _FailoverGroupState:
     @pulumi.getter(name="readonlyEndpointFailoverPolicy")
     def readonly_endpoint_failover_policy(self) -> Optional[pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs']]:
         """
-        a read-only policy as documented below
+        A `readonly_endpoint_failover_policy` block as documented below.
         """
         return pulumi.get(self, "readonly_endpoint_failover_policy")
 
@@ -390,9 +390,9 @@ class FailoverGroup(pulumi.CustomResource):
                
                > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: a read-only policy as documented below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of `partner_servers` blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as documented below.
+        :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: A `readonly_endpoint_failover_policy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -534,9 +534,9 @@ class FailoverGroup(pulumi.CustomResource):
                > **NOTE:** The failover group will create a secondary database for each database listed in `databases`. If the secondary databases need to be managed through this provider, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first.
         :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] name: The name of the failover group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of secondary servers as documented below
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A read/write policy as documented below
-        :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: a read-only policy as documented below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FailoverGroupPartnerServerArgs']]]] partner_servers: A list of `partner_servers` blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['FailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as documented below.
+        :param pulumi.Input[pulumi.InputType['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] readonly_endpoint_failover_policy: A `readonly_endpoint_failover_policy` block as documented below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the SQL server Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: local replication role of the failover group instance.
         :param pulumi.Input[str] server_name: The name of the primary SQL server. Changing this forces a new resource to be created.
@@ -588,7 +588,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter(name="partnerServers")
     def partner_servers(self) -> pulumi.Output[Sequence['outputs.FailoverGroupPartnerServer']]:
         """
-        A list of secondary servers as documented below
+        A list of `partner_servers` blocks as documented below.
         """
         return pulumi.get(self, "partner_servers")
 
@@ -596,7 +596,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter(name="readWriteEndpointFailoverPolicy")
     def read_write_endpoint_failover_policy(self) -> pulumi.Output['outputs.FailoverGroupReadWriteEndpointFailoverPolicy']:
         """
-        A read/write policy as documented below
+        A `read_write_endpoint_failover_policy` block as documented below.
         """
         return pulumi.get(self, "read_write_endpoint_failover_policy")
 
@@ -604,7 +604,7 @@ class FailoverGroup(pulumi.CustomResource):
     @pulumi.getter(name="readonlyEndpointFailoverPolicy")
     def readonly_endpoint_failover_policy(self) -> pulumi.Output['outputs.FailoverGroupReadonlyEndpointFailoverPolicy']:
         """
-        a read-only policy as documented below
+        A `readonly_endpoint_failover_policy` block as documented below.
         """
         return pulumi.get(self, "readonly_endpoint_failover_policy")
 

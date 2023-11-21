@@ -28,7 +28,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _allowedAudiences;
 
         /// <summary>
-        /// an `allowed_audiences` block as detailed below.
+        /// Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
         /// 
         /// &gt; **Note:** The `client_id` value is always considered an allowed audience.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> TenantAuthEndpoint { get; set; } = null!;
 
         /// <summary>
-        /// Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+        /// Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
         /// </summary>
         [Input("wwwAuthenticationDisabled")]
         public Input<bool>? WwwAuthenticationDisabled { get; set; }

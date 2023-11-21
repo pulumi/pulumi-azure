@@ -63,14 +63,14 @@ public final class SoftwareUpdateConfigurationTargetAzureQueryArgs extends com.p
     }
 
     /**
-     * A mapping of tags used for query filter as defined below.
+     * A mapping of tags used for query filter. One or more `tags` block as defined below.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<List<SoftwareUpdateConfigurationTargetAzureQueryTagArgs>> tags;
 
     /**
-     * @return A mapping of tags used for query filter as defined below.
+     * @return A mapping of tags used for query filter. One or more `tags` block as defined below.
      * 
      */
     public Optional<Output<List<SoftwareUpdateConfigurationTargetAzureQueryTagArgs>>> tags() {
@@ -188,7 +188,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQueryArgs extends com.p
         }
 
         /**
-         * @param tags A mapping of tags used for query filter as defined below.
+         * @param tags A mapping of tags used for query filter. One or more `tags` block as defined below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQueryArgs extends com.p
         }
 
         /**
-         * @param tags A mapping of tags used for query filter as defined below.
+         * @param tags A mapping of tags used for query filter. One or more `tags` block as defined below.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class SoftwareUpdateConfigurationTargetAzureQueryArgs extends com.p
         }
 
         /**
-         * @param tags A mapping of tags used for query filter as defined below.
+         * @param tags A mapping of tags used for query filter. One or more `tags` block as defined below.
          * 
          * @return builder
          * 

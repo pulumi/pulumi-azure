@@ -217,14 +217,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.connectionStrings;
     }
     /**
-     * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
      * 
      */
     @Export(name="consistencyPolicy", refs={AccountConsistencyPolicy.class}, tree="[0]")
     private Output<AccountConsistencyPolicy> consistencyPolicy;
 
     /**
-     * @return Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * @return Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
      * 
      */
     public Output<AccountConsistencyPolicy> consistencyPolicy() {
@@ -773,14 +773,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      * 
      */
     @Export(name="virtualNetworkRules", refs={List.class,AccountVirtualNetworkRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AccountVirtualNetworkRule>> virtualNetworkRules;
 
     /**
-     * @return Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * @return Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
      * 
      */
     public Output<Optional<List<AccountVirtualNetworkRule>>> virtualNetworkRules() {

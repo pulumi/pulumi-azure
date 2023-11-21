@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Management.Inputs
         }
 
         /// <summary>
-        /// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        /// Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

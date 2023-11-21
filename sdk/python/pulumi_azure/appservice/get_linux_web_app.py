@@ -22,7 +22,7 @@ class GetLinuxWebAppResult:
     """
     A collection of values returned by getLinuxWebApp.
     """
-    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_subnet_id=None, webdeploy_publish_basic_authentication_enabled=None):
         if app_metadata and not isinstance(app_metadata, dict):
             raise TypeError("Expected argument 'app_metadata' to be a dict")
         pulumi.set(__self__, "app_metadata", app_metadata)
@@ -65,6 +65,9 @@ class GetLinuxWebAppResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled and not isinstance(ftp_publish_basic_authentication_enabled, bool):
+            raise TypeError("Expected argument 'ftp_publish_basic_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if hosting_environment_id and not isinstance(hosting_environment_id, str):
             raise TypeError("Expected argument 'hosting_environment_id' to be a str")
         pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
@@ -134,6 +137,9 @@ class GetLinuxWebAppResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if webdeploy_publish_basic_authentication_enabled and not isinstance(webdeploy_publish_basic_authentication_enabled, bool):
+            raise TypeError("Expected argument 'webdeploy_publish_basic_authentication_enabled' to be a bool")
+        pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
 
     @property
     @pulumi.getter(name="appMetadata")
@@ -172,7 +178,6 @@ class GetLinuxWebAppResult:
     def availability(self) -> str:
         """
         The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-        *
         """
         return pulumi.get(self, "availability")
 
@@ -247,6 +252,14 @@ class GetLinuxWebAppResult:
         Is the Backup enabled?
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> bool:
+        """
+        Are the default FTP Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="hostingEnvironmentId")
@@ -352,6 +365,9 @@ class GetLinuxWebAppResult:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> bool:
+        """
+        Is Public Network Access enabled for this Linux Web App.
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
@@ -423,6 +439,14 @@ class GetLinuxWebAppResult:
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
+    @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> bool:
+        """
+        Are the default WebDeploy Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
+
 
 class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
     # pylint: disable=using-constant-test
@@ -444,6 +468,7 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             custom_domain_verification_id=self.custom_domain_verification_id,
             default_hostname=self.default_hostname,
             enabled=self.enabled,
+            ftp_publish_basic_authentication_enabled=self.ftp_publish_basic_authentication_enabled,
             hosting_environment_id=self.hosting_environment_id,
             https_only=self.https_only,
             id=self.id,
@@ -466,7 +491,8 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             storage_accounts=self.storage_accounts,
             tags=self.tags,
             usage=self.usage,
-            virtual_network_subnet_id=self.virtual_network_subnet_id)
+            virtual_network_subnet_id=self.virtual_network_subnet_id,
+            webdeploy_publish_basic_authentication_enabled=self.webdeploy_publish_basic_authentication_enabled)
 
 
 def get_linux_web_app(name: Optional[str] = None,
@@ -511,6 +537,7 @@ def get_linux_web_app(name: Optional[str] = None,
         custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
         default_hostname=pulumi.get(__ret__, 'default_hostname'),
         enabled=pulumi.get(__ret__, 'enabled'),
+        ftp_publish_basic_authentication_enabled=pulumi.get(__ret__, 'ftp_publish_basic_authentication_enabled'),
         hosting_environment_id=pulumi.get(__ret__, 'hosting_environment_id'),
         https_only=pulumi.get(__ret__, 'https_only'),
         id=pulumi.get(__ret__, 'id'),
@@ -533,7 +560,8 @@ def get_linux_web_app(name: Optional[str] = None,
         storage_accounts=pulumi.get(__ret__, 'storage_accounts'),
         tags=pulumi.get(__ret__, 'tags'),
         usage=pulumi.get(__ret__, 'usage'),
-        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
+        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
+        webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
 
 
 @_utilities.lift_output_func(get_linux_web_app)

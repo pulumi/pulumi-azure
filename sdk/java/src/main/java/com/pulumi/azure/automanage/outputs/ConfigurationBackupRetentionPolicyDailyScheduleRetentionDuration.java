@@ -18,7 +18,7 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
      */
     private @Nullable Integer count;
     /**
-     * @return The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+     * @return The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
      * 
      */
     private @Nullable String durationType;
@@ -32,7 +32,7 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
         return Optional.ofNullable(this.count);
     }
     /**
-     * @return The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+     * @return The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
      * 
      */
     public Optional<String> durationType() {

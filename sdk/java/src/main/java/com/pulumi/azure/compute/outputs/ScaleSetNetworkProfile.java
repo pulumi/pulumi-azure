@@ -21,12 +21,12 @@ public final class ScaleSetNetworkProfile {
      */
     private @Nullable Boolean acceleratedNetworking;
     /**
-     * @return A dns_settings block as documented below.
+     * @return A `dns_settings` block as documented below.
      * 
      */
     private @Nullable ScaleSetNetworkProfileDnsSettings dnsSettings;
     /**
-     * @return An ip_configuration block as documented below.
+     * @return An `ip_configuration` block as documented below.
      * 
      */
     private List<ScaleSetNetworkProfileIpConfiguration> ipConfigurations;
@@ -60,14 +60,14 @@ public final class ScaleSetNetworkProfile {
         return Optional.ofNullable(this.acceleratedNetworking);
     }
     /**
-     * @return A dns_settings block as documented below.
+     * @return A `dns_settings` block as documented below.
      * 
      */
     public Optional<ScaleSetNetworkProfileDnsSettings> dnsSettings() {
         return Optional.ofNullable(this.dnsSettings);
     }
     /**
-     * @return An ip_configuration block as documented below.
+     * @return An `ip_configuration` block as documented below.
      * 
      */
     public List<ScaleSetNetworkProfileIpConfiguration> ipConfigurations() {

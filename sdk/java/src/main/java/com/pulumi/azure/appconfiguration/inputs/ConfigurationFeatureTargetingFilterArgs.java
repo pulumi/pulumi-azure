@@ -34,14 +34,14 @@ public final class ConfigurationFeatureTargetingFilterArgs extends com.pulumi.re
     }
 
     /**
-     * One or more blocks of type `groups` as defined below.
+     * One or more `groups` blocks as defined below.
      * 
      */
     @Import(name="groups")
     private @Nullable Output<List<ConfigurationFeatureTargetingFilterGroupArgs>> groups;
 
     /**
-     * @return One or more blocks of type `groups` as defined below.
+     * @return One or more `groups` blocks as defined below.
      * 
      */
     public Optional<Output<List<ConfigurationFeatureTargetingFilterGroupArgs>>> groups() {
@@ -111,7 +111,7 @@ public final class ConfigurationFeatureTargetingFilterArgs extends com.pulumi.re
         }
 
         /**
-         * @param groups One or more blocks of type `groups` as defined below.
+         * @param groups One or more `groups` blocks as defined below.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class ConfigurationFeatureTargetingFilterArgs extends com.pulumi.re
         }
 
         /**
-         * @param groups One or more blocks of type `groups` as defined below.
+         * @param groups One or more `groups` blocks as defined below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ConfigurationFeatureTargetingFilterArgs extends com.pulumi.re
         }
 
         /**
-         * @param groups One or more blocks of type `groups` as defined below.
+         * @param groups One or more `groups` blocks as defined below.
          * 
          * @return builder
          * 

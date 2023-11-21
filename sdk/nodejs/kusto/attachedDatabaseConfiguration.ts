@@ -112,7 +112,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
-     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      */
     public readonly defaultPrincipalModificationKind!: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface AttachedDatabaseConfigurationState {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      */
     defaultPrincipalModificationKind?: pulumi.Input<string>;
     /**
@@ -242,7 +242,7 @@ export interface AttachedDatabaseConfigurationArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      */
     defaultPrincipalModificationKind?: pulumi.Input<string>;
     /**

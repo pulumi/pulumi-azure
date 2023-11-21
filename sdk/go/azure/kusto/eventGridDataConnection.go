@@ -153,7 +153,7 @@ type EventGridDataConnection struct {
 	DataFormat pulumi.StringPtrOutput `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId pulumi.StringPtrOutput `pulumi:"eventgridResourceId"`
@@ -235,7 +235,7 @@ type eventGridDataConnectionState struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId *string `pulumi:"eventgridResourceId"`
@@ -270,7 +270,7 @@ type EventGridDataConnectionState struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId pulumi.StringPtrInput
@@ -309,7 +309,7 @@ type eventGridDataConnectionArgs struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId *string `pulumi:"eventgridResourceId"`
@@ -345,7 +345,7 @@ type EventGridDataConnectionArgs struct {
 	DataFormat pulumi.StringPtrInput
 	// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrInput
 	// The resource ID of the event grid that is subscribed to the storage account events.
 	EventgridResourceId pulumi.StringPtrInput
@@ -502,7 +502,7 @@ func (o EventGridDataConnectionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 func (o EventGridDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.DatabaseRoutingType }).(pulumi.StringPtrOutput)
 }

@@ -15,16 +15,32 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs extends co
 
     public static final HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs Empty = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs();
 
+    /**
+     * A list of `schedule` blocks as defined below.
+     * 
+     */
     @Import(name="schedules", required=true)
     private Output<List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>> schedules;
 
+    /**
+     * @return A list of `schedule` blocks as defined below.
+     * 
+     */
     public Output<List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>> schedules() {
         return this.schedules;
     }
 
+    /**
+     * The time zone for the autoscale schedule times.
+     * 
+     */
     @Import(name="timezone", required=true)
     private Output<String> timezone;
 
+    /**
+     * @return The time zone for the autoscale schedule times.
+     * 
+     */
     public Output<String> timezone() {
         return this.timezone;
     }
@@ -54,24 +70,54 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs extends co
             $ = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param schedules A list of `schedule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schedules(Output<List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>> schedules) {
             $.schedules = schedules;
             return this;
         }
 
+        /**
+         * @param schedules A list of `schedule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schedules(List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs> schedules) {
             return schedules(Output.of(schedules));
         }
 
+        /**
+         * @param schedules A list of `schedule` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schedules(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs... schedules) {
             return schedules(List.of(schedules));
         }
 
+        /**
+         * @param timezone The time zone for the autoscale schedule times.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timezone(Output<String> timezone) {
             $.timezone = timezone;
             return this;
         }
 
+        /**
+         * @param timezone The time zone for the autoscale schedule times.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timezone(String timezone) {
             return timezone(Output.of(timezone));
         }

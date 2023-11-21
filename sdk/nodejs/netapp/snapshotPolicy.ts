@@ -98,7 +98,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
-     * Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+     * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
     public readonly dailySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyDailySchedule>;
     /**
@@ -106,7 +106,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+     * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
     public readonly hourlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyHourlySchedule>;
     /**
@@ -114,7 +114,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+     * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
     public readonly monthlySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyMonthlySchedule>;
     /**
@@ -130,7 +130,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+     * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
     public readonly weeklySchedule!: pulumi.Output<outputs.netapp.SnapshotPolicyWeeklySchedule>;
 
@@ -193,7 +193,7 @@ export interface SnapshotPolicyState {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+     * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
     dailySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyDailySchedule>;
     /**
@@ -201,7 +201,7 @@ export interface SnapshotPolicyState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+     * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
     hourlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyHourlySchedule>;
     /**
@@ -209,7 +209,7 @@ export interface SnapshotPolicyState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+     * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
     monthlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyMonthlySchedule>;
     /**
@@ -225,7 +225,7 @@ export interface SnapshotPolicyState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+     * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
     weeklySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyWeeklySchedule>;
 }
@@ -239,7 +239,7 @@ export interface SnapshotPolicyArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Sets a daily snapshot schedule. See details in below `dailySchedule` block.
+     * Sets a daily snapshot schedule. A `dailySchedule` block as defined below.
      */
     dailySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyDailySchedule>;
     /**
@@ -247,7 +247,7 @@ export interface SnapshotPolicyArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Sets an hourly snapshot schedule. See details in below `hourlySchedule` block.
+     * Sets an hourly snapshot schedule. A `hourlySchedule` block as defined below.
      */
     hourlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyHourlySchedule>;
     /**
@@ -255,7 +255,7 @@ export interface SnapshotPolicyArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Sets a monthly snapshot schedule. See details in below `monthlySchedule` block.
+     * Sets a monthly snapshot schedule. A `monthlySchedule` block as defined below.
      */
     monthlySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyMonthlySchedule>;
     /**
@@ -271,7 +271,7 @@ export interface SnapshotPolicyArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Sets a weekly snapshot schedule. See details in below `weeklySchedule` block.
+     * Sets a weekly snapshot schedule. A `weeklySchedule` block as defined below.
      */
     weeklySchedule?: pulumi.Input<inputs.netapp.SnapshotPolicyWeeklySchedule>;
 }

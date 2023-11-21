@@ -85,7 +85,7 @@ type IntegrationRuntimeManaged struct {
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode pulumi.IntPtrOutput `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -147,7 +147,7 @@ type integrationRuntimeManagedState struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode *int `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -174,7 +174,7 @@ type IntegrationRuntimeManagedState struct {
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode pulumi.IntPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -205,7 +205,7 @@ type integrationRuntimeManagedArgs struct {
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode *int `pulumi:"maxParallelExecutionsPerNode"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -233,7 +233,7 @@ type IntegrationRuntimeManagedArgs struct {
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+	// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 	MaxParallelExecutionsPerNode pulumi.IntPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -393,7 +393,7 @@ func (o IntegrationRuntimeManagedOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManaged) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
+// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
 func (o IntegrationRuntimeManagedOutput) MaxParallelExecutionsPerNode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeManaged) pulumi.IntPtrOutput { return v.MaxParallelExecutionsPerNode }).(pulumi.IntPtrOutput)
 }

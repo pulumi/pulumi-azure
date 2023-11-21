@@ -21,7 +21,7 @@ type DatabaseImport struct {
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// Specifies the type of import operation being performed. The only allowable value is `Import`.
+	// Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
 	OperationMode *string `pulumi:"operationMode"`
 	// Specifies the access key for the storage account.
 	StorageKey string `pulumi:"storageKey"`
@@ -49,7 +49,7 @@ type DatabaseImportArgs struct {
 	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
 	// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Specifies the type of import operation being performed. The only allowable value is `Import`.
+	// Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
 	OperationMode pulumi.StringPtrInput `pulumi:"operationMode"`
 	// Specifies the access key for the storage account.
 	StorageKey pulumi.StringInput `pulumi:"storageKey"`
@@ -169,7 +169,7 @@ func (o DatabaseImportOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Specifies the type of import operation being performed. The only allowable value is `Import`.
+// Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
 func (o DatabaseImportOutput) OperationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseImport) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
 }
@@ -249,7 +249,7 @@ func (o DatabaseImportPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of import operation being performed. The only allowable value is `Import`.
+// Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
 func (o DatabaseImportPtrOutput) OperationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseImport) *string {
 		if v == nil {
@@ -292,13 +292,13 @@ func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringPtrOutput {
 type DatabaseThreatDetectionPolicy struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays *int `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -320,13 +320,13 @@ type DatabaseThreatDetectionPolicyInput interface {
 type DatabaseThreatDetectionPolicyArgs struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 	EmailAccountAdmins pulumi.StringPtrInput `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
@@ -434,7 +434,7 @@ func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArray
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
 }
@@ -449,7 +449,7 @@ func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -504,7 +504,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -534,7 +534,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -1769,7 +1769,7 @@ type SqlServerThreatDetectionPolicy struct {
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays *int `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+	// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -1797,7 +1797,7 @@ type SqlServerThreatDetectionPolicyArgs struct {
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+	// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
@@ -1920,7 +1920,7 @@ func (o SqlServerThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
 func (o SqlServerThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -2005,7 +2005,7 @@ func (o SqlServerThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
 func (o SqlServerThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerThreatDetectionPolicy) *string {
 		if v == nil {

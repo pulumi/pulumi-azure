@@ -46,14 +46,14 @@ public final class ClusterExtensionIdentityArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -129,7 +129,7 @@ public final class ClusterExtensionIdentityArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ClusterExtensionIdentityArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

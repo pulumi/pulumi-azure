@@ -12,6 +12,10 @@ namespace Pulumi.Azure.ServiceBus
     /// <summary>
     /// Manages a ServiceBus Namespace Network Rule Set.
     /// 
+    /// &gt; The `azure.servicebus.NamespaceNetworkRuleSet` resource is deprecated
+    /// and will be removed in version 4.0 of the AzureRM provider. Please use
+    /// `network_rule_set` inside the `azure.servicebus.Namespace` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -98,7 +102,7 @@ namespace Pulumi.Azure.ServiceBus
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Output("defaultAction")]
         public Output<string?> DefaultAction { get; private set; } = null!;
@@ -182,7 +186,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class NamespaceNetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("defaultAction")]
         public Input<string>? DefaultAction { get; set; }
@@ -240,7 +244,7 @@ namespace Pulumi.Azure.ServiceBus
     public sealed class NamespaceNetworkRuleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("defaultAction")]
         public Input<string>? DefaultAction { get; set; }

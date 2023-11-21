@@ -46,14 +46,14 @@ public final class IntegrationRuntimeManagedCatalogInfoArgs extends com.pulumi.r
     }
 
     /**
-     * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+     * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
      * 
      */
     @Import(name="pricingTier")
     private @Nullable Output<String> pricingTier;
 
     /**
-     * @return Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+     * @return Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
      * 
      */
     public Optional<Output<String>> pricingTier() {
@@ -145,7 +145,7 @@ public final class IntegrationRuntimeManagedCatalogInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param pricingTier Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+         * @param pricingTier Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class IntegrationRuntimeManagedCatalogInfoArgs extends com.pulumi.r
         }
 
         /**
-         * @param pricingTier Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+         * @param pricingTier Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
          * 
          * @return builder
          * 

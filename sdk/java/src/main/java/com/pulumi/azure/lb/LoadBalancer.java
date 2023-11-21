@@ -96,14 +96,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.edgeZone);
     }
     /**
-     * One or multiple `frontend_ip_configuration` blocks as documented below.
+     * One or more `frontend_ip_configuration` blocks as documented below.
      * 
      */
     @Export(name="frontendIpConfigurations", refs={List.class,LoadBalancerFrontendIpConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LoadBalancerFrontendIpConfiguration>> frontendIpConfigurations;
 
     /**
-     * @return One or multiple `frontend_ip_configuration` blocks as documented below.
+     * @return One or more `frontend_ip_configuration` blocks as documented below.
      * 
      */
     public Output<Optional<List<LoadBalancerFrontendIpConfiguration>>> frontendIpConfigurations() {

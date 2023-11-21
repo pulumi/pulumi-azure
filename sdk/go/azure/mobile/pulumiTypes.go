@@ -17,7 +17,8 @@ var _ = internal.GetEnvOrDefault
 type NetworkAttachedDataNetworkNetworkAddressPortTranslation struct {
 	// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
 	IcmpPinholeTimeoutInSeconds *int `pulumi:"icmpPinholeTimeoutInSeconds"`
-	PinholeMaximumNumber        *int `pulumi:"pinholeMaximumNumber"`
+	// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+	PinholeMaximumNumber *int `pulumi:"pinholeMaximumNumber"`
 	// A `portRange` block as defined below.
 	PortRange *NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange `pulumi:"portRange"`
 	// Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
@@ -44,7 +45,8 @@ type NetworkAttachedDataNetworkNetworkAddressPortTranslationInput interface {
 type NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs struct {
 	// Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
 	IcmpPinholeTimeoutInSeconds pulumi.IntPtrInput `pulumi:"icmpPinholeTimeoutInSeconds"`
-	PinholeMaximumNumber        pulumi.IntPtrInput `pulumi:"pinholeMaximumNumber"`
+	// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+	PinholeMaximumNumber pulumi.IntPtrInput `pulumi:"pinholeMaximumNumber"`
 	// A `portRange` block as defined below.
 	PortRange NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangePtrInput `pulumi:"portRange"`
 	// Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
@@ -159,6 +161,7 @@ func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) IcmpPinho
 	}).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationOutput) PinholeMaximumNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int { return v.PinholeMaximumNumber }).(pulumi.IntPtrOutput)
 }
@@ -238,6 +241,7 @@ func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) IcmpPi
 	}).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
 func (o NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput) PinholeMaximumNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkAttachedDataNetworkNetworkAddressPortTranslation) *int {
 		if v == nil {
@@ -850,7 +854,7 @@ type NetworkPacketCoreControlPlanePlatform struct {
 	EdgeDeviceId *string `pulumi:"edgeDeviceId"`
 	// The ID of the Azure Stack HCI cluster where the packet core is deployed.
 	StackHciClusterId *string `pulumi:"stackHciClusterId"`
-	// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+	// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
 	Type string `pulumi:"type"`
 }
 
@@ -876,7 +880,7 @@ type NetworkPacketCoreControlPlanePlatformArgs struct {
 	EdgeDeviceId pulumi.StringPtrInput `pulumi:"edgeDeviceId"`
 	// The ID of the Azure Stack HCI cluster where the packet core is deployed.
 	StackHciClusterId pulumi.StringPtrInput `pulumi:"stackHciClusterId"`
-	// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+	// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -997,7 +1001,7 @@ func (o NetworkPacketCoreControlPlanePlatformOutput) StackHciClusterId() pulumi.
 	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) *string { return v.StackHciClusterId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
 func (o NetworkPacketCoreControlPlanePlatformOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1074,7 +1078,7 @@ func (o NetworkPacketCoreControlPlanePlatformPtrOutput) StackHciClusterId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
 func (o NetworkPacketCoreControlPlanePlatformPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
 		if v == nil {
@@ -1244,7 +1248,7 @@ func (o NetworkServicePccRuleArrayOutput) Index(i pulumi.IntInput) NetworkServic
 }
 
 type NetworkServicePccRuleQosPolicy struct {
-	// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
 	AllocationAndRetentionPriorityLevel *int `pulumi:"allocationAndRetentionPriorityLevel"`
 	// A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
 	GuaranteedBitRate *NetworkServicePccRuleQosPolicyGuaranteedBitRate `pulumi:"guaranteedBitRate"`
@@ -1254,7 +1258,7 @@ type NetworkServicePccRuleQosPolicy struct {
 	PreemptionCapability *string `pulumi:"preemptionCapability"`
 	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
 	PreemptionVulnerability *string `pulumi:"preemptionVulnerability"`
-	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 	QosIndicator int `pulumi:"qosIndicator"`
 }
 
@@ -1270,7 +1274,7 @@ type NetworkServicePccRuleQosPolicyInput interface {
 }
 
 type NetworkServicePccRuleQosPolicyArgs struct {
-	// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+	// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
 	AllocationAndRetentionPriorityLevel pulumi.IntPtrInput `pulumi:"allocationAndRetentionPriorityLevel"`
 	// A `guaranteedBitRate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
 	GuaranteedBitRate NetworkServicePccRuleQosPolicyGuaranteedBitRatePtrInput `pulumi:"guaranteedBitRate"`
@@ -1280,7 +1284,7 @@ type NetworkServicePccRuleQosPolicyArgs struct {
 	PreemptionCapability pulumi.StringPtrInput `pulumi:"preemptionCapability"`
 	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
 	PreemptionVulnerability pulumi.StringPtrInput `pulumi:"preemptionVulnerability"`
-	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 	QosIndicator pulumi.IntInput `pulumi:"qosIndicator"`
 }
 
@@ -1379,7 +1383,7 @@ func (o NetworkServicePccRuleQosPolicyOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
 func (o NetworkServicePccRuleQosPolicyOutput) AllocationAndRetentionPriorityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkServicePccRuleQosPolicy) *int { return v.AllocationAndRetentionPriorityLevel }).(pulumi.IntPtrOutput)
 }
@@ -1408,7 +1412,7 @@ func (o NetworkServicePccRuleQosPolicyOutput) PreemptionVulnerability() pulumi.S
 	return o.ApplyT(func(v NetworkServicePccRuleQosPolicy) *string { return v.PreemptionVulnerability }).(pulumi.StringPtrOutput)
 }
 
-// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 func (o NetworkServicePccRuleQosPolicyOutput) QosIndicator() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkServicePccRuleQosPolicy) int { return v.QosIndicator }).(pulumi.IntOutput)
 }
@@ -1443,7 +1447,7 @@ func (o NetworkServicePccRuleQosPolicyPtrOutput) Elem() NetworkServicePccRuleQos
 	}).(NetworkServicePccRuleQosPolicyOutput)
 }
 
-// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+// QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qosIndicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
 func (o NetworkServicePccRuleQosPolicyPtrOutput) AllocationAndRetentionPriorityLevel() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkServicePccRuleQosPolicy) *int {
 		if v == nil {
@@ -1493,7 +1497,7 @@ func (o NetworkServicePccRuleQosPolicyPtrOutput) PreemptionVulnerability() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 func (o NetworkServicePccRuleQosPolicyPtrOutput) QosIndicator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkServicePccRuleQosPolicy) *int {
 		if v == nil {
@@ -2025,11 +2029,11 @@ type NetworkServiceServiceQosPolicy struct {
 	AllocationAndRetentionPriorityLevel *int `pulumi:"allocationAndRetentionPriorityLevel"`
 	// A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
 	MaximumBitRate NetworkServiceServiceQosPolicyMaximumBitRate `pulumi:"maximumBitRate"`
-	// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+	// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
 	PreemptionCapability *string `pulumi:"preemptionCapability"`
-	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
 	PreemptionVulnerability *string `pulumi:"preemptionVulnerability"`
-	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 	QosIndicator *int `pulumi:"qosIndicator"`
 }
 
@@ -2049,11 +2053,11 @@ type NetworkServiceServiceQosPolicyArgs struct {
 	AllocationAndRetentionPriorityLevel pulumi.IntPtrInput `pulumi:"allocationAndRetentionPriorityLevel"`
 	// A `maximumBitRate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
 	MaximumBitRate NetworkServiceServiceQosPolicyMaximumBitRateInput `pulumi:"maximumBitRate"`
-	// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+	// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
 	PreemptionCapability pulumi.StringPtrInput `pulumi:"preemptionCapability"`
-	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+	// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
 	PreemptionVulnerability pulumi.StringPtrInput `pulumi:"preemptionVulnerability"`
-	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 	QosIndicator pulumi.IntPtrInput `pulumi:"qosIndicator"`
 }
 
@@ -2164,17 +2168,17 @@ func (o NetworkServiceServiceQosPolicyOutput) MaximumBitRate() NetworkServiceSer
 	}).(NetworkServiceServiceQosPolicyMaximumBitRateOutput)
 }
 
-// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
 func (o NetworkServiceServiceQosPolicyOutput) PreemptionCapability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkServiceServiceQosPolicy) *string { return v.PreemptionCapability }).(pulumi.StringPtrOutput)
 }
 
-// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
 func (o NetworkServiceServiceQosPolicyOutput) PreemptionVulnerability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkServiceServiceQosPolicy) *string { return v.PreemptionVulnerability }).(pulumi.StringPtrOutput)
 }
 
-// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 func (o NetworkServiceServiceQosPolicyOutput) QosIndicator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v NetworkServiceServiceQosPolicy) *int { return v.QosIndicator }).(pulumi.IntPtrOutput)
 }
@@ -2229,7 +2233,7 @@ func (o NetworkServiceServiceQosPolicyPtrOutput) MaximumBitRate() NetworkService
 	}).(NetworkServiceServiceQosPolicyMaximumBitRatePtrOutput)
 }
 
-// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+// The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
 func (o NetworkServiceServiceQosPolicyPtrOutput) PreemptionCapability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkServiceServiceQosPolicy) *string {
 		if v == nil {
@@ -2239,7 +2243,7 @@ func (o NetworkServiceServiceQosPolicyPtrOutput) PreemptionCapability() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+// The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
 func (o NetworkServiceServiceQosPolicyPtrOutput) PreemptionVulnerability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkServiceServiceQosPolicy) *string {
 		if v == nil {
@@ -2249,7 +2253,7 @@ func (o NetworkServiceServiceQosPolicyPtrOutput) PreemptionVulnerability() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 func (o NetworkServiceServiceQosPolicyPtrOutput) QosIndicator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkServiceServiceQosPolicy) *int {
 		if v == nil {
@@ -2773,9 +2777,9 @@ type NetworkSimPolicySliceDataNetwork struct {
 	MaxBufferedPackets *int `pulumi:"maxBufferedPackets"`
 	// The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
 	PreemptionCapability *string `pulumi:"preemptionCapability"`
-	// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+	// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
 	PreemptionVulnerability *string `pulumi:"preemptionVulnerability"`
-	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 	QosIndicator int `pulumi:"qosIndicator"`
 	// A `sessionAggregateMaximumBitRate` block as defined below.
 	SessionAggregateMaximumBitRate NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate `pulumi:"sessionAggregateMaximumBitRate"`
@@ -2807,9 +2811,9 @@ type NetworkSimPolicySliceDataNetworkArgs struct {
 	MaxBufferedPackets pulumi.IntPtrInput `pulumi:"maxBufferedPackets"`
 	// The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
 	PreemptionCapability pulumi.StringPtrInput `pulumi:"preemptionCapability"`
-	// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+	// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
 	PreemptionVulnerability pulumi.StringPtrInput `pulumi:"preemptionVulnerability"`
-	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+	// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 	QosIndicator pulumi.IntInput `pulumi:"qosIndicator"`
 	// A `sessionAggregateMaximumBitRate` block as defined below.
 	SessionAggregateMaximumBitRate NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateInput `pulumi:"sessionAggregateMaximumBitRate"`
@@ -2919,12 +2923,12 @@ func (o NetworkSimPolicySliceDataNetworkOutput) PreemptionCapability() pulumi.St
 	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *string { return v.PreemptionCapability }).(pulumi.StringPtrOutput)
 }
 
-// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+// The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
 func (o NetworkSimPolicySliceDataNetworkOutput) PreemptionVulnerability() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) *string { return v.PreemptionVulnerability }).(pulumi.StringPtrOutput)
 }
 
-// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+// The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
 func (o NetworkSimPolicySliceDataNetworkOutput) QosIndicator() pulumi.IntOutput {
 	return o.ApplyT(func(v NetworkSimPolicySliceDataNetwork) int { return v.QosIndicator }).(pulumi.IntOutput)
 }
@@ -3218,7 +3222,8 @@ func (o NetworkSimPolicyUserEquipmentAggregateMaximumBitRatePtrOutput) Uplink() 
 type NetworkSimStaticIpConfiguration struct {
 	// The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
 	AttachedDataNetworkId string `pulumi:"attachedDataNetworkId"`
-	SliceId               string `pulumi:"sliceId"`
+	// The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+	SliceId string `pulumi:"sliceId"`
 	// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
 	StaticIpv4Address *string `pulumi:"staticIpv4Address"`
 }
@@ -3237,7 +3242,8 @@ type NetworkSimStaticIpConfigurationInput interface {
 type NetworkSimStaticIpConfigurationArgs struct {
 	// The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
 	AttachedDataNetworkId pulumi.StringInput `pulumi:"attachedDataNetworkId"`
-	SliceId               pulumi.StringInput `pulumi:"sliceId"`
+	// The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+	SliceId pulumi.StringInput `pulumi:"sliceId"`
 	// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
 	StaticIpv4Address pulumi.StringPtrInput `pulumi:"staticIpv4Address"`
 }
@@ -3316,6 +3322,7 @@ func (o NetworkSimStaticIpConfigurationOutput) AttachedDataNetworkId() pulumi.St
 	return o.ApplyT(func(v NetworkSimStaticIpConfiguration) string { return v.AttachedDataNetworkId }).(pulumi.StringOutput)
 }
 
+// The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
 func (o NetworkSimStaticIpConfigurationOutput) SliceId() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSimStaticIpConfiguration) string { return v.SliceId }).(pulumi.StringOutput)
 }

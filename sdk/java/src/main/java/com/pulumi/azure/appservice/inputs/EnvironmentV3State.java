@@ -97,14 +97,14 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * An Inbound Network Dependencies block as defined below.
+     * An `inbound_network_dependencies` block as defined below.
      * 
      */
     @Import(name="inboundNetworkDependencies")
     private @Nullable Output<List<EnvironmentV3InboundNetworkDependencyArgs>> inboundNetworkDependencies;
 
     /**
-     * @return An Inbound Network Dependencies block as defined below.
+     * @return An `inbound_network_dependencies` block as defined below.
      * 
      */
     public Optional<Output<List<EnvironmentV3InboundNetworkDependencyArgs>>> inboundNetworkDependencies() {
@@ -462,7 +462,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inboundNetworkDependencies An Inbound Network Dependencies block as defined below.
+         * @param inboundNetworkDependencies An `inbound_network_dependencies` block as defined below.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inboundNetworkDependencies An Inbound Network Dependencies block as defined below.
+         * @param inboundNetworkDependencies An `inbound_network_dependencies` block as defined below.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class EnvironmentV3State extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param inboundNetworkDependencies An Inbound Network Dependencies block as defined below.
+         * @param inboundNetworkDependencies An `inbound_network_dependencies` block as defined below.
          * 
          * @return builder
          * 

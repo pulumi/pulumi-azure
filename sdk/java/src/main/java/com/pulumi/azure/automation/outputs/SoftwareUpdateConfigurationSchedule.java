@@ -49,7 +49,7 @@ public final class SoftwareUpdateConfigurationSchedule {
      */
     private @Nullable Integer interval;
     /**
-     * @return Whether the schedule is enabled.
+     * @return Whether the schedule is enabled. Defaults to `true`.
      * 
      */
     private @Nullable Boolean isEnabled;
@@ -123,7 +123,7 @@ public final class SoftwareUpdateConfigurationSchedule {
         return Optional.ofNullable(this.interval);
     }
     /**
-     * @return Whether the schedule is enabled.
+     * @return Whether the schedule is enabled. Defaults to `true`.
      * 
      */
     public Optional<Boolean> isEnabled() {

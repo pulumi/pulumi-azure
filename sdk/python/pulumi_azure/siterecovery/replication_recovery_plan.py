@@ -30,7 +30,7 @@ class ReplicationRecoveryPlanArgs:
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
-        :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
                
                > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
@@ -40,7 +40,7 @@ class ReplicationRecoveryPlanArgs:
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block defined as below.
                
-               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+               > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs'] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
                
                > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
@@ -104,7 +104,7 @@ class ReplicationRecoveryPlanArgs:
     @pulumi.getter(name="azureToAzureSettings")
     def azure_to_azure_settings(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]:
         """
-        An `azure_to_azure_settings` block defined as block.
+        An `azure_to_azure_settings` block as defined below.
         """
         return pulumi.get(self, "azure_to_azure_settings")
 
@@ -158,7 +158,7 @@ class ReplicationRecoveryPlanArgs:
         """
         Three or more `recovery_group` block defined as below.
 
-        **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
         warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
         pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
@@ -198,7 +198,7 @@ class _ReplicationRecoveryPlanState:
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
-        :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs'] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupArgs']]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
                
                > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
@@ -208,7 +208,7 @@ class _ReplicationRecoveryPlanState:
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupArgs']]] recovery_groups: Three or more `recovery_group` block defined as below.
                
-               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+               > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupArgs'] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
                
@@ -242,7 +242,7 @@ class _ReplicationRecoveryPlanState:
     @pulumi.getter(name="azureToAzureSettings")
     def azure_to_azure_settings(self) -> Optional[pulumi.Input['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]:
         """
-        An `azure_to_azure_settings` block defined as block.
+        An `azure_to_azure_settings` block as defined below.
         """
         return pulumi.get(self, "azure_to_azure_settings")
 
@@ -296,7 +296,7 @@ class _ReplicationRecoveryPlanState:
         """
         Three or more `recovery_group` block defined as below.
 
-        **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
         warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
         pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")
@@ -536,7 +536,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
                
                > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
@@ -546,7 +546,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
                
-               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+               > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
                
@@ -795,7 +795,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block defined as block.
+        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
                
                > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
@@ -805,7 +805,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
                
-               **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+               > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
                
@@ -832,7 +832,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     @pulumi.getter(name="azureToAzureSettings")
     def azure_to_azure_settings(self) -> pulumi.Output[Optional['outputs.ReplicationRecoveryPlanAzureToAzureSettings']]:
         """
-        An `azure_to_azure_settings` block defined as block.
+        An `azure_to_azure_settings` block as defined below.
         """
         return pulumi.get(self, "azure_to_azure_settings")
 
@@ -870,7 +870,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         """
         Three or more `recovery_group` block defined as below.
 
-        **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         """
         warnings.warn("""the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""", DeprecationWarning)
         pulumi.log.warn("""recovery_groups is deprecated: the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.""")

@@ -74,7 +74,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private String tenantAuthEndpoint;
     /**
-     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     private @Nullable Boolean wwwAuthenticationDisabled;
@@ -162,7 +162,7 @@ public final class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.tenantAuthEndpoint;
     }
     /**
-     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     public Optional<Boolean> wwwAuthenticationDisabled() {

@@ -84,7 +84,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
-     * Specifies if the Snapshot is incremental.
+     * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      */
     public readonly incrementalEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface SnapshotState {
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
-     * Specifies if the Snapshot is incremental.
+     * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      */
     incrementalEnabled?: pulumi.Input<boolean>;
     /**
@@ -250,7 +250,7 @@ export interface SnapshotArgs {
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
-     * Specifies if the Snapshot is incremental.
+     * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      */
     incrementalEnabled?: pulumi.Input<boolean>;
     /**

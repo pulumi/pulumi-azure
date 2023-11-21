@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Sql.Outputs
         /// </summary>
         public readonly int? RetentionDays;
         /// <summary>
-        /// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`.
+        /// The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
         /// </summary>
         public readonly string? State;
         /// <summary>

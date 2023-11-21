@@ -141,7 +141,6 @@ namespace Pulumi.Azure.AppService
         public readonly ImmutableArray<Outputs.GetLinuxWebAppAuthSettingsV2Result> AuthSettingsV2s;
         /// <summary>
         /// The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-        /// *
         /// </summary>
         public readonly string Availability;
         /// <summary>
@@ -180,6 +179,10 @@ namespace Pulumi.Azure.AppService
         /// Is the Backup enabled?
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// Are the default FTP Basic Authentication publishing credentials enabled.
+        /// </summary>
+        public readonly bool FtpPublishBasicAuthenticationEnabled;
         /// <summary>
         /// The ID of the App Service Environment used by App Service.
         /// </summary>
@@ -229,6 +232,9 @@ namespace Pulumi.Azure.AppService
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
+        /// <summary>
+        /// Is Public Network Access enabled for this Linux Web App.
+        /// </summary>
         public readonly bool PublicNetworkAccessEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -263,6 +269,10 @@ namespace Pulumi.Azure.AppService
         /// The subnet id which the Linux Web App is vNet Integrated with.
         /// </summary>
         public readonly string VirtualNetworkSubnetId;
+        /// <summary>
+        /// Are the default WebDeploy Basic Authentication publishing credentials enabled.
+        /// </summary>
+        public readonly bool WebdeployPublishBasicAuthenticationEnabled;
 
         [OutputConstructor]
         private GetLinuxWebAppResult(
@@ -293,6 +303,8 @@ namespace Pulumi.Azure.AppService
             string defaultHostname,
 
             bool enabled,
+
+            bool ftpPublishBasicAuthenticationEnabled,
 
             string hostingEnvironmentId,
 
@@ -338,7 +350,9 @@ namespace Pulumi.Azure.AppService
 
             string usage,
 
-            string virtualNetworkSubnetId)
+            string virtualNetworkSubnetId,
+
+            bool webdeployPublishBasicAuthenticationEnabled)
         {
             AppMetadata = appMetadata;
             AppSettings = appSettings;
@@ -354,6 +368,7 @@ namespace Pulumi.Azure.AppService
             CustomDomainVerificationId = customDomainVerificationId;
             DefaultHostname = defaultHostname;
             Enabled = enabled;
+            FtpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             HostingEnvironmentId = hostingEnvironmentId;
             HttpsOnly = httpsOnly;
             Id = id;
@@ -377,6 +392,7 @@ namespace Pulumi.Azure.AppService
             Tags = tags;
             Usage = usage;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
+            WebdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
         }
     }
 }

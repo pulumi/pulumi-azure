@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Cdn
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         /// </summary>
         [Output("forwardingProtocol")]
         public Output<string?> ForwardingProtocol { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         /// </summary>
         [Input("forwardingProtocol")]
         public Input<string>? ForwardingProtocol { get; set; }
@@ -356,7 +356,7 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        /// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         /// </summary>
         [Input("forwardingProtocol")]
         public Input<string>? ForwardingProtocol { get; set; }

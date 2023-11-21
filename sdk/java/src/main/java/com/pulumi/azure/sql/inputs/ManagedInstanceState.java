@@ -230,14 +230,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
      * 
      */
     @Import(name="storageAccountType")
     private @Nullable Output<String> storageAccountType;
 
     /**
-     * @return Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     * @return Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
      * 
      */
     public Optional<Output<String>> storageAccountType() {
@@ -657,7 +657,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageAccountType Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+         * @param storageAccountType Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageAccountType Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+         * @param storageAccountType Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
          * 
          * @return builder
          * 

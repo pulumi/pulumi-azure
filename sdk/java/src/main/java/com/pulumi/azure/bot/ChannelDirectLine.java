@@ -127,14 +127,14 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
     @Export(name="sites", refs={List.class,ChannelDirectLineSite.class}, tree="[0,1]")
     private Output<List<ChannelDirectLineSite>> sites;
 
     /**
-     * @return A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * @return A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      * 
      */
     public Output<List<ChannelDirectLineSite>> sites() {

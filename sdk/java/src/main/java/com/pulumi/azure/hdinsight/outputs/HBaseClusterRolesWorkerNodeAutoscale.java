@@ -11,9 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class HBaseClusterRolesWorkerNodeAutoscale {
+    /**
+     * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
+     */
     private @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
     private HBaseClusterRolesWorkerNodeAutoscale() {}
+    /**
+     * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
+     */
     public Optional<HBaseClusterRolesWorkerNodeAutoscaleRecurrence> recurrence() {
         return Optional.ofNullable(this.recurrence);
     }

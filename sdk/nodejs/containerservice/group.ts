@@ -135,7 +135,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      *
      * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */
@@ -322,7 +322,7 @@ export interface GroupState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      *
      * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */
@@ -424,7 +424,7 @@ export interface GroupArgs {
      */
     initContainers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupInitContainer>[]>;
     /**
-     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+     * Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
      *
      * > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
      */

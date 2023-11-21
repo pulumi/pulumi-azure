@@ -211,14 +211,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      * 
      */
     @Import(name="publicIpType")
     private @Nullable Output<String> publicIpType;
 
     /**
-     * @return Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+     * @return Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
      * 
      */
     public Optional<Output<String>> publicIpType() {
@@ -702,7 +702,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpType Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+         * @param publicIpType Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
          * 
          * @return builder
          * 
@@ -713,7 +713,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpType Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+         * @param publicIpType Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
          * 
          * @return builder
          * 

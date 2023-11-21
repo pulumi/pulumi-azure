@@ -32,14 +32,14 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+     * Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
      * 
      */
     @Import(name="caching")
     private @Nullable Output<String> caching;
 
     /**
-     * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+     * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
      * 
      */
     public Optional<Output<String>> caching() {
@@ -141,7 +141,7 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param caching Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+         * @param caching Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ImageDataDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param caching Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+         * @param caching Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
          * 
          * @return builder
          * 

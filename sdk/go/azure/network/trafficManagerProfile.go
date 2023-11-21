@@ -86,7 +86,7 @@ import (
 type TrafficManagerProfile struct {
 	pulumi.CustomResourceState
 
-	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+	// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 	DnsConfig TrafficManagerProfileDnsConfigOutput `pulumi:"dnsConfig"`
 	// The FQDN of the created Profile.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -94,7 +94,7 @@ type TrafficManagerProfile struct {
 	//
 	// > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
 	MaxReturn pulumi.IntPtrOutput `pulumi:"maxReturn"`
-	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+	// This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
 	MonitorConfig TrafficManagerProfileMonitorConfigOutput `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -158,7 +158,7 @@ func GetTrafficManagerProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficManagerProfile resources.
 type trafficManagerProfileState struct {
-	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+	// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 	DnsConfig *TrafficManagerProfileDnsConfig `pulumi:"dnsConfig"`
 	// The FQDN of the created Profile.
 	Fqdn *string `pulumi:"fqdn"`
@@ -166,7 +166,7 @@ type trafficManagerProfileState struct {
 	//
 	// > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
 	MaxReturn *int `pulumi:"maxReturn"`
-	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+	// This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
 	MonitorConfig *TrafficManagerProfileMonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -183,7 +183,7 @@ type trafficManagerProfileState struct {
 }
 
 type TrafficManagerProfileState struct {
-	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+	// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 	DnsConfig TrafficManagerProfileDnsConfigPtrInput
 	// The FQDN of the created Profile.
 	Fqdn pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type TrafficManagerProfileState struct {
 	//
 	// > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
 	MaxReturn pulumi.IntPtrInput
-	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+	// This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
 	MonitorConfig TrafficManagerProfileMonitorConfigPtrInput
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -212,13 +212,13 @@ func (TrafficManagerProfileState) ElementType() reflect.Type {
 }
 
 type trafficManagerProfileArgs struct {
-	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+	// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 	DnsConfig TrafficManagerProfileDnsConfig `pulumi:"dnsConfig"`
 	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 	//
 	// > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
 	MaxReturn *int `pulumi:"maxReturn"`
-	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+	// This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
 	MonitorConfig TrafficManagerProfileMonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -236,13 +236,13 @@ type trafficManagerProfileArgs struct {
 
 // The set of arguments for constructing a TrafficManagerProfile resource.
 type TrafficManagerProfileArgs struct {
-	// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+	// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 	DnsConfig TrafficManagerProfileDnsConfigInput
 	// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 	//
 	// > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
 	MaxReturn pulumi.IntPtrInput
-	// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+	// This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
 	MonitorConfig TrafficManagerProfileMonitorConfigInput
 	// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -369,7 +369,7 @@ func (o TrafficManagerProfileOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+// This block specifies the DNS configuration of the Profile. One `dnsConfig` block as defined below.
 func (o TrafficManagerProfileOutput) DnsConfig() TrafficManagerProfileDnsConfigOutput {
 	return o.ApplyT(func(v *TrafficManagerProfile) TrafficManagerProfileDnsConfigOutput { return v.DnsConfig }).(TrafficManagerProfileDnsConfigOutput)
 }
@@ -386,7 +386,7 @@ func (o TrafficManagerProfileOutput) MaxReturn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TrafficManagerProfile) pulumi.IntPtrOutput { return v.MaxReturn }).(pulumi.IntPtrOutput)
 }
 
-// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+// This block specifies the Endpoint monitoring configuration for the Profile. One `monitorConfig` block as defined below.
 func (o TrafficManagerProfileOutput) MonitorConfig() TrafficManagerProfileMonitorConfigOutput {
 	return o.ApplyT(func(v *TrafficManagerProfile) TrafficManagerProfileMonitorConfigOutput { return v.MonitorConfig }).(TrafficManagerProfileMonitorConfigOutput)
 }

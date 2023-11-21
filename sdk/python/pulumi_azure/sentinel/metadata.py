@@ -52,10 +52,12 @@ class MetadataArgs:
         :param pulumi.Input[str] icon_id: The ID of the icon, this id can be fetched from the solution template.
         :param pulumi.Input[str] last_publish_date: The last publish date of solution content item.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: Specifies a list of preview image file names. These will be taken from solution artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_darks: Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
         :param pulumi.Input['MetadataSourceArgs'] source: A `source` block as defined below.
         :param pulumi.Input['MetadataSupportArgs'] support: A `support` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
         """
@@ -257,6 +259,9 @@ class MetadataArgs:
     @property
     @pulumi.getter(name="previewImages")
     def preview_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of preview image file names. These will be taken from solution artifacts.
+        """
         return pulumi.get(self, "preview_images")
 
     @preview_images.setter
@@ -266,6 +271,9 @@ class MetadataArgs:
     @property
     @pulumi.getter(name="previewImagesDarks")
     def preview_images_darks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+        """
         return pulumi.get(self, "preview_images_darks")
 
     @preview_images_darks.setter
@@ -312,7 +320,7 @@ class MetadataArgs:
     @pulumi.getter(name="threatAnalysisTactics")
     def threat_analysis_tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of tactics the resource covers.
+        Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         """
         return pulumi.get(self, "threat_analysis_tactics")
 
@@ -383,10 +391,12 @@ class _MetadataState:
         :param pulumi.Input[str] last_publish_date: The last publish date of solution content item.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: Specifies a list of preview image file names. These will be taken from solution artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_darks: Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
         :param pulumi.Input['MetadataSourceArgs'] source: A `source` block as defined below.
         :param pulumi.Input['MetadataSupportArgs'] support: A `support` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
@@ -581,6 +591,9 @@ class _MetadataState:
     @property
     @pulumi.getter(name="previewImages")
     def preview_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of preview image file names. These will be taken from solution artifacts.
+        """
         return pulumi.get(self, "preview_images")
 
     @preview_images.setter
@@ -590,6 +603,9 @@ class _MetadataState:
     @property
     @pulumi.getter(name="previewImagesDarks")
     def preview_images_darks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+        """
         return pulumi.get(self, "preview_images_darks")
 
     @preview_images_darks.setter
@@ -636,7 +652,7 @@ class _MetadataState:
     @pulumi.getter(name="threatAnalysisTactics")
     def threat_analysis_tactics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of tactics the resource covers.
+        Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         """
         return pulumi.get(self, "threat_analysis_tactics")
 
@@ -770,10 +786,12 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[str] last_publish_date: The last publish date of solution content item.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: Specifies a list of preview image file names. These will be taken from solution artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_darks: Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
         :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: A `source` block as defined below.
         :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: A `support` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
@@ -956,10 +974,12 @@ class Metadata(pulumi.CustomResource):
         :param pulumi.Input[str] last_publish_date: The last publish date of solution content item.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         :param pulumi.Input[str] parent_id: The ID of the parent resource ID of the content item, which the metadata belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: Specifies a list of preview image file names. These will be taken from solution artifacts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_darks: Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Specifies a list of providers for the solution content item.
         :param pulumi.Input[pulumi.InputType['MetadataSourceArgs']] source: A `source` block as defined below.
         :param pulumi.Input[pulumi.InputType['MetadataSupportArgs']] support: A `support` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: Specifies a list of techniques the resource covers.
         :param pulumi.Input[str] version: Version of the content.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
@@ -1090,11 +1110,17 @@ class Metadata(pulumi.CustomResource):
     @property
     @pulumi.getter(name="previewImages")
     def preview_images(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of preview image file names. These will be taken from solution artifacts.
+        """
         return pulumi.get(self, "preview_images")
 
     @property
     @pulumi.getter(name="previewImagesDarks")
     def preview_images_darks(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+        """
         return pulumi.get(self, "preview_images_darks")
 
     @property
@@ -1125,7 +1151,7 @@ class Metadata(pulumi.CustomResource):
     @pulumi.getter(name="threatAnalysisTactics")
     def threat_analysis_tactics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a list of tactics the resource covers.
+        Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         """
         return pulumi.get(self, "threat_analysis_tactics")
 

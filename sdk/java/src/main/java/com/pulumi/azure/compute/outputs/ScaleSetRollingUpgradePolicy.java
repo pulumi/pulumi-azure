@@ -28,7 +28,7 @@ public final class ScaleSetRollingUpgradePolicy {
      */
     private @Nullable Integer maxUnhealthyUpgradedInstancePercent;
     /**
-     * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
+     * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `PT0S` seconds represented as `PT0S`.
      * 
      */
     private @Nullable String pauseTimeBetweenBatches;
@@ -56,7 +56,7 @@ public final class ScaleSetRollingUpgradePolicy {
         return Optional.ofNullable(this.maxUnhealthyUpgradedInstancePercent);
     }
     /**
-     * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
+     * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `PT0S` seconds represented as `PT0S`.
      * 
      */
     public Optional<String> pauseTimeBetweenBatches() {

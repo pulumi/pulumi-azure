@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ResourceGroupPolicyAssignmentOverride {
     /**
-     * @return One or more `override_selector` as defined below.
+     * @return One or more `override_selector` block as defined below.
      * 
      */
     private @Nullable List<ResourceGroupPolicyAssignmentOverrideSelector> selectors;
@@ -25,7 +25,7 @@ public final class ResourceGroupPolicyAssignmentOverride {
 
     private ResourceGroupPolicyAssignmentOverride() {}
     /**
-     * @return One or more `override_selector` as defined below.
+     * @return One or more `override_selector` block as defined below.
      * 
      */
     public List<ResourceGroupPolicyAssignmentOverrideSelector> selectors() {

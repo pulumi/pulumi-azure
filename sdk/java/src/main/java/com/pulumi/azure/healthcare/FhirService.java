@@ -236,14 +236,14 @@ public class FhirService extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      * 
      */
     @Export(name="ociArtifacts", refs={List.class,FhirServiceOciArtifact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FhirServiceOciArtifact>> ociArtifacts;
 
     /**
-     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
      * 
      */
     public Output<Optional<List<FhirServiceOciArtifact>>> ociArtifacts() {

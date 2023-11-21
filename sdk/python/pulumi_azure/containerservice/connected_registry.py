@@ -36,12 +36,12 @@ class ConnectedRegistryArgs:
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[bool] audit_log_enabled: Should the log auditing be enabled?
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry.
-        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
-        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
+        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectedRegistryNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
         """
@@ -122,7 +122,7 @@ class ConnectedRegistryArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+        The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         """
         return pulumi.get(self, "log_level")
 
@@ -134,7 +134,7 @@ class ConnectedRegistryArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         """
         return pulumi.get(self, "mode")
 
@@ -182,7 +182,7 @@ class ConnectedRegistryArgs:
     @pulumi.getter(name="syncMessageTtl")
     def sync_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         """
         return pulumi.get(self, "sync_message_ttl")
 
@@ -237,12 +237,12 @@ class _ConnectedRegistryState:
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
                
                > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
-        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
-        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
+        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectedRegistryNotificationArgs']]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
@@ -314,7 +314,7 @@ class _ConnectedRegistryState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[str]]:
         """
-        The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+        The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         """
         return pulumi.get(self, "log_level")
 
@@ -326,7 +326,7 @@ class _ConnectedRegistryState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         """
         return pulumi.get(self, "mode")
 
@@ -374,7 +374,7 @@ class _ConnectedRegistryState:
     @pulumi.getter(name="syncMessageTtl")
     def sync_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
-        The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         """
         return pulumi.get(self, "sync_message_ttl")
 
@@ -490,12 +490,12 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
                
                > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
-        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
-        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
+        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedRegistryNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
@@ -638,12 +638,12 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] container_registry_id: The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
                
                > If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
-        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
-        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        :param pulumi.Input[str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
+        :param pulumi.Input[str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         :param pulumi.Input[str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectedRegistryNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        :param pulumi.Input[str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         :param pulumi.Input[str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
         :param pulumi.Input[str] sync_token_id: The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[str] sync_window: The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`.
@@ -696,7 +696,7 @@ class ConnectedRegistry(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[Optional[str]]:
         """
-        The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+        The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         """
         return pulumi.get(self, "log_level")
 
@@ -704,7 +704,7 @@ class ConnectedRegistry(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         """
         return pulumi.get(self, "mode")
 
@@ -736,7 +736,7 @@ class ConnectedRegistry(pulumi.CustomResource):
     @pulumi.getter(name="syncMessageTtl")
     def sync_message_ttl(self) -> pulumi.Output[Optional[str]]:
         """
-        The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         """
         return pulumi.get(self, "sync_message_ttl")
 

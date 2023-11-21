@@ -179,7 +179,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly managedRules!: pulumi.Output<outputs.frontdoor.FirewallPolicyManagedRule[] | undefined>;
     /**
-     * The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
@@ -280,7 +280,7 @@ export interface FirewallPolicyState {
      */
     managedRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRule>[]>;
     /**
-     * The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -326,7 +326,7 @@ export interface FirewallPolicyArgs {
      */
     managedRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.FirewallPolicyManagedRule>[]>;
     /**
-     * The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+     * The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
      */
     mode?: pulumi.Input<string>;
     /**

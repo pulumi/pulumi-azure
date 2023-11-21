@@ -31,7 +31,7 @@ class ScheduleArgs:
         """
         The set of arguments for constructing a Schedule resource.
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
-        :param pulumi.Input['ScheduleNotificationSettingsArgs'] notification_settings: The notification setting of a schedule. A `notification_settings` as defined below.
+        :param pulumi.Input['ScheduleNotificationSettingsArgs'] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
@@ -79,7 +79,7 @@ class ScheduleArgs:
     @pulumi.getter(name="notificationSettings")
     def notification_settings(self) -> pulumi.Input['ScheduleNotificationSettingsArgs']:
         """
-        The notification setting of a schedule. A `notification_settings` as defined below.
+        The notification setting of a schedule. A `notification_settings` block as defined below.
         """
         return pulumi.get(self, "notification_settings")
 
@@ -230,7 +230,7 @@ class _ScheduleState:
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-        :param pulumi.Input['ScheduleNotificationSettingsArgs'] notification_settings: The notification setting of a schedule. A `notification_settings` as defined below.
+        :param pulumi.Input['ScheduleNotificationSettingsArgs'] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -327,7 +327,7 @@ class _ScheduleState:
     @pulumi.getter(name="notificationSettings")
     def notification_settings(self) -> Optional[pulumi.Input['ScheduleNotificationSettingsArgs']]:
         """
-        The notification setting of a schedule. A `notification_settings` as defined below.
+        The notification setting of a schedule. A `notification_settings` block as defined below.
         """
         return pulumi.get(self, "notification_settings")
 
@@ -473,7 +473,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScheduleNotificationSettingsArgs']] notification_settings: The notification setting of a schedule. A `notification_settings` as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduleNotificationSettingsArgs']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -619,7 +619,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScheduleNotificationSettingsArgs']] notification_settings: The notification setting of a schedule. A `notification_settings` as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduleNotificationSettingsArgs']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -689,7 +689,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter(name="notificationSettings")
     def notification_settings(self) -> pulumi.Output['outputs.ScheduleNotificationSettings']:
         """
-        The notification setting of a schedule. A `notification_settings` as defined below.
+        The notification setting of a schedule. A `notification_settings` block as defined below.
         """
         return pulumi.get(self, "notification_settings")
 

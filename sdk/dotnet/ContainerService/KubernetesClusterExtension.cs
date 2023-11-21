@@ -107,7 +107,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("plan")]
         public Output<Outputs.KubernetesClusterExtensionPlan?> Plan { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ReleaseTrain { get; private set; } = null!;
 
         /// <summary>
-        /// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         /// </summary>
         [Output("targetNamespace")]
         public Output<string> TargetNamespace { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.KubernetesClusterExtensionPlanArgs>? Plan { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ReleaseTrain { get; set; }
 
         /// <summary>
-        /// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         /// </summary>
         [Input("targetNamespace")]
         public Input<string>? TargetNamespace { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `plan` block as defined below.
+        /// A `plan` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.KubernetesClusterExtensionPlanGetArgs>? Plan { get; set; }
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ReleaseTrain { get; set; }
 
         /// <summary>
-        /// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+        /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         /// </summary>
         [Input("targetNamespace")]
         public Input<string>? TargetNamespace { get; set; }

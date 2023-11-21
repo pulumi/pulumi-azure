@@ -20,12 +20,18 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("currentStack")]
         public Input<string>? CurrentStack { get; set; }
 
+        /// <summary>
+        /// The name of the container to be used. This value is required with `docker_container_tag`.
+        /// </summary>
         [Input("dockerContainerName")]
         public Input<string>? DockerContainerName { get; set; }
 
         [Input("dockerContainerRegistry")]
         public Input<string>? DockerContainerRegistry { get; set; }
 
+        /// <summary>
+        /// The tag of the container to be used. This value is required with `docker_container_name`.
+        /// </summary>
         [Input("dockerContainerTag")]
         public Input<string>? DockerContainerTag { get; set; }
 

@@ -62,14 +62,14 @@ public final class WindowsFunctionAppSlotAuthSettingsGithubArgs extends com.pulu
     }
 
     /**
-     * an `oauth_scopes` block as detailed below.
+     * an `oauth_scopes`.
      * 
      */
     @Import(name="oauthScopes")
     private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return an `oauth_scopes`.
      * 
      */
     public Optional<Output<List<String>>> oauthScopes() {
@@ -167,7 +167,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGithubArgs extends com.pulu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes an `oauth_scopes`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGithubArgs extends com.pulu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes an `oauth_scopes`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGithubArgs extends com.pulu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes an `oauth_scopes`.
          * 
          * @return builder
          * 

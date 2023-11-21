@@ -36,7 +36,7 @@ class ClusterExtensionArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -157,7 +157,7 @@ class ClusterExtensionArgs:
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 
@@ -203,7 +203,7 @@ class _ClusterExtensionState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         if cluster_id is not None:
@@ -341,7 +341,7 @@ class _ClusterExtensionState:
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 
@@ -422,7 +422,7 @@ class ClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         ...
@@ -553,7 +553,7 @@ class ClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] version: User-specified version that the extension should pin to. If it is not set, Azure will use the latest version and auto upgrade it. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -649,7 +649,7 @@ class ClusterExtension(pulumi.CustomResource):
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> pulumi.Output[str]:
         """
-        Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         """
         return pulumi.get(self, "target_namespace")
 

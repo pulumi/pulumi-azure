@@ -37,14 +37,14 @@ public final class AppConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      * 
      */
     @Import(name="clientType")
     private @Nullable Output<String> clientType;
 
     /**
-     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+     * @return The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
      * 
      */
     public Optional<Output<String>> clientType() {
@@ -182,7 +182,7 @@ public final class AppConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AppConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+         * @param clientType The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
          * 
          * @return builder
          * 

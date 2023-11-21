@@ -34,7 +34,7 @@ public final class NetworkPacketCoreControlPlanePlatform {
      */
     private @Nullable String stackHciClusterId;
     /**
-     * @return Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+     * @return Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
      * 
      */
     private String type;
@@ -71,7 +71,7 @@ public final class NetworkPacketCoreControlPlanePlatform {
         return Optional.ofNullable(this.stackHciClusterId);
     }
     /**
-     * @return Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+     * @return Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
      * 
      */
     public String type() {

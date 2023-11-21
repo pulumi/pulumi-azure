@@ -119,14 +119,14 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.displayName);
     }
     /**
-     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * @return Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

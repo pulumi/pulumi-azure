@@ -38,8 +38,12 @@ type NetworkAttachedDataNetwork struct {
 	// A `networkAddressPortTranslation` block as defined below.
 	NetworkAddressPortTranslation NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrOutput `pulumi:"networkAddressPortTranslation"`
 	// A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
-	Tags                                   pulumi.StringMapOutput   `pulumi:"tags"`
-	UserEquipmentAddressPoolPrefixes       pulumi.StringArrayOutput `pulumi:"userEquipmentAddressPoolPrefixes"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
+	UserEquipmentAddressPoolPrefixes pulumi.StringArrayOutput `pulumi:"userEquipmentAddressPoolPrefixes"`
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
+	//
+	// > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
 	UserEquipmentStaticAddressPoolPrefixes pulumi.StringArrayOutput `pulumi:"userEquipmentStaticAddressPoolPrefixes"`
 	// The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	UserPlaneAccessIpv4Address pulumi.StringPtrOutput `pulumi:"userPlaneAccessIpv4Address"`
@@ -101,9 +105,13 @@ type networkAttachedDataNetworkState struct {
 	// A `networkAddressPortTranslation` block as defined below.
 	NetworkAddressPortTranslation *NetworkAttachedDataNetworkNetworkAddressPortTranslation `pulumi:"networkAddressPortTranslation"`
 	// A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
-	Tags                                   map[string]string `pulumi:"tags"`
-	UserEquipmentAddressPoolPrefixes       []string          `pulumi:"userEquipmentAddressPoolPrefixes"`
-	UserEquipmentStaticAddressPoolPrefixes []string          `pulumi:"userEquipmentStaticAddressPoolPrefixes"`
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
+	UserEquipmentAddressPoolPrefixes []string `pulumi:"userEquipmentAddressPoolPrefixes"`
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
+	//
+	// > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
+	UserEquipmentStaticAddressPoolPrefixes []string `pulumi:"userEquipmentStaticAddressPoolPrefixes"`
 	// The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	UserPlaneAccessIpv4Address *string `pulumi:"userPlaneAccessIpv4Address"`
 	// The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -126,8 +134,12 @@ type NetworkAttachedDataNetworkState struct {
 	// A `networkAddressPortTranslation` block as defined below.
 	NetworkAddressPortTranslation NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput
 	// A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
-	Tags                                   pulumi.StringMapInput
-	UserEquipmentAddressPoolPrefixes       pulumi.StringArrayInput
+	Tags pulumi.StringMapInput
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
+	UserEquipmentAddressPoolPrefixes pulumi.StringArrayInput
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
+	//
+	// > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
 	UserEquipmentStaticAddressPoolPrefixes pulumi.StringArrayInput
 	// The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	UserPlaneAccessIpv4Address pulumi.StringPtrInput
@@ -155,9 +167,13 @@ type networkAttachedDataNetworkArgs struct {
 	// A `networkAddressPortTranslation` block as defined below.
 	NetworkAddressPortTranslation *NetworkAttachedDataNetworkNetworkAddressPortTranslation `pulumi:"networkAddressPortTranslation"`
 	// A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
-	Tags                                   map[string]string `pulumi:"tags"`
-	UserEquipmentAddressPoolPrefixes       []string          `pulumi:"userEquipmentAddressPoolPrefixes"`
-	UserEquipmentStaticAddressPoolPrefixes []string          `pulumi:"userEquipmentStaticAddressPoolPrefixes"`
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
+	UserEquipmentAddressPoolPrefixes []string `pulumi:"userEquipmentAddressPoolPrefixes"`
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
+	//
+	// > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
+	UserEquipmentStaticAddressPoolPrefixes []string `pulumi:"userEquipmentStaticAddressPoolPrefixes"`
 	// The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	UserPlaneAccessIpv4Address *string `pulumi:"userPlaneAccessIpv4Address"`
 	// The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
@@ -181,8 +197,12 @@ type NetworkAttachedDataNetworkArgs struct {
 	// A `networkAddressPortTranslation` block as defined below.
 	NetworkAddressPortTranslation NetworkAttachedDataNetworkNetworkAddressPortTranslationPtrInput
 	// A mapping of tags which should be assigned to the Mobile Network Attached Data Network.
-	Tags                                   pulumi.StringMapInput
-	UserEquipmentAddressPoolPrefixes       pulumi.StringArrayInput
+	Tags pulumi.StringMapInput
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
+	UserEquipmentAddressPoolPrefixes pulumi.StringArrayInput
+	// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
+	//
+	// > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
 	UserEquipmentStaticAddressPoolPrefixes pulumi.StringArrayInput
 	// The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
 	UserPlaneAccessIpv4Address pulumi.StringPtrInput
@@ -337,12 +357,16 @@ func (o NetworkAttachedDataNetworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkAttachedDataNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefix`. If you define both, they must be of the same size.
 func (o NetworkAttachedDataNetworkOutput) UserEquipmentAddressPoolPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkAttachedDataNetwork) pulumi.StringArrayOutput {
 		return v.UserEquipmentAddressPoolPrefixes
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `userEquipmentAddressPoolPrefix` and `userEquipmentStaticAddressPoolPrefixes`. If you define both, they must be of the same size.
+//
+// > **Note:** At least one of `userEquipmentAddressPoolPrefixes` and `userEquipmentStaticAddressPoolPrefixes` must be specified.
 func (o NetworkAttachedDataNetworkOutput) UserEquipmentStaticAddressPoolPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkAttachedDataNetwork) pulumi.StringArrayOutput {
 		return v.UserEquipmentStaticAddressPoolPrefixes

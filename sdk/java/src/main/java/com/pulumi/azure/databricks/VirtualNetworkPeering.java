@@ -96,14 +96,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:databricks/virtualNetworkPeering:VirtualNetworkPeering")
 public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
     /**
-     * A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+     * A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
     @Export(name="addressSpacePrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> addressSpacePrefixes;
 
     /**
-     * @return A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+     * @return A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
     public Output<List<String>> addressSpacePrefixes() {

@@ -64,7 +64,7 @@ type Service struct {
 
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations ServiceAdditionalLocationArrayOutput `pulumi:"additionalLocations"`
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificates ServiceCertificateArrayOutput `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
@@ -136,7 +136,7 @@ type Service struct {
 	TenantAccess ServiceTenantAccessOutput `pulumi:"tenantAccess"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrOutput `pulumi:"virtualNetworkConfiguration"`
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 	//
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType pulumi.StringPtrOutput `pulumi:"virtualNetworkType"`
@@ -190,7 +190,7 @@ func GetService(ctx *pulumi.Context,
 type serviceState struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -262,7 +262,7 @@ type serviceState struct {
 	TenantAccess *ServiceTenantAccess `pulumi:"tenantAccess"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 	//
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
@@ -275,7 +275,7 @@ type serviceState struct {
 type ServiceState struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations ServiceAdditionalLocationArrayInput
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -347,7 +347,7 @@ type ServiceState struct {
 	TenantAccess ServiceTenantAccessPtrInput
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 	//
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType pulumi.StringPtrInput
@@ -364,7 +364,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations []ServiceAdditionalLocation `pulumi:"additionalLocations"`
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificates []ServiceCertificate `pulumi:"certificates"`
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
@@ -420,7 +420,7 @@ type serviceArgs struct {
 	TenantAccess *ServiceTenantAccess `pulumi:"tenantAccess"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 	//
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
@@ -434,7 +434,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocations ServiceAdditionalLocationArrayInput
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificates ServiceCertificateArrayInput
 	// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
 	ClientCertificateEnabled pulumi.BoolPtrInput
@@ -490,7 +490,7 @@ type ServiceArgs struct {
 	TenantAccess ServiceTenantAccessPtrInput
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceVirtualNetworkConfigurationPtrInput
-	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+	// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 	//
 	// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 	VirtualNetworkType pulumi.StringPtrInput
@@ -616,7 +616,7 @@ func (o ServiceOutput) AdditionalLocations() ServiceAdditionalLocationArrayOutpu
 	return o.ApplyT(func(v *Service) ServiceAdditionalLocationArrayOutput { return v.AdditionalLocations }).(ServiceAdditionalLocationArrayOutput)
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// One or more `certificate` blocks (up to 10) as defined below.
 func (o ServiceOutput) Certificates() ServiceCertificateArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceCertificateArrayOutput { return v.Certificates }).(ServiceCertificateArrayOutput)
 }
@@ -784,7 +784,7 @@ func (o ServiceOutput) VirtualNetworkConfiguration() ServiceVirtualNetworkConfig
 	return o.ApplyT(func(v *Service) ServiceVirtualNetworkConfigurationPtrOutput { return v.VirtualNetworkConfiguration }).(ServiceVirtualNetworkConfigurationPtrOutput)
 }
 
-// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 //
 // > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtualNetworkType` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
 func (o ServiceOutput) VirtualNetworkType() pulumi.StringPtrOutput {

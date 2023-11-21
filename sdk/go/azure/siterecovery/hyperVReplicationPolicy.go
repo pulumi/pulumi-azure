@@ -77,8 +77,9 @@ type HyperVReplicationPolicy struct {
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The duration in hours for which the recovery points need to be stored.
-	RecoveryPointRetentionInHours pulumi.IntOutput    `pulumi:"recoveryPointRetentionInHours"`
-	RecoveryVaultId               pulumi.StringOutput `pulumi:"recoveryVaultId"`
+	RecoveryPointRetentionInHours pulumi.IntOutput `pulumi:"recoveryPointRetentionInHours"`
+	// The id of the vault that should be updated. Changing this forces a new resource to be created.
+	RecoveryVaultId pulumi.StringOutput `pulumi:"recoveryVaultId"`
 	// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
 	ReplicationIntervalInSeconds pulumi.IntOutput `pulumi:"replicationIntervalInSeconds"`
 }
@@ -130,8 +131,9 @@ type hyperVReplicationPolicyState struct {
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The duration in hours for which the recovery points need to be stored.
-	RecoveryPointRetentionInHours *int    `pulumi:"recoveryPointRetentionInHours"`
-	RecoveryVaultId               *string `pulumi:"recoveryVaultId"`
+	RecoveryPointRetentionInHours *int `pulumi:"recoveryPointRetentionInHours"`
+	// The id of the vault that should be updated. Changing this forces a new resource to be created.
+	RecoveryVaultId *string `pulumi:"recoveryVaultId"`
 	// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
 	ReplicationIntervalInSeconds *int `pulumi:"replicationIntervalInSeconds"`
 }
@@ -143,7 +145,8 @@ type HyperVReplicationPolicyState struct {
 	Name pulumi.StringPtrInput
 	// The duration in hours for which the recovery points need to be stored.
 	RecoveryPointRetentionInHours pulumi.IntPtrInput
-	RecoveryVaultId               pulumi.StringPtrInput
+	// The id of the vault that should be updated. Changing this forces a new resource to be created.
+	RecoveryVaultId pulumi.StringPtrInput
 	// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
 	ReplicationIntervalInSeconds pulumi.IntPtrInput
 }
@@ -158,8 +161,9 @@ type hyperVReplicationPolicyArgs struct {
 	// The name of the replication policy. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The duration in hours for which the recovery points need to be stored.
-	RecoveryPointRetentionInHours int    `pulumi:"recoveryPointRetentionInHours"`
-	RecoveryVaultId               string `pulumi:"recoveryVaultId"`
+	RecoveryPointRetentionInHours int `pulumi:"recoveryPointRetentionInHours"`
+	// The id of the vault that should be updated. Changing this forces a new resource to be created.
+	RecoveryVaultId string `pulumi:"recoveryVaultId"`
 	// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
 	ReplicationIntervalInSeconds int `pulumi:"replicationIntervalInSeconds"`
 }
@@ -172,7 +176,8 @@ type HyperVReplicationPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// The duration in hours for which the recovery points need to be stored.
 	RecoveryPointRetentionInHours pulumi.IntInput
-	RecoveryVaultId               pulumi.StringInput
+	// The id of the vault that should be updated. Changing this forces a new resource to be created.
+	RecoveryVaultId pulumi.StringInput
 	// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
 	ReplicationIntervalInSeconds pulumi.IntInput
 }
@@ -305,6 +310,7 @@ func (o HyperVReplicationPolicyOutput) RecoveryPointRetentionInHours() pulumi.In
 	return o.ApplyT(func(v *HyperVReplicationPolicy) pulumi.IntOutput { return v.RecoveryPointRetentionInHours }).(pulumi.IntOutput)
 }
 
+// The id of the vault that should be updated. Changing this forces a new resource to be created.
 func (o HyperVReplicationPolicyOutput) RecoveryVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HyperVReplicationPolicy) pulumi.StringOutput { return v.RecoveryVaultId }).(pulumi.StringOutput)
 }

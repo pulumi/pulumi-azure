@@ -67,7 +67,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     public readonly dayOfMonth!: pulumi.Output<number | undefined>;
     /**
-     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      */
     public readonly daysOfWeeks!: pulumi.Output<string[] | undefined>;
     /**
@@ -111,11 +111,11 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     public readonly startDate!: pulumi.Output<string>;
     /**
-     * The ID of the Cost Management View that is used by the Scheduled Action.
+     * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      */
     public readonly viewId!: pulumi.Output<string>;
     /**
-     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      */
     public readonly weeksOfMonths!: pulumi.Output<string[] | undefined>;
 
@@ -201,7 +201,7 @@ export interface ScheduledActionState {
      */
     dayOfMonth?: pulumi.Input<number>;
     /**
-     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      */
     daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -245,11 +245,11 @@ export interface ScheduledActionState {
      */
     startDate?: pulumi.Input<string>;
     /**
-     * The ID of the Cost Management View that is used by the Scheduled Action.
+     * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      */
     viewId?: pulumi.Input<string>;
     /**
-     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      */
     weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -263,7 +263,7 @@ export interface ScheduledActionArgs {
      */
     dayOfMonth?: pulumi.Input<number>;
     /**
-     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      */
     daysOfWeeks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -307,11 +307,11 @@ export interface ScheduledActionArgs {
      */
     startDate: pulumi.Input<string>;
     /**
-     * The ID of the Cost Management View that is used by the Scheduled Action.
+     * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      */
     viewId: pulumi.Input<string>;
     /**
-     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`.
+     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `daysOfWeek`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      */
     weeksOfMonths?: pulumi.Input<pulumi.Input<string>[]>;
 }

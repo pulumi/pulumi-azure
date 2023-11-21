@@ -95,7 +95,7 @@ type Job struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
 	Priority pulumi.IntPtrOutput `pulumi:"priority"`
-	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum pulumi.IntPtrOutput `pulumi:"taskRetryMaximum"`
 }
 
@@ -142,7 +142,7 @@ type jobState struct {
 	Name *string `pulumi:"name"`
 	// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
 	Priority *int `pulumi:"priority"`
-	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum *int `pulumi:"taskRetryMaximum"`
 }
 
@@ -157,7 +157,7 @@ type JobState struct {
 	Name pulumi.StringPtrInput
 	// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
 	Priority pulumi.IntPtrInput
-	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum pulumi.IntPtrInput
 }
 
@@ -176,7 +176,7 @@ type jobArgs struct {
 	Name *string `pulumi:"name"`
 	// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
 	Priority *int `pulumi:"priority"`
-	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum *int `pulumi:"taskRetryMaximum"`
 }
 
@@ -192,7 +192,7 @@ type JobArgs struct {
 	Name pulumi.StringPtrInput
 	// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
 	Priority pulumi.IntPtrInput
-	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+	// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 	TaskRetryMaximum pulumi.IntPtrInput
 }
 
@@ -332,7 +332,7 @@ func (o JobOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. Default value is `0`.
+// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
 func (o JobOutput) TaskRetryMaximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Job) pulumi.IntPtrOutput { return v.TaskRetryMaximum }).(pulumi.IntPtrOutput)
 }

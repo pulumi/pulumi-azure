@@ -1328,7 +1328,7 @@ func (o GalleryApplicationVersionTargetRegionArrayOutput) Index(i pulumi.IntInpu
 type ImageDataDisk struct {
 	// Specifies the URI in Azure storage of the blob that you want to use to create the image.
 	BlobUri *string `pulumi:"blobUri"`
-	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
 	Caching *string `pulumi:"caching"`
 	// Specifies the logical unit number of the data disk.
 	Lun *int `pulumi:"lun"`
@@ -1352,7 +1352,7 @@ type ImageDataDiskInput interface {
 type ImageDataDiskArgs struct {
 	// Specifies the URI in Azure storage of the blob that you want to use to create the image.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
-	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
 	// Specifies the logical unit number of the data disk.
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
@@ -1436,7 +1436,7 @@ func (o ImageDataDiskOutput) BlobUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDataDisk) *string { return v.BlobUri }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
 func (o ImageDataDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
@@ -1487,7 +1487,7 @@ type ImageOsDisk struct {
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 	Caching *string `pulumi:"caching"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this image.
+	// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image.
 	ManagedDiskId *string `pulumi:"managedDiskId"`
@@ -1515,7 +1515,7 @@ type ImageOsDiskArgs struct {
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
 	// Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
 	Caching pulumi.StringPtrInput `pulumi:"caching"`
-	// The ID of the Disk Encryption Set which should be used to encrypt this image.
+	// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// Specifies the ID of the managed disk resource that you want to use to create the image.
 	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
@@ -1632,7 +1632,7 @@ func (o ImageOsDiskOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this image.
+// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
 func (o ImageOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -1707,7 +1707,7 @@ func (o ImageOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Disk Encryption Set which should be used to encrypt this image.
+// The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
 func (o ImageOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageOsDisk) *string {
 		if v == nil {
@@ -3647,7 +3647,7 @@ func (o LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput) Index(i pulumi.IntInp
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+	// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -3665,7 +3665,7 @@ type LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+	// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -3769,7 +3769,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pulu
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -3814,7 +3814,7 @@ func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -7568,7 +7568,7 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulu
 type LinuxVirtualMachineScaleSetSpotRestore struct {
 	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	Enabled *bool `pulumi:"enabled"`
-	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -7586,7 +7586,7 @@ type LinuxVirtualMachineScaleSetSpotRestoreInput interface {
 type LinuxVirtualMachineScaleSetSpotRestoreArgs struct {
 	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -7690,7 +7690,7 @@ func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) Enabled() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSpotRestore) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSpotRestore) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -7735,7 +7735,7 @@ func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Enabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSpotRestore) *string {
 		if v == nil {
@@ -9511,7 +9511,7 @@ func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Ultra
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled bool `pulumi:"enabled"`
-	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -9529,7 +9529,7 @@ type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+	// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -9633,7 +9633,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -9678,7 +9678,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enab
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+// Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
 func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -9861,9 +9861,11 @@ type OrchestratedVirtualMachineScaleSetDataDisk struct {
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        string `pulumi:"storageAccountType"`
-	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
-	UltraSsdDiskMbpsReadWrite *int   `pulumi:"ultraSsdDiskMbpsReadWrite"`
+	StorageAccountType string `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
 }
@@ -9891,8 +9893,10 @@ type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -9997,10 +10001,12 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) StorageAccountType() p
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
+// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -15424,9 +15430,9 @@ func (o ScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type ScaleSetNetworkProfile struct {
 	// Specifies whether to enable accelerated networking or not.
 	AcceleratedNetworking *bool `pulumi:"acceleratedNetworking"`
-	// A dnsSettings block as documented below.
+	// A `dnsSettings` block as documented below.
 	DnsSettings *ScaleSetNetworkProfileDnsSettings `pulumi:"dnsSettings"`
-	// An ipConfiguration block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations []ScaleSetNetworkProfileIpConfiguration `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding *bool `pulumi:"ipForwarding"`
@@ -15452,9 +15458,9 @@ type ScaleSetNetworkProfileInput interface {
 type ScaleSetNetworkProfileArgs struct {
 	// Specifies whether to enable accelerated networking or not.
 	AcceleratedNetworking pulumi.BoolPtrInput `pulumi:"acceleratedNetworking"`
-	// A dnsSettings block as documented below.
+	// A `dnsSettings` block as documented below.
 	DnsSettings ScaleSetNetworkProfileDnsSettingsPtrInput `pulumi:"dnsSettings"`
-	// An ipConfiguration block as documented below.
+	// An `ipConfiguration` block as documented below.
 	IpConfigurations ScaleSetNetworkProfileIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// Whether IP forwarding is enabled on this NIC. Defaults to `false`.
 	IpForwarding pulumi.BoolPtrInput `pulumi:"ipForwarding"`
@@ -15540,12 +15546,12 @@ func (o ScaleSetNetworkProfileOutput) AcceleratedNetworking() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v ScaleSetNetworkProfile) *bool { return v.AcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
 
-// A dnsSettings block as documented below.
+// A `dnsSettings` block as documented below.
 func (o ScaleSetNetworkProfileOutput) DnsSettings() ScaleSetNetworkProfileDnsSettingsPtrOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) *ScaleSetNetworkProfileDnsSettings { return v.DnsSettings }).(ScaleSetNetworkProfileDnsSettingsPtrOutput)
 }
 
-// An ipConfiguration block as documented below.
+// An `ipConfiguration` block as documented below.
 func (o ScaleSetNetworkProfileOutput) IpConfigurations() ScaleSetNetworkProfileIpConfigurationArrayOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfile) []ScaleSetNetworkProfileIpConfiguration { return v.IpConfigurations }).(ScaleSetNetworkProfileIpConfigurationArrayOutput)
 }
@@ -15774,7 +15780,7 @@ type ScaleSetNetworkProfileIpConfiguration struct {
 	Name string `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary bool `pulumi:"primary"`
-	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
+	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
 	PublicIpAddressConfiguration *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration `pulumi:"publicIpAddressConfiguration"`
 	// Specifies the identifier of the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -15808,7 +15814,7 @@ type ScaleSetNetworkProfileIpConfigurationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies if this ipConfiguration is the primary one.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
+	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
 	PublicIpAddressConfiguration ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput `pulumi:"publicIpAddressConfiguration"`
 	// Specifies the identifier of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -15919,7 +15925,7 @@ func (o ScaleSetNetworkProfileIpConfigurationOutput) Primary() pulumi.BoolOutput
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The publicIpAddressConfiguration is documented below.
+// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddressConfiguration` block is documented below.
 func (o ScaleSetNetworkProfileIpConfigurationOutput) PublicIpAddressConfiguration() ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput {
 	return o.ApplyT(func(v ScaleSetNetworkProfileIpConfiguration) *ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration {
 		return v.PublicIpAddressConfiguration
@@ -16981,13 +16987,13 @@ func (o ScaleSetOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi.IntIn
 }
 
 type ScaleSetOsProfileWindowsConfig struct {
-	// An Additional Unattended Config block as documented below.
+	// An `additionalUnattendConfig` block as documented below.
 	AdditionalUnattendConfigs []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig `pulumi:"additionalUnattendConfigs"`
 	// Indicates whether virtual machines in the scale set are enabled for automatic updates.
 	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	// A collection of WinRM configuration blocks as documented below.
+	// A collection of `winrm` blocks as documented below.
 	Winrms []ScaleSetOsProfileWindowsConfigWinrm `pulumi:"winrms"`
 }
 
@@ -17003,13 +17009,13 @@ type ScaleSetOsProfileWindowsConfigInput interface {
 }
 
 type ScaleSetOsProfileWindowsConfigArgs struct {
-	// An Additional Unattended Config block as documented below.
+	// An `additionalUnattendConfig` block as documented below.
 	AdditionalUnattendConfigs ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayInput `pulumi:"additionalUnattendConfigs"`
 	// Indicates whether virtual machines in the scale set are enabled for automatic updates.
 	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
 	// Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
-	// A collection of WinRM configuration blocks as documented below.
+	// A collection of `winrm` blocks as documented below.
 	Winrms ScaleSetOsProfileWindowsConfigWinrmArrayInput `pulumi:"winrms"`
 }
 
@@ -17108,7 +17114,7 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// An Additional Unattended Config block as documented below.
+// An `additionalUnattendConfig` block as documented below.
 func (o ScaleSetOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
 	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 		return v.AdditionalUnattendConfigs
@@ -17125,7 +17131,7 @@ func (o ScaleSetOsProfileWindowsConfigOutput) ProvisionVmAgent() pulumi.BoolPtrO
 	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
 
-// A collection of WinRM configuration blocks as documented below.
+// A collection of `winrm` blocks as documented below.
 func (o ScaleSetOsProfileWindowsConfigOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
 	return o.ApplyT(func(v ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm { return v.Winrms }).(ScaleSetOsProfileWindowsConfigWinrmArrayOutput)
 }
@@ -17160,7 +17166,7 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) Elem() ScaleSetOsProfileWindows
 	}).(ScaleSetOsProfileWindowsConfigOutput)
 }
 
-// An Additional Unattended Config block as documented below.
+// An `additionalUnattendConfig` block as documented below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs() ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput {
 	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
 		if v == nil {
@@ -17190,7 +17196,7 @@ func (o ScaleSetOsProfileWindowsConfigPtrOutput) ProvisionVmAgent() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A collection of WinRM configuration blocks as documented below.
+// A collection of `winrm` blocks as documented below.
 func (o ScaleSetOsProfileWindowsConfigPtrOutput) Winrms() ScaleSetOsProfileWindowsConfigWinrmArrayOutput {
 	return o.ApplyT(func(v *ScaleSetOsProfileWindowsConfig) []ScaleSetOsProfileWindowsConfigWinrm {
 		if v == nil {
@@ -18228,7 +18234,7 @@ type ScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyInstancePercent *int `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 	MaxUnhealthyUpgradedInstancePercent *int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `PT0S` seconds represented as `PT0S`.
 	PauseTimeBetweenBatches *string `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -18250,7 +18256,7 @@ type ScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyInstancePercent pulumi.IntPtrInput `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntPtrInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
+	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `PT0S` seconds represented as `PT0S`.
 	PauseTimeBetweenBatches pulumi.StringPtrInput `pulumi:"pauseTimeBetweenBatches"`
 }
 
@@ -18364,7 +18370,7 @@ func (o ScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgradedInstancePercent(
 	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *int { return v.MaxUnhealthyUpgradedInstancePercent }).(pulumi.IntPtrOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `PT0S` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScaleSetRollingUpgradePolicy) *string { return v.PauseTimeBetweenBatches }).(pulumi.StringPtrOutput)
 }
@@ -18429,7 +18435,7 @@ func (o ScaleSetRollingUpgradePolicyPtrOutput) MaxUnhealthyUpgradedInstancePerce
 	}).(pulumi.IntPtrOutput)
 }
 
-// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `0` seconds represented as `PT0S`.
+// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (<https://en.wikipedia.org/wiki/ISO_8601#Durations>). Defaults to `PT0S` seconds represented as `PT0S`.
 func (o ScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetweenBatches() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSetRollingUpgradePolicy) *string {
 		if v == nil {
@@ -22269,7 +22275,7 @@ func (o VirtualMachineOsProfileSecretVaultCertificateArrayOutput) Index(i pulumi
 type VirtualMachineOsProfileWindowsConfig struct {
 	// An `additionalUnattendConfig` block as defined below.
 	AdditionalUnattendConfigs []VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig `pulumi:"additionalUnattendConfigs"`
-	// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+	// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
 	EnableAutomaticUpgrades *bool `pulumi:"enableAutomaticUpgrades"`
 	// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 	//
@@ -22295,7 +22301,7 @@ type VirtualMachineOsProfileWindowsConfigInput interface {
 type VirtualMachineOsProfileWindowsConfigArgs struct {
 	// An `additionalUnattendConfig` block as defined below.
 	AdditionalUnattendConfigs VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput `pulumi:"additionalUnattendConfigs"`
-	// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+	// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
 	EnableAutomaticUpgrades pulumi.BoolPtrInput `pulumi:"enableAutomaticUpgrades"`
 	// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
 	//
@@ -22409,7 +22415,7 @@ func (o VirtualMachineOsProfileWindowsConfigOutput) AdditionalUnattendConfigs() 
 	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
-// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
 func (o VirtualMachineOsProfileWindowsConfigOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfileWindowsConfig) *bool { return v.EnableAutomaticUpgrades }).(pulumi.BoolPtrOutput)
 }
@@ -22473,7 +22479,7 @@ func (o VirtualMachineOsProfileWindowsConfigPtrOutput) AdditionalUnattendConfigs
 	}).(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput)
 }
 
-// Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+// Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
 func (o VirtualMachineOsProfileWindowsConfigPtrOutput) EnableAutomaticUpgrades() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfileWindowsConfig) *bool {
 		if v == nil {
@@ -25874,7 +25880,7 @@ func (o WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput) Index
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled bool `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+	// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod *string `pulumi:"gracePeriod"`
 }
 
@@ -25892,7 +25898,7 @@ type WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
 	// Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+	// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 	GracePeriod pulumi.StringPtrInput `pulumi:"gracePeriod"`
 }
 
@@ -25996,7 +26002,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) Enabled() pu
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string { return v.GracePeriod }).(pulumi.StringPtrOutput)
 }
@@ -26041,7 +26047,7 @@ func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Enabled()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+// Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
 func (o WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) GracePeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAutomaticInstanceRepair) *string {
 		if v == nil {
@@ -29800,7 +29806,7 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pu
 type WindowsVirtualMachineScaleSetSpotRestore struct {
 	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	Enabled *bool `pulumi:"enabled"`
-	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 	Timeout *string `pulumi:"timeout"`
 }
 
@@ -29818,7 +29824,7 @@ type WindowsVirtualMachineScaleSetSpotRestoreInput interface {
 type WindowsVirtualMachineScaleSetSpotRestoreArgs struct {
 	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
 }
 
@@ -29922,7 +29928,7 @@ func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) Enabled() pulumi.BoolPtr
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSpotRestore) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSpotRestore) *string { return v.Timeout }).(pulumi.StringPtrOutput)
 }
@@ -29967,7 +29973,7 @@ func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Enabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `PT1H`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSpotRestore) *string {
 		if v == nil {

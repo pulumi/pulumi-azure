@@ -34,7 +34,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Web Application Firewall Policy.
@@ -135,7 +135,7 @@ class FirewallPolicyArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         """
         return pulumi.get(self, "mode")
 
@@ -204,7 +204,7 @@ class _FirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         :param pulumi.Input[str] location: The Azure Region where this Front Door Firewall Policy exists.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
@@ -323,7 +323,7 @@ class _FirewallPolicyState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         """
         return pulumi.get(self, "mode")
 
@@ -518,7 +518,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
@@ -729,7 +729,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         :param pulumi.Input[str] location: The Azure Region where this Front Door Firewall Policy exists.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
-        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
@@ -813,7 +813,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
+        The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         """
         return pulumi.get(self, "mode")
 

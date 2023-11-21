@@ -14,14 +14,14 @@ public final class CertifiateCertificatePolicyLifetimeActionActionArgs extends c
     public static final CertifiateCertificatePolicyLifetimeActionActionArgs Empty = new CertifiateCertificatePolicyLifetimeActionActionArgs();
 
     /**
-     * The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+     * The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
      * 
      */
     @Import(name="actionType", required=true)
     private Output<String> actionType;
 
     /**
-     * @return The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+     * @return The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
      * 
      */
     public Output<String> actionType() {
@@ -53,7 +53,7 @@ public final class CertifiateCertificatePolicyLifetimeActionActionArgs extends c
         }
 
         /**
-         * @param actionType The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+         * @param actionType The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class CertifiateCertificatePolicyLifetimeActionActionArgs extends c
         }
 
         /**
-         * @param actionType The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+         * @param actionType The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
          * 
          * @return builder
          * 

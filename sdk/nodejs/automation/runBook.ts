@@ -138,7 +138,7 @@ export class RunBook extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The published runbook content link.
+     * One `publishContentLink` block as defined below.
      */
     public readonly publishContentLink!: pulumi.Output<outputs.automation.RunBookPublishContentLink | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface RunBookState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The published runbook content link.
+     * One `publishContentLink` block as defined below.
      */
     publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
     /**
@@ -323,7 +323,7 @@ export interface RunBookArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The published runbook content link.
+     * One `publishContentLink` block as defined below.
      */
     publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
     /**

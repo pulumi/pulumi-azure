@@ -97,7 +97,7 @@ import (
 type CacheAccessPolicy struct {
 	pulumi.CustomResourceState
 
-	// Up to three `accessRule` blocks as defined below.
+	// One or more `accessRule` blocks (up to three) as defined below.
 	AccessRules CacheAccessPolicyAccessRuleArrayOutput `pulumi:"accessRules"`
 	// The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
 	HpcCacheId pulumi.StringOutput `pulumi:"hpcCacheId"`
@@ -141,7 +141,7 @@ func GetCacheAccessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CacheAccessPolicy resources.
 type cacheAccessPolicyState struct {
-	// Up to three `accessRule` blocks as defined below.
+	// One or more `accessRule` blocks (up to three) as defined below.
 	AccessRules []CacheAccessPolicyAccessRule `pulumi:"accessRules"`
 	// The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
 	HpcCacheId *string `pulumi:"hpcCacheId"`
@@ -150,7 +150,7 @@ type cacheAccessPolicyState struct {
 }
 
 type CacheAccessPolicyState struct {
-	// Up to three `accessRule` blocks as defined below.
+	// One or more `accessRule` blocks (up to three) as defined below.
 	AccessRules CacheAccessPolicyAccessRuleArrayInput
 	// The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
 	HpcCacheId pulumi.StringPtrInput
@@ -163,7 +163,7 @@ func (CacheAccessPolicyState) ElementType() reflect.Type {
 }
 
 type cacheAccessPolicyArgs struct {
-	// Up to three `accessRule` blocks as defined below.
+	// One or more `accessRule` blocks (up to three) as defined below.
 	AccessRules []CacheAccessPolicyAccessRule `pulumi:"accessRules"`
 	// The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
 	HpcCacheId string `pulumi:"hpcCacheId"`
@@ -173,7 +173,7 @@ type cacheAccessPolicyArgs struct {
 
 // The set of arguments for constructing a CacheAccessPolicy resource.
 type CacheAccessPolicyArgs struct {
-	// Up to three `accessRule` blocks as defined below.
+	// One or more `accessRule` blocks (up to three) as defined below.
 	AccessRules CacheAccessPolicyAccessRuleArrayInput
 	// The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
 	HpcCacheId pulumi.StringInput
@@ -292,7 +292,7 @@ func (o CacheAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*C
 	}
 }
 
-// Up to three `accessRule` blocks as defined below.
+// One or more `accessRule` blocks (up to three) as defined below.
 func (o CacheAccessPolicyOutput) AccessRules() CacheAccessPolicyAccessRuleArrayOutput {
 	return o.ApplyT(func(v *CacheAccessPolicy) CacheAccessPolicyAccessRuleArrayOutput { return v.AccessRules }).(CacheAccessPolicyAccessRuleArrayOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventGrid.Inputs
     public sealed class DomainInboundIpRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take when the rule is matched. Possible values are `Allow`.
+        /// The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

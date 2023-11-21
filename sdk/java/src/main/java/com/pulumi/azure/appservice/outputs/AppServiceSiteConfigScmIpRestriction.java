@@ -19,7 +19,7 @@ public final class AppServiceSiteConfigScmIpRestriction {
      */
     private @Nullable String action;
     /**
-     * @return The headers for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     private @Nullable AppServiceSiteConfigScmIpRestrictionHeaders headers;
@@ -60,7 +60,7 @@ public final class AppServiceSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The headers for this specific `scm_ip_restriction` as defined below.
+     * @return The `headers` block for this specific `scm_ip_restriction` as defined below.
      * 
      */
     public Optional<AppServiceSiteConfigScmIpRestrictionHeaders> headers() {

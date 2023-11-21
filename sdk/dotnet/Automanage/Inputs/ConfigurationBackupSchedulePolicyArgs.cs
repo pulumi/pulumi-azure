@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Automanage.Inputs
     public sealed class ConfigurationBackupSchedulePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+        /// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
         /// </summary>
         [Input("schedulePolicyType")]
         public Input<string>? SchedulePolicyType { get; set; }

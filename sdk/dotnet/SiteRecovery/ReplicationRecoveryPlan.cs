@@ -285,7 +285,7 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An `azure_to_azure_settings` block defined as block.
+        /// An `azure_to_azure_settings` block as defined below.
         /// </summary>
         [Output("azureToAzureSettings")]
         public Output<Outputs.ReplicationRecoveryPlanAzureToAzureSettings?> AzureToAzureSettings { get; private set; } = null!;
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Three or more `recovery_group` block defined as below.
         /// 
-        /// **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        /// &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         /// </summary>
         [Output("recoveryGroups")]
         public Output<ImmutableArray<Outputs.ReplicationRecoveryPlanRecoveryGroup>> RecoveryGroups { get; private set; } = null!;
@@ -393,7 +393,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_to_azure_settings` block defined as block.
+        /// An `azure_to_azure_settings` block as defined below.
         /// </summary>
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsArgs>? AzureToAzureSettings { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Three or more `recovery_group` block defined as below.
         /// 
-        /// **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        /// &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         /// </summary>
         [Obsolete(@"the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.")]
         public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupArgs> RecoveryGroups
@@ -476,7 +476,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ReplicationRecoveryPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An `azure_to_azure_settings` block defined as block.
+        /// An `azure_to_azure_settings` block as defined below.
         /// </summary>
         [Input("azureToAzureSettings")]
         public Input<Inputs.ReplicationRecoveryPlanAzureToAzureSettingsGetArgs>? AzureToAzureSettings { get; set; }
@@ -515,7 +515,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// <summary>
         /// Three or more `recovery_group` block defined as below.
         /// 
-        /// **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
+        /// &gt; **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         /// </summary>
         [Obsolete(@"the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.")]
         public InputList<Inputs.ReplicationRecoveryPlanRecoveryGroupGetArgs> RecoveryGroups

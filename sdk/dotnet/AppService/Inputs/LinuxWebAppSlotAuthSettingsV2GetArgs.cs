@@ -39,7 +39,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The path to the App Auth settings.
         /// 
-        /// * &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
+        /// &gt; **Note:** Relative Paths are evaluated from the Site Root directory.
         /// </summary>
         [Input("configFilePath")]
         public Input<string>? ConfigFilePath { get; set; }

@@ -182,7 +182,6 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
     }
     /**
      * The type of principal.
-     * *
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
@@ -190,7 +189,6 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
 
     /**
      * @return The type of principal.
-     * *
      * 
      */
     public Output<String> principalType() {

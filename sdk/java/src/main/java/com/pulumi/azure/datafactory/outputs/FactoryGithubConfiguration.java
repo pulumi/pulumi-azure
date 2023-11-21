@@ -28,7 +28,7 @@ public final class FactoryGithubConfiguration {
      */
     private String gitUrl;
     /**
-     * @return Is automated publishing enabled? Defaults to `false`.
+     * @return Is automated publishing enabled? Defaults to `true`.
      * 
      * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 
@@ -68,7 +68,7 @@ public final class FactoryGithubConfiguration {
         return this.gitUrl;
     }
     /**
-     * @return Is automated publishing enabled? Defaults to `false`.
+     * @return Is automated publishing enabled? Defaults to `true`.
      * 
      * &gt; **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
      * 

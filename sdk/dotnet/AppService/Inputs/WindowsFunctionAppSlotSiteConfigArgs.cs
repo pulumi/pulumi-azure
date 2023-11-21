@@ -102,7 +102,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _defaultDocuments;
 
         /// <summary>
-        /// a `default_documents` block as detailed below.
+        /// Specifies a list of Default Documents for the Windows Web App.
         /// </summary>
         public InputList<string> DefaultDocuments
         {
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? FtpsState { get; set; }
 
         /// <summary>
-        /// The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        /// The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         /// </summary>
         [Input("healthCheckEvictionTimeInMin")]
         public Input<int>? HealthCheckEvictionTimeInMin { get; set; }

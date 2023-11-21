@@ -20,7 +20,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable List<String> allowedApplications;
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -74,7 +74,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private String tenantAuthEndpoint;
     /**
-     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     private @Nullable Boolean wwwAuthenticationDisabled;
@@ -88,7 +88,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.allowedApplications == null ? List.of() : this.allowedApplications;
     }
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -162,7 +162,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.tenantAuthEndpoint;
     }
     /**
-     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`
+     * @return Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
      * 
      */
     public Optional<Boolean> wwwAuthenticationDisabled() {

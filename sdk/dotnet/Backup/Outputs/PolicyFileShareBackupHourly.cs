@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Backup.Outputs
     public sealed class PolicyFileShareBackupHourly
     {
         /// <summary>
-        /// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+        /// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
         /// </summary>
         public readonly int Interval;
         /// <summary>
-        /// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        /// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
         /// </summary>
         public readonly string StartTime;
         /// <summary>
-        /// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+        /// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         /// </summary>
         public readonly int WindowDuration;
 

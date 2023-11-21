@@ -33,7 +33,7 @@ type CacheNfsTarget struct {
 	CacheName pulumi.StringOutput `pulumi:"cacheName"`
 	// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
 	NamespaceJunctions CacheNfsTargetNamespaceJunctionArrayOutput `pulumi:"namespaceJunctions"`
 	// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -92,7 +92,7 @@ type cacheNfsTargetState struct {
 	CacheName *string `pulumi:"cacheName"`
 	// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
 	NamespaceJunctions []CacheNfsTargetNamespaceJunction `pulumi:"namespaceJunctions"`
 	// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -107,7 +107,7 @@ type CacheNfsTargetState struct {
 	CacheName pulumi.StringPtrInput
 	// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
 	NamespaceJunctions CacheNfsTargetNamespaceJunctionArrayInput
 	// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -126,7 +126,7 @@ type cacheNfsTargetArgs struct {
 	CacheName string `pulumi:"cacheName"`
 	// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
 	NamespaceJunctions []CacheNfsTargetNamespaceJunction `pulumi:"namespaceJunctions"`
 	// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -142,7 +142,7 @@ type CacheNfsTargetArgs struct {
 	CacheName pulumi.StringInput
 	// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+	// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
 	NamespaceJunctions CacheNfsTargetNamespaceJunctionArrayInput
 	// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -273,7 +273,7 @@ func (o CacheNfsTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheNfsTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+// Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
 func (o CacheNfsTargetOutput) NamespaceJunctions() CacheNfsTargetNamespaceJunctionArrayOutput {
 	return o.ApplyT(func(v *CacheNfsTarget) CacheNfsTargetNamespaceJunctionArrayOutput { return v.NamespaceJunctions }).(CacheNfsTargetNamespaceJunctionArrayOutput)
 }

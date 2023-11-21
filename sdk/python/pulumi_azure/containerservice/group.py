@@ -57,7 +57,7 @@ class GroupArgs:
         :param pulumi.Input['GroupIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
@@ -257,7 +257,7 @@ class GroupArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
 
         > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         """
@@ -432,7 +432,7 @@ class _GroupState:
         :param pulumi.Input[Sequence[pulumi.Input['GroupImageRegistryCredentialArgs']]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerArgs']]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
@@ -641,7 +641,7 @@ class _GroupState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
 
         > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         """
@@ -892,7 +892,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GroupIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
@@ -1098,7 +1098,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupImageRegistryCredentialArgs']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitContainerArgs']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        :param pulumi.Input[str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         :param pulumi.Input[str] key_vault_key_id: The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
@@ -1241,7 +1241,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set.
+        Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
 
         > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         """

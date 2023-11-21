@@ -16,7 +16,7 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
     public static final VaultResourceGuardAssociationArgs Empty = new VaultResourceGuardAssociationArgs();
 
     /**
-     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+     * Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
      * 
      * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
      * 
@@ -29,7 +29,7 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
      * 
      * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
      * 
@@ -99,7 +99,7 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
          * 
          * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
          * 
@@ -116,7 +116,7 @@ public final class VaultResourceGuardAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
          * 
          * &gt; **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
          * 

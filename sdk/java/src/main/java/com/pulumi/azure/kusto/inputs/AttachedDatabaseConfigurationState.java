@@ -78,14 +78,14 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
     }
 
     /**
-     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      * 
      */
     @Import(name="defaultPrincipalModificationKind")
     private @Nullable Output<String> defaultPrincipalModificationKind;
 
     /**
-     * @return The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * @return The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      * 
      */
     public Optional<Output<String>> defaultPrincipalModificationKind() {
@@ -279,7 +279,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultPrincipalModificationKind The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+         * @param defaultPrincipalModificationKind The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class AttachedDatabaseConfigurationState extends com.pulumi.resourc
         }
 
         /**
-         * @param defaultPrincipalModificationKind The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+         * @param defaultPrincipalModificationKind The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
          * 
          * @return builder
          * 

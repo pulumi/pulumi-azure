@@ -32,7 +32,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
      * 
      * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
      * 
@@ -41,7 +41,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> protocol;
 
     /**
-     * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
      * 
      * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
      * 
@@ -97,7 +97,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+         * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
          * 
          * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
          * 
@@ -110,7 +110,7 @@ public final class GroupExposedPortArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+         * @param protocol The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
          * 
          * &gt; **Note:** Removing all `exposed_port` blocks requires setting `exposed_port = []`.
          * 

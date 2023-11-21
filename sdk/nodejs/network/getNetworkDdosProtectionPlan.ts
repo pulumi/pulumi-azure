@@ -26,7 +26,6 @@ export function getNetworkDdosProtectionPlan(args: GetNetworkDdosProtectionPlanA
     return pulumi.runtime.invoke("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-        "tags": args.tags,
     }, opts);
 }
 
@@ -42,10 +41,6 @@ export interface GetNetworkDdosProtectionPlanArgs {
      * The name of the resource group where the Network DDoS Protection Plan exists.
      */
     resourceGroupName: string;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
-    tags?: {[key: string]: string};
 }
 
 /**
@@ -65,7 +60,7 @@ export interface GetNetworkDdosProtectionPlanResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
     /**
      * A list of IDs of the Virtual Networks associated with this DDoS Protection Plan.
      */
@@ -103,8 +98,4 @@ export interface GetNetworkDdosProtectionPlanOutputArgs {
      * The name of the resource group where the Network DDoS Protection Plan exists.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * A mapping of tags assigned to the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

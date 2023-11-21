@@ -90,7 +90,7 @@ export class ChannelWebChat extends pulumi.CustomResource {
      */
     public readonly siteNames!: pulumi.Output<string[]>;
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
     public readonly sites!: pulumi.Output<outputs.bot.ChannelWebChatSite[]>;
 
@@ -156,7 +156,7 @@ export interface ChannelWebChatState {
      */
     siteNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
     sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[]>;
 }
@@ -186,7 +186,7 @@ export interface ChannelWebChatArgs {
      */
     siteNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+     * A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
      */
     sites?: pulumi.Input<pulumi.Input<inputs.bot.ChannelWebChatSite>[]>;
 }

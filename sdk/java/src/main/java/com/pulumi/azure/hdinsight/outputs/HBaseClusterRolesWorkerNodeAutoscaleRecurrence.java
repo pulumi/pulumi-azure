@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
+    /**
+     * @return A list of `schedule` blocks as defined below.
+     * 
+     */
     private List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
+    /**
+     * @return The time zone for the autoscale schedule times.
+     * 
+     */
     private String timezone;
 
     private HBaseClusterRolesWorkerNodeAutoscaleRecurrence() {}
+    /**
+     * @return A list of `schedule` blocks as defined below.
+     * 
+     */
     public List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules() {
         return this.schedules;
     }
+    /**
+     * @return The time zone for the autoscale schedule times.
+     * 
+     */
     public String timezone() {
         return this.timezone;
     }

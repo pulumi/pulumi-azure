@@ -32,14 +32,14 @@ public final class BudgetResourceGroupFilterNotDimensionArgs extends com.pulumi.
     }
 
     /**
-     * The operator to use for comparison. The allowed values are `In`.
+     * The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
      * 
      */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
     /**
-     * @return The operator to use for comparison. The allowed values are `In`.
+     * @return The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
      * 
      */
     public Optional<Output<String>> operator() {
@@ -109,7 +109,7 @@ public final class BudgetResourceGroupFilterNotDimensionArgs extends com.pulumi.
         }
 
         /**
-         * @param operator The operator to use for comparison. The allowed values are `In`.
+         * @param operator The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class BudgetResourceGroupFilterNotDimensionArgs extends com.pulumi.
         }
 
         /**
-         * @param operator The operator to use for comparison. The allowed values are `In`.
+         * @param operator The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
          * 
          * @return builder
          * 

@@ -22,11 +22,11 @@ namespace Pulumi.Azure.AppConfiguration.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        /// Specifies the supported Azure location where the replica exists.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Specifies the name of the replica. Changing this forces a new replica to be created.
+        /// Specifies the name of the replica.
         /// </summary>
         public readonly string Name;
 

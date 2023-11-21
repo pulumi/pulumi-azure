@@ -13,7 +13,7 @@ namespace Pulumi.Azure.KeyVault.Inputs
     public sealed class CertifiateCertificatePolicyLifetimeActionActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        /// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
         /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;

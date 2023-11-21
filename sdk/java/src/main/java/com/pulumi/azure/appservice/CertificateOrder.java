@@ -245,14 +245,14 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Certificate product type, such as `Standard` or `WildCard`.
+     * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      * 
      */
     @Export(name="productType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> productType;
 
     /**
-     * @return Certificate product type, such as `Standard` or `WildCard`.
+     * @return Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      * 
      */
     public Output<Optional<String>> productType() {

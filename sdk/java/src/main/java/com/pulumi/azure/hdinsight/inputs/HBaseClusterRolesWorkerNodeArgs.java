@@ -19,9 +19,17 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
 
     public static final HBaseClusterRolesWorkerNodeArgs Empty = new HBaseClusterRolesWorkerNodeArgs();
 
+    /**
+     * A `autoscale` block as defined below.
+     * 
+     */
     @Import(name="autoscale")
     private @Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleArgs> autoscale;
 
+    /**
+     * @return A `autoscale` block as defined below.
+     * 
+     */
     public Optional<Output<HBaseClusterRolesWorkerNodeAutoscaleArgs>> autoscale() {
         return Optional.ofNullable(this.autoscale);
     }
@@ -46,14 +54,14 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
     }
 
     /**
-     * The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<HBaseClusterRolesWorkerNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<HBaseClusterRolesWorkerNodeScriptActionArgs>>> scriptActions() {
@@ -186,11 +194,23 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
             $ = new HBaseClusterRolesWorkerNodeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autoscale A `autoscale` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscale(@Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleArgs> autoscale) {
             $.autoscale = autoscale;
             return this;
         }
 
+        /**
+         * @param autoscale A `autoscale` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autoscale(HBaseClusterRolesWorkerNodeAutoscaleArgs autoscale) {
             return autoscale(Output.of(autoscale));
         }
@@ -221,7 +241,7 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -232,7 +252,7 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -242,7 +262,7 @@ public final class HBaseClusterRolesWorkerNodeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

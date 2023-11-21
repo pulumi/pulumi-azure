@@ -112,14 +112,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administratorLoginPassword);
     }
     /**
-     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     * Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      * 
      */
     @Export(name="autoGrowEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoGrowEnabled;
 
     /**
-     * @return Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+     * @return Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> autoGrowEnabled() {

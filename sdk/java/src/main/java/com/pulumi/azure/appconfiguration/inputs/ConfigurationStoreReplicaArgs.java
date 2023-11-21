@@ -46,14 +46,14 @@ public final class ConfigurationStoreReplicaArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+     * Specifies the supported Azure location where the replica exists.
      * 
      */
     @Import(name="location", required=true)
     private Output<String> location;
 
     /**
-     * @return Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+     * @return Specifies the supported Azure location where the replica exists.
      * 
      */
     public Output<String> location() {
@@ -61,14 +61,14 @@ public final class ConfigurationStoreReplicaArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the name of the replica. Changing this forces a new replica to be created.
+     * Specifies the name of the replica.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the replica. Changing this forces a new replica to be created.
+     * @return Specifies the name of the replica.
      * 
      */
     public Output<String> name() {
@@ -145,7 +145,7 @@ public final class ConfigurationStoreReplicaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+         * @param location Specifies the supported Azure location where the replica exists.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ConfigurationStoreReplicaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param location Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+         * @param location Specifies the supported Azure location where the replica exists.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ConfigurationStoreReplicaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the replica. Changing this forces a new replica to be created.
+         * @param name Specifies the name of the replica.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ConfigurationStoreReplicaArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the replica. Changing this forces a new replica to be created.
+         * @param name Specifies the name of the replica.
          * 
          * @return builder
          * 

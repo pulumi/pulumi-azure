@@ -82,7 +82,7 @@ import (
 type LocalRulestackRule struct {
 	pulumi.CustomResourceState
 
-	// The action to take on the rule being triggered.
+	// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 	Action pulumi.StringOutput `pulumi:"action"`
 	// Specifies a list of Applications.
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
@@ -90,7 +90,7 @@ type LocalRulestackRule struct {
 	AuditComment pulumi.StringPtrOutput `pulumi:"auditComment"`
 	// A `category` block as defined below.
 	Category LocalRulestackRuleCategoryPtrOutput `pulumi:"category"`
-	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
 	DecryptionRuleType pulumi.StringPtrOutput `pulumi:"decryptionRuleType"`
 	// The description for the rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -172,7 +172,7 @@ func GetLocalRulestackRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalRulestackRule resources.
 type localRulestackRuleState struct {
-	// The action to take on the rule being triggered.
+	// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 	Action *string `pulumi:"action"`
 	// Specifies a list of Applications.
 	Applications []string `pulumi:"applications"`
@@ -180,7 +180,7 @@ type localRulestackRuleState struct {
 	AuditComment *string `pulumi:"auditComment"`
 	// A `category` block as defined below.
 	Category *LocalRulestackRuleCategory `pulumi:"category"`
-	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
 	DecryptionRuleType *string `pulumi:"decryptionRuleType"`
 	// The description for the rule.
 	Description *string `pulumi:"description"`
@@ -215,7 +215,7 @@ type localRulestackRuleState struct {
 }
 
 type LocalRulestackRuleState struct {
-	// The action to take on the rule being triggered.
+	// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 	Action pulumi.StringPtrInput
 	// Specifies a list of Applications.
 	Applications pulumi.StringArrayInput
@@ -223,7 +223,7 @@ type LocalRulestackRuleState struct {
 	AuditComment pulumi.StringPtrInput
 	// A `category` block as defined below.
 	Category LocalRulestackRuleCategoryPtrInput
-	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
 	DecryptionRuleType pulumi.StringPtrInput
 	// The description for the rule.
 	Description pulumi.StringPtrInput
@@ -262,7 +262,7 @@ func (LocalRulestackRuleState) ElementType() reflect.Type {
 }
 
 type localRulestackRuleArgs struct {
-	// The action to take on the rule being triggered.
+	// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 	Action string `pulumi:"action"`
 	// Specifies a list of Applications.
 	Applications []string `pulumi:"applications"`
@@ -270,7 +270,7 @@ type localRulestackRuleArgs struct {
 	AuditComment *string `pulumi:"auditComment"`
 	// A `category` block as defined below.
 	Category *LocalRulestackRuleCategory `pulumi:"category"`
-	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
 	DecryptionRuleType *string `pulumi:"decryptionRuleType"`
 	// The description for the rule.
 	Description *string `pulumi:"description"`
@@ -306,7 +306,7 @@ type localRulestackRuleArgs struct {
 
 // The set of arguments for constructing a LocalRulestackRule resource.
 type LocalRulestackRuleArgs struct {
-	// The action to take on the rule being triggered.
+	// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 	Action pulumi.StringInput
 	// Specifies a list of Applications.
 	Applications pulumi.StringArrayInput
@@ -314,7 +314,7 @@ type LocalRulestackRuleArgs struct {
 	AuditComment pulumi.StringPtrInput
 	// A `category` block as defined below.
 	Category LocalRulestackRuleCategoryPtrInput
-	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+	// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
 	DecryptionRuleType pulumi.StringPtrInput
 	// The description for the rule.
 	Description pulumi.StringPtrInput
@@ -459,7 +459,7 @@ func (o LocalRulestackRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
-// The action to take on the rule being triggered.
+// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
 func (o LocalRulestackRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.StringOutput { return v.Action }).(pulumi.StringOutput)
 }
@@ -479,7 +479,7 @@ func (o LocalRulestackRuleOutput) Category() LocalRulestackRuleCategoryPtrOutput
 	return o.ApplyT(func(v *LocalRulestackRule) LocalRulestackRuleCategoryPtrOutput { return v.Category }).(LocalRulestackRuleCategoryPtrOutput)
 }
 
-// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
 func (o LocalRulestackRuleOutput) DecryptionRuleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocalRulestackRule) pulumi.StringPtrOutput { return v.DecryptionRuleType }).(pulumi.StringPtrOutput)
 }

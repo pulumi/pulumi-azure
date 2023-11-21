@@ -35,7 +35,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         }
 
         /// <summary>
-        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
         /// </summary>
         [Input("pricingTier")]
         public Input<string>? PricingTier { get; set; }

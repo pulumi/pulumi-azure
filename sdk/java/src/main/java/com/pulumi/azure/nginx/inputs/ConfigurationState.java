@@ -64,14 +64,14 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     @Import(name="protectedFiles")
     private @Nullable Output<List<ConfigurationProtectedFileArgs>> protectedFiles;
 
     /**
-     * @return One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+     * @return One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
      * 
      */
     public Optional<Output<List<ConfigurationProtectedFileArgs>>> protectedFiles() {
@@ -195,7 +195,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param protectedFiles One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param protectedFiles One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param protectedFiles One or more `protected_file` (Protected File) blocks with sensitive information as defined below. If specified `config_file` must also be specified.
+         * @param protectedFiles One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
          * 
          * @return builder
          * 

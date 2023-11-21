@@ -29,7 +29,7 @@ class ChannelWebChatArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: A list of Web Chat Site names.
                
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -100,7 +100,7 @@ class ChannelWebChatArgs:
     @pulumi.getter
     def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]:
         """
-        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 
@@ -125,7 +125,7 @@ class _ChannelWebChatState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: A list of Web Chat Site names.
                
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         if bot_name is not None:
             pulumi.set(__self__, "bot_name", bot_name)
@@ -198,7 +198,7 @@ class _ChannelWebChatState:
     @pulumi.getter
     def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]]:
         """
-        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 
@@ -259,7 +259,7 @@ class ChannelWebChat(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: A list of Web Chat Site names.
                
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         ...
     @overload
@@ -366,7 +366,7 @@ class ChannelWebChat(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: A list of Web Chat Site names.
                
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,7 +420,7 @@ class ChannelWebChat(pulumi.CustomResource):
     @pulumi.getter
     def sites(self) -> pulumi.Output[Sequence['outputs.ChannelWebChatSite']]:
         """
-        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 

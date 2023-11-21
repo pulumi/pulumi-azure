@@ -18,7 +18,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
      */
     private Boolean enabled;
     /**
-     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
      * 
      */
     private @Nullable String gracePeriod;
@@ -32,7 +32,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
         return this.enabled;
     }
     /**
-     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. Defaults to `30` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`).
+     * @return Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
      * 
      */
     public Optional<String> gracePeriod() {

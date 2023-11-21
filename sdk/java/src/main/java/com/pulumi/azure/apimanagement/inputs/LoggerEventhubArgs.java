@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs {
@@ -16,16 +18,35 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The connection string of an EventHub Namespace.
      * 
+     * &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+     * 
      */
-    @Import(name="connectionString", required=true)
-    private Output<String> connectionString;
+    @Import(name="connectionString")
+    private @Nullable Output<String> connectionString;
 
     /**
      * @return The connection string of an EventHub Namespace.
      * 
+     * &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+     * 
      */
-    public Output<String> connectionString() {
-        return this.connectionString;
+    public Optional<Output<String>> connectionString() {
+        return Optional.ofNullable(this.connectionString);
+    }
+
+    /**
+     * The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+     * 
+     */
+    @Import(name="endpointUri")
+    private @Nullable Output<String> endpointUri;
+
+    /**
+     * @return The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+     * 
+     */
+    public Optional<Output<String>> endpointUri() {
+        return Optional.ofNullable(this.endpointUri);
     }
 
     /**
@@ -43,11 +64,28 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
         return this.name;
     }
 
+    /**
+     * The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+     * 
+     */
+    @Import(name="userAssignedIdentityClientId")
+    private @Nullable Output<String> userAssignedIdentityClientId;
+
+    /**
+     * @return The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityClientId() {
+        return Optional.ofNullable(this.userAssignedIdentityClientId);
+    }
+
     private LoggerEventhubArgs() {}
 
     private LoggerEventhubArgs(LoggerEventhubArgs $) {
         this.connectionString = $.connectionString;
+        this.endpointUri = $.endpointUri;
         this.name = $.name;
+        this.userAssignedIdentityClientId = $.userAssignedIdentityClientId;
     }
 
     public static Builder builder() {
@@ -71,10 +109,12 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param connectionString The connection string of an EventHub Namespace.
          * 
+         * &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+         * 
          * @return builder
          * 
          */
-        public Builder connectionString(Output<String> connectionString) {
+        public Builder connectionString(@Nullable Output<String> connectionString) {
             $.connectionString = connectionString;
             return this;
         }
@@ -82,11 +122,34 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param connectionString The connection string of an EventHub Namespace.
          * 
+         * &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
+         * 
          * @return builder
          * 
          */
         public Builder connectionString(String connectionString) {
             return connectionString(Output.of(connectionString));
+        }
+
+        /**
+         * @param endpointUri The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUri(@Nullable Output<String> endpointUri) {
+            $.endpointUri = endpointUri;
+            return this;
+        }
+
+        /**
+         * @param endpointUri The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointUri(String endpointUri) {
+            return endpointUri(Output.of(endpointUri));
         }
 
         /**
@@ -110,8 +173,28 @@ public final class LoggerEventhubArgs extends com.pulumi.resources.ResourceArgs 
             return name(Output.of(name));
         }
 
+        /**
+         * @param userAssignedIdentityClientId The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityClientId(@Nullable Output<String> userAssignedIdentityClientId) {
+            $.userAssignedIdentityClientId = userAssignedIdentityClientId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityClientId The Client Id of the User Assigned Identity  with the &#34;Azure Event Hubs Data Sender&#34; role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityClientId(String userAssignedIdentityClientId) {
+            return userAssignedIdentityClientId(Output.of(userAssignedIdentityClientId));
+        }
+
         public LoggerEventhubArgs build() {
-            $.connectionString = Objects.requireNonNull($.connectionString, "expected parameter 'connectionString' to be non-null");
             $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }

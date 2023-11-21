@@ -76,7 +76,7 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+     * An `soaRecord` block as defined below.
      */
     public readonly soaRecord!: pulumi.Output<outputs.dns.ZoneSoaRecord>;
     /**
@@ -147,7 +147,7 @@ export interface ZoneState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+     * An `soaRecord` block as defined below.
      */
     soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**
@@ -169,7 +169,7 @@ export interface ZoneArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+     * An `soaRecord` block as defined below.
      */
     soaRecord?: pulumi.Input<inputs.dns.ZoneSoaRecord>;
     /**

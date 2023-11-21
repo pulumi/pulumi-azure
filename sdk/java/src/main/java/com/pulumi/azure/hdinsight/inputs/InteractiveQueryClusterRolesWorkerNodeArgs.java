@@ -54,14 +54,14 @@ public final class InteractiveQueryClusterRolesWorkerNodeArgs extends com.pulumi
     }
 
     /**
-     * The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<InteractiveQueryClusterRolesWorkerNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<InteractiveQueryClusterRolesWorkerNodeScriptActionArgs>>> scriptActions() {
@@ -245,7 +245,7 @@ public final class InteractiveQueryClusterRolesWorkerNodeArgs extends com.pulumi
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class InteractiveQueryClusterRolesWorkerNodeArgs extends com.pulumi
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class InteractiveQueryClusterRolesWorkerNodeArgs extends com.pulumi
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

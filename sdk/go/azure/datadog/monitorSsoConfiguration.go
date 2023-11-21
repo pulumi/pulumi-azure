@@ -89,7 +89,7 @@ type MonitorSsoConfiguration struct {
 	LoginUrl pulumi.StringOutput `pulumi:"loginUrl"`
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The state of SingleSignOn configuration.
+	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
 	SingleSignOnEnabled pulumi.StringOutput `pulumi:"singleSignOnEnabled"`
 }
 
@@ -140,7 +140,7 @@ type monitorSsoConfigurationState struct {
 	LoginUrl *string `pulumi:"loginUrl"`
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name *string `pulumi:"name"`
-	// The state of SingleSignOn configuration.
+	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
 	SingleSignOnEnabled *string `pulumi:"singleSignOnEnabled"`
 }
 
@@ -153,7 +153,7 @@ type MonitorSsoConfigurationState struct {
 	LoginUrl pulumi.StringPtrInput
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringPtrInput
-	// The state of SingleSignOn configuration.
+	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
 	SingleSignOnEnabled pulumi.StringPtrInput
 }
 
@@ -168,7 +168,7 @@ type monitorSsoConfigurationArgs struct {
 	EnterpriseApplicationId string `pulumi:"enterpriseApplicationId"`
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name *string `pulumi:"name"`
-	// The state of SingleSignOn configuration.
+	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
 	SingleSignOnEnabled string `pulumi:"singleSignOnEnabled"`
 }
 
@@ -180,7 +180,7 @@ type MonitorSsoConfigurationArgs struct {
 	EnterpriseApplicationId pulumi.StringInput
 	// The name of the SingleSignOn configuration. Defaults to `default`.
 	Name pulumi.StringPtrInput
-	// The state of SingleSignOn configuration.
+	// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
 	SingleSignOnEnabled pulumi.StringInput
 }
 
@@ -315,7 +315,7 @@ func (o MonitorSsoConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The state of SingleSignOn configuration.
+// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
 func (o MonitorSsoConfigurationOutput) SingleSignOnEnabled() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitorSsoConfiguration) pulumi.StringOutput { return v.SingleSignOnEnabled }).(pulumi.StringOutput)
 }

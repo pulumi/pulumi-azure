@@ -174,7 +174,7 @@ public final class LinuxFunctionAppSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
@@ -414,7 +414,7 @@ public final class LinuxFunctionAppSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {

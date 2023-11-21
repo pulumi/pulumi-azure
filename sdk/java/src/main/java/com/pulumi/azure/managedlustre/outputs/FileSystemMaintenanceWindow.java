@@ -14,6 +14,10 @@ public final class FileSystemMaintenanceWindow {
      * 
      */
     private String dayOfWeek;
+    /**
+     * @return The time of day (in UTC) to start the maintenance window.
+     * 
+     */
     private String timeOfDayInUtc;
 
     private FileSystemMaintenanceWindow() {}
@@ -24,6 +28,10 @@ public final class FileSystemMaintenanceWindow {
     public String dayOfWeek() {
         return this.dayOfWeek;
     }
+    /**
+     * @return The time of day (in UTC) to start the maintenance window.
+     * 
+     */
     public String timeOfDayInUtc() {
         return this.timeOfDayInUtc;
     }

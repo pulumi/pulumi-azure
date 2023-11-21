@@ -200,16 +200,32 @@ public final class MetadataState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.parentId);
     }
 
+    /**
+     * Specifies a list of preview image file names. These will be taken from solution artifacts.
+     * 
+     */
     @Import(name="previewImages")
     private @Nullable Output<List<String>> previewImages;
 
+    /**
+     * @return Specifies a list of preview image file names. These will be taken from solution artifacts.
+     * 
+     */
     public Optional<Output<List<String>>> previewImages() {
         return Optional.ofNullable(this.previewImages);
     }
 
+    /**
+     * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     * 
+     */
     @Import(name="previewImagesDarks")
     private @Nullable Output<List<String>> previewImagesDarks;
 
+    /**
+     * @return Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     * 
+     */
     public Optional<Output<List<String>>> previewImagesDarks() {
         return Optional.ofNullable(this.previewImagesDarks);
     }
@@ -260,14 +276,14 @@ public final class MetadataState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a list of tactics the resource covers.
+     * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      * 
      */
     @Import(name="threatAnalysisTactics")
     private @Nullable Output<List<String>> threatAnalysisTactics;
 
     /**
-     * @return Specifies a list of tactics the resource covers.
+     * @return Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      * 
      */
     public Optional<Output<List<String>>> threatAnalysisTactics() {
@@ -615,28 +631,64 @@ public final class MetadataState extends com.pulumi.resources.ResourceArgs {
             return parentId(Output.of(parentId));
         }
 
+        /**
+         * @param previewImages Specifies a list of preview image file names. These will be taken from solution artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder previewImages(@Nullable Output<List<String>> previewImages) {
             $.previewImages = previewImages;
             return this;
         }
 
+        /**
+         * @param previewImages Specifies a list of preview image file names. These will be taken from solution artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder previewImages(List<String> previewImages) {
             return previewImages(Output.of(previewImages));
         }
 
+        /**
+         * @param previewImages Specifies a list of preview image file names. These will be taken from solution artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder previewImages(String... previewImages) {
             return previewImages(List.of(previewImages));
         }
 
+        /**
+         * @param previewImagesDarks Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder previewImagesDarks(@Nullable Output<List<String>> previewImagesDarks) {
             $.previewImagesDarks = previewImagesDarks;
             return this;
         }
 
+        /**
+         * @param previewImagesDarks Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder previewImagesDarks(List<String> previewImagesDarks) {
             return previewImagesDarks(Output.of(previewImagesDarks));
         }
 
+        /**
+         * @param previewImagesDarks Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder previewImagesDarks(String... previewImagesDarks) {
             return previewImagesDarks(List.of(previewImagesDarks));
         }
@@ -715,7 +767,7 @@ public final class MetadataState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatAnalysisTactics Specifies a list of tactics the resource covers.
+         * @param threatAnalysisTactics Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
          * 
          * @return builder
          * 
@@ -726,7 +778,7 @@ public final class MetadataState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatAnalysisTactics Specifies a list of tactics the resource covers.
+         * @param threatAnalysisTactics Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
          * 
          * @return builder
          * 
@@ -736,7 +788,7 @@ public final class MetadataState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatAnalysisTactics Specifies a list of tactics the resource covers.
+         * @param threatAnalysisTactics Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
          * 
          * @return builder
          * 

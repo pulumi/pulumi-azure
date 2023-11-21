@@ -96,14 +96,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalLocations);
     }
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     @Export(name="certificates", refs={List.class,ServiceCertificate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCertificate>> certificates;
 
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     public Output<Optional<List<ServiceCertificate>>> certificates() {
@@ -560,7 +560,7 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkConfiguration);
     }
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
      * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
@@ -569,7 +569,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> virtualNetworkType;
 
     /**
-     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
      * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 

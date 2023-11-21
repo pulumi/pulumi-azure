@@ -23,7 +23,7 @@ public final class ImageOsDisk {
      */
     private @Nullable String caching;
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -64,7 +64,7 @@ public final class ImageOsDisk {
         return Optional.ofNullable(this.caching);
     }
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> diskEncryptionSetId() {

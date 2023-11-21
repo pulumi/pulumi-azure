@@ -2694,7 +2694,7 @@ class FactoryGithubConfigurationArgs:
         :param pulumi.Input[str] git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
-        :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `false`.
+        :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `true`.
                
                > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
@@ -2770,7 +2770,7 @@ class FactoryGithubConfigurationArgs:
     @pulumi.getter(name="publishingEnabled")
     def publishing_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is automated publishing enabled? Defaults to `false`.
+        Is automated publishing enabled? Defaults to `true`.
 
         > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
@@ -2928,7 +2928,7 @@ class FactoryVstsConfigurationArgs:
         :param pulumi.Input[str] repository_name: Specifies the name of the git repository.
         :param pulumi.Input[str] root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
-        :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `false`.
+        :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `true`.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -3015,7 +3015,7 @@ class FactoryVstsConfigurationArgs:
     @pulumi.getter(name="publishingEnabled")
     def publishing_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is automated publishing enabled? Defaults to `false`.
+        Is automated publishing enabled? Defaults to `true`.
         """
         return pulumi.get(self, "publishing_enabled")
 
@@ -3899,7 +3899,7 @@ class IntegrationRuntimeManagedCatalogInfoArgs:
         :param pulumi.Input[str] server_endpoint: The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
         :param pulumi.Input[str] administrator_login: Administrator login name for the SQL Server.
         :param pulumi.Input[str] administrator_password: Administrator login password for the SQL Server.
-        :param pulumi.Input[str] pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        :param pulumi.Input[str] pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
         """
         pulumi.set(__self__, "server_endpoint", server_endpoint)
         if administrator_login is not None:
@@ -3949,7 +3949,7 @@ class IntegrationRuntimeManagedCatalogInfoArgs:
     @pulumi.getter(name="pricingTier")
     def pricing_tier(self) -> Optional[pulumi.Input[str]]:
         """
-        Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
         """
         return pulumi.get(self, "pricing_tier")
 

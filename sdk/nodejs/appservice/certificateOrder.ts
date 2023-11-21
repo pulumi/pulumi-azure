@@ -111,7 +111,7 @@ export class CertificateOrder extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Certificate product type, such as `Standard` or `WildCard`.
+     * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      */
     public readonly productType!: pulumi.Output<string | undefined>;
     /**
@@ -256,7 +256,7 @@ export interface CertificateOrderState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Certificate product type, such as `Standard` or `WildCard`.
+     * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      */
     productType?: pulumi.Input<string>;
     /**
@@ -316,7 +316,7 @@ export interface CertificateOrderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Certificate product type, such as `Standard` or `WildCard`.
+     * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      */
     productType?: pulumi.Input<string>;
     /**

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? AdministratorPassword;
         /// <summary>
-        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+        /// Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
         /// </summary>
         public readonly string? PricingTier;
         /// <summary>

@@ -94,7 +94,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input['WindowsVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -493,7 +493,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter(name="extensionsTimeBudget")
     def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
@@ -921,7 +921,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input['WindowsVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -1297,7 +1297,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter(name="extensionsTimeBudget")
     def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
@@ -1898,7 +1898,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -2254,7 +2254,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
                > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -2513,7 +2513,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="extensionsTimeBudget")
     def extensions_time_budget(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 

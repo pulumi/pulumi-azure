@@ -977,7 +977,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param str description: A description for this Schedule.
         :param str expiry_time: The end time of the schedule.
         :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
-        :param bool is_enabled: Whether the schedule is enabled.
+        :param bool is_enabled: Whether the schedule is enabled. Defaults to `true`.
         :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param str time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
@@ -1076,7 +1076,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
     @pulumi.getter(name="isEnabled")
     def is_enabled(self) -> Optional[bool]:
         """
-        Whether the schedule is enabled.
+        Whether the schedule is enabled. Defaults to `true`.
         """
         return pulumi.get(self, "is_enabled")
 
@@ -1232,7 +1232,7 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
         :param Sequence[str] locations: Specifies a list of locations to scope the query to.
         :param Sequence[str] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
         :param str tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter as defined below.
+        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter. One or more `tags` block as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1271,7 +1271,7 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']]:
         """
-        A mapping of tags used for query filter as defined below.
+        A mapping of tags used for query filter. One or more `tags` block as defined below.
         """
         return pulumi.get(self, "tags")
 

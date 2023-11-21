@@ -148,7 +148,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly generation!: pulumi.Output<string>;
     /**
-     * One, two or three `ipConfiguration` blocks documented below.
+     * One or more (up to 3) `ipConfiguration` blocks documented below.
      * An active-standby gateway requires exactly one `ipConfiguration` block,
      * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
      * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -297,7 +297,7 @@ export interface VirtualNetworkGatewayState {
      */
     generation?: pulumi.Input<string>;
     /**
-     * One, two or three `ipConfiguration` blocks documented below.
+     * One or more (up to 3) `ipConfiguration` blocks documented below.
      * An active-standby gateway requires exactly one `ipConfiguration` block,
      * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
      * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.
@@ -380,7 +380,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     generation?: pulumi.Input<string>;
     /**
-     * One, two or three `ipConfiguration` blocks documented below.
+     * One or more (up to 3) `ipConfiguration` blocks documented below.
      * An active-standby gateway requires exactly one `ipConfiguration` block,
      * an active-active gateway requires exactly two `ipConfiguration` blocks whereas
      * an active-active zone redundant gateway with P2S configuration requires exactly three `ipConfiguration` blocks.

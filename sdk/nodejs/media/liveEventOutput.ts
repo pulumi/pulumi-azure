@@ -127,6 +127,9 @@ export class LiveEventOutput extends pulumi.CustomResource {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      */
     public readonly outputSnapTimeInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+     */
     public readonly rewindWindowDuration!: pulumi.Output<string | undefined>;
 
     /**
@@ -213,6 +216,9 @@ export interface LiveEventOutputState {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      */
     outputSnapTimeInSeconds?: pulumi.Input<number>;
+    /**
+     * `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+     */
     rewindWindowDuration?: pulumi.Input<string>;
 }
 
@@ -252,5 +258,8 @@ export interface LiveEventOutputArgs {
      * The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
      */
     outputSnapTimeInSeconds?: pulumi.Input<number>;
+    /**
+     * `ISO 8601` time between 1 minute to the duration of `archiveWindowDuration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+     */
     rewindWindowDuration?: pulumi.Input<string>;
 }

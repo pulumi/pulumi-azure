@@ -277,7 +277,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -449,7 +449,7 @@ export interface ManagedInstanceState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -531,7 +531,7 @@ export interface ManagedInstanceArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. The default value is `GRS`.
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**

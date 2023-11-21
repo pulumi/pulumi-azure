@@ -136,9 +136,17 @@ public final class LiveEventOutputArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.outputSnapTimeInSeconds);
     }
 
+    /**
+     * `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won&#39;t use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+     * 
+     */
     @Import(name="rewindWindowDuration")
     private @Nullable Output<String> rewindWindowDuration;
 
+    /**
+     * @return `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won&#39;t use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+     * 
+     */
     public Optional<Output<String>> rewindWindowDuration() {
         return Optional.ofNullable(this.rewindWindowDuration);
     }
@@ -343,11 +351,23 @@ public final class LiveEventOutputArgs extends com.pulumi.resources.ResourceArgs
             return outputSnapTimeInSeconds(Output.of(outputSnapTimeInSeconds));
         }
 
+        /**
+         * @param rewindWindowDuration `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won&#39;t use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rewindWindowDuration(@Nullable Output<String> rewindWindowDuration) {
             $.rewindWindowDuration = rewindWindowDuration;
             return this;
         }
 
+        /**
+         * @param rewindWindowDuration `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won&#39;t use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rewindWindowDuration(String rewindWindowDuration) {
             return rewindWindowDuration(Output.of(rewindWindowDuration));
         }

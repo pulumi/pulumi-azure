@@ -28,9 +28,17 @@ public final class FileSystemMaintenanceWindowArgs extends com.pulumi.resources.
         return this.dayOfWeek;
     }
 
+    /**
+     * The time of day (in UTC) to start the maintenance window.
+     * 
+     */
     @Import(name="timeOfDayInUtc", required=true)
     private Output<String> timeOfDayInUtc;
 
+    /**
+     * @return The time of day (in UTC) to start the maintenance window.
+     * 
+     */
     public Output<String> timeOfDayInUtc() {
         return this.timeOfDayInUtc;
     }
@@ -81,11 +89,23 @@ public final class FileSystemMaintenanceWindowArgs extends com.pulumi.resources.
             return dayOfWeek(Output.of(dayOfWeek));
         }
 
+        /**
+         * @param timeOfDayInUtc The time of day (in UTC) to start the maintenance window.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeOfDayInUtc(Output<String> timeOfDayInUtc) {
             $.timeOfDayInUtc = timeOfDayInUtc;
             return this;
         }
 
+        /**
+         * @param timeOfDayInUtc The time of day (in UTC) to start the maintenance window.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeOfDayInUtc(String timeOfDayInUtc) {
             return timeOfDayInUtc(Output.of(timeOfDayInUtc));
         }

@@ -114,7 +114,7 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     public readonly responses!: pulumi.Output<outputs.apimanagement.ApiOperationResponse[] | undefined>;
     /**
-     * One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
+     * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      */
     public readonly templateParameters!: pulumi.Output<outputs.apimanagement.ApiOperationTemplateParameter[] | undefined>;
     /**
@@ -227,7 +227,7 @@ export interface ApiOperationState {
      */
     responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
     /**
-     * One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
+     * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      */
     templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
     /**
@@ -277,7 +277,7 @@ export interface ApiOperationArgs {
      */
     responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponse>[]>;
     /**
-     * One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
+     * One or more `templateParameter` blocks as defined below. Required if `urlTemplate` contains one or more parameters.
      */
     templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameter>[]>;
     /**

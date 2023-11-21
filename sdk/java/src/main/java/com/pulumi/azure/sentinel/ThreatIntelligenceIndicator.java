@@ -263,9 +263,17 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
     public Output<String> guid() {
         return this.guid;
     }
+    /**
+     * A list of indicator types of this Threat Intelligence Indicator.
+     * 
+     */
     @Export(name="indicatorTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> indicatorTypes;
 
+    /**
+     * @return A list of indicator types of this Threat Intelligence Indicator.
+     * 
+     */
     public Output<List<String>> indicatorTypes() {
         return this.indicatorTypes;
     }
@@ -396,14 +404,14 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.revoked);
     }
     /**
-     * Source of the Threat Intelligence Indicator.
+     * Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return Source of the Threat Intelligence Indicator.
+     * @return Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> source() {

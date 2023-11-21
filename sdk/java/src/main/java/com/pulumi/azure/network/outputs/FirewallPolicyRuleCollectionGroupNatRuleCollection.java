@@ -28,7 +28,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollection {
      */
     private Integer priority;
     /**
-     * @return A `nat_rule` (NAT rule) block as defined below.
+     * @return A `nat_rule` block as defined below.
      * 
      */
     private List<FirewallPolicyRuleCollectionGroupNatRuleCollectionRule> rules;
@@ -56,7 +56,7 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollection {
         return this.priority;
     }
     /**
-     * @return A `nat_rule` (NAT rule) block as defined below.
+     * @return A `nat_rule` block as defined below.
      * 
      */
     public List<FirewallPolicyRuleCollectionGroupNatRuleCollectionRule> rules() {

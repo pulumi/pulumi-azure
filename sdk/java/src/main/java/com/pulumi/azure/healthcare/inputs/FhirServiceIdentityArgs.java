@@ -46,14 +46,14 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     public Output<String> type() {
@@ -137,7 +137,7 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class FhirServiceIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+         * @param type The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
          * 
          * @return builder
          * 

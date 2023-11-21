@@ -21,7 +21,7 @@ class VaultResourceGuardAssociationArgs:
         The set of arguments for constructing a VaultResourceGuardAssociation resource.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
                
                > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
@@ -61,7 +61,7 @@ class VaultResourceGuardAssociationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 
         > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
@@ -83,7 +83,7 @@ class _VaultResourceGuardAssociationState:
                  vault_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VaultResourceGuardAssociation resources.
-        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
                
                > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
@@ -103,7 +103,7 @@ class _VaultResourceGuardAssociationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 
         > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
@@ -183,7 +183,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
                
                > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
@@ -280,7 +280,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
                
                > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
@@ -299,7 +299,7 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created.
+        Specifies the name of the Recovery Services Vault Resource Guard Association. Changing this forces a new resource to be created. Defaults to `VaultProxy`.
 
         > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """

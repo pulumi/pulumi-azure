@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Mobile.Inputs
         [Input("icmpPinholeTimeoutInSeconds")]
         public Input<int>? IcmpPinholeTimeoutInSeconds { get; set; }
 
+        /// <summary>
+        /// Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+        /// </summary>
         [Input("pinholeMaximumNumber")]
         public Input<int>? PinholeMaximumNumber { get; set; }
 

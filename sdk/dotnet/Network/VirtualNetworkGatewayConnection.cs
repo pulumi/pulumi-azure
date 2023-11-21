@@ -268,7 +268,7 @@ namespace Pulumi.Azure.Network
         public Output<string> ConnectionProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        /// A `custom_bgp_addresses` block which is documented below.
         /// The block can only be used on `IPSec` / `activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
-        /// A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        /// A `custom_bgp_addresses` block which is documented below.
         /// The block can only be used on `IPSec` / `activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>
@@ -677,7 +677,7 @@ namespace Pulumi.Azure.Network
         public Input<string>? ConnectionProtocol { get; set; }
 
         /// <summary>
-        /// A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+        /// A `custom_bgp_addresses` block which is documented below.
         /// The block can only be used on `IPSec` / `activeactive` connections,
         /// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
         /// </summary>

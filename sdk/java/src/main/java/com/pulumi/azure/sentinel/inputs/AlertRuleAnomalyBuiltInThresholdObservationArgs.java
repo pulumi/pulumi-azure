@@ -61,14 +61,14 @@ public final class AlertRuleAnomalyBuiltInThresholdObservationArgs extends com.p
     }
 
     /**
-     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * The Name of the built-in Anomaly Alert Rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+     * @return The Name of the built-in Anomaly Alert Rule.
      * 
      */
     public Optional<Output<String>> name() {
@@ -182,7 +182,7 @@ public final class AlertRuleAnomalyBuiltInThresholdObservationArgs extends com.p
         }
 
         /**
-         * @param name The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         * @param name The Name of the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AlertRuleAnomalyBuiltInThresholdObservationArgs extends com.p
         }
 
         /**
-         * @param name The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+         * @param name The Name of the built-in Anomaly Alert Rule.
          * 
          * @return builder
          * 

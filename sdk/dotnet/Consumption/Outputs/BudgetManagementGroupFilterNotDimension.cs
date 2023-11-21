@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Consumption.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The operator to use for comparison. The allowed values are `In`.
+        /// The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
         /// </summary>
         public readonly string? Operator;
         /// <summary>

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public Input<int> DataDiskSizeGb { get; set; } = null!;
 
         /// <summary>
-        /// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        /// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
         /// </summary>
         [Input("dataDiskType")]
         public Input<string>? DataDiskType { get; set; }

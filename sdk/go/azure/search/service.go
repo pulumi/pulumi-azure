@@ -150,7 +150,7 @@ type Service struct {
 	HostingMode pulumi.StringPtrOutput `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrOutput `pulumi:"identity"`
-	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -243,7 +243,7 @@ type serviceState struct {
 	HostingMode *string `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
-	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
@@ -296,7 +296,7 @@ type ServiceState struct {
 	HostingMode pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
-	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
@@ -353,7 +353,7 @@ type serviceArgs struct {
 	HostingMode *string `pulumi:"hostingMode"`
 	// An `identity` block as defined below.
 	Identity *ServiceIdentity `pulumi:"identity"`
-	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location *string `pulumi:"location"`
@@ -401,7 +401,7 @@ type ServiceArgs struct {
 	HostingMode pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ServiceIdentityPtrInput
-	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+	// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Search Service should exist. Changing this forces a new Search Service to be created.
 	Location pulumi.StringPtrInput
@@ -573,7 +573,7 @@ func (o ServiceOutput) Identity() ServiceIdentityPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceIdentityPtrOutput { return v.Identity }).(ServiceIdentityPtrOutput)
 }
 
-// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
 func (o ServiceOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }

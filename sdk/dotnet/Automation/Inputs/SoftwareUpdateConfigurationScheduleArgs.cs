@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Automation.Inputs
         public Input<int>? Interval { get; set; }
 
         /// <summary>
-        /// Whether the schedule is enabled.
+        /// Whether the schedule is enabled. Defaults to `true`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }

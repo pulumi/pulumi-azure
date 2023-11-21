@@ -79,7 +79,7 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Up to three `accessRule` blocks as defined below.
+     * One or more `accessRule` blocks (up to three) as defined below.
      */
     public readonly accessRules!: pulumi.Output<outputs.hpc.CacheAccessPolicyAccessRule[]>;
     /**
@@ -129,7 +129,7 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
  */
 export interface CacheAccessPolicyState {
     /**
-     * Up to three `accessRule` blocks as defined below.
+     * One or more `accessRule` blocks (up to three) as defined below.
      */
     accessRules?: pulumi.Input<pulumi.Input<inputs.hpc.CacheAccessPolicyAccessRule>[]>;
     /**
@@ -147,7 +147,7 @@ export interface CacheAccessPolicyState {
  */
 export interface CacheAccessPolicyArgs {
     /**
-     * Up to three `accessRule` blocks as defined below.
+     * One or more `accessRule` blocks (up to three) as defined below.
      */
     accessRules: pulumi.Input<pulumi.Input<inputs.hpc.CacheAccessPolicyAccessRule>[]>;
     /**

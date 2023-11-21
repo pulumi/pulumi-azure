@@ -83,14 +83,14 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dayOfMonth);
     }
     /**
-     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     @Export(name="daysOfWeeks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> daysOfWeeks;
 
     /**
-     * @return Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+     * @return Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     public Output<Optional<List<String>>> daysOfWeeks() {
@@ -237,28 +237,28 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
         return this.startDate;
     }
     /**
-     * The ID of the Cost Management View that is used by the Scheduled Action.
+     * The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="viewId", refs={String.class}, tree="[0]")
     private Output<String> viewId;
 
     /**
-     * @return The ID of the Cost Management View that is used by the Scheduled Action.
+     * @return The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> viewId() {
         return this.viewId;
     }
     /**
-     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+     * Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      * 
      */
     @Export(name="weeksOfMonths", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> weeksOfMonths;
 
     /**
-     * @return Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+     * @return Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
      * 
      */
     public Output<Optional<List<String>>> weeksOfMonths() {

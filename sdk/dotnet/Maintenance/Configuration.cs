@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Maintenance
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
         /// </summary>
         [Output("visibility")]
         public Output<string?> Visibility { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Maintenance
         }
 
         /// <summary>
-        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }
@@ -305,7 +305,7 @@ namespace Pulumi.Azure.Maintenance
         }
 
         /// <summary>
-        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+        /// The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
         /// </summary>
         [Input("visibility")]
         public Input<string>? Visibility { get; set; }

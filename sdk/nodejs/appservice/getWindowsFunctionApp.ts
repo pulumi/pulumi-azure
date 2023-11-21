@@ -106,6 +106,10 @@ export interface GetWindowsFunctionAppResult {
      */
     readonly enabled: boolean;
     /**
+     * Are the default FTP Basic Authentication publishing credentials enabled.
+     */
+    readonly ftpPublishBasicAuthenticationEnabled: boolean;
+    /**
      * The runtime version associated with the Function App.
      */
     readonly functionsExtensionVersion: string;
@@ -153,6 +157,9 @@ export interface GetWindowsFunctionAppResult {
      * A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses: string;
+    /**
+     * Is Public Network Access enabled for the Windows Function App.
+     */
     readonly publicNetworkAccessEnabled: boolean;
     readonly resourceGroupName: string;
     /**
@@ -195,6 +202,10 @@ export interface GetWindowsFunctionAppResult {
      * The subnet id which the Windows Function App is vNet Integrated with.
      */
     readonly virtualNetworkSubnetId: string;
+    /**
+     * Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     */
+    readonly webdeployPublishBasicAuthenticationEnabled: boolean;
 }
 /**
  * Use this data source to access information about an existing Windows Function App.

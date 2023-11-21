@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:paloalto/localRulestackRule:LocalRulestackRule")
 public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
     /**
-     * The action to take on the rule being triggered.
+     * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      * 
      */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
     /**
-     * @return The action to take on the rule being triggered.
+     * @return The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      * 
      */
     public Output<String> action() {
@@ -146,14 +146,14 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.category);
     }
     /**
-     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      * 
      */
     @Export(name="decryptionRuleType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> decryptionRuleType;
 
     /**
-     * @return The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * @return The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      * 
      */
     public Output<Optional<String>> decryptionRuleType() {

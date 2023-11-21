@@ -80,7 +80,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
      */
     public readonly autoPauseDelayInMinutes!: pulumi.Output<number>;
     /**
@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -108,7 +108,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly geoBackupEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A Database Import block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as documented below. Mutually exclusive with `createMode`.
      */
     public readonly import!: pulumi.Output<outputs.mssql.DatabaseImport | undefined>;
     /**
@@ -136,7 +136,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
     /**
-     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
      */
     public readonly minCapacity!: pulumi.Output<number>;
     /**
@@ -184,7 +184,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -291,7 +291,7 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
-     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
      */
     autoPauseDelayInMinutes?: pulumi.Input<number>;
     /**
@@ -299,7 +299,7 @@ export interface DatabaseState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -319,7 +319,7 @@ export interface DatabaseState {
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
     /**
-     * A Database Import block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as documented below. Mutually exclusive with `createMode`.
      */
     import?: pulumi.Input<inputs.mssql.DatabaseImport>;
     /**
@@ -347,7 +347,7 @@ export interface DatabaseState {
      */
     maxSizeGb?: pulumi.Input<number>;
     /**
-     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
      */
     minCapacity?: pulumi.Input<number>;
     /**
@@ -395,7 +395,7 @@ export interface DatabaseState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -423,7 +423,7 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
-     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
      */
     autoPauseDelayInMinutes?: pulumi.Input<number>;
     /**
@@ -431,7 +431,7 @@ export interface DatabaseArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -451,7 +451,7 @@ export interface DatabaseArgs {
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
     /**
-     * A Database Import block as documented below. Mutually exclusive with `createMode`.
+     * A `import` block as documented below. Mutually exclusive with `createMode`.
      */
     import?: pulumi.Input<inputs.mssql.DatabaseImport>;
     /**
@@ -479,7 +479,7 @@ export interface DatabaseArgs {
      */
     maxSizeGb?: pulumi.Input<number>;
     /**
-     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
      */
     minCapacity?: pulumi.Input<number>;
     /**
@@ -527,7 +527,7 @@ export interface DatabaseArgs {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**

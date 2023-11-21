@@ -103,7 +103,7 @@ type Cache struct {
 	PrivateStaticIpAddress pulumi.StringOutput `pulumi:"privateStaticIpAddress"`
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationOutput `pulumi:"redisConfiguration"`
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion pulumi.StringOutput `pulumi:"redisVersion"`
@@ -216,7 +216,7 @@ type cacheState struct {
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion *string `pulumi:"redisVersion"`
@@ -281,7 +281,7 @@ type CacheState struct {
 	PrivateStaticIpAddress pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion pulumi.StringPtrInput
@@ -342,7 +342,7 @@ type cacheArgs struct {
 	PrivateStaticIpAddress *string `pulumi:"privateStaticIpAddress"`
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration *CacheRedisConfiguration `pulumi:"redisConfiguration"`
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion *string `pulumi:"redisVersion"`
@@ -394,7 +394,7 @@ type CacheArgs struct {
 	PrivateStaticIpAddress pulumi.StringPtrInput
 	// Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration CacheRedisConfigurationPtrInput
 	// Redis version. Only major version needed. Valid values: `4`, `6`.
 	RedisVersion pulumi.StringPtrInput
@@ -605,7 +605,7 @@ func (o CacheOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
+// A `redisConfiguration` block as defined below - with some limitations by SKU - defaults/details are shown below.
 func (o CacheOutput) RedisConfiguration() CacheRedisConfigurationOutput {
 	return o.ApplyT(func(v *Cache) CacheRedisConfigurationOutput { return v.RedisConfiguration }).(CacheRedisConfigurationOutput)
 }

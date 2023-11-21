@@ -13,7 +13,7 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class NamespaceNetworkRuleSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("defaultAction")]
         public Input<string>? DefaultAction { get; set; }

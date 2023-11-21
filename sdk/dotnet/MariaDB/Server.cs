@@ -71,7 +71,7 @@ namespace Pulumi.Azure.MariaDB
         public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
-        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`. Defaults to `true`.
         /// </summary>
         [Output("autoGrowEnabled")]
         public Output<bool?> AutoGrowEnabled { get; private set; } = null!;
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.MariaDB
         }
 
         /// <summary>
-        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`. Defaults to `true`.
         /// </summary>
         [Input("autoGrowEnabled")]
         public Input<bool>? AutoGrowEnabled { get; set; }
@@ -381,7 +381,7 @@ namespace Pulumi.Azure.MariaDB
         }
 
         /// <summary>
-        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+        /// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`. Defaults to `true`.
         /// </summary>
         [Input("autoGrowEnabled")]
         public Input<bool>? AutoGrowEnabled { get; set; }

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.network.outputs;
 
+import com.pulumi.azure.network.outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader;
 import com.pulumi.azure.network.outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -39,6 +40,11 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      * 
      */
     private @Nullable List<String> destinationUrls;
+    /**
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
+    private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders;
     /**
      * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
@@ -107,6 +113,13 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return this.destinationUrls == null ? List.of() : this.destinationUrls;
     }
     /**
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
+    public List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders() {
+        return this.httpHeaders == null ? List.of() : this.httpHeaders;
+    }
+    /**
      * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
      * 
      */
@@ -163,6 +176,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         private @Nullable List<String> destinationFqdnTags;
         private @Nullable List<String> destinationFqdns;
         private @Nullable List<String> destinationUrls;
+        private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders;
         private String name;
         private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols;
         private @Nullable List<String> sourceAddresses;
@@ -177,6 +191,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     	      this.destinationFqdnTags = defaults.destinationFqdnTags;
     	      this.destinationFqdns = defaults.destinationFqdns;
     	      this.destinationUrls = defaults.destinationUrls;
+    	      this.httpHeaders = defaults.httpHeaders;
     	      this.name = defaults.name;
     	      this.protocols = defaults.protocols;
     	      this.sourceAddresses = defaults.sourceAddresses;
@@ -221,6 +236,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         }
         public Builder destinationUrls(String... destinationUrls) {
             return destinationUrls(List.of(destinationUrls));
+        }
+        @CustomType.Setter
+        public Builder httpHeaders(@Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders) {
+            this.httpHeaders = httpHeaders;
+            return this;
+        }
+        public Builder httpHeaders(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader... httpHeaders) {
+            return httpHeaders(List.of(httpHeaders));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -271,6 +294,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
             _resultValue.destinationFqdnTags = destinationFqdnTags;
             _resultValue.destinationFqdns = destinationFqdns;
             _resultValue.destinationUrls = destinationUrls;
+            _resultValue.httpHeaders = httpHeaders;
             _resultValue.name = name;
             _resultValue.protocols = protocols;
             _resultValue.sourceAddresses = sourceAddresses;

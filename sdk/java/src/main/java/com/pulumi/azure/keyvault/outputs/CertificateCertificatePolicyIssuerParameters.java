@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class CertificateCertificatePolicyIssuerParameters {
     /**
-     * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones).
      * 
      */
     private String name;
 
     private CertificateCertificatePolicyIssuerParameters() {}
     /**
-     * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
+     * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones).
      * 
      */
     public String name() {

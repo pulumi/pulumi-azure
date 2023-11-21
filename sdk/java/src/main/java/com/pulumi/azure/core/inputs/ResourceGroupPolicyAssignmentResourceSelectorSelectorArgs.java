@@ -32,14 +32,14 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs ext
     }
 
     /**
-     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     @Import(name="kind", required=true)
     private Output<String> kind;
 
     /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     public Output<String> kind() {
@@ -119,7 +119,7 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs ext
         }
 
         /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs ext
         }
 
         /**
-         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+         * @param kind Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
          * 
          * @return builder
          * 

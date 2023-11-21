@@ -20,14 +20,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     public static final DefinitionState Empty = new DefinitionState();
 
     /**
-     * An authorization block as defined below.
+     * An `authorization` block as defined below.
      * 
      */
     @Import(name="authorizations")
     private @Nullable Output<List<DefinitionAuthorizationArgs>> authorizations;
 
     /**
-     * @return An authorization block as defined below.
+     * @return An `authorization` block as defined below.
      * 
      */
     public Optional<Output<List<DefinitionAuthorizationArgs>>> authorizations() {
@@ -171,7 +171,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizations An authorization block as defined below.
+         * @param authorizations An `authorization` block as defined below.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizations An authorization block as defined below.
+         * @param authorizations An `authorization` block as defined below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizations An authorization block as defined below.
+         * @param authorizations An `authorization` block as defined below.
          * 
          * @return builder
          * 

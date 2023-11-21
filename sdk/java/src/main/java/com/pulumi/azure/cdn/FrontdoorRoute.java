@@ -148,14 +148,14 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enabled);
     }
     /**
-     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      * 
      */
     @Export(name="forwardingProtocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> forwardingProtocol;
 
     /**
-     * @return The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+     * @return The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
      * 
      */
     public Output<Optional<String>> forwardingProtocol() {

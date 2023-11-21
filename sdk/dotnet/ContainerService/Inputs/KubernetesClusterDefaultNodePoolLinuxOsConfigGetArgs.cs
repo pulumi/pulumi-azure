@@ -13,7 +13,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterDefaultNodePoolLinuxOsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+        /// Specifies the size of the swap file on each node in MB.
         /// </summary>
         [Input("swapFileSizeMb")]
         public Input<int>? SwapFileSizeMb { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigGetArgs>? SysctlConfig { get; set; }
 
         /// <summary>
-        /// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+        /// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
         /// </summary>
         [Input("transparentHugePageDefrag")]
         public Input<string>? TransparentHugePageDefrag { get; set; }
 
         /// <summary>
-        /// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+        /// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
         /// </summary>
         [Input("transparentHugePageEnabled")]
         public Input<string>? TransparentHugePageEnabled { get; set; }

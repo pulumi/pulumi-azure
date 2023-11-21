@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<Inputs.ServiceAccountEncryptionManagedIdentityGetArgs>? ManagedIdentity { get; set; }
 
         /// <summary>
-        /// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        /// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

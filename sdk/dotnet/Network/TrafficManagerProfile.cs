@@ -76,7 +76,7 @@ namespace Pulumi.Azure.Network
     public partial class TrafficManagerProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        /// This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         /// </summary>
         [Output("dnsConfig")]
         public Output<Outputs.TrafficManagerProfileDnsConfig> DnsConfig { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.Azure.Network
         public Output<int?> MaxReturn { get; private set; } = null!;
 
         /// <summary>
-        /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        /// This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         /// </summary>
         [Output("monitorConfig")]
         public Output<Outputs.TrafficManagerProfileMonitorConfig> MonitorConfig { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        /// This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         /// </summary>
         [Input("dnsConfig", required: true)]
         public Input<Inputs.TrafficManagerProfileDnsConfigArgs> DnsConfig { get; set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? MaxReturn { get; set; }
 
         /// <summary>
-        /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        /// This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         /// </summary>
         [Input("monitorConfig", required: true)]
         public Input<Inputs.TrafficManagerProfileMonitorConfigArgs> MonitorConfig { get; set; } = null!;
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Network
     public sealed class TrafficManagerProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+        /// This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.TrafficManagerProfileDnsConfigGetArgs>? DnsConfig { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.Network
         public Input<int>? MaxReturn { get; set; }
 
         /// <summary>
-        /// This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+        /// This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         /// </summary>
         [Input("monitorConfig")]
         public Input<Inputs.TrafficManagerProfileMonitorConfigGetArgs>? MonitorConfig { get; set; }

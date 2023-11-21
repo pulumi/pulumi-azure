@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Media.Outputs
         /// </summary>
         public readonly Outputs.ServiceAccountEncryptionManagedIdentity? ManagedIdentity;
         /// <summary>
-        /// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        /// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
         /// </summary>
         public readonly string? Type;
 

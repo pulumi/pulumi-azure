@@ -477,9 +477,9 @@ class ReplicatedVMUnmanagedDiskArgs:
                  staging_storage_account_id: pulumi.Input[str],
                  target_storage_account_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] disk_uri: Id of disk that should be replicated.
-        :param pulumi.Input[str] staging_storage_account_id: Storage account that should be used for caching.
-        :param pulumi.Input[str] target_storage_account_id: Storage account disk should belong to when a failover is done.
+        :param pulumi.Input[str] disk_uri: Id of disk that should be replicated. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] staging_storage_account_id: Storage account that should be used for caching. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] target_storage_account_id: Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "disk_uri", disk_uri)
         pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
@@ -489,7 +489,7 @@ class ReplicatedVMUnmanagedDiskArgs:
     @pulumi.getter(name="diskUri")
     def disk_uri(self) -> pulumi.Input[str]:
         """
-        Id of disk that should be replicated.
+        Id of disk that should be replicated. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "disk_uri")
 
@@ -501,7 +501,7 @@ class ReplicatedVMUnmanagedDiskArgs:
     @pulumi.getter(name="stagingStorageAccountId")
     def staging_storage_account_id(self) -> pulumi.Input[str]:
         """
-        Storage account that should be used for caching.
+        Storage account that should be used for caching. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "staging_storage_account_id")
 
@@ -513,7 +513,7 @@ class ReplicatedVMUnmanagedDiskArgs:
     @pulumi.getter(name="targetStorageAccountId")
     def target_storage_account_id(self) -> pulumi.Input[str]:
         """
-        Storage account disk should belong to when a failover is done.
+        Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "target_storage_account_id")
 

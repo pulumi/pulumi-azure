@@ -92,6 +92,7 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
                  udp_port_reuse_minimum_hold_time_in_seconds: Optional[int] = None):
         """
         :param int icmp_pinhole_timeout_in_seconds: Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        :param int pinhole_maximum_number: Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
         :param 'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs' port_range: A `port_range` block as defined below.
         :param int tcp_pinhole_timeout_in_seconds: Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
         :param int tcp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
@@ -124,6 +125,9 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslation(dict):
     @property
     @pulumi.getter(name="pinholeMaximumNumber")
     def pinhole_maximum_number(self) -> Optional[int]:
+        """
+        Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+        """
         return pulumi.get(self, "pinhole_maximum_number")
 
     @property
@@ -325,7 +329,7 @@ class NetworkPacketCoreControlPlanePlatform(dict):
                  edge_device_id: Optional[str] = None,
                  stack_hci_cluster_id: Optional[str] = None):
         """
-        :param str type: Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+        :param str type: Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
         :param str arc_kubernetes_cluster_id: The ID of the Azure Arc connected cluster where the packet core is deployed.
         :param str custom_location_id: The ID of the Azure Arc custom location where the packet core is deployed.
                
@@ -347,7 +351,7 @@ class NetworkPacketCoreControlPlanePlatform(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+        Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
         """
         return pulumi.get(self, "type")
 
@@ -509,8 +513,8 @@ class NetworkServicePccRuleQosPolicy(dict):
                  preemption_vulnerability: Optional[str] = None):
         """
         :param 'NetworkServicePccRuleQosPolicyMaximumBitRateArgs' maximum_bit_rate: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
-        :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
-        :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
+        :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param 'NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs' guaranteed_bit_rate: A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
         :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
         :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
@@ -538,7 +542,7 @@ class NetworkServicePccRuleQosPolicy(dict):
     @pulumi.getter(name="qosIndicator")
     def qos_indicator(self) -> int:
         """
-        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
         """
         return pulumi.get(self, "qos_indicator")
 
@@ -546,7 +550,7 @@ class NetworkServicePccRuleQosPolicy(dict):
     @pulumi.getter(name="allocationAndRetentionPriorityLevel")
     def allocation_and_retention_priority_level(self) -> Optional[int]:
         """
-        QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
         return pulumi.get(self, "allocation_and_retention_priority_level")
 
@@ -749,9 +753,9 @@ class NetworkServiceServiceQosPolicy(dict):
         """
         :param 'NetworkServiceServiceQosPolicyMaximumBitRateArgs' maximum_bit_rate: A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
-        :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
-        :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        :param str preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
+        :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
+        :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
         """
         pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is not None:
@@ -783,7 +787,7 @@ class NetworkServiceServiceQosPolicy(dict):
     @pulumi.getter(name="preemptionCapability")
     def preemption_capability(self) -> Optional[str]:
         """
-        The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+        The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
         """
         return pulumi.get(self, "preemption_capability")
 
@@ -791,7 +795,7 @@ class NetworkServiceServiceQosPolicy(dict):
     @pulumi.getter(name="preemptionVulnerability")
     def preemption_vulnerability(self) -> Optional[str]:
         """
-        The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+        The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
         """
         return pulumi.get(self, "preemption_vulnerability")
 
@@ -799,7 +803,7 @@ class NetworkServiceServiceQosPolicy(dict):
     @pulumi.getter(name="qosIndicator")
     def qos_indicator(self) -> Optional[int]:
         """
-        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
         """
         return pulumi.get(self, "qos_indicator")
 
@@ -991,14 +995,14 @@ class NetworkSimPolicySliceDataNetwork(dict):
         """
         :param Sequence[str] allowed_services_ids: An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
         :param str data_network_id: The ID of Mobile Network Data Network which these settings apply to.
-        :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        :param int qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
         :param 'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs' session_aggregate_maximum_bit_rate: A `session_aggregate_maximum_bit_rate` block as defined below.
         :param Sequence[str] additional_allowed_session_types: Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
         :param int allocation_and_retention_priority_level: Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str default_session_type: The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         :param int max_buffered_packets: The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
         :param str preemption_capability: The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
-        :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+        :param str preemption_vulnerability: The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
         """
         pulumi.set(__self__, "allowed_services_ids", allowed_services_ids)
         pulumi.set(__self__, "data_network_id", data_network_id)
@@ -1037,7 +1041,7 @@ class NetworkSimPolicySliceDataNetwork(dict):
     @pulumi.getter(name="qosIndicator")
     def qos_indicator(self) -> int:
         """
-        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
         """
         return pulumi.get(self, "qos_indicator")
 
@@ -1093,7 +1097,7 @@ class NetworkSimPolicySliceDataNetwork(dict):
     @pulumi.getter(name="preemptionVulnerability")
     def preemption_vulnerability(self) -> Optional[str]:
         """
-        The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+        The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
         """
         return pulumi.get(self, "preemption_vulnerability")
 
@@ -1185,6 +1189,7 @@ class NetworkSimStaticIpConfiguration(dict):
                  static_ipv4_address: Optional[str] = None):
         """
         :param str attached_data_network_id: The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        :param str slice_id: The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
         :param str static_ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
         """
         pulumi.set(__self__, "attached_data_network_id", attached_data_network_id)
@@ -1203,6 +1208,9 @@ class NetworkSimStaticIpConfiguration(dict):
     @property
     @pulumi.getter(name="sliceId")
     def slice_id(self) -> str:
+        """
+        The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        """
         return pulumi.get(self, "slice_id")
 
     @property

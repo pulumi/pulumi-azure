@@ -67,7 +67,7 @@ export class Definition extends pulumi.CustomResource {
     }
 
     /**
-     * An authorization block as defined below.
+     * An `authorization` block as defined below.
      */
     public readonly authorizations!: pulumi.Output<outputs.lighthouse.DefinitionAuthorization[]>;
     /**
@@ -150,7 +150,7 @@ export class Definition extends pulumi.CustomResource {
  */
 export interface DefinitionState {
     /**
-     * An authorization block as defined below.
+     * An `authorization` block as defined below.
      */
     authorizations?: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
     /**
@@ -188,7 +188,7 @@ export interface DefinitionState {
  */
 export interface DefinitionArgs {
     /**
-     * An authorization block as defined below.
+     * An `authorization` block as defined below.
      */
     authorizations: pulumi.Input<pulumi.Input<inputs.lighthouse.DefinitionAuthorization>[]>;
     /**

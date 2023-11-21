@@ -25,9 +25,9 @@ import (
 type Image struct {
 	pulumi.CustomResourceState
 
-	// One or more `dataDisk` elements as defined below.
+	// One or more `dataDisk` blocks as defined below.
 	DataDisks ImageDataDiskArrayOutput `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration pulumi.StringPtrOutput `pulumi:"hyperVGeneration"`
@@ -36,7 +36,7 @@ type Image struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
 	OsDisk ImageOsDiskPtrOutput `pulumi:"osDisk"`
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -82,9 +82,9 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
-	// One or more `dataDisk` elements as defined below.
+	// One or more `dataDisk` blocks as defined below.
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
@@ -93,7 +93,7 @@ type imageState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -107,9 +107,9 @@ type imageState struct {
 }
 
 type ImageState struct {
-	// One or more `dataDisk` elements as defined below.
+	// One or more `dataDisk` blocks as defined below.
 	DataDisks ImageDataDiskArrayInput
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration pulumi.StringPtrInput
@@ -118,7 +118,7 @@ type ImageState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
 	OsDisk ImageOsDiskPtrInput
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -136,9 +136,9 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// One or more `dataDisk` elements as defined below.
+	// One or more `dataDisk` blocks as defined below.
 	DataDisks []ImageDataDisk `pulumi:"dataDisks"`
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
@@ -147,7 +147,7 @@ type imageArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
 	OsDisk *ImageOsDisk `pulumi:"osDisk"`
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -162,9 +162,9 @@ type imageArgs struct {
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// One or more `dataDisk` elements as defined below.
+	// One or more `dataDisk` blocks as defined below.
 	DataDisks ImageDataDiskArrayInput
-	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+	// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 	HyperVGeneration pulumi.StringPtrInput
@@ -173,7 +173,7 @@ type ImageArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the image. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+	// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
 	OsDisk ImageOsDiskPtrInput
 	// The name of the resource group in which to create. Changing this forces a new resource to be created.
 	// the image. Changing this forces a new resource to be created.
@@ -297,12 +297,12 @@ func (o ImageOutput) ToOutput(ctx context.Context) pulumix.Output[*Image] {
 	}
 }
 
-// One or more `dataDisk` elements as defined below.
+// One or more `dataDisk` blocks as defined below.
 func (o ImageOutput) DataDisks() ImageDataDiskArrayOutput {
 	return o.ApplyT(func(v *Image) ImageDataDiskArrayOutput { return v.DataDisks }).(ImageDataDiskArrayOutput)
 }
 
-// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. The default is `V1`. Changing this forces a new resource to be created.
+// The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
 //
 // > **Note:** `zoneResilient` can only be set to `true` if the image is stored in a region that supports availability zones.
 func (o ImageOutput) HyperVGeneration() pulumi.StringPtrOutput {
@@ -320,7 +320,7 @@ func (o ImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `osDisk` elements as defined below. Changing this forces a new resource to be created.
+// One or more `osDisk` blocks as defined below. Changing this forces a new resource to be created.
 func (o ImageOutput) OsDisk() ImageOsDiskPtrOutput {
 	return o.ApplyT(func(v *Image) ImageOsDiskPtrOutput { return v.OsDisk }).(ImageOsDiskPtrOutput)
 }

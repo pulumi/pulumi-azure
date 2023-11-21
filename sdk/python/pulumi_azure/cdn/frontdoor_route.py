@@ -46,7 +46,7 @@ class FrontdoorRouteArgs:
         :param pulumi.Input[str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
                > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
@@ -205,7 +205,7 @@ class FrontdoorRouteArgs:
     @pulumi.getter(name="forwardingProtocol")
     def forwarding_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "forwarding_protocol")
 
@@ -281,7 +281,7 @@ class _FrontdoorRouteState:
         :param pulumi.Input[str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
                > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
@@ -423,7 +423,7 @@ class _FrontdoorRouteState:
     @pulumi.getter(name="forwardingProtocol")
     def forwarding_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "forwarding_protocol")
 
@@ -539,7 +539,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
                > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
@@ -670,7 +670,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param pulumi.Input[str] cdn_frontdoor_origin_path: A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_rule_set_ids: A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route.
         :param pulumi.Input[bool] enabled: Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        :param pulumi.Input[str] forwarding_protocol: The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         :param pulumi.Input[bool] https_redirect_enabled: Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
                
                > **NOTE:** The `https_redirect_enabled` rule is the first rule that will be executed.
@@ -771,7 +771,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     @pulumi.getter(name="forwardingProtocol")
     def forwarding_protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+        The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "forwarding_protocol")
 

@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScaleSetOsProfileWindowsConfig {
     /**
-     * @return An Additional Unattended Config block as documented below.
+     * @return An `additional_unattend_config` block as documented below.
      * 
      */
     private @Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
@@ -30,14 +30,14 @@ public final class ScaleSetOsProfileWindowsConfig {
      */
     private @Nullable Boolean provisionVmAgent;
     /**
-     * @return A collection of WinRM configuration blocks as documented below.
+     * @return A collection of `winrm` blocks as documented below.
      * 
      */
     private @Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms;
 
     private ScaleSetOsProfileWindowsConfig() {}
     /**
-     * @return An Additional Unattended Config block as documented below.
+     * @return An `additional_unattend_config` block as documented below.
      * 
      */
     public List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs() {
@@ -58,7 +58,7 @@ public final class ScaleSetOsProfileWindowsConfig {
         return Optional.ofNullable(this.provisionVmAgent);
     }
     /**
-     * @return A collection of WinRM configuration blocks as documented below.
+     * @return A collection of `winrm` blocks as documented below.
      * 
      */
     public List<ScaleSetOsProfileWindowsConfigWinrm> winrms() {

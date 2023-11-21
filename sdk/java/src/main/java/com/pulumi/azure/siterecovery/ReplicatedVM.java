@@ -311,7 +311,6 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
     }
     /**
      * One or more `network_interface` block as defined below.
-     * *
      * 
      */
     @Export(name="networkInterfaces", refs={List.class,ReplicatedVMNetworkInterface.class}, tree="[0,1]")
@@ -319,7 +318,6 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
 
     /**
      * @return One or more `network_interface` block as defined below.
-     * *
      * 
      */
     public Output<List<ReplicatedVMNetworkInterface>> networkInterfaces() {
@@ -578,14 +576,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
         return this.testNetworkId;
     }
     /**
-     * One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="unmanagedDisks", refs={List.class,ReplicatedVMUnmanagedDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicatedVMUnmanagedDisk>> unmanagedDisks;
 
     /**
-     * @return One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+     * @return One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<List<ReplicatedVMUnmanagedDisk>>> unmanagedDisks() {

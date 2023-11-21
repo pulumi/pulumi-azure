@@ -79,7 +79,7 @@ class GrafanaIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
-        :param Sequence[str] identity_ids: Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+        :param Sequence[str] identity_ids: Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -103,7 +103,7 @@ class GrafanaIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
+        Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "identity_ids")
 

@@ -136,7 +136,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+     * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
      * 
      * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
      * 
@@ -145,7 +145,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
     private Output<String> memory;
 
     /**
-     * @return The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+     * @return The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
      * 
      * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
      * 
@@ -445,7 +445,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param memory The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+         * @param memory The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
          * 
          * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          * 
@@ -458,7 +458,7 @@ public final class AppTemplateContainerArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param memory The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+         * @param memory The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
          * 
          * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          * 

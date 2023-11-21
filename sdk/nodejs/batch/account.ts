@@ -79,7 +79,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly allowedAuthenticationModes!: pulumi.Output<string[]>;
     /**
-     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      */
     public readonly encryption!: pulumi.Output<outputs.batch.AccountEncryption | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface AccountState {
      */
     allowedAuthenticationModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      */
     encryption?: pulumi.Input<inputs.batch.AccountEncryption>;
     /**
@@ -302,7 +302,7 @@ export interface AccountArgs {
      */
     allowedAuthenticationModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      */
     encryption?: pulumi.Input<inputs.batch.AccountEncryption>;
     /**

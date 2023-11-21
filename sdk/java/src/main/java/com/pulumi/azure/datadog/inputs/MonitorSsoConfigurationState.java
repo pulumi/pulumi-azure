@@ -76,14 +76,14 @@ public final class MonitorSsoConfigurationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The state of SingleSignOn configuration.
+     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      * 
      */
     @Import(name="singleSignOnEnabled")
     private @Nullable Output<String> singleSignOnEnabled;
 
     /**
-     * @return The state of SingleSignOn configuration.
+     * @return The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      * 
      */
     public Optional<Output<String>> singleSignOnEnabled() {
@@ -203,7 +203,7 @@ public final class MonitorSsoConfigurationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param singleSignOnEnabled The state of SingleSignOn configuration.
+         * @param singleSignOnEnabled The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class MonitorSsoConfigurationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param singleSignOnEnabled The state of SingleSignOn configuration.
+         * @param singleSignOnEnabled The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
          * 
          * @return builder
          * 

@@ -73,7 +73,7 @@ namespace Pulumi.Azure.PaloAlto
     public partial class LocalRulestackRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The action to take on the rule being triggered.
+        /// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         /// </summary>
         [Output("action")]
         public Output<string> Action { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<Outputs.LocalRulestackRuleCategory?> Category { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         /// </summary>
         [Output("decryptionRuleType")]
         public Output<string?> DecryptionRuleType { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.PaloAlto
     public sealed class LocalRulestackRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on the rule being triggered.
+        /// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<Inputs.LocalRulestackRuleCategoryArgs>? Category { get; set; }
 
         /// <summary>
-        /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         /// </summary>
         [Input("decryptionRuleType")]
         public Input<string>? DecryptionRuleType { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.PaloAlto
     public sealed class LocalRulestackRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take on the rule being triggered.
+        /// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<Inputs.LocalRulestackRuleCategoryGetArgs>? Category { get; set; }
 
         /// <summary>
-        /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+        /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         /// </summary>
         [Input("decryptionRuleType")]
         public Input<string>? DecryptionRuleType { get; set; }

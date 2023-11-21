@@ -442,7 +442,7 @@ type AppIngress struct {
 	//
 	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 	TrafficWeights []AppIngressTrafficWeight `pulumi:"trafficWeights"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 	Transport *string `pulumi:"transport"`
 }
 
@@ -476,7 +476,7 @@ type AppIngressArgs struct {
 	//
 	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 	TrafficWeights AppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
@@ -614,7 +614,7 @@ func (o AppIngressOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 	return o.ApplyT(func(v AppIngress) []AppIngressTrafficWeight { return v.TrafficWeights }).(AppIngressTrafficWeightArrayOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 func (o AppIngressOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngress) *string { return v.Transport }).(pulumi.StringPtrOutput)
 }
@@ -723,7 +723,7 @@ func (o AppIngressPtrOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput
 	}).(AppIngressTrafficWeightArrayOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *string {
 		if v == nil {
@@ -1988,7 +1988,7 @@ type AppTemplateContainer struct {
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []AppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory string `pulumi:"memory"`
@@ -2032,7 +2032,7 @@ type AppTemplateContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes AppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringInput `pulumi:"memory"`
@@ -2154,7 +2154,7 @@ func (o AppTemplateContainerOutput) LivenessProbes() AppTemplateContainerLivenes
 	return o.ApplyT(func(v AppTemplateContainer) []AppTemplateContainerLivenessProbe { return v.LivenessProbes }).(AppTemplateContainerLivenessProbeArrayOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values include `0.5Gi`, `1.0Gi`, `1.5Gi`, `2.0Gi`, `2.5Gi`, `3.0Gi`, `3.5Gi`, and `4.0Gi`.
+// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 //
 // > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o AppTemplateContainerOutput) Memory() pulumi.StringOutput {
@@ -4285,7 +4285,7 @@ type AppTemplateVolume struct {
 	Name string `pulumi:"name"`
 	// The name of the `AzureFile` storage.
 	StorageName *string `pulumi:"storageName"`
-	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+	// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
 	StorageType *string `pulumi:"storageType"`
 }
 
@@ -4305,7 +4305,7 @@ type AppTemplateVolumeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the `AzureFile` storage.
 	StorageName pulumi.StringPtrInput `pulumi:"storageName"`
-	// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+	// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }
 
@@ -4388,7 +4388,7 @@ func (o AppTemplateVolumeOutput) StorageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateVolume) *string { return v.StorageName }).(pulumi.StringPtrOutput)
 }
 
-// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
 func (o AppTemplateVolumeOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateVolume) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }

@@ -147,7 +147,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<int> BackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> PointInTimeRestoreTimeInUtc { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
         /// 
         /// &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
         /// </summary>
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
         /// 
         /// &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         /// </summary>
@@ -374,7 +374,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -438,7 +438,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
 
         /// <summary>
-        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
         /// 
         /// &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
         /// </summary>
@@ -490,7 +490,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
         /// 
         /// &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         /// </summary>
@@ -553,7 +553,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
-        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
         /// 
         /// &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
         /// </summary>
@@ -623,7 +623,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
 
         /// <summary>
-        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
         /// 
         /// &gt; **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `private_dns_zone_id` will be required when setting a `delegated_subnet_id`. For existing flexible servers who don't want to be recreated, you need to provide the `private_dns_zone_id` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
         /// </summary>
@@ -681,7 +681,7 @@ namespace Pulumi.Azure.PostgreSql
         }
 
         /// <summary>
-        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
         /// 
         /// &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created.
         /// </summary>

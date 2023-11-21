@@ -34,14 +34,14 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or multiple `frontend_ip_configuration` blocks as documented below.
+     * One or more `frontend_ip_configuration` blocks as documented below.
      * 
      */
     @Import(name="frontendIpConfigurations")
     private @Nullable Output<List<LoadBalancerFrontendIpConfigurationArgs>> frontendIpConfigurations;
 
     /**
-     * @return One or multiple `frontend_ip_configuration` blocks as documented below.
+     * @return One or more `frontend_ip_configuration` blocks as documented below.
      * 
      */
     public Optional<Output<List<LoadBalancerFrontendIpConfigurationArgs>>> frontendIpConfigurations() {
@@ -227,7 +227,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or multiple `frontend_ip_configuration` blocks as documented below.
+         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or multiple `frontend_ip_configuration` blocks as documented below.
+         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as documented below.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class LoadBalancerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendIpConfigurations One or multiple `frontend_ip_configuration` blocks as documented below.
+         * @param frontendIpConfigurations One or more `frontend_ip_configuration` blocks as documented below.
          * 
          * @return builder
          * 

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly bool? SystemDbOnDataDiskEnabled;
         /// <summary>
-        /// An `temp_db_settings` as defined below.
+        /// An `temp_db_settings` block as defined below.
         /// </summary>
         public readonly Outputs.VirtualMachineStorageConfigurationTempDbSettings? TempDbSettings;
 

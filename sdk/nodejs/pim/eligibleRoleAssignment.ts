@@ -117,7 +117,6 @@ export class EligibleRoleAssignment extends pulumi.CustomResource {
     public readonly principalId!: pulumi.Output<string>;
     /**
      * The type of principal.
-     * *
      */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
     /**
@@ -195,7 +194,6 @@ export interface EligibleRoleAssignmentState {
     principalId?: pulumi.Input<string>;
     /**
      * The type of principal.
-     * *
      */
     principalType?: pulumi.Input<string>;
     /**

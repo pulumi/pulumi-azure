@@ -59,9 +59,17 @@ namespace Pulumi.Azure.Mobile
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        /// </summary>
         [Output("userEquipmentAddressPoolPrefixes")]
         public Output<ImmutableArray<string>> UserEquipmentAddressPoolPrefixes { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+        /// 
+        /// &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+        /// </summary>
         [Output("userEquipmentStaticAddressPoolPrefixes")]
         public Output<ImmutableArray<string>> UserEquipmentStaticAddressPoolPrefixes { get; private set; } = null!;
 
@@ -185,6 +193,10 @@ namespace Pulumi.Azure.Mobile
 
         [Input("userEquipmentAddressPoolPrefixes")]
         private InputList<string>? _userEquipmentAddressPoolPrefixes;
+
+        /// <summary>
+        /// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        /// </summary>
         public InputList<string> UserEquipmentAddressPoolPrefixes
         {
             get => _userEquipmentAddressPoolPrefixes ?? (_userEquipmentAddressPoolPrefixes = new InputList<string>());
@@ -193,6 +205,12 @@ namespace Pulumi.Azure.Mobile
 
         [Input("userEquipmentStaticAddressPoolPrefixes")]
         private InputList<string>? _userEquipmentStaticAddressPoolPrefixes;
+
+        /// <summary>
+        /// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+        /// 
+        /// &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+        /// </summary>
         public InputList<string> UserEquipmentStaticAddressPoolPrefixes
         {
             get => _userEquipmentStaticAddressPoolPrefixes ?? (_userEquipmentStaticAddressPoolPrefixes = new InputList<string>());
@@ -281,6 +299,10 @@ namespace Pulumi.Azure.Mobile
 
         [Input("userEquipmentAddressPoolPrefixes")]
         private InputList<string>? _userEquipmentAddressPoolPrefixes;
+
+        /// <summary>
+        /// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+        /// </summary>
         public InputList<string> UserEquipmentAddressPoolPrefixes
         {
             get => _userEquipmentAddressPoolPrefixes ?? (_userEquipmentAddressPoolPrefixes = new InputList<string>());
@@ -289,6 +311,12 @@ namespace Pulumi.Azure.Mobile
 
         [Input("userEquipmentStaticAddressPoolPrefixes")]
         private InputList<string>? _userEquipmentStaticAddressPoolPrefixes;
+
+        /// <summary>
+        /// Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+        /// 
+        /// &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+        /// </summary>
         public InputList<string> UserEquipmentStaticAddressPoolPrefixes
         {
             get => _userEquipmentStaticAddressPoolPrefixes ?? (_userEquipmentStaticAddressPoolPrefixes = new InputList<string>());

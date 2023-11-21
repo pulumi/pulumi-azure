@@ -32,14 +32,14 @@ public final class EndpointGlobalDeliveryRuleUrlRewriteActionArgs extends com.pu
     }
 
     /**
-     * Defaults to `true`.
+     * Whether preserve an unmatched path. Defaults to `true`.
      * 
      */
     @Import(name="preserveUnmatchedPath")
     private @Nullable Output<Boolean> preserveUnmatchedPath;
 
     /**
-     * @return Defaults to `true`.
+     * @return Whether preserve an unmatched path. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> preserveUnmatchedPath() {
@@ -109,7 +109,7 @@ public final class EndpointGlobalDeliveryRuleUrlRewriteActionArgs extends com.pu
         }
 
         /**
-         * @param preserveUnmatchedPath Defaults to `true`.
+         * @param preserveUnmatchedPath Whether preserve an unmatched path. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EndpointGlobalDeliveryRuleUrlRewriteActionArgs extends com.pu
         }
 
         /**
-         * @param preserveUnmatchedPath Defaults to `true`.
+         * @param preserveUnmatchedPath Whether preserve an unmatched path. Defaults to `true`.
          * 
          * @return builder
          * 

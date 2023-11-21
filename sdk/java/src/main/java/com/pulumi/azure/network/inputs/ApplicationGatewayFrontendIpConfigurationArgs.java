@@ -61,14 +61,14 @@ public final class ApplicationGatewayFrontendIpConfigurationArgs extends com.pul
     }
 
     /**
-     * The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+     * The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     @Import(name="privateIpAddressAllocation")
     private @Nullable Output<String> privateIpAddressAllocation;
 
     /**
-     * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+     * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
      * 
      */
     public Optional<Output<String>> privateIpAddressAllocation() {
@@ -230,7 +230,7 @@ public final class ApplicationGatewayFrontendIpConfigurationArgs extends com.pul
         }
 
         /**
-         * @param privateIpAddressAllocation The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+         * @param privateIpAddressAllocation The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class ApplicationGatewayFrontendIpConfigurationArgs extends com.pul
         }
 
         /**
-         * @param privateIpAddressAllocation The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+         * @param privateIpAddressAllocation The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
          * 
          * @return builder
          * 

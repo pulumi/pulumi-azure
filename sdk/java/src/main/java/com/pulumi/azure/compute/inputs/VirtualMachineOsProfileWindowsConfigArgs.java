@@ -35,14 +35,14 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
     }
 
     /**
-     * Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+     * Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
      * 
      */
     @Import(name="enableAutomaticUpgrades")
     private @Nullable Output<Boolean> enableAutomaticUpgrades;
 
     /**
-     * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+     * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableAutomaticUpgrades() {
@@ -158,7 +158,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param enableAutomaticUpgrades Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+         * @param enableAutomaticUpgrades Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class VirtualMachineOsProfileWindowsConfigArgs extends com.pulumi.r
         }
 
         /**
-         * @param enableAutomaticUpgrades Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
+         * @param enableAutomaticUpgrades Are automatic updates enabled on this Virtual Machine? Defaults to `false`.
          * 
          * @return builder
          * 

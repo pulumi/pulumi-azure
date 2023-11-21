@@ -15,21 +15,37 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     {
         /// <summary>
         /// The connection string of an EventHub Namespace.
+        /// 
+        /// &gt; **Note:** At least one of `connection_string` or `endpoint_uri` must be specified
         /// </summary>
-        public readonly string ConnectionString;
+        public readonly string? ConnectionString;
+        /// <summary>
+        /// The endpoint address of an EventHub Namespace. Required when `client_id` is set.
+        /// </summary>
+        public readonly string? EndpointUri;
         /// <summary>
         /// The name of an EventHub.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpoint_uri` is set. If not specified the System Assigned Identity will be used.
+        /// </summary>
+        public readonly string? UserAssignedIdentityClientId;
 
         [OutputConstructor]
         private LoggerEventhub(
-            string connectionString,
+            string? connectionString,
 
-            string name)
+            string? endpointUri,
+
+            string name,
+
+            string? userAssignedIdentityClientId)
         {
             ConnectionString = connectionString;
+            EndpointUri = endpointUri;
             Name = name;
+            UserAssignedIdentityClientId = userAssignedIdentityClientId;
         }
     }
 }

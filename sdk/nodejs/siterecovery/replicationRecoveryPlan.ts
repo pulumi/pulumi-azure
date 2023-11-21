@@ -216,7 +216,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     }
 
     /**
-     * An `azureToAzureSettings` block defined as block.
+     * An `azureToAzureSettings` block as defined below.
      */
     public readonly azureToAzureSettings!: pulumi.Output<outputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings | undefined>;
     /**
@@ -238,7 +238,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**
      * Three or more `recoveryGroup` block defined as below.
      *
-     * **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+     * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
      *
      * @deprecated the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
      */
@@ -315,7 +315,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
  */
 export interface ReplicationRecoveryPlanState {
     /**
-     * An `azureToAzureSettings` block defined as block.
+     * An `azureToAzureSettings` block as defined below.
      */
     azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
     /**
@@ -337,7 +337,7 @@ export interface ReplicationRecoveryPlanState {
     /**
      * Three or more `recoveryGroup` block defined as below.
      *
-     * **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+     * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
      *
      * @deprecated the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
      */
@@ -367,7 +367,7 @@ export interface ReplicationRecoveryPlanState {
  */
 export interface ReplicationRecoveryPlanArgs {
     /**
-     * An `azureToAzureSettings` block defined as block.
+     * An `azureToAzureSettings` block as defined below.
      */
     azureToAzureSettings?: pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanAzureToAzureSettings>;
     /**
@@ -389,7 +389,7 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * Three or more `recoveryGroup` block defined as below.
      *
-     * **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
+     * > **Note:** The `recoveryGroup` block is deprecated in favor of `shutdownRecoveryGroup`, `failoverRecoveryGroup` and `bootRecoveryGroup`. It will be removed in v4.0 of the Azure Provider.
      *
      * @deprecated the `recovery_group` block has been deprecated in favour of the `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group` and will be removed in version 4.0 of the provider.
      */

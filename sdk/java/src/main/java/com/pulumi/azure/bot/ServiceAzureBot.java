@@ -168,14 +168,14 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.endpoint);
     }
     /**
-     * The Icon Url of the Azure Bot Service.
+     * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     @Export(name="iconUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iconUrl;
 
     /**
-     * @return The Icon Url of the Azure Bot Service.
+     * @return The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      * 
      */
     public Output<Optional<String>> iconUrl() {

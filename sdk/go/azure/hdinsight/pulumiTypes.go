@@ -1909,7 +1909,7 @@ type HBaseClusterNetwork struct {
 	//
 	// > **NOTE:** To enable the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 }
 
@@ -1929,7 +1929,7 @@ type HBaseClusterNetworkArgs struct {
 	//
 	// > **NOTE:** To enable the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
 }
 
@@ -2035,7 +2035,7 @@ func (o HBaseClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v HBaseClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o HBaseClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HBaseClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2082,7 +2082,7 @@ func (o HBaseClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o HBaseClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterNetwork) *bool {
 		if v == nil {
@@ -2296,7 +2296,7 @@ type HBaseClusterRolesHeadNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []HBaseClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -2328,7 +2328,7 @@ type HBaseClusterRolesHeadNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions HBaseClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -2446,7 +2446,7 @@ func (o HBaseClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodeOutput) ScriptActions() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) []HBaseClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(HBaseClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -2520,7 +2520,7 @@ func (o HBaseClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesHeadNodePtrOutput) ScriptActions() HBaseClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) []HBaseClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -2722,12 +2722,13 @@ func (o HBaseClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInpu
 }
 
 type HBaseClusterRolesWorkerNode struct {
+	// A `autoscale` block as defined below.
 	Autoscale *HBaseClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []HBaseClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -2757,12 +2758,13 @@ type HBaseClusterRolesWorkerNodeInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeArgs struct {
+	// A `autoscale` block as defined below.
 	Autoscale HBaseClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions HBaseClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -2875,6 +2877,7 @@ func (o HBaseClusterRolesWorkerNodeOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// A `autoscale` block as defined below.
 func (o HBaseClusterRolesWorkerNodeOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale { return v.Autoscale }).(HBaseClusterRolesWorkerNodeAutoscalePtrOutput)
 }
@@ -2886,7 +2889,7 @@ func (o HBaseClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesWorkerNodeOutput) ScriptActions() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) []HBaseClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(HBaseClusterRolesWorkerNodeScriptActionArrayOutput)
 }
@@ -2953,6 +2956,7 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Elem() HBaseClusterRolesWorkerNode
 	}).(HBaseClusterRolesWorkerNodeOutput)
 }
 
+// A `autoscale` block as defined below.
 func (o HBaseClusterRolesWorkerNodePtrOutput) Autoscale() HBaseClusterRolesWorkerNodeAutoscalePtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *HBaseClusterRolesWorkerNodeAutoscale {
 		if v == nil {
@@ -2974,7 +2978,7 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesWorkerNodePtrOutput) ScriptActions() HBaseClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) []HBaseClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -3047,6 +3051,9 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscale struct {
+	// A `recurrence` block as defined below.
+	//
+	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence *HBaseClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
 
@@ -3062,6 +3069,9 @@ type HBaseClusterRolesWorkerNodeAutoscaleInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleArgs struct {
+	// A `recurrence` block as defined below.
+	//
+	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -3160,6 +3170,9 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToOutput(ctx context.Context
 	}
 }
 
+// A `recurrence` block as defined below.
+//
+// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		return v.Recurrence
@@ -3196,6 +3209,9 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HBaseClusterRolesW
 	}).(HBaseClusterRolesWorkerNodeAutoscaleOutput)
 }
 
+// A `recurrence` block as defined below.
+//
+// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		if v == nil {
@@ -3206,8 +3222,10 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HBaseCluster
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrence struct {
+	// A list of `schedule` blocks as defined below.
 	Schedules []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule `pulumi:"schedules"`
-	Timezone  string                                                   `pulumi:"timezone"`
+	// The time zone for the autoscale schedule times.
+	Timezone string `pulumi:"timezone"`
 }
 
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput values.
@@ -3222,8 +3240,10 @@ type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs struct {
+	// A list of `schedule` blocks as defined below.
 	Schedules HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayInput `pulumi:"schedules"`
-	Timezone  pulumi.StringInput                                               `pulumi:"timezone"`
+	// The time zone for the autoscale schedule times.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
 }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs) ElementType() reflect.Type {
@@ -3321,12 +3341,14 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) ToOutput(ctx conte
 	}
 }
 
+// A list of `schedule` blocks as defined below.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Schedules() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
 		return v.Schedules
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
+// The time zone for the autoscale schedule times.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrence) string { return v.Timezone }).(pulumi.StringOutput)
 }
@@ -3361,6 +3383,7 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Elem() HBaseClu
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceOutput)
 }
 
+// A list of `schedule` blocks as defined below.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) []HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
 		if v == nil {
@@ -3370,6 +3393,7 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Schedules() HBa
 	}).(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArrayOutput)
 }
 
+// The time zone for the autoscale schedule times.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscaleRecurrence) *string {
 		if v == nil {
@@ -3380,10 +3404,12 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput) Timezone() pulu
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule struct {
+	// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	Days []string `pulumi:"days"`
-	// The number of instances which should be run for the Worker Nodes.
-	TargetInstanceCount int    `pulumi:"targetInstanceCount"`
-	Time                string `pulumi:"time"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount int `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time string `pulumi:"time"`
 }
 
 // HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput is an input type that accepts HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs and HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput values.
@@ -3398,10 +3424,12 @@ type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleInput interface {
 }
 
 type HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs struct {
+	// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 	Days pulumi.StringArrayInput `pulumi:"days"`
-	// The number of instances which should be run for the Worker Nodes.
-	TargetInstanceCount pulumi.IntInput    `pulumi:"targetInstanceCount"`
-	Time                pulumi.StringInput `pulumi:"time"`
+	// The number of worker nodes to autoscale at the specified time.
+	TargetInstanceCount pulumi.IntInput `pulumi:"targetInstanceCount"`
+	// The time of day to perform the autoscale in 24hour format.
+	Time pulumi.StringInput `pulumi:"time"`
 }
 
 func (HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs) ElementType() reflect.Type {
@@ -3473,15 +3501,17 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) ToOutput(c
 	}
 }
 
+// The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Days() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
-// The number of instances which should be run for the Worker Nodes.
+// The number of worker nodes to autoscale at the specified time.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) TargetInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) int { return v.TargetInstanceCount }).(pulumi.IntOutput)
 }
 
+// The time of day to perform the autoscale in 24hour format.
 func (o HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleOutput) Time() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule) string { return v.Time }).(pulumi.StringOutput)
 }
@@ -3656,7 +3686,7 @@ type HBaseClusterRolesZookeeperNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []HBaseClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -3688,7 +3718,7 @@ type HBaseClusterRolesZookeeperNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions HBaseClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -3806,7 +3836,7 @@ func (o HBaseClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodeOutput) ScriptActions() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) []HBaseClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -3882,7 +3912,7 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HBaseClusterRolesZookeeperNodePtrOutput) ScriptActions() HBaseClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) []HBaseClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -6647,7 +6677,7 @@ type HadoopClusterNetwork struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 }
 
@@ -6667,7 +6697,7 @@ type HadoopClusterNetworkArgs struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
 }
 
@@ -6773,7 +6803,7 @@ func (o HadoopClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput
 	return o.ApplyT(func(v HadoopClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o HadoopClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HadoopClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -6820,7 +6850,7 @@ func (o HadoopClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o HadoopClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterNetwork) *bool {
 		if v == nil {
@@ -7049,7 +7079,7 @@ func (o HadoopClusterRolesPtrOutput) ZookeeperNode() HadoopClusterRolesZookeeper
 }
 
 type HadoopClusterRolesEdgeNode struct {
-	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
 	HttpsEndpoints []HadoopClusterRolesEdgeNodeHttpsEndpoint `pulumi:"httpsEndpoints"`
 	// A `installScriptAction` block as defined below.
 	InstallScriptActions []HadoopClusterRolesEdgeNodeInstallScriptAction `pulumi:"installScriptActions"`
@@ -7073,7 +7103,7 @@ type HadoopClusterRolesEdgeNodeInput interface {
 }
 
 type HadoopClusterRolesEdgeNodeArgs struct {
-	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
 	HttpsEndpoints HadoopClusterRolesEdgeNodeHttpsEndpointArrayInput `pulumi:"httpsEndpoints"`
 	// A `installScriptAction` block as defined below.
 	InstallScriptActions HadoopClusterRolesEdgeNodeInstallScriptActionArrayInput `pulumi:"installScriptActions"`
@@ -7180,7 +7210,7 @@ func (o HadoopClusterRolesEdgeNodeOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
-// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
 func (o HadoopClusterRolesEdgeNodeOutput) HttpsEndpoints() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeHttpsEndpoint { return v.HttpsEndpoints }).(HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput)
 }
@@ -7239,7 +7269,7 @@ func (o HadoopClusterRolesEdgeNodePtrOutput) Elem() HadoopClusterRolesEdgeNodeOu
 	}).(HadoopClusterRolesEdgeNodeOutput)
 }
 
-// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `httpsEndpoints` blocks as defined below.
 func (o HadoopClusterRolesEdgeNodePtrOutput) HttpsEndpoints() HadoopClusterRolesEdgeNodeHttpsEndpointArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesEdgeNode) []HadoopClusterRolesEdgeNodeHttpsEndpoint {
 		if v == nil {
@@ -7729,7 +7759,7 @@ type HadoopClusterRolesHeadNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []HadoopClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -7761,7 +7791,7 @@ type HadoopClusterRolesHeadNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions HadoopClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -7879,7 +7909,7 @@ func (o HadoopClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodeOutput) ScriptActions() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) []HadoopClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(HadoopClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -7953,7 +7983,7 @@ func (o HadoopClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesHeadNodePtrOutput) ScriptActions() HadoopClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) []HadoopClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -8161,7 +8191,7 @@ type HadoopClusterRolesWorkerNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []HadoopClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -8197,7 +8227,7 @@ type HadoopClusterRolesWorkerNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions HadoopClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -8322,7 +8352,7 @@ func (o HadoopClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesWorkerNodeOutput) ScriptActions() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) []HadoopClusterRolesWorkerNodeScriptAction {
 		return v.ScriptActions
@@ -8413,7 +8443,7 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesWorkerNodePtrOutput) ScriptActions() HadoopClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) []HadoopClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -9322,7 +9352,7 @@ type HadoopClusterRolesZookeeperNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []HadoopClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -9354,7 +9384,7 @@ type HadoopClusterRolesZookeeperNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions HadoopClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -9472,7 +9502,7 @@ func (o HadoopClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodeOutput) ScriptActions() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) []HadoopClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -9548,7 +9578,7 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o HadoopClusterRolesZookeeperNodePtrOutput) ScriptActions() HadoopClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) []HadoopClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -12313,7 +12343,7 @@ type InteractiveQueryClusterNetwork struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 }
 
@@ -12333,7 +12363,7 @@ type InteractiveQueryClusterNetworkArgs struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
 }
 
@@ -12439,7 +12469,7 @@ func (o InteractiveQueryClusterNetworkOutput) ConnectionDirection() pulumi.Strin
 	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -12486,7 +12516,7 @@ func (o InteractiveQueryClusterNetworkPtrOutput) ConnectionDirection() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) *bool {
 		if v == nil {
@@ -12700,7 +12730,7 @@ type InteractiveQueryClusterRolesHeadNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []InteractiveQueryClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -12734,7 +12764,7 @@ type InteractiveQueryClusterRolesHeadNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -12854,7 +12884,7 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) Password() pulumi.StringPtrO
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodeOutput) ScriptActions() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) []InteractiveQueryClusterRolesHeadNodeScriptAction {
 		return v.ScriptActions
@@ -12932,7 +12962,7 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Password() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) []InteractiveQueryClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -13142,7 +13172,7 @@ type InteractiveQueryClusterRolesWorkerNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []InteractiveQueryClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -13180,7 +13210,7 @@ type InteractiveQueryClusterRolesWorkerNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -13309,7 +13339,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) Password() pulumi.StringPt
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) ScriptActions() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) []InteractiveQueryClusterRolesWorkerNodeScriptAction {
 		return v.ScriptActions
@@ -13402,7 +13432,7 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Password() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) []InteractiveQueryClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -14299,7 +14329,7 @@ type InteractiveQueryClusterRolesZookeeperNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []InteractiveQueryClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -14331,7 +14361,7 @@ type InteractiveQueryClusterRolesZookeeperNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -14449,7 +14479,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Password() pulumi.Strin
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ScriptActions() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) []InteractiveQueryClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -14525,7 +14555,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Password() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ScriptActions() InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) []InteractiveQueryClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -17290,7 +17320,7 @@ type KafkaClusterNetwork struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 }
 
@@ -17310,7 +17340,7 @@ type KafkaClusterNetworkArgs struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
 }
 
@@ -17416,7 +17446,7 @@ func (o KafkaClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v KafkaClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o KafkaClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KafkaClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -17463,7 +17493,7 @@ func (o KafkaClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o KafkaClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterNetwork) *bool {
 		if v == nil {
@@ -17892,7 +17922,7 @@ type KafkaClusterRolesHeadNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []KafkaClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -17924,7 +17954,7 @@ type KafkaClusterRolesHeadNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions KafkaClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -18042,7 +18072,7 @@ func (o KafkaClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesHeadNodeOutput) ScriptActions() KafkaClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) []KafkaClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(KafkaClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -18116,7 +18146,7 @@ func (o KafkaClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesHeadNodePtrOutput) ScriptActions() KafkaClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) []KafkaClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -18322,7 +18352,7 @@ type KafkaClusterRolesKafkaManagementNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []KafkaClusterRolesKafkaManagementNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 	//
@@ -18354,7 +18384,7 @@ type KafkaClusterRolesKafkaManagementNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 	//
@@ -18472,7 +18502,7 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) Password() pulumi.StringPtrO
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesKafkaManagementNodeOutput) ScriptActions() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) []KafkaClusterRolesKafkaManagementNodeScriptAction {
 		return v.ScriptActions
@@ -18548,7 +18578,7 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Password() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ScriptActions() KafkaClusterRolesKafkaManagementNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) []KafkaClusterRolesKafkaManagementNodeScriptAction {
 		if v == nil {
@@ -18756,7 +18786,7 @@ type KafkaClusterRolesWorkerNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []KafkaClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -18792,7 +18822,7 @@ type KafkaClusterRolesWorkerNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions KafkaClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -18917,7 +18947,7 @@ func (o KafkaClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesWorkerNodeOutput) ScriptActions() KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) []KafkaClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(KafkaClusterRolesWorkerNodeScriptActionArrayOutput)
 }
@@ -19006,7 +19036,7 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesWorkerNodePtrOutput) ScriptActions() KafkaClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) []KafkaClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -19222,7 +19252,7 @@ type KafkaClusterRolesZookeeperNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []KafkaClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -19254,7 +19284,7 @@ type KafkaClusterRolesZookeeperNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions KafkaClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -19372,7 +19402,7 @@ func (o KafkaClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesZookeeperNodeOutput) ScriptActions() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) []KafkaClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -19448,7 +19478,7 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o KafkaClusterRolesZookeeperNodePtrOutput) ScriptActions() KafkaClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) []KafkaClusterRolesZookeeperNodeScriptAction {
 		if v == nil {
@@ -22213,7 +22243,7 @@ type SparkClusterNetwork struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
 }
 
@@ -22233,7 +22263,7 @@ type SparkClusterNetworkArgs struct {
 	//
 	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
-	// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
 }
 
@@ -22339,7 +22369,7 @@ func (o SparkClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SparkClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o SparkClusterNetworkOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SparkClusterNetwork) *bool { return v.PrivateLinkEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -22386,7 +22416,7 @@ func (o SparkClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
+// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o SparkClusterNetworkPtrOutput) PrivateLinkEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkClusterNetwork) *bool {
 		if v == nil {
@@ -22600,7 +22630,7 @@ type SparkClusterRolesHeadNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions []SparkClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -22632,7 +22662,7 @@ type SparkClusterRolesHeadNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 	ScriptActions SparkClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
@@ -22750,7 +22780,7 @@ func (o SparkClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodeOutput) ScriptActions() SparkClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) []SparkClusterRolesHeadNodeScriptAction { return v.ScriptActions }).(SparkClusterRolesHeadNodeScriptActionArrayOutput)
 }
@@ -22824,7 +22854,7 @@ func (o SparkClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
 func (o SparkClusterRolesHeadNodePtrOutput) ScriptActions() SparkClusterRolesHeadNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesHeadNode) []SparkClusterRolesHeadNodeScriptAction {
 		if v == nil {
@@ -23032,7 +23062,7 @@ type SparkClusterRolesWorkerNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []SparkClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -23068,7 +23098,7 @@ type SparkClusterRolesWorkerNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions SparkClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
@@ -23193,7 +23223,7 @@ func (o SparkClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o SparkClusterRolesWorkerNodeOutput) ScriptActions() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) []SparkClusterRolesWorkerNodeScriptAction { return v.ScriptActions }).(SparkClusterRolesWorkerNodeScriptActionArrayOutput)
 }
@@ -23282,7 +23312,7 @@ func (o SparkClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o SparkClusterRolesWorkerNodePtrOutput) ScriptActions() SparkClusterRolesWorkerNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) []SparkClusterRolesWorkerNodeScriptAction {
 		if v == nil {
@@ -24191,7 +24221,7 @@ type SparkClusterRolesZookeeperNode struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions []SparkClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -24223,7 +24253,7 @@ type SparkClusterRolesZookeeperNodeArgs struct {
 	//
 	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The script action which will run on the cluster. Changing this forces a new resource to be created.
+	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 	ScriptActions SparkClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
@@ -24341,7 +24371,7 @@ func (o SparkClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodeOutput) ScriptActions() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) []SparkClusterRolesZookeeperNodeScriptAction {
 		return v.ScriptActions
@@ -24417,7 +24447,7 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script action which will run on the cluster. Changing this forces a new resource to be created.
+// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
 func (o SparkClusterRolesZookeeperNodePtrOutput) ScriptActions() SparkClusterRolesZookeeperNodeScriptActionArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) []SparkClusterRolesZookeeperNodeScriptAction {
 		if v == nil {

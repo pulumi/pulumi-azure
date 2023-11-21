@@ -154,9 +154,15 @@ namespace Pulumi.Azure.Sentinel
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a list of preview image file names. These will be taken from solution artifacts.
+        /// </summary>
         [Output("previewImages")]
         public Output<ImmutableArray<string>> PreviewImages { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+        /// </summary>
         [Output("previewImagesDarks")]
         public Output<ImmutableArray<string>> PreviewImagesDarks { get; private set; } = null!;
 
@@ -179,7 +185,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<Outputs.MetadataSupport?> Support { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of tactics the resource covers.
+        /// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         /// </summary>
         [Output("threatAnalysisTactics")]
         public Output<ImmutableArray<string>> ThreatAnalysisTactics { get; private set; } = null!;
@@ -322,6 +328,10 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("previewImages")]
         private InputList<string>? _previewImages;
+
+        /// <summary>
+        /// Specifies a list of preview image file names. These will be taken from solution artifacts.
+        /// </summary>
         public InputList<string> PreviewImages
         {
             get => _previewImages ?? (_previewImages = new InputList<string>());
@@ -330,6 +340,10 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("previewImagesDarks")]
         private InputList<string>? _previewImagesDarks;
+
+        /// <summary>
+        /// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+        /// </summary>
         public InputList<string> PreviewImagesDarks
         {
             get => _previewImagesDarks ?? (_previewImagesDarks = new InputList<string>());
@@ -364,7 +378,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<string>? _threatAnalysisTactics;
 
         /// <summary>
-        /// Specifies a list of tactics the resource covers.
+        /// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         /// </summary>
         public InputList<string> ThreatAnalysisTactics
         {
@@ -478,6 +492,10 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("previewImages")]
         private InputList<string>? _previewImages;
+
+        /// <summary>
+        /// Specifies a list of preview image file names. These will be taken from solution artifacts.
+        /// </summary>
         public InputList<string> PreviewImages
         {
             get => _previewImages ?? (_previewImages = new InputList<string>());
@@ -486,6 +504,10 @@ namespace Pulumi.Azure.Sentinel
 
         [Input("previewImagesDarks")]
         private InputList<string>? _previewImagesDarks;
+
+        /// <summary>
+        /// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+        /// </summary>
         public InputList<string> PreviewImagesDarks
         {
             get => _previewImagesDarks ?? (_previewImagesDarks = new InputList<string>());
@@ -520,7 +542,7 @@ namespace Pulumi.Azure.Sentinel
         private InputList<string>? _threatAnalysisTactics;
 
         /// <summary>
-        /// Specifies a list of tactics the resource covers.
+        /// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         /// </summary>
         public InputList<string> ThreatAnalysisTactics
         {

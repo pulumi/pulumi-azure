@@ -24,14 +24,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     public static final DatabaseArgs Empty = new DatabaseArgs();
 
     /**
-     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+     * Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
      * 
      */
     @Import(name="autoPauseDelayInMinutes")
     private @Nullable Output<Integer> autoPauseDelayInMinutes;
 
     /**
-     * @return Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+     * @return Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
      * 
      */
     public Optional<Output<Integer>> autoPauseDelayInMinutes() {
@@ -54,14 +54,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+     * @return The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -122,14 +122,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Database Import block as documented below. Mutually exclusive with `create_mode`.
+     * A `import` block as documented below. Mutually exclusive with `create_mode`.
      * 
      */
     @Import(name="import")
     private @Nullable Output<DatabaseImportArgs> import_;
 
     /**
-     * @return A Database Import block as documented below. Mutually exclusive with `create_mode`.
+     * @return A `import` block as documented below. Mutually exclusive with `create_mode`.
      * 
      */
     public Optional<Output<DatabaseImportArgs>> import_() {
@@ -220,14 +220,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+     * Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
      * 
      */
     @Import(name="minCapacity")
     private @Nullable Output<Double> minCapacity;
 
     /**
-     * @return Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+     * @return Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
      * 
      */
     public Optional<Output<Double>> minCapacity() {
@@ -393,14 +393,14 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+     * Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
      * 
      */
     @Import(name="storageAccountType")
     private @Nullable Output<String> storageAccountType;
 
     /**
-     * @return Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+     * @return Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
      * 
      */
     public Optional<Output<String>> storageAccountType() {
@@ -523,7 +523,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoPauseDelayInMinutes Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+         * @param autoPauseDelayInMinutes Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoPauseDelayInMinutes Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+         * @param autoPauseDelayInMinutes Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
          * 
          * @return builder
          * 
@@ -576,7 +576,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
          * 
          * @return builder
          * 
@@ -657,7 +657,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A Database Import block as documented below. Mutually exclusive with `create_mode`.
+         * @param import_ A `import` block as documented below. Mutually exclusive with `create_mode`.
          * 
          * @return builder
          * 
@@ -668,7 +668,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param import_ A Database Import block as documented below. Mutually exclusive with `create_mode`.
+         * @param import_ A `import` block as documented below. Mutually exclusive with `create_mode`.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minCapacity Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+         * @param minCapacity Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minCapacity Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+         * @param minCapacity Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
          * 
          * @return builder
          * 
@@ -1030,7 +1030,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
          * 
          * @return builder
          * 
@@ -1041,7 +1041,7 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+         * @param storageAccountType Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
          * 
          * @return builder
          * 

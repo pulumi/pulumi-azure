@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string Destination;
         /// <summary>
-        /// Defaults to `true`.
+        /// Whether preserve an unmatched path. Defaults to `true`.
         /// </summary>
         public readonly bool? PreserveUnmatchedPath;
         /// <summary>

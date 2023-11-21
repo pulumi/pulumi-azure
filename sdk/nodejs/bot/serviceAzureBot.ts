@@ -101,7 +101,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
-     * The Icon Url of the Azure Bot Service.
+     * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
     public readonly iconUrl!: pulumi.Output<string | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface ServiceAzureBotState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The Icon Url of the Azure Bot Service.
+     * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
     iconUrl?: pulumi.Input<string>;
     /**
@@ -334,7 +334,7 @@ export interface ServiceAzureBotArgs {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The Icon Url of the Azure Bot Service.
+     * The Icon Url of the Azure Bot Service. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
      */
     iconUrl?: pulumi.Input<string>;
     /**

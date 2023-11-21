@@ -37,7 +37,7 @@ class SubscriptionArgs:
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
-        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -132,7 +132,7 @@ class SubscriptionArgs:
     @pulumi.getter(name="clientScopedSubscriptionEnabled")
     def client_scoped_subscription_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        whether the subscription is scoped to a client id. Defaults to `False`.
+        whether the subscription is scoped to a client id. Defaults to `false`.
 
         > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         """
@@ -285,7 +285,7 @@ class _SubscriptionState:
         Input properties used for looking up and filtering Subscription resources.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input['SubscriptionClientScopedSubscriptionArgs'] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
-        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -360,7 +360,7 @@ class _SubscriptionState:
     @pulumi.getter(name="clientScopedSubscriptionEnabled")
     def client_scoped_subscription_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        whether the subscription is scoped to a client id. Defaults to `False`.
+        whether the subscription is scoped to a client id. Defaults to `false`.
 
         > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         """
@@ -578,7 +578,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
-        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -726,7 +726,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         :param pulumi.Input[pulumi.InputType['SubscriptionClientScopedSubscriptionArgs']] client_scoped_subscription: A `client_scoped_subscription` block as defined below.
-        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `False`.
+        :param pulumi.Input[bool] client_scoped_subscription_enabled: whether the subscription is scoped to a client id. Defaults to `false`.
                
                > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_error: Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -783,7 +783,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter(name="clientScopedSubscriptionEnabled")
     def client_scoped_subscription_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        whether the subscription is scoped to a client id. Defaults to `False`.
+        whether the subscription is scoped to a client id. Defaults to `false`.
 
         > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
         """

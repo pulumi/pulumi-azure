@@ -182,7 +182,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly siteCredentials!: pulumi.Output<outputs.appservice.AppServiceSiteCredential[]>;
     /**
-     * A Source Control block as defined below
+     * A `sourceControl` block as defined below.
      */
     public readonly sourceControl!: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
     /**
@@ -376,7 +376,7 @@ export interface AppServiceState {
      */
     siteCredentials?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceSiteCredential>[]>;
     /**
-     * A Source Control block as defined below
+     * A `sourceControl` block as defined below.
      */
     sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
     /**
@@ -462,7 +462,7 @@ export interface AppServiceArgs {
      */
     siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
     /**
-     * A Source Control block as defined below
+     * A `sourceControl` block as defined below.
      */
     sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
     /**

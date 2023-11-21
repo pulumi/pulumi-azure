@@ -101,13 +101,13 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> ContainerRegistryId { get; private set; } = null!;
 
         /// <summary>
-        /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+        /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         /// </summary>
         [Output("logLevel")]
         public Output<string?> LogLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         /// </summary>
         [Output("mode")]
         public Output<string?> Mode { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> ParentRegistryId { get; private set; } = null!;
 
         /// <summary>
-        /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         /// </summary>
         [Output("syncMessageTtl")]
         public Output<string?> SyncMessageTtl { get; private set; } = null!;
@@ -227,13 +227,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string> ContainerRegistryId { get; set; } = null!;
 
         /// <summary>
-        /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+        /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -263,7 +263,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ParentRegistryId { get; set; }
 
         /// <summary>
-        /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         /// </summary>
         [Input("syncMessageTtl")]
         public Input<string>? SyncMessageTtl { get; set; }
@@ -321,13 +321,13 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ContainerRegistryId { get; set; }
 
         /// <summary>
-        /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+        /// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+        /// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -357,7 +357,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? ParentRegistryId { get; set; }
 
         /// <summary>
-        /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+        /// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         /// </summary>
         [Input("syncMessageTtl")]
         public Input<string>? SyncMessageTtl { get; set; }

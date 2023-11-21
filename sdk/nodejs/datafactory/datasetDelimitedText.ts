@@ -148,7 +148,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The null value string. Defaults to an empty string. Defaults to `""`.
+     * The null value string. Defaults to `""`.
      */
     public readonly nullValue!: pulumi.Output<string | undefined>;
     /**
@@ -310,7 +310,7 @@ export interface DatasetDelimitedTextState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The null value string. Defaults to an empty string. Defaults to `""`.
+     * The null value string. Defaults to `""`.
      */
     nullValue?: pulumi.Input<string>;
     /**
@@ -404,7 +404,7 @@ export interface DatasetDelimitedTextArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The null value string. Defaults to an empty string. Defaults to `""`.
+     * The null value string. Defaults to `""`.
      */
     nullValue?: pulumi.Input<string>;
     /**

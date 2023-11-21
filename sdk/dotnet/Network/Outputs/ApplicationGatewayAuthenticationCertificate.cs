@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the Authentication Certificate.
+        /// The Name of the Authentication Certificate to use.
         /// </summary>
         public readonly string Name;
 

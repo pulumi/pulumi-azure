@@ -35,7 +35,7 @@ type EnvironmentV3 struct {
 	DnsSuffix pulumi.StringOutput `pulumi:"dnsSuffix"`
 	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"externalInboundIpAddresses"`
-	// An Inbound Network Dependencies block as defined below.
+	// An `inboundNetworkDependencies` block as defined below.
 	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayOutput `pulumi:"inboundNetworkDependencies"`
 	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses pulumi.StringArrayOutput `pulumi:"internalInboundIpAddresses"`
@@ -114,7 +114,7 @@ type environmentV3State struct {
 	DnsSuffix *string `pulumi:"dnsSuffix"`
 	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses []string `pulumi:"externalInboundIpAddresses"`
-	// An Inbound Network Dependencies block as defined below.
+	// An `inboundNetworkDependencies` block as defined below.
 	InboundNetworkDependencies []EnvironmentV3InboundNetworkDependency `pulumi:"inboundNetworkDependencies"`
 	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses []string `pulumi:"internalInboundIpAddresses"`
@@ -158,7 +158,7 @@ type EnvironmentV3State struct {
 	DnsSuffix pulumi.StringPtrInput
 	// The external inbound IP addresses of the App Service Environment V3.
 	ExternalInboundIpAddresses pulumi.StringArrayInput
-	// An Inbound Network Dependencies block as defined below.
+	// An `inboundNetworkDependencies` block as defined below.
 	InboundNetworkDependencies EnvironmentV3InboundNetworkDependencyArrayInput
 	// The internal inbound IP addresses of the App Service Environment V3.
 	InternalInboundIpAddresses pulumi.StringArrayInput
@@ -384,7 +384,7 @@ func (o EnvironmentV3Output) ExternalInboundIpAddresses() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringArrayOutput { return v.ExternalInboundIpAddresses }).(pulumi.StringArrayOutput)
 }
 
-// An Inbound Network Dependencies block as defined below.
+// An `inboundNetworkDependencies` block as defined below.
 func (o EnvironmentV3Output) InboundNetworkDependencies() EnvironmentV3InboundNetworkDependencyArrayOutput {
 	return o.ApplyT(func(v *EnvironmentV3) EnvironmentV3InboundNetworkDependencyArrayOutput {
 		return v.InboundNetworkDependencies

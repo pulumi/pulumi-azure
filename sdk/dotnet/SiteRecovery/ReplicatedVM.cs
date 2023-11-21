@@ -285,7 +285,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `network_interface` block as defined below.
-        /// *
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.ReplicatedVMNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -399,7 +398,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> TestNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+        /// One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Output("unmanagedDisks")]
         public Output<ImmutableArray<Outputs.ReplicatedVMUnmanagedDisk>> UnmanagedDisks { get; private set; } = null!;
@@ -479,7 +478,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `network_interface` block as defined below.
-        /// *
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -599,7 +597,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMUnmanagedDiskArgs>? _unmanagedDisks;
 
         /// <summary>
-        /// One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+        /// One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMUnmanagedDiskArgs> UnmanagedDisks
         {
@@ -644,7 +642,6 @@ namespace Pulumi.Azure.SiteRecovery
 
         /// <summary>
         /// One or more `network_interface` block as defined below.
-        /// *
         /// </summary>
         public InputList<Inputs.ReplicatedVMNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -764,7 +761,7 @@ namespace Pulumi.Azure.SiteRecovery
         private InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs>? _unmanagedDisks;
 
         /// <summary>
-        /// One or more `unmanaged_disk` block. Changing this forces a new resource to be created.
+        /// One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.ReplicatedVMUnmanagedDiskGetArgs> UnmanagedDisks
         {

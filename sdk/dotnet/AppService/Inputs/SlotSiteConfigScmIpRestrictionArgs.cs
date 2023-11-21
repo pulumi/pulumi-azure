@@ -19,7 +19,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The headers for this specific `scm_ip_restriction` as defined below.
+        /// The `headers` block for this specific `scm_ip_restriction` as defined below.
         /// </summary>
         [Input("headers")]
         public Input<Inputs.SlotSiteConfigScmIpRestrictionHeadersArgs>? Headers { get; set; }

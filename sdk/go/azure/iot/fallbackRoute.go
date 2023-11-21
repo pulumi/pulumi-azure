@@ -33,7 +33,7 @@ import (
 type FallbackRoute struct {
 	pulumi.CustomResourceState
 
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
@@ -43,7 +43,7 @@ type FallbackRoute struct {
 	IothubName pulumi.StringOutput `pulumi:"iothubName"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
 }
 
@@ -89,7 +89,7 @@ func GetFallbackRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FallbackRoute resources.
 type fallbackRouteState struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -99,12 +99,12 @@ type fallbackRouteState struct {
 	IothubName *string `pulumi:"iothubName"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source *string `pulumi:"source"`
 }
 
 type FallbackRouteState struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition pulumi.StringPtrInput
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolPtrInput
@@ -114,7 +114,7 @@ type FallbackRouteState struct {
 	IothubName pulumi.StringPtrInput
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source pulumi.StringPtrInput
 }
 
@@ -123,7 +123,7 @@ func (FallbackRouteState) ElementType() reflect.Type {
 }
 
 type fallbackRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition *string `pulumi:"condition"`
 	// Used to specify whether the fallback route is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -133,13 +133,13 @@ type fallbackRouteArgs struct {
 	IothubName string `pulumi:"iothubName"`
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source *string `pulumi:"source"`
 }
 
 // The set of arguments for constructing a FallbackRoute resource.
 type FallbackRouteArgs struct {
-	// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+	// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 	Condition pulumi.StringPtrInput
 	// Used to specify whether the fallback route is enabled.
 	Enabled pulumi.BoolInput
@@ -149,7 +149,7 @@ type FallbackRouteArgs struct {
 	IothubName pulumi.StringInput
 	// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
+	// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
 	Source pulumi.StringPtrInput
 }
 
@@ -264,7 +264,7 @@ func (o FallbackRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*Fallb
 	}
 }
 
-// The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
 func (o FallbackRouteOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRoute) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
 }
@@ -289,7 +289,7 @@ func (o FallbackRouteOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FallbackRoute) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`.
+// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
 func (o FallbackRouteOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FallbackRoute) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }

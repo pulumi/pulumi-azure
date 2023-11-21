@@ -87,7 +87,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? LocalMysqlEnabled;
         /// <summary>
-        /// Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
+        /// Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
         /// </summary>
         public readonly string? ManagedPipelineMode;
         /// <summary>

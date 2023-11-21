@@ -19,7 +19,7 @@ public final class ConfigurationFeatureTargetingFilter {
      */
     private Integer defaultRolloutPercentage;
     /**
-     * @return One or more blocks of type `groups` as defined below.
+     * @return One or more `groups` blocks as defined below.
      * 
      */
     private @Nullable List<ConfigurationFeatureTargetingFilterGroup> groups;
@@ -38,7 +38,7 @@ public final class ConfigurationFeatureTargetingFilter {
         return this.defaultRolloutPercentage;
     }
     /**
-     * @return One or more blocks of type `groups` as defined below.
+     * @return One or more `groups` blocks as defined below.
      * 
      */
     public List<ConfigurationFeatureTargetingFilterGroup> groups() {

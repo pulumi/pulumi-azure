@@ -74,7 +74,7 @@ namespace Pulumi.Azure.MSSql
     public partial class Database : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         /// </summary>
         [Output("autoPauseDelayInMinutes")]
         public Output<int> AutoPauseDelayInMinutes { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.MSSql
         public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        /// A `import` block as documented below. Mutually exclusive with `create_mode`.
         /// </summary>
         [Output("import")]
         public Output<Outputs.DatabaseImport?> Import { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.MSSql
         public Output<int> MaxSizeGb { get; private set; } = null!;
 
         /// <summary>
-        /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         /// </summary>
         [Output("minCapacity")]
         public Output<double> MinCapacity { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         /// </summary>
         [Output("storageAccountType")]
         public Output<string?> StorageAccountType { get; private set; } = null!;
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class DatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         /// </summary>
         [Input("autoPauseDelayInMinutes")]
         public Input<int>? AutoPauseDelayInMinutes { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? GeoBackupEnabled { get; set; }
 
         /// <summary>
-        /// A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        /// A `import` block as documented below. Mutually exclusive with `create_mode`.
         /// </summary>
         [Input("import")]
         public Input<Inputs.DatabaseImportArgs>? Import { get; set; }
@@ -382,7 +382,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? MaxSizeGb { get; set; }
 
         /// <summary>
-        /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         /// </summary>
         [Input("minCapacity")]
         public Input<double>? MinCapacity { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }
@@ -498,7 +498,7 @@ namespace Pulumi.Azure.MSSql
     public sealed class DatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        /// Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         /// </summary>
         [Input("autoPauseDelayInMinutes")]
         public Input<int>? AutoPauseDelayInMinutes { get; set; }
@@ -510,7 +510,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -538,7 +538,7 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? GeoBackupEnabled { get; set; }
 
         /// <summary>
-        /// A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        /// A `import` block as documented below. Mutually exclusive with `create_mode`.
         /// </summary>
         [Input("import")]
         public Input<Inputs.DatabaseImportGetArgs>? Import { get; set; }
@@ -578,7 +578,7 @@ namespace Pulumi.Azure.MSSql
         public Input<int>? MaxSizeGb { get; set; }
 
         /// <summary>
-        /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        /// Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         /// </summary>
         [Input("minCapacity")]
         public Input<double>? MinCapacity { get; set; }
@@ -648,7 +648,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        /// Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         /// </summary>
         [Input("storageAccountType")]
         public Input<string>? StorageAccountType { get; set; }

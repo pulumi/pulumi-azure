@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Storage
         public Output<ImmutableArray<string>> IpRules { get; private set; } = null!;
 
         /// <summary>
-        /// One or More `private_link_access` block as defined below.
+        /// One or more `private_link_access` block as defined below.
         /// </summary>
         [Output("privateLinkAccessRules")]
         public Output<ImmutableArray<Outputs.AccountNetworkRulesPrivateLinkAccessRule>> PrivateLinkAccessRules { get; private set; } = null!;
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs>? _privateLinkAccessRules;
 
         /// <summary>
-        /// One or More `private_link_access` block as defined below.
+        /// One or more `private_link_access` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleArgs> PrivateLinkAccessRules
         {
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Storage
         private InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs>? _privateLinkAccessRules;
 
         /// <summary>
-        /// One or More `private_link_access` block as defined below.
+        /// One or more `private_link_access` block as defined below.
         /// </summary>
         public InputList<Inputs.AccountNetworkRulesPrivateLinkAccessRuleGetArgs> PrivateLinkAccessRules
         {

@@ -44,7 +44,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
@@ -174,7 +174,7 @@ class DatabaseArgs:
     @pulumi.getter(name="import")
     def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
         """
-        A Database Import block as documented below. `create_mode` must be set to `Default`.
+        A `import` block as documented below. `create_mode` must be set to `Default`.
         """
         return pulumi.get(self, "import_")
 
@@ -371,7 +371,7 @@ class _DatabaseState:
         :param pulumi.Input[str] default_secondary_location: The default secondary location of the SQL Database.
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
@@ -520,7 +520,7 @@ class _DatabaseState:
     @pulumi.getter(name="import")
     def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
         """
-        A Database Import block as documented below. `create_mode` must be set to `Default`.
+        A `import` block as documented below. `create_mode` must be set to `Default`.
         """
         return pulumi.get(self, "import_")
 
@@ -782,7 +782,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode)
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
@@ -965,7 +965,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] default_secondary_location: The default secondary location of the SQL Database.
         :param pulumi.Input[str] edition: The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic database pool.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. `create_mode` must be set to `Default`.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. `create_mode` must be set to `Default`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql).
         :param pulumi.Input[str] name: The name of the database. Changing this forces a new resource to be created.
@@ -1068,7 +1068,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Output[Optional['outputs.DatabaseImport']]:
         """
-        A Database Import block as documented below. `create_mode` must be set to `Default`.
+        A `import` block as documented below. `create_mode` must be set to `Default`.
         """
         return pulumi.get(self, "import_")
 

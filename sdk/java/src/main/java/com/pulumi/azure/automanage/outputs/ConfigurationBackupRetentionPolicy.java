@@ -19,7 +19,7 @@ public final class ConfigurationBackupRetentionPolicy {
      */
     private @Nullable ConfigurationBackupRetentionPolicyDailySchedule dailySchedule;
     /**
-     * @return The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+     * @return The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
      * 
      */
     private @Nullable String retentionPolicyType;
@@ -38,7 +38,7 @@ public final class ConfigurationBackupRetentionPolicy {
         return Optional.ofNullable(this.dailySchedule);
     }
     /**
-     * @return The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+     * @return The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
      * 
      */
     public Optional<String> retentionPolicyType() {

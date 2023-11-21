@@ -56,14 +56,14 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
     }
 
     /**
-     * an `allowed_external_redirect_urls` block as detailed below.
+     * Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
      * 
      */
     @Import(name="allowedExternalRedirectUrls")
     private @Nullable Output<List<String>> allowedExternalRedirectUrls;
 
     /**
-     * @return an `allowed_external_redirect_urls` block as detailed below.
+     * @return Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
      * 
      */
     public Optional<Output<List<String>>> allowedExternalRedirectUrls() {
@@ -339,7 +339,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         }
 
         /**
-         * @param allowedExternalRedirectUrls an `allowed_external_redirect_urls` block as detailed below.
+         * @param allowedExternalRedirectUrls Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         }
 
         /**
-         * @param allowedExternalRedirectUrls an `allowed_external_redirect_urls` block as detailed below.
+         * @param allowedExternalRedirectUrls Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class WindowsFunctionAppSlotAuthSettingsArgs extends com.pulumi.res
         }
 
         /**
-         * @param allowedExternalRedirectUrls an `allowed_external_redirect_urls` block as detailed below.
+         * @param allowedExternalRedirectUrls Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
          * 
          * @return builder
          * 

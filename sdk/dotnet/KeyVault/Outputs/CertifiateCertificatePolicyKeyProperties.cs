@@ -14,23 +14,23 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertifiateCertificatePolicyKeyProperties
     {
         /// <summary>
-        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+        /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
         /// </summary>
         public readonly string? Curve;
         /// <summary>
-        /// Is this certificate exportable? Changing this forces a new resource to be created.
+        /// Is this certificate exportable?
         /// </summary>
         public readonly bool Exportable;
         /// <summary>
-        /// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+        /// The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
         /// </summary>
         public readonly int? KeySize;
         /// <summary>
-        /// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+        /// Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
         /// </summary>
         public readonly string KeyType;
         /// <summary>
-        /// Is the key reusable? Changing this forces a new resource to be created.
+        /// Is the key reusable?
         /// </summary>
         public readonly bool ReuseKey;
 

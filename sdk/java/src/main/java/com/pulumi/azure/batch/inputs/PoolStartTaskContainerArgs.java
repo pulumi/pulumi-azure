@@ -33,14 +33,14 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The same reference as `container_registries` block defined as below.
+     * The `container_registries` block defined as below.
      * 
      */
     @Import(name="registries")
     private @Nullable Output<List<PoolStartTaskContainerRegistryArgs>> registries;
 
     /**
-     * @return The same reference as `container_registries` block defined as below.
+     * @return The `container_registries` block defined as below.
      * 
      */
     public Optional<Output<List<PoolStartTaskContainerRegistryArgs>>> registries() {
@@ -63,14 +63,14 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+     * A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
      * 
      */
     @Import(name="workingDirectory")
     private @Nullable Output<String> workingDirectory;
 
     /**
-     * @return A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+     * @return A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
      * 
      */
     public Optional<Output<String>> workingDirectory() {
@@ -126,7 +126,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param registries The same reference as `container_registries` block defined as below.
+         * @param registries The `container_registries` block defined as below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param registries The same reference as `container_registries` block defined as below.
+         * @param registries The `container_registries` block defined as below.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param registries The same reference as `container_registries` block defined as below.
+         * @param registries The `container_registries` block defined as below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param workingDirectory A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+         * @param workingDirectory A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class PoolStartTaskContainerArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param workingDirectory A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+         * @param workingDirectory A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
          * 
          * @return builder
          * 

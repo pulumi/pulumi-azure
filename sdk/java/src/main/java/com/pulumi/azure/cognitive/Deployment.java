@@ -142,18 +142,32 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.raiPolicyName);
     }
     /**
-     * A `scale` block as defined below. Changing this forces a new resource to be created.
+     * A `scale` block as defined below.
      * 
      */
     @Export(name="scale", refs={DeploymentScale.class}, tree="[0]")
     private Output<DeploymentScale> scale;
 
     /**
-     * @return A `scale` block as defined below. Changing this forces a new resource to be created.
+     * @return A `scale` block as defined below.
      * 
      */
     public Output<DeploymentScale> scale() {
         return this.scale;
+    }
+    /**
+     * Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="versionUpgradeOption", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> versionUpgradeOption;
+
+    /**
+     * @return Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> versionUpgradeOption() {
+        return Codegen.optional(this.versionUpgradeOption);
     }
 
     /**

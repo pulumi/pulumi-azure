@@ -169,7 +169,7 @@ class DomainInboundIpRule(dict):
                  action: Optional[str] = None):
         """
         :param str ip_mask: The IP mask (CIDR) to match on.
-        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
@@ -187,7 +187,7 @@ class DomainInboundIpRule(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take when the rule is matched. Possible values are `Allow`.
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -461,7 +461,7 @@ class EventGridTopicInboundIpRule(dict):
                  action: Optional[str] = None):
         """
         :param str ip_mask: The IP mask (CIDR) to match on.
-        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
@@ -479,7 +479,7 @@ class EventGridTopicInboundIpRule(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take when the rule is matched. Possible values are `Allow`.
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -1021,7 +1021,7 @@ class EventHubNamespaceNetworkRulesetsIpRule(dict):
                  action: Optional[str] = None):
         """
         :param str ip_mask: The IP mask to match on.
-        :param str action: The action to take when the rule is matched. Possible values are `Allow`.
+        :param str action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
@@ -1039,7 +1039,7 @@ class EventHubNamespaceNetworkRulesetsIpRule(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        The action to take when the rule is matched. Possible values are `Allow`.
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -2723,7 +2723,7 @@ class NamespaceNetworkRuleSet(dict):
                  public_network_access_enabled: Optional[bool] = None,
                  trusted_services_allowed: Optional[bool] = None):
         """
-        :param str default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param str default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param Sequence['NamespaceNetworkRuleSetNetworkRuleArgs'] network_rules: One or more `network_rules` blocks as defined below.
         :param bool public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
@@ -2744,7 +2744,7 @@ class NamespaceNetworkRuleSet(dict):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[str]:
         """
-        Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "default_action")
 

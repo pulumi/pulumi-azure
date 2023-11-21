@@ -25,14 +25,14 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `firewall_ids` block as defined below.
+     * A list of ID of Firewall.
      * 
      */
     @Import(name="firewallIds")
     private @Nullable Output<List<String>> firewallIds;
 
     /**
-     * @return A `firewall_ids` block as defined below.
+     * @return A list of ID of Firewall.
      * 
      */
     public Optional<Output<List<String>>> firewallIds() {
@@ -40,14 +40,14 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `firewall_policy_ids` block as defined below.
+     * A list of ID of Firewall Policy`.
      * 
      */
     @Import(name="firewallPolicyIds")
     private @Nullable Output<List<String>> firewallPolicyIds;
 
     /**
-     * @return A `firewall_policy_ids` block as defined below.
+     * @return A list of ID of Firewall Policy`.
      * 
      */
     public Optional<Output<List<String>>> firewallPolicyIds() {
@@ -158,7 +158,7 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallIds A `firewall_ids` block as defined below.
+         * @param firewallIds A list of ID of Firewall.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallIds A `firewall_ids` block as defined below.
+         * @param firewallIds A list of ID of Firewall.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallIds A `firewall_ids` block as defined below.
+         * @param firewallIds A list of ID of Firewall.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyIds A `firewall_policy_ids` block as defined below.
+         * @param firewallPolicyIds A list of ID of Firewall Policy`.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyIds A `firewall_policy_ids` block as defined below.
+         * @param firewallPolicyIds A list of ID of Firewall Policy`.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class IPGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyIds A `firewall_policy_ids` block as defined below.
+         * @param firewallPolicyIds A list of ID of Firewall Policy`.
          * 
          * @return builder
          * 

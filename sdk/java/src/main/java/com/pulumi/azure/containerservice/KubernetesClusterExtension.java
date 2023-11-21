@@ -186,14 +186,14 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
         return this.name;
     }
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="plan", refs={KubernetesClusterExtensionPlan.class}, tree="[0]")
     private Output</* @Nullable */ KubernetesClusterExtensionPlan> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<KubernetesClusterExtensionPlan>> plan() {
@@ -228,14 +228,14 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
         return this.releaseTrain;
     }
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
     @Export(name="targetNamespace", refs={String.class}, tree="[0]")
     private Output<String> targetNamespace;
 
     /**
-     * @return Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * @return Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
     public Output<String> targetNamespace() {

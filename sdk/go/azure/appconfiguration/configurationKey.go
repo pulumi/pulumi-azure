@@ -203,7 +203,7 @@ type ConfigurationKey struct {
 	Locked pulumi.BoolPtrOutput `pulumi:"locked"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -263,7 +263,7 @@ type configurationKeyState struct {
 	Locked *bool `pulumi:"locked"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 	Type *string `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	Value *string `pulumi:"value"`
@@ -288,7 +288,7 @@ type ConfigurationKeyState struct {
 	Locked pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 	Type pulumi.StringPtrInput
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	Value pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type configurationKeyArgs struct {
 	Locked *bool `pulumi:"locked"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 	Type *string `pulumi:"type"`
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	Value *string `pulumi:"value"`
@@ -343,7 +343,7 @@ type ConfigurationKeyArgs struct {
 	Locked pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+	// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 	Type pulumi.StringPtrInput
 	// The value of the App Configuration Key. This should only be set when type is set to `kv`.
 	Value pulumi.StringPtrInput
@@ -499,7 +499,7 @@ func (o ConfigurationKeyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
+// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
 func (o ConfigurationKeyOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationKey) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

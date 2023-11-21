@@ -82,14 +82,14 @@ public final class ActionRuleActionGroupConditionArgs extends com.pulumi.resourc
     }
 
     /**
-     * A `monitor_service` as block defined below.
+     * A `monitor_service` block as defined below.
      * 
      */
     @Import(name="monitorService")
     private @Nullable Output<ActionRuleActionGroupConditionMonitorServiceArgs> monitorService;
 
     /**
-     * @return A `monitor_service` as block defined below.
+     * @return A `monitor_service` block as defined below.
      * 
      */
     public Optional<Output<ActionRuleActionGroupConditionMonitorServiceArgs>> monitorService() {
@@ -241,7 +241,7 @@ public final class ActionRuleActionGroupConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param monitorService A `monitor_service` as block defined below.
+         * @param monitorService A `monitor_service` block as defined below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ActionRuleActionGroupConditionArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param monitorService A `monitor_service` as block defined below.
+         * @param monitorService A `monitor_service` block as defined below.
          * 
          * @return builder
          * 

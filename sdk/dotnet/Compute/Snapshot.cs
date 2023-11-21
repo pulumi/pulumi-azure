@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.SnapshotEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if the Snapshot is incremental.
+        /// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         /// </summary>
         [Output("incrementalEnabled")]
         public Output<bool?> IncrementalEnabled { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.SnapshotEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
-        /// Specifies if the Snapshot is incremental.
+        /// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         /// </summary>
         [Input("incrementalEnabled")]
         public Input<bool>? IncrementalEnabled { get; set; }
@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.SnapshotEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
-        /// Specifies if the Snapshot is incremental.
+        /// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
         /// </summary>
         [Input("incrementalEnabled")]
         public Input<bool>? IncrementalEnabled { get; set; }

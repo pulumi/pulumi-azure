@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        /// The Display Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> BuiltInRuleId { get; set; } = null!;
 
         /// <summary>
-        /// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        /// The Display Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        /// The Display Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

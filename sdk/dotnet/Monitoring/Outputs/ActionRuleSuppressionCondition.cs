@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly Outputs.ActionRuleSuppressionConditionMonitor? Monitor;
         /// <summary>
-        /// A `monitor_service` as block defined below.
+        /// A `monitor_service` block as defined below.
         /// </summary>
         public readonly Outputs.ActionRuleSuppressionConditionMonitorService? MonitorService;
         /// <summary>

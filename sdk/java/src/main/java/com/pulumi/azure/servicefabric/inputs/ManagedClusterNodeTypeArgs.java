@@ -66,14 +66,14 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+     * The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
      * 
      */
     @Import(name="dataDiskType")
     private @Nullable Output<String> dataDiskType;
 
     /**
-     * @return The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+     * @return The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
      * 
      */
     public Optional<Output<String>> dataDiskType() {
@@ -395,7 +395,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataDiskType The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+         * @param dataDiskType The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class ManagedClusterNodeTypeArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataDiskType The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+         * @param dataDiskType The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
          * 
          * @return builder
          * 

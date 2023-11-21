@@ -116,7 +116,7 @@ namespace Pulumi.Azure.AppService
         public Output<string?> ClientCertificateExclusionPaths { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         /// </summary>
         [Output("clientCertificateMode")]
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
@@ -156,6 +156,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// </summary>
+        [Output("ftpPublishBasicAuthenticationEnabled")]
+        public Output<bool?> FtpPublishBasicAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -298,6 +304,12 @@ namespace Pulumi.Azure.AppService
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// </summary>
+        [Output("webdeployPublishBasicAuthenticationEnabled")]
+        public Output<bool?> WebdeployPublishBasicAuthenticationEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a WindowsFunctionAppSlot resource with the given unique name, arguments, and options.
@@ -399,7 +411,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
-        /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -433,6 +445,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// </summary>
+        [Input("ftpPublishBasicAuthenticationEnabled")]
+        public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -555,6 +573,12 @@ namespace Pulumi.Azure.AppService
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
 
+        /// <summary>
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// </summary>
+        [Input("webdeployPublishBasicAuthenticationEnabled")]
+        public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
+
         public WindowsFunctionAppSlotArgs()
         {
         }
@@ -612,7 +636,7 @@ namespace Pulumi.Azure.AppService
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
 
         /// <summary>
-        /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        /// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -668,6 +692,12 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
+        /// </summary>
+        [Input("ftpPublishBasicAuthenticationEnabled")]
+        public Input<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -853,6 +883,12 @@ namespace Pulumi.Azure.AppService
 
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
+
+        /// <summary>
+        /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        /// </summary>
+        [Input("webdeployPublishBasicAuthenticationEnabled")]
+        public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
 
         public WindowsFunctionAppSlotState()
         {

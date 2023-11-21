@@ -155,42 +155,42 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A list of secondary servers as documented below
+     * A list of `partner_servers` blocks as documented below.
      * 
      */
     @Export(name="partnerServers", refs={List.class,FailoverGroupPartnerServer.class}, tree="[0,1]")
     private Output<List<FailoverGroupPartnerServer>> partnerServers;
 
     /**
-     * @return A list of secondary servers as documented below
+     * @return A list of `partner_servers` blocks as documented below.
      * 
      */
     public Output<List<FailoverGroupPartnerServer>> partnerServers() {
         return this.partnerServers;
     }
     /**
-     * A read/write policy as documented below
+     * A `read_write_endpoint_failover_policy` block as documented below.
      * 
      */
     @Export(name="readWriteEndpointFailoverPolicy", refs={FailoverGroupReadWriteEndpointFailoverPolicy.class}, tree="[0]")
     private Output<FailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy;
 
     /**
-     * @return A read/write policy as documented below
+     * @return A `read_write_endpoint_failover_policy` block as documented below.
      * 
      */
     public Output<FailoverGroupReadWriteEndpointFailoverPolicy> readWriteEndpointFailoverPolicy() {
         return this.readWriteEndpointFailoverPolicy;
     }
     /**
-     * a read-only policy as documented below
+     * A `readonly_endpoint_failover_policy` block as documented below.
      * 
      */
     @Export(name="readonlyEndpointFailoverPolicy", refs={FailoverGroupReadonlyEndpointFailoverPolicy.class}, tree="[0]")
     private Output<FailoverGroupReadonlyEndpointFailoverPolicy> readonlyEndpointFailoverPolicy;
 
     /**
-     * @return a read-only policy as documented below
+     * @return A `readonly_endpoint_failover_policy` block as documented below.
      * 
      */
     public Output<FailoverGroupReadonlyEndpointFailoverPolicy> readonlyEndpointFailoverPolicy() {

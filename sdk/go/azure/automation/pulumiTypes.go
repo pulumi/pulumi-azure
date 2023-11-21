@@ -2878,7 +2878,7 @@ type SoftwareUpdateConfigurationSchedule struct {
 	Frequency string `pulumi:"frequency"`
 	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
 	Interval *int `pulumi:"interval"`
-	// Whether the schedule is enabled.
+	// Whether the schedule is enabled. Defaults to `true`.
 	IsEnabled        *bool   `pulumi:"isEnabled"`
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
@@ -2918,7 +2918,7 @@ type SoftwareUpdateConfigurationScheduleArgs struct {
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// Whether the schedule is enabled.
+	// Whether the schedule is enabled. Defaults to `true`.
 	IsEnabled        pulumi.BoolPtrInput   `pulumi:"isEnabled"`
 	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
 	// List of `monthlyOccurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields as defined below.
@@ -3039,7 +3039,7 @@ func (o SoftwareUpdateConfigurationScheduleOutput) Interval() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// Whether the schedule is enabled.
+// Whether the schedule is enabled. Defaults to `true`.
 func (o SoftwareUpdateConfigurationScheduleOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationSchedule) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -3424,7 +3424,7 @@ type SoftwareUpdateConfigurationTargetAzureQuery struct {
 	Scopes []string `pulumi:"scopes"`
 	// Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
 	TagFilter *string `pulumi:"tagFilter"`
-	// A mapping of tags used for query filter as defined below.
+	// A mapping of tags used for query filter. One or more `tags` block as defined below.
 	Tags []SoftwareUpdateConfigurationTargetAzureQueryTag `pulumi:"tags"`
 }
 
@@ -3446,7 +3446,7 @@ type SoftwareUpdateConfigurationTargetAzureQueryArgs struct {
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 	// Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
 	TagFilter pulumi.StringPtrInput `pulumi:"tagFilter"`
-	// A mapping of tags used for query filter as defined below.
+	// A mapping of tags used for query filter. One or more `tags` block as defined below.
 	Tags SoftwareUpdateConfigurationTargetAzureQueryTagArrayInput `pulumi:"tags"`
 }
 
@@ -3534,7 +3534,7 @@ func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) TagFilter() pulumi.St
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTargetAzureQuery) *string { return v.TagFilter }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags used for query filter as defined below.
+// A mapping of tags used for query filter. One or more `tags` block as defined below.
 func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) Tags() SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationTargetAzureQuery) []SoftwareUpdateConfigurationTargetAzureQueryTag {
 		return v.Tags

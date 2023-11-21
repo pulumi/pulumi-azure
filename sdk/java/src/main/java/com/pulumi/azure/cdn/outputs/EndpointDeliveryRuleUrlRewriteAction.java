@@ -18,7 +18,7 @@ public final class EndpointDeliveryRuleUrlRewriteAction {
      */
     private String destination;
     /**
-     * @return Defaults to `true`.
+     * @return Whether preserve an unmatched path. Defaults to `true`.
      * 
      */
     private @Nullable Boolean preserveUnmatchedPath;
@@ -37,7 +37,7 @@ public final class EndpointDeliveryRuleUrlRewriteAction {
         return this.destination;
     }
     /**
-     * @return Defaults to `true`.
+     * @return Whether preserve an unmatched path. Defaults to `true`.
      * 
      */
     public Optional<Boolean> preserveUnmatchedPath() {

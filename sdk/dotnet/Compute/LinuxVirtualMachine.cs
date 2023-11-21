@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         /// </summary>
         [Output("extensionsTimeBudget")]
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
@@ -655,7 +655,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
@@ -1020,7 +1020,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }

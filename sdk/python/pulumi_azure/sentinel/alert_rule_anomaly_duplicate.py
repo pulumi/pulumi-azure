@@ -28,7 +28,7 @@ class AlertRuleAnomalyDuplicateArgs:
         """
         The set of arguments for constructing a AlertRuleAnomalyDuplicate resource.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
@@ -69,7 +69,7 @@ class AlertRuleAnomalyDuplicateArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        The Display Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "display_name")
 
@@ -192,7 +192,7 @@ class _AlertRuleAnomalyDuplicateState:
         :param pulumi.Input[str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] description: The description of the multi select observation.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] frequency: The frequency the Anomaly Alert Rule will be run, such as "P1D".
         :param pulumi.Input[bool] is_default_settings: Whether the current settings of the Anomaly Alert Rule equals default settings.
@@ -301,7 +301,7 @@ class _AlertRuleAnomalyDuplicateState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        The Display Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "display_name")
 
@@ -537,7 +537,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
@@ -695,7 +695,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[str] anomaly_version: The anomaly version of the Anomaly Alert Rule.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] description: The description of the multi select observation.
-        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        :param pulumi.Input[str] display_name: The Display Name of the built-in Anomaly Alert Rule.
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] frequency: The frequency the Anomaly Alert Rule will be run, such as "P1D".
         :param pulumi.Input[bool] is_default_settings: Whether the current settings of the Anomaly Alert Rule equals default settings.
@@ -774,7 +774,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+        The Display Name of the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "display_name")
 

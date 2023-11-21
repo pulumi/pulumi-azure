@@ -107,7 +107,7 @@ export class ClusterExtension extends pulumi.CustomResource {
      */
     public readonly releaseTrain!: pulumi.Output<string>;
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
     public readonly targetNamespace!: pulumi.Output<string>;
     /**
@@ -208,7 +208,7 @@ export interface ClusterExtensionState {
      */
     releaseTrain?: pulumi.Input<string>;
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
     targetNamespace?: pulumi.Input<string>;
     /**
@@ -254,7 +254,7 @@ export interface ClusterExtensionArgs {
      */
     releaseTrain?: pulumi.Input<string>;
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
      */
     targetNamespace?: pulumi.Input<string>;
     /**

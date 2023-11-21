@@ -25,13 +25,13 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        /// Specifies the supported Azure location where the replica exists.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the replica. Changing this forces a new replica to be created.
+        /// Specifies the name of the replica.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

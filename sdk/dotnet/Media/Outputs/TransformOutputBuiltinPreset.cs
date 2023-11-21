@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Media.Outputs
     public sealed class TransformOutputBuiltinPreset
     {
         /// <summary>
-        /// A `present_configuration` block as defined below.
+        /// A `preset_configuration` block as defined below.
         /// </summary>
         public readonly Outputs.TransformOutputBuiltinPresetPresetConfiguration? PresetConfiguration;
         /// <summary>

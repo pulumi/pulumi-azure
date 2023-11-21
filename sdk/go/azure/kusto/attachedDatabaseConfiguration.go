@@ -130,7 +130,7 @@ type AttachedDatabaseConfiguration struct {
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind pulumi.StringPtrOutput `pulumi:"defaultPrincipalModificationKind"`
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -192,7 +192,7 @@ type attachedDatabaseConfigurationState struct {
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind *string `pulumi:"defaultPrincipalModificationKind"`
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -213,7 +213,7 @@ type AttachedDatabaseConfigurationState struct {
 	ClusterResourceId pulumi.StringPtrInput
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringPtrInput
-	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind pulumi.StringPtrInput
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type attachedDatabaseConfigurationArgs struct {
 	ClusterResourceId string `pulumi:"clusterResourceId"`
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName string `pulumi:"databaseName"`
-	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind *string `pulumi:"defaultPrincipalModificationKind"`
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -256,7 +256,7 @@ type AttachedDatabaseConfigurationArgs struct {
 	ClusterResourceId pulumi.StringInput
 	// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringInput
-	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+	// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 	DefaultPrincipalModificationKind pulumi.StringPtrInput
 	// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -399,7 +399,7 @@ func (o AttachedDatabaseConfigurationOutput) DatabaseName() pulumi.StringOutput 
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
 func (o AttachedDatabaseConfigurationOutput) DefaultPrincipalModificationKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringPtrOutput {
 		return v.DefaultPrincipalModificationKind

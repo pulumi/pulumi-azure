@@ -28,7 +28,7 @@ class LoadBalancerArgs:
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created.
@@ -81,7 +81,7 @@ class LoadBalancerArgs:
     @pulumi.getter(name="frontendIpConfigurations")
     def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]]:
         """
-        One or multiple `frontend_ip_configuration` blocks as documented below.
+        One or more `frontend_ip_configuration` blocks as documented below.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
@@ -168,7 +168,7 @@ class _LoadBalancerState:
         """
         Input properties used for looking up and filtering LoadBalancer resources.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
@@ -217,7 +217,7 @@ class _LoadBalancerState:
     @pulumi.getter(name="frontendIpConfigurations")
     def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIpConfigurationArgs']]]]:
         """
-        One or multiple `frontend_ip_configuration` blocks as documented below.
+        One or more `frontend_ip_configuration` blocks as documented below.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 
@@ -372,7 +372,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
@@ -491,7 +491,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Load Balancer. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_ip_address: Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
@@ -531,7 +531,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter(name="frontendIpConfigurations")
     def frontend_ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.LoadBalancerFrontendIpConfiguration']]]:
         """
-        One or multiple `frontend_ip_configuration` blocks as documented below.
+        One or more `frontend_ip_configuration` blocks as documented below.
         """
         return pulumi.get(self, "frontend_ip_configurations")
 

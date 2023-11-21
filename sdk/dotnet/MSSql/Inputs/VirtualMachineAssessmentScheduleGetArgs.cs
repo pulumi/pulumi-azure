@@ -13,7 +13,7 @@ namespace Pulumi.Azure.MSSql.Inputs
     public sealed class VirtualMachineAssessmentScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+        /// What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;

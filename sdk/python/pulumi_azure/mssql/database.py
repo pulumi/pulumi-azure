@@ -49,9 +49,9 @@ class DatabaseArgs:
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
                
                > **Note:** This setting is still required for "Serverless" SKUs
-        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
                
                > **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
@@ -59,7 +59,7 @@ class DatabaseArgs:
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -69,7 +69,7 @@ class DatabaseArgs:
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
                
                > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
@@ -81,7 +81,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -163,7 +163,7 @@ class DatabaseArgs:
     @pulumi.getter(name="autoPauseDelayInMinutes")
     def auto_pause_delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         """
         return pulumi.get(self, "auto_pause_delay_in_minutes")
 
@@ -187,7 +187,7 @@ class DatabaseArgs:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -239,7 +239,7 @@ class DatabaseArgs:
     @pulumi.getter(name="import")
     def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
         """
-        A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        A `import` block as documented below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
@@ -315,7 +315,7 @@ class DatabaseArgs:
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -437,7 +437,7 @@ class DatabaseArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -529,9 +529,9 @@ class _DatabaseState:
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Database resources.
-        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
                
                > **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
@@ -539,7 +539,7 @@ class _DatabaseState:
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -549,7 +549,7 @@ class _DatabaseState:
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
                
                > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
@@ -564,7 +564,7 @@ class _DatabaseState:
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['DatabaseThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -633,7 +633,7 @@ class _DatabaseState:
     @pulumi.getter(name="autoPauseDelayInMinutes")
     def auto_pause_delay_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         """
         return pulumi.get(self, "auto_pause_delay_in_minutes")
 
@@ -657,7 +657,7 @@ class _DatabaseState:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -709,7 +709,7 @@ class _DatabaseState:
     @pulumi.getter(name="import")
     def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
         """
-        A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        A `import` block as documented below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
@@ -785,7 +785,7 @@ class _DatabaseState:
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -921,7 +921,7 @@ class _DatabaseState:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1058,9 +1058,9 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
                
                > **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
@@ -1068,7 +1068,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1078,7 +1078,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
                
                > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
@@ -1093,7 +1093,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -1276,9 +1276,9 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
                
                > **Note:** When configuring a secondary database, please be aware of the constraints for the `sku_name` property, as noted below, for both the primary and secondary databases. The `sku_name` of the secondary database may be inadvertently changed to match that of the primary when an incompatible combination of SKUs is detected by the provider.
@@ -1286,7 +1286,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
                
                > **Note:** `geo_backup_enabled` is only applicable for DataWarehouse SKUs (DW*). This setting is ignored for all other SKUs.
-        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A `import` block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1296,7 +1296,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
                
                > **Note:** This value should not be configured when the `create_mode` is `Secondary` or `OnlineSecondary`, as the sizing of the primary is then used as per [Azure documentation](https://docs.microsoft.com/azure/azure-sql/database/single-database-scale#geo-replicated-database).
-        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
         :param pulumi.Input[bool] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
@@ -1311,7 +1311,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource.
                
                > **Note:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        :param pulumi.Input[str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[bool] transparent_data_encryption_enabled: If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
@@ -1357,7 +1357,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="autoPauseDelayInMinutes")
     def auto_pause_delay_in_minutes(self) -> pulumi.Output[int]:
         """
-        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
+        Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases.
         """
         return pulumi.get(self, "auto_pause_delay_in_minutes")
 
@@ -1373,7 +1373,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -1409,7 +1409,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="import")
     def import_(self) -> pulumi.Output[Optional['outputs.DatabaseImport']]:
         """
-        A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        A `import` block as documented below. Mutually exclusive with `create_mode`.
         """
         return pulumi.get(self, "import_")
 
@@ -1461,7 +1461,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="minCapacity")
     def min_capacity(self) -> pulumi.Output[float]:
         """
-        Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
+        Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases.
         """
         return pulumi.get(self, "min_capacity")
 
@@ -1553,7 +1553,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. The default value is `Geo`.
+        Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
         """
         return pulumi.get(self, "storage_account_type")
 

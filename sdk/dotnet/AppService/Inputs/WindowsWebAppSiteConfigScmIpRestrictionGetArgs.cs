@@ -13,7 +13,7 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class WindowsWebAppSiteConfigScmIpRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take. Possible values are `Allow` or `Deny`.
+        /// The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }

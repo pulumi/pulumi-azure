@@ -79,14 +79,14 @@ public final class AccountNetworkRulesState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * One or More `private_link_access` block as defined below.
+     * One or more `private_link_access` block as defined below.
      * 
      */
     @Import(name="privateLinkAccessRules")
     private @Nullable Output<List<AccountNetworkRulesPrivateLinkAccessRuleArgs>> privateLinkAccessRules;
 
     /**
-     * @return One or More `private_link_access` block as defined below.
+     * @return One or more `private_link_access` block as defined below.
      * 
      */
     public Optional<Output<List<AccountNetworkRulesPrivateLinkAccessRuleArgs>>> privateLinkAccessRules() {
@@ -264,7 +264,7 @@ public final class AccountNetworkRulesState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privateLinkAccessRules One or More `private_link_access` block as defined below.
+         * @param privateLinkAccessRules One or more `private_link_access` block as defined below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class AccountNetworkRulesState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privateLinkAccessRules One or More `private_link_access` block as defined below.
+         * @param privateLinkAccessRules One or more `private_link_access` block as defined below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class AccountNetworkRulesState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param privateLinkAccessRules One or More `private_link_access` block as defined below.
+         * @param privateLinkAccessRules One or more `private_link_access` block as defined below.
          * 
          * @return builder
          * 

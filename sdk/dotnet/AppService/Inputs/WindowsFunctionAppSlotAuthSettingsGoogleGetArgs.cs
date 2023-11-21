@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// an `oauth_scopes` block as detailed below.
+        /// Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
         /// </summary>
         public InputList<string> OauthScopes
         {

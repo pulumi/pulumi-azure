@@ -27,7 +27,7 @@ class NamespaceNetworkRuleSetInitArgs:
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
                > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
-        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
@@ -63,7 +63,7 @@ class NamespaceNetworkRuleSetInitArgs:
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "default_action")
 
@@ -131,7 +131,7 @@ class _NamespaceNetworkRuleSetState:
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering NamespaceNetworkRuleSet resources.
-        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
@@ -157,7 +157,7 @@ class _NamespaceNetworkRuleSetState:
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "default_action")
 
@@ -243,6 +243,10 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace Network Rule Set.
 
+        > The `servicebus.NamespaceNetworkRuleSet` resource is deprecated
+        and will be removed in version 4.0 of the AzureRM provider. Please use
+        `network_rule_set` inside the `servicebus.Namespace` resource instead.
+
         ## Example Usage
 
         ```python
@@ -289,7 +293,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
@@ -306,6 +310,10 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace Network Rule Set.
+
+        > The `servicebus.NamespaceNetworkRuleSet` resource is deprecated
+        and will be removed in version 4.0 of the AzureRM provider. Please use
+        `network_rule_set` inside the `servicebus.Namespace` resource instead.
 
         ## Example Usage
 
@@ -412,7 +420,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
@@ -437,7 +445,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "default_action")
 

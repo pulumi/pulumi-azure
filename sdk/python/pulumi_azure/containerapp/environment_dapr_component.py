@@ -27,11 +27,11 @@ class EnvironmentDaprComponentArgs:
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]]] = None):
         """
         The set of arguments for constructing a EnvironmentDaprComponent resource.
-        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`.
+        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The version of the component.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
-        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
@@ -59,7 +59,7 @@ class EnvironmentDaprComponentArgs:
     @pulumi.getter(name="componentType")
     def component_type(self) -> pulumi.Input[str]:
         """
-        The Dapr Component Type. For example `state.azure.blobstorage`.
+        The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "component_type")
 
@@ -107,7 +107,7 @@ class EnvironmentDaprComponentArgs:
     @pulumi.getter(name="initTimeout")
     def init_timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         """
         return pulumi.get(self, "init_timeout")
 
@@ -180,10 +180,10 @@ class _EnvironmentDaprComponentState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentDaprComponent resources.
-        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`.
+        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
-        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentMetadataArgs']]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
@@ -215,7 +215,7 @@ class _EnvironmentDaprComponentState:
     @pulumi.getter(name="componentType")
     def component_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Dapr Component Type. For example `state.azure.blobstorage`.
+        The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "component_type")
 
@@ -251,7 +251,7 @@ class _EnvironmentDaprComponentState:
     @pulumi.getter(name="initTimeout")
     def init_timeout(self) -> Optional[pulumi.Input[str]]:
         """
-        The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         """
         return pulumi.get(self, "init_timeout")
 
@@ -372,10 +372,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`.
+        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
-        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
@@ -499,10 +499,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`.
+        :param pulumi.Input[str] component_type: The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
-        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        :param pulumi.Input[str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentDaprComponentMetadataArgs']]]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of scopes to which this component applies.
@@ -530,7 +530,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
     @pulumi.getter(name="componentType")
     def component_type(self) -> pulumi.Output[str]:
         """
-        The Dapr Component Type. For example `state.azure.blobstorage`.
+        The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "component_type")
 
@@ -554,7 +554,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
     @pulumi.getter(name="initTimeout")
     def init_timeout(self) -> pulumi.Output[Optional[str]]:
         """
-        The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         """
         return pulumi.get(self, "init_timeout")
 

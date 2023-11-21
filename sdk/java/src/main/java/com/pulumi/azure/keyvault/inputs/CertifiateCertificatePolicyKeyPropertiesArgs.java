@@ -18,14 +18,14 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
     public static final CertifiateCertificatePolicyKeyPropertiesArgs Empty = new CertifiateCertificatePolicyKeyPropertiesArgs();
 
     /**
-     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
      * 
      */
     @Import(name="curve")
     private @Nullable Output<String> curve;
 
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
      * 
      */
     public Optional<Output<String>> curve() {
@@ -33,14 +33,14 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
     }
 
     /**
-     * Is this certificate exportable? Changing this forces a new resource to be created.
+     * Is this certificate exportable?
      * 
      */
     @Import(name="exportable", required=true)
     private Output<Boolean> exportable;
 
     /**
-     * @return Is this certificate exportable? Changing this forces a new resource to be created.
+     * @return Is this certificate exportable?
      * 
      */
     public Output<Boolean> exportable() {
@@ -48,14 +48,14 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
     }
 
     /**
-     * The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+     * The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
      * 
      */
     @Import(name="keySize")
     private @Nullable Output<Integer> keySize;
 
     /**
-     * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+     * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
      * 
      */
     public Optional<Output<Integer>> keySize() {
@@ -63,14 +63,14 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
     }
 
     /**
-     * Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+     * Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
      * 
      */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
     /**
-     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
      * 
      */
     public Output<String> keyType() {
@@ -78,14 +78,14 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
     }
 
     /**
-     * Is the key reusable? Changing this forces a new resource to be created.
+     * Is the key reusable?
      * 
      */
     @Import(name="reuseKey", required=true)
     private Output<Boolean> reuseKey;
 
     /**
-     * @return Is the key reusable? Changing this forces a new resource to be created.
+     * @return Is the key reusable?
      * 
      */
     public Output<Boolean> reuseKey() {
@@ -121,7 +121,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+         * @param curve Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param exportable Is this certificate exportable? Changing this forces a new resource to be created.
+         * @param exportable Is this certificate exportable?
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param exportable Is this certificate exportable? Changing this forces a new resource to be created.
+         * @param exportable Is this certificate exportable?
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param keySize The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+         * @param keySize The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param keySize The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+         * @param keySize The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param keyType Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+         * @param keyType Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param keyType Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+         * @param keyType Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param reuseKey Is the key reusable? Changing this forces a new resource to be created.
+         * @param reuseKey Is the key reusable?
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class CertifiateCertificatePolicyKeyPropertiesArgs extends com.pulu
         }
 
         /**
-         * @param reuseKey Is the key reusable? Changing this forces a new resource to be created.
+         * @param reuseKey Is the key reusable?
          * 
          * @return builder
          * 

@@ -1160,7 +1160,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) Index(i 
 type PolicyManagedRulesManagedRuleSet struct {
 	// One or more `ruleGroupOverride` block defined below.
 	RuleGroupOverrides []PolicyManagedRulesManagedRuleSetRuleGroupOverride `pulumi:"ruleGroupOverrides"`
-	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type *string `pulumi:"type"`
 	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	Version string `pulumi:"version"`
@@ -1180,7 +1180,7 @@ type PolicyManagedRulesManagedRuleSetInput interface {
 type PolicyManagedRulesManagedRuleSetArgs struct {
 	// One or more `ruleGroupOverride` block defined below.
 	RuleGroupOverrides PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput `pulumi:"ruleGroupOverrides"`
-	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+	// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -1262,7 +1262,7 @@ func (o PolicyManagedRulesManagedRuleSetOutput) RuleGroupOverrides() PolicyManag
 	}).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput)
 }
 
-// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
+// The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 func (o PolicyManagedRulesManagedRuleSetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -1856,7 +1856,7 @@ func (o PolicyPolicySettingsPtrOutput) RequestBodyInspectLimitInKb() pulumi.IntP
 type PolicyPolicySettingsLogScrubbing struct {
 	// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// One or more `scrubbingRule` as define below.
+	// One or more `scrubbingRule` blocks as define below.
 	Rules []PolicyPolicySettingsLogScrubbingRule `pulumi:"rules"`
 }
 
@@ -1874,7 +1874,7 @@ type PolicyPolicySettingsLogScrubbingInput interface {
 type PolicyPolicySettingsLogScrubbingArgs struct {
 	// Whether the log scrubbing is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// One or more `scrubbingRule` as define below.
+	// One or more `scrubbingRule` blocks as define below.
 	Rules PolicyPolicySettingsLogScrubbingRuleArrayInput `pulumi:"rules"`
 }
 
@@ -1978,7 +1978,7 @@ func (o PolicyPolicySettingsLogScrubbingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// One or more `scrubbingRule` as define below.
+// One or more `scrubbingRule` blocks as define below.
 func (o PolicyPolicySettingsLogScrubbingOutput) Rules() PolicyPolicySettingsLogScrubbingRuleArrayOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbing) []PolicyPolicySettingsLogScrubbingRule { return v.Rules }).(PolicyPolicySettingsLogScrubbingRuleArrayOutput)
 }
@@ -2023,7 +2023,7 @@ func (o PolicyPolicySettingsLogScrubbingPtrOutput) Enabled() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// One or more `scrubbingRule` as define below.
+// One or more `scrubbingRule` blocks as define below.
 func (o PolicyPolicySettingsLogScrubbingPtrOutput) Rules() PolicyPolicySettingsLogScrubbingRuleArrayOutput {
 	return o.ApplyT(func(v *PolicyPolicySettingsLogScrubbing) []PolicyPolicySettingsLogScrubbingRule {
 		if v == nil {

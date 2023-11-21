@@ -46,14 +46,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * One or more (up to 10) `certificate` blocks as defined below.
+     * One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     @Import(name="certificates")
     private @Nullable Output<List<ServiceCertificateArgs>> certificates;
 
     /**
-     * @return One or more (up to 10) `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks (up to 10) as defined below.
      * 
      */
     public Optional<Output<List<ServiceCertificateArgs>>> certificates() {
@@ -542,7 +542,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
      * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
@@ -551,7 +551,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> virtualNetworkType;
 
     /**
-     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+     * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
      * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
@@ -669,7 +669,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificates One or more `certificate` blocks (up to 10) as defined below.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificates One or more `certificate` blocks (up to 10) as defined below.
          * 
          * @return builder
          * 
@@ -690,7 +690,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificates One or more (up to 10) `certificate` blocks as defined below.
+         * @param certificates One or more `certificate` blocks (up to 10) as defined below.
          * 
          * @return builder
          * 
@@ -1387,7 +1387,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
          * 
          * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
          * 
@@ -1400,7 +1400,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`.
+         * @param virtualNetworkType The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
          * 
          * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
          * 

@@ -62,14 +62,14 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Is automated publishing enabled? Defaults to `false`.
+     * Is automated publishing enabled? Defaults to `true`.
      * 
      */
     @Import(name="publishingEnabled")
     private @Nullable Output<Boolean> publishingEnabled;
 
     /**
-     * @return Is automated publishing enabled? Defaults to `false`.
+     * @return Is automated publishing enabled? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> publishingEnabled() {
@@ -215,7 +215,7 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class FactoryVstsConfigurationArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param publishingEnabled Is automated publishing enabled? Defaults to `false`.
+         * @param publishingEnabled Is automated publishing enabled? Defaults to `true`.
          * 
          * @return builder
          * 

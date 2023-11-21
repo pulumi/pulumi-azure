@@ -62,14 +62,14 @@ public final class ScaleSetRollingUpgradePolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
+     * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `PT0S` seconds represented as `PT0S`.
      * 
      */
     @Import(name="pauseTimeBetweenBatches")
     private @Nullable Output<String> pauseTimeBetweenBatches;
 
     /**
-     * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
+     * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `PT0S` seconds represented as `PT0S`.
      * 
      */
     public Optional<Output<String>> pauseTimeBetweenBatches() {
@@ -167,7 +167,7 @@ public final class ScaleSetRollingUpgradePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param pauseTimeBetweenBatches The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
+         * @param pauseTimeBetweenBatches The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `PT0S` seconds represented as `PT0S`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class ScaleSetRollingUpgradePolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param pauseTimeBetweenBatches The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
+         * @param pauseTimeBetweenBatches The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `PT0S` seconds represented as `PT0S`.
          * 
          * @return builder
          * 

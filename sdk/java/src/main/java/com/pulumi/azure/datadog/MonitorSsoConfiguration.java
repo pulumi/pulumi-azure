@@ -145,14 +145,14 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * The state of SingleSignOn configuration.
+     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      * 
      */
     @Export(name="singleSignOnEnabled", refs={String.class}, tree="[0]")
     private Output<String> singleSignOnEnabled;
 
     /**
-     * @return The state of SingleSignOn configuration.
+     * @return The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      * 
      */
     public Output<String> singleSignOnEnabled() {

@@ -31,14 +31,14 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
     }
 
     /**
-     * Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * Location of the primary volume.
      * 
      */
     @Import(name="remoteVolumeLocation", required=true)
     private Output<String> remoteVolumeLocation;
 
     /**
-     * @return Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Location of the primary volume.
      * 
      */
     public Output<String> remoteVolumeLocation() {
@@ -124,7 +124,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param remoteVolumeLocation Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param remoteVolumeLocation Location of the primary volume.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
         }
 
         /**
-         * @param remoteVolumeLocation Location of the primary volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param remoteVolumeLocation Location of the primary volume.
          * 
          * @return builder
          * 

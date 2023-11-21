@@ -111,7 +111,7 @@ export class SqlPool extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      */
     public readonly storageAccountType!: pulumi.Output<string | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface SqlPoolState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**
@@ -259,7 +259,7 @@ export interface SqlPoolArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
+     * The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
      */
     storageAccountType?: pulumi.Input<string>;
     /**

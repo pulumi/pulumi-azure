@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? Action;
         /// <summary>
-        /// The headers for this specific `scm_ip_restriction` as defined below.
+        /// The `headers` block for this specific `scm_ip_restriction` as defined below.
         /// </summary>
         public readonly Outputs.SlotSiteConfigScmIpRestrictionHeaders? Headers;
         /// <summary>

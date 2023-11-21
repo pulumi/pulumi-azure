@@ -92,7 +92,7 @@ import (
 type VirtualNetworkPeering struct {
 	pulumi.CustomResourceState
 
-	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressSpacePrefixes pulumi.StringArrayOutput `pulumi:"addressSpacePrefixes"`
 	// Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrOutput `pulumi:"allowForwardedTraffic"`
@@ -164,7 +164,7 @@ func GetVirtualNetworkPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkPeering resources.
 type virtualNetworkPeeringState struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressSpacePrefixes []string `pulumi:"addressSpacePrefixes"`
 	// Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
 	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
@@ -195,7 +195,7 @@ type virtualNetworkPeeringState struct {
 }
 
 type VirtualNetworkPeeringState struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressSpacePrefixes pulumi.StringArrayInput
 	// Can the forwarded traffic from the VMs in the local virtual network be forwarded to the remote virtual network? Defaults to `false`.
 	AllowForwardedTraffic pulumi.BoolPtrInput
@@ -391,7 +391,7 @@ func (o VirtualNetworkPeeringOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
+// A list of address blocks reserved for this virtual network in CIDR notation.
 func (o VirtualNetworkPeeringOutput) AddressSpacePrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkPeering) pulumi.StringArrayOutput { return v.AddressSpacePrefixes }).(pulumi.StringArrayOutput)
 }

@@ -171,14 +171,14 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
         return this.databaseName;
     }
     /**
-     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      * 
      */
     @Export(name="defaultPrincipalModificationKind", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultPrincipalModificationKind;
 
     /**
-     * @return The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`.
+     * @return The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
      * 
      */
     public Output<Optional<String>> defaultPrincipalModificationKind() {

@@ -22,7 +22,7 @@ class MonitorSsoConfigurationArgs:
         The set of arguments for constructing a MonitorSsoConfiguration resource.
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
-        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
+        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         """
         pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
@@ -59,7 +59,7 @@ class MonitorSsoConfigurationArgs:
     @pulumi.getter(name="singleSignOnEnabled")
     def single_sign_on_enabled(self) -> pulumi.Input[str]:
         """
-        The state of SingleSignOn configuration.
+        The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         """
         return pulumi.get(self, "single_sign_on_enabled")
 
@@ -94,7 +94,7 @@ class _MonitorSsoConfigurationState:
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[str] login_url: The SingleSignOn URL to login to Datadog org.
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
-        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
+        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         """
         if datadog_monitor_id is not None:
             pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
@@ -159,7 +159,7 @@ class _MonitorSsoConfigurationState:
     @pulumi.getter(name="singleSignOnEnabled")
     def single_sign_on_enabled(self) -> Optional[pulumi.Input[str]]:
         """
-        The state of SingleSignOn configuration.
+        The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         """
         return pulumi.get(self, "single_sign_on_enabled")
 
@@ -222,7 +222,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
-        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
+        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         """
         ...
     @overload
@@ -334,7 +334,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] enterprise_application_id: The application Id to perform SSO operation.
         :param pulumi.Input[str] login_url: The SingleSignOn URL to login to Datadog org.
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
-        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
+        :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,7 +383,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="singleSignOnEnabled")
     def single_sign_on_enabled(self) -> pulumi.Output[str]:
         """
-        The state of SingleSignOn configuration.
+        The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         """
         return pulumi.get(self, "single_sign_on_enabled")
 

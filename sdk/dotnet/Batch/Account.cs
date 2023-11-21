@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableArray<string>> AllowedAuthenticationModes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if customer managed key encryption should be used to encrypt batch account data.
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.AccountEncryption?> Encryption { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies if customer managed key encryption should be used to encrypt batch account data.
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Azure.Batch
         }
 
         /// <summary>
-        /// Specifies if customer managed key encryption should be used to encrypt batch account data.
+        /// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.AccountEncryptionGetArgs>? Encryption { get; set; }

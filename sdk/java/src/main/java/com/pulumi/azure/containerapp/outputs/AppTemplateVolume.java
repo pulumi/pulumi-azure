@@ -22,7 +22,7 @@ public final class AppTemplateVolume {
      */
     private @Nullable String storageName;
     /**
-     * @return The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+     * @return The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     private @Nullable String storageType;
@@ -43,7 +43,7 @@ public final class AppTemplateVolume {
         return Optional.ofNullable(this.storageName);
     }
     /**
-     * @return The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+     * @return The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
      * 
      */
     public Optional<String> storageType() {

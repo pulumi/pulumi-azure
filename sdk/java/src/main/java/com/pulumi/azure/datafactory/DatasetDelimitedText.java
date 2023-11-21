@@ -333,14 +333,14 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
+     * The null value string. Defaults to `&#34;&#34;`.
      * 
      */
     @Export(name="nullValue", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullValue;
 
     /**
-     * @return The null value string. Defaults to an empty string. Defaults to `&#34;&#34;`.
+     * @return The null value string. Defaults to `&#34;&#34;`.
      * 
      */
     public Output<Optional<String>> nullValue() {

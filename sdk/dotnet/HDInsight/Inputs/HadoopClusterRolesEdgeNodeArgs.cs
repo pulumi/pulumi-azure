@@ -16,7 +16,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointArgs>? _httpsEndpoints;
 
         /// <summary>
-        /// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
+        /// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
         /// </summary>
         public InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointArgs> HttpsEndpoints
         {

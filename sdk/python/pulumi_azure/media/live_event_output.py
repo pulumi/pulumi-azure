@@ -33,6 +33,7 @@ class LiveEventOutputArgs:
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] rewind_window_duration: `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
         """
         pulumi.set(__self__, "archive_window_duration", archive_window_duration)
         pulumi.set(__self__, "asset_name", asset_name)
@@ -149,6 +150,9 @@ class LiveEventOutputArgs:
     @property
     @pulumi.getter(name="rewindWindowDuration")
     def rewind_window_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "rewind_window_duration")
 
     @rewind_window_duration.setter
@@ -178,6 +182,7 @@ class _LiveEventOutputState:
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] rewind_window_duration: `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
         """
         if archive_window_duration is not None:
             pulumi.set(__self__, "archive_window_duration", archive_window_duration)
@@ -297,6 +302,9 @@ class _LiveEventOutputState:
     @property
     @pulumi.getter(name="rewindWindowDuration")
     def rewind_window_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "rewind_window_duration")
 
     @rewind_window_duration.setter
@@ -387,6 +395,7 @@ class LiveEventOutput(pulumi.CustomResource):
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] rewind_window_duration: `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
         """
         ...
     @overload
@@ -534,6 +543,7 @@ class LiveEventOutput(pulumi.CustomResource):
         :param pulumi.Input[str] manifest_name: The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
+        :param pulumi.Input[str] rewind_window_duration: `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -617,5 +627,8 @@ class LiveEventOutput(pulumi.CustomResource):
     @property
     @pulumi.getter(name="rewindWindowDuration")
     def rewind_window_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+        """
         return pulumi.get(self, "rewind_window_duration")
 

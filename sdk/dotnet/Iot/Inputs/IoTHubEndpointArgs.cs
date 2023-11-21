@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? EntityPath { get; set; }
 
         /// <summary>
-        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        /// File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         /// </summary>
         [Input("fileNameFormat")]
         public Input<string>? FileNameFormat { get; set; }

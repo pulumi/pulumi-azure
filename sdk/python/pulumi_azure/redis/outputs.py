@@ -232,7 +232,7 @@ class CacheRedisConfiguration(dict):
         :param int maxclients: Returns the max number of connected clients at the same time.
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
         :param int maxmemory_delta: The max-memory delta for this Redis instance. Defaults are shown below.
-        :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+        :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
         :param int maxmemory_reserved: Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
         :param str notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
                
@@ -347,7 +347,7 @@ class CacheRedisConfiguration(dict):
     @pulumi.getter(name="maxmemoryPolicy")
     def maxmemory_policy(self) -> Optional[str]:
         """
-        How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+        How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
         """
         return pulumi.get(self, "maxmemory_policy")
 

@@ -47,14 +47,14 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="diskEncryptionSetId")
     private @Nullable Output<String> diskEncryptionSetId;
 
     /**
-     * @return The ID of the Disk Encryption Set which should be used to encrypt this image.
+     * @return The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -194,7 +194,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this image.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ImageOsDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this image.
+         * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

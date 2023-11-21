@@ -100,7 +100,7 @@ type AlertRuleAnomalyDuplicate struct {
 	BuiltInRuleId pulumi.StringOutput `pulumi:"builtInRuleId"`
 	// The description of the multi select observation.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Should the Duplicated Anomaly Alert Rule be enabled?
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
@@ -187,7 +187,7 @@ type alertRuleAnomalyDuplicateState struct {
 	BuiltInRuleId *string `pulumi:"builtInRuleId"`
 	// The description of the multi select observation.
 	Description *string `pulumi:"description"`
-	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName *string `pulumi:"displayName"`
 	// Should the Duplicated Anomaly Alert Rule be enabled?
 	Enabled *bool `pulumi:"enabled"`
@@ -230,7 +230,7 @@ type AlertRuleAnomalyDuplicateState struct {
 	BuiltInRuleId pulumi.StringPtrInput
 	// The description of the multi select observation.
 	Description pulumi.StringPtrInput
-	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName pulumi.StringPtrInput
 	// Should the Duplicated Anomaly Alert Rule be enabled?
 	Enabled pulumi.BoolPtrInput
@@ -271,7 +271,7 @@ func (AlertRuleAnomalyDuplicateState) ElementType() reflect.Type {
 type alertRuleAnomalyDuplicateArgs struct {
 	// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
 	BuiltInRuleId string `pulumi:"builtInRuleId"`
-	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName string `pulumi:"displayName"`
 	// Should the Duplicated Anomaly Alert Rule be enabled?
 	Enabled bool `pulumi:"enabled"`
@@ -295,7 +295,7 @@ type alertRuleAnomalyDuplicateArgs struct {
 type AlertRuleAnomalyDuplicateArgs struct {
 	// The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
 	BuiltInRuleId pulumi.StringInput
-	// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+	// The Display Name of the built-in Anomaly Alert Rule.
 	DisplayName pulumi.StringInput
 	// Should the Duplicated Anomaly Alert Rule be enabled?
 	Enabled pulumi.BoolInput
@@ -446,7 +446,7 @@ func (o AlertRuleAnomalyDuplicateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+// The Display Name of the built-in Anomaly Alert Rule.
 func (o AlertRuleAnomalyDuplicateOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AlertRuleAnomalyDuplicate) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }

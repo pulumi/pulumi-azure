@@ -125,7 +125,7 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+     * The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
      *
      * > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
      */
@@ -228,7 +228,7 @@ export interface InterationServiceEnvironmentState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+     * The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
      *
      * > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
      */
@@ -272,7 +272,7 @@ export interface InterationServiceEnvironmentArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`.
+     * The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`.
      *
      * > **NOTE** For a `skuName` using the `Developer` `sku` the `capacity` element must be always `0`. For a `skuName` using the `sku` of `Premium` the `capacity` element can be between `0` and `10`.
      */

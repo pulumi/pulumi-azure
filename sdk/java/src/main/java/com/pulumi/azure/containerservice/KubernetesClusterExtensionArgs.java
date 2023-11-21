@@ -93,14 +93,14 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A `plan` block as defined below.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<KubernetesClusterExtensionPlanArgs> plan;
 
     /**
-     * @return A `plan` block as defined below.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<KubernetesClusterExtensionPlanArgs>> plan() {
@@ -138,14 +138,14 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
     @Import(name="targetNamespace")
     private @Nullable Output<String> targetNamespace;
 
     /**
-     * @return Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+     * @return Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
      * 
      */
     public Optional<Output<String>> targetNamespace() {
@@ -306,7 +306,7 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param plan A `plan` block as defined below.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param plan A `plan` block as defined below.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetNamespace Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+         * @param targetNamespace Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class KubernetesClusterExtensionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetNamespace Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
+         * @param targetNamespace Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
          * 
          * @return builder
          * 

@@ -230,11 +230,11 @@ func (o PolicyFileShareBackupPtrOutput) Time() pulumi.StringPtrOutput {
 }
 
 type PolicyFileShareBackupHourly struct {
-	// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+	// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
 	Interval int `pulumi:"interval"`
-	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 	StartTime string `pulumi:"startTime"`
-	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 	WindowDuration int `pulumi:"windowDuration"`
 }
 
@@ -250,11 +250,11 @@ type PolicyFileShareBackupHourlyInput interface {
 }
 
 type PolicyFileShareBackupHourlyArgs struct {
-	// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+	// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+	// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 	StartTime pulumi.StringInput `pulumi:"startTime"`
-	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+	// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 	WindowDuration pulumi.IntInput `pulumi:"windowDuration"`
 }
 
@@ -353,17 +353,17 @@ func (o PolicyFileShareBackupHourlyOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
-// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
 func (o PolicyFileShareBackupHourlyOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareBackupHourly) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 func (o PolicyFileShareBackupHourlyOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyFileShareBackupHourly) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
-// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 func (o PolicyFileShareBackupHourlyOutput) WindowDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareBackupHourly) int { return v.WindowDuration }).(pulumi.IntOutput)
 }
@@ -398,7 +398,7 @@ func (o PolicyFileShareBackupHourlyPtrOutput) Elem() PolicyFileShareBackupHourly
 	}).(PolicyFileShareBackupHourlyOutput)
 }
 
-// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+// Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
 func (o PolicyFileShareBackupHourlyPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackupHourly) *int {
 		if v == nil {
@@ -408,7 +408,7 @@ func (o PolicyFileShareBackupHourlyPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+// Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
 func (o PolicyFileShareBackupHourlyPtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackupHourly) *string {
 		if v == nil {
@@ -418,7 +418,7 @@ func (o PolicyFileShareBackupHourlyPtrOutput) StartTime() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+// Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
 func (o PolicyFileShareBackupHourlyPtrOutput) WindowDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackupHourly) *int {
 		if v == nil {

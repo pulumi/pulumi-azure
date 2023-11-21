@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+        /// The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

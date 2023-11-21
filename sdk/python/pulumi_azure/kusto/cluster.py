@@ -55,7 +55,7 @@ class ClusterArgs:
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
-        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
@@ -286,7 +286,7 @@ class ClusterArgs:
     @pulumi.getter(name="publicIpType")
     def public_ip_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         """
         return pulumi.get(self, "public_ip_type")
 
@@ -424,7 +424,7 @@ class _ClusterState:
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
-        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -652,7 +652,7 @@ class _ClusterState:
     @pulumi.getter(name="publicIpType")
     def public_ip_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         """
         return pulumi.get(self, "public_ip_type")
 
@@ -856,7 +856,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
-        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -1034,7 +1034,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
-        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
@@ -1188,7 +1188,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="publicIpType")
     def public_ip_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         """
         return pulumi.get(self, "public_ip_type")
 

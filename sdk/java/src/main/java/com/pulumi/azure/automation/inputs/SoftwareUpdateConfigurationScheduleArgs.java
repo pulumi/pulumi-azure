@@ -125,14 +125,14 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
     }
 
     /**
-     * Whether the schedule is enabled.
+     * Whether the schedule is enabled. Defaults to `true`.
      * 
      */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
     /**
-     * @return Whether the schedule is enabled.
+     * @return Whether the schedule is enabled. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> isEnabled() {
@@ -416,7 +416,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param isEnabled Whether the schedule is enabled.
+         * @param isEnabled Whether the schedule is enabled. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class SoftwareUpdateConfigurationScheduleArgs extends com.pulumi.re
         }
 
         /**
-         * @param isEnabled Whether the schedule is enabled.
+         * @param isEnabled Whether the schedule is enabled. Defaults to `true`.
          * 
          * @return builder
          * 

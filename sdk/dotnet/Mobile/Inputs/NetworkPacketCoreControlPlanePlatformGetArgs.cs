@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Mobile.Inputs
         public Input<string>? StackHciClusterId { get; set; }
 
         /// <summary>
-        /// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI` and `3P-AZURE-STACK-HCI`.
+        /// Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

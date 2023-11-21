@@ -378,14 +378,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automaticOsUpgrade);
     }
     /**
-     * A boot diagnostics profile block as referenced below.
+     * A `boot_diagnostics` block as referenced below.
      * 
      */
     @Export(name="bootDiagnostics", refs={ScaleSetBootDiagnostics.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetBootDiagnostics> bootDiagnostics;
 
     /**
-     * @return A boot diagnostics profile block as referenced below.
+     * @return A `boot_diagnostics` block as referenced below.
      * 
      */
     public Output<Optional<ScaleSetBootDiagnostics>> bootDiagnostics() {
@@ -494,70 +494,70 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A collection of network profile block as documented below.
+     * A collection of `network_profile` blocks as documented below.
      * 
      */
     @Export(name="networkProfiles", refs={List.class,ScaleSetNetworkProfile.class}, tree="[0,1]")
     private Output<List<ScaleSetNetworkProfile>> networkProfiles;
 
     /**
-     * @return A collection of network profile block as documented below.
+     * @return A collection of `network_profile` blocks as documented below.
      * 
      */
     public Output<List<ScaleSetNetworkProfile>> networkProfiles() {
         return this.networkProfiles;
     }
     /**
-     * A Virtual Machine OS Profile block as documented below.
+     * A `os_profile` block as documented below.
      * 
      */
     @Export(name="osProfile", refs={ScaleSetOsProfile.class}, tree="[0]")
     private Output<ScaleSetOsProfile> osProfile;
 
     /**
-     * @return A Virtual Machine OS Profile block as documented below.
+     * @return A `os_profile` block as documented below.
      * 
      */
     public Output<ScaleSetOsProfile> osProfile() {
         return this.osProfile;
     }
     /**
-     * A Linux config block as documented below.
+     * A `os_profile_linux_config` block as documented below.
      * 
      */
     @Export(name="osProfileLinuxConfig", refs={ScaleSetOsProfileLinuxConfig.class}, tree="[0]")
     private Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig;
 
     /**
-     * @return A Linux config block as documented below.
+     * @return A `os_profile_linux_config` block as documented below.
      * 
      */
     public Output<ScaleSetOsProfileLinuxConfig> osProfileLinuxConfig() {
         return this.osProfileLinuxConfig;
     }
     /**
-     * A collection of Secret blocks as documented below.
+     * A collection of `os_profile_secrets` blocks as documented below.
      * 
      */
     @Export(name="osProfileSecrets", refs={List.class,ScaleSetOsProfileSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetOsProfileSecret>> osProfileSecrets;
 
     /**
-     * @return A collection of Secret blocks as documented below.
+     * @return A collection of `os_profile_secrets` blocks as documented below.
      * 
      */
     public Output<Optional<List<ScaleSetOsProfileSecret>>> osProfileSecrets() {
         return Codegen.optional(this.osProfileSecrets);
     }
     /**
-     * A Windows config block as documented below.
+     * A `os_profile_windows_config` block as documented below.
      * 
      */
     @Export(name="osProfileWindowsConfig", refs={ScaleSetOsProfileWindowsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetOsProfileWindowsConfig> osProfileWindowsConfig;
 
     /**
-     * @return A Windows config block as documented below.
+     * @return A `os_profile_windows_config` block as documented below.
      * 
      */
     public Output<Optional<ScaleSetOsProfileWindowsConfig>> osProfileWindowsConfig() {
@@ -578,14 +578,14 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.overprovision);
     }
     /**
-     * A plan block as documented below.
+     * A `plan` block as documented below.
      * 
      */
     @Export(name="plan", refs={ScaleSetPlan.class}, tree="[0]")
     private Output</* @Nullable */ ScaleSetPlan> plan;
 
     /**
-     * @return A plan block as documented below.
+     * @return A `plan` block as documented below.
      * 
      */
     public Output<Optional<ScaleSetPlan>> plan() {
@@ -648,70 +648,70 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rollingUpgradePolicy);
     }
     /**
-     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      * 
      */
     @Export(name="singlePlacementGroup", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> singlePlacementGroup;
 
     /**
-     * @return Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+     * @return Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Changing this forces a new resource to be created. See [documentation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> singlePlacementGroup() {
         return Codegen.optional(this.singlePlacementGroup);
     }
     /**
-     * A SKU block as documented below.
+     * A `sku` block as documented below.
      * 
      */
     @Export(name="sku", refs={ScaleSetSku.class}, tree="[0]")
     private Output<ScaleSetSku> sku;
 
     /**
-     * @return A SKU block as documented below.
+     * @return A `sku` block as documented below.
      * 
      */
     public Output<ScaleSetSku> sku() {
         return this.sku;
     }
     /**
-     * A storage profile data disk block as documented below
+     * A `storage_profile_data_disk` block as documented below.
      * 
      */
     @Export(name="storageProfileDataDisks", refs={List.class,ScaleSetStorageProfileDataDisk.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScaleSetStorageProfileDataDisk>> storageProfileDataDisks;
 
     /**
-     * @return A storage profile data disk block as documented below
+     * @return A `storage_profile_data_disk` block as documented below.
      * 
      */
     public Output<Optional<List<ScaleSetStorageProfileDataDisk>>> storageProfileDataDisks() {
         return Codegen.optional(this.storageProfileDataDisks);
     }
     /**
-     * A storage profile image reference block as documented below.
+     * A `storage_profile_image_reference` block as documented below.
      * 
      */
     @Export(name="storageProfileImageReference", refs={ScaleSetStorageProfileImageReference.class}, tree="[0]")
     private Output<ScaleSetStorageProfileImageReference> storageProfileImageReference;
 
     /**
-     * @return A storage profile image reference block as documented below.
+     * @return A `storage_profile_image_reference` block as documented below.
      * 
      */
     public Output<ScaleSetStorageProfileImageReference> storageProfileImageReference() {
         return this.storageProfileImageReference;
     }
     /**
-     * A storage profile os disk block as documented below
+     * A `storage_profile_os_disk` block as documented below.
      * 
      */
     @Export(name="storageProfileOsDisk", refs={ScaleSetStorageProfileOsDisk.class}, tree="[0]")
     private Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk;
 
     /**
-     * @return A storage profile os disk block as documented below
+     * @return A `storage_profile_os_disk` block as documented below.
      * 
      */
     public Output<ScaleSetStorageProfileOsDisk> storageProfileOsDisk() {

@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<bool>? AcceleratedNetworkingEnabled { get; set; }
 
         /// <summary>
-        /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created.
+        /// The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
         /// </summary>
         [Input("dynamicVnetAssignmentScope")]
         public Input<string>? DynamicVnetAssignmentScope { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private InputList<Inputs.PoolNetworkConfigurationEndpointConfigurationArgs>? _endpointConfigurations;
 
         /// <summary>
-        /// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
+        /// A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.PoolNetworkConfigurationEndpointConfigurationArgs> EndpointConfigurations
         {

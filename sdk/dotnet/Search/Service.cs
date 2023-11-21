@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Search
         public Output<Outputs.ServiceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
         public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Search
         public Input<Inputs.ServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.Search
         public Input<Inputs.ServiceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+        /// Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
         /// </summary>
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }

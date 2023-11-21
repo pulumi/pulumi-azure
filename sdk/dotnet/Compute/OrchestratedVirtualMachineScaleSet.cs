@@ -121,7 +121,7 @@ namespace Pulumi.Azure.Compute
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         /// </summary>
         [Output("extensionsTimeBudget")]
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
@@ -673,7 +673,7 @@ namespace Pulumi.Azure.Compute
         }
 
         /// <summary>
-        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }

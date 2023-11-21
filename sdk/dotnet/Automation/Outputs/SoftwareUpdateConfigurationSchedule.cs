@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Automation.Outputs
         /// </summary>
         public readonly int? Interval;
         /// <summary>
-        /// Whether the schedule is enabled.
+        /// Whether the schedule is enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? IsEnabled;
         public readonly string? LastModifiedTime;

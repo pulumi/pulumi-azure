@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string ImageName;
         /// <summary>
-        /// The same reference as `container_registries` block defined as below.
+        /// The `container_registries` block defined as below.
         /// </summary>
         public readonly ImmutableArray<Outputs.PoolStartTaskContainerRegistry> Registries;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string? RunOptions;
         /// <summary>
-        /// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+        /// A flag to indicate where the container task working directory is. Possible values are `TaskWorkingDirectory` and `ContainerImageDefault`.
         /// </summary>
         public readonly string? WorkingDirectory;
 

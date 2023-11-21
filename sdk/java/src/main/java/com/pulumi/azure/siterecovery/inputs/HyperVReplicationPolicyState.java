@@ -61,9 +61,17 @@ public final class HyperVReplicationPolicyState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.recoveryPointRetentionInHours);
     }
 
+    /**
+     * The id of the vault that should be updated. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="recoveryVaultId")
     private @Nullable Output<String> recoveryVaultId;
 
+    /**
+     * @return The id of the vault that should be updated. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> recoveryVaultId() {
         return Optional.ofNullable(this.recoveryVaultId);
     }
@@ -174,11 +182,23 @@ public final class HyperVReplicationPolicyState extends com.pulumi.resources.Res
             return recoveryPointRetentionInHours(Output.of(recoveryPointRetentionInHours));
         }
 
+        /**
+         * @param recoveryVaultId The id of the vault that should be updated. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recoveryVaultId(@Nullable Output<String> recoveryVaultId) {
             $.recoveryVaultId = recoveryVaultId;
             return this;
         }
 
+        /**
+         * @param recoveryVaultId The id of the vault that should be updated. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recoveryVaultId(String recoveryVaultId) {
             return recoveryVaultId(Output.of(recoveryVaultId));
         }

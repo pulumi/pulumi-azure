@@ -3995,7 +3995,7 @@ type ManagedClusterNodeType struct {
 	Capacities map[string]string `pulumi:"capacities"`
 	// The size of the data disk in gigabytes..
 	DataDiskSizeGb int `pulumi:"dataDiskSizeGb"`
-	// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+	// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
 	DataDiskType *string `pulumi:"dataDiskType"`
 	// Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
 	EphemeralPortRange string `pulumi:"ephemeralPortRange"`
@@ -4045,7 +4045,7 @@ type ManagedClusterNodeTypeArgs struct {
 	Capacities pulumi.StringMapInput `pulumi:"capacities"`
 	// The size of the data disk in gigabytes..
 	DataDiskSizeGb pulumi.IntInput `pulumi:"dataDiskSizeGb"`
-	// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+	// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
 	DataDiskType pulumi.StringPtrInput `pulumi:"dataDiskType"`
 	// Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `applicationPortRange`..
 	EphemeralPortRange pulumi.StringInput `pulumi:"ephemeralPortRange"`
@@ -4161,7 +4161,7 @@ func (o ManagedClusterNodeTypeOutput) DataDiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v ManagedClusterNodeType) int { return v.DataDiskSizeGb }).(pulumi.IntOutput)
 }
 
-// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+// The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
 func (o ManagedClusterNodeTypeOutput) DataDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterNodeType) *string { return v.DataDiskType }).(pulumi.StringPtrOutput)
 }

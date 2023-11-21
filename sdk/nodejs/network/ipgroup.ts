@@ -66,11 +66,11 @@ export class IPGroup extends pulumi.CustomResource {
 
     public readonly cidrs!: pulumi.Output<string[] | undefined>;
     /**
-     * A `firewallIds` block as defined below.
+     * A list of ID of Firewall.
      */
     public /*out*/ readonly firewallIds!: pulumi.Output<string[]>;
     /**
-     * A `firewallPolicyIds` block as defined below.
+     * A list of ID of Firewall Policy`.
      */
     public /*out*/ readonly firewallPolicyIds!: pulumi.Output<string[]>;
     /**
@@ -134,11 +134,11 @@ export class IPGroup extends pulumi.CustomResource {
 export interface IPGroupState {
     cidrs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `firewallIds` block as defined below.
+     * A list of ID of Firewall.
      */
     firewallIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `firewallPolicyIds` block as defined below.
+     * A list of ID of Firewall Policy`.
      */
     firewallPolicyIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

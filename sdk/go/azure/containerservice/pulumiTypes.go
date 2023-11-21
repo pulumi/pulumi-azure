@@ -2337,17 +2337,17 @@ func (o GroupContainerGpuLimitPtrOutput) Sku() pulumi.StringPtrOutput {
 type GroupContainerLivenessProbe struct {
 	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs []string `pulumi:"execs"`
-	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 	FailureThreshold *int `pulumi:"failureThreshold"`
 	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets []GroupContainerLivenessProbeHttpGet `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
-	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 	PeriodSeconds *int `pulumi:"periodSeconds"`
-	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 	SuccessThreshold *int `pulumi:"successThreshold"`
-	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
@@ -2365,17 +2365,17 @@ type GroupContainerLivenessProbeInput interface {
 type GroupContainerLivenessProbeArgs struct {
 	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs pulumi.StringArrayInput `pulumi:"execs"`
-	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
 	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets GroupContainerLivenessProbeHttpGetArrayInput `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
-	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
-	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
-	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
@@ -2479,7 +2479,7 @@ func (o GroupContainerLivenessProbeOutput) Execs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
-// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
@@ -2494,17 +2494,17 @@ func (o GroupContainerLivenessProbeOutput) InitialDelaySeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
-// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerLivenessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -2549,7 +2549,7 @@ func (o GroupContainerLivenessProbePtrOutput) Execs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerLivenessProbe) *int {
 		if v == nil {
@@ -2579,7 +2579,7 @@ func (o GroupContainerLivenessProbePtrOutput) InitialDelaySeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerLivenessProbe) *int {
 		if v == nil {
@@ -2589,7 +2589,7 @@ func (o GroupContainerLivenessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerLivenessProbe) *int {
 		if v == nil {
@@ -2599,7 +2599,7 @@ func (o GroupContainerLivenessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 func (o GroupContainerLivenessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerLivenessProbe) *int {
 		if v == nil {
@@ -2760,7 +2760,7 @@ func (o GroupContainerLivenessProbeHttpGetArrayOutput) Index(i pulumi.IntInput) 
 type GroupContainerPort struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
-	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 	//
 	// > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
 	Protocol *string `pulumi:"protocol"`
@@ -2780,7 +2780,7 @@ type GroupContainerPortInput interface {
 type GroupContainerPortArgs struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 	//
 	// > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -2860,7 +2860,7 @@ func (o GroupContainerPortOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerPort) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 //
 // > **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
 func (o GroupContainerPortOutput) Protocol() pulumi.StringPtrOutput {
@@ -2896,17 +2896,17 @@ func (o GroupContainerPortArrayOutput) Index(i pulumi.IntInput) GroupContainerPo
 type GroupContainerReadinessProbe struct {
 	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs []string `pulumi:"execs"`
-	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 	FailureThreshold *int `pulumi:"failureThreshold"`
 	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets []GroupContainerReadinessProbeHttpGet `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds *int `pulumi:"initialDelaySeconds"`
-	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 	PeriodSeconds *int `pulumi:"periodSeconds"`
-	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 	SuccessThreshold *int `pulumi:"successThreshold"`
-	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
 }
 
@@ -2924,17 +2924,17 @@ type GroupContainerReadinessProbeInput interface {
 type GroupContainerReadinessProbeArgs struct {
 	// Commands to be run to validate container readiness. Changing this forces a new resource to be created.
 	Execs pulumi.StringArrayInput `pulumi:"execs"`
-	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
 	// The definition of the httpGet for this container as documented in the `httpGet` block below. Changing this forces a new resource to be created.
 	HttpGets GroupContainerReadinessProbeHttpGetArrayInput `pulumi:"httpGets"`
 	// Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
 	InitialDelaySeconds pulumi.IntPtrInput `pulumi:"initialDelaySeconds"`
-	// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 	PeriodSeconds pulumi.IntPtrInput `pulumi:"periodSeconds"`
-	// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 	SuccessThreshold pulumi.IntPtrInput `pulumi:"successThreshold"`
-	// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+	// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
@@ -3038,7 +3038,7 @@ func (o GroupContainerReadinessProbeOutput) Execs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbe) []string { return v.Execs }).(pulumi.StringArrayOutput)
 }
 
-// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
@@ -3053,17 +3053,17 @@ func (o GroupContainerReadinessProbeOutput) InitialDelaySeconds() pulumi.IntPtrO
 	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.InitialDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
-// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.PeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.SuccessThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbeOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupContainerReadinessProbe) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3108,7 +3108,7 @@ func (o GroupContainerReadinessProbePtrOutput) Execs() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerReadinessProbe) *int {
 		if v == nil {
@@ -3138,7 +3138,7 @@ func (o GroupContainerReadinessProbePtrOutput) InitialDelaySeconds() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
+// How often (in seconds) to perform the probe. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerReadinessProbe) *int {
 		if v == nil {
@@ -3148,7 +3148,7 @@ func (o GroupContainerReadinessProbePtrOutput) PeriodSeconds() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Minimum consecutive successes for the probe to be considered successful after having failed. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerReadinessProbe) *int {
 		if v == nil {
@@ -3158,7 +3158,7 @@ func (o GroupContainerReadinessProbePtrOutput) SuccessThreshold() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
+// Number of seconds after which the probe times out. Changing this forces a new resource to be created.
 func (o GroupContainerReadinessProbePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupContainerReadinessProbe) *int {
 		if v == nil {
@@ -4434,7 +4434,7 @@ func (o GroupDnsConfigPtrOutput) SearchDomains() pulumi.StringArrayOutput {
 type GroupExposedPort struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port *int `pulumi:"port"`
-	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 	//
 	// > **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
 	Protocol *string `pulumi:"protocol"`
@@ -4454,7 +4454,7 @@ type GroupExposedPortInput interface {
 type GroupExposedPortArgs struct {
 	// The port number the container will expose. Changing this forces a new resource to be created.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+	// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 	//
 	// > **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -4534,7 +4534,7 @@ func (o GroupExposedPortOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupExposedPort) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created.
+// The network protocol associated with port. Possible values are `TCP` & `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
 //
 // > **Note:** Removing all `exposedPort` blocks requires setting `exposedPort = []`.
 func (o GroupExposedPortOutput) Protocol() pulumi.StringPtrOutput {
@@ -7256,6 +7256,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// Specifies whether to trust a Custom CA.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustEnabled *bool `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
@@ -7269,7 +7271,7 @@ type KubernetesClusterDefaultNodePool struct {
 	EnableHostEncryption *bool `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
-	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
@@ -7281,15 +7283,17 @@ type KubernetesClusterDefaultNodePool struct {
 	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount *int `pulumi:"maxCount"`
-	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporaryNameForRotation` must be specified when changing this property.
+	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 	MaxPods *int `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
 	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MinCount *int `pulumi:"minCount"`
-	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+	// The name which should be used for the default Kubernetes Node Pool.
 	Name string `pulumi:"name"`
-	// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+	//
+	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
 	//
 	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 	NodeCount *int `pulumi:"nodeCount"`
@@ -7309,11 +7313,11 @@ type KubernetesClusterDefaultNodePool struct {
 	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
-	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
+	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku *string `pulumi:"osSku"`
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId *string `pulumi:"podSubnetId"`
 	// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
@@ -7337,7 +7341,7 @@ type KubernetesClusterDefaultNodePool struct {
 	UpgradeSettings *KubernetesClusterDefaultNodePoolUpgradeSettings `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
 	VmSize string `pulumi:"vmSize"`
-	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of a Subnet where the Kubernetes Node Pool should exist.
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
@@ -7366,6 +7370,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
 	// Specifies whether to trust a Custom CA.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 	CustomCaTrustEnabled pulumi.BoolPtrInput `pulumi:"customCaTrustEnabled"`
 	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
 	//
@@ -7379,7 +7385,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	EnableHostEncryption pulumi.BoolPtrInput `pulumi:"enableHostEncryption"`
 	// Should nodes in this Node Pool have a Public IP Address? `temporaryNameForRotation` must be specified when changing this property.
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
-	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
@@ -7391,15 +7397,17 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
 	// The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporaryNameForRotation` must be specified when changing this property.
+	// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
 	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 	MessageOfTheDay pulumi.StringPtrInput `pulumi:"messageOfTheDay"`
 	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
-	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+	// The name which should be used for the default Kubernetes Node Pool.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+	//
+	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
 	//
 	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
@@ -7419,11 +7427,11 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OrchestratorVersion pulumi.StringPtrInput `pulumi:"orchestratorVersion"`
 	// The size of the OS Disk which should be used for each agent in the Node Pool. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
-	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
+	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
-	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
 	// The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
@@ -7447,7 +7455,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	UpgradeSettings KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput `pulumi:"upgradeSettings"`
 	// The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporaryNameForRotation` must be specified when attempting a resize.
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
-	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+	// The ID of a Subnet where the Kubernetes Node Pool should exist.
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
@@ -7562,6 +7570,8 @@ func (o KubernetesClusterDefaultNodePoolOutput) CapacityReservationGroupId() pul
 }
 
 // Specifies whether to trust a Custom CA.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterDefaultNodePoolOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.CustomCaTrustEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7587,7 +7597,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.Bool
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.EnableNodePublicIp }).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7621,7 +7631,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporaryNameForRotation` must be specified when changing this property.
+// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
@@ -7636,12 +7646,14 @@ func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+// The name which should be used for the default Kubernetes Node Pool.
 func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+//
+// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
 //
 // > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
@@ -7687,17 +7699,17 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskSizeGb() pulumi.IntPtrOutp
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.OsDiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
+// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+// The ID of the Subnet where the pods in the default Node Pool should exist.
 func (o KubernetesClusterDefaultNodePoolOutput) PodSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.PodSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -7753,7 +7765,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.VmSize }).(pulumi.StringOutput)
 }
 
-// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+// The ID of a Subnet where the Kubernetes Node Pool should exist.
 //
 // > **Note:** A Route Table must be configured on this Subnet.
 func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
@@ -7815,6 +7827,8 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) CapacityReservationGroupId() 
 }
 
 // Specifies whether to trust a Custom CA.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) CustomCaTrustEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -7860,7 +7874,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) EnableNodePublicIp() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -7920,7 +7934,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxCount() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporaryNameForRotation` must be specified when changing this property.
+// The maximum number of pods that can run on each agent. `temporaryNameForRotation` must be specified when changing this property.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
 		if v == nil {
@@ -7950,7 +7964,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+// The name which should be used for the default Kubernetes Node Pool.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -7960,7 +7974,9 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
+//
+// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
 //
 // > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {
@@ -8044,7 +8060,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskSizeGb() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporaryNameForRotation` must be specified when attempting a change.
+// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8054,7 +8070,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8064,7 +8080,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+// The ID of the Subnet where the pods in the default Node Pool should exist.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) PodSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -8168,7 +8184,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VmSize() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+// The ID of a Subnet where the Kubernetes Node Pool should exist.
 //
 // > **Note:** A Route Table must be configured on this Subnet.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringPtrOutput {
@@ -8205,25 +8221,25 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Zones() pulumi.StringArrayOut
 }
 
 type KubernetesClusterDefaultNodePoolKubeletConfig struct {
-	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
-	// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+	// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
 	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
-	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
-	// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+	// Is CPU CFS quota enforcement for containers enabled?
 	CpuCfsQuotaEnabled *bool `pulumi:"cpuCfsQuotaEnabled"`
-	// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+	// Specifies the CPU CFS quota period value.
 	CpuCfsQuotaPeriod *string `pulumi:"cpuCfsQuotaPeriod"`
-	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
 	CpuManagerPolicy *string `pulumi:"cpuManagerPolicy"`
-	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
 	ImageGcHighThreshold *int `pulumi:"imageGcHighThreshold"`
-	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
 	ImageGcLowThreshold *int `pulumi:"imageGcLowThreshold"`
-	// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+	// Specifies the maximum number of processes per pod.
 	PodMaxPid *int `pulumi:"podMaxPid"`
-	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
 	TopologyManagerPolicy *string `pulumi:"topologyManagerPolicy"`
 }
 
@@ -8239,25 +8255,25 @@ type KubernetesClusterDefaultNodePoolKubeletConfigInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolKubeletConfigArgs struct {
-	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
-	// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+	// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
 	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
-	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
-	// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+	// Is CPU CFS quota enforcement for containers enabled?
 	CpuCfsQuotaEnabled pulumi.BoolPtrInput `pulumi:"cpuCfsQuotaEnabled"`
-	// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+	// Specifies the CPU CFS quota period value.
 	CpuCfsQuotaPeriod pulumi.StringPtrInput `pulumi:"cpuCfsQuotaPeriod"`
-	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+	// Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
 	CpuManagerPolicy pulumi.StringPtrInput `pulumi:"cpuManagerPolicy"`
-	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
 	ImageGcHighThreshold pulumi.IntPtrInput `pulumi:"imageGcHighThreshold"`
-	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+	// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
 	ImageGcLowThreshold pulumi.IntPtrInput `pulumi:"imageGcLowThreshold"`
-	// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+	// Specifies the maximum number of processes per pod.
 	PodMaxPid pulumi.IntPtrInput `pulumi:"podMaxPid"`
-	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+	// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
 	TopologyManagerPolicy pulumi.StringPtrInput `pulumi:"topologyManagerPolicy"`
 }
 
@@ -8356,52 +8372,52 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ToOutput(ctx contex
 	}
 }
 
-// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxSizeMb }).(pulumi.IntPtrOutput)
 }
 
-// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+// Is CPU CFS quota enforcement for containers enabled?
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *bool { return v.CpuCfsQuotaEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+// Specifies the CPU CFS quota period value.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *string { return v.CpuCfsQuotaPeriod }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+// Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *string { return v.CpuManagerPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ImageGcHighThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ImageGcLowThreshold }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+// Specifies the maximum number of processes per pod.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) PodMaxPid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.PodMaxPid }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *string { return v.TopologyManagerPolicy }).(pulumi.StringPtrOutput)
 }
@@ -8436,7 +8452,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) Elem() Kubernete
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigOutput)
 }
 
-// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
+// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) AllowedUnsafeSysctls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) []string {
 		if v == nil {
@@ -8446,7 +8462,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) AllowedUnsafeSys
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -8456,7 +8472,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxL
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -8466,7 +8482,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxS
 	}).(pulumi.IntPtrOutput)
 }
 
-// Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+// Is CPU CFS quota enforcement for containers enabled?
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *bool {
 		if v == nil {
@@ -8476,7 +8492,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+// Specifies the CPU CFS quota period value.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaPeriod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *string {
 		if v == nil {
@@ -8486,7 +8502,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuCfsQuotaPerio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
+// Specifies the CPU Manager policy to use. Possible values are `none` and `static`,.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *string {
 		if v == nil {
@@ -8496,7 +8512,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) CpuManagerPolicy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+// Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ImageGcHighThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -8506,7 +8522,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ImageGcHighThres
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
+// Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ImageGcLowThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -8516,7 +8532,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ImageGcLowThresh
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+// Specifies the maximum number of processes per pod.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) PodMaxPid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -8526,7 +8542,7 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) PodMaxPid() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
+// Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) TopologyManagerPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *string {
 		if v == nil {
@@ -8537,13 +8553,13 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) TopologyManagerP
 }
 
 type KubernetesClusterDefaultNodePoolLinuxOsConfig struct {
-	// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+	// Specifies the size of the swap file on each node in MB.
 	SwapFileSizeMb *int `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
 	SysctlConfig *KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig `pulumi:"sysctlConfig"`
-	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
 	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -8559,13 +8575,13 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolLinuxOsConfigArgs struct {
-	// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+	// Specifies the size of the swap file on each node in MB.
 	SwapFileSizeMb pulumi.IntPtrInput `pulumi:"swapFileSizeMb"`
 	// A `sysctlConfig` block as defined below. Changing this forces a new resource to be created.
 	SysctlConfig KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput `pulumi:"sysctlConfig"`
-	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+	// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
 	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
 }
 
@@ -8664,7 +8680,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) ToOutput(ctx contex
 	}
 }
 
-// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+// Specifies the size of the swap file on each node in MB.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *int { return v.SwapFileSizeMb }).(pulumi.IntPtrOutput)
 }
@@ -8676,12 +8692,12 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) SysctlConfig() Kube
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
-// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
 }
@@ -8716,7 +8732,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) Elem() Kubernete
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigOutput)
 }
 
-// Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
+// Specifies the size of the swap file on each node in MB.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) SwapFileSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *int {
 		if v == nil {
@@ -8736,7 +8752,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) SysctlConfig() K
 	}).(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput)
 }
 
-// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
+// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefrag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
 		if v == nil {
@@ -8746,7 +8762,7 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugeP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
+// Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`.
 func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
 		if v == nil {
@@ -11069,7 +11085,7 @@ func (o KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdent
 type KubernetesClusterKeyManagementService struct {
 	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
-	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess *string `pulumi:"keyVaultNetworkAccess"`
 }
 
@@ -11087,7 +11103,7 @@ type KubernetesClusterKeyManagementServiceInput interface {
 type KubernetesClusterKeyManagementServiceArgs struct {
 	// Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When `enabled` is `false`, leave the field empty.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
-	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+	// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 	KeyVaultNetworkAccess pulumi.StringPtrInput `pulumi:"keyVaultNetworkAccess"`
 }
 
@@ -11191,7 +11207,7 @@ func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultKeyId() pulumi.Stri
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
-// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 func (o KubernetesClusterKeyManagementServiceOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterKeyManagementService) *string { return v.KeyVaultNetworkAccess }).(pulumi.StringPtrOutput)
 }
@@ -11236,7 +11252,7 @@ func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultKeyId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+// Network access of the key vault Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. Defaults to `Public`.
 func (o KubernetesClusterKeyManagementServicePtrOutput) KeyVaultNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterKeyManagementService) *string {
 		if v == nil {
@@ -11251,7 +11267,7 @@ type KubernetesClusterKeyVaultSecretsProvider struct {
 	SecretIdentities []KubernetesClusterKeyVaultSecretsProviderSecretIdentity `pulumi:"secretIdentities"`
 	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled *bool `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
 	//
 	// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 	SecretRotationInterval *string `pulumi:"secretRotationInterval"`
@@ -11273,7 +11289,7 @@ type KubernetesClusterKeyVaultSecretsProviderArgs struct {
 	SecretIdentities KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrayInput `pulumi:"secretIdentities"`
 	// Should the secret store CSI driver on the AKS cluster be enabled?
 	SecretRotationEnabled pulumi.BoolPtrInput `pulumi:"secretRotationEnabled"`
-	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+	// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
 	//
 	// > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 	SecretRotationInterval pulumi.StringPtrInput `pulumi:"secretRotationInterval"`
@@ -11386,7 +11402,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationEnabled() 
 	return o.ApplyT(func(v KubernetesClusterKeyVaultSecretsProvider) *bool { return v.SecretRotationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
 //
 // > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 func (o KubernetesClusterKeyVaultSecretsProviderOutput) SecretRotationInterval() pulumi.StringPtrOutput {
@@ -11443,7 +11459,7 @@ func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true and defaults to `2m`.
+// The interval to poll for secret rotation. This attribute is only set when `secretRotation` is true. Defaults to `2m`.
 //
 // > **Note:** To enable`keyVaultSecretsProvider` either `secretRotationEnabled` or `secretRotationInterval` must be specified.
 func (o KubernetesClusterKeyVaultSecretsProviderPtrOutput) SecretRotationInterval() pulumi.StringPtrOutput {
@@ -12144,7 +12160,7 @@ func (o KubernetesClusterKubeletIdentityPtrOutput) UserAssignedIdentityId() pulu
 type KubernetesClusterLinuxProfile struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+	// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 	SshKey KubernetesClusterLinuxProfileSshKey `pulumi:"sshKey"`
 }
 
@@ -12162,7 +12178,7 @@ type KubernetesClusterLinuxProfileInput interface {
 type KubernetesClusterLinuxProfileArgs struct {
 	// The Admin Username for the Cluster. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-	// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+	// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 	SshKey KubernetesClusterLinuxProfileSshKeyInput `pulumi:"sshKey"`
 }
 
@@ -12266,7 +12282,7 @@ func (o KubernetesClusterLinuxProfileOutput) AdminUsername() pulumi.StringOutput
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 func (o KubernetesClusterLinuxProfileOutput) SshKey() KubernetesClusterLinuxProfileSshKeyOutput {
 	return o.ApplyT(func(v KubernetesClusterLinuxProfile) KubernetesClusterLinuxProfileSshKey { return v.SshKey }).(KubernetesClusterLinuxProfileSshKeyOutput)
 }
@@ -12311,7 +12327,7 @@ func (o KubernetesClusterLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// An `sshKey` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+// An `sshKey` block as defined below. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
 func (o KubernetesClusterLinuxProfilePtrOutput) SshKey() KubernetesClusterLinuxProfileSshKeyPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterLinuxProfile) *KubernetesClusterLinuxProfileSshKey {
 		if v == nil {
@@ -12797,8 +12813,9 @@ func (o KubernetesClusterMaintenanceWindowAllowedArrayOutput) Index(i pulumi.Int
 }
 
 type KubernetesClusterMaintenanceWindowAutoUpgrade struct {
+	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth *int `pulumi:"dayOfMonth"`
-	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
 	// The duration of the window for maintenance to run in hours.
 	Duration int `pulumi:"duration"`
@@ -12831,8 +12848,9 @@ type KubernetesClusterMaintenanceWindowAutoUpgradeInput interface {
 }
 
 type KubernetesClusterMaintenanceWindowAutoUpgradeArgs struct {
+	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
-	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
 	// The duration of the window for maintenance to run in hours.
 	Duration pulumi.IntInput `pulumi:"duration"`
@@ -12948,11 +12966,12 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) ToOutput(ctx contex
 	}
 }
 
+// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
 }
 
-// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
@@ -13030,6 +13049,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Elem() Kubernete
 	}).(KubernetesClusterMaintenanceWindowAutoUpgradeOutput)
 }
 
+// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *int {
 		if v == nil {
@@ -13039,7 +13059,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfMonth() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {
 		if v == nil {
@@ -13261,8 +13281,9 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrayOutput) Inde
 }
 
 type KubernetesClusterMaintenanceWindowNodeOs struct {
+	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth *int `pulumi:"dayOfMonth"`
-	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
 	// The duration of the window for maintenance to run in hours.
 	Duration int `pulumi:"duration"`
@@ -13294,8 +13315,9 @@ type KubernetesClusterMaintenanceWindowNodeOsInput interface {
 }
 
 type KubernetesClusterMaintenanceWindowNodeOsArgs struct {
+	// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
-	// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
 	// The duration of the window for maintenance to run in hours.
 	Duration pulumi.IntInput `pulumi:"duration"`
@@ -13410,11 +13432,12 @@ func (o KubernetesClusterMaintenanceWindowNodeOsOutput) ToOutput(ctx context.Con
 	}
 }
 
+// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *int { return v.DayOfMonth }).(pulumi.IntPtrOutput)
 }
 
-// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
@@ -13491,6 +13514,7 @@ func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Elem() KubernetesClus
 	}).(KubernetesClusterMaintenanceWindowNodeOsOutput)
 }
 
+// The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
 func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfMonth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *int {
 		if v == nil {
@@ -13500,7 +13524,7 @@ func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfMonth() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *string {
 		if v == nil {
@@ -14234,7 +14258,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 	NetworkPluginMode *string `pulumi:"networkPluginMode"`
-	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
@@ -14308,7 +14332,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPluginMode` is set to `overlay`, the `networkPlugin` field can only be set to `azure`. When upgrading from Azure CNI without overlay, `podSubnetId` must be specified.
 	NetworkPluginMode pulumi.StringPtrInput `pulumi:"networkPluginMode"`
-	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
+	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
@@ -14499,7 +14523,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPluginMode }).(pulumi.StringPtrOutput)
 }
 
-// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 //
@@ -14687,7 +14711,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
+// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`.
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 //
@@ -18718,8 +18742,6 @@ func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.String
 
 type KubernetesClusterWorkloadAutoscalerProfile struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	KedaEnabled *bool `pulumi:"kedaEnabled"`
 	// Which resources values should be controlled.
 	VerticalPodAutoscalerControlledValues *string `pulumi:"verticalPodAutoscalerControlledValues"`
@@ -18744,8 +18766,6 @@ type KubernetesClusterWorkloadAutoscalerProfileInput interface {
 
 type KubernetesClusterWorkloadAutoscalerProfileArgs struct {
 	// Specifies whether KEDA Autoscaler can be used for workloads.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 	KedaEnabled pulumi.BoolPtrInput `pulumi:"kedaEnabled"`
 	// Which resources values should be controlled.
 	VerticalPodAutoscalerControlledValues pulumi.StringPtrInput `pulumi:"verticalPodAutoscalerControlledValues"`
@@ -18853,8 +18873,6 @@ func (o KubernetesClusterWorkloadAutoscalerProfileOutput) ToOutput(ctx context.C
 }
 
 // Specifies whether KEDA Autoscaler can be used for workloads.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfileOutput) KedaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWorkloadAutoscalerProfile) *bool { return v.KedaEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -18909,8 +18927,6 @@ func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) Elem() KubernetesCl
 }
 
 // Specifies whether KEDA Autoscaler can be used for workloads.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-KedaPreview` is enabled and the Resource Provider is re-registered, see the documentation for more information.
 func (o KubernetesClusterWorkloadAutoscalerProfilePtrOutput) KedaEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWorkloadAutoscalerProfile) *bool {
 		if v == nil {

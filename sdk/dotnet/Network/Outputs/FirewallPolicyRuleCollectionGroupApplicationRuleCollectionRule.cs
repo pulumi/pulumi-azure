@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DestinationUrls;
         /// <summary>
+        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> HttpHeaders;
+        /// <summary>
         /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> destinationUrls,
 
+            ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders,
+
             string name,
 
             ImmutableArray<Outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols,
@@ -87,6 +93,7 @@ namespace Pulumi.Azure.Network.Outputs
             DestinationFqdnTags = destinationFqdnTags;
             DestinationFqdns = destinationFqdns;
             DestinationUrls = destinationUrls;
+            HttpHeaders = httpHeaders;
             Name = name;
             Protocols = protocols;
             SourceAddresses = sourceAddresses;

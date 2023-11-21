@@ -28,7 +28,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGoogle {
      */
     private @Nullable String clientSecretSettingName;
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
      * 
      */
     private @Nullable List<String> oauthScopes;
@@ -56,7 +56,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGoogle {
         return Optional.ofNullable(this.clientSecretSettingName);
     }
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
      * 
      */
     public List<String> oauthScopes() {

@@ -58,7 +58,7 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly packageData!: pulumi.Output<string | undefined>;
     /**
-     * One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
     public readonly protectedFiles!: pulumi.Output<outputs.nginx.ConfigurationProtectedFile[] | undefined>;
     /**
@@ -120,7 +120,7 @@ export interface ConfigurationState {
      */
     packageData?: pulumi.Input<string>;
     /**
-     * One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
     /**
@@ -146,7 +146,7 @@ export interface ConfigurationArgs {
      */
     packageData?: pulumi.Input<string>;
     /**
-     * One or more `protectedFile` (Protected File) blocks with sensitive information as defined below. If specified `configFile` must also be specified.
+     * One or more `protectedFile` blocks with sensitive information as defined below. If specified `configFile` must also be specified.
      */
     protectedFiles?: pulumi.Input<pulumi.Input<inputs.nginx.ConfigurationProtectedFile>[]>;
     /**

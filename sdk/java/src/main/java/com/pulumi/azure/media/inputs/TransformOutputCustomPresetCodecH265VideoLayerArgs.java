@@ -64,14 +64,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+     * Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
      * 
      */
     @Import(name="bufferWindow")
     private @Nullable Output<String> bufferWindow;
 
     /**
-     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+     * @return Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
      * 
      */
     public Optional<Output<String>> bufferWindow() {
@@ -169,14 +169,14 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
     }
 
     /**
-     * The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+     * The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
      * 
      */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
     /**
-     * @return The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+     * @return The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
      * 
      */
     public Optional<Output<String>> profile() {
@@ -329,7 +329,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+         * @param bufferWindow Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param profile The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         * @param profile The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class TransformOutputCustomPresetCodecH265VideoLayerArgs extends co
         }
 
         /**
-         * @param profile The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+         * @param profile The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
          * 
          * @return builder
          * 

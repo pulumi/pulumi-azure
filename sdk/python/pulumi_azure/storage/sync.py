@@ -22,7 +22,7 @@ class SyncArgs:
         """
         The set of arguments for constructing a Sync resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
-        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         :param pulumi.Input[str] location: The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Storage Sync.
@@ -53,7 +53,7 @@ class SyncArgs:
     @pulumi.getter(name="incomingTrafficPolicy")
     def incoming_traffic_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         """
         return pulumi.get(self, "incoming_traffic_policy")
 
@@ -108,7 +108,7 @@ class _SyncState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Sync resources.
-        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         :param pulumi.Input[str] location: The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
@@ -129,7 +129,7 @@ class _SyncState:
     @pulumi.getter(name="incomingTrafficPolicy")
     def incoming_traffic_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         """
         return pulumi.get(self, "incoming_traffic_policy")
 
@@ -225,7 +225,7 @@ class Sync(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         :param pulumi.Input[str] location: The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
@@ -321,7 +321,7 @@ class Sync(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        :param pulumi.Input[str] incoming_traffic_policy: Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         :param pulumi.Input[str] location: The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created.
@@ -342,7 +342,7 @@ class Sync(pulumi.CustomResource):
     @pulumi.getter(name="incomingTrafficPolicy")
     def incoming_traffic_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         """
         return pulumi.get(self, "incoming_traffic_policy")
 

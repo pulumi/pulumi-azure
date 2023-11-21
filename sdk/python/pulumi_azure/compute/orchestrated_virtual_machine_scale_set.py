@@ -73,7 +73,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
-        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -314,7 +314,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @pulumi.getter(name="extensionsTimeBudget")
     def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
@@ -648,7 +648,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
-        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -872,7 +872,7 @@ class _OrchestratedVirtualMachineScaleSetState:
     @pulumi.getter(name="extensionsTimeBudget")
     def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 
@@ -1277,7 +1277,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
-        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -1514,7 +1514,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
-        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Orchestrated Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -1672,7 +1672,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="extensionsTimeBudget")
     def extensions_time_budget(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         """
         return pulumi.get(self, "extensions_time_budget")
 

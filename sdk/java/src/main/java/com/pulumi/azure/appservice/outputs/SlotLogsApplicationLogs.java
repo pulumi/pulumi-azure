@@ -18,7 +18,7 @@ public final class SlotLogsApplicationLogs {
      */
     private @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
     /**
-     * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+     * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
      * 
      */
     private @Nullable String fileSystemLevel;
@@ -32,7 +32,7 @@ public final class SlotLogsApplicationLogs {
         return Optional.ofNullable(this.azureBlobStorage);
     }
     /**
-     * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
+     * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
      * 
      */
     public Optional<String> fileSystemLevel() {

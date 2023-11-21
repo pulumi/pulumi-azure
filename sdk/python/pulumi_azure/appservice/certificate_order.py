@@ -37,7 +37,7 @@ class CertificateOrderArgs:
         :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
+        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
@@ -151,7 +151,7 @@ class CertificateOrderArgs:
     @pulumi.getter(name="productType")
     def product_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate product type, such as `Standard` or `WildCard`.
+        Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         """
         return pulumi.get(self, "product_type")
 
@@ -222,7 +222,7 @@ class _CertificateOrderState:
         :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
+        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] root_thumbprint: Certificate thumbprint for root certificate.
         :param pulumi.Input[str] signed_certificate_thumbprint: Certificate thumbprint for signed certificate.
@@ -419,7 +419,7 @@ class _CertificateOrderState:
     @pulumi.getter(name="productType")
     def product_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificate product type, such as `Standard` or `WildCard`.
+        Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         """
         return pulumi.get(self, "product_type")
 
@@ -551,7 +551,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
+        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
@@ -692,7 +692,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[int] key_size: Certificate key size. Defaults to `2048`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         :param pulumi.Input[str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`.
+        :param pulumi.Input[str] product_type: Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] root_thumbprint: Certificate thumbprint for root certificate.
         :param pulumi.Input[str] signed_certificate_thumbprint: Certificate thumbprint for signed certificate.
@@ -827,7 +827,7 @@ class CertificateOrder(pulumi.CustomResource):
     @pulumi.getter(name="productType")
     def product_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Certificate product type, such as `Standard` or `WildCard`.
+        Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         """
         return pulumi.get(self, "product_type")
 

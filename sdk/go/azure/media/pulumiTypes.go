@@ -3652,13 +3652,13 @@ func (o LiveEventCrossSiteAccessPolicyPtrOutput) CrossDomainPolicy() pulumi.Stri
 }
 
 type LiveEventEncoding struct {
-	// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
-	// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+	// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
 	PresetName *string `pulumi:"presetName"`
 	// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
 	StretchMode *string `pulumi:"stretchMode"`
-	// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+	// Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
 	//
 	// > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 	Type *string `pulumi:"type"`
@@ -3676,13 +3676,13 @@ type LiveEventEncodingInput interface {
 }
 
 type LiveEventEncodingArgs struct {
-	// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+	// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
-	// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+	// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
 	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
 	// Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
 	StretchMode pulumi.StringPtrInput `pulumi:"stretchMode"`
-	// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+	// Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
 	//
 	// > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -3783,12 +3783,12 @@ func (o LiveEventEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[Li
 	}
 }
 
-// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
 func (o LiveEventEncodingOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
 
-// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
 func (o LiveEventEncodingOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.PresetName }).(pulumi.StringPtrOutput)
 }
@@ -3798,7 +3798,7 @@ func (o LiveEventEncodingOutput) StretchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.StretchMode }).(pulumi.StringPtrOutput)
 }
 
-// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+// Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
 //
 // > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 func (o LiveEventEncodingOutput) Type() pulumi.StringPtrOutput {
@@ -3835,7 +3835,7 @@ func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
 	}).(LiveEventEncodingOutput)
 }
 
-// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
 func (o LiveEventEncodingPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -3845,7 +3845,7 @@ func (o LiveEventEncodingPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+// The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
 func (o LiveEventEncodingPtrOutput) PresetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -3865,7 +3865,7 @@ func (o LiveEventEncodingPtrOutput) StretchMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+// Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
 //
 // > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
 func (o LiveEventEncodingPtrOutput) Type() pulumi.StringPtrOutput {
@@ -4876,7 +4876,7 @@ type ServiceAccountEncryption struct {
 	KeyVaultKeyIdentifier *string `pulumi:"keyVaultKeyIdentifier"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity *ServiceAccountEncryptionManagedIdentity `pulumi:"managedIdentity"`
-	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 	Type *string `pulumi:"type"`
 }
 
@@ -4898,7 +4898,7 @@ type ServiceAccountEncryptionArgs struct {
 	KeyVaultKeyIdentifier pulumi.StringPtrInput `pulumi:"keyVaultKeyIdentifier"`
 	// A `managedIdentity` block as defined below.
 	ManagedIdentity ServiceAccountEncryptionManagedIdentityPtrInput `pulumi:"managedIdentity"`
-	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+	// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -5012,7 +5012,7 @@ func (o ServiceAccountEncryptionOutput) ManagedIdentity() ServiceAccountEncrypti
 	return o.ApplyT(func(v ServiceAccountEncryption) *ServiceAccountEncryptionManagedIdentity { return v.ManagedIdentity }).(ServiceAccountEncryptionManagedIdentityPtrOutput)
 }
 
-// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 func (o ServiceAccountEncryptionOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAccountEncryption) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5077,7 +5077,7 @@ func (o ServiceAccountEncryptionPtrOutput) ManagedIdentity() ServiceAccountEncry
 	}).(ServiceAccountEncryptionManagedIdentityPtrOutput)
 }
 
-// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+// Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
 func (o ServiceAccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAccountEncryption) *string {
 		if v == nil {
@@ -10441,7 +10441,7 @@ type TransformOutputType struct {
 	CustomPreset *TransformOutputCustomPreset `pulumi:"customPreset"`
 	// A `faceDetectorPreset` block as defined above.
 	FaceDetectorPreset *TransformOutputFaceDetectorPreset `pulumi:"faceDetectorPreset"`
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
 	OnErrorAction *string `pulumi:"onErrorAction"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 	RelativePriority *string `pulumi:"relativePriority"`
@@ -10471,7 +10471,7 @@ type TransformOutputTypeArgs struct {
 	CustomPreset TransformOutputCustomPresetPtrInput `pulumi:"customPreset"`
 	// A `faceDetectorPreset` block as defined above.
 	FaceDetectorPreset TransformOutputFaceDetectorPresetPtrInput `pulumi:"faceDetectorPreset"`
-	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
 	OnErrorAction pulumi.StringPtrInput `pulumi:"onErrorAction"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
@@ -10570,7 +10570,7 @@ func (o TransformOutputTypeOutput) FaceDetectorPreset() TransformOutputFaceDetec
 	return o.ApplyT(func(v TransformOutputType) *TransformOutputFaceDetectorPreset { return v.FaceDetectorPreset }).(TransformOutputFaceDetectorPresetPtrOutput)
 }
 
-// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
 func (o TransformOutputTypeOutput) OnErrorAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputType) *string { return v.OnErrorAction }).(pulumi.StringPtrOutput)
 }
@@ -10813,7 +10813,7 @@ func (o TransformOutputAudioAnalyzerPresetPtrOutput) ExperimentalOptions() pulum
 }
 
 type TransformOutputBuiltinPreset struct {
-	// A `presentConfiguration` block as defined below.
+	// A `presetConfiguration` block as defined below.
 	PresetConfiguration *TransformOutputBuiltinPresetPresetConfiguration `pulumi:"presetConfiguration"`
 	// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
 	PresetName string `pulumi:"presetName"`
@@ -10831,7 +10831,7 @@ type TransformOutputBuiltinPresetInput interface {
 }
 
 type TransformOutputBuiltinPresetArgs struct {
-	// A `presentConfiguration` block as defined below.
+	// A `presetConfiguration` block as defined below.
 	PresetConfiguration TransformOutputBuiltinPresetPresetConfigurationPtrInput `pulumi:"presetConfiguration"`
 	// The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
 	PresetName pulumi.StringInput `pulumi:"presetName"`
@@ -10932,7 +10932,7 @@ func (o TransformOutputBuiltinPresetOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// A `presentConfiguration` block as defined below.
+// A `presetConfiguration` block as defined below.
 func (o TransformOutputBuiltinPresetOutput) PresetConfiguration() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
 	return o.ApplyT(func(v TransformOutputBuiltinPreset) *TransformOutputBuiltinPresetPresetConfiguration {
 		return v.PresetConfiguration
@@ -10974,7 +10974,7 @@ func (o TransformOutputBuiltinPresetPtrOutput) Elem() TransformOutputBuiltinPres
 	}).(TransformOutputBuiltinPresetOutput)
 }
 
-// A `presentConfiguration` block as defined below.
+// A `presetConfiguration` block as defined below.
 func (o TransformOutputBuiltinPresetPtrOutput) PresetConfiguration() TransformOutputBuiltinPresetPresetConfigurationPtrOutput {
 	return o.ApplyT(func(v *TransformOutputBuiltinPreset) *TransformOutputBuiltinPresetPresetConfiguration {
 		if v == nil {
@@ -12484,7 +12484,7 @@ func (o TransformOutputCustomPresetCodecDdAudioPtrOutput) SamplingRate() pulumi.
 type TransformOutputCustomPresetCodecH264Video struct {
 	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity *string `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
@@ -12514,7 +12514,7 @@ type TransformOutputCustomPresetCodecH264VideoInput interface {
 type TransformOutputCustomPresetCodecH264VideoArgs struct {
 	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -12630,7 +12630,7 @@ func (o TransformOutputCustomPresetCodecH264VideoOutput) Complexity() pulumi.Str
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecH264VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
@@ -12707,7 +12707,7 @@ func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) Complexity() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecH264VideoPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH264Video) *string {
 		if v == nil {
@@ -12784,7 +12784,7 @@ type TransformOutputCustomPresetCodecH264VideoLayer struct {
 	BFrames *int `pulumi:"bFrames"`
 	// The average bitrate in bits per second at which to encode the input video when generating this layer.
 	Bitrate int `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
 	BufferWindow *string `pulumi:"bufferWindow"`
 	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf *float64 `pulumi:"crf"`
@@ -12800,7 +12800,7 @@ type TransformOutputCustomPresetCodecH264VideoLayer struct {
 	Level *string `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
 	Profile *string `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames *int `pulumi:"referenceFrames"`
@@ -12828,7 +12828,7 @@ type TransformOutputCustomPresetCodecH264VideoLayerArgs struct {
 	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
 	// The average bitrate in bits per second at which to encode the input video when generating this layer.
 	Bitrate pulumi.IntInput `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
 	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
 	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf pulumi.Float64PtrInput `pulumi:"crf"`
@@ -12844,7 +12844,7 @@ type TransformOutputCustomPresetCodecH264VideoLayerArgs struct {
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
@@ -12938,7 +12938,7 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Bitrate() pulumi.I
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) int { return v.Bitrate }).(pulumi.IntOutput)
 }
 
-// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) BufferWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
 }
@@ -12978,7 +12978,7 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) MaxBitrate() pulum
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
 func (o TransformOutputCustomPresetCodecH264VideoLayerOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH264VideoLayer) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
@@ -13027,7 +13027,7 @@ func (o TransformOutputCustomPresetCodecH264VideoLayerArrayOutput) Index(i pulum
 type TransformOutputCustomPresetCodecH265Video struct {
 	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity *string `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
@@ -13055,7 +13055,7 @@ type TransformOutputCustomPresetCodecH265VideoInput interface {
 type TransformOutputCustomPresetCodecH265VideoArgs struct {
 	// The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
 	Complexity pulumi.StringPtrInput `pulumi:"complexity"`
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -13169,7 +13169,7 @@ func (o TransformOutputCustomPresetCodecH265VideoOutput) Complexity() pulumi.Str
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.Complexity }).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecH265VideoOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265Video) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
@@ -13241,7 +13241,7 @@ func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) Complexity() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecH265VideoPtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecH265Video) *string {
 		if v == nil {
@@ -13308,7 +13308,7 @@ type TransformOutputCustomPresetCodecH265VideoLayer struct {
 	BFrames *int `pulumi:"bFrames"`
 	// The average bitrate in bits per second at which to encode the input video when generating this layer.
 	Bitrate int `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
 	BufferWindow *string `pulumi:"bufferWindow"`
 	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf *float64 `pulumi:"crf"`
@@ -13322,7 +13322,7 @@ type TransformOutputCustomPresetCodecH265VideoLayer struct {
 	Level *string `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate *int `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
 	Profile *string `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames *int `pulumi:"referenceFrames"`
@@ -13350,7 +13350,7 @@ type TransformOutputCustomPresetCodecH265VideoLayerArgs struct {
 	BFrames pulumi.IntPtrInput `pulumi:"bFrames"`
 	// The average bitrate in bits per second at which to encode the input video when generating this layer.
 	Bitrate pulumi.IntInput `pulumi:"bitrate"`
-	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+	// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
 	BufferWindow pulumi.StringPtrInput `pulumi:"bufferWindow"`
 	// The value of CRF to be used when encoding this layer. This setting takes effect when `rateControlMode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
 	Crf pulumi.Float64PtrInput `pulumi:"crf"`
@@ -13364,7 +13364,7 @@ type TransformOutputCustomPresetCodecH265VideoLayerArgs struct {
 	Level pulumi.StringPtrInput `pulumi:"level"`
 	// The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
 	MaxBitrate pulumi.IntPtrInput `pulumi:"maxBitrate"`
-	// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+	// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
 	// The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
 	ReferenceFrames pulumi.IntPtrInput `pulumi:"referenceFrames"`
@@ -13458,7 +13458,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Bitrate() pulumi.I
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) int { return v.Bitrate }).(pulumi.IntOutput)
 }
 
-// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+// Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) BufferWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.BufferWindow }).(pulumi.StringPtrOutput)
 }
@@ -13493,7 +13493,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) MaxBitrate() pulum
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *int { return v.MaxBitrate }).(pulumi.IntPtrOutput)
 }
 
-// The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+// The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
 func (o TransformOutputCustomPresetCodecH265VideoLayerOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecH265VideoLayer) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
@@ -13540,7 +13540,7 @@ func (o TransformOutputCustomPresetCodecH265VideoLayerArrayOutput) Index(i pulum
 }
 
 type TransformOutputCustomPresetCodecJpgImage struct {
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
@@ -13572,7 +13572,7 @@ type TransformOutputCustomPresetCodecJpgImageInput interface {
 }
 
 type TransformOutputCustomPresetCodecJpgImageArgs struct {
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -13687,7 +13687,7 @@ func (o TransformOutputCustomPresetCodecJpgImageOutput) ToOutput(ctx context.Con
 	}
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecJpgImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecJpgImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
@@ -13764,7 +13764,7 @@ func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) Elem() TransformOutpu
 	}).(TransformOutputCustomPresetCodecJpgImageOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecJpgImagePtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecJpgImage) *string {
 		if v == nil {
@@ -14003,7 +14003,7 @@ func (o TransformOutputCustomPresetCodecJpgImageLayerArrayOutput) Index(i pulumi
 }
 
 type TransformOutputCustomPresetCodecPngImage struct {
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label *string `pulumi:"label"`
@@ -14033,7 +14033,7 @@ type TransformOutputCustomPresetCodecPngImageInput interface {
 }
 
 type TransformOutputCustomPresetCodecPngImageArgs struct {
-	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+	// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
 	// Specifies the label for the codec. The label can be used to control muxing behavior.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -14146,7 +14146,7 @@ func (o TransformOutputCustomPresetCodecPngImageOutput) ToOutput(ctx context.Con
 	}
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecPngImageOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputCustomPresetCodecPngImage) *string { return v.KeyFrameInterval }).(pulumi.StringPtrOutput)
 }
@@ -14218,7 +14218,7 @@ func (o TransformOutputCustomPresetCodecPngImagePtrOutput) Elem() TransformOutpu
 	}).(TransformOutputCustomPresetCodecPngImageOutput)
 }
 
-// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+// The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `syncMode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
 func (o TransformOutputCustomPresetCodecPngImagePtrOutput) KeyFrameInterval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformOutputCustomPresetCodecPngImage) *string {
 		if v == nil {

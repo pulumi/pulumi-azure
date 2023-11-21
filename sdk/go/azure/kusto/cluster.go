@@ -96,7 +96,7 @@ type Cluster struct {
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
 	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrOutput `pulumi:"outboundNetworkAccessRestricted"`
-	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
 	PublicIpType pulumi.StringPtrOutput `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -186,7 +186,7 @@ type clusterState struct {
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
 	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
 	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
-	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
 	PublicIpType *string `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -241,7 +241,7 @@ type ClusterState struct {
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
 	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
-	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
 	PublicIpType pulumi.StringPtrInput
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -298,7 +298,7 @@ type clusterArgs struct {
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
 	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
 	OutboundNetworkAccessRestricted *bool `pulumi:"outboundNetworkAccessRestricted"`
-	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
 	PublicIpType *string `pulumi:"publicIpType"`
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -350,7 +350,7 @@ type ClusterArgs struct {
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
 	// Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
 	OutboundNetworkAccessRestricted pulumi.BoolPtrInput
-	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+	// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
 	PublicIpType pulumi.StringPtrInput
 	// Is the public network access enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -552,7 +552,7 @@ func (o ClusterOutput) OutboundNetworkAccessRestricted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.OutboundNetworkAccessRestricted }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
 func (o ClusterOutput) PublicIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.PublicIpType }).(pulumi.StringPtrOutput)
 }

@@ -77,14 +77,14 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      * 
      */
     @Import(name="databaseRoutingType")
     private @Nullable Output<String> databaseRoutingType;
 
     /**
-     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+     * @return Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
      * 
      */
     public Optional<Output<String>> databaseRoutingType() {
@@ -332,7 +332,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class IotHubDataConnectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+         * @param databaseRoutingType Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
          * 
          * @return builder
          * 

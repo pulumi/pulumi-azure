@@ -102,14 +102,14 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.compatibilityLevel;
     }
     /**
-     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      * 
      */
     @Export(name="contentStoragePolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentStoragePolicy;
 
     /**
-     * @return The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`.
+     * @return The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`.
      * 
      */
     public Output<Optional<String>> contentStoragePolicy() {
@@ -130,28 +130,28 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.dataLocale;
     }
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      * 
      */
     @Export(name="eventsLateArrivalMaxDelayInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> eventsLateArrivalMaxDelayInSeconds;
 
     /**
-     * @return Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `0`.
+     * @return Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
      * 
      */
     public Output<Optional<Integer>> eventsLateArrivalMaxDelayInSeconds() {
         return Codegen.optional(this.eventsLateArrivalMaxDelayInSeconds);
     }
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      * 
      */
     @Export(name="eventsOutOfOrderMaxDelayInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> eventsOutOfOrderMaxDelayInSeconds;
 
     /**
-     * @return Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
+     * @return Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
      * 
      */
     public Output<Optional<Integer>> eventsOutOfOrderMaxDelayInSeconds() {

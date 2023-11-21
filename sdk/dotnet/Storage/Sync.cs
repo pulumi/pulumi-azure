@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Storage
     public partial class Sync : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         /// </summary>
         [Output("incomingTrafficPolicy")]
         public Output<string?> IncomingTrafficPolicy { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Storage
     public sealed class SyncArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         /// </summary>
         [Input("incomingTrafficPolicy")]
         public Input<string>? IncomingTrafficPolicy { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Storage
     public sealed class SyncState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
+        /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`.
         /// </summary>
         [Input("incomingTrafficPolicy")]
         public Input<string>? IncomingTrafficPolicy { get; set; }

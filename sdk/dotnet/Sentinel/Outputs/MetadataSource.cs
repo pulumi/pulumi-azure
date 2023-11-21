@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Sentinel.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The kind of the content source. Possible values are `LocalWorkspace`, `Communtity`, `Solution` and `SourceRepository`.
+        /// The kind of the content source. Possible values are `Community`, `LocalWorkspace`, `Solution` and `SourceRepository`.
         /// </summary>
         public readonly string Kind;
         /// <summary>

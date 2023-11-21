@@ -14,15 +14,15 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
     public sealed class ReplicatedVMUnmanagedDisk
     {
         /// <summary>
-        /// Id of disk that should be replicated.
+        /// Id of disk that should be replicated. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string DiskUri;
         /// <summary>
-        /// Storage account that should be used for caching.
+        /// Storage account that should be used for caching. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StagingStorageAccountId;
         /// <summary>
-        /// Storage account disk should belong to when a failover is done.
+        /// Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string TargetStorageAccountId;
 

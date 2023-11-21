@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? PrivateIpAddress { get; set; }
 
         /// <summary>
-        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        /// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
         /// </summary>
         [Input("privateIpAddressAllocation")]
         public Input<string>? PrivateIpAddressAllocation { get; set; }

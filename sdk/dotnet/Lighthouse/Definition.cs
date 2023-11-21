@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Lighthouse
     public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An authorization block as defined below.
+        /// An `authorization` block as defined below.
         /// </summary>
         [Output("authorizations")]
         public Output<ImmutableArray<Outputs.DefinitionAuthorization>> Authorizations { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Lighthouse
         private InputList<Inputs.DefinitionAuthorizationArgs>? _authorizations;
 
         /// <summary>
-        /// An authorization block as defined below.
+        /// An `authorization` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionAuthorizationArgs> Authorizations
         {
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Lighthouse
         private InputList<Inputs.DefinitionAuthorizationGetArgs>? _authorizations;
 
         /// <summary>
-        /// An authorization block as defined below.
+        /// An `authorization` block as defined below.
         /// </summary>
         public InputList<Inputs.DefinitionAuthorizationGetArgs> Authorizations
         {

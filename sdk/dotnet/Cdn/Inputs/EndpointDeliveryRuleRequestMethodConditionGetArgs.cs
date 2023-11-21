@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<bool>? NegateCondition { get; set; }
 
         /// <summary>
-        /// Valid values are `Equal`.
+        /// Valid values are `Equal`. Defaults to `Equal`.
         /// </summary>
         [Input("operator")]
         public Input<string>? Operator { get; set; }

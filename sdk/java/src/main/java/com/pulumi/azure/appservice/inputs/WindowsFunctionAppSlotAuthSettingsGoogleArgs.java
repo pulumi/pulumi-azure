@@ -62,14 +62,14 @@ public final class WindowsFunctionAppSlotAuthSettingsGoogleArgs extends com.pulu
     }
 
     /**
-     * an `oauth_scopes` block as detailed below.
+     * Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
      * 
      */
     @Import(name="oauthScopes")
     private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
      * 
      */
     public Optional<Output<List<String>>> oauthScopes() {
@@ -167,7 +167,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGoogleArgs extends com.pulu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGoogleArgs extends com.pulu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGoogleArgs extends com.pulu
         }
 
         /**
-         * @param oauthScopes an `oauth_scopes` block as detailed below.
+         * @param oauthScopes Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, &#34;openid&#34;, &#34;profile&#34;, and &#34;email&#34; are used as default scopes.
          * 
          * @return builder
          * 

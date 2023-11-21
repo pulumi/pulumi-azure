@@ -18,11 +18,11 @@ namespace Pulumi.Azure.DevTest.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+        /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? UseInVirtualMachineCreation;
         /// <summary>
-        /// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+        /// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? UsePublicIpAddress;
 

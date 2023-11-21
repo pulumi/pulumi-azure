@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TransformOutputBuiltinPreset {
     /**
-     * @return A `present_configuration` block as defined below.
+     * @return A `preset_configuration` block as defined below.
      * 
      */
     private @Nullable TransformOutputBuiltinPresetPresetConfiguration presetConfiguration;
@@ -25,7 +25,7 @@ public final class TransformOutputBuiltinPreset {
 
     private TransformOutputBuiltinPreset() {}
     /**
-     * @return A `present_configuration` block as defined below.
+     * @return A `preset_configuration` block as defined below.
      * 
      */
     public Optional<TransformOutputBuiltinPresetPresetConfiguration> presetConfiguration() {

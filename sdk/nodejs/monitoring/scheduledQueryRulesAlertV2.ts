@@ -70,7 +70,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface ScheduledQueryRulesAlertV2State {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -349,7 +349,7 @@ export interface ScheduledQueryRulesAlertV2Args {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. The default is `true`.
+     * Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**

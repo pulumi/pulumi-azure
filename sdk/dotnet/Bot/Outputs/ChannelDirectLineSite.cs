@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Bot.Outputs
     public sealed class ChannelDirectLineSite
     {
         /// <summary>
-        /// Enables/Disables this site. Enabled by default Defaults to `true`.
+        /// Enables/Disables this site. Defaults to `true`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
@@ -54,11 +54,11 @@ namespace Pulumi.Azure.Bot.Outputs
         /// </summary>
         public readonly bool? UserUploadEnabled;
         /// <summary>
-        /// Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+        /// Enables v1 of the Directline protocol for this site. Defaults to `true`.
         /// </summary>
         public readonly bool? V1Allowed;
         /// <summary>
-        /// Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+        /// Enables v3 of the Directline protocol for this site. Defaults to `true`.
         /// </summary>
         public readonly bool? V3Allowed;
 

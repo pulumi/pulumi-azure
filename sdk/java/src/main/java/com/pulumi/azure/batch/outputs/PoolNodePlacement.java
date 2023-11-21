@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolNodePlacement {
     /**
-     * @return The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing.
+     * @return The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
      * 
      */
     private @Nullable String policy;
 
     private PoolNodePlacement() {}
     /**
-     * @return The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing.
+     * @return The placement policy for allocating nodes in the pool. Values are: &#34;Regional&#34;: All nodes in the pool will be allocated in the same region; &#34;Zonal&#34;: Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to `Regional`.
      * 
      */
     public Optional<String> policy() {

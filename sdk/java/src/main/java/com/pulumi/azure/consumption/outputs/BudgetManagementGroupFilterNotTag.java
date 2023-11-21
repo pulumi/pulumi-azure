@@ -18,7 +18,7 @@ public final class BudgetManagementGroupFilterNotTag {
      */
     private String name;
     /**
-     * @return The operator to use for comparison. The allowed values are `In`.
+     * @return The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
      * 
      */
     private @Nullable String operator;
@@ -37,7 +37,7 @@ public final class BudgetManagementGroupFilterNotTag {
         return this.name;
     }
     /**
-     * @return The operator to use for comparison. The allowed values are `In`.
+     * @return The operator to use for comparison. The allowed values are `In`. Defaults to `In`.
      * 
      */
     public Optional<String> operator() {

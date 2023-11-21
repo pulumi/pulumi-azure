@@ -282,14 +282,14 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Source Control block as defined below
+     * A `source_control` block as defined below.
      * 
      */
     @Import(name="sourceControl")
     private @Nullable Output<AppServiceSourceControlArgs> sourceControl;
 
     /**
-     * @return A Source Control block as defined below
+     * @return A `source_control` block as defined below.
      * 
      */
     public Optional<Output<AppServiceSourceControlArgs>> sourceControl() {
@@ -737,7 +737,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A Source Control block as defined below
+         * @param sourceControl A `source_control` block as defined below.
          * 
          * @return builder
          * 
@@ -748,7 +748,7 @@ public final class AppServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceControl A Source Control block as defined below
+         * @param sourceControl A `source_control` block as defined below.
          * 
          * @return builder
          * 

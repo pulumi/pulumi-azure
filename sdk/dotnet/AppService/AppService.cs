@@ -228,7 +228,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<Outputs.AppServiceSiteCredential>> SiteCredentials { get; private set; } = null!;
 
         /// <summary>
-        /// A Source Control block as defined below
+        /// A `source_control` block as defined below.
         /// </summary>
         [Output("sourceControl")]
         public Output<Outputs.AppServiceSourceControl> SourceControl { get; private set; } = null!;
@@ -406,7 +406,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.AppServiceSiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
-        /// A Source Control block as defined below
+        /// A `source_control` block as defined below.
         /// </summary>
         [Input("sourceControl")]
         public Input<Inputs.AppServiceSourceControlArgs>? SourceControl { get; set; }
@@ -618,7 +618,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A Source Control block as defined below
+        /// A `source_control` block as defined below.
         /// </summary>
         [Input("sourceControl")]
         public Input<Inputs.AppServiceSourceControlGetArgs>? SourceControl { get; set; }

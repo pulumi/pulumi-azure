@@ -19,12 +19,10 @@ class VmwareReplicationPolicyAssociationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VmwareReplicationPolicyAssociation resource.
-        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new
-               association to be created.
+        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         :param pulumi.Input[str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
-        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be
-               created.
+        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be created.
         """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
@@ -35,8 +33,7 @@ class VmwareReplicationPolicyAssociationArgs:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Input[str]:
         """
-        The ID of the VMWare replication policy which to be associated. Changing this forces a new
-        association to be created.
+        The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "policy_id")
 
@@ -61,8 +58,7 @@ class VmwareReplicationPolicyAssociationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the replication policy association. Changing this forces a new association to be
-        created.
+        The name of the replication policy association. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "name")
 
@@ -79,10 +75,8 @@ class _VmwareReplicationPolicyAssociationState:
                  recovery_vault_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VmwareReplicationPolicyAssociation resources.
-        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be
-               created.
-        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new
-               association to be created.
+        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be created.
+        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         :param pulumi.Input[str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
         """
@@ -97,8 +91,7 @@ class _VmwareReplicationPolicyAssociationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the replication policy association. Changing this forces a new association to be
-        created.
+        The name of the replication policy association. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "name")
 
@@ -110,8 +103,7 @@ class _VmwareReplicationPolicyAssociationState:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the VMWare replication policy which to be associated. Changing this forces a new
-        association to be created.
+        The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "policy_id")
 
@@ -175,10 +167,8 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be
-               created.
-        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new
-               association to be created.
+        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be created.
+        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         :param pulumi.Input[str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
         """
@@ -273,10 +263,8 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be
-               created.
-        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new
-               association to be created.
+        :param pulumi.Input[str] name: The name of the replication policy association. Changing this forces a new association to be created.
+        :param pulumi.Input[str] policy_id: The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         :param pulumi.Input[str] recovery_vault_id: The ID of the Recovery Service Vault to which the policy should be associated.
                Changing this forces a new association to be created.
         """
@@ -293,8 +281,7 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the replication policy association. Changing this forces a new association to be
-        created.
+        The name of the replication policy association. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "name")
 
@@ -302,8 +289,7 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     @pulumi.getter(name="policyId")
     def policy_id(self) -> pulumi.Output[str]:
         """
-        The ID of the VMWare replication policy which to be associated. Changing this forces a new
-        association to be created.
+        The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
         """
         return pulumi.get(self, "policy_id")
 

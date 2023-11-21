@@ -44,7 +44,6 @@ public final class GetLinuxWebAppResult {
     private List<GetLinuxWebAppAuthSettingsV2> authSettingsV2s;
     /**
      * @return The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-     * *
      * 
      */
     private String availability;
@@ -93,6 +92,11 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private Boolean enabled;
+    /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    private Boolean ftpPublishBasicAuthenticationEnabled;
     /**
      * @return The ID of the App Service Environment used by App Service.
      * 
@@ -154,6 +158,10 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private String possibleOutboundIpAddresses;
+    /**
+     * @return Is Public Network Access enabled for this Linux Web App.
+     * 
+     */
     private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
@@ -196,6 +204,11 @@ public final class GetLinuxWebAppResult {
      * 
      */
     private String virtualNetworkSubnetId;
+    /**
+     * @return Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     * 
+     */
+    private Boolean webdeployPublishBasicAuthenticationEnabled;
 
     private GetLinuxWebAppResult() {}
     /**
@@ -228,7 +241,6 @@ public final class GetLinuxWebAppResult {
     }
     /**
      * @return The current availability state. Possible values are `Normal`, `Limited`, and `DisasterRecoveryMode`.
-     * *
      * 
      */
     public String availability() {
@@ -296,6 +308,13 @@ public final class GetLinuxWebAppResult {
      */
     public Boolean enabled() {
         return this.enabled;
+    }
+    /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Boolean ftpPublishBasicAuthenticationEnabled() {
+        return this.ftpPublishBasicAuthenticationEnabled;
     }
     /**
      * @return The ID of the App Service Environment used by App Service.
@@ -384,6 +403,10 @@ public final class GetLinuxWebAppResult {
     public String possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    /**
+     * @return Is Public Network Access enabled for this Linux Web App.
+     * 
+     */
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
@@ -446,6 +469,13 @@ public final class GetLinuxWebAppResult {
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }
+    /**
+     * @return Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Boolean webdeployPublishBasicAuthenticationEnabled() {
+        return this.webdeployPublishBasicAuthenticationEnabled;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -470,6 +500,7 @@ public final class GetLinuxWebAppResult {
         private String customDomainVerificationId;
         private String defaultHostname;
         private Boolean enabled;
+        private Boolean ftpPublishBasicAuthenticationEnabled;
         private String hostingEnvironmentId;
         private Boolean httpsOnly;
         private String id;
@@ -493,6 +524,7 @@ public final class GetLinuxWebAppResult {
         private Map<String,String> tags;
         private String usage;
         private String virtualNetworkSubnetId;
+        private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
         public Builder(GetLinuxWebAppResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -510,6 +542,7 @@ public final class GetLinuxWebAppResult {
     	      this.customDomainVerificationId = defaults.customDomainVerificationId;
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
+    	      this.ftpPublishBasicAuthenticationEnabled = defaults.ftpPublishBasicAuthenticationEnabled;
     	      this.hostingEnvironmentId = defaults.hostingEnvironmentId;
     	      this.httpsOnly = defaults.httpsOnly;
     	      this.id = defaults.id;
@@ -533,6 +566,7 @@ public final class GetLinuxWebAppResult {
     	      this.tags = defaults.tags;
     	      this.usage = defaults.usage;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
+    	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
 
         @CustomType.Setter
@@ -615,6 +649,11 @@ public final class GetLinuxWebAppResult {
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
+            this.ftpPublishBasicAuthenticationEnabled = Objects.requireNonNull(ftpPublishBasicAuthenticationEnabled);
             return this;
         }
         @CustomType.Setter
@@ -756,6 +795,11 @@ public final class GetLinuxWebAppResult {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
         }
+        @CustomType.Setter
+        public Builder webdeployPublishBasicAuthenticationEnabled(Boolean webdeployPublishBasicAuthenticationEnabled) {
+            this.webdeployPublishBasicAuthenticationEnabled = Objects.requireNonNull(webdeployPublishBasicAuthenticationEnabled);
+            return this;
+        }
         public GetLinuxWebAppResult build() {
             final var _resultValue = new GetLinuxWebAppResult();
             _resultValue.appMetadata = appMetadata;
@@ -772,6 +816,7 @@ public final class GetLinuxWebAppResult {
             _resultValue.customDomainVerificationId = customDomainVerificationId;
             _resultValue.defaultHostname = defaultHostname;
             _resultValue.enabled = enabled;
+            _resultValue.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             _resultValue.hostingEnvironmentId = hostingEnvironmentId;
             _resultValue.httpsOnly = httpsOnly;
             _resultValue.id = id;
@@ -795,6 +840,7 @@ public final class GetLinuxWebAppResult {
             _resultValue.tags = tags;
             _resultValue.usage = usage;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;
         }
     }

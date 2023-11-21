@@ -85,7 +85,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Display Name of the built-in Anomaly Alert Rule.
         /// 
         /// &gt; **Note:** One of `name` or `display_name` block must be specified.
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<Outputs.AlertRuleAnomalyBuiltInMultiSelectObservation>> MultiSelectObservations { get; private set; } = null!;
 
         /// <summary>
-        /// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.Sentinel
     public sealed class AlertRuleAnomalyBuiltInArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Display Name of the built-in Anomaly Alert Rule.
         /// 
         /// &gt; **Note:** One of `name` or `display_name` block must be specified.
         /// </summary>
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Display Name of the built-in Anomaly Alert Rule.
         /// 
         /// &gt; **Note:** One of `name` or `display_name` block must be specified.
         /// </summary>
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The Name of the built-in Anomaly Alert Rule. Changing this forces a new Built-in Anomaly Alert Rule to be created.
+        /// The Name of the built-in Anomaly Alert Rule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -22,7 +22,7 @@ public final class IntegrationRuntimeManagedCatalogInfo {
      */
     private @Nullable String administratorPassword;
     /**
-     * @return Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+     * @return Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
      * 
      */
     private @Nullable String pricingTier;
@@ -48,7 +48,7 @@ public final class IntegrationRuntimeManagedCatalogInfo {
         return Optional.ofNullable(this.administratorPassword);
     }
     /**
-     * @return Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
+     * @return Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
      * 
      */
     public Optional<String> pricingTier() {

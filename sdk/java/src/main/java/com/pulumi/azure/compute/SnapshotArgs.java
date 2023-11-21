@@ -73,14 +73,14 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if the Snapshot is incremental.
+     * Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="incrementalEnabled")
     private @Nullable Output<Boolean> incrementalEnabled;
 
     /**
-     * @return Specifies if the Snapshot is incremental.
+     * @return Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> incrementalEnabled() {
@@ -298,7 +298,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param incrementalEnabled Specifies if the Snapshot is incremental.
+         * @param incrementalEnabled Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param incrementalEnabled Specifies if the Snapshot is incremental.
+         * @param incrementalEnabled Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

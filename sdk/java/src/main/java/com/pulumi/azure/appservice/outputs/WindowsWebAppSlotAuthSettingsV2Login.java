@@ -17,7 +17,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Login {
     /**
      * @return External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
      * 
-     * * &gt; **Note:** URLs within the current domain are always implicitly allowed.
+     * &gt; **Note:** URLs within the current domain are always implicitly allowed.
      * 
      */
     private @Nullable List<String> allowedExternalRedirectUrls;
@@ -76,7 +76,7 @@ public final class WindowsWebAppSlotAuthSettingsV2Login {
     /**
      * @return External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
      * 
-     * * &gt; **Note:** URLs within the current domain are always implicitly allowed.
+     * &gt; **Note:** URLs within the current domain are always implicitly allowed.
      * 
      */
     public List<String> allowedExternalRedirectUrls() {

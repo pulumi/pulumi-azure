@@ -107,7 +107,8 @@ type ThreatIntelligenceIndicator struct {
 	// One or more `granularMarking` blocks as defined below.
 	GranularMarkings ThreatIntelligenceIndicatorGranularMarkingArrayOutput `pulumi:"granularMarkings"`
 	// The guid of this Sentinel Threat Intelligence Indicator.
-	Guid           pulumi.StringOutput      `pulumi:"guid"`
+	Guid pulumi.StringOutput `pulumi:"guid"`
+	// A list of indicator types of this Threat Intelligence Indicator.
 	IndicatorTypes pulumi.StringArrayOutput `pulumi:"indicatorTypes"`
 	// One or more `killChainPhase` blocks as defined below.
 	KillChainPhases ThreatIntelligenceIndicatorKillChainPhaseArrayOutput `pulumi:"killChainPhases"`
@@ -127,7 +128,7 @@ type ThreatIntelligenceIndicator struct {
 	PatternVersion pulumi.StringPtrOutput `pulumi:"patternVersion"`
 	// Whether the Threat Intelligence entity revoked.
 	Revoked pulumi.BoolPtrOutput `pulumi:"revoked"`
-	// Source of the Threat Intelligence Indicator.
+	// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Specifies a list of tags of the Threat Intelligence Indicator.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -212,7 +213,8 @@ type threatIntelligenceIndicatorState struct {
 	// One or more `granularMarking` blocks as defined below.
 	GranularMarkings []ThreatIntelligenceIndicatorGranularMarking `pulumi:"granularMarkings"`
 	// The guid of this Sentinel Threat Intelligence Indicator.
-	Guid           *string  `pulumi:"guid"`
+	Guid *string `pulumi:"guid"`
+	// A list of indicator types of this Threat Intelligence Indicator.
 	IndicatorTypes []string `pulumi:"indicatorTypes"`
 	// One or more `killChainPhase` blocks as defined below.
 	KillChainPhases []ThreatIntelligenceIndicatorKillChainPhase `pulumi:"killChainPhases"`
@@ -232,7 +234,7 @@ type threatIntelligenceIndicatorState struct {
 	PatternVersion *string `pulumi:"patternVersion"`
 	// Whether the Threat Intelligence entity revoked.
 	Revoked *bool `pulumi:"revoked"`
-	// Source of the Threat Intelligence Indicator.
+	// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Source *string `pulumi:"source"`
 	// Specifies a list of tags of the Threat Intelligence Indicator.
 	Tags []string `pulumi:"tags"`
@@ -270,7 +272,8 @@ type ThreatIntelligenceIndicatorState struct {
 	// One or more `granularMarking` blocks as defined below.
 	GranularMarkings ThreatIntelligenceIndicatorGranularMarkingArrayInput
 	// The guid of this Sentinel Threat Intelligence Indicator.
-	Guid           pulumi.StringPtrInput
+	Guid pulumi.StringPtrInput
+	// A list of indicator types of this Threat Intelligence Indicator.
 	IndicatorTypes pulumi.StringArrayInput
 	// One or more `killChainPhase` blocks as defined below.
 	KillChainPhases ThreatIntelligenceIndicatorKillChainPhaseArrayInput
@@ -290,7 +293,7 @@ type ThreatIntelligenceIndicatorState struct {
 	PatternVersion pulumi.StringPtrInput
 	// Whether the Threat Intelligence entity revoked.
 	Revoked pulumi.BoolPtrInput
-	// Source of the Threat Intelligence Indicator.
+	// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Source pulumi.StringPtrInput
 	// Specifies a list of tags of the Threat Intelligence Indicator.
 	Tags pulumi.StringArrayInput
@@ -337,7 +340,7 @@ type threatIntelligenceIndicatorArgs struct {
 	PatternVersion *string `pulumi:"patternVersion"`
 	// Whether the Threat Intelligence entity revoked.
 	Revoked *bool `pulumi:"revoked"`
-	// Source of the Threat Intelligence Indicator.
+	// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Source string `pulumi:"source"`
 	// Specifies a list of tags of the Threat Intelligence Indicator.
 	Tags []string `pulumi:"tags"`
@@ -381,7 +384,7 @@ type ThreatIntelligenceIndicatorArgs struct {
 	PatternVersion pulumi.StringPtrInput
 	// Whether the Threat Intelligence entity revoked.
 	Revoked pulumi.BoolPtrInput
-	// Source of the Threat Intelligence Indicator.
+	// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 	Source pulumi.StringInput
 	// Specifies a list of tags of the Threat Intelligence Indicator.
 	Tags pulumi.StringArrayInput
@@ -570,6 +573,7 @@ func (o ThreatIntelligenceIndicatorOutput) Guid() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Guid }).(pulumi.StringOutput)
 }
 
+// A list of indicator types of this Threat Intelligence Indicator.
 func (o ThreatIntelligenceIndicatorOutput) IndicatorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringArrayOutput { return v.IndicatorTypes }).(pulumi.StringArrayOutput)
 }
@@ -623,7 +627,7 @@ func (o ThreatIntelligenceIndicatorOutput) Revoked() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.BoolPtrOutput { return v.Revoked }).(pulumi.BoolPtrOutput)
 }
 
-// Source of the Threat Intelligence Indicator.
+// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
 func (o ThreatIntelligenceIndicatorOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }

@@ -18,7 +18,7 @@ public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
      */
     private Boolean enabled;
     /**
-     * @return Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+     * @return Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
      * 
      */
     private @Nullable String gracePeriod;
@@ -32,7 +32,7 @@ public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
         return this.enabled;
     }
     /**
-     * @return Amount of time (in minutes, between 30 and 90, defaults to 30 minutes) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+     * @return Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
      * 
      */
     public Optional<String> gracePeriod() {

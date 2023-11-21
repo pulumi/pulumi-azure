@@ -78,7 +78,7 @@ type LoadBalancer struct {
 
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// One or multiple `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayOutput `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -135,7 +135,7 @@ func GetLoadBalancer(ctx *pulumi.Context,
 type loadBalancerState struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// One or multiple `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -160,7 +160,7 @@ type loadBalancerState struct {
 type LoadBalancerState struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone pulumi.StringPtrInput
-	// One or multiple `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
 	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -189,7 +189,7 @@ func (LoadBalancerState) ElementType() reflect.Type {
 type loadBalancerArgs struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// One or multiple `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations []LoadBalancerFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
 	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -211,7 +211,7 @@ type loadBalancerArgs struct {
 type LoadBalancerArgs struct {
 	// Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
 	EdgeZone pulumi.StringPtrInput
-	// One or multiple `frontendIpConfiguration` blocks as documented below.
+	// One or more `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations LoadBalancerFrontendIpConfigurationArrayInput
 	// Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -345,7 +345,7 @@ func (o LoadBalancerOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// One or multiple `frontendIpConfiguration` blocks as documented below.
+// One or more `frontendIpConfiguration` blocks as documented below.
 func (o LoadBalancerOutput) FrontendIpConfigurations() LoadBalancerFrontendIpConfigurationArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerFrontendIpConfigurationArrayOutput {
 		return v.FrontendIpConfigurations

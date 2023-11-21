@@ -19,7 +19,7 @@ type ClusterExtensionIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -39,7 +39,7 @@ type ClusterExtensionIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -148,7 +148,7 @@ func (o ClusterExtensionIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExtensionIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o ClusterExtensionIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterExtensionIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -203,7 +203,7 @@ func (o ClusterExtensionIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o ClusterExtensionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExtensionIdentity) *string {
 		if v == nil {
@@ -218,7 +218,7 @@ type ClusterIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -238,7 +238,7 @@ type ClusterIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -347,7 +347,7 @@ func (o ClusterIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -402,7 +402,7 @@ func (o ClusterIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
 func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {

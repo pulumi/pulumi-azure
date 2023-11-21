@@ -23,14 +23,14 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
     public static final LiveEventArgs Empty = new LiveEventArgs();
 
     /**
-     * The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
+     * The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="autoStartEnabled")
     private @Nullable Output<Boolean> autoStartEnabled;
 
     /**
-     * @return The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
+     * @return The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> autoStartEnabled() {
@@ -286,7 +286,7 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
+         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class LiveEventArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
+         * @param autoStartEnabled The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

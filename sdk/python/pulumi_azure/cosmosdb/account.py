@@ -49,7 +49,7 @@ class AccountArgs:
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountGeoLocationArgs']]] geo_locations: Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location. Value is a `geo_location` block as defined below.
         :param pulumi.Input[str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -91,7 +91,7 @@ class AccountArgs:
                
                > **NOTE:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         pulumi.set(__self__, "consistency_policy", consistency_policy)
         pulumi.set(__self__, "geo_locations", geo_locations)
@@ -156,7 +156,7 @@ class AccountArgs:
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> pulumi.Input['AccountConsistencyPolicyArgs']:
         """
-        Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         """
         return pulumi.get(self, "consistency_policy")
 
@@ -528,7 +528,7 @@ class AccountArgs:
     @pulumi.getter(name="virtualNetworkRules")
     def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
         """
-        Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         return pulumi.get(self, "virtual_network_rules")
 
@@ -596,7 +596,7 @@ class _AccountState:
         :param pulumi.Input[Sequence[pulumi.Input['AccountCapabilityArgs']]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input['AccountCapacityArgs'] capacity: A `capacity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
-        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input['AccountConsistencyPolicyArgs'] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input['AccountCorsRuleArgs'] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
@@ -646,7 +646,7 @@ class _AccountState:
         :param pulumi.Input[str] secondary_readonly_sql_connection_string: Secondary readonly SQL connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_sql_connection_string: Secondary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
         """
         if access_key_metadata_writes_enabled is not None:
@@ -832,7 +832,7 @@ class _AccountState:
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> Optional[pulumi.Input['AccountConsistencyPolicyArgs']]:
         """
-        Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         """
         return pulumi.get(self, "consistency_policy")
 
@@ -1300,7 +1300,7 @@ class _AccountState:
     @pulumi.getter(name="virtualNetworkRules")
     def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountVirtualNetworkRuleArgs']]]]:
         """
-        Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         return pulumi.get(self, "virtual_network_rules")
 
@@ -1425,7 +1425,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AccountBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
@@ -1461,7 +1461,7 @@ class Account(pulumi.CustomResource):
                
                > **NOTE:** `restore` should be set when `create_mode` is `Restore`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         ...
     @overload
@@ -1711,7 +1711,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountCapabilityArgs']]]] capabilities: The capabilities which should be enabled for this Cosmos DB account. Value is a `capabilities` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountCapacityArgs']] capacity: A `capacity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connection_strings: A list of connection strings available for this CosmosDB account.
-        :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        :param pulumi.Input[pulumi.InputType['AccountConsistencyPolicyArgs']] consistency_policy: Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         :param pulumi.Input[pulumi.InputType['AccountCorsRuleArgs']] cors_rule: A `cors_rule` block as defined below.
         :param pulumi.Input[str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
@@ -1761,7 +1761,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_readonly_sql_connection_string: Secondary readonly SQL connection string for the CosmosDB Account.
         :param pulumi.Input[str] secondary_sql_connection_string: Secondary SQL connection string for the CosmosDB Account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountVirtualNetworkRuleArgs']]]] virtual_network_rules: Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_endpoints: A list of write endpoints available for this CosmosDB account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1877,7 +1877,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="consistencyPolicy")
     def consistency_policy(self) -> pulumi.Output['outputs.AccountConsistencyPolicy']:
         """
-        Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+        Specifies one `consistency_policy` block as defined below, used to define the consistency policy for this CosmosDB account.
         """
         return pulumi.get(self, "consistency_policy")
 
@@ -2193,7 +2193,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkRules")
     def virtual_network_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AccountVirtualNetworkRule']]]:
         """
-        Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        Specifies a `virtual_network_rule` block as defined below, used to define which subnets are allowed to access this CosmosDB account.
         """
         return pulumi.get(self, "virtual_network_rules")
 

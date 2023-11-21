@@ -15,6 +15,10 @@ import (
 
 // Manages a ServiceBus Namespace Network Rule Set.
 //
+// > The `servicebus.NamespaceNetworkRuleSet` resource is deprecated
+// and will be removed in version 4.0 of the AzureRM provider. Please use
+// `networkRuleSet` inside the `servicebus.Namespace` resource instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -108,7 +112,7 @@ import (
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
 
-	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrOutput `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayOutput `pulumi:"ipRules"`
@@ -157,7 +161,7 @@ func GetNamespaceNetworkRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceNetworkRuleSet resources.
 type namespaceNetworkRuleSetState struct {
-	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
@@ -174,7 +178,7 @@ type namespaceNetworkRuleSetState struct {
 }
 
 type NamespaceNetworkRuleSetState struct {
-	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrInput
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput
@@ -195,7 +199,7 @@ func (NamespaceNetworkRuleSetState) ElementType() reflect.Type {
 }
 
 type namespaceNetworkRuleSetArgs struct {
-	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules []string `pulumi:"ipRules"`
@@ -213,7 +217,7 @@ type namespaceNetworkRuleSetArgs struct {
 
 // The set of arguments for constructing a NamespaceNetworkRuleSet resource.
 type NamespaceNetworkRuleSetArgs struct {
-	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+	// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrInput
 	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
 	IpRules pulumi.StringArrayInput
@@ -340,7 +344,7 @@ func (o NamespaceNetworkRuleSetOutput) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
-// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+// Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 func (o NamespaceNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSet) pulumi.StringPtrOutput { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }

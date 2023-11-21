@@ -135,7 +135,7 @@ type AppConnection struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication AppConnectionAuthenticationOutput `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrOutput `pulumi:"clientType"`
 	// The ID of the data source function app. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringOutput `pulumi:"functionAppId"`
@@ -192,7 +192,7 @@ type appConnectionState struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication *AppConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType *string `pulumi:"clientType"`
 	// The ID of the data source function app. Changing this forces a new resource to be created.
 	FunctionAppId *string `pulumi:"functionAppId"`
@@ -211,7 +211,7 @@ type AppConnectionState struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication AppConnectionAuthenticationPtrInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrInput
 	// The ID of the data source function app. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringPtrInput
@@ -234,7 +234,7 @@ type appConnectionArgs struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication AppConnectionAuthentication `pulumi:"authentication"`
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType *string `pulumi:"clientType"`
 	// The ID of the data source function app. Changing this forces a new resource to be created.
 	FunctionAppId string `pulumi:"functionAppId"`
@@ -254,7 +254,7 @@ type AppConnectionArgs struct {
 	//
 	// > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
 	Authentication AppConnectionAuthenticationInput
-	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+	// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 	ClientType pulumi.StringPtrInput
 	// The ID of the data source function app. Changing this forces a new resource to be created.
 	FunctionAppId pulumi.StringInput
@@ -386,7 +386,7 @@ func (o AppConnectionOutput) Authentication() AppConnectionAuthenticationOutput 
 	return o.ApplyT(func(v *AppConnection) AppConnectionAuthenticationOutput { return v.Authentication }).(AppConnectionAuthenticationOutput)
 }
 
-// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`.
+// The application client type. Possible values are `none`, `dotnet`, `java`, `python`, `go`, `php`, `ruby`, `django`, `nodejs` and `springBoot`. Defaults to `none`.
 func (o AppConnectionOutput) ClientType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppConnection) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
 }

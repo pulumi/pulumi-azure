@@ -89,10 +89,16 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> RaiPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// A `scale` block as defined below. Changing this forces a new resource to be created.
+        /// A `scale` block as defined below.
         /// </summary>
         [Output("scale")]
         public Output<Outputs.DeploymentScale> Scale { get; private set; } = null!;
+
+        /// <summary>
+        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("versionUpgradeOption")]
+        public Output<string?> VersionUpgradeOption { get; private set; } = null!;
 
 
         /// <summary>
@@ -165,10 +171,16 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// A `scale` block as defined below. Changing this forces a new resource to be created.
+        /// A `scale` block as defined below.
         /// </summary>
         [Input("scale", required: true)]
         public Input<Inputs.DeploymentScaleArgs> Scale { get; set; } = null!;
+
+        /// <summary>
+        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("versionUpgradeOption")]
+        public Input<string>? VersionUpgradeOption { get; set; }
 
         public DeploymentArgs()
         {
@@ -203,10 +215,16 @@ namespace Pulumi.Azure.Cognitive
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// A `scale` block as defined below. Changing this forces a new resource to be created.
+        /// A `scale` block as defined below.
         /// </summary>
         [Input("scale")]
         public Input<Inputs.DeploymentScaleGetArgs>? Scale { get; set; }
+
+        /// <summary>
+        /// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("versionUpgradeOption")]
+        public Input<string>? VersionUpgradeOption { get; set; }
 
         public DeploymentState()
         {

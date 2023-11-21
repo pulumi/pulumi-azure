@@ -17,14 +17,14 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
     public static final FhirServiceAuthenticationArgs Empty = new FhirServiceAuthenticationArgs();
 
     /**
-     * The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+     * The intended audience to receive authentication tokens for the service.
      * 
      */
     @Import(name="audience", required=true)
     private Output<String> audience;
 
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+     * @return The intended audience to receive authentication tokens for the service.
      * 
      */
     public Output<String> audience() {
@@ -80,7 +80,7 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param audience The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+         * @param audience The intended audience to receive authentication tokens for the service.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class FhirServiceAuthenticationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param audience The intended audience to receive authentication tokens for the service. The default value is `https://&lt;name&gt;.fhir.azurehealthcareapis.com`.
+         * @param audience The intended audience to receive authentication tokens for the service.
          * 
          * @return builder
          * 

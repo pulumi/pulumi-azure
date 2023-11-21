@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppInsights.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.StandardWebTestRequestHeader> Headers;
         /// <summary>
-        /// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'.
+        /// Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to `GET`.
         /// </summary>
         public readonly string? HttpVerb;
         /// <summary>

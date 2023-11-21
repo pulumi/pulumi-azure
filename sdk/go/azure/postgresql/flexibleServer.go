@@ -135,7 +135,7 @@ type FlexibleServer struct {
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
@@ -161,7 +161,7 @@ type FlexibleServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrOutput `pulumi:"pointInTimeRestoreTimeInUtc"`
-	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
 	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
@@ -181,7 +181,7 @@ type FlexibleServer struct {
 	StorageMb pulumi.IntOutput `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version pulumi.StringOutput    `pulumi:"version"`
@@ -242,7 +242,7 @@ type flexibleServerState struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode *string `pulumi:"createMode"`
@@ -268,7 +268,7 @@ type flexibleServerState struct {
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
-	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
 	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
@@ -288,7 +288,7 @@ type flexibleServerState struct {
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -310,7 +310,7 @@ type FlexibleServerState struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode pulumi.StringPtrInput
@@ -336,7 +336,7 @@ type FlexibleServerState struct {
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
-	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
 	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
@@ -356,7 +356,7 @@ type FlexibleServerState struct {
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version pulumi.StringPtrInput
@@ -382,7 +382,7 @@ type flexibleServerArgs struct {
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode *string `pulumi:"createMode"`
@@ -406,7 +406,7 @@ type flexibleServerArgs struct {
 	Name *string `pulumi:"name"`
 	// The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc *string `pulumi:"pointInTimeRestoreTimeInUtc"`
-	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
 	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
@@ -424,7 +424,7 @@ type flexibleServerArgs struct {
 	StorageMb *int `pulumi:"storageMb"`
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -447,7 +447,7 @@ type FlexibleServerArgs struct {
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
 	//
 	// > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 	CreateMode pulumi.StringPtrInput
@@ -471,7 +471,7 @@ type FlexibleServerArgs struct {
 	Name pulumi.StringPtrInput
 	// The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	PointInTimeRestoreTimeInUtc pulumi.StringPtrInput
-	// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 	//
 	// > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 	PrivateDnsZoneId pulumi.StringPtrInput
@@ -489,7 +489,7 @@ type FlexibleServerArgs struct {
 	StorageMb pulumi.IntPtrInput
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
 	//
 	// > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 	Version pulumi.StringPtrInput
@@ -636,7 +636,7 @@ func (o FlexibleServerOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.IntOutput { return v.BackupRetentionDays }).(pulumi.IntOutput)
 }
 
-// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
 //
 // > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
 func (o FlexibleServerOutput) CreateMode() pulumi.StringPtrOutput {
@@ -695,7 +695,7 @@ func (o FlexibleServerOutput) PointInTimeRestoreTimeInUtc() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringPtrOutput { return v.PointInTimeRestoreTimeInUtc }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The ID of the private DNS zone to create the PostgreSQL Flexible Server.
 //
 // > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
 func (o FlexibleServerOutput) PrivateDnsZoneId() pulumi.StringOutput {
@@ -739,7 +739,7 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
 //
 // > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {

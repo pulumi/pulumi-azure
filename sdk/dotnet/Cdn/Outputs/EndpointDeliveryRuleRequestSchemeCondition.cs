@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly bool? NegateCondition;
         /// <summary>
-        /// Valid values are `Equal`.
+        /// Valid values are `Equal`. Defaults to `Equal`.
         /// </summary>
         public readonly string? Operator;
 

@@ -281,7 +281,7 @@ type VirtualNetworkGatewayConnection struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringOutput `pulumi:"connectionProtocol"`
-	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput `pulumi:"customBgpAddresses"`
@@ -388,7 +388,7 @@ type virtualNetworkGatewayConnectionState struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
-	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
@@ -446,7 +446,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
-	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
@@ -508,7 +508,7 @@ type virtualNetworkGatewayConnectionArgs struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol *string `pulumi:"connectionProtocol"`
-	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses *VirtualNetworkGatewayConnectionCustomBgpAddresses `pulumi:"customBgpAddresses"`
@@ -567,7 +567,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// The IKE protocol version to use. Possible values are `IKEv1` and `IKEv2`, values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`. Changing this forces a new resource to be created.
 	// > **Note:** Only valid for `IPSec` connections on virtual network gateways with SKU `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ` or `VpnGw3AZ`.
 	ConnectionProtocol pulumi.StringPtrInput
-	// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+	// A `customBgpAddresses` block which is documented below.
 	// The block can only be used on `IPSec` / `activeactive` connections,
 	// For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 	CustomBgpAddresses VirtualNetworkGatewayConnectionCustomBgpAddressesPtrInput
@@ -744,7 +744,7 @@ func (o VirtualNetworkGatewayConnectionOutput) ConnectionProtocol() pulumi.Strin
 	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.ConnectionProtocol }).(pulumi.StringOutput)
 }
 
-// A `customBgpAddresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+// A `customBgpAddresses` block which is documented below.
 // The block can only be used on `IPSec` / `activeactive` connections,
 // For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
 func (o VirtualNetworkGatewayConnectionOutput) CustomBgpAddresses() VirtualNetworkGatewayConnectionCustomBgpAddressesPtrOutput {

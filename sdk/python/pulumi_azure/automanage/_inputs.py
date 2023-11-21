@@ -298,7 +298,7 @@ class ConfigurationBackupRetentionPolicyArgs:
                  weekly_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs']] = None):
         """
         :param pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgs'] daily_schedule: A `daily_schedule` block as defined below.
-        :param pulumi.Input[str] retention_policy_type: The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+        :param pulumi.Input[str] retention_policy_type: The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
         :param pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs'] weekly_schedule: A `weekly_schedule` block as defined below.
         """
         if daily_schedule is not None:
@@ -324,7 +324,7 @@ class ConfigurationBackupRetentionPolicyArgs:
     @pulumi.getter(name="retentionPolicyType")
     def retention_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+        The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
         """
         return pulumi.get(self, "retention_policy_type")
 
@@ -391,7 +391,7 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
                  duration_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] count: The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
-        :param pulumi.Input[str] duration_type: The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+        :param pulumi.Input[str] duration_type: The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -414,7 +414,7 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
     @pulumi.getter(name="durationType")
     def duration_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+        The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
         """
         return pulumi.get(self, "duration_type")
 
@@ -469,7 +469,7 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
                  duration_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] count: The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
-        :param pulumi.Input[str] duration_type: The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+        :param pulumi.Input[str] duration_type: The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -492,7 +492,7 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
     @pulumi.getter(name="durationType")
     def duration_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`.
+        The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
         """
         return pulumi.get(self, "duration_type")
 
@@ -509,7 +509,7 @@ class ConfigurationBackupSchedulePolicyArgs:
                  schedule_run_frequency: Optional[pulumi.Input[str]] = None,
                  schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] schedule_policy_type: The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+        :param pulumi.Input[str] schedule_policy_type: The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_days: The schedule run days of the backup policy. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         :param pulumi.Input[str] schedule_run_frequency: The schedule run frequency of the backup policy. Possible values are `Daily` and `Weekly`. Defaults to `Daily`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: The schedule run times of the backup policy.
@@ -527,7 +527,7 @@ class ConfigurationBackupSchedulePolicyArgs:
     @pulumi.getter(name="schedulePolicyType")
     def schedule_policy_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+        The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
         """
         return pulumi.get(self, "schedule_policy_type")
 

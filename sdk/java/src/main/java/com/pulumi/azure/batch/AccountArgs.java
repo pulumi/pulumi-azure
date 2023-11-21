@@ -38,14 +38,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      * 
      */
     @Import(name="encryption")
     private @Nullable Output<AccountEncryptionArgs> encryption;
 
     /**
-     * @return Specifies if customer managed key encryption should be used to encrypt batch account data.
+     * @return Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
      * 
      */
     public Optional<Output<AccountEncryptionArgs>> encryption() {
@@ -321,7 +321,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryption Specifies if customer managed key encryption should be used to encrypt batch account data.
+         * @param encryption Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryption Specifies if customer managed key encryption should be used to encrypt batch account data.
+         * @param encryption Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
          * 
          * @return builder
          * 

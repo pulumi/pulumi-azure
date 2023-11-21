@@ -18,7 +18,7 @@ public final class ImageDataDisk {
      */
     private @Nullable String blobUri;
     /**
-     * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+     * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
      * 
      */
     private @Nullable String caching;
@@ -47,7 +47,7 @@ public final class ImageDataDisk {
         return Optional.ofNullable(this.blobUri);
     }
     /**
-     * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
+     * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. Defaults to `None`.
      * 
      */
     public Optional<String> caching() {

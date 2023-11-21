@@ -71,7 +71,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
     }
 
     /**
-     * The action to take on the rule being triggered.
+     * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      */
     public readonly action!: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
      */
     public readonly category!: pulumi.Output<outputs.paloalto.LocalRulestackRuleCategory | undefined>;
     /**
-     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      */
     public readonly decryptionRuleType!: pulumi.Output<string | undefined>;
     /**
@@ -231,7 +231,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
  */
 export interface LocalRulestackRuleState {
     /**
-     * The action to take on the rule being triggered.
+     * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      */
     action?: pulumi.Input<string>;
     /**
@@ -247,7 +247,7 @@ export interface LocalRulestackRuleState {
      */
     category?: pulumi.Input<inputs.paloalto.LocalRulestackRuleCategory>;
     /**
-     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      */
     decryptionRuleType?: pulumi.Input<string>;
     /**
@@ -315,7 +315,7 @@ export interface LocalRulestackRuleState {
  */
 export interface LocalRulestackRuleArgs {
     /**
-     * The action to take on the rule being triggered.
+     * The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
      */
     action: pulumi.Input<string>;
     /**
@@ -331,7 +331,7 @@ export interface LocalRulestackRuleArgs {
      */
     category?: pulumi.Input<inputs.paloalto.LocalRulestackRuleCategory>;
     /**
-     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None` Defaults to `None`.
+     * The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
      */
     decryptionRuleType?: pulumi.Input<string>;
     /**

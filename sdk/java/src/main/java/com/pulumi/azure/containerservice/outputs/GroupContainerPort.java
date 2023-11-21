@@ -18,7 +18,7 @@ public final class GroupContainerPort {
      */
     private @Nullable Integer port;
     /**
-     * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
      * 
      * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
      * 
@@ -34,7 +34,7 @@ public final class GroupContainerPort {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
+     * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created. Defaults to `TCP`.
      * 
      * &gt; **Note:** Omitting these blocks will default the exposed ports on the group to all ports on all containers defined in the `container` blocks of this group.
      * 

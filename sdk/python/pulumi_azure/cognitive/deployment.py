@@ -20,14 +20,16 @@ class DeploymentArgs:
                  model: pulumi.Input['DeploymentModelArgs'],
                  scale: pulumi.Input['DeploymentScaleArgs'],
                  name: Optional[pulumi.Input[str]] = None,
-                 rai_policy_name: Optional[pulumi.Input[str]] = None):
+                 rai_policy_name: Optional[pulumi.Input[str]] = None,
+                 version_upgrade_option: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
+        :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
         pulumi.set(__self__, "model", model)
@@ -36,6 +38,8 @@ class DeploymentArgs:
             pulumi.set(__self__, "name", name)
         if rai_policy_name is not None:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -65,7 +69,7 @@ class DeploymentArgs:
     @pulumi.getter
     def scale(self) -> pulumi.Input['DeploymentScaleArgs']:
         """
-        A `scale` block as defined below. Changing this forces a new resource to be created.
+        A `scale` block as defined below.
         """
         return pulumi.get(self, "scale")
 
@@ -97,6 +101,18 @@ class DeploymentArgs:
     def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rai_policy_name", value)
 
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version_upgrade_option")
+
+    @version_upgrade_option.setter
+    def version_upgrade_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_upgrade_option", value)
+
 
 @pulumi.input_type
 class _DeploymentState:
@@ -105,14 +121,16 @@ class _DeploymentState:
                  model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None):
+                 scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
+                 version_upgrade_option: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input['DeploymentModelArgs'] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['DeploymentScaleArgs'] scale: A `scale` block as defined below.
+        :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
         """
         if cognitive_account_id is not None:
             pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
@@ -124,6 +142,8 @@ class _DeploymentState:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale is not None:
             pulumi.set(__self__, "scale", scale)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -177,13 +197,25 @@ class _DeploymentState:
     @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['DeploymentScaleArgs']]:
         """
-        A `scale` block as defined below. Changing this forces a new resource to be created.
+        A `scale` block as defined below.
         """
         return pulumi.get(self, "scale")
 
     @scale.setter
     def scale(self, value: Optional[pulumi.Input['DeploymentScaleArgs']]):
         pulumi.set(self, "scale", value)
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[pulumi.Input[str]]:
+        """
+        Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version_upgrade_option")
+
+    @version_upgrade_option.setter
+    def version_upgrade_option(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_upgrade_option", value)
 
 
 class Deployment(pulumi.CustomResource):
@@ -196,6 +228,7 @@ class Deployment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
                  scale: Optional[pulumi.Input[pulumi.InputType['DeploymentScaleArgs']]] = None,
+                 version_upgrade_option: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Cognitive Services Account Deployment.
@@ -238,7 +271,8 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentModelArgs']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below.
+        :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -301,6 +335,7 @@ class Deployment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
                  scale: Optional[pulumi.Input[pulumi.InputType['DeploymentScaleArgs']]] = None,
+                 version_upgrade_option: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,6 +356,7 @@ class Deployment(pulumi.CustomResource):
             if scale is None and not opts.urn:
                 raise TypeError("Missing required property 'scale'")
             __props__.__dict__["scale"] = scale
+            __props__.__dict__["version_upgrade_option"] = version_upgrade_option
         super(Deployment, __self__).__init__(
             'azure:cognitive/deployment:Deployment',
             resource_name,
@@ -335,7 +371,8 @@ class Deployment(pulumi.CustomResource):
             model: Optional[pulumi.Input[pulumi.InputType['DeploymentModelArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rai_policy_name: Optional[pulumi.Input[str]] = None,
-            scale: Optional[pulumi.Input[pulumi.InputType['DeploymentScaleArgs']]] = None) -> 'Deployment':
+            scale: Optional[pulumi.Input[pulumi.InputType['DeploymentScaleArgs']]] = None,
+            version_upgrade_option: Optional[pulumi.Input[str]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -347,7 +384,8 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeploymentModelArgs']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['DeploymentScaleArgs']] scale: A `scale` block as defined below.
+        :param pulumi.Input[str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -358,6 +396,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["rai_policy_name"] = rai_policy_name
         __props__.__dict__["scale"] = scale
+        __props__.__dict__["version_upgrade_option"] = version_upgrade_option
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -396,7 +435,15 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def scale(self) -> pulumi.Output['outputs.DeploymentScale']:
         """
-        A `scale` block as defined below. Changing this forces a new resource to be created.
+        A `scale` block as defined below.
         """
         return pulumi.get(self, "scale")
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> pulumi.Output[Optional[str]]:
+        """
+        Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "version_upgrade_option")
 

@@ -31,7 +31,7 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Is automated publishing enabled? Defaults to `false`.
+        /// Is automated publishing enabled? Defaults to `true`.
         /// </summary>
         [Input("publishingEnabled")]
         public Input<bool>? PublishingEnabled { get; set; }

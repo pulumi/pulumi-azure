@@ -14,15 +14,15 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames
     {
         /// <summary>
-        /// A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+        /// A list of alternative DNS names (FQDNs) identified by the Certificate.
         /// </summary>
         public readonly ImmutableArray<string> DnsNames;
         /// <summary>
-        /// A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+        /// A list of email addresses identified by this Certificate.
         /// </summary>
         public readonly ImmutableArray<string> Emails;
         /// <summary>
-        /// A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        /// A list of User Principal Names identified by the Certificate.
         /// </summary>
         public readonly ImmutableArray<string> Upns;
 

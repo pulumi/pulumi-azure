@@ -75,7 +75,7 @@ export class HybridConnection extends pulumi.CustomResource {
      */
     public readonly relayNamespaceName!: pulumi.Output<string>;
     /**
-     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+     * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      */
     public readonly requiresClientAuthorization!: pulumi.Output<boolean | undefined>;
     /**
@@ -137,7 +137,7 @@ export interface HybridConnectionState {
      */
     relayNamespaceName?: pulumi.Input<string>;
     /**
-     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+     * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      */
     requiresClientAuthorization?: pulumi.Input<boolean>;
     /**
@@ -163,7 +163,7 @@ export interface HybridConnectionArgs {
      */
     relayNamespaceName: pulumi.Input<string>;
     /**
-     * Specify if client authorization is needed for this hybrid connection. True by default. Changing this forces a new resource to be created. Defaults to `true`.
+     * Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`.
      */
     requiresClientAuthorization?: pulumi.Input<boolean>;
     /**

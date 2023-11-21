@@ -14,62 +14,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertificateCertificatePolicyKeyProperties {
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
      * 
      */
     private @Nullable String curve;
     /**
-     * @return Is this certificate exportable? Changing this forces a new resource to be created.
+     * @return Is this certificate exportable?
      * 
      */
     private Boolean exportable;
     /**
-     * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+     * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
      * 
      */
     private @Nullable Integer keySize;
     /**
-     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
      * 
      */
     private String keyType;
     /**
-     * @return Is the key reusable? Changing this forces a new resource to be created.
+     * @return Is the key reusable?
      * 
      */
     private Boolean reuseKey;
 
     private CertificateCertificatePolicyKeyProperties() {}
     /**
-     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
      * 
      */
     public Optional<String> curve() {
         return Optional.ofNullable(this.curve);
     }
     /**
-     * @return Is this certificate exportable? Changing this forces a new resource to be created.
+     * @return Is this certificate exportable?
      * 
      */
     public Boolean exportable() {
         return this.exportable;
     }
     /**
-     * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
+     * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
      * 
      */
     public Optional<Integer> keySize() {
         return Optional.ofNullable(this.keySize);
     }
     /**
-     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`. Changing this forces a new resource to be created.
+     * @return Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
      * 
      */
     public String keyType() {
         return this.keyType;
     }
     /**
-     * @return Is the key reusable? Changing this forces a new resource to be created.
+     * @return Is the key reusable?
      * 
      */
     public Boolean reuseKey() {

@@ -59,7 +59,7 @@ namespace Pulumi.Azure.CostManagement
         public Output<int?> DayOfMonth { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         [Output("daysOfWeeks")]
         public Output<ImmutableArray<string>> DaysOfWeeks { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Azure.CostManagement
         public Output<string> StartDate { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Cost Management View that is used by the Scheduled Action.
+        /// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         /// </summary>
         [Output("viewId")]
         public Output<string> ViewId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         /// </summary>
         [Output("weeksOfMonths")]
         public Output<ImmutableArray<string>> WeeksOfMonths { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Azure.CostManagement
         private InputList<string>? _daysOfWeeks;
 
         /// <summary>
-        /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         public InputList<string> DaysOfWeeks
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Azure.CostManagement
         public Input<string> StartDate { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Cost Management View that is used by the Scheduled Action.
+        /// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         /// </summary>
         [Input("viewId", required: true)]
         public Input<string> ViewId { get; set; } = null!;
@@ -276,7 +276,7 @@ namespace Pulumi.Azure.CostManagement
         private InputList<string>? _weeksOfMonths;
 
         /// <summary>
-        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         /// </summary>
         public InputList<string> WeeksOfMonths
         {
@@ -302,7 +302,7 @@ namespace Pulumi.Azure.CostManagement
         private InputList<string>? _daysOfWeeks;
 
         /// <summary>
-        /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         /// </summary>
         public InputList<string> DaysOfWeeks
         {
@@ -377,7 +377,7 @@ namespace Pulumi.Azure.CostManagement
         public Input<string>? StartDate { get; set; }
 
         /// <summary>
-        /// The ID of the Cost Management View that is used by the Scheduled Action.
+        /// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         /// </summary>
         [Input("viewId")]
         public Input<string>? ViewId { get; set; }
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.CostManagement
         private InputList<string>? _weeksOfMonths;
 
         /// <summary>
-        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         /// </summary>
         public InputList<string> WeeksOfMonths
         {

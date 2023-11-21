@@ -151,6 +151,9 @@ namespace Pulumi.Azure.Media
         [Output("outputSnapTimeInSeconds")]
         public Output<int?> OutputSnapTimeInSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Output("rewindWindowDuration")]
         public Output<string?> RewindWindowDuration { get; private set; } = null!;
 
@@ -248,6 +251,9 @@ namespace Pulumi.Azure.Media
         [Input("outputSnapTimeInSeconds")]
         public Input<int>? OutputSnapTimeInSeconds { get; set; }
 
+        /// <summary>
+        /// `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("rewindWindowDuration")]
         public Input<string>? RewindWindowDuration { get; set; }
 
@@ -307,6 +313,9 @@ namespace Pulumi.Azure.Media
         [Input("outputSnapTimeInSeconds")]
         public Input<int>? OutputSnapTimeInSeconds { get; set; }
 
+        /// <summary>
+        /// `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created.
+        /// </summary>
         [Input("rewindWindowDuration")]
         public Input<string>? RewindWindowDuration { get; set; }
 

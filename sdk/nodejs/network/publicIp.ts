@@ -105,7 +105,7 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public readonly ipTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
      * > **Note** Only `static` IP address allocation is supported for IPv6.
      */
@@ -265,7 +265,7 @@ export interface PublicIpState {
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
      * > **Note** Only `static` IP address allocation is supported for IPv6.
      */
@@ -353,7 +353,7 @@ export interface PublicIpArgs {
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
      * > **Note** Only `static` IP address allocation is supported for IPv6.
      */

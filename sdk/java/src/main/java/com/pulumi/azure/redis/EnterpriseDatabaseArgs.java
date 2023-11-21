@@ -19,14 +19,14 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     public static final EnterpriseDatabaseArgs Empty = new EnterpriseDatabaseArgs();
 
     /**
-     * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+     * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     @Import(name="clientProtocol")
     private @Nullable Output<String> clientProtocol;
 
     /**
-     * @return Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+     * @return Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     public Optional<Output<String>> clientProtocol() {
@@ -49,14 +49,14 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+     * Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     @Import(name="clusteringPolicy")
     private @Nullable Output<String> clusteringPolicy;
 
     /**
-     * @return Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+     * @return Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
     public Optional<Output<String>> clusteringPolicy() {
@@ -64,14 +64,14 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+     * Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
      * 
      */
     @Import(name="evictionPolicy")
     private @Nullable Output<String> evictionPolicy;
 
     /**
-     * @return Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+     * @return Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -218,7 +218,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientProtocol Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param clientProtocol Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientProtocol Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param clientProtocol Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clusteringPolicy Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param clusteringPolicy Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clusteringPolicy Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param clusteringPolicy Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param evictionPolicy Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param evictionPolicy Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class EnterpriseDatabaseArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param evictionPolicy Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+         * @param evictionPolicy Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
          * 
          * @return builder
          * 

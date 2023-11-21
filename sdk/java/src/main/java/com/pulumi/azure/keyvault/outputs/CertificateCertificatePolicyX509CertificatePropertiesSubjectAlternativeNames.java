@@ -12,38 +12,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames {
     /**
-     * @return A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+     * @return A list of alternative DNS names (FQDNs) identified by the Certificate.
      * 
      */
     private @Nullable List<String> dnsNames;
     /**
-     * @return A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+     * @return A list of email addresses identified by this Certificate.
      * 
      */
     private @Nullable List<String> emails;
     /**
-     * @return A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+     * @return A list of User Principal Names identified by the Certificate.
      * 
      */
     private @Nullable List<String> upns;
 
     private CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames() {}
     /**
-     * @return A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+     * @return A list of alternative DNS names (FQDNs) identified by the Certificate.
      * 
      */
     public List<String> dnsNames() {
         return this.dnsNames == null ? List.of() : this.dnsNames;
     }
     /**
-     * @return A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+     * @return A list of email addresses identified by this Certificate.
      * 
      */
     public List<String> emails() {
         return this.emails == null ? List.of() : this.emails;
     }
     /**
-     * @return A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+     * @return A list of User Principal Names identified by the Certificate.
      * 
      */
     public List<String> upns() {

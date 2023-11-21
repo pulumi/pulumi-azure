@@ -72,7 +72,7 @@ import (
 type Environment struct {
 	pulumi.CustomResourceState
 
-	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrOutput `pulumi:"daprApplicationInsightsConnectionString"`
 	// The default, publicly resolvable, name of this Container App Environment.
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
@@ -148,7 +148,7 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
-	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
 	// The default, publicly resolvable, name of this Container App Environment.
 	DefaultDomain *string `pulumi:"defaultDomain"`
@@ -185,7 +185,7 @@ type environmentState struct {
 }
 
 type EnvironmentState struct {
-	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
 	// The default, publicly resolvable, name of this Container App Environment.
 	DefaultDomain pulumi.StringPtrInput
@@ -226,7 +226,7 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
@@ -254,7 +254,7 @@ type environmentArgs struct {
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
@@ -391,7 +391,7 @@ func (o EnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Environ
 	}
 }
 
-// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 func (o EnvironmentOutput) DaprApplicationInsightsConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.DaprApplicationInsightsConnectionString }).(pulumi.StringPtrOutput)
 }

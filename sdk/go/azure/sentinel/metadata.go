@@ -118,8 +118,10 @@ type Metadata struct {
 	// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the parent resource ID of the content item, which the metadata belongs to.
-	ParentId           pulumi.StringOutput      `pulumi:"parentId"`
-	PreviewImages      pulumi.StringArrayOutput `pulumi:"previewImages"`
+	ParentId pulumi.StringOutput `pulumi:"parentId"`
+	// Specifies a list of preview image file names. These will be taken from solution artifacts.
+	PreviewImages pulumi.StringArrayOutput `pulumi:"previewImages"`
+	// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
 	PreviewImagesDarks pulumi.StringArrayOutput `pulumi:"previewImagesDarks"`
 	// Specifies a list of providers for the solution content item.
 	Providers pulumi.StringArrayOutput `pulumi:"providers"`
@@ -127,7 +129,7 @@ type Metadata struct {
 	Source MetadataSourceOutput `pulumi:"source"`
 	// A `support` block as defined below.
 	Support MetadataSupportPtrOutput `pulumi:"support"`
-	// Specifies a list of tactics the resource covers.
+	// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
 	ThreatAnalysisTactics pulumi.StringArrayOutput `pulumi:"threatAnalysisTactics"`
 	// Specifies a list of techniques the resource covers.
 	ThreatAnalysisTechniques pulumi.StringArrayOutput `pulumi:"threatAnalysisTechniques"`
@@ -202,8 +204,10 @@ type metadataState struct {
 	// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the parent resource ID of the content item, which the metadata belongs to.
-	ParentId           *string  `pulumi:"parentId"`
-	PreviewImages      []string `pulumi:"previewImages"`
+	ParentId *string `pulumi:"parentId"`
+	// Specifies a list of preview image file names. These will be taken from solution artifacts.
+	PreviewImages []string `pulumi:"previewImages"`
+	// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
 	PreviewImagesDarks []string `pulumi:"previewImagesDarks"`
 	// Specifies a list of providers for the solution content item.
 	Providers []string `pulumi:"providers"`
@@ -211,7 +215,7 @@ type metadataState struct {
 	Source *MetadataSource `pulumi:"source"`
 	// A `support` block as defined below.
 	Support *MetadataSupport `pulumi:"support"`
-	// Specifies a list of tactics the resource covers.
+	// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
 	ThreatAnalysisTactics []string `pulumi:"threatAnalysisTactics"`
 	// Specifies a list of techniques the resource covers.
 	ThreatAnalysisTechniques []string `pulumi:"threatAnalysisTechniques"`
@@ -245,8 +249,10 @@ type MetadataState struct {
 	// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the parent resource ID of the content item, which the metadata belongs to.
-	ParentId           pulumi.StringPtrInput
-	PreviewImages      pulumi.StringArrayInput
+	ParentId pulumi.StringPtrInput
+	// Specifies a list of preview image file names. These will be taken from solution artifacts.
+	PreviewImages pulumi.StringArrayInput
+	// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
 	PreviewImagesDarks pulumi.StringArrayInput
 	// Specifies a list of providers for the solution content item.
 	Providers pulumi.StringArrayInput
@@ -254,7 +260,7 @@ type MetadataState struct {
 	Source MetadataSourcePtrInput
 	// A `support` block as defined below.
 	Support MetadataSupportPtrInput
-	// Specifies a list of tactics the resource covers.
+	// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
 	ThreatAnalysisTactics pulumi.StringArrayInput
 	// Specifies a list of techniques the resource covers.
 	ThreatAnalysisTechniques pulumi.StringArrayInput
@@ -292,8 +298,10 @@ type metadataArgs struct {
 	// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the parent resource ID of the content item, which the metadata belongs to.
-	ParentId           string   `pulumi:"parentId"`
-	PreviewImages      []string `pulumi:"previewImages"`
+	ParentId string `pulumi:"parentId"`
+	// Specifies a list of preview image file names. These will be taken from solution artifacts.
+	PreviewImages []string `pulumi:"previewImages"`
+	// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
 	PreviewImagesDarks []string `pulumi:"previewImagesDarks"`
 	// Specifies a list of providers for the solution content item.
 	Providers []string `pulumi:"providers"`
@@ -301,7 +309,7 @@ type metadataArgs struct {
 	Source *MetadataSource `pulumi:"source"`
 	// A `support` block as defined below.
 	Support *MetadataSupport `pulumi:"support"`
-	// Specifies a list of tactics the resource covers.
+	// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
 	ThreatAnalysisTactics []string `pulumi:"threatAnalysisTactics"`
 	// Specifies a list of techniques the resource covers.
 	ThreatAnalysisTechniques []string `pulumi:"threatAnalysisTechniques"`
@@ -336,8 +344,10 @@ type MetadataArgs struct {
 	// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the parent resource ID of the content item, which the metadata belongs to.
-	ParentId           pulumi.StringInput
-	PreviewImages      pulumi.StringArrayInput
+	ParentId pulumi.StringInput
+	// Specifies a list of preview image file names. These will be taken from solution artifacts.
+	PreviewImages pulumi.StringArrayInput
+	// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
 	PreviewImagesDarks pulumi.StringArrayInput
 	// Specifies a list of providers for the solution content item.
 	Providers pulumi.StringArrayInput
@@ -345,7 +355,7 @@ type MetadataArgs struct {
 	Source MetadataSourcePtrInput
 	// A `support` block as defined below.
 	Support MetadataSupportPtrInput
-	// Specifies a list of tactics the resource covers.
+	// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
 	ThreatAnalysisTactics pulumi.StringArrayInput
 	// Specifies a list of techniques the resource covers.
 	ThreatAnalysisTechniques pulumi.StringArrayInput
@@ -526,10 +536,12 @@ func (o MetadataOutput) ParentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Metadata) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
 }
 
+// Specifies a list of preview image file names. These will be taken from solution artifacts.
 func (o MetadataOutput) PreviewImages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.PreviewImages }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
 func (o MetadataOutput) PreviewImagesDarks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.PreviewImagesDarks }).(pulumi.StringArrayOutput)
 }
@@ -549,7 +561,7 @@ func (o MetadataOutput) Support() MetadataSupportPtrOutput {
 	return o.ApplyT(func(v *Metadata) MetadataSupportPtrOutput { return v.Support }).(MetadataSupportPtrOutput)
 }
 
-// Specifies a list of tactics the resource covers.
+// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
 func (o MetadataOutput) ThreatAnalysisTactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.ThreatAnalysisTactics }).(pulumi.StringArrayOutput)
 }

@@ -66,7 +66,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxFunctionAppSlotSiteConfigCors? Cors;
         /// <summary>
-        /// a `default_documents` block as detailed below.
+        /// Specifies a list of Default Documents for the Linux Web App.
         /// </summary>
         public readonly ImmutableArray<string> DefaultDocuments;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? FtpsState;
         /// <summary>
-        /// The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `10`. Only valid in conjunction with `health_check_path`
+        /// The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
         /// </summary>
         public readonly int? HealthCheckEvictionTimeInMin;
         /// <summary>

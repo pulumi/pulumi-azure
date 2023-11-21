@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Sql.Outputs
         /// </summary>
         public readonly string AuthenticationType;
         /// <summary>
-        /// Specifies the type of import operation being performed. The only allowable value is `Import`.
+        /// Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
         /// </summary>
         public readonly string? OperationMode;
         /// <summary>

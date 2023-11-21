@@ -95,14 +95,14 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * An `temp_db_settings` as defined below.
+     * An `temp_db_settings` block as defined below.
      * 
      */
     @Import(name="tempDbSettings")
     private @Nullable Output<VirtualMachineStorageConfigurationTempDbSettingsArgs> tempDbSettings;
 
     /**
-     * @return An `temp_db_settings` as defined below.
+     * @return An `temp_db_settings` block as defined below.
      * 
      */
     public Optional<Output<VirtualMachineStorageConfigurationTempDbSettingsArgs>> tempDbSettings() {
@@ -244,7 +244,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param tempDbSettings An `temp_db_settings` as defined below.
+         * @param tempDbSettings An `temp_db_settings` block as defined below.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class VirtualMachineStorageConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param tempDbSettings An `temp_db_settings` as defined below.
+         * @param tempDbSettings An `temp_db_settings` block as defined below.
          * 
          * @return builder
          * 

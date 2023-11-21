@@ -85,8 +85,10 @@ type Deployment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of RAI policy.
 	RaiPolicyName pulumi.StringPtrOutput `pulumi:"raiPolicyName"`
-	// A `scale` block as defined below. Changing this forces a new resource to be created.
+	// A `scale` block as defined below.
 	Scale DeploymentScaleOutput `pulumi:"scale"`
+	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+	VersionUpgradeOption pulumi.StringPtrOutput `pulumi:"versionUpgradeOption"`
 }
 
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
@@ -136,8 +138,10 @@ type deploymentState struct {
 	Name *string `pulumi:"name"`
 	// The name of RAI policy.
 	RaiPolicyName *string `pulumi:"raiPolicyName"`
-	// A `scale` block as defined below. Changing this forces a new resource to be created.
+	// A `scale` block as defined below.
 	Scale *DeploymentScale `pulumi:"scale"`
+	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+	VersionUpgradeOption *string `pulumi:"versionUpgradeOption"`
 }
 
 type DeploymentState struct {
@@ -149,8 +153,10 @@ type DeploymentState struct {
 	Name pulumi.StringPtrInput
 	// The name of RAI policy.
 	RaiPolicyName pulumi.StringPtrInput
-	// A `scale` block as defined below. Changing this forces a new resource to be created.
+	// A `scale` block as defined below.
 	Scale DeploymentScalePtrInput
+	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+	VersionUpgradeOption pulumi.StringPtrInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -166,8 +172,10 @@ type deploymentArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of RAI policy.
 	RaiPolicyName *string `pulumi:"raiPolicyName"`
-	// A `scale` block as defined below. Changing this forces a new resource to be created.
+	// A `scale` block as defined below.
 	Scale DeploymentScale `pulumi:"scale"`
+	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+	VersionUpgradeOption *string `pulumi:"versionUpgradeOption"`
 }
 
 // The set of arguments for constructing a Deployment resource.
@@ -180,8 +188,10 @@ type DeploymentArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of RAI policy.
 	RaiPolicyName pulumi.StringPtrInput
-	// A `scale` block as defined below. Changing this forces a new resource to be created.
+	// A `scale` block as defined below.
 	Scale DeploymentScaleInput
+	// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+	VersionUpgradeOption pulumi.StringPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {
@@ -315,9 +325,14 @@ func (o DeploymentOutput) RaiPolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.RaiPolicyName }).(pulumi.StringPtrOutput)
 }
 
-// A `scale` block as defined below. Changing this forces a new resource to be created.
+// A `scale` block as defined below.
 func (o DeploymentOutput) Scale() DeploymentScaleOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentScaleOutput { return v.Scale }).(DeploymentScaleOutput)
+}
+
+// Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created.
+func (o DeploymentOutput) VersionUpgradeOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.VersionUpgradeOption }).(pulumi.StringPtrOutput)
 }
 
 type DeploymentArrayOutput struct{ *pulumi.OutputState }

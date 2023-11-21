@@ -81,7 +81,7 @@ type Account struct {
 	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
 	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
 	AllowedAuthenticationModes pulumi.StringArrayOutput `pulumi:"allowedAuthenticationModes"`
-	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
 	Encryption AccountEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
@@ -165,7 +165,7 @@ type accountState struct {
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
 	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
 	AllowedAuthenticationModes []string `pulumi:"allowedAuthenticationModes"`
-	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -212,7 +212,7 @@ type AccountState struct {
 	AccountEndpoint pulumi.StringPtrInput
 	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
 	AllowedAuthenticationModes pulumi.StringArrayInput
-	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
 	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -261,7 +261,7 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
 	AllowedAuthenticationModes []string `pulumi:"allowedAuthenticationModes"`
-	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
@@ -303,7 +303,7 @@ type accountArgs struct {
 type AccountArgs struct {
 	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
 	AllowedAuthenticationModes pulumi.StringArrayInput
-	// Specifies if customer managed key encryption should be used to encrypt batch account data.
+	// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
 	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
@@ -462,7 +462,7 @@ func (o AccountOutput) AllowedAuthenticationModes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.AllowedAuthenticationModes }).(pulumi.StringArrayOutput)
 }
 
-// Specifies if customer managed key encryption should be used to encrypt batch account data.
+// Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
 func (o AccountOutput) Encryption() AccountEncryptionPtrOutput {
 	return o.ApplyT(func(v *Account) AccountEncryptionPtrOutput { return v.Encryption }).(AccountEncryptionPtrOutput)
 }

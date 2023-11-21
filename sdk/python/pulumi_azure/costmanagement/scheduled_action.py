@@ -37,13 +37,13 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] end_date: The end date and time of the Scheduled Action (UTC).
         :param pulumi.Input[str] frequency: Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
         :param pulumi.Input[str] start_date: The start date and time of the Scheduled Action (UTC).
-        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action.
+        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         :param pulumi.Input[int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[int] hour_of_day: UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
         :param pulumi.Input[str] message: Message to be added in the email. Length is limited to 250 characters.
         :param pulumi.Input[str] name: The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "email_address_sender", email_address_sender)
@@ -154,7 +154,7 @@ class ScheduledActionArgs:
     @pulumi.getter(name="viewId")
     def view_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Cost Management View that is used by the Scheduled Action.
+        The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "view_id")
 
@@ -178,7 +178,7 @@ class ScheduledActionArgs:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -226,7 +226,7 @@ class ScheduledActionArgs:
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         return pulumi.get(self, "weeks_of_months")
 
@@ -255,7 +255,7 @@ class _ScheduledActionState:
         """
         Input properties used for looking up and filtering ScheduledAction resources.
         :param pulumi.Input[int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
@@ -266,8 +266,8 @@ class _ScheduledActionState:
         :param pulumi.Input[str] message: Message to be added in the email. Length is limited to 250 characters.
         :param pulumi.Input[str] name: The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
         :param pulumi.Input[str] start_date: The start date and time of the Scheduled Action (UTC).
-        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         if day_of_month is not None:
             pulumi.set(__self__, "day_of_month", day_of_month)
@@ -314,7 +314,7 @@ class _ScheduledActionState:
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -446,7 +446,7 @@ class _ScheduledActionState:
     @pulumi.getter(name="viewId")
     def view_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Cost Management View that is used by the Scheduled Action.
+        The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "view_id")
 
@@ -458,7 +458,7 @@ class _ScheduledActionState:
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         return pulumi.get(self, "weeks_of_months")
 
@@ -519,7 +519,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
@@ -530,8 +530,8 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] message: Message to be added in the email. Length is limited to 250 characters.
         :param pulumi.Input[str] name: The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
         :param pulumi.Input[str] start_date: The start date and time of the Scheduled Action (UTC).
-        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         ...
     @overload
@@ -668,7 +668,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] day_of_month: UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
@@ -679,8 +679,8 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] message: Message to be added in the email. Length is limited to 250 characters.
         :param pulumi.Input[str] name: The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
         :param pulumi.Input[str] start_date: The start date and time of the Scheduled Action (UTC).
-        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -714,7 +714,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`.
+        Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -802,7 +802,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="viewId")
     def view_id(self) -> pulumi.Output[str]:
         """
-        The ID of the Cost Management View that is used by the Scheduled Action.
+        The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "view_id")
 
@@ -810,7 +810,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
+        Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         """
         return pulumi.get(self, "weeks_of_months")
 

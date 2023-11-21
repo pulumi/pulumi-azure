@@ -17,6 +17,9 @@ namespace Pulumi.Azure.Mobile.Outputs
         /// The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
         /// </summary>
         public readonly string AttachedDataNetworkId;
+        /// <summary>
+        /// The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        /// </summary>
         public readonly string SliceId;
         /// <summary>
         /// The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.

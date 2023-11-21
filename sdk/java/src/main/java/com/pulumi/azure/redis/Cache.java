@@ -284,14 +284,14 @@ public class Cache extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
-     * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     @Export(name="redisConfiguration", refs={CacheRedisConfiguration.class}, tree="[0]")
     private Output<CacheRedisConfiguration> redisConfiguration;
 
     /**
-     * @return A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * @return A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     public Output<CacheRedisConfiguration> redisConfiguration() {

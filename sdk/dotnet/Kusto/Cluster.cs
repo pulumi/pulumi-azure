@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Kusto
         public Output<bool?> OutboundNetworkAccessRestricted { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         /// </summary>
         [Output("publicIpType")]
         public Output<string?> PublicIpType { get; private set; } = null!;
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
 
         /// <summary>
-        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         /// </summary>
         [Input("publicIpType")]
         public Input<string>? PublicIpType { get; set; }
@@ -520,7 +520,7 @@ namespace Pulumi.Azure.Kusto
         public Input<bool>? OutboundNetworkAccessRestricted { get; set; }
 
         /// <summary>
-        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6).
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         /// </summary>
         [Input("publicIpType")]
         public Input<string>? PublicIpType { get; set; }

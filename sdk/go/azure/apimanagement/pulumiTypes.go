@@ -12303,9 +12303,15 @@ func (o LoggerApplicationInsightsPtrOutput) InstrumentationKey() pulumi.StringPt
 
 type LoggerEventhub struct {
 	// The connection string of an EventHub Namespace.
-	ConnectionString string `pulumi:"connectionString"`
+	//
+	// > **Note:** At least one of `connectionString` or `endpointUri` must be specified
+	ConnectionString *string `pulumi:"connectionString"`
+	// The endpoint address of an EventHub Namespace. Required when `clientId` is set.
+	EndpointUri *string `pulumi:"endpointUri"`
 	// The name of an EventHub.
 	Name string `pulumi:"name"`
+	// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+	UserAssignedIdentityClientId *string `pulumi:"userAssignedIdentityClientId"`
 }
 
 // LoggerEventhubInput is an input type that accepts LoggerEventhubArgs and LoggerEventhubOutput values.
@@ -12321,9 +12327,15 @@ type LoggerEventhubInput interface {
 
 type LoggerEventhubArgs struct {
 	// The connection string of an EventHub Namespace.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	//
+	// > **Note:** At least one of `connectionString` or `endpointUri` must be specified
+	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
+	// The endpoint address of an EventHub Namespace. Required when `clientId` is set.
+	EndpointUri pulumi.StringPtrInput `pulumi:"endpointUri"`
 	// The name of an EventHub.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+	UserAssignedIdentityClientId pulumi.StringPtrInput `pulumi:"userAssignedIdentityClientId"`
 }
 
 func (LoggerEventhubArgs) ElementType() reflect.Type {
@@ -12422,13 +12434,25 @@ func (o LoggerEventhubOutput) ToOutput(ctx context.Context) pulumix.Output[Logge
 }
 
 // The connection string of an EventHub Namespace.
-func (o LoggerEventhubOutput) ConnectionString() pulumi.StringOutput {
-	return o.ApplyT(func(v LoggerEventhub) string { return v.ConnectionString }).(pulumi.StringOutput)
+//
+// > **Note:** At least one of `connectionString` or `endpointUri` must be specified
+func (o LoggerEventhubOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggerEventhub) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint address of an EventHub Namespace. Required when `clientId` is set.
+func (o LoggerEventhubOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggerEventhub) *string { return v.EndpointUri }).(pulumi.StringPtrOutput)
 }
 
 // The name of an EventHub.
 func (o LoggerEventhubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LoggerEventhub) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+func (o LoggerEventhubOutput) UserAssignedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggerEventhub) *string { return v.UserAssignedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
 type LoggerEventhubPtrOutput struct{ *pulumi.OutputState }
@@ -12462,12 +12486,24 @@ func (o LoggerEventhubPtrOutput) Elem() LoggerEventhubOutput {
 }
 
 // The connection string of an EventHub Namespace.
+//
+// > **Note:** At least one of `connectionString` or `endpointUri` must be specified
 func (o LoggerEventhubPtrOutput) ConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggerEventhub) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ConnectionString
+		return v.ConnectionString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint address of an EventHub Namespace. Required when `clientId` is set.
+func (o LoggerEventhubPtrOutput) EndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggerEventhub) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointUri
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12478,6 +12514,16 @@ func (o LoggerEventhubPtrOutput) Name() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Client Id of the User Assigned Identity  with the "Azure Event Hubs Data Sender" role to the target EventHub Namespace. Required when `endpointUri` is set. If not specified the System Assigned Identity will be used.
+func (o LoggerEventhubPtrOutput) UserAssignedIdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggerEventhub) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentityClientId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -13647,7 +13693,7 @@ func (o ServiceHostnameConfigurationPtrOutput) Scms() ServiceHostnameConfigurati
 }
 
 type ServiceHostnameConfigurationDeveloperPortal struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -13687,7 +13733,7 @@ type ServiceHostnameConfigurationDeveloperPortalInput interface {
 }
 
 type ServiceHostnameConfigurationDeveloperPortalArgs struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -13784,7 +13830,7 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) ToOutput(ctx context.
 	}
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// One or more `certificate` blocks (up to 10) as defined below.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -14099,7 +14145,7 @@ func (o ServiceHostnameConfigurationManagementArrayOutput) Index(i pulumi.IntInp
 }
 
 type ServiceHostnameConfigurationPortal struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -14139,7 +14185,7 @@ type ServiceHostnameConfigurationPortalInput interface {
 }
 
 type ServiceHostnameConfigurationPortalArgs struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -14236,7 +14282,7 @@ func (o ServiceHostnameConfigurationPortalOutput) ToOutput(ctx context.Context) 
 	}
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// One or more `certificate` blocks (up to 10) as defined below.
 func (o ServiceHostnameConfigurationPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -14554,7 +14600,7 @@ func (o ServiceHostnameConfigurationProxyArrayOutput) Index(i pulumi.IntInput) S
 }
 
 type ServiceHostnameConfigurationScm struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -14594,7 +14640,7 @@ type ServiceHostnameConfigurationScmInput interface {
 }
 
 type ServiceHostnameConfigurationScmArgs struct {
-	// One or more (up to 10) `certificate` blocks as defined below.
+	// One or more `certificate` blocks (up to 10) as defined below.
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -14691,7 +14737,7 @@ func (o ServiceHostnameConfigurationScmOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
-// One or more (up to 10) `certificate` blocks as defined below.
+// One or more `certificate` blocks (up to 10) as defined below.
 func (o ServiceHostnameConfigurationScmOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }

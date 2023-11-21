@@ -303,7 +303,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
         return this.connectionProtocol;
     }
     /**
-     * A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+     * A `custom_bgp_addresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
      * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 
@@ -312,7 +312,7 @@ public class VirtualNetworkGatewayConnection extends com.pulumi.resources.Custom
     private Output</* @Nullable */ VirtualNetworkGatewayConnectionCustomBgpAddresses> customBgpAddresses;
 
     /**
-     * @return A `custom_bgp_addresses` (Border Gateway Protocol custom IP Addresses) block which is documented below.
+     * @return A `custom_bgp_addresses` block which is documented below.
      * The block can only be used on `IPSec` / `activeactive` connections,
      * For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
      * 

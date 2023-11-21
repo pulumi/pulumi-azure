@@ -15,9 +15,21 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
 
     public static final HBaseClusterRolesWorkerNodeAutoscaleArgs Empty = new HBaseClusterRolesWorkerNodeAutoscaleArgs();
 
+    /**
+     * A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
+     */
     @Import(name="recurrence")
     private @Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs> recurrence;
 
+    /**
+     * @return A `recurrence` block as defined below.
+     * 
+     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * 
+     */
     public Optional<Output<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
         return Optional.ofNullable(this.recurrence);
     }
@@ -46,11 +58,27 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.r
             $ = new HBaseClusterRolesWorkerNodeAutoscaleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param recurrence A `recurrence` block as defined below.
+         * 
+         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurrence(@Nullable Output<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs> recurrence) {
             $.recurrence = recurrence;
             return this;
         }
 
+        /**
+         * @param recurrence A `recurrence` block as defined below.
+         * 
+         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurrence(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs recurrence) {
             return recurrence(Output.of(recurrence));
         }

@@ -45,7 +45,7 @@ type FrontdoorRoute struct {
 	CdnFrontdoorRuleSetIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorRuleSetIds"`
 	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrOutput `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
@@ -126,7 +126,7 @@ type frontdoorRouteState struct {
 	CdnFrontdoorRuleSetIds []string `pulumi:"cdnFrontdoorRuleSetIds"`
 	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
@@ -163,7 +163,7 @@ type FrontdoorRouteState struct {
 	CdnFrontdoorRuleSetIds pulumi.StringArrayInput
 	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
@@ -204,7 +204,7 @@ type frontdoorRouteArgs struct {
 	CdnFrontdoorRuleSetIds []string `pulumi:"cdnFrontdoorRuleSetIds"`
 	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
@@ -242,7 +242,7 @@ type FrontdoorRouteArgs struct {
 	CdnFrontdoorRuleSetIds pulumi.StringArrayInput
 	// Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+	// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	//
@@ -413,7 +413,7 @@ func (o FrontdoorRouteOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`.
+// The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
 func (o FrontdoorRouteOutput) ForwardingProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringPtrOutput { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
 }

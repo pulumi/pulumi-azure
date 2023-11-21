@@ -43,7 +43,7 @@ class NetworkPacketCoreControlPlaneArgs:
         :param pulumi.Input[str] control_plane_access_ipv4_gateway: The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_ipv4_subnet: The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_name: Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `EPG` and `5GC`.
+        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `5GC` and `EPC`.
         :param pulumi.Input['NetworkPacketCoreControlPlaneIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] interoperability_settings_json: Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
@@ -184,7 +184,7 @@ class NetworkPacketCoreControlPlaneArgs:
     @pulumi.getter(name="coreNetworkTechnology")
     def core_network_technology(self) -> Optional[pulumi.Input[str]]:
         """
-        The core network technology generation. Possible values are `EPG` and `5GC`.
+        The core network technology generation. Possible values are `5GC` and `EPC`.
         """
         return pulumi.get(self, "core_network_technology")
 
@@ -315,7 +315,7 @@ class _NetworkPacketCoreControlPlaneState:
         :param pulumi.Input[str] control_plane_access_ipv4_gateway: The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_ipv4_subnet: The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_name: Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `EPG` and `5GC`.
+        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `5GC` and `EPC`.
         :param pulumi.Input['NetworkPacketCoreControlPlaneIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] interoperability_settings_json: Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
         :param pulumi.Input['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs'] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
@@ -416,7 +416,7 @@ class _NetworkPacketCoreControlPlaneState:
     @pulumi.getter(name="coreNetworkTechnology")
     def core_network_technology(self) -> Optional[pulumi.Input[str]]:
         """
-        The core network technology generation. Possible values are `EPG` and `5GC`.
+        The core network technology generation. Possible values are `5GC` and `EPC`.
         """
         return pulumi.get(self, "core_network_technology")
 
@@ -653,7 +653,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[str] control_plane_access_ipv4_gateway: The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_ipv4_subnet: The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_name: Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `EPG` and `5GC`.
+        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `5GC` and `EPC`.
         :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] interoperability_settings_json: Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
         :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
@@ -832,7 +832,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[str] control_plane_access_ipv4_gateway: The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_ipv4_subnet: The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_name: Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `EPG` and `5GC`.
+        :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `5GC` and `EPC`.
         :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] interoperability_settings_json: Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
         :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
@@ -905,7 +905,7 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkTechnology")
     def core_network_technology(self) -> pulumi.Output[Optional[str]]:
         """
-        The core network technology generation. Possible values are `EPG` and `5GC`.
+        The core network technology generation. Possible values are `5GC` and `EPC`.
         """
         return pulumi.get(self, "core_network_technology")
 

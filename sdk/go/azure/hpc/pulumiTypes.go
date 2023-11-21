@@ -205,7 +205,7 @@ func (o CacheAccessPolicyAccessRuleArrayOutput) Index(i pulumi.IntInput) CacheAc
 }
 
 type CacheDefaultAccessPolicy struct {
-	// One to three `accessRule` blocks as defined above.
+	// One or more `accessRule` blocks (up to three) as defined above.
 	AccessRules []CacheDefaultAccessPolicyAccessRule `pulumi:"accessRules"`
 }
 
@@ -221,7 +221,7 @@ type CacheDefaultAccessPolicyInput interface {
 }
 
 type CacheDefaultAccessPolicyArgs struct {
-	// One to three `accessRule` blocks as defined above.
+	// One or more `accessRule` blocks (up to three) as defined above.
 	AccessRules CacheDefaultAccessPolicyAccessRuleArrayInput `pulumi:"accessRules"`
 }
 
@@ -320,7 +320,7 @@ func (o CacheDefaultAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-// One to three `accessRule` blocks as defined above.
+// One or more `accessRule` blocks (up to three) as defined above.
 func (o CacheDefaultAccessPolicyOutput) AccessRules() CacheDefaultAccessPolicyAccessRuleArrayOutput {
 	return o.ApplyT(func(v CacheDefaultAccessPolicy) []CacheDefaultAccessPolicyAccessRule { return v.AccessRules }).(CacheDefaultAccessPolicyAccessRuleArrayOutput)
 }
@@ -355,7 +355,7 @@ func (o CacheDefaultAccessPolicyPtrOutput) Elem() CacheDefaultAccessPolicyOutput
 	}).(CacheDefaultAccessPolicyOutput)
 }
 
-// One to three `accessRule` blocks as defined above.
+// One or more `accessRule` blocks (up to three) as defined above.
 func (o CacheDefaultAccessPolicyPtrOutput) AccessRules() CacheDefaultAccessPolicyAccessRuleArrayOutput {
 	return o.ApplyT(func(v *CacheDefaultAccessPolicy) []CacheDefaultAccessPolicyAccessRule {
 		if v == nil {

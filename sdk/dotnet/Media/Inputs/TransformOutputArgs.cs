@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Media.Inputs
         public Input<Inputs.TransformOutputFaceDetectorPresetArgs>? FaceDetectorPreset { get; set; }
 
         /// <summary>
-        /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+        /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
         /// </summary>
         [Input("onErrorAction")]
         public Input<string>? OnErrorAction { get; set; }

@@ -161,7 +161,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly techniques!: pulumi.Output<string[] | undefined>;
     /**
-     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      */
     public readonly triggerOperator!: pulumi.Output<string | undefined>;
     /**
@@ -343,7 +343,7 @@ export interface AlertRuleScheduledState {
      */
     techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      */
     triggerOperator?: pulumi.Input<string>;
     /**
@@ -447,7 +447,7 @@ export interface AlertRuleScheduledArgs {
      */
     techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+     * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      */
     triggerOperator?: pulumi.Input<string>;
     /**

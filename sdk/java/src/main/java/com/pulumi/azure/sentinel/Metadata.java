@@ -277,15 +277,31 @@ public class Metadata extends com.pulumi.resources.CustomResource {
     public Output<String> parentId() {
         return this.parentId;
     }
+    /**
+     * Specifies a list of preview image file names. These will be taken from solution artifacts.
+     * 
+     */
     @Export(name="previewImages", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> previewImages;
 
+    /**
+     * @return Specifies a list of preview image file names. These will be taken from solution artifacts.
+     * 
+     */
     public Output<Optional<List<String>>> previewImages() {
         return Codegen.optional(this.previewImages);
     }
+    /**
+     * Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     * 
+     */
     @Export(name="previewImagesDarks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> previewImagesDarks;
 
+    /**
+     * @return Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
+     * 
+     */
     public Output<Optional<List<String>>> previewImagesDarks() {
         return Codegen.optional(this.previewImagesDarks);
     }
@@ -332,14 +348,14 @@ public class Metadata extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.support);
     }
     /**
-     * Specifies a list of tactics the resource covers.
+     * Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      * 
      */
     @Export(name="threatAnalysisTactics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> threatAnalysisTactics;
 
     /**
-     * @return Specifies a list of tactics the resource covers.
+     * @return Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
      * 
      */
     public Output<Optional<List<String>>> threatAnalysisTactics() {

@@ -110,7 +110,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
-     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      */
     public readonly objectId!: pulumi.Output<string>;
     /**
@@ -193,7 +193,7 @@ export interface AccessPolicyState {
      */
     keyVaultId?: pulumi.Input<string>;
     /**
-     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      */
     objectId?: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface AccessPolicyArgs {
      */
     keyVaultId: pulumi.Input<string>;
     /**
-     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from  `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
+     * The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
      */
     objectId: pulumi.Input<string>;
     /**

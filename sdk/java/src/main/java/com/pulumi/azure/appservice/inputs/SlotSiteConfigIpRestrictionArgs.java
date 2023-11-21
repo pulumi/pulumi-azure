@@ -33,14 +33,14 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
     }
 
     /**
-     * The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<SlotSiteConfigIpRestrictionHeadersArgs> headers;
 
     /**
-     * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     public Optional<Output<SlotSiteConfigIpRestrictionHeadersArgs>> headers() {
@@ -178,7 +178,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param headers The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * @param headers The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class SlotSiteConfigIpRestrictionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param headers The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+         * @param headers The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
          * 
          * @return builder
          * 

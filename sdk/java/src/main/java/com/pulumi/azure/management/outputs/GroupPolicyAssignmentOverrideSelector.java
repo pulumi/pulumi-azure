@@ -18,7 +18,7 @@ public final class GroupPolicyAssignmentOverrideSelector {
      */
     private @Nullable List<String> ins;
     /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     private @Nullable String kind;
@@ -37,7 +37,7 @@ public final class GroupPolicyAssignmentOverrideSelector {
         return this.ins == null ? List.of() : this.ins;
     }
     /**
-     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+     * @return Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
      * 
      */
     public Optional<String> kind() {

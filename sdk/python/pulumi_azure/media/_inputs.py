@@ -1613,10 +1613,10 @@ class LiveEventEncodingArgs:
                  stretch_mode: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] key_frame_interval: Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
-        :param pulumi.Input[str] preset_name: The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_frame_interval: Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
+        :param pulumi.Input[str] preset_name: The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
         :param pulumi.Input[str] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
-        :param pulumi.Input[str] type: Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] type: Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
                
                > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
         """
@@ -1633,7 +1633,7 @@ class LiveEventEncodingArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
+        Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
         """
         return pulumi.get(self, "key_frame_interval")
 
@@ -1645,7 +1645,7 @@ class LiveEventEncodingArgs:
     @pulumi.getter(name="presetName")
     def preset_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, the default preset is `Default1080p`. Changing this forces a new resource to be created.
+        The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "preset_name")
 
@@ -1669,7 +1669,7 @@ class LiveEventEncodingArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Live event type. Allowed values are `None`, `Premium1080p` or `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+        Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
 
         > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
         """
@@ -2025,7 +2025,7 @@ class ServiceAccountEncryptionArgs:
         :param pulumi.Input[str] current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
         :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         :param pulumi.Input['ServiceAccountEncryptionManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
-        :param pulumi.Input[str] type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        :param pulumi.Input[str] type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
         """
         if current_key_identifier is not None:
             pulumi.set(__self__, "current_key_identifier", current_key_identifier)
@@ -2076,7 +2076,7 @@ class ServiceAccountEncryptionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
         """
         return pulumi.get(self, "type")
 
@@ -3637,7 +3637,7 @@ class TransformOutputArgs:
         :param pulumi.Input['TransformOutputBuiltinPresetArgs'] builtin_preset: A `builtin_preset` block as defined above.
         :param pulumi.Input['TransformOutputCustomPresetArgs'] custom_preset: A `custom_preset` block as defined above.
         :param pulumi.Input['TransformOutputFaceDetectorPresetArgs'] face_detector_preset: A `face_detector_preset` block as defined above.
-        :param pulumi.Input[str] on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+        :param pulumi.Input[str] on_error_action: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
         :param pulumi.Input[str] relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
         :param pulumi.Input['TransformOutputVideoAnalyzerPresetArgs'] video_analyzer_preset: A `video_analyzer_preset` block as defined below.
                
@@ -3710,7 +3710,7 @@ class TransformOutputArgs:
     @pulumi.getter(name="onErrorAction")
     def on_error_action(self) -> Optional[pulumi.Input[str]]:
         """
-        A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. The default is `StopProcessingJob`.
+        A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
         """
         return pulumi.get(self, "on_error_action")
 
@@ -3807,7 +3807,7 @@ class TransformOutputBuiltinPresetArgs:
                  preset_configuration: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] preset_name: The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
-        :param pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs'] preset_configuration: A `present_configuration` block as defined below.
+        :param pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs'] preset_configuration: A `preset_configuration` block as defined below.
         """
         pulumi.set(__self__, "preset_name", preset_name)
         if preset_configuration is not None:
@@ -3829,7 +3829,7 @@ class TransformOutputBuiltinPresetArgs:
     @pulumi.getter(name="presetConfiguration")
     def preset_configuration(self) -> Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']]:
         """
-        A `present_configuration` block as defined below.
+        A `preset_configuration` block as defined below.
         """
         return pulumi.get(self, "preset_configuration")
 
@@ -4398,7 +4398,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] rate_control_mode: The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
@@ -4439,7 +4439,7 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         """
         return pulumi.get(self, "key_frame_interval")
 
@@ -4542,7 +4542,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
         :param pulumi.Input[int] bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer.
         :param pulumi.Input[bool] adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
         :param pulumi.Input[int] b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
-        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
         :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
         :param pulumi.Input[str] entropy_mode: The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
         :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
@@ -4550,7 +4550,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
         :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-        :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
         :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
         :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
@@ -4625,7 +4625,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter(name="bufferWindow")
     def buffer_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
         """
         return pulumi.get(self, "buffer_window")
 
@@ -4721,7 +4721,7 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         """
         return pulumi.get(self, "profile")
 
@@ -4778,7 +4778,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] complexity: The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[bool] scene_change_detection_enabled: Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
@@ -4816,7 +4816,7 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         """
         return pulumi.get(self, "key_frame_interval")
 
@@ -4906,14 +4906,14 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
         :param pulumi.Input[int] bitrate: The average bitrate in bits per second at which to encode the input video when generating this layer.
         :param pulumi.Input[bool] adaptive_b_frame_enabled: Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
         :param pulumi.Input[int] b_frames: The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
-        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        :param pulumi.Input[str] buffer_window: Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
         :param pulumi.Input[float] crf: The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
         :param pulumi.Input[str] frame_rate: The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         :param pulumi.Input[str] height: The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[str] level: The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
         :param pulumi.Input[int] max_bitrate: The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
-        :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        :param pulumi.Input[str] profile: The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         :param pulumi.Input[int] reference_frames: The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
         :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
         :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
@@ -4986,7 +4986,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter(name="bufferWindow")
     def buffer_window(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. The default is `5` seconds (`PT5S`).
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
         """
         return pulumi.get(self, "buffer_window")
 
@@ -5070,7 +5070,7 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        The H.264 profile. Possible values are `Auto`, `Baseline`, `High`, `High422`, `High444`,or `Main`. Default to `Auto`.
+        The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
         """
         return pulumi.get(self, "profile")
 
@@ -5129,7 +5129,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
@@ -5172,7 +5172,7 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         """
         return pulumi.get(self, "key_frame_interval")
 
@@ -5349,7 +5349,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
                  sync_mode: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] start: The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         :param pulumi.Input[str] label: Specifies the label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgs']]] layers: One or more `layer` blocks as defined below.
         :param pulumi.Input[str] range: The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
@@ -5389,7 +5389,7 @@ class TransformOutputCustomPresetCodecPngImageArgs:
     @pulumi.getter(name="keyFrameInterval")
     def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
         """
-        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. The default is `2` seconds (`PT2S`). Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting.
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
         """
         return pulumi.get(self, "key_frame_interval")
 

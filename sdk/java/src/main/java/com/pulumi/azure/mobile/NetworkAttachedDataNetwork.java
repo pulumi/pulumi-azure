@@ -229,15 +229,35 @@ public class NetworkAttachedDataNetwork extends com.pulumi.resources.CustomResou
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+     * 
+     */
     @Export(name="userEquipmentAddressPoolPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userEquipmentAddressPoolPrefixes;
 
+    /**
+     * @return Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size.
+     * 
+     */
     public Output<Optional<List<String>>> userEquipmentAddressPoolPrefixes() {
         return Codegen.optional(this.userEquipmentAddressPoolPrefixes);
     }
+    /**
+     * Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+     * 
+     * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+     * 
+     */
     @Export(name="userEquipmentStaticAddressPoolPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userEquipmentStaticAddressPoolPrefixes;
 
+    /**
+     * @return Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size.
+     * 
+     * &gt; **Note:** At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefixes` must be specified.
+     * 
+     */
     public Output<Optional<List<String>>> userEquipmentStaticAddressPoolPrefixes() {
         return Codegen.optional(this.userEquipmentStaticAddressPoolPrefixes);
     }

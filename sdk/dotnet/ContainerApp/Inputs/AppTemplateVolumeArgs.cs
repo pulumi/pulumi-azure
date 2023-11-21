@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<string>? StorageName { get; set; }
 
         /// <summary>
-        /// The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
+        /// The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

@@ -82,14 +82,14 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
     }
 
     /**
-     * The core network technology generation. Possible values are `EPG` and `5GC`.
+     * The core network technology generation. Possible values are `5GC` and `EPC`.
      * 
      */
     @Import(name="coreNetworkTechnology")
     private @Nullable Output<String> coreNetworkTechnology;
 
     /**
-     * @return The core network technology generation. Possible values are `EPG` and `5GC`.
+     * @return The core network technology generation. Possible values are `5GC` and `EPC`.
      * 
      */
     public Optional<Output<String>> coreNetworkTechnology() {
@@ -401,7 +401,7 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
         }
 
         /**
-         * @param coreNetworkTechnology The core network technology generation. Possible values are `EPG` and `5GC`.
+         * @param coreNetworkTechnology The core network technology generation. Possible values are `5GC` and `EPC`.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class NetworkPacketCoreControlPlaneArgs extends com.pulumi.resource
         }
 
         /**
-         * @param coreNetworkTechnology The core network technology generation. Possible values are `EPG` and `5GC`.
+         * @param coreNetworkTechnology The core network technology generation. Possible values are `5GC` and `EPC`.
          * 
          * @return builder
          * 

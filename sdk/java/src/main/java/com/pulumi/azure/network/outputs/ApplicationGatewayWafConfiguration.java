@@ -52,7 +52,7 @@ public final class ApplicationGatewayWafConfiguration {
      */
     private @Nullable Boolean requestBodyCheck;
     /**
-     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
      * 
      */
     private @Nullable String ruleSetType;
@@ -113,7 +113,7 @@ public final class ApplicationGatewayWafConfiguration {
         return Optional.ofNullable(this.requestBodyCheck);
     }
     /**
-     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+     * @return The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
      * 
      */
     public Optional<String> ruleSetType() {

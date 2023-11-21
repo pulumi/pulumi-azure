@@ -402,7 +402,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
      * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
@@ -411,7 +411,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     private @Nullable Output<List<AppServiceSiteConfigScmIpRestrictionArgs>> scmIpRestrictions;
 
     /**
-     * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+     * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
      * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
@@ -1111,7 +1111,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
          * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
@@ -1124,7 +1124,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
          * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
@@ -1136,7 +1136,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param scmIpRestrictions A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
+         * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
          * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 

@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Lb
         public Output<string?> EdgeZone { get; private set; } = null!;
 
         /// <summary>
-        /// One or multiple `frontend_ip_configuration` blocks as documented below.
+        /// One or more `frontend_ip_configuration` blocks as documented below.
         /// </summary>
         [Output("frontendIpConfigurations")]
         public Output<ImmutableArray<Outputs.LoadBalancerFrontendIpConfiguration>> FrontendIpConfigurations { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or multiple `frontend_ip_configuration` blocks as documented below.
+        /// One or more `frontend_ip_configuration` blocks as documented below.
         /// </summary>
         public InputList<Inputs.LoadBalancerFrontendIpConfigurationArgs> FrontendIpConfigurations
         {
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.Lb
         private InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;
 
         /// <summary>
-        /// One or multiple `frontend_ip_configuration` blocks as documented below.
+        /// One or more `frontend_ip_configuration` blocks as documented below.
         /// </summary>
         public InputList<Inputs.LoadBalancerFrontendIpConfigurationGetArgs> FrontendIpConfigurations
         {

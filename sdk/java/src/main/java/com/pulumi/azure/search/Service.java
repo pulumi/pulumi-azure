@@ -233,14 +233,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      * 
      */
     @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * @return Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> localAuthenticationEnabled() {

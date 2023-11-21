@@ -173,14 +173,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.inputMappingFields);
     }
     /**
-     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="inputSchema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> inputSchema;
 
     /**
-     * @return Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
+     * @return Specifies the schema in which incoming events will be published to this domain. Allowed values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> inputSchema() {

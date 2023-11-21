@@ -17,14 +17,14 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
     public static final ObjectReplicationRuleArgs Empty = new ObjectReplicationRuleArgs();
 
     /**
-     * The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+     * The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
      * 
      */
     @Import(name="copyBlobsCreatedAfter")
     private @Nullable Output<String> copyBlobsCreatedAfter;
 
     /**
-     * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+     * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
      * 
      */
     public Optional<Output<String>> copyBlobsCreatedAfter() {
@@ -112,7 +112,7 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param copyBlobsCreatedAfter The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+         * @param copyBlobsCreatedAfter The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ObjectReplicationRuleArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param copyBlobsCreatedAfter The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
+         * @param copyBlobsCreatedAfter The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
          * 
          * @return builder
          * 

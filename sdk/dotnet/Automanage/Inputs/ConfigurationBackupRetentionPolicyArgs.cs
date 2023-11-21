@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Automanage.Inputs
         public Input<Inputs.ConfigurationBackupRetentionPolicyDailyScheduleArgs>? DailySchedule { get; set; }
 
         /// <summary>
-        /// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`.
+        /// The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
         /// </summary>
         [Input("retentionPolicyType")]
         public Input<string>? RetentionPolicyType { get; set; }

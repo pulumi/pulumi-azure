@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerApp
     public partial class EnvironmentDaprComponent : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Dapr Component Type. For example `state.azure.blobstorage`.
+        /// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("componentType")]
         public Output<string> ComponentType { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<bool?> IgnoreErrors { get; private set; } = null!;
 
         /// <summary>
-        /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         /// </summary>
         [Output("initTimeout")]
         public Output<string?> InitTimeout { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class EnvironmentDaprComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Dapr Component Type. For example `state.azure.blobstorage`.
+        /// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("componentType", required: true)]
         public Input<string> ComponentType { get; set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<bool>? IgnoreErrors { get; set; }
 
         /// <summary>
-        /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         /// </summary>
         [Input("initTimeout")]
         public Input<string>? InitTimeout { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.ContainerApp
     public sealed class EnvironmentDaprComponentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Dapr Component Type. For example `state.azure.blobstorage`.
+        /// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("componentType")]
         public Input<string>? ComponentType { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.ContainerApp
         public Input<bool>? IgnoreErrors { get; set; }
 
         /// <summary>
-        /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+        /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         /// </summary>
         [Input("initTimeout")]
         public Input<string>? InitTimeout { get; set; }

@@ -13,7 +13,7 @@ namespace Pulumi.Azure.FrontDoor.Inputs
     public sealed class RulesEngineRuleMatchConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// can be set to `true` or `false` to negate the given condition. Defaults to `true`.
+        /// can be set to `true` or `false` to negate the given condition. Defaults to `false`.
         /// </summary>
         [Input("negateCondition")]
         public Input<bool>? NegateCondition { get; set; }

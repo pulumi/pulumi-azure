@@ -70,7 +70,7 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
     /**
      * Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
      *
-     * **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+     * > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      */
     public readonly managementGroupId!: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export interface PrivateLinkAssociationState {
     /**
      * Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
      *
-     * **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+     * > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      */
     managementGroupId?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface PrivateLinkAssociationArgs {
     /**
      * Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
      *
-     * **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
+     * > **Note:** For now, `managementGroupId` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
      */
     managementGroupId: pulumi.Input<string>;
     /**

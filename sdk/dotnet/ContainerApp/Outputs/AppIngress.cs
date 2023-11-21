@@ -46,7 +46,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressTrafficWeight> TrafficWeights;
         /// <summary>
-        /// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+        /// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
         /// </summary>
         public readonly string? Transport;
 

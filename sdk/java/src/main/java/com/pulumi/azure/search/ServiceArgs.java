@@ -108,14 +108,14 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      * 
      */
     @Import(name="localAuthenticationEnabled")
     private @Nullable Output<Boolean> localAuthenticationEnabled;
 
     /**
-     * @return Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+     * @return Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> localAuthenticationEnabled() {
@@ -441,7 +441,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localAuthenticationEnabled Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+         * @param localAuthenticationEnabled Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localAuthenticationEnabled Specifies whether the Search Service allows authenticating using API Keys? Defaults to `false`.
+         * @param localAuthenticationEnabled Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`.
          * 
          * @return builder
          * 

@@ -52,7 +52,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> ExternalInboundIpAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// An Inbound Network Dependencies block as defined below.
+        /// An `inbound_network_dependencies` block as defined below.
         /// </summary>
         [Output("inboundNetworkDependencies")]
         public Output<ImmutableArray<Outputs.EnvironmentV3InboundNetworkDependency>> InboundNetworkDependencies { get; private set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.AppService
         private InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs>? _inboundNetworkDependencies;
 
         /// <summary>
-        /// An Inbound Network Dependencies block as defined below.
+        /// An `inbound_network_dependencies` block as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentV3InboundNetworkDependencyGetArgs> InboundNetworkDependencies
         {

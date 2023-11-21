@@ -74,6 +74,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Output("recoveryPointRetentionInHours")]
         public Output<int> RecoveryPointRetentionInHours { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the vault that should be updated. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("recoveryVaultId")]
         public Output<string> RecoveryVaultId { get; private set; } = null!;
 
@@ -147,6 +150,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("recoveryPointRetentionInHours", required: true)]
         public Input<int> RecoveryPointRetentionInHours { get; set; } = null!;
 
+        /// <summary>
+        /// The id of the vault that should be updated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("recoveryVaultId", required: true)]
         public Input<string> RecoveryVaultId { get; set; } = null!;
 
@@ -182,6 +188,9 @@ namespace Pulumi.Azure.SiteRecovery
         [Input("recoveryPointRetentionInHours")]
         public Input<int>? RecoveryPointRetentionInHours { get; set; }
 
+        /// <summary>
+        /// The id of the vault that should be updated. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("recoveryVaultId")]
         public Input<string>? RecoveryVaultId { get; set; }
 

@@ -159,14 +159,14 @@ public class AlertRuleAnomalyDuplicate extends com.pulumi.resources.CustomResour
         return this.description;
     }
     /**
-     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * The Display Name of the built-in Anomaly Alert Rule.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
+     * @return The Display Name of the built-in Anomaly Alert Rule.
      * 
      */
     public Output<String> displayName() {

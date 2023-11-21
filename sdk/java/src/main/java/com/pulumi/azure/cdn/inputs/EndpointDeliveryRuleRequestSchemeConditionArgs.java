@@ -48,14 +48,14 @@ public final class EndpointDeliveryRuleRequestSchemeConditionArgs extends com.pu
     }
 
     /**
-     * Valid values are `Equal`.
+     * Valid values are `Equal`. Defaults to `Equal`.
      * 
      */
     @Import(name="operator")
     private @Nullable Output<String> operator;
 
     /**
-     * @return Valid values are `Equal`.
+     * @return Valid values are `Equal`. Defaults to `Equal`.
      * 
      */
     public Optional<Output<String>> operator() {
@@ -141,7 +141,7 @@ public final class EndpointDeliveryRuleRequestSchemeConditionArgs extends com.pu
         }
 
         /**
-         * @param operator Valid values are `Equal`.
+         * @param operator Valid values are `Equal`. Defaults to `Equal`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class EndpointDeliveryRuleRequestSchemeConditionArgs extends com.pu
         }
 
         /**
-         * @param operator Valid values are `Equal`.
+         * @param operator Valid values are `Equal`. Defaults to `Equal`.
          * 
          * @return builder
          * 

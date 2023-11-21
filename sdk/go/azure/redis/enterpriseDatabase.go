@@ -92,13 +92,13 @@ import (
 type EnterpriseDatabase struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 	ClientProtocol pulumi.StringPtrOutput `pulumi:"clientProtocol"`
 	// The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
 	ClusterId pulumi.StringOutput `pulumi:"clusterId"`
-	// Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+	// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
 	ClusteringPolicy pulumi.StringPtrOutput `pulumi:"clusteringPolicy"`
-	// Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+	// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
 	LinkedDatabaseGroupNickname pulumi.StringPtrOutput `pulumi:"linkedDatabaseGroupNickname"`
@@ -162,13 +162,13 @@ func GetEnterpriseDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnterpriseDatabase resources.
 type enterpriseDatabaseState struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 	ClientProtocol *string `pulumi:"clientProtocol"`
 	// The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
 	ClusterId *string `pulumi:"clusterId"`
-	// Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+	// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
-	// Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+	// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
 	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
@@ -195,13 +195,13 @@ type enterpriseDatabaseState struct {
 }
 
 type EnterpriseDatabaseState struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 	ClientProtocol pulumi.StringPtrInput
 	// The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
 	ClusterId pulumi.StringPtrInput
-	// Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+	// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
 	ClusteringPolicy pulumi.StringPtrInput
-	// Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+	// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
 	LinkedDatabaseGroupNickname pulumi.StringPtrInput
@@ -232,13 +232,13 @@ func (EnterpriseDatabaseState) ElementType() reflect.Type {
 }
 
 type enterpriseDatabaseArgs struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 	ClientProtocol *string `pulumi:"clientProtocol"`
 	// The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
 	ClusterId string `pulumi:"clusterId"`
-	// Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+	// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
-	// Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+	// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
 	LinkedDatabaseGroupNickname *string `pulumi:"linkedDatabaseGroupNickname"`
@@ -262,13 +262,13 @@ type enterpriseDatabaseArgs struct {
 
 // The set of arguments for constructing a EnterpriseDatabase resource.
 type EnterpriseDatabaseArgs struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 	ClientProtocol pulumi.StringPtrInput
 	// The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created.
 	ClusterId pulumi.StringInput
-	// Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+	// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
 	ClusteringPolicy pulumi.StringPtrInput
-	// Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+	// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created.
 	LinkedDatabaseGroupNickname pulumi.StringPtrInput
@@ -401,7 +401,7 @@ func (o EnterpriseDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
-// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
+// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created.
 func (o EnterpriseDatabaseOutput) ClientProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringPtrOutput { return v.ClientProtocol }).(pulumi.StringPtrOutput)
 }
@@ -411,12 +411,12 @@ func (o EnterpriseDatabaseOutput) ClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
 }
 
-// Clustering policy - default is OSSCluster. Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
+// Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created.
 func (o EnterpriseDatabaseOutput) ClusteringPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringPtrOutput { return v.ClusteringPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Redis eviction policy - default is `VolatileLRU`. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created.
+// Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`.
 func (o EnterpriseDatabaseOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnterpriseDatabase) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }

@@ -113,14 +113,14 @@ public final class CertificateOrderArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Certificate product type, such as `Standard` or `WildCard`.
+     * Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      * 
      */
     @Import(name="productType")
     private @Nullable Output<String> productType;
 
     /**
-     * @return Certificate product type, such as `Standard` or `WildCard`.
+     * @return Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
      * 
      */
     public Optional<Output<String>> productType() {
@@ -336,7 +336,7 @@ public final class CertificateOrderArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param productType Certificate product type, such as `Standard` or `WildCard`.
+         * @param productType Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class CertificateOrderArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param productType Certificate product type, such as `Standard` or `WildCard`.
+         * @param productType Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
          * 
          * @return builder
          * 

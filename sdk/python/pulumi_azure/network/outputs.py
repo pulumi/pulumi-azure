@@ -75,6 +75,7 @@ __all__ = [
     'FirewallPolicyIntrusionDetectionTrafficBypass',
     'FirewallPolicyRuleCollectionGroupApplicationRuleCollection',
     'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule',
+    'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader',
     'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol',
     'FirewallPolicyRuleCollectionGroupNatRuleCollection',
     'FirewallPolicyRuleCollectionGroupNatRuleCollectionRule',
@@ -256,7 +257,7 @@ class ApplicationGatewayAuthenticationCertificate(dict):
                  id: Optional[str] = None):
         """
         :param str data: The contents of the Authentication Certificate which should be used.
-        :param str name: The name of the Authentication Certificate.
+        :param str name: The Name of the Authentication Certificate to use.
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "data", data)
@@ -276,7 +277,7 @@ class ApplicationGatewayAuthenticationCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Authentication Certificate.
+        The Name of the Authentication Certificate to use.
         """
         return pulumi.get(self, "name")
 
@@ -468,7 +469,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param int port: The port which should be used for this Backend HTTP Settings Collection.
         :param str protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param str affinity_cookie_name: The name of the affinity cookie.
-        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate_backend` blocks as defined below.
         :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs' connection_draining: A `connection_draining` block as defined below.
         :param str host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
         :param str id: The ID of the Rewrite Rule Set
@@ -550,7 +551,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
     @pulumi.getter(name="authenticationCertificates")
     def authentication_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']]:
         """
-        One or more `authentication_certificate` blocks as defined below.
+        One or more `authentication_certificate_backend` blocks as defined below.
         """
         return pulumi.get(self, "authentication_certificates")
 
@@ -633,7 +634,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
                  name: str,
                  id: Optional[str] = None):
         """
-        :param str name: The name of the Authentication Certificate.
+        :param str name: The Name of the Authentication Certificate to use.
         :param str id: The ID of the Rewrite Rule Set
         """
         pulumi.set(__self__, "name", name)
@@ -644,7 +645,7 @@ class ApplicationGatewayBackendHttpSettingAuthenticationCertificate(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Authentication Certificate.
+        The Name of the Authentication Certificate to use.
         """
         return pulumi.get(self, "name")
 
@@ -805,7 +806,7 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
         :param str name: The name of the Frontend IP Configuration.
         :param str id: The ID of the Rewrite Rule Set
         :param str private_ip_address: The Private IP Address to use for the Application Gateway.
-        :param str private_ip_address_allocation: The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        :param str private_ip_address_allocation: The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
         :param str private_link_configuration_id: The ID of the associated private link configuration.
         :param str private_link_configuration_name: The name of the private link configuration to use for this frontend IP configuration.
         :param str public_ip_address_id: The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
@@ -855,7 +856,7 @@ class ApplicationGatewayFrontendIpConfiguration(dict):
     @pulumi.getter(name="privateIpAddressAllocation")
     def private_ip_address_allocation(self) -> Optional[str]:
         """
-        The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+        The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
         """
         return pulumi.get(self, "private_ip_address_allocation")
 
@@ -3528,7 +3529,7 @@ class ApplicationGatewayWafConfiguration(dict):
         :param int file_upload_limit_mb: The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
         :param int max_request_body_size_kb: The Maximum Request Body Size in KB. Accepted values are in the range `1`KB to `128`KB. Defaults to `128`KB.
         :param bool request_body_check: Is Request Body Inspection enabled? Defaults to `true`.
-        :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+        :param str rule_set_type: The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "firewall_mode", firewall_mode)
@@ -3614,7 +3615,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter(name="ruleSetType")
     def rule_set_type(self) -> Optional[str]:
         """
-        The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+        The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
         """
         return pulumi.get(self, "rule_set_type")
 
@@ -5715,7 +5716,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
         :param str action: The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
         :param str name: The name which should be used for this application rule collection.
         :param int priority: The priority of the application rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs'] rules: One or more `application_rule` (application rule) blocks as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs'] rules: One or more `application_rule` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5750,7 +5751,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule']:
         """
-        One or more `application_rule` (application rule) blocks as defined below.
+        One or more `application_rule` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -5768,6 +5769,8 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
             suggest = "destination_fqdns"
         elif key == "destinationUrls":
             suggest = "destination_urls"
+        elif key == "httpHeaders":
+            suggest = "http_headers"
         elif key == "sourceAddresses":
             suggest = "source_addresses"
         elif key == "sourceIpGroups":
@@ -5795,6 +5798,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
                  destination_fqdn_tags: Optional[Sequence[str]] = None,
                  destination_fqdns: Optional[Sequence[str]] = None,
                  destination_urls: Optional[Sequence[str]] = None,
+                 http_headers: Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader']] = None,
                  protocols: Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol']] = None,
                  source_addresses: Optional[Sequence[str]] = None,
                  source_ip_groups: Optional[Sequence[str]] = None,
@@ -5807,6 +5811,7 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         :param Sequence[str] destination_fqdn_tags: Specifies a list of destination FQDN tags.
         :param Sequence[str] destination_fqdns: Specifies a list of destination FQDNs. Conflicts with `destination_urls`.
         :param Sequence[str] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs'] http_headers: Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
         :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs'] protocols: One or more `protocols` blocks as defined below.
         :param Sequence[str] source_addresses: Specifies a list of source IP addresses (including CIDR, IP range and `*`).
         :param Sequence[str] source_ip_groups: Specifies a list of source IP groups.
@@ -5824,6 +5829,8 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
             pulumi.set(__self__, "destination_fqdns", destination_fqdns)
         if destination_urls is not None:
             pulumi.set(__self__, "destination_urls", destination_urls)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
         if source_addresses is not None:
@@ -5884,6 +5891,14 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         return pulumi.get(self, "destination_urls")
 
     @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader']]:
+        """
+        Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @property
     @pulumi.getter
     def protocols(self) -> Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol']]:
         """
@@ -5922,6 +5937,35 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
         Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         return pulumi.get(self, "web_categories")
+
+
+@pulumi.output_type
+class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: Specifies the name of the header.
+        :param str value: Specifies the value of the value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the header.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Specifies the value of the value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -5964,7 +6008,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
         :param str action: The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
         :param str name: The name which should be used for this NAT rule collection.
         :param int priority: The priority of the NAT rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `nat_rule` (NAT rule) block as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs'] rules: A `nat_rule` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -5999,7 +6043,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRule']:
         """
-        A `nat_rule` (NAT rule) block as defined below.
+        A `nat_rule` block as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -6172,7 +6216,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
         :param str action: The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
         :param str name: The name which should be used for this network rule collection.
         :param int priority: The priority of the network rule collection. The range is `100` - `65000`.
-        :param Sequence['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs'] rules: One or more `network_rule` (network rule) blocks as defined below.
+        :param Sequence['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs'] rules: One or more `network_rule` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -6207,7 +6251,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollection(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule']:
         """
-        One or more `network_rule` (network rule) blocks as defined below.
+        One or more `network_rule` blocks as defined below.
         """
         return pulumi.get(self, "rules")
 
@@ -9027,7 +9071,7 @@ class SubnetDelegationServiceDelegation(dict):
                  name: str,
                  actions: Optional[Sequence[str]] = None):
         """
-        :param str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+        :param str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls` and `Qumulo.Storage/fileSystems`.
         :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
                
                > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
@@ -9040,7 +9084,7 @@ class SubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls` and `Qumulo.Storage/fileSystems`.
         """
         return pulumi.get(self, "name")
 
@@ -9970,7 +10014,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
         """
         :param int asn: The Autonomous System Number (ASN) to use as part of the BGP.
         :param int peer_weight: The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
-        :param Sequence['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs'] peering_addresses: A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        :param Sequence['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs'] peering_addresses: A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -9999,7 +10043,7 @@ class VirtualNetworkGatewayBgpSettings(dict):
     @pulumi.getter(name="peeringAddresses")
     def peering_addresses(self) -> Optional[Sequence['outputs.VirtualNetworkGatewayBgpSettingsPeeringAddress']]:
         """
-        A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
+        A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
         """
         return pulumi.get(self, "peering_addresses")
 
@@ -10318,7 +10362,7 @@ class VirtualNetworkGatewayCustomRoute(dict):
     def __init__(__self__, *,
                  address_prefixes: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+        :param Sequence[str] address_prefixes: A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -10327,7 +10371,7 @@ class VirtualNetworkGatewayCustomRoute(dict):
     @pulumi.getter(name="addressPrefixes")
     def address_prefixes(self) -> Optional[Sequence[str]]:
         """
-        A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+        A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_prefixes")
 

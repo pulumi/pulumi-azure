@@ -18,7 +18,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
     public static final ActionGroupWebhookReceiverArgs Empty = new ActionGroupWebhookReceiverArgs();
 
     /**
-     * The `aad_auth` block as defined below
+     * The `aad_auth` block as defined below.
      * 
      * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
      * 
@@ -27,7 +27,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
     private @Nullable Output<ActionGroupWebhookReceiverAadAuthArgs> aadAuth;
 
     /**
-     * @return The `aad_auth` block as defined below
+     * @return The `aad_auth` block as defined below.
      * 
      * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
      * 
@@ -109,7 +109,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param aadAuth The `aad_auth` block as defined below
+         * @param aadAuth The `aad_auth` block as defined below.
          * 
          * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
          * 
@@ -122,7 +122,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param aadAuth The `aad_auth` block as defined below
+         * @param aadAuth The `aad_auth` block as defined below.
          * 
          * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
          * 

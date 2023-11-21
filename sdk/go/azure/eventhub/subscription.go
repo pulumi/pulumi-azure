@@ -85,7 +85,7 @@ type Subscription struct {
 	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrOutput `pulumi:"clientScopedSubscription"`
-	// whether the subscription is scoped to a client id. Defaults to `False`.
+	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
 	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrOutput `pulumi:"clientScopedSubscriptionEnabled"`
@@ -155,7 +155,7 @@ type subscriptionState struct {
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
-	// whether the subscription is scoped to a client id. Defaults to `False`.
+	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
 	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
@@ -190,7 +190,7 @@ type SubscriptionState struct {
 	AutoDeleteOnIdle pulumi.StringPtrInput
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
-	// whether the subscription is scoped to a client id. Defaults to `False`.
+	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
 	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
@@ -229,7 +229,7 @@ type subscriptionArgs struct {
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription *SubscriptionClientScopedSubscription `pulumi:"clientScopedSubscription"`
-	// whether the subscription is scoped to a client id. Defaults to `False`.
+	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
 	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled *bool `pulumi:"clientScopedSubscriptionEnabled"`
@@ -265,7 +265,7 @@ type SubscriptionArgs struct {
 	AutoDeleteOnIdle pulumi.StringPtrInput
 	// A `clientScopedSubscription` block as defined below.
 	ClientScopedSubscription SubscriptionClientScopedSubscriptionPtrInput
-	// whether the subscription is scoped to a client id. Defaults to `False`.
+	// whether the subscription is scoped to a client id. Defaults to `false`.
 	//
 	// > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 	ClientScopedSubscriptionEnabled pulumi.BoolPtrInput
@@ -416,7 +416,7 @@ func (o SubscriptionOutput) ClientScopedSubscription() SubscriptionClientScopedS
 	return o.ApplyT(func(v *Subscription) SubscriptionClientScopedSubscriptionPtrOutput { return v.ClientScopedSubscription }).(SubscriptionClientScopedSubscriptionPtrOutput)
 }
 
-// whether the subscription is scoped to a client id. Defaults to `False`.
+// whether the subscription is scoped to a client id. Defaults to `false`.
 //
 // > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
 func (o SubscriptionOutput) ClientScopedSubscriptionEnabled() pulumi.BoolPtrOutput {

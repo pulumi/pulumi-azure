@@ -97,6 +97,11 @@ public final class GetLinuxFunctionAppResult {
      */
     private Boolean enabled;
     /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    private Boolean ftpPublishBasicAuthenticationEnabled;
+    /**
      * @return The runtime version associated with the Function App.
      * 
      */
@@ -156,6 +161,10 @@ public final class GetLinuxFunctionAppResult {
      * 
      */
     private String possibleOutboundIpAddresses;
+    /**
+     * @return Is Public Network Access enabled for this Linux Function App.
+     * 
+     */
     private Boolean publicNetworkAccessEnabled;
     private String resourceGroupName;
     /**
@@ -213,6 +222,11 @@ public final class GetLinuxFunctionAppResult {
      * 
      */
     private String virtualNetworkSubnetId;
+    /**
+     * @return Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     * 
+     */
+    private Boolean webdeployPublishBasicAuthenticationEnabled;
 
     private GetLinuxFunctionAppResult() {}
     /**
@@ -321,6 +335,13 @@ public final class GetLinuxFunctionAppResult {
         return this.enabled;
     }
     /**
+     * @return Are the default FTP Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Boolean ftpPublishBasicAuthenticationEnabled() {
+        return this.ftpPublishBasicAuthenticationEnabled;
+    }
+    /**
      * @return The runtime version associated with the Function App.
      * 
      */
@@ -404,6 +425,10 @@ public final class GetLinuxFunctionAppResult {
     public String possibleOutboundIpAddresses() {
         return this.possibleOutboundIpAddresses;
     }
+    /**
+     * @return Is Public Network Access enabled for this Linux Function App.
+     * 
+     */
     public Boolean publicNetworkAccessEnabled() {
         return this.publicNetworkAccessEnabled;
     }
@@ -487,6 +512,13 @@ public final class GetLinuxFunctionAppResult {
     public String virtualNetworkSubnetId() {
         return this.virtualNetworkSubnetId;
     }
+    /**
+     * @return Are the default WebDeploy Basic Authentication publishing credentials enabled.
+     * 
+     */
+    public Boolean webdeployPublishBasicAuthenticationEnabled() {
+        return this.webdeployPublishBasicAuthenticationEnabled;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -512,6 +544,7 @@ public final class GetLinuxFunctionAppResult {
         private Integer dailyMemoryTimeQuota;
         private String defaultHostname;
         private Boolean enabled;
+        private Boolean ftpPublishBasicAuthenticationEnabled;
         private String functionsExtensionVersion;
         private String hostingEnvironmentId;
         private Boolean httpsOnly;
@@ -537,6 +570,7 @@ public final class GetLinuxFunctionAppResult {
         private Map<String,String> tags;
         private String usage;
         private String virtualNetworkSubnetId;
+        private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
         public Builder(GetLinuxFunctionAppResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -555,6 +589,7 @@ public final class GetLinuxFunctionAppResult {
     	      this.dailyMemoryTimeQuota = defaults.dailyMemoryTimeQuota;
     	      this.defaultHostname = defaults.defaultHostname;
     	      this.enabled = defaults.enabled;
+    	      this.ftpPublishBasicAuthenticationEnabled = defaults.ftpPublishBasicAuthenticationEnabled;
     	      this.functionsExtensionVersion = defaults.functionsExtensionVersion;
     	      this.hostingEnvironmentId = defaults.hostingEnvironmentId;
     	      this.httpsOnly = defaults.httpsOnly;
@@ -580,6 +615,7 @@ public final class GetLinuxFunctionAppResult {
     	      this.tags = defaults.tags;
     	      this.usage = defaults.usage;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
+    	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
 
         @CustomType.Setter
@@ -667,6 +703,11 @@ public final class GetLinuxFunctionAppResult {
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ftpPublishBasicAuthenticationEnabled(Boolean ftpPublishBasicAuthenticationEnabled) {
+            this.ftpPublishBasicAuthenticationEnabled = Objects.requireNonNull(ftpPublishBasicAuthenticationEnabled);
             return this;
         }
         @CustomType.Setter
@@ -812,6 +853,11 @@ public final class GetLinuxFunctionAppResult {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
         }
+        @CustomType.Setter
+        public Builder webdeployPublishBasicAuthenticationEnabled(Boolean webdeployPublishBasicAuthenticationEnabled) {
+            this.webdeployPublishBasicAuthenticationEnabled = Objects.requireNonNull(webdeployPublishBasicAuthenticationEnabled);
+            return this;
+        }
         public GetLinuxFunctionAppResult build() {
             final var _resultValue = new GetLinuxFunctionAppResult();
             _resultValue.appSettings = appSettings;
@@ -829,6 +875,7 @@ public final class GetLinuxFunctionAppResult {
             _resultValue.dailyMemoryTimeQuota = dailyMemoryTimeQuota;
             _resultValue.defaultHostname = defaultHostname;
             _resultValue.enabled = enabled;
+            _resultValue.ftpPublishBasicAuthenticationEnabled = ftpPublishBasicAuthenticationEnabled;
             _resultValue.functionsExtensionVersion = functionsExtensionVersion;
             _resultValue.hostingEnvironmentId = hostingEnvironmentId;
             _resultValue.httpsOnly = httpsOnly;
@@ -854,6 +901,7 @@ public final class GetLinuxFunctionAppResult {
             _resultValue.tags = tags;
             _resultValue.usage = usage;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;
         }
     }

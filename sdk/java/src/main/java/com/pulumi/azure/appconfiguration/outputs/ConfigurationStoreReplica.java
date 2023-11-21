@@ -22,12 +22,12 @@ public final class ConfigurationStoreReplica {
      */
     private @Nullable String id;
     /**
-     * @return Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+     * @return Specifies the supported Azure location where the replica exists.
      * 
      */
     private String location;
     /**
-     * @return Specifies the name of the replica. Changing this forces a new replica to be created.
+     * @return Specifies the name of the replica.
      * 
      */
     private String name;
@@ -48,14 +48,14 @@ public final class ConfigurationStoreReplica {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+     * @return Specifies the supported Azure location where the replica exists.
      * 
      */
     public String location() {
         return this.location;
     }
     /**
-     * @return Specifies the name of the replica. Changing this forces a new replica to be created.
+     * @return Specifies the name of the replica.
      * 
      */
     public String name() {

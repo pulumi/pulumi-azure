@@ -220,7 +220,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+     * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
      * 
      * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
@@ -229,7 +229,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     private @Nullable Output<String> phpVersion;
 
     /**
-     * @return The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
      * 
      * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
@@ -583,7 +583,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param phpVersion The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+         * @param phpVersion The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
          * 
          * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
          * 
@@ -596,7 +596,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param phpVersion The version of PHP to run. Possible values are `8.0`, `8.1` and `8.2`.
+         * @param phpVersion The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
          * 
          * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
          * 

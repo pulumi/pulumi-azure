@@ -13,6 +13,9 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class HBaseClusterRolesWorkerNode
     {
+        /// <summary>
+        /// A `autoscale` block as defined below.
+        /// </summary>
         public readonly Outputs.HBaseClusterRolesWorkerNodeAutoscale? Autoscale;
         /// <summary>
         /// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -21,7 +24,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
-        /// The script action which will run on the cluster. Changing this forces a new resource to be created.
+        /// The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.HBaseClusterRolesWorkerNodeScriptAction> ScriptActions;
         /// <summary>

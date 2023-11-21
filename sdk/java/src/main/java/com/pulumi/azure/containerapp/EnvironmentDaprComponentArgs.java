@@ -20,14 +20,14 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
     public static final EnvironmentDaprComponentArgs Empty = new EnvironmentDaprComponentArgs();
 
     /**
-     * The Dapr Component Type. For example `state.azure.blobstorage`.
+     * The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="componentType", required=true)
     private Output<String> componentType;
 
     /**
-     * @return The Dapr Component Type. For example `state.azure.blobstorage`.
+     * @return The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> componentType() {
@@ -65,14 +65,14 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      * 
      */
     @Import(name="initTimeout")
     private @Nullable Output<String> initTimeout;
 
     /**
-     * @return The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+     * @return The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
      * 
      */
     public Optional<Output<String>> initTimeout() {
@@ -191,7 +191,7 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param componentType The Dapr Component Type. For example `state.azure.blobstorage`.
+         * @param componentType The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param componentType The Dapr Component Type. For example `state.azure.blobstorage`.
+         * @param componentType The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param initTimeout The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+         * @param initTimeout The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class EnvironmentDaprComponentArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param initTimeout The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`
+         * @param initTimeout The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
          * 
          * @return builder
          * 

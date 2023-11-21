@@ -16,16 +16,14 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
     public static final VmwareReplicationPolicyAssociationArgs Empty = new VmwareReplicationPolicyAssociationArgs();
 
     /**
-     * The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * The name of the replication policy association. Changing this forces a new association to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the replication policy association. Changing this forces a new association to be
-     * created.
+     * @return The name of the replication policy association. Changing this forces a new association to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -33,16 +31,14 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
     }
 
     /**
-     * The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      * 
      */
     @Import(name="policyId", required=true)
     private Output<String> policyId;
 
     /**
-     * @return The ID of the VMWare replication policy which to be associated. Changing this forces a new
-     * association to be created.
+     * @return The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
      * 
      */
     public Output<String> policyId() {
@@ -93,8 +89,7 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param name The name of the replication policy association. Changing this forces a new association to be
-         * created.
+         * @param name The name of the replication policy association. Changing this forces a new association to be created.
          * 
          * @return builder
          * 
@@ -105,8 +100,7 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param name The name of the replication policy association. Changing this forces a new association to be
-         * created.
+         * @param name The name of the replication policy association. Changing this forces a new association to be created.
          * 
          * @return builder
          * 
@@ -116,8 +110,7 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param policyId The ID of the VMWare replication policy which to be associated. Changing this forces a new
-         * association to be created.
+         * @param policyId The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
          * 
          * @return builder
          * 
@@ -128,8 +121,7 @@ public final class VmwareReplicationPolicyAssociationArgs extends com.pulumi.res
         }
 
         /**
-         * @param policyId The ID of the VMWare replication policy which to be associated. Changing this forces a new
-         * association to be created.
+         * @param policyId The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
          * 
          * @return builder
          * 

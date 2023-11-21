@@ -31,14 +31,14 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+     * Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="useInVirtualMachineCreation")
     private @Nullable Output<String> useInVirtualMachineCreation;
 
     /**
-     * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+     * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> useInVirtualMachineCreation() {
@@ -46,14 +46,14 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+     * Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="usePublicIpAddress")
     private @Nullable Output<String> usePublicIpAddress;
 
     /**
-     * @return Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+     * @return Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> usePublicIpAddress() {
@@ -108,7 +108,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param useInVirtualMachineCreation Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+         * @param useInVirtualMachineCreation Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param useInVirtualMachineCreation Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
+         * @param useInVirtualMachineCreation Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usePublicIpAddress Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+         * @param usePublicIpAddress Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param usePublicIpAddress Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
+         * @param usePublicIpAddress Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 

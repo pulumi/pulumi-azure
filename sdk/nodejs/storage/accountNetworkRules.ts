@@ -108,7 +108,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      */
     public readonly ipRules!: pulumi.Output<string[]>;
     /**
-     * One or More `privateLinkAccess` block as defined below.
+     * One or more `privateLinkAccess` block as defined below.
      */
     public readonly privateLinkAccessRules!: pulumi.Output<outputs.storage.AccountNetworkRulesPrivateLinkAccessRule[] | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface AccountNetworkRulesState {
      */
     ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or More `privateLinkAccess` block as defined below.
+     * One or more `privateLinkAccess` block as defined below.
      */
     privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**
@@ -226,7 +226,7 @@ export interface AccountNetworkRulesArgs {
      */
     ipRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * One or More `privateLinkAccess` block as defined below.
+     * One or more `privateLinkAccess` block as defined below.
      */
     privateLinkAccessRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountNetworkRulesPrivateLinkAccessRule>[]>;
     /**

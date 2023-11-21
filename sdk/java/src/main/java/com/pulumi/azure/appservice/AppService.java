@@ -445,14 +445,14 @@ public class AppService extends com.pulumi.resources.CustomResource {
         return this.siteCredentials;
     }
     /**
-     * A Source Control block as defined below
+     * A `source_control` block as defined below.
      * 
      */
     @Export(name="sourceControl", refs={AppServiceSourceControl.class}, tree="[0]")
     private Output<AppServiceSourceControl> sourceControl;
 
     /**
-     * @return A Source Control block as defined below
+     * @return A `source_control` block as defined below.
      * 
      */
     public Output<AppServiceSourceControl> sourceControl() {

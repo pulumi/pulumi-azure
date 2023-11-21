@@ -61,7 +61,7 @@ public final class VolumeGroupSapHanaVolume {
      */
     private @Nullable String proximityPlacementGroupId;
     /**
-     * @return Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     private String securityStyle;
@@ -167,7 +167,7 @@ public final class VolumeGroupSapHanaVolume {
         return Optional.ofNullable(this.proximityPlacementGroupId);
     }
     /**
-     * @return Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public String securityStyle() {

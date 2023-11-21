@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxFunctionAppSlotSiteConfigCors {
     /**
-     * @return an `allowed_origins` block as detailed below.
+     * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
     private @Nullable List<String> allowedOrigins;
@@ -26,7 +26,7 @@ public final class LinuxFunctionAppSlotSiteConfigCors {
 
     private LinuxFunctionAppSlotSiteConfigCors() {}
     /**
-     * @return an `allowed_origins` block as detailed below.
+     * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
     public List<String> allowedOrigins() {

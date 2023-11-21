@@ -62,14 +62,14 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs ex
     }
 
     /**
-     * One or more `network_rule` (network rule) blocks as defined below.
+     * One or more `network_rule` blocks as defined below.
      * 
      */
     @Import(name="rules", required=true)
     private Output<List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs>> rules;
 
     /**
-     * @return One or more `network_rule` (network rule) blocks as defined below.
+     * @return One or more `network_rule` blocks as defined below.
      * 
      */
     public Output<List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs>> rules() {
@@ -167,7 +167,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs ex
         }
 
         /**
-         * @param rules One or more `network_rule` (network rule) blocks as defined below.
+         * @param rules One or more `network_rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs ex
         }
 
         /**
-         * @param rules One or more `network_rule` (network rule) blocks as defined below.
+         * @param rules One or more `network_rule` blocks as defined below.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs ex
         }
 
         /**
-         * @param rules One or more `network_rule` (network rule) blocks as defined below.
+         * @param rules One or more `network_rule` blocks as defined below.
          * 
          * @return builder
          * 

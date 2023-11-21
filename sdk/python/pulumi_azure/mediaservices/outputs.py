@@ -51,7 +51,7 @@ class AccountEncryption(dict):
         :param str current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
         :param str key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         :param 'AccountEncryptionManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
-        :param str type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        :param str type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
         """
         if current_key_identifier is not None:
             pulumi.set(__self__, "current_key_identifier", current_key_identifier)
@@ -90,7 +90,7 @@ class AccountEncryption(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
         """
         return pulumi.get(self, "type")
 

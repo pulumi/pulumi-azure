@@ -19,6 +19,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly string? CapacityReservationGroupId;
         /// <summary>
         /// Specifies whether to trust a Custom CA.
+        /// 
+        /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
         /// </summary>
         public readonly bool? CustomCaTrustEnabled;
         /// <summary>
@@ -40,7 +42,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? EnableNodePublicIp;
         /// <summary>
-        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
+        /// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         public readonly bool? FipsEnabled;
         /// <summary>
@@ -64,7 +66,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? MaxCount;
         /// <summary>
-        /// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
+        /// The maximum number of pods that can run on each agent. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly int? MaxPods;
         /// <summary>
@@ -76,11 +78,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? MinCount;
         /// <summary>
-        /// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
+        /// The name which should be used for the default Kubernetes Node Pool.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
+        /// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
+        /// 
+        /// &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         /// 
         /// &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         /// </summary>
@@ -116,15 +120,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? OsDiskSizeGb;
         /// <summary>
-        /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`.  `temporary_name_for_rotation` must be specified when attempting a change.
+        /// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
         /// </summary>
         public readonly string? OsDiskType;
         /// <summary>
-        /// Specifies the OS SKU used by the agent pool. Possible values include: `AzureLinux`, `Ubuntu`, `Windows2019`, `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
+        /// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporary_name_for_rotation` must be specified when attempting a change.
         /// </summary>
         public readonly string? OsSku;
         /// <summary>
-        /// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
+        /// The ID of the Subnet where the pods in the default Node Pool should exist.
         /// </summary>
         public readonly string? PodSubnetId;
         /// <summary>
@@ -168,7 +172,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string VmSize;
         /// <summary>
-        /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
+        /// The ID of a Subnet where the Kubernetes Node Pool should exist.
         /// 
         /// &gt; **Note:** A Route Table must be configured on this Subnet.
         /// </summary>

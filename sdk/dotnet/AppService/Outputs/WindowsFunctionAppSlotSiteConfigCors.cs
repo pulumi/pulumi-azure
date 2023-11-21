@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotSiteConfigCors
     {
         /// <summary>
-        /// an `allowed_origins` block as detailed below.
+        /// Specifies a list of origins that should be allowed to make cross-origin calls.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>

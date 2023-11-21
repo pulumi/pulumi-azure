@@ -299,14 +299,14 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      * 
      */
     @Import(name="extensionsTimeBudget")
     private @Nullable Output<String> extensionsTimeBudget;
 
     /**
-     * @return Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+     * @return Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      * 
      */
     public Optional<Output<String>> extensionsTimeBudget() {
@@ -1254,7 +1254,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param extensionsTimeBudget Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+         * @param extensionsTimeBudget Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
          * 
          * @return builder
          * 
@@ -1265,7 +1265,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param extensionsTimeBudget Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+         * @param extensionsTimeBudget Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
          * 
          * @return builder
          * 

@@ -84,28 +84,28 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
      * 
      */
     @Export(name="mobileCountryCode", refs={String.class}, tree="[0]")
     private Output<String> mobileCountryCode;
 
     /**
-     * @return Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * @return Mobile country code (MCC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
      * 
      */
     public Output<String> mobileCountryCode() {
         return this.mobileCountryCode;
     }
     /**
-     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
      * 
      */
     @Export(name="mobileNetworkCode", refs={String.class}, tree="[0]")
     private Output<String> mobileNetworkCode;
 
     /**
-     * @return Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 .
+     * @return Mobile network code (MNC), defined in https://www.itu.int/rec/T-REC-E.212 . Changing this forces a new resource to be created.
      * 
      */
     public Output<String> mobileNetworkCode() {

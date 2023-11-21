@@ -65,7 +65,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
-        /// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
+        /// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
         /// </summary>
         [Input("transport")]
         public Input<string>? Transport { get; set; }

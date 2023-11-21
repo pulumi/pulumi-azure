@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+        /// Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }

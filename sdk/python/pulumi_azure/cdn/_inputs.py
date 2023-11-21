@@ -734,7 +734,7 @@ class EndpointDeliveryRuleDeviceConditionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Valid values are `Desktop` and `Mobile`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[str] operator: Valid values are `Equal`.
+        :param pulumi.Input[str] operator: Valid values are `Equal`. Defaults to `Equal`.
         """
         pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
@@ -770,7 +770,7 @@ class EndpointDeliveryRuleDeviceConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid values are `Equal`.
+        Valid values are `Equal`. Defaults to `Equal`.
         """
         return pulumi.get(self, "operator")
 
@@ -788,7 +788,7 @@ class EndpointDeliveryRuleHttpVersionConditionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[str] operator: Valid values are `Equal`.
+        :param pulumi.Input[str] operator: Valid values are `Equal`. Defaults to `Equal`.
         """
         pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
@@ -824,7 +824,7 @@ class EndpointDeliveryRuleHttpVersionConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid values are `Equal`.
+        Valid values are `Equal`. Defaults to `Equal`.
         """
         return pulumi.get(self, "operator")
 
@@ -1312,7 +1312,7 @@ class EndpointDeliveryRuleRequestMethodConditionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[str] operator: Valid values are `Equal`.
+        :param pulumi.Input[str] operator: Valid values are `Equal`. Defaults to `Equal`.
         """
         pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
@@ -1348,7 +1348,7 @@ class EndpointDeliveryRuleRequestMethodConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid values are `Equal`.
+        Valid values are `Equal`. Defaults to `Equal`.
         """
         return pulumi.get(self, "operator")
 
@@ -1366,7 +1366,7 @@ class EndpointDeliveryRuleRequestSchemeConditionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Valid values are `HTTP` and `HTTPS`.
         :param pulumi.Input[bool] negate_condition: Defaults to `false`.
-        :param pulumi.Input[str] operator: Valid values are `Equal`.
+        :param pulumi.Input[str] operator: Valid values are `Equal`. Defaults to `Equal`.
         """
         pulumi.set(__self__, "match_values", match_values)
         if negate_condition is not None:
@@ -1402,7 +1402,7 @@ class EndpointDeliveryRuleRequestSchemeConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
         """
-        Valid values are `Equal`.
+        Valid values are `Equal`. Defaults to `Equal`.
         """
         return pulumi.get(self, "operator")
 
@@ -1705,7 +1705,7 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
         :param pulumi.Input[str] fragment: Specifies the fragment part of the URL. This value must not start with a `#`.
         :param pulumi.Input[str] hostname: Specifies the hostname part of the URL.
         :param pulumi.Input[str] path: Specifies the path part of the URL. This value must begin with a `/`.
-        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
         :param pulumi.Input[str] query_string: Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
         """
         pulumi.set(__self__, "redirect_type", redirect_type)
@@ -1772,7 +1772,7 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "protocol")
 
@@ -1802,7 +1802,7 @@ class EndpointDeliveryRuleUrlRewriteActionArgs:
         """
         :param pulumi.Input[str] destination: This value must start with a `/` and can't be longer than 260 characters.
         :param pulumi.Input[str] source_pattern: This value must start with a `/` and can't be longer than 260 characters.
-        :param pulumi.Input[bool] preserve_unmatched_path: Defaults to `true`.
+        :param pulumi.Input[bool] preserve_unmatched_path: Whether preserve an unmatched path. Defaults to `true`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source_pattern", source_pattern)
@@ -1837,7 +1837,7 @@ class EndpointDeliveryRuleUrlRewriteActionArgs:
     @pulumi.getter(name="preserveUnmatchedPath")
     def preserve_unmatched_path(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defaults to `true`.
+        Whether preserve an unmatched path. Defaults to `true`.
         """
         return pulumi.get(self, "preserve_unmatched_path")
 
@@ -2197,7 +2197,7 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
         :param pulumi.Input[str] fragment: Specifies the fragment part of the URL. This value must not start with a `#`.
         :param pulumi.Input[str] hostname: Specifies the hostname part of the URL.
         :param pulumi.Input[str] path: Specifies the path part of the URL. This value must begin with a `/`.
-        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+        :param pulumi.Input[str] protocol: Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
         :param pulumi.Input[str] query_string: Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
         """
         pulumi.set(__self__, "redirect_type", redirect_type)
@@ -2264,7 +2264,7 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`.
+        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
         """
         return pulumi.get(self, "protocol")
 
@@ -2294,7 +2294,7 @@ class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
         """
         :param pulumi.Input[str] destination: This value must start with a `/` and can't be longer than 260 characters.
         :param pulumi.Input[str] source_pattern: This value must start with a `/` and can't be longer than 260 characters.
-        :param pulumi.Input[bool] preserve_unmatched_path: Defaults to `true`.
+        :param pulumi.Input[bool] preserve_unmatched_path: Whether preserve an unmatched path. Defaults to `true`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source_pattern", source_pattern)
@@ -2329,7 +2329,7 @@ class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
     @pulumi.getter(name="preserveUnmatchedPath")
     def preserve_unmatched_path(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defaults to `true`.
+        Whether preserve an unmatched path. Defaults to `true`.
         """
         return pulumi.get(self, "preserve_unmatched_path")
 
@@ -3306,7 +3306,7 @@ class FrontdoorRouteCacheArgs:
                
                > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compresses: A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
-        :param pulumi.Input[str] query_string_caching_behavior: Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+        :param pulumi.Input[str] query_string_caching_behavior: Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
                
                > **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_strings: Query strings to include or ignore.
@@ -3350,7 +3350,7 @@ class FrontdoorRouteCacheArgs:
     @pulumi.getter(name="queryStringCachingBehavior")
     def query_string_caching_behavior(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+        Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
 
         > **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
         """
@@ -3725,9 +3725,9 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
         """
         :param pulumi.Input[str] destination_hostname: The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
         :param pulumi.Input[str] redirect_type: The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
-        :param pulumi.Input[str] destination_fragment: The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
-        :param pulumi.Input[str] destination_path: The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
-        :param pulumi.Input[str] query_string: The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
+        :param pulumi.Input[str] destination_fragment: The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
+        :param pulumi.Input[str] destination_path: The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
+        :param pulumi.Input[str] query_string: The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
         :param pulumi.Input[str] redirect_protocol: The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
         """
         pulumi.set(__self__, "destination_hostname", destination_hostname)
@@ -3769,7 +3769,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="destinationFragment")
     def destination_fragment(self) -> Optional[pulumi.Input[str]]:
         """
-        The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string. Defaults to `""`.
+        The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
         """
         return pulumi.get(self, "destination_fragment")
 
@@ -3781,7 +3781,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="destinationPath")
     def destination_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string. Defaults to `""`.
+        The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
         """
         return pulumi.get(self, "destination_path")
 
@@ -3793,7 +3793,7 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to an empty string. Defaults to `""`.
+        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
         """
         return pulumi.get(self, "query_string")
 
@@ -4662,7 +4662,7 @@ class FrontdoorRuleConditionsRemoteAddressConditionArgs:
                
                ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
         :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
-        :param pulumi.Input[str] operator: The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+        :param pulumi.Input[str] operator: The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
         """
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
@@ -4701,7 +4701,7 @@ class FrontdoorRuleConditionsRemoteAddressConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+        The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
         """
         return pulumi.get(self, "operator")
 

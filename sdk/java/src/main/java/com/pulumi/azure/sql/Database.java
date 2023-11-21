@@ -184,14 +184,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.encryption;
     }
     /**
-     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * A `import` block as documented below. `create_mode` must be set to `Default`.
      * 
      */
     @Export(name="import", refs={DatabaseImport.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseImport> import_;
 
     /**
-     * @return A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * @return A `import` block as documented below. `create_mode` must be set to `Default`.
      * 
      */
     public Output<Optional<DatabaseImport>> import_() {

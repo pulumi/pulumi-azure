@@ -279,10 +279,10 @@ class DatabaseThreatDetectionPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+        :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: A list of email addresses which alerts should be sent to.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
@@ -317,7 +317,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[pulumi.Input[str]]:
         """
-        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`.
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "email_account_admins")
 
@@ -353,7 +353,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`.
+        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "state")
 
@@ -1147,7 +1147,7 @@ class VirtualMachineAssessmentScheduleArgs:
                  monthly_occurrence: Optional[pulumi.Input[int]] = None,
                  weekly_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] day_of_week: What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+        :param pulumi.Input[str] day_of_week: What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         :param pulumi.Input[str] start_time: What time the assessment will be run. Must be in the format `HH:mm`.
         :param pulumi.Input[int] monthly_occurrence: How many months between assessment runs. Valid values are between `1` and `5`.
                
@@ -1165,7 +1165,7 @@ class VirtualMachineAssessmentScheduleArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[str]:
         """
-        What day of the week the assessment will be run. Default value is `Monday`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+        What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -2029,7 +2029,7 @@ class VirtualMachineStorageConfigurationArgs:
         :param pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgs'] data_settings: A `storage_settings` block as defined below.
         :param pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgs'] log_settings: A `storage_settings` block as defined below.
         :param pulumi.Input[bool] system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `temp_db_settings` as defined below.
+        :param pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs'] temp_db_settings: An `temp_db_settings` block as defined below.
         """
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "storage_workload_type", storage_workload_type)
@@ -2106,7 +2106,7 @@ class VirtualMachineStorageConfigurationArgs:
     @pulumi.getter(name="tempDbSettings")
     def temp_db_settings(self) -> Optional[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgs']]:
         """
-        An `temp_db_settings` as defined below.
+        An `temp_db_settings` block as defined below.
         """
         return pulumi.get(self, "temp_db_settings")
 

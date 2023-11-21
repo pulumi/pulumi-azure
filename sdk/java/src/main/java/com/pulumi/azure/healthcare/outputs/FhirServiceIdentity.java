@@ -20,7 +20,7 @@ public final class FhirServiceIdentity {
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     private String type;
@@ -40,7 +40,7 @@ public final class FhirServiceIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
+     * @return The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     public String type() {

@@ -18,14 +18,14 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     public static final ChannelDirectLineSiteArgs Empty = new ChannelDirectLineSiteArgs();
 
     /**
-     * Enables/Disables this site. Enabled by default Defaults to `true`.
+     * Enables/Disables this site. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Enables/Disables this site. Enabled by default Defaults to `true`.
+     * @return Enables/Disables this site. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -168,14 +168,14 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * Enables v1 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     @Import(name="v1Allowed")
     private @Nullable Output<Boolean> v1Allowed;
 
     /**
-     * @return Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * @return Enables v1 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> v1Allowed() {
@@ -183,14 +183,14 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * Enables v3 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     @Import(name="v3Allowed")
     private @Nullable Output<Boolean> v3Allowed;
 
     /**
-     * @return Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+     * @return Enables v3 of the Directline protocol for this site. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> v3Allowed() {
@@ -233,7 +233,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Enables/Disables this site. Enabled by default Defaults to `true`.
+         * @param enabled Enables/Disables this site. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enabled Enables/Disables this site. Enabled by default Defaults to `true`.
+         * @param enabled Enables/Disables this site. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param v1Allowed Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+         * @param v1Allowed Enables v1 of the Directline protocol for this site. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param v1Allowed Enables v1 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+         * @param v1Allowed Enables v1 of the Directline protocol for this site. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param v3Allowed Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+         * @param v3Allowed Enables v3 of the Directline protocol for this site. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class ChannelDirectLineSiteArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param v3Allowed Enables v3 of the Directline protocol for this site. Enabled by default Defaults to `true`.
+         * @param v3Allowed Enables v3 of the Directline protocol for this site. Defaults to `true`.
          * 
          * @return builder
          * 

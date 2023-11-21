@@ -117,7 +117,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly backupRetentionDays!: pulumi.Output<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -165,7 +165,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      *
      * > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
@@ -201,7 +201,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */
@@ -315,7 +315,7 @@ export interface FlexibleServerState {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -363,7 +363,7 @@ export interface FlexibleServerState {
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
-     * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      *
      * > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
@@ -399,7 +399,7 @@ export interface FlexibleServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */
@@ -436,7 +436,7 @@ export interface FlexibleServerArgs {
      */
     backupRetentionDays?: pulumi.Input<number>;
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`.
      *
      * > **Note:** While creating the resource, `createMode` cannot be set to `Update`.
      */
@@ -480,7 +480,7 @@ export interface FlexibleServerArgs {
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
-     * The ID of the private DNS zone to create the PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The ID of the private DNS zone to create the PostgreSQL Flexible Server.
      *
      * > **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the `privateDnsZoneId` will be required when setting a `delegatedSubnetId`. For existing flexible servers who don't want to be recreated, you need to provide the `privateDnsZoneId` to the service team to manually migrate to the specified private DNS zone. The `azure.privatedns.Zone` should end with suffix `.postgres.database.azure.com`.
      */
@@ -512,7 +512,7 @@ export interface FlexibleServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */

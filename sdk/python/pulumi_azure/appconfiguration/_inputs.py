@@ -30,7 +30,7 @@ class ConfigurationFeatureTargetingFilterArgs:
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[int] default_rollout_percentage: A number representing the percentage of the entire user base.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]] groups: One or more blocks of type `groups` as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]] groups: One or more `groups` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: A list of users to target for this feature.
         """
         pulumi.set(__self__, "default_rollout_percentage", default_rollout_percentage)
@@ -55,7 +55,7 @@ class ConfigurationFeatureTargetingFilterArgs:
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]]:
         """
-        One or more blocks of type `groups` as defined below.
+        One or more `groups` blocks as defined below.
         """
         return pulumi.get(self, "groups")
 
@@ -383,8 +383,8 @@ class ConfigurationStoreReplicaArgs:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
-        :param pulumi.Input[str] name: Specifies the name of the replica. Changing this forces a new replica to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the replica exists.
+        :param pulumi.Input[str] name: Specifies the name of the replica.
         :param pulumi.Input[str] endpoint: The URL of the App Configuration Replica.
         :param pulumi.Input[str] id: The ID of the Access Key.
         """
@@ -399,7 +399,7 @@ class ConfigurationStoreReplicaArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        Specifies the supported Azure location where the replica exists. Changing this forces a new replica to be created.
+        Specifies the supported Azure location where the replica exists.
         """
         return pulumi.get(self, "location")
 
@@ -411,7 +411,7 @@ class ConfigurationStoreReplicaArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the replica. Changing this forces a new replica to be created.
+        Specifies the name of the replica.
         """
         return pulumi.get(self, "name")
 

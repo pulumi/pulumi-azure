@@ -17,6 +17,9 @@ namespace Pulumi.Azure.ManagedLustre.Outputs
         /// The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         /// </summary>
         public readonly string DayOfWeek;
+        /// <summary>
+        /// The time of day (in UTC) to start the maintenance window.
+        /// </summary>
         public readonly string TimeOfDayInUtc;
 
         [OutputConstructor]

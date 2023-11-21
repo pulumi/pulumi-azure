@@ -117,7 +117,7 @@ type Group struct {
 	InitContainers GroupInitContainerArrayOutput `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
 	//
 	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
@@ -214,7 +214,7 @@ type groupState struct {
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
 	// The IP address allocated to the container group.
 	IpAddress *string `pulumi:"ipAddress"`
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
 	//
 	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -273,7 +273,7 @@ type GroupState struct {
 	InitContainers GroupInitContainerArrayInput
 	// The IP address allocated to the container group.
 	IpAddress pulumi.StringPtrInput
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
 	//
 	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType pulumi.StringPtrInput
@@ -332,7 +332,7 @@ type groupArgs struct {
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
 	//
 	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -388,7 +388,7 @@ type GroupArgs struct {
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
-	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+	// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
 	//
 	// > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 	IpAddressType pulumi.StringPtrInput
@@ -590,7 +590,7 @@ func (o GroupOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set.
+// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnetIds` also needs to be set. Defaults to `Public`.
 //
 // > **Note:** `dnsNameLabel` and `osType` set to `windows` are not compatible with `Private` `ipAddressType`
 func (o GroupOutput) IpAddressType() pulumi.StringPtrOutput {

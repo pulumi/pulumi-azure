@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? AffinityCookieName;
         /// <summary>
-        /// One or more `authentication_certificate` blocks as defined below.
+        /// One or more `authentication_certificate_backend` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate> AuthenticationCertificates;
         /// <summary>

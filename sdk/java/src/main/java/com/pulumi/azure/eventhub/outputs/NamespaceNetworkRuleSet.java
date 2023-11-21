@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NamespaceNetworkRuleSet {
     /**
-     * @return Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     private @Nullable String defaultAction;
@@ -42,7 +42,7 @@ public final class NamespaceNetworkRuleSet {
 
     private NamespaceNetworkRuleSet() {}
     /**
-     * @return Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<String> defaultAction() {

@@ -38,7 +38,7 @@ public final class ActionRuleActionGroupCondition {
      */
     private @Nullable ActionRuleActionGroupConditionMonitor monitor;
     /**
-     * @return A `monitor_service` as block defined below.
+     * @return A `monitor_service` block as defined below.
      * 
      */
     private @Nullable ActionRuleActionGroupConditionMonitorService monitorService;
@@ -83,7 +83,7 @@ public final class ActionRuleActionGroupCondition {
         return Optional.ofNullable(this.monitor);
     }
     /**
-     * @return A `monitor_service` as block defined below.
+     * @return A `monitor_service` block as defined below.
      * 
      */
     public Optional<ActionRuleActionGroupConditionMonitorService> monitorService() {

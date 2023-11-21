@@ -57,7 +57,7 @@ export class LocalRulestack extends pulumi.CustomResource {
     }
 
     /**
-     * The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      */
     public readonly antiSpywareProfile!: pulumi.Output<string | undefined>;
     /**
@@ -146,7 +146,7 @@ export class LocalRulestack extends pulumi.CustomResource {
  */
 export interface LocalRulestackState {
     /**
-     * The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      */
     antiSpywareProfile?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface LocalRulestackState {
  */
 export interface LocalRulestackArgs {
     /**
-     * The setting to use for Anti-Spyware.  Possible values include `BestPractice`, and `Custom`.
+     * The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
      */
     antiSpywareProfile?: pulumi.Input<string>;
     /**

@@ -117,9 +117,17 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
     public Output<Integer> recoveryPointRetentionInHours() {
         return this.recoveryPointRetentionInHours;
     }
+    /**
+     * The id of the vault that should be updated. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="recoveryVaultId", refs={String.class}, tree="[0]")
     private Output<String> recoveryVaultId;
 
+    /**
+     * @return The id of the vault that should be updated. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> recoveryVaultId() {
         return this.recoveryVaultId;
     }

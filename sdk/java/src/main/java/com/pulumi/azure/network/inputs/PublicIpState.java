@@ -166,7 +166,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
      * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
      * 
@@ -175,7 +175,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> ipVersion;
 
     /**
-     * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+     * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
      * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
      * 
@@ -575,7 +575,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+         * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
          * 
          * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
          * 
@@ -588,7 +588,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+         * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
          * 
          * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
          * 

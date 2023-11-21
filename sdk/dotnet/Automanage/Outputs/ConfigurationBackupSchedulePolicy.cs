@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Automanage.Outputs
     public sealed class ConfigurationBackupSchedulePolicy
     {
         /// <summary>
-        /// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
+        /// The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
         /// </summary>
         public readonly string? SchedulePolicyType;
         /// <summary>

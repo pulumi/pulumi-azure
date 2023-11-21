@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class VirtualNetworkGatewayCustomRoute
     {
         /// <summary>
-        /// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+        /// A list of address blocks reserved for this virtual network in CIDR notation.
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
 

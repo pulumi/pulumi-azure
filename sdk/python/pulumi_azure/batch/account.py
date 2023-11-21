@@ -36,7 +36,7 @@ class AccountArgs:
                
                > **NOTE:** To work around [a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/5574) this property is currently treated as case-insensitive. A future version of this provider will require that the casing is correct.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
+        :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -115,7 +115,7 @@ class AccountArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
         """
-        Specifies if customer managed key encryption should be used to encrypt batch account data.
+        Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
@@ -288,7 +288,7 @@ class _AccountState:
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
+        :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -377,7 +377,7 @@ class _AccountState:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['AccountEncryptionArgs']]:
         """
-        Specifies if customer managed key encryption should be used to encrypt batch account data.
+        Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 
@@ -621,7 +621,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
+        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -780,7 +780,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
+        :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -849,7 +849,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.AccountEncryption']]:
         """
-        Specifies if customer managed key encryption should be used to encrypt batch account data.
+        Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
         """
         return pulumi.get(self, "encryption")
 

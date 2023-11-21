@@ -19,14 +19,14 @@ public final class NamespaceNetworkRuleSetState extends com.pulumi.resources.Res
     public static final NamespaceNetworkRuleSetState Empty = new NamespaceNetworkRuleSetState();
 
     /**
-     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     @Import(name="defaultAction")
     private @Nullable Output<String> defaultAction;
 
     /**
-     * @return Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
      * 
      */
     public Optional<Output<String>> defaultAction() {
@@ -142,7 +142,7 @@ public final class NamespaceNetworkRuleSetState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param defaultAction Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * @param defaultAction Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class NamespaceNetworkRuleSetState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param defaultAction Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * @param defaultAction Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
          * 
          * @return builder
          * 

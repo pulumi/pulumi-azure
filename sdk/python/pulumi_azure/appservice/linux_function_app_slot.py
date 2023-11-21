@@ -30,6 +30,7 @@ class LinuxFunctionAppSlotArgs:
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['LinuxFunctionAppSlotIdentityArgs']] = None,
@@ -43,7 +44,8 @@ class LinuxFunctionAppSlotArgs:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LinuxFunctionAppSlot resource.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
@@ -55,11 +57,12 @@ class LinuxFunctionAppSlotArgs:
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
         :param pulumi.Input['LinuxFunctionAppSlotIdentityArgs'] identity: An `identity` block as detailed below.
@@ -79,6 +82,7 @@ class LinuxFunctionAppSlotArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
         pulumi.set(__self__, "site_config", site_config)
@@ -106,6 +110,8 @@ class LinuxFunctionAppSlotArgs:
             pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if functions_extension_version is not None:
             pulumi.set(__self__, "functions_extension_version", functions_extension_version)
         if https_only is not None:
@@ -134,6 +140,8 @@ class LinuxFunctionAppSlotArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if webdeploy_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
 
     @property
     @pulumi.getter(name="functionAppId")
@@ -247,7 +255,7 @@ class LinuxFunctionAppSlotArgs:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -302,6 +310,18 @@ class LinuxFunctionAppSlotArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are the default FTP Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @ftp_publish_basic_authentication_enabled.setter
+    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="functionsExtensionVersion")
@@ -474,6 +494,18 @@ class LinuxFunctionAppSlotArgs:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
+
+    @webdeploy_publish_basic_authentication_enabled.setter
+    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
+
 
 @pulumi.input_type
 class _LinuxFunctionAppSlotState:
@@ -492,6 +524,7 @@ class _LinuxFunctionAppSlotState:
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  default_hostname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  hosting_environment_id: Optional[pulumi.Input[str]] = None,
@@ -514,7 +547,8 @@ class _LinuxFunctionAppSlotState:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering LinuxFunctionAppSlot resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -524,13 +558,14 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Function App Slot.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
@@ -559,6 +594,7 @@ class _LinuxFunctionAppSlotState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
         """
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
@@ -588,6 +624,8 @@ class _LinuxFunctionAppSlotState:
             pulumi.set(__self__, "default_hostname", default_hostname)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if ftp_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "ftp_publish_basic_authentication_enabled", ftp_publish_basic_authentication_enabled)
         if function_app_id is not None:
             pulumi.set(__self__, "function_app_id", function_app_id)
         if functions_extension_version is not None:
@@ -634,6 +672,8 @@ class _LinuxFunctionAppSlotState:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if webdeploy_publish_basic_authentication_enabled is not None:
+            pulumi.set(__self__, "webdeploy_publish_basic_authentication_enabled", webdeploy_publish_basic_authentication_enabled)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -723,7 +763,7 @@ class _LinuxFunctionAppSlotState:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -802,6 +842,18 @@ class _LinuxFunctionAppSlotState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Are the default FTP Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
+
+    @ftp_publish_basic_authentication_enabled.setter
+    def ftp_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ftp_publish_basic_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="functionAppId")
@@ -1082,6 +1134,18 @@ class _LinuxFunctionAppSlotState:
     def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+    @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
+
+    @webdeploy_publish_basic_authentication_enabled.setter
+    def webdeploy_publish_basic_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
+
 
 class LinuxFunctionAppSlot(pulumi.CustomResource):
     @overload
@@ -1100,6 +1164,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -1116,6 +1181,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Linux Function App Slot.
@@ -1166,11 +1232,12 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppSlotConnectionStringArgs']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
@@ -1192,6 +1259,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
         """
         ...
     @overload
@@ -1266,6 +1334,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
@@ -1282,6 +1351,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+                 webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1303,6 +1373,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["content_share_force_disabled"] = content_share_force_disabled
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
             if function_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'function_app_id'")
             __props__.__dict__["function_app_id"] = function_app_id
@@ -1323,6 +1394,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+            __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["hosting_environment_id"] = None
@@ -1358,6 +1430,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
             default_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             function_app_id: Optional[pulumi.Input[str]] = None,
             functions_extension_version: Optional[pulumi.Input[str]] = None,
             hosting_environment_id: Optional[pulumi.Input[str]] = None,
@@ -1380,7 +1453,8 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None) -> 'LinuxFunctionAppSlot':
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+            webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None) -> 'LinuxFunctionAppSlot':
         """
         Get an existing LinuxFunctionAppSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1395,13 +1469,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
-        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppSlotConnectionStringArgs']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[str] default_hostname: The default hostname of the Linux Function App Slot.
         :param pulumi.Input[bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
+        :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Are the default FTP Basic Authentication publishing credentials enabled.
         :param pulumi.Input[str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
@@ -1430,6 +1505,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1449,6 +1525,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
         __props__.__dict__["default_hostname"] = default_hostname
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
         __props__.__dict__["function_app_id"] = function_app_id
         __props__.__dict__["functions_extension_version"] = functions_extension_version
         __props__.__dict__["hosting_environment_id"] = hosting_environment_id
@@ -1472,6 +1549,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
+        __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         return LinuxFunctionAppSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1534,7 +1612,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -1585,6 +1663,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         Is the Linux Function App Slot enabled. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="ftpPublishBasicAuthenticationEnabled")
+    def ftp_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Are the default FTP Basic Authentication publishing credentials enabled.
+        """
+        return pulumi.get(self, "ftp_publish_basic_authentication_enabled")
 
     @property
     @pulumi.getter(name="functionAppId")
@@ -1772,4 +1858,12 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
+
+    @property
+    @pulumi.getter(name="webdeployPublishBasicAuthenticationEnabled")
+    def webdeploy_publish_basic_authentication_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`.
+        """
+        return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 

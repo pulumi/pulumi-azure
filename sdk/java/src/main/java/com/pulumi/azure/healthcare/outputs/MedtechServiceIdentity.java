@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MedtechServiceIdentity {
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+     * 
+     */
     private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this System Assigned Managed Service Identity.
@@ -30,6 +34,10 @@ public final class MedtechServiceIdentity {
     private String type;
 
     private MedtechServiceIdentity() {}
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+     * 
+     */
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }

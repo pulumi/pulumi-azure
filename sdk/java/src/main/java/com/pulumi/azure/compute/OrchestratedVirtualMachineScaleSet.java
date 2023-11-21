@@ -234,14 +234,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.extensions;
     }
     /**
-     * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+     * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      * 
      */
     @Export(name="extensionsTimeBudget", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> extensionsTimeBudget;
 
     /**
-     * @return Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+     * @return Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      * 
      */
     public Output<Optional<String>> extensionsTimeBudget() {

@@ -122,7 +122,7 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
     public readonly notificationSettings!: pulumi.Output<outputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
@@ -202,7 +202,7 @@ export interface GlobalVMShutdownScheduleState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
     notificationSettings?: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**
@@ -236,7 +236,7 @@ export interface GlobalVMShutdownScheduleArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The notification setting of a schedule. A `notificationSettings` as defined below.
+     * The notification setting of a schedule. A `notificationSettings` block as defined below.
      */
     notificationSettings: pulumi.Input<inputs.devtest.GlobalVMShutdownScheduleNotificationSettings>;
     /**

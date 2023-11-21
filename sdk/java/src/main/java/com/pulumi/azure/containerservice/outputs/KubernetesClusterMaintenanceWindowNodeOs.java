@@ -14,9 +14,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterMaintenanceWindowNodeOs {
+    /**
+     * @return The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * 
+     */
     private @Nullable Integer dayOfMonth;
     /**
-     * @return The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+     * @return The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     private @Nullable String dayOfWeek;
@@ -62,11 +66,15 @@ public final class KubernetesClusterMaintenanceWindowNodeOs {
     private @Nullable String weekIndex;
 
     private KubernetesClusterMaintenanceWindowNodeOs() {}
+    /**
+     * @return The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+     * 
+     */
     public Optional<Integer> dayOfMonth() {
         return Optional.ofNullable(this.dayOfMonth);
     }
     /**
-     * @return The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
+     * @return The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
      * 
      */
     public Optional<String> dayOfWeek() {

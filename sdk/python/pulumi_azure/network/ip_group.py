@@ -106,8 +106,8 @@ class _IPGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IPGroup resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A `firewall_ids` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A `firewall_policy_ids` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A list of ID of Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A list of ID of Firewall Policy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
@@ -141,7 +141,7 @@ class _IPGroupState:
     @pulumi.getter(name="firewallIds")
     def firewall_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A `firewall_ids` block as defined below.
+        A list of ID of Firewall.
         """
         return pulumi.get(self, "firewall_ids")
 
@@ -153,7 +153,7 @@ class _IPGroupState:
     @pulumi.getter(name="firewallPolicyIds")
     def firewall_policy_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A `firewall_policy_ids` block as defined below.
+        A list of ID of Firewall Policy`.
         """
         return pulumi.get(self, "firewall_policy_ids")
 
@@ -358,8 +358,8 @@ class IPGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A `firewall_ids` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A `firewall_policy_ids` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_ids: A list of ID of Firewall.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] firewall_policy_ids: A list of ID of Firewall Policy`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IP group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the IP group. Changing this forces a new resource to be created.
@@ -387,7 +387,7 @@ class IPGroup(pulumi.CustomResource):
     @pulumi.getter(name="firewallIds")
     def firewall_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A `firewall_ids` block as defined below.
+        A list of ID of Firewall.
         """
         return pulumi.get(self, "firewall_ids")
 
@@ -395,7 +395,7 @@ class IPGroup(pulumi.CustomResource):
     @pulumi.getter(name="firewallPolicyIds")
     def firewall_policy_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A `firewall_policy_ids` block as defined below.
+        A list of ID of Firewall Policy`.
         """
         return pulumi.get(self, "firewall_policy_ids")
 

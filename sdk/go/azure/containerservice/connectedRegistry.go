@@ -104,9 +104,9 @@ type ConnectedRegistry struct {
 	//
 	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId pulumi.StringOutput `pulumi:"containerRegistryId"`
-	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
 	LogLevel pulumi.StringPtrOutput `pulumi:"logLevel"`
-	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -114,7 +114,7 @@ type ConnectedRegistry struct {
 	Notifications ConnectedRegistryNotificationArrayOutput `pulumi:"notifications"`
 	// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
 	ParentRegistryId pulumi.StringPtrOutput `pulumi:"parentRegistryId"`
-	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
 	SyncMessageTtl pulumi.StringPtrOutput `pulumi:"syncMessageTtl"`
 	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule pulumi.StringPtrOutput `pulumi:"syncSchedule"`
@@ -168,9 +168,9 @@ type connectedRegistryState struct {
 	//
 	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId *string `pulumi:"containerRegistryId"`
-	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
 	LogLevel *string `pulumi:"logLevel"`
-	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
 	Mode *string `pulumi:"mode"`
 	// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	Name *string `pulumi:"name"`
@@ -178,7 +178,7 @@ type connectedRegistryState struct {
 	Notifications []ConnectedRegistryNotification `pulumi:"notifications"`
 	// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
 	ParentRegistryId *string `pulumi:"parentRegistryId"`
-	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
 	SyncMessageTtl *string `pulumi:"syncMessageTtl"`
 	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule *string `pulumi:"syncSchedule"`
@@ -197,9 +197,9 @@ type ConnectedRegistryState struct {
 	//
 	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId pulumi.StringPtrInput
-	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
 	LogLevel pulumi.StringPtrInput
-	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
 	Mode pulumi.StringPtrInput
 	// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	Name pulumi.StringPtrInput
@@ -207,7 +207,7 @@ type ConnectedRegistryState struct {
 	Notifications ConnectedRegistryNotificationArrayInput
 	// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
 	ParentRegistryId pulumi.StringPtrInput
-	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
 	SyncMessageTtl pulumi.StringPtrInput
 	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule pulumi.StringPtrInput
@@ -230,9 +230,9 @@ type connectedRegistryArgs struct {
 	//
 	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId string `pulumi:"containerRegistryId"`
-	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
 	LogLevel *string `pulumi:"logLevel"`
-	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
 	Mode *string `pulumi:"mode"`
 	// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	Name *string `pulumi:"name"`
@@ -240,7 +240,7 @@ type connectedRegistryArgs struct {
 	Notifications []ConnectedRegistryNotification `pulumi:"notifications"`
 	// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
 	ParentRegistryId *string `pulumi:"parentRegistryId"`
-	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
 	SyncMessageTtl *string `pulumi:"syncMessageTtl"`
 	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule *string `pulumi:"syncSchedule"`
@@ -260,9 +260,9 @@ type ConnectedRegistryArgs struct {
 	//
 	// > If `parentRegistryId` is not specified, the Connected Registry will be connected to the Container Registry identified by `containerRegistryId`.
 	ContainerRegistryId pulumi.StringInput
-	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+	// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
 	LogLevel pulumi.StringPtrInput
-	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+	// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
 	Mode pulumi.StringPtrInput
 	// The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
 	Name pulumi.StringPtrInput
@@ -270,7 +270,7 @@ type ConnectedRegistryArgs struct {
 	Notifications ConnectedRegistryNotificationArrayInput
 	// The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
 	ParentRegistryId pulumi.StringPtrInput
-	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+	// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
 	SyncMessageTtl pulumi.StringPtrInput
 	// The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
 	SyncSchedule pulumi.StringPtrInput
@@ -408,12 +408,12 @@ func (o ConnectedRegistryOutput) ContainerRegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.ContainerRegistryId }).(pulumi.StringOutput)
 }
 
-// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`.
+// The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
 func (o ConnectedRegistryOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringPtrOutput { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
 
-// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created.
+// The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
 func (o ConnectedRegistryOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -433,7 +433,7 @@ func (o ConnectedRegistryOutput) ParentRegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringPtrOutput { return v.ParentRegistryId }).(pulumi.StringPtrOutput)
 }
 
-// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`.
+// The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
 func (o ConnectedRegistryOutput) SyncMessageTtl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringPtrOutput { return v.SyncMessageTtl }).(pulumi.StringPtrOutput)
 }

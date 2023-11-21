@@ -1408,7 +1408,7 @@ class ManagedClusterNodeTypeArgs:
         :param pulumi.Input[int] vm_instance_count: The number of instances this node type will launch.
         :param pulumi.Input[str] vm_size: The size of the instances in this node type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: Specifies a list of key/value pairs used to set capacity tags for this node type.
-        :param pulumi.Input[str] data_disk_type: The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        :param pulumi.Input[str] data_disk_type: The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
         :param pulumi.Input[str] id: The ID of the Resource Group.
         :param pulumi.Input[bool] multiple_placement_groups_enabled: If set the node type can be composed of multiple placement groups.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: Specifies a list of placement tags that can be used to indicate where services should run..
@@ -1579,7 +1579,7 @@ class ManagedClusterNodeTypeArgs:
     @pulumi.getter(name="dataDiskType")
     def data_disk_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`.
+        The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
         """
         return pulumi.get(self, "data_disk_type")
 

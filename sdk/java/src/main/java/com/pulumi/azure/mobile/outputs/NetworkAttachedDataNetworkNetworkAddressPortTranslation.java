@@ -17,6 +17,10 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslation {
      * 
      */
     private @Nullable Integer icmpPinholeTimeoutInSeconds;
+    /**
+     * @return Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+     * 
+     */
     private @Nullable Integer pinholeMaximumNumber;
     /**
      * @return A `port_range` block as defined below.
@@ -52,6 +56,10 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslation {
     public Optional<Integer> icmpPinholeTimeoutInSeconds() {
         return Optional.ofNullable(this.icmpPinholeTimeoutInSeconds);
     }
+    /**
+     * @return Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+     * 
+     */
     public Optional<Integer> pinholeMaximumNumber() {
         return Optional.ofNullable(this.pinholeMaximumNumber);
     }

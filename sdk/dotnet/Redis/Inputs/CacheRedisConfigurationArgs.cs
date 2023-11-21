@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Redis.Inputs
         public Input<int>? MaxmemoryDelta { get; set; }
 
         /// <summary>
-        /// How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below. Defaults to `volatile-lru`.
+        /// How Redis will select what to remove when `maxmemory` is reached. Defaults to `volatile-lru`.
         /// </summary>
         [Input("maxmemoryPolicy")]
         public Input<string>? MaxmemoryPolicy { get; set; }

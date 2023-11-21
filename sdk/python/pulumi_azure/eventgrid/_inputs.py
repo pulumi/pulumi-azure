@@ -164,7 +164,7 @@ class DomainInboundIpRuleArgs:
                  action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ip_mask: The IP mask (CIDR) to match on.
-        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`.
+        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
@@ -186,7 +186,7 @@ class DomainInboundIpRuleArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action to take when the rule is matched. Possible values are `Allow`.
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 
@@ -3626,7 +3626,7 @@ class TopicInboundIpRuleArgs:
                  action: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] ip_mask: The IP mask (CIDR) to match on.
-        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`.
+        :param pulumi.Input[str] action: The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         pulumi.set(__self__, "ip_mask", ip_mask)
         if action is not None:
@@ -3648,7 +3648,7 @@ class TopicInboundIpRuleArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        The action to take when the rule is matched. Possible values are `Allow`.
+        The action to take when the rule is matched. Possible values are `Allow`. Defaults to `Allow`.
         """
         return pulumi.get(self, "action")
 

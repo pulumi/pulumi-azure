@@ -28,7 +28,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGithub {
      */
     private @Nullable String clientSecretSettingName;
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return an `oauth_scopes`.
      * 
      */
     private @Nullable List<String> oauthScopes;
@@ -56,7 +56,7 @@ public final class WindowsFunctionAppSlotAuthSettingsGithub {
         return Optional.ofNullable(this.clientSecretSettingName);
     }
     /**
-     * @return an `oauth_scopes` block as detailed below.
+     * @return an `oauth_scopes`.
      * 
      */
     public List<String> oauthScopes() {

@@ -70,7 +70,7 @@ type Zone struct {
 	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+	// An `soaRecord` block as defined below.
 	SoaRecord ZoneSoaRecordOutput `pulumi:"soaRecord"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -119,7 +119,7 @@ type zoneState struct {
 	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+	// An `soaRecord` block as defined below.
 	SoaRecord *ZoneSoaRecord `pulumi:"soaRecord"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -136,7 +136,7 @@ type ZoneState struct {
 	NumberOfRecordSets pulumi.IntPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+	// An `soaRecord` block as defined below.
 	SoaRecord ZoneSoaRecordPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -151,7 +151,7 @@ type zoneArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+	// An `soaRecord` block as defined below.
 	SoaRecord *ZoneSoaRecord `pulumi:"soaRecord"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -163,7 +163,7 @@ type ZoneArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+	// An `soaRecord` block as defined below.
 	SoaRecord ZoneSoaRecordPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -305,7 +305,7 @@ func (o ZoneOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// An `soaRecord` block as defined below. Changing this forces a new resource to be created.
+// An `soaRecord` block as defined below.
 func (o ZoneOutput) SoaRecord() ZoneSoaRecordOutput {
 	return o.ApplyT(func(v *Zone) ZoneSoaRecordOutput { return v.SoaRecord }).(ZoneSoaRecordOutput)
 }

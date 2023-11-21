@@ -492,14 +492,14 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+     * Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -1289,7 +1289,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1300,7 +1300,7 @@ public final class LinuxFunctionAppSiteConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
          * 
          * @return builder
          * 

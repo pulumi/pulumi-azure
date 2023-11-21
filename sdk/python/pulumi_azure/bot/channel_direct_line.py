@@ -24,7 +24,7 @@ class ChannelDirectLineArgs:
         The set of arguments for constructing a ChannelDirectLine resource.
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "bot_name", bot_name)
@@ -61,7 +61,7 @@ class ChannelDirectLineArgs:
     @pulumi.getter
     def sites(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]:
         """
-        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 
@@ -94,7 +94,7 @@ class _ChannelDirectLineState:
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         if bot_name is not None:
             pulumi.set(__self__, "bot_name", bot_name)
@@ -145,7 +145,7 @@ class _ChannelDirectLineState:
     @pulumi.getter
     def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]]:
         """
-        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 
@@ -203,7 +203,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         ...
     @overload
@@ -307,7 +307,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelDirectLineSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -347,7 +347,7 @@ class ChannelDirectLine(pulumi.CustomResource):
     @pulumi.getter
     def sites(self) -> pulumi.Output[Sequence['outputs.ChannelDirectLineSite']]:
         """
-        A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
+        A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         return pulumi.get(self, "sites")
 

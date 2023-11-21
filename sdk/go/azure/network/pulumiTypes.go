@@ -19,7 +19,7 @@ type ApplicationGatewayAuthenticationCertificate struct {
 	Data string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// The name of the Authentication Certificate.
+	// The Name of the Authentication Certificate to use.
 	Name string `pulumi:"name"`
 }
 
@@ -39,7 +39,7 @@ type ApplicationGatewayAuthenticationCertificateArgs struct {
 	Data pulumi.StringInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Authentication Certificate.
+	// The Name of the Authentication Certificate to use.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -122,7 +122,7 @@ func (o ApplicationGatewayAuthenticationCertificateOutput) Id() pulumi.StringPtr
 	return o.ApplyT(func(v ApplicationGatewayAuthenticationCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Authentication Certificate.
+// The Name of the Authentication Certificate to use.
 func (o ApplicationGatewayAuthenticationCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -484,7 +484,7 @@ func (o ApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntInput
 type ApplicationGatewayBackendHttpSetting struct {
 	// The name of the affinity cookie.
 	AffinityCookieName *string `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificate` blocks as defined below.
+	// One or more `authenticationCertificateBackend` blocks as defined below.
 	AuthenticationCertificates []ApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDraining *ApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDraining"`
@@ -528,7 +528,7 @@ type ApplicationGatewayBackendHttpSettingInput interface {
 type ApplicationGatewayBackendHttpSettingArgs struct {
 	// The name of the affinity cookie.
 	AffinityCookieName pulumi.StringPtrInput `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificate` blocks as defined below.
+	// One or more `authenticationCertificateBackend` blocks as defined below.
 	AuthenticationCertificates ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDraining ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput `pulumi:"connectionDraining"`
@@ -632,7 +632,7 @@ func (o ApplicationGatewayBackendHttpSettingOutput) AffinityCookieName() pulumi.
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *string { return v.AffinityCookieName }).(pulumi.StringPtrOutput)
 }
 
-// One or more `authenticationCertificate` blocks as defined below.
+// One or more `authenticationCertificateBackend` blocks as defined below.
 func (o ApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificates() ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) []ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
 		return v.AuthenticationCertificates
@@ -735,7 +735,7 @@ func (o ApplicationGatewayBackendHttpSettingArrayOutput) Index(i pulumi.IntInput
 type ApplicationGatewayBackendHttpSettingAuthenticationCertificate struct {
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// The name of the Authentication Certificate.
+	// The Name of the Authentication Certificate to use.
 	Name string `pulumi:"name"`
 }
 
@@ -753,7 +753,7 @@ type ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput interfac
 type ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs struct {
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Authentication Certificate.
+	// The Name of the Authentication Certificate to use.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -831,7 +831,7 @@ func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Id(
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingAuthenticationCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Authentication Certificate.
+// The Name of the Authentication Certificate to use.
 func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1188,7 +1188,7 @@ type ApplicationGatewayFrontendIpConfiguration struct {
 	Name string `pulumi:"name"`
 	// The Private IP Address to use for the Application Gateway.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
-	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
 	PrivateIpAddressAllocation *string `pulumi:"privateIpAddressAllocation"`
 	// The ID of the associated private link configuration.
 	PrivateLinkConfigurationId *string `pulumi:"privateLinkConfigurationId"`
@@ -1218,7 +1218,7 @@ type ApplicationGatewayFrontendIpConfigurationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Private IP Address to use for the Application Gateway.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
-	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+	// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
 	PrivateIpAddressAllocation pulumi.StringPtrInput `pulumi:"privateIpAddressAllocation"`
 	// The ID of the associated private link configuration.
 	PrivateLinkConfigurationId pulumi.StringPtrInput `pulumi:"privateLinkConfigurationId"`
@@ -1314,7 +1314,7 @@ func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddress() pulu
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
+// The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`. Defaults to `Dynamic`.
 func (o ApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayFrontendIpConfiguration) *string { return v.PrivateIpAddressAllocation }).(pulumi.StringPtrOutput)
 }
@@ -6504,7 +6504,7 @@ type ApplicationGatewayWafConfiguration struct {
 	MaxRequestBodySizeKb *int `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck *bool `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
 	RuleSetType *string `pulumi:"ruleSetType"`
 	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion string `pulumi:"ruleSetVersion"`
@@ -6536,7 +6536,7 @@ type ApplicationGatewayWafConfigurationArgs struct {
 	MaxRequestBodySizeKb pulumi.IntPtrInput `pulumi:"maxRequestBodySizeKb"`
 	// Is Request Body Inspection enabled? Defaults to `true`.
 	RequestBodyCheck pulumi.BoolPtrInput `pulumi:"requestBodyCheck"`
-	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+	// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
 	RuleSetType pulumi.StringPtrInput `pulumi:"ruleSetType"`
 	// The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
 	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
@@ -6676,7 +6676,7 @@ func (o ApplicationGatewayWafConfigurationOutput) RequestBodyCheck() pulumi.Bool
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *bool { return v.RequestBodyCheck }).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
 func (o ApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) *string { return v.RuleSetType }).(pulumi.StringPtrOutput)
 }
@@ -6786,7 +6786,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) RequestBodyCheck() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`.
+// The Type of the Rule Set used for this Web Application Firewall. Possible values are `OWASP` and `Microsoft_BotManagerRuleSet`. Defaults to `OWASP`.
 func (o ApplicationGatewayWafConfigurationPtrOutput) RuleSetType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *string {
 		if v == nil {
@@ -11897,7 +11897,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollection struct {
 	Name string `pulumi:"name"`
 	// The priority of the application rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// One or more `applicationRule` (application rule) blocks as defined below.
+	// One or more `applicationRule` blocks as defined below.
 	Rules []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -11919,7 +11919,7 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the application rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// One or more `applicationRule` (application rule) blocks as defined below.
+	// One or more `applicationRule` blocks as defined below.
 	Rules FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -12007,7 +12007,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Priori
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// One or more `applicationRule` (application rule) blocks as defined below.
+// One or more `applicationRule` blocks as defined below.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollection) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
 		return v.Rules
@@ -12051,6 +12051,8 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
 	DestinationUrls []string `pulumi:"destinationUrls"`
+	// Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
+	HttpHeaders []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader `pulumi:"httpHeaders"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name string `pulumi:"name"`
 	// One or more `protocols` blocks as defined below.
@@ -12087,6 +12089,8 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
 	DestinationUrls pulumi.StringArrayInput `pulumi:"destinationUrls"`
+	// Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
+	HttpHeaders FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput `pulumi:"httpHeaders"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// One or more `protocols` blocks as defined below.
@@ -12203,6 +12207,13 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) HttpHeaders() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader {
+		return v.HttpHeaders
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput)
+}
+
 // The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) string { return v.Name }).(pulumi.StringOutput)
@@ -12265,6 +12276,138 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
 		return vs[0].([]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule)[vs[1].(int)]
 	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader struct {
+	// Specifies the name of the header.
+	Name string `pulumi:"name"`
+	// Specifies the value of the value.
+	Value string `pulumi:"value"`
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderInput` via:
+//
+//	FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs{...}
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs struct {
+	// Specifies the name of the header.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the value of the value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput)
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader] {
+	return pulumix.Output[FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader]{
+		OutputState: i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput` via:
+//
+//	FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray{ FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs{...} }
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput
+	ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutputWithContext(context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderInput
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader)(nil)).Elem()
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput {
+	return i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput)
+}
+
+func (i FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader] {
+	return pulumix.Output[[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader]{
+		OutputState: i.ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader] {
+	return pulumix.Output[FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies the name of the header.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the value of the value.
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader)(nil)).Elem()
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput) ToFirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput {
+	return o
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader] {
+	return pulumix.Output[[]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader {
+		return vs[0].([]FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader)[vs[1].(int)]
+	}).(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput)
 }
 
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol struct {
@@ -12404,7 +12547,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollection struct {
 	Name string `pulumi:"name"`
 	// The priority of the NAT rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// A `natRule` (NAT rule) block as defined below.
+	// A `natRule` block as defined below.
 	Rules []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -12426,7 +12569,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the NAT rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// A `natRule` (NAT rule) block as defined below.
+	// A `natRule` block as defined below.
 	Rules FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -12514,7 +12657,7 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Priority() pul
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// A `natRule` (NAT rule) block as defined below.
+// A `natRule` block as defined below.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollection) []FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
 		return v.Rules
@@ -12762,7 +12905,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollection struct {
 	Name string `pulumi:"name"`
 	// The priority of the network rule collection. The range is `100` - `65000`.
 	Priority int `pulumi:"priority"`
-	// One or more `networkRule` (network rule) blocks as defined below.
+	// One or more `networkRule` blocks as defined below.
 	Rules []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule `pulumi:"rules"`
 }
 
@@ -12784,7 +12927,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The priority of the network rule collection. The range is `100` - `65000`.
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// One or more `networkRule` (network rule) blocks as defined below.
+	// One or more `networkRule` blocks as defined below.
 	Rules FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayInput `pulumi:"rules"`
 }
 
@@ -12872,7 +13015,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Priority()
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// One or more `networkRule` (network rule) blocks as defined below.
+// One or more `networkRule` blocks as defined below.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionOutput) Rules() FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollection) []FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
 		return v.Rules
@@ -20106,7 +20249,7 @@ type SubnetDelegationServiceDelegation struct {
 	//
 	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions []string `pulumi:"actions"`
-	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls` and `Qumulo.Storage/fileSystems`.
 	Name string `pulumi:"name"`
 }
 
@@ -20126,7 +20269,7 @@ type SubnetDelegationServiceDelegationArgs struct {
 	//
 	// > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+	// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls` and `Qumulo.Storage/fileSystems`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -20175,7 +20318,7 @@ func (o SubnetDelegationServiceDelegationOutput) Actions() pulumi.StringArrayOut
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, and `Qumulo.Storage/fileSystems`.
+// The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls` and `Qumulo.Storage/fileSystems`.
 func (o SubnetDelegationServiceDelegationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SubnetDelegationServiceDelegation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -23037,7 +23180,7 @@ type VirtualNetworkGatewayBgpSettings struct {
 	Asn *int `pulumi:"asn"`
 	// The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
 	PeerWeight *int `pulumi:"peerWeight"`
-	// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+	// A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 	PeeringAddresses []VirtualNetworkGatewayBgpSettingsPeeringAddress `pulumi:"peeringAddresses"`
 }
 
@@ -23057,7 +23200,7 @@ type VirtualNetworkGatewayBgpSettingsArgs struct {
 	Asn pulumi.IntPtrInput `pulumi:"asn"`
 	// The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
 	PeerWeight pulumi.IntPtrInput `pulumi:"peerWeight"`
-	// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+	// A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 	PeeringAddresses VirtualNetworkGatewayBgpSettingsPeeringAddressArrayInput `pulumi:"peeringAddresses"`
 }
 
@@ -23166,7 +23309,7 @@ func (o VirtualNetworkGatewayBgpSettingsOutput) PeerWeight() pulumi.IntPtrOutput
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) *int { return v.PeerWeight }).(pulumi.IntPtrOutput)
 }
 
-// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+// A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 func (o VirtualNetworkGatewayBgpSettingsOutput) PeeringAddresses() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayBgpSettings) []VirtualNetworkGatewayBgpSettingsPeeringAddress {
 		return v.PeeringAddresses
@@ -23223,7 +23366,7 @@ func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of `peeringAddresses` as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
+// A list of `peeringAddresses` blocks as defined below. Only one `peeringAddresses` block can be specified except when `activeActive` of this Virtual Network Gateway is `true`.
 func (o VirtualNetworkGatewayBgpSettingsPtrOutput) PeeringAddresses() VirtualNetworkGatewayBgpSettingsPeeringAddressArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayBgpSettings) []VirtualNetworkGatewayBgpSettingsPeeringAddress {
 		if v == nil {
@@ -24050,7 +24193,7 @@ func (o VirtualNetworkGatewayConnectionTrafficSelectorPolicyPtrOutput) RemoteAdd
 }
 
 type VirtualNetworkGatewayCustomRoute struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 }
 
@@ -24066,7 +24209,7 @@ type VirtualNetworkGatewayCustomRouteInput interface {
 }
 
 type VirtualNetworkGatewayCustomRouteArgs struct {
-	// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+	// A list of address blocks reserved for this virtual network in CIDR notation.
 	AddressPrefixes pulumi.StringArrayInput `pulumi:"addressPrefixes"`
 }
 
@@ -24165,7 +24308,7 @@ func (o VirtualNetworkGatewayCustomRouteOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+// A list of address blocks reserved for this virtual network in CIDR notation.
 func (o VirtualNetworkGatewayCustomRouteOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkGatewayCustomRoute) []string { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -24200,7 +24343,7 @@ func (o VirtualNetworkGatewayCustomRoutePtrOutput) Elem() VirtualNetworkGatewayC
 	}).(VirtualNetworkGatewayCustomRouteOutput)
 }
 
-// A list of address blocks reserved for this virtual network in CIDR notation as defined below.
+// A list of address blocks reserved for this virtual network in CIDR notation.
 func (o VirtualNetworkGatewayCustomRoutePtrOutput) AddressPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualNetworkGatewayCustomRoute) []string {
 		if v == nil {
@@ -40871,6 +41014,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyRuleCollectionGroupNatRuleCollectionInput)(nil)).Elem(), FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs{})
@@ -41339,6 +41484,8 @@ func init() {
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderOutput{})
+	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleCollectionGroupNatRuleCollectionOutput{})

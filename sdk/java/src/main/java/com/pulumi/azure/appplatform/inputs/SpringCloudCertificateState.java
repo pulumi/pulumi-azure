@@ -32,14 +32,14 @@ public final class SpringCloudCertificateState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     @Import(name="excludePrivateKey")
     private @Nullable Output<Boolean> excludePrivateKey;
 
     /**
-     * @return Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+     * @return Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> excludePrivateKey() {
@@ -173,7 +173,7 @@ public final class SpringCloudCertificateState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludePrivateKey Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+         * @param excludePrivateKey Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class SpringCloudCertificateState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param excludePrivateKey Specifies whether the private key should be excluded from the Key Vault Certificate. Defaults to `false`.
+         * @param excludePrivateKey Specifies whether the private key should be excluded from the Key Vault Certificate. Changing this forces a new resource to be created. Defaults to `false`.
          * 
          * @return builder
          * 

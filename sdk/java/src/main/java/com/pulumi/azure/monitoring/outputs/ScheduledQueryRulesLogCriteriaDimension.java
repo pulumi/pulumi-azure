@@ -18,7 +18,7 @@ public final class ScheduledQueryRulesLogCriteriaDimension {
      */
     private String name;
     /**
-     * @return Operator for dimension values, - &#39;Include&#39;.
+     * @return Operator for dimension values, - &#39;Include&#39;. Defaults to `Include`.
      * 
      */
     private @Nullable String operator;
@@ -37,7 +37,7 @@ public final class ScheduledQueryRulesLogCriteriaDimension {
         return this.name;
     }
     /**
-     * @return Operator for dimension values, - &#39;Include&#39;.
+     * @return Operator for dimension values, - &#39;Include&#39;. Defaults to `Include`.
      * 
      */
     public Optional<String> operator() {

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly string? EntityPath;
         /// <summary>
-        /// File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        /// File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         /// </summary>
         public readonly string? FileNameFormat;
         /// <summary>

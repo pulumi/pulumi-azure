@@ -78,11 +78,9 @@ import (
 type VmwareReplicationPolicyAssociation struct {
 	pulumi.CustomResourceState
 
-	// The name of the replication policy association. Changing this forces a new association to be
-	// created.
+	// The name of the replication policy association. Changing this forces a new association to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-	// association to be created.
+	// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The ID of the Recovery Service Vault to which the policy should be associated.
 	// Changing this forces a new association to be created.
@@ -125,11 +123,9 @@ func GetVmwareReplicationPolicyAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VmwareReplicationPolicyAssociation resources.
 type vmwareReplicationPolicyAssociationState struct {
-	// The name of the replication policy association. Changing this forces a new association to be
-	// created.
+	// The name of the replication policy association. Changing this forces a new association to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-	// association to be created.
+	// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
 	PolicyId *string `pulumi:"policyId"`
 	// The ID of the Recovery Service Vault to which the policy should be associated.
 	// Changing this forces a new association to be created.
@@ -137,11 +133,9 @@ type vmwareReplicationPolicyAssociationState struct {
 }
 
 type VmwareReplicationPolicyAssociationState struct {
-	// The name of the replication policy association. Changing this forces a new association to be
-	// created.
+	// The name of the replication policy association. Changing this forces a new association to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-	// association to be created.
+	// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
 	PolicyId pulumi.StringPtrInput
 	// The ID of the Recovery Service Vault to which the policy should be associated.
 	// Changing this forces a new association to be created.
@@ -153,11 +147,9 @@ func (VmwareReplicationPolicyAssociationState) ElementType() reflect.Type {
 }
 
 type vmwareReplicationPolicyAssociationArgs struct {
-	// The name of the replication policy association. Changing this forces a new association to be
-	// created.
+	// The name of the replication policy association. Changing this forces a new association to be created.
 	Name *string `pulumi:"name"`
-	// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-	// association to be created.
+	// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
 	PolicyId string `pulumi:"policyId"`
 	// The ID of the Recovery Service Vault to which the policy should be associated.
 	// Changing this forces a new association to be created.
@@ -166,11 +158,9 @@ type vmwareReplicationPolicyAssociationArgs struct {
 
 // The set of arguments for constructing a VmwareReplicationPolicyAssociation resource.
 type VmwareReplicationPolicyAssociationArgs struct {
-	// The name of the replication policy association. Changing this forces a new association to be
-	// created.
+	// The name of the replication policy association. Changing this forces a new association to be created.
 	Name pulumi.StringPtrInput
-	// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-	// association to be created.
+	// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
 	PolicyId pulumi.StringInput
 	// The ID of the Recovery Service Vault to which the policy should be associated.
 	// Changing this forces a new association to be created.
@@ -288,14 +278,12 @@ func (o VmwareReplicationPolicyAssociationOutput) ToOutput(ctx context.Context) 
 	}
 }
 
-// The name of the replication policy association. Changing this forces a new association to be
-// created.
+// The name of the replication policy association. Changing this forces a new association to be created.
 func (o VmwareReplicationPolicyAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicationPolicyAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the VMWare replication policy which to be associated. Changing this forces a new
-// association to be created.
+// The ID of the VMWare replication policy which to be associated. Changing this forces a new association to be created.
 func (o VmwareReplicationPolicyAssociationOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VmwareReplicationPolicyAssociation) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
 }

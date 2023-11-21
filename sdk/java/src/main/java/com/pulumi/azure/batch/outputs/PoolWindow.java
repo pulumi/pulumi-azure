@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolWindow {
     /**
-     * @return Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+     * @return Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
      * 
      */
     private @Nullable Boolean enableAutomaticUpdates;
 
     private PoolWindow() {}
     /**
-     * @return Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+     * @return Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
      * 
      */
     public Optional<Boolean> enableAutomaticUpdates() {

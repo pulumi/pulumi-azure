@@ -109,9 +109,9 @@ class PolicyFileShareBackupHourly(dict):
                  start_time: str,
                  window_duration: int):
         """
-        :param int interval: Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
-        :param str start_time: Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
-        :param int window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+        :param int interval: Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
+        :param str start_time: Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
+        :param int window_duration: Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         """
         pulumi.set(__self__, "interval", interval)
         pulumi.set(__self__, "start_time", start_time)
@@ -121,7 +121,7 @@ class PolicyFileShareBackupHourly(dict):
     @pulumi.getter
     def interval(self) -> int:
         """
-        Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`
+        Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
         """
         return pulumi.get(self, "interval")
 
@@ -129,7 +129,7 @@ class PolicyFileShareBackupHourly(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
         """
-        Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
+        Specifies the start time of the hourly backup. The time format should be in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.).
         """
         return pulumi.get(self, "start_time")
 
@@ -137,7 +137,7 @@ class PolicyFileShareBackupHourly(dict):
     @pulumi.getter(name="windowDuration")
     def window_duration(self) -> int:
         """
-        Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-)
+        Species the duration of the backup window in hours. Details could be found [here](https://learn.microsoft.com/en-us/azure/backup/backup-azure-files-faq#what-does-the-duration-attribute-in-azure-files-backup-policy-signify-).
         """
         return pulumi.get(self, "window_duration")
 

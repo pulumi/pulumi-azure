@@ -97,7 +97,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	ExtensionOperationsEnabled pulumi.BoolOutput `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity OrchestratedVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
@@ -226,7 +226,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
@@ -313,7 +313,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity OrchestratedVirtualMachineScaleSetIdentityPtrInput
@@ -404,7 +404,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
@@ -490,7 +490,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity OrchestratedVirtualMachineScaleSetIdentityPtrInput
@@ -724,7 +724,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Extensions() OrchestratedVirtu
 	}).(OrchestratedVirtualMachineScaleSetExtensionArrayOutput)
 }
 
-// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
+// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }

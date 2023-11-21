@@ -28,7 +28,7 @@ public final class AccountEncryption {
      */
     private @Nullable AccountEncryptionManagedIdentity managedIdentity;
     /**
-     * @return Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+     * @return Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
      * 
      */
     private @Nullable String type;
@@ -56,7 +56,7 @@ public final class AccountEncryption {
         return Optional.ofNullable(this.managedIdentity);
     }
     /**
-     * @return Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
+     * @return Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
      * 
      */
     public Optional<String> type() {

@@ -97,14 +97,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:trafficmanager/profile:Profile")
 public class Profile extends com.pulumi.resources.CustomResource {
     /**
-     * This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
      * 
      */
     @Export(name="dnsConfig", refs={ProfileDnsConfig.class}, tree="[0]")
     private Output<ProfileDnsConfig> dnsConfig;
 
     /**
-     * @return This block specifies the DNS configuration of the Profile, it supports the fields documented below.
+     * @return This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
      * 
      */
     public Output<ProfileDnsConfig> dnsConfig() {
@@ -143,14 +143,14 @@ public class Profile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxReturn);
     }
     /**
-     * This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
      * 
      */
     @Export(name="monitorConfig", refs={ProfileMonitorConfig.class}, tree="[0]")
     private Output<ProfileMonitorConfig> monitorConfig;
 
     /**
-     * @return This block specifies the Endpoint monitoring configuration for the Profile, it supports the fields documented below.
+     * @return This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
      * 
      */
     public Output<ProfileMonitorConfig> monitorConfig() {

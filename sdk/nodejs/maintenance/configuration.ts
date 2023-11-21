@@ -97,7 +97,7 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      */
     public readonly visibility!: pulumi.Output<string | undefined>;
     /**
@@ -191,7 +191,7 @@ export interface ConfigurationState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      */
     visibility?: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface ConfigurationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
+     * The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
      */
     visibility?: pulumi.Input<string>;
     /**

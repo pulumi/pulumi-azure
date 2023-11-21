@@ -31,14 +31,14 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
     }
 
     /**
-     * The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
+     * The container registry URL. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="registryServer", required=true)
     private Output<String> registryServer;
 
     /**
-     * @return The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
+     * @return The container registry URL. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> registryServer() {
@@ -124,7 +124,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param registryServer The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
+         * @param registryServer The container registry URL. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param registryServer The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
+         * @param registryServer The container registry URL. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

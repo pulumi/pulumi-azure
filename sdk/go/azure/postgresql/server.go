@@ -76,11 +76,11 @@ type Server struct {
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
-	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrOutput `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntOutput `pulumi:"backupRetentionDays"`
-	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
 	CreateMode pulumi.StringPtrOutput `pulumi:"createMode"`
 	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId pulumi.StringPtrOutput `pulumi:"creationSourceServerId"`
@@ -177,11 +177,11 @@ type serverState struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
 	CreateMode *string `pulumi:"createMode"`
 	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId *string `pulumi:"creationSourceServerId"`
@@ -230,11 +230,11 @@ type ServerState struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
 	CreateMode pulumi.StringPtrInput
 	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId pulumi.StringPtrInput
@@ -287,11 +287,11 @@ type serverArgs struct {
 	AdministratorLogin *string `pulumi:"administratorLogin"`
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled *bool `pulumi:"autoGrowEnabled"`
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
-	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
 	CreateMode *string `pulumi:"createMode"`
 	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId *string `pulumi:"creationSourceServerId"`
@@ -339,11 +339,11 @@ type ServerArgs struct {
 	AdministratorLogin pulumi.StringPtrInput
 	// The Password associated with the `administratorLogin` for the PostgreSQL Server. Required when `createMode` is `Default`.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+	// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 	AutoGrowEnabled pulumi.BoolPtrInput
 	// Backup retention days for the server, supported values are between `7` and `35` days.
 	BackupRetentionDays pulumi.IntPtrInput
-	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+	// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
 	CreateMode pulumi.StringPtrInput
 	// For creation modes other than `Default`, the source server ID to use.
 	CreationSourceServerId pulumi.StringPtrInput
@@ -506,7 +506,7 @@ func (o ServerOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
 }
 
-// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. The default value if not explicitly specified is `true`.
+// Enable/Disable auto-growing of the storage. Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Defaults to `true`.
 func (o ServerOutput) AutoGrowEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.AutoGrowEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -516,7 +516,7 @@ func (o ServerOutput) BackupRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Server) pulumi.IntOutput { return v.BackupRetentionDays }).(pulumi.IntOutput)
 }
 
-// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
+// The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default`.
 func (o ServerOutput) CreateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
 }

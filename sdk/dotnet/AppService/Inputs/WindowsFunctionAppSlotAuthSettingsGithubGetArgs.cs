@@ -44,7 +44,7 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// an `oauth_scopes` block as detailed below.
+        /// an `oauth_scopes`.
         /// </summary>
         public InputList<string> OauthScopes
         {

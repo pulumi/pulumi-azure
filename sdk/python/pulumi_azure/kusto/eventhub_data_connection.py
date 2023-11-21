@@ -37,7 +37,7 @@ class EventhubDataConnectionArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] compression: Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] location: The location where the Kusto Database should be created. Changing this forces a new resource to be created.
@@ -157,7 +157,7 @@ class EventhubDataConnectionArgs:
     @pulumi.getter(name="databaseRoutingType")
     def database_routing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         """
         return pulumi.get(self, "database_routing_type")
 
@@ -262,7 +262,7 @@ class _EventhubDataConnectionState:
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
@@ -365,7 +365,7 @@ class _EventhubDataConnectionState:
     @pulumi.getter(name="databaseRoutingType")
     def database_routing_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         """
         return pulumi.get(self, "database_routing_type")
 
@@ -554,7 +554,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
@@ -725,7 +725,7 @@ class EventhubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] consumer_group: Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] data_format: Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
         :param pulumi.Input[str] database_name: Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] database_routing_type: Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: Specifies a list of system properties for the Event Hub.
         :param pulumi.Input[str] eventhub_id: Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] identity_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
@@ -799,7 +799,7 @@ class EventhubDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="databaseRoutingType")
     def database_routing_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created.
+        Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         """
         return pulumi.get(self, "database_routing_type")
 

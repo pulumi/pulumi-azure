@@ -91,7 +91,7 @@ type PublicIp struct {
 	//
 	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags pulumi.StringMapOutput `pulumi:"ipTags"`
-	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 	//
 	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion pulumi.StringPtrOutput `pulumi:"ipVersion"`
@@ -181,7 +181,7 @@ type publicIpState struct {
 	//
 	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags map[string]string `pulumi:"ipTags"`
-	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 	//
 	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion *string `pulumi:"ipVersion"`
@@ -236,7 +236,7 @@ type PublicIpState struct {
 	//
 	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags pulumi.StringMapInput
-	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 	//
 	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion pulumi.StringPtrInput
@@ -291,7 +291,7 @@ type publicIpArgs struct {
 	//
 	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags map[string]string `pulumi:"ipTags"`
-	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 	//
 	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion *string `pulumi:"ipVersion"`
@@ -343,7 +343,7 @@ type PublicIpArgs struct {
 	//
 	// > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
 	IpTags pulumi.StringMapInput
-	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+	// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 	//
 	// > **Note** Only `static` IP address allocation is supported for IPv6.
 	IpVersion pulumi.StringPtrInput
@@ -535,7 +535,7 @@ func (o PublicIpOutput) IpTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PublicIp) pulumi.StringMapOutput { return v.IpTags }).(pulumi.StringMapOutput)
 }
 
-// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created.
+// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
 //
 // > **Note** Only `static` IP address allocation is supported for IPv6.
 func (o PublicIpOutput) IpVersion() pulumi.StringPtrOutput {

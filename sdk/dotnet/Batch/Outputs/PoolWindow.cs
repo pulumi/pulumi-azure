@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolWindow
     {
         /// <summary>
-        /// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+        /// Whether automatic updates are enabled on the virtual machine. Defaults to `true`.
         /// </summary>
         public readonly bool? EnableAutomaticUpdates;
 

@@ -19,7 +19,7 @@ public final class SlotSiteConfigIpRestriction {
      */
     private @Nullable String action;
     /**
-     * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     private @Nullable SlotSiteConfigIpRestrictionHeaders headers;
@@ -60,7 +60,7 @@ public final class SlotSiteConfigIpRestriction {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The headers for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+     * @return The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
      * 
      */
     public Optional<SlotSiteConfigIpRestrictionHeaders> headers() {

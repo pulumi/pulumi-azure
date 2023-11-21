@@ -352,14 +352,14 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+     * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      * 
      */
     @Import(name="triggerOperator")
     private @Nullable Output<String> triggerOperator;
 
     /**
-     * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+     * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
      * 
      */
     public Optional<Output<String>> triggerOperator() {
@@ -933,7 +933,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param triggerOperator The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+         * @param triggerOperator The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
          * 
          * @return builder
          * 
@@ -944,7 +944,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param triggerOperator The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
+         * @param triggerOperator The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`.
          * 
          * @return builder
          * 

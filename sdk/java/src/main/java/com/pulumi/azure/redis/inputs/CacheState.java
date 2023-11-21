@@ -233,14 +233,14 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     @Import(name="redisConfiguration")
     private @Nullable Output<CacheRedisConfigurationArgs> redisConfiguration;
 
     /**
-     * @return A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * @return A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
      * 
      */
     public Optional<Output<CacheRedisConfigurationArgs>> redisConfiguration() {
@@ -810,7 +810,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redisConfiguration A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+         * @param redisConfiguration A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
          * 
          * @return builder
          * 
@@ -821,7 +821,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param redisConfiguration A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+         * @param redisConfiguration A `redis_configuration` block as defined below - with some limitations by SKU - defaults/details are shown below.
          * 
          * @return builder
          * 

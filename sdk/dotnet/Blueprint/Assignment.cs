@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Blueprint
         public Output<ImmutableArray<string>> LockExcludePrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+        /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         /// </summary>
         [Output("lockMode")]
         public Output<string?> LockMode { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Azure.Blueprint
         }
 
         /// <summary>
-        /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+        /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         /// </summary>
         [Input("lockMode")]
         public Input<string>? LockMode { get; set; }
@@ -398,7 +398,7 @@ namespace Pulumi.Azure.Blueprint
         }
 
         /// <summary>
-        /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `none`.
+        /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         /// </summary>
         [Input("lockMode")]
         public Input<string>? LockMode { get; set; }

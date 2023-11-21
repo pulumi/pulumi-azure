@@ -90,7 +90,7 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The state of SingleSignOn configuration.
+     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      */
     public readonly singleSignOnEnabled!: pulumi.Output<string>;
 
@@ -155,7 +155,7 @@ export interface MonitorSsoConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The state of SingleSignOn configuration.
+     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      */
     singleSignOnEnabled?: pulumi.Input<string>;
 }
@@ -177,7 +177,7 @@ export interface MonitorSsoConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The state of SingleSignOn configuration.
+     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
      */
     singleSignOnEnabled: pulumi.Input<string>;
 }

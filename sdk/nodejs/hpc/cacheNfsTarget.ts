@@ -56,7 +56,7 @@ export class CacheNfsTarget extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      */
     public readonly namespaceJunctions!: pulumi.Output<outputs.hpc.CacheNfsTargetNamespaceJunction[]>;
     /**
@@ -133,7 +133,7 @@ export interface CacheNfsTargetState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      */
     namespaceJunctions?: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
     /**
@@ -163,7 +163,7 @@ export interface CacheNfsTargetArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJuntion` block supports fields documented below.
+     * Can be specified multiple times to define multiple `namespaceJunction`. Each `namespaceJunction` block supports fields documented below.
      */
     namespaceJunctions: pulumi.Input<pulumi.Input<inputs.hpc.CacheNfsTargetNamespaceJunction>[]>;
     /**

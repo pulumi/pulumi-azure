@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.network.inputs;
 
+import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs;
 import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -91,6 +92,21 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      */
     public Optional<Output<List<String>>> destinationUrls() {
         return Optional.ofNullable(this.destinationUrls);
+    }
+
+    /**
+     * Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
+    @Import(name="httpHeaders")
+    private @Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>> httpHeaders;
+
+    /**
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>>> httpHeaders() {
+        return Optional.ofNullable(this.httpHeaders);
     }
 
     /**
@@ -191,6 +207,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         this.destinationFqdnTags = $.destinationFqdnTags;
         this.destinationFqdns = $.destinationFqdns;
         this.destinationUrls = $.destinationUrls;
+        this.httpHeaders = $.httpHeaders;
         this.name = $.name;
         this.protocols = $.protocols;
         this.sourceAddresses = $.sourceAddresses;
@@ -360,6 +377,37 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
          */
         public Builder destinationUrls(String... destinationUrls) {
             return destinationUrls(List.of(destinationUrls));
+        }
+
+        /**
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpHeaders(@Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>> httpHeaders) {
+            $.httpHeaders = httpHeaders;
+            return this;
+        }
+
+        /**
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpHeaders(List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs> httpHeaders) {
+            return httpHeaders(Output.of(httpHeaders));
+        }
+
+        /**
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpHeaders(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs... httpHeaders) {
+            return httpHeaders(List.of(httpHeaders));
         }
 
         /**

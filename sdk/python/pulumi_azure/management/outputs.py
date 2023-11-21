@@ -152,7 +152,7 @@ class GroupPolicyAssignmentOverride(dict):
                  selectors: Optional[Sequence['outputs.GroupPolicyAssignmentOverrideSelector']] = None):
         """
         :param str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param Sequence['GroupPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` as defined below.
+        :param Sequence['GroupPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` block as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -170,7 +170,7 @@ class GroupPolicyAssignmentOverride(dict):
     @pulumi.getter
     def selectors(self) -> Optional[Sequence['outputs.GroupPolicyAssignmentOverrideSelector']]:
         """
-        One or more `override_selector` as defined below.
+        One or more `override_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
@@ -200,7 +200,7 @@ class GroupPolicyAssignmentOverrideSelector(dict):
                  not_ins: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
-        :param str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        :param str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
         :param Sequence[str] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
         if ins is not None:
@@ -222,7 +222,7 @@ class GroupPolicyAssignmentOverrideSelector(dict):
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
         """
         return pulumi.get(self, "kind")
 
@@ -289,7 +289,7 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
                  ins: Optional[Sequence[str]] = None,
                  not_ins: Optional[Sequence[str]] = None):
         """
-        :param str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        :param str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
         :param Sequence[str] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
         :param Sequence[str] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
@@ -303,7 +303,7 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
     @pulumi.getter
     def kind(self) -> str:
         """
-        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
         """
         return pulumi.get(self, "kind")
 

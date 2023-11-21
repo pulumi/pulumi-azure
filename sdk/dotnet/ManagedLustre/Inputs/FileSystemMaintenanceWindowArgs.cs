@@ -18,6 +18,9 @@ namespace Pulumi.Azure.ManagedLustre.Inputs
         [Input("dayOfWeek", required: true)]
         public Input<string> DayOfWeek { get; set; } = null!;
 
+        /// <summary>
+        /// The time of day (in UTC) to start the maintenance window.
+        /// </summary>
         [Input("timeOfDayInUtc", required: true)]
         public Input<string> TimeOfDayInUtc { get; set; } = null!;
 

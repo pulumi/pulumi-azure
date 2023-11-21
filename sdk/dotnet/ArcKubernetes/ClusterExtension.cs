@@ -123,7 +123,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Output<string> ReleaseTrain { get; private set; } = null!;
 
         /// <summary>
-        /// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         /// </summary>
         [Output("targetNamespace")]
         public Output<string> TargetNamespace { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? ReleaseTrain { get; set; }
 
         /// <summary>
-        /// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         /// </summary>
         [Input("targetNamespace")]
         public Input<string>? TargetNamespace { get; set; }
@@ -327,7 +327,7 @@ namespace Pulumi.Azure.ArcKubernetes
         public Input<string>? ReleaseTrain { get; set; }
 
         /// <summary>
-        /// Namespace where the extension will be created for a namespace scoped extension.  If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        /// Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         /// </summary>
         [Input("targetNamespace")]
         public Input<string>? TargetNamespace { get; set; }

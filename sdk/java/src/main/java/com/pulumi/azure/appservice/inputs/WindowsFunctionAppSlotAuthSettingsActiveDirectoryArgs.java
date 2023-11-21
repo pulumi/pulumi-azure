@@ -17,7 +17,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
     public static final WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs Empty = new WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs();
 
     /**
-     * an `allowed_audiences` block as detailed below.
+     * Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -26,7 +26,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
     private @Nullable Output<List<String>> allowedAudiences;
 
     /**
-     * @return an `allowed_audiences` block as detailed below.
+     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -108,7 +108,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
         }
 
         /**
-         * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
          * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 
@@ -121,7 +121,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
         }
 
         /**
-         * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
          * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 
@@ -133,7 +133,7 @@ public final class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs extends
         }
 
         /**
-         * @param allowedAudiences an `allowed_audiences` block as detailed below.
+         * @param allowedAudiences Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
          * 
          * &gt; **Note:** The `client_id` value is always considered an allowed audience.
          * 

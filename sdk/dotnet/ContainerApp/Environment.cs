@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ContainerApp
     public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         /// </summary>
         [Output("daprApplicationInsightsConnectionString")]
         public Output<string?> DaprApplicationInsightsConnectionString { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Azure.ContainerApp
         private Input<string>? _daprApplicationInsightsConnectionString;
 
         /// <summary>
-        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         /// </summary>
         public Input<string>? DaprApplicationInsightsConnectionString
         {
@@ -284,7 +284,7 @@ namespace Pulumi.Azure.ContainerApp
         private Input<string>? _daprApplicationInsightsConnectionString;
 
         /// <summary>
-        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry.
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         /// </summary>
         public Input<string>? DaprApplicationInsightsConnectionString
         {

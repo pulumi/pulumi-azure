@@ -79,28 +79,28 @@ public class IPGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cidrs);
     }
     /**
-     * A `firewall_ids` block as defined below.
+     * A list of ID of Firewall.
      * 
      */
     @Export(name="firewallIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> firewallIds;
 
     /**
-     * @return A `firewall_ids` block as defined below.
+     * @return A list of ID of Firewall.
      * 
      */
     public Output<List<String>> firewallIds() {
         return this.firewallIds;
     }
     /**
-     * A `firewall_policy_ids` block as defined below.
+     * A list of ID of Firewall Policy`.
      * 
      */
     @Export(name="firewallPolicyIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> firewallPolicyIds;
 
     /**
-     * @return A `firewall_policy_ids` block as defined below.
+     * @return A list of ID of Firewall Policy`.
      * 
      */
     public Output<List<String>> firewallPolicyIds() {
