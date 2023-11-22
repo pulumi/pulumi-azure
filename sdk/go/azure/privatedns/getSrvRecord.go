@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -116,12 +115,6 @@ func (o GetSrvRecordResultOutput) ToGetSrvRecordResultOutput() GetSrvRecordResul
 
 func (o GetSrvRecordResultOutput) ToGetSrvRecordResultOutputWithContext(ctx context.Context) GetSrvRecordResultOutput {
 	return o
-}
-
-func (o GetSrvRecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSrvRecordResult] {
-	return pulumix.Output[GetSrvRecordResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the Private DNS SRV Record.

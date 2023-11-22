@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Node Pool within a Kubernetes Cluster
@@ -713,12 +712,6 @@ func (i *KubernetesClusterNodePool) ToKubernetesClusterNodePoolOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolOutput)
 }
 
-func (i *KubernetesClusterNodePool) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePool] {
-	return pulumix.Output[*KubernetesClusterNodePool]{
-		OutputState: i.ToKubernetesClusterNodePoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KubernetesClusterNodePoolArrayInput is an input type that accepts KubernetesClusterNodePoolArray and KubernetesClusterNodePoolArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterNodePoolArrayInput` via:
 //
@@ -742,12 +735,6 @@ func (i KubernetesClusterNodePoolArray) ToKubernetesClusterNodePoolArrayOutput()
 
 func (i KubernetesClusterNodePoolArray) ToKubernetesClusterNodePoolArrayOutputWithContext(ctx context.Context) KubernetesClusterNodePoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolArrayOutput)
-}
-
-func (i KubernetesClusterNodePoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesClusterNodePool] {
-	return pulumix.Output[[]*KubernetesClusterNodePool]{
-		OutputState: i.ToKubernetesClusterNodePoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KubernetesClusterNodePoolMapInput is an input type that accepts KubernetesClusterNodePoolMap and KubernetesClusterNodePoolMapOutput values.
@@ -775,12 +762,6 @@ func (i KubernetesClusterNodePoolMap) ToKubernetesClusterNodePoolMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolMapOutput)
 }
 
-func (i KubernetesClusterNodePoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesClusterNodePool] {
-	return pulumix.Output[map[string]*KubernetesClusterNodePool]{
-		OutputState: i.ToKubernetesClusterNodePoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KubernetesClusterNodePoolOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolOutput) ElementType() reflect.Type {
@@ -793,12 +774,6 @@ func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolOutput() Kub
 
 func (o KubernetesClusterNodePoolOutput) ToKubernetesClusterNodePoolOutputWithContext(ctx context.Context) KubernetesClusterNodePoolOutput {
 	return o
-}
-
-func (o KubernetesClusterNodePoolOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterNodePool] {
-	return pulumix.Output[*KubernetesClusterNodePool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created.
@@ -1061,12 +1036,6 @@ func (o KubernetesClusterNodePoolArrayOutput) ToKubernetesClusterNodePoolArrayOu
 	return o
 }
 
-func (o KubernetesClusterNodePoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesClusterNodePool] {
-	return pulumix.Output[[]*KubernetesClusterNodePool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KubernetesClusterNodePoolArrayOutput) Index(i pulumi.IntInput) KubernetesClusterNodePoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KubernetesClusterNodePool {
 		return vs[0].([]*KubernetesClusterNodePool)[vs[1].(int)]
@@ -1085,12 +1054,6 @@ func (o KubernetesClusterNodePoolMapOutput) ToKubernetesClusterNodePoolMapOutput
 
 func (o KubernetesClusterNodePoolMapOutput) ToKubernetesClusterNodePoolMapOutputWithContext(ctx context.Context) KubernetesClusterNodePoolMapOutput {
 	return o
-}
-
-func (o KubernetesClusterNodePoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesClusterNodePool] {
-	return pulumix.Output[map[string]*KubernetesClusterNodePool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KubernetesClusterNodePoolMapOutput) MapIndex(k pulumi.StringInput) KubernetesClusterNodePoolOutput {

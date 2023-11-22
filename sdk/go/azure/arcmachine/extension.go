@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Hybrid Compute Machine Extension.
@@ -254,12 +253,6 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
-func (i *Extension) ToOutput(ctx context.Context) pulumix.Output[*Extension] {
-	return pulumix.Output[*Extension]{
-		OutputState: i.ToExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExtensionArrayInput is an input type that accepts ExtensionArray and ExtensionArrayOutput values.
 // You can construct a concrete instance of `ExtensionArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i ExtensionArray) ToExtensionArrayOutput() ExtensionArrayOutput {
 
 func (i ExtensionArray) ToExtensionArrayOutputWithContext(ctx context.Context) ExtensionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionArrayOutput)
-}
-
-func (i ExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Extension] {
-	return pulumix.Output[[]*Extension]{
-		OutputState: i.ToExtensionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExtensionMapInput is an input type that accepts ExtensionMap and ExtensionMapOutput values.
@@ -316,12 +303,6 @@ func (i ExtensionMap) ToExtensionMapOutputWithContext(ctx context.Context) Exten
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionMapOutput)
 }
 
-func (i ExtensionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Extension] {
-	return pulumix.Output[map[string]*Extension]{
-		OutputState: i.ToExtensionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {
 
 func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) ExtensionOutput {
 	return o
-}
-
-func (o ExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[*Extension] {
-	return pulumix.Output[*Extension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Hybrid Compute Machine Extension. Changing this forces a new Hybrid Compute Machine Extension to be created.
@@ -417,12 +392,6 @@ func (o ExtensionArrayOutput) ToExtensionArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Extension] {
-	return pulumix.Output[[]*Extension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExtensionArrayOutput) Index(i pulumi.IntInput) ExtensionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Extension {
 		return vs[0].([]*Extension)[vs[1].(int)]
@@ -441,12 +410,6 @@ func (o ExtensionMapOutput) ToExtensionMapOutput() ExtensionMapOutput {
 
 func (o ExtensionMapOutput) ToExtensionMapOutputWithContext(ctx context.Context) ExtensionMapOutput {
 	return o
-}
-
-func (o ExtensionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Extension] {
-	return pulumix.Output[map[string]*Extension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionMapOutput) MapIndex(k pulumi.StringInput) ExtensionOutput {

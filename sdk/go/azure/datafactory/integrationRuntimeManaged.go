@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Data Factory Managed Integration Runtime.
@@ -268,12 +267,6 @@ func (i *IntegrationRuntimeManaged) ToIntegrationRuntimeManagedOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedOutput)
 }
 
-func (i *IntegrationRuntimeManaged) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeManaged] {
-	return pulumix.Output[*IntegrationRuntimeManaged]{
-		OutputState: i.ToIntegrationRuntimeManagedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationRuntimeManagedArrayInput is an input type that accepts IntegrationRuntimeManagedArray and IntegrationRuntimeManagedArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeManagedArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i IntegrationRuntimeManagedArray) ToIntegrationRuntimeManagedArrayOutput()
 
 func (i IntegrationRuntimeManagedArray) ToIntegrationRuntimeManagedArrayOutputWithContext(ctx context.Context) IntegrationRuntimeManagedArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedArrayOutput)
-}
-
-func (i IntegrationRuntimeManagedArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeManaged] {
-	return pulumix.Output[[]*IntegrationRuntimeManaged]{
-		OutputState: i.ToIntegrationRuntimeManagedArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationRuntimeManagedMapInput is an input type that accepts IntegrationRuntimeManagedMap and IntegrationRuntimeManagedMapOutput values.
@@ -330,12 +317,6 @@ func (i IntegrationRuntimeManagedMap) ToIntegrationRuntimeManagedMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeManagedMapOutput)
 }
 
-func (i IntegrationRuntimeManagedMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeManaged] {
-	return pulumix.Output[map[string]*IntegrationRuntimeManaged]{
-		OutputState: i.ToIntegrationRuntimeManagedMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationRuntimeManagedOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeManagedOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedOutput() Int
 
 func (o IntegrationRuntimeManagedOutput) ToIntegrationRuntimeManagedOutputWithContext(ctx context.Context) IntegrationRuntimeManagedOutput {
 	return o
-}
-
-func (o IntegrationRuntimeManagedOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeManaged] {
-	return pulumix.Output[*IntegrationRuntimeManaged]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `catalogInfo` block as defined below.
@@ -434,12 +409,6 @@ func (o IntegrationRuntimeManagedArrayOutput) ToIntegrationRuntimeManagedArrayOu
 	return o
 }
 
-func (o IntegrationRuntimeManagedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeManaged] {
-	return pulumix.Output[[]*IntegrationRuntimeManaged]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationRuntimeManagedArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeManagedOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeManaged {
 		return vs[0].([]*IntegrationRuntimeManaged)[vs[1].(int)]
@@ -458,12 +427,6 @@ func (o IntegrationRuntimeManagedMapOutput) ToIntegrationRuntimeManagedMapOutput
 
 func (o IntegrationRuntimeManagedMapOutput) ToIntegrationRuntimeManagedMapOutputWithContext(ctx context.Context) IntegrationRuntimeManagedMapOutput {
 	return o
-}
-
-func (o IntegrationRuntimeManagedMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeManaged] {
-	return pulumix.Output[map[string]*IntegrationRuntimeManaged]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationRuntimeManagedMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeManagedOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
 }
 
-func (i AccountEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[AccountEncryption] {
-	return pulumix.Output[AccountEncryption]{
-		OutputState: i.ToAccountEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountEncryptionArrayInput is an input type that accepts AccountEncryptionArray and AccountEncryptionArrayOutput values.
 // You can construct a concrete instance of `AccountEncryptionArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i AccountEncryptionArray) ToAccountEncryptionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionArrayOutput)
 }
 
-func (i AccountEncryptionArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountEncryption] {
-	return pulumix.Output[[]AccountEncryption]{
-		OutputState: i.ToAccountEncryptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o AccountEncryptionOutput) ToAccountEncryptionOutput() AccountEncryptionOu
 
 func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
 	return o
-}
-
-func (o AccountEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[AccountEncryption] {
-	return pulumix.Output[AccountEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Deprecated: This field is now ignored and will be removed in the next major version of the Azure Provider, the `encryption` block can be omitted to disable encryption
@@ -139,12 +120,6 @@ func (o AccountEncryptionArrayOutput) ToAccountEncryptionArrayOutput() AccountEn
 
 func (o AccountEncryptionArrayOutput) ToAccountEncryptionArrayOutputWithContext(ctx context.Context) AccountEncryptionArrayOutput {
 	return o
-}
-
-func (o AccountEncryptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountEncryption] {
-	return pulumix.Output[[]AccountEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountEncryptionArrayOutput) Index(i pulumi.IntInput) AccountEncryptionOutput {
@@ -202,12 +177,6 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
-func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -249,12 +218,6 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -277,12 +240,6 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
-}
-
-func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the User Assigned Identity which should be assigned to this Automation Account.
@@ -319,12 +276,6 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
-}
-
-func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -416,12 +367,6 @@ func (i AccountPrivateEndpointConnectionArgs) ToAccountPrivateEndpointConnection
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPrivateEndpointConnectionOutput)
 }
 
-func (i AccountPrivateEndpointConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[AccountPrivateEndpointConnection] {
-	return pulumix.Output[AccountPrivateEndpointConnection]{
-		OutputState: i.ToAccountPrivateEndpointConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountPrivateEndpointConnectionArrayInput is an input type that accepts AccountPrivateEndpointConnectionArray and AccountPrivateEndpointConnectionArrayOutput values.
 // You can construct a concrete instance of `AccountPrivateEndpointConnectionArrayInput` via:
 //
@@ -447,12 +392,6 @@ func (i AccountPrivateEndpointConnectionArray) ToAccountPrivateEndpointConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPrivateEndpointConnectionArrayOutput)
 }
 
-func (i AccountPrivateEndpointConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountPrivateEndpointConnection] {
-	return pulumix.Output[[]AccountPrivateEndpointConnection]{
-		OutputState: i.ToAccountPrivateEndpointConnectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (AccountPrivateEndpointConnectionOutput) ElementType() reflect.Type {
@@ -465,12 +404,6 @@ func (o AccountPrivateEndpointConnectionOutput) ToAccountPrivateEndpointConnecti
 
 func (o AccountPrivateEndpointConnectionOutput) ToAccountPrivateEndpointConnectionOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionOutput {
 	return o
-}
-
-func (o AccountPrivateEndpointConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPrivateEndpointConnection] {
-	return pulumix.Output[AccountPrivateEndpointConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Automation Account.
@@ -495,12 +428,6 @@ func (o AccountPrivateEndpointConnectionArrayOutput) ToAccountPrivateEndpointCon
 
 func (o AccountPrivateEndpointConnectionArrayOutput) ToAccountPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionArrayOutput {
 	return o
-}
-
-func (o AccountPrivateEndpointConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountPrivateEndpointConnection] {
-	return pulumix.Output[[]AccountPrivateEndpointConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) AccountPrivateEndpointConnectionOutput {
@@ -554,12 +481,6 @@ func (i ConnectionTypeFieldArgs) ToConnectionTypeFieldOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeFieldOutput)
 }
 
-func (i ConnectionTypeFieldArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectionTypeField] {
-	return pulumix.Output[ConnectionTypeField]{
-		OutputState: i.ToConnectionTypeFieldOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectionTypeFieldArrayInput is an input type that accepts ConnectionTypeFieldArray and ConnectionTypeFieldArrayOutput values.
 // You can construct a concrete instance of `ConnectionTypeFieldArrayInput` via:
 //
@@ -585,12 +506,6 @@ func (i ConnectionTypeFieldArray) ToConnectionTypeFieldArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeFieldArrayOutput)
 }
 
-func (i ConnectionTypeFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionTypeField] {
-	return pulumix.Output[[]ConnectionTypeField]{
-		OutputState: i.ToConnectionTypeFieldArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectionTypeFieldOutput struct{ *pulumi.OutputState }
 
 func (ConnectionTypeFieldOutput) ElementType() reflect.Type {
@@ -603,12 +518,6 @@ func (o ConnectionTypeFieldOutput) ToConnectionTypeFieldOutput() ConnectionTypeF
 
 func (o ConnectionTypeFieldOutput) ToConnectionTypeFieldOutputWithContext(ctx context.Context) ConnectionTypeFieldOutput {
 	return o
-}
-
-func (o ConnectionTypeFieldOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionTypeField] {
-	return pulumix.Output[ConnectionTypeField]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to set the isEncrypted flag of the connection field definition.
@@ -643,12 +552,6 @@ func (o ConnectionTypeFieldArrayOutput) ToConnectionTypeFieldArrayOutput() Conne
 
 func (o ConnectionTypeFieldArrayOutput) ToConnectionTypeFieldArrayOutputWithContext(ctx context.Context) ConnectionTypeFieldArrayOutput {
 	return o
-}
-
-func (o ConnectionTypeFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionTypeField] {
-	return pulumix.Output[[]ConnectionTypeField]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionTypeFieldArrayOutput) Index(i pulumi.IntInput) ConnectionTypeFieldOutput {
@@ -694,12 +597,6 @@ func (i ModuleModuleLinkArgs) ToModuleModuleLinkOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkOutput)
 }
 
-func (i ModuleModuleLinkArgs) ToOutput(ctx context.Context) pulumix.Output[ModuleModuleLink] {
-	return pulumix.Output[ModuleModuleLink]{
-		OutputState: i.ToModuleModuleLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ModuleModuleLinkArgs) ToModuleModuleLinkPtrOutput() ModuleModuleLinkPtrOutput {
 	return i.ToModuleModuleLinkPtrOutputWithContext(context.Background())
 }
@@ -741,12 +638,6 @@ func (i *moduleModuleLinkPtrType) ToModuleModuleLinkPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkPtrOutput)
 }
 
-func (i *moduleModuleLinkPtrType) ToOutput(ctx context.Context) pulumix.Output[*ModuleModuleLink] {
-	return pulumix.Output[*ModuleModuleLink]{
-		OutputState: i.ToModuleModuleLinkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ModuleModuleLinkOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkOutput) ElementType() reflect.Type {
@@ -771,12 +662,6 @@ func (o ModuleModuleLinkOutput) ToModuleModuleLinkPtrOutputWithContext(ctx conte
 	}).(ModuleModuleLinkPtrOutput)
 }
 
-func (o ModuleModuleLinkOutput) ToOutput(ctx context.Context) pulumix.Output[ModuleModuleLink] {
-	return pulumix.Output[ModuleModuleLink]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `hash` block as defined below.
 func (o ModuleModuleLinkOutput) Hash() ModuleModuleLinkHashPtrOutput {
 	return o.ApplyT(func(v ModuleModuleLink) *ModuleModuleLinkHash { return v.Hash }).(ModuleModuleLinkHashPtrOutput)
@@ -799,12 +684,6 @@ func (o ModuleModuleLinkPtrOutput) ToModuleModuleLinkPtrOutput() ModuleModuleLin
 
 func (o ModuleModuleLinkPtrOutput) ToModuleModuleLinkPtrOutputWithContext(ctx context.Context) ModuleModuleLinkPtrOutput {
 	return o
-}
-
-func (o ModuleModuleLinkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModuleModuleLink] {
-	return pulumix.Output[*ModuleModuleLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModuleModuleLinkPtrOutput) Elem() ModuleModuleLinkOutput {
@@ -874,12 +753,6 @@ func (i ModuleModuleLinkHashArgs) ToModuleModuleLinkHashOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkHashOutput)
 }
 
-func (i ModuleModuleLinkHashArgs) ToOutput(ctx context.Context) pulumix.Output[ModuleModuleLinkHash] {
-	return pulumix.Output[ModuleModuleLinkHash]{
-		OutputState: i.ToModuleModuleLinkHashOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ModuleModuleLinkHashArgs) ToModuleModuleLinkHashPtrOutput() ModuleModuleLinkHashPtrOutput {
 	return i.ToModuleModuleLinkHashPtrOutputWithContext(context.Background())
 }
@@ -921,12 +794,6 @@ func (i *moduleModuleLinkHashPtrType) ToModuleModuleLinkHashPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ModuleModuleLinkHashPtrOutput)
 }
 
-func (i *moduleModuleLinkHashPtrType) ToOutput(ctx context.Context) pulumix.Output[*ModuleModuleLinkHash] {
-	return pulumix.Output[*ModuleModuleLinkHash]{
-		OutputState: i.ToModuleModuleLinkHashPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ModuleModuleLinkHashOutput struct{ *pulumi.OutputState }
 
 func (ModuleModuleLinkHashOutput) ElementType() reflect.Type {
@@ -951,12 +818,6 @@ func (o ModuleModuleLinkHashOutput) ToModuleModuleLinkHashPtrOutputWithContext(c
 	}).(ModuleModuleLinkHashPtrOutput)
 }
 
-func (o ModuleModuleLinkHashOutput) ToOutput(ctx context.Context) pulumix.Output[ModuleModuleLinkHash] {
-	return pulumix.Output[ModuleModuleLinkHash]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the algorithm used for the hash content.
 func (o ModuleModuleLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v ModuleModuleLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
@@ -979,12 +840,6 @@ func (o ModuleModuleLinkHashPtrOutput) ToModuleModuleLinkHashPtrOutput() ModuleM
 
 func (o ModuleModuleLinkHashPtrOutput) ToModuleModuleLinkHashPtrOutputWithContext(ctx context.Context) ModuleModuleLinkHashPtrOutput {
 	return o
-}
-
-func (o ModuleModuleLinkHashPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModuleModuleLinkHash] {
-	return pulumix.Output[*ModuleModuleLinkHash]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModuleModuleLinkHashPtrOutput) Elem() ModuleModuleLinkHashOutput {
@@ -1066,12 +921,6 @@ func (i RunBookDraftArgs) ToRunBookDraftOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftOutput)
 }
 
-func (i RunBookDraftArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookDraft] {
-	return pulumix.Output[RunBookDraft]{
-		OutputState: i.ToRunBookDraftOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RunBookDraftArgs) ToRunBookDraftPtrOutput() RunBookDraftPtrOutput {
 	return i.ToRunBookDraftPtrOutputWithContext(context.Background())
 }
@@ -1113,12 +962,6 @@ func (i *runBookDraftPtrType) ToRunBookDraftPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftPtrOutput)
 }
 
-func (i *runBookDraftPtrType) ToOutput(ctx context.Context) pulumix.Output[*RunBookDraft] {
-	return pulumix.Output[*RunBookDraft]{
-		OutputState: i.ToRunBookDraftPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookDraftOutput struct{ *pulumi.OutputState }
 
 func (RunBookDraftOutput) ElementType() reflect.Type {
@@ -1141,12 +984,6 @@ func (o RunBookDraftOutput) ToRunBookDraftPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookDraft) *RunBookDraft {
 		return &v
 	}).(RunBookDraftPtrOutput)
-}
-
-func (o RunBookDraftOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookDraft] {
-	return pulumix.Output[RunBookDraft]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `publishContentLink` block as defined above.
@@ -1189,12 +1026,6 @@ func (o RunBookDraftPtrOutput) ToRunBookDraftPtrOutput() RunBookDraftPtrOutput {
 
 func (o RunBookDraftPtrOutput) ToRunBookDraftPtrOutputWithContext(ctx context.Context) RunBookDraftPtrOutput {
 	return o
-}
-
-func (o RunBookDraftPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RunBookDraft] {
-	return pulumix.Output[*RunBookDraft]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookDraftPtrOutput) Elem() RunBookDraftOutput {
@@ -1306,12 +1137,6 @@ func (i RunBookDraftContentLinkArgs) ToRunBookDraftContentLinkOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkOutput)
 }
 
-func (i RunBookDraftContentLinkArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookDraftContentLink] {
-	return pulumix.Output[RunBookDraftContentLink]{
-		OutputState: i.ToRunBookDraftContentLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RunBookDraftContentLinkArgs) ToRunBookDraftContentLinkPtrOutput() RunBookDraftContentLinkPtrOutput {
 	return i.ToRunBookDraftContentLinkPtrOutputWithContext(context.Background())
 }
@@ -1353,12 +1178,6 @@ func (i *runBookDraftContentLinkPtrType) ToRunBookDraftContentLinkPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkPtrOutput)
 }
 
-func (i *runBookDraftContentLinkPtrType) ToOutput(ctx context.Context) pulumix.Output[*RunBookDraftContentLink] {
-	return pulumix.Output[*RunBookDraftContentLink]{
-		OutputState: i.ToRunBookDraftContentLinkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookDraftContentLinkOutput struct{ *pulumi.OutputState }
 
 func (RunBookDraftContentLinkOutput) ElementType() reflect.Type {
@@ -1381,12 +1200,6 @@ func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookDraftContentLink) *RunBookDraftContentLink {
 		return &v
 	}).(RunBookDraftContentLinkPtrOutput)
-}
-
-func (o RunBookDraftContentLinkOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookDraftContentLink] {
-	return pulumix.Output[RunBookDraftContentLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `hash` block as defined below.
@@ -1416,12 +1229,6 @@ func (o RunBookDraftContentLinkPtrOutput) ToRunBookDraftContentLinkPtrOutput() R
 
 func (o RunBookDraftContentLinkPtrOutput) ToRunBookDraftContentLinkPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkPtrOutput {
 	return o
-}
-
-func (o RunBookDraftContentLinkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RunBookDraftContentLink] {
-	return pulumix.Output[*RunBookDraftContentLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookDraftContentLinkPtrOutput) Elem() RunBookDraftContentLinkOutput {
@@ -1501,12 +1308,6 @@ func (i RunBookDraftContentLinkHashArgs) ToRunBookDraftContentLinkHashOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkHashOutput)
 }
 
-func (i RunBookDraftContentLinkHashArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookDraftContentLinkHash] {
-	return pulumix.Output[RunBookDraftContentLinkHash]{
-		OutputState: i.ToRunBookDraftContentLinkHashOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RunBookDraftContentLinkHashArgs) ToRunBookDraftContentLinkHashPtrOutput() RunBookDraftContentLinkHashPtrOutput {
 	return i.ToRunBookDraftContentLinkHashPtrOutputWithContext(context.Background())
 }
@@ -1548,12 +1349,6 @@ func (i *runBookDraftContentLinkHashPtrType) ToRunBookDraftContentLinkHashPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkHashPtrOutput)
 }
 
-func (i *runBookDraftContentLinkHashPtrType) ToOutput(ctx context.Context) pulumix.Output[*RunBookDraftContentLinkHash] {
-	return pulumix.Output[*RunBookDraftContentLinkHash]{
-		OutputState: i.ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookDraftContentLinkHashOutput struct{ *pulumi.OutputState }
 
 func (RunBookDraftContentLinkHashOutput) ElementType() reflect.Type {
@@ -1578,12 +1373,6 @@ func (o RunBookDraftContentLinkHashOutput) ToRunBookDraftContentLinkHashPtrOutpu
 	}).(RunBookDraftContentLinkHashPtrOutput)
 }
 
-func (o RunBookDraftContentLinkHashOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookDraftContentLinkHash] {
-	return pulumix.Output[RunBookDraftContentLinkHash]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the hash algorithm used to hash the content.
 func (o RunBookDraftContentLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookDraftContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
@@ -1606,12 +1395,6 @@ func (o RunBookDraftContentLinkHashPtrOutput) ToRunBookDraftContentLinkHashPtrOu
 
 func (o RunBookDraftContentLinkHashPtrOutput) ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashPtrOutput {
 	return o
-}
-
-func (o RunBookDraftContentLinkHashPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RunBookDraftContentLinkHash] {
-	return pulumix.Output[*RunBookDraftContentLinkHash]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookDraftContentLinkHashPtrOutput) Elem() RunBookDraftContentLinkHashOutput {
@@ -1693,12 +1476,6 @@ func (i RunBookDraftParameterArgs) ToRunBookDraftParameterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftParameterOutput)
 }
 
-func (i RunBookDraftParameterArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookDraftParameter] {
-	return pulumix.Output[RunBookDraftParameter]{
-		OutputState: i.ToRunBookDraftParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RunBookDraftParameterArrayInput is an input type that accepts RunBookDraftParameterArray and RunBookDraftParameterArrayOutput values.
 // You can construct a concrete instance of `RunBookDraftParameterArrayInput` via:
 //
@@ -1724,12 +1501,6 @@ func (i RunBookDraftParameterArray) ToRunBookDraftParameterArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftParameterArrayOutput)
 }
 
-func (i RunBookDraftParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]RunBookDraftParameter] {
-	return pulumix.Output[[]RunBookDraftParameter]{
-		OutputState: i.ToRunBookDraftParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookDraftParameterOutput struct{ *pulumi.OutputState }
 
 func (RunBookDraftParameterOutput) ElementType() reflect.Type {
@@ -1742,12 +1513,6 @@ func (o RunBookDraftParameterOutput) ToRunBookDraftParameterOutput() RunBookDraf
 
 func (o RunBookDraftParameterOutput) ToRunBookDraftParameterOutputWithContext(ctx context.Context) RunBookDraftParameterOutput {
 	return o
-}
-
-func (o RunBookDraftParameterOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookDraftParameter] {
-	return pulumix.Output[RunBookDraftParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the default value of the parameter.
@@ -1787,12 +1552,6 @@ func (o RunBookDraftParameterArrayOutput) ToRunBookDraftParameterArrayOutput() R
 
 func (o RunBookDraftParameterArrayOutput) ToRunBookDraftParameterArrayOutputWithContext(ctx context.Context) RunBookDraftParameterArrayOutput {
 	return o
-}
-
-func (o RunBookDraftParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RunBookDraftParameter] {
-	return pulumix.Output[[]RunBookDraftParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookDraftParameterArrayOutput) Index(i pulumi.IntInput) RunBookDraftParameterOutput {
@@ -1840,12 +1599,6 @@ func (i RunBookJobScheduleArgs) ToRunBookJobScheduleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookJobScheduleOutput)
 }
 
-func (i RunBookJobScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookJobSchedule] {
-	return pulumix.Output[RunBookJobSchedule]{
-		OutputState: i.ToRunBookJobScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RunBookJobScheduleArrayInput is an input type that accepts RunBookJobScheduleArray and RunBookJobScheduleArrayOutput values.
 // You can construct a concrete instance of `RunBookJobScheduleArrayInput` via:
 //
@@ -1871,12 +1624,6 @@ func (i RunBookJobScheduleArray) ToRunBookJobScheduleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookJobScheduleArrayOutput)
 }
 
-func (i RunBookJobScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]RunBookJobSchedule] {
-	return pulumix.Output[[]RunBookJobSchedule]{
-		OutputState: i.ToRunBookJobScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookJobScheduleOutput struct{ *pulumi.OutputState }
 
 func (RunBookJobScheduleOutput) ElementType() reflect.Type {
@@ -1889,12 +1636,6 @@ func (o RunBookJobScheduleOutput) ToRunBookJobScheduleOutput() RunBookJobSchedul
 
 func (o RunBookJobScheduleOutput) ToRunBookJobScheduleOutputWithContext(ctx context.Context) RunBookJobScheduleOutput {
 	return o
-}
-
-func (o RunBookJobScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookJobSchedule] {
-	return pulumix.Output[RunBookJobSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookJobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
@@ -1926,12 +1667,6 @@ func (o RunBookJobScheduleArrayOutput) ToRunBookJobScheduleArrayOutput() RunBook
 
 func (o RunBookJobScheduleArrayOutput) ToRunBookJobScheduleArrayOutputWithContext(ctx context.Context) RunBookJobScheduleArrayOutput {
 	return o
-}
-
-func (o RunBookJobScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RunBookJobSchedule] {
-	return pulumix.Output[[]RunBookJobSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookJobScheduleArrayOutput) Index(i pulumi.IntInput) RunBookJobScheduleOutput {
@@ -1981,12 +1716,6 @@ func (i RunBookPublishContentLinkArgs) ToRunBookPublishContentLinkOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookPublishContentLinkOutput)
 }
 
-func (i RunBookPublishContentLinkArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookPublishContentLink] {
-	return pulumix.Output[RunBookPublishContentLink]{
-		OutputState: i.ToRunBookPublishContentLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RunBookPublishContentLinkArgs) ToRunBookPublishContentLinkPtrOutput() RunBookPublishContentLinkPtrOutput {
 	return i.ToRunBookPublishContentLinkPtrOutputWithContext(context.Background())
 }
@@ -2028,12 +1757,6 @@ func (i *runBookPublishContentLinkPtrType) ToRunBookPublishContentLinkPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookPublishContentLinkPtrOutput)
 }
 
-func (i *runBookPublishContentLinkPtrType) ToOutput(ctx context.Context) pulumix.Output[*RunBookPublishContentLink] {
-	return pulumix.Output[*RunBookPublishContentLink]{
-		OutputState: i.ToRunBookPublishContentLinkPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookPublishContentLinkOutput struct{ *pulumi.OutputState }
 
 func (RunBookPublishContentLinkOutput) ElementType() reflect.Type {
@@ -2056,12 +1779,6 @@ func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookPublishContentLink) *RunBookPublishContentLink {
 		return &v
 	}).(RunBookPublishContentLinkPtrOutput)
-}
-
-func (o RunBookPublishContentLinkOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookPublishContentLink] {
-	return pulumix.Output[RunBookPublishContentLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `hash` block as defined below.
@@ -2091,12 +1808,6 @@ func (o RunBookPublishContentLinkPtrOutput) ToRunBookPublishContentLinkPtrOutput
 
 func (o RunBookPublishContentLinkPtrOutput) ToRunBookPublishContentLinkPtrOutputWithContext(ctx context.Context) RunBookPublishContentLinkPtrOutput {
 	return o
-}
-
-func (o RunBookPublishContentLinkPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RunBookPublishContentLink] {
-	return pulumix.Output[*RunBookPublishContentLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookPublishContentLinkPtrOutput) Elem() RunBookPublishContentLinkOutput {
@@ -2176,12 +1887,6 @@ func (i RunBookPublishContentLinkHashArgs) ToRunBookPublishContentLinkHashOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookPublishContentLinkHashOutput)
 }
 
-func (i RunBookPublishContentLinkHashArgs) ToOutput(ctx context.Context) pulumix.Output[RunBookPublishContentLinkHash] {
-	return pulumix.Output[RunBookPublishContentLinkHash]{
-		OutputState: i.ToRunBookPublishContentLinkHashOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RunBookPublishContentLinkHashArgs) ToRunBookPublishContentLinkHashPtrOutput() RunBookPublishContentLinkHashPtrOutput {
 	return i.ToRunBookPublishContentLinkHashPtrOutputWithContext(context.Background())
 }
@@ -2223,12 +1928,6 @@ func (i *runBookPublishContentLinkHashPtrType) ToRunBookPublishContentLinkHashPt
 	return pulumi.ToOutputWithContext(ctx, i).(RunBookPublishContentLinkHashPtrOutput)
 }
 
-func (i *runBookPublishContentLinkHashPtrType) ToOutput(ctx context.Context) pulumix.Output[*RunBookPublishContentLinkHash] {
-	return pulumix.Output[*RunBookPublishContentLinkHash]{
-		OutputState: i.ToRunBookPublishContentLinkHashPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RunBookPublishContentLinkHashOutput struct{ *pulumi.OutputState }
 
 func (RunBookPublishContentLinkHashOutput) ElementType() reflect.Type {
@@ -2253,12 +1952,6 @@ func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashPtrO
 	}).(RunBookPublishContentLinkHashPtrOutput)
 }
 
-func (o RunBookPublishContentLinkHashOutput) ToOutput(ctx context.Context) pulumix.Output[RunBookPublishContentLinkHash] {
-	return pulumix.Output[RunBookPublishContentLinkHash]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the hash algorithm used to hash the content.
 func (o RunBookPublishContentLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
@@ -2281,12 +1974,6 @@ func (o RunBookPublishContentLinkHashPtrOutput) ToRunBookPublishContentLinkHashP
 
 func (o RunBookPublishContentLinkHashPtrOutput) ToRunBookPublishContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookPublishContentLinkHashPtrOutput {
 	return o
-}
-
-func (o RunBookPublishContentLinkHashPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RunBookPublishContentLinkHash] {
-	return pulumix.Output[*RunBookPublishContentLinkHash]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RunBookPublishContentLinkHashPtrOutput) Elem() RunBookPublishContentLinkHashOutput {
@@ -2356,12 +2043,6 @@ func (i ScheduleMonthlyOccurrenceArgs) ToScheduleMonthlyOccurrenceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrenceOutput)
 }
 
-func (i ScheduleMonthlyOccurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduleMonthlyOccurrence] {
-	return pulumix.Output[ScheduleMonthlyOccurrence]{
-		OutputState: i.ToScheduleMonthlyOccurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduleMonthlyOccurrenceArrayInput is an input type that accepts ScheduleMonthlyOccurrenceArray and ScheduleMonthlyOccurrenceArrayOutput values.
 // You can construct a concrete instance of `ScheduleMonthlyOccurrenceArrayInput` via:
 //
@@ -2387,12 +2068,6 @@ func (i ScheduleMonthlyOccurrenceArray) ToScheduleMonthlyOccurrenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMonthlyOccurrenceArrayOutput)
 }
 
-func (i ScheduleMonthlyOccurrenceArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleMonthlyOccurrence] {
-	return pulumix.Output[[]ScheduleMonthlyOccurrence]{
-		OutputState: i.ToScheduleMonthlyOccurrenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduleMonthlyOccurrenceOutput struct{ *pulumi.OutputState }
 
 func (ScheduleMonthlyOccurrenceOutput) ElementType() reflect.Type {
@@ -2405,12 +2080,6 @@ func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrenceOutput() Sch
 
 func (o ScheduleMonthlyOccurrenceOutput) ToScheduleMonthlyOccurrenceOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrenceOutput {
 	return o
-}
-
-func (o ScheduleMonthlyOccurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleMonthlyOccurrence] {
-	return pulumix.Output[ScheduleMonthlyOccurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
@@ -2435,12 +2104,6 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) ToScheduleMonthlyOccurrenceArrayOu
 
 func (o ScheduleMonthlyOccurrenceArrayOutput) ToScheduleMonthlyOccurrenceArrayOutputWithContext(ctx context.Context) ScheduleMonthlyOccurrenceArrayOutput {
 	return o
-}
-
-func (o ScheduleMonthlyOccurrenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduleMonthlyOccurrence] {
-	return pulumix.Output[[]ScheduleMonthlyOccurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleMonthlyOccurrenceOutput {
@@ -2496,12 +2159,6 @@ func (i SoftwareUpdateConfigurationLinuxArgs) ToSoftwareUpdateConfigurationLinux
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationLinuxOutput)
 }
 
-func (i SoftwareUpdateConfigurationLinuxArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationLinux] {
-	return pulumix.Output[SoftwareUpdateConfigurationLinux]{
-		OutputState: i.ToSoftwareUpdateConfigurationLinuxOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationLinuxArrayInput is an input type that accepts SoftwareUpdateConfigurationLinuxArray and SoftwareUpdateConfigurationLinuxArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationLinuxArrayInput` via:
 //
@@ -2527,12 +2184,6 @@ func (i SoftwareUpdateConfigurationLinuxArray) ToSoftwareUpdateConfigurationLinu
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationLinuxArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationLinuxArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationLinux] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationLinux]{
-		OutputState: i.ToSoftwareUpdateConfigurationLinuxArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationLinuxOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationLinuxOutput) ElementType() reflect.Type {
@@ -2545,12 +2196,6 @@ func (o SoftwareUpdateConfigurationLinuxOutput) ToSoftwareUpdateConfigurationLin
 
 func (o SoftwareUpdateConfigurationLinuxOutput) ToSoftwareUpdateConfigurationLinuxOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationLinuxOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationLinux] {
-	return pulumix.Output[SoftwareUpdateConfigurationLinux]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationLinuxOutput) ClassificationIncluded() pulumi.StringPtrOutput {
@@ -2589,12 +2234,6 @@ func (o SoftwareUpdateConfigurationLinuxArrayOutput) ToSoftwareUpdateConfigurati
 
 func (o SoftwareUpdateConfigurationLinuxArrayOutput) ToSoftwareUpdateConfigurationLinuxArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationLinuxArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationLinuxArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationLinux] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationLinux]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationLinuxArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationLinuxOutput {
@@ -2640,12 +2279,6 @@ func (i SoftwareUpdateConfigurationPostTaskArgs) ToSoftwareUpdateConfigurationPo
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPostTaskOutput)
 }
 
-func (i SoftwareUpdateConfigurationPostTaskArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationPostTask] {
-	return pulumix.Output[SoftwareUpdateConfigurationPostTask]{
-		OutputState: i.ToSoftwareUpdateConfigurationPostTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationPostTaskArrayInput is an input type that accepts SoftwareUpdateConfigurationPostTaskArray and SoftwareUpdateConfigurationPostTaskArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationPostTaskArrayInput` via:
 //
@@ -2671,12 +2304,6 @@ func (i SoftwareUpdateConfigurationPostTaskArray) ToSoftwareUpdateConfigurationP
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPostTaskArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationPostTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationPostTask] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationPostTask]{
-		OutputState: i.ToSoftwareUpdateConfigurationPostTaskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationPostTaskOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationPostTaskOutput) ElementType() reflect.Type {
@@ -2689,12 +2316,6 @@ func (o SoftwareUpdateConfigurationPostTaskOutput) ToSoftwareUpdateConfiguration
 
 func (o SoftwareUpdateConfigurationPostTaskOutput) ToSoftwareUpdateConfigurationPostTaskOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationPostTaskOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationPostTask] {
-	return pulumix.Output[SoftwareUpdateConfigurationPostTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a map of parameters for the task.
@@ -2719,12 +2340,6 @@ func (o SoftwareUpdateConfigurationPostTaskArrayOutput) ToSoftwareUpdateConfigur
 
 func (o SoftwareUpdateConfigurationPostTaskArrayOutput) ToSoftwareUpdateConfigurationPostTaskArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPostTaskArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationPostTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationPostTask] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationPostTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationPostTaskArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationPostTaskOutput {
@@ -2770,12 +2385,6 @@ func (i SoftwareUpdateConfigurationPreTaskArgs) ToSoftwareUpdateConfigurationPre
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPreTaskOutput)
 }
 
-func (i SoftwareUpdateConfigurationPreTaskArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationPreTask] {
-	return pulumix.Output[SoftwareUpdateConfigurationPreTask]{
-		OutputState: i.ToSoftwareUpdateConfigurationPreTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationPreTaskArrayInput is an input type that accepts SoftwareUpdateConfigurationPreTaskArray and SoftwareUpdateConfigurationPreTaskArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationPreTaskArrayInput` via:
 //
@@ -2801,12 +2410,6 @@ func (i SoftwareUpdateConfigurationPreTaskArray) ToSoftwareUpdateConfigurationPr
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationPreTaskArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationPreTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationPreTask] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationPreTask]{
-		OutputState: i.ToSoftwareUpdateConfigurationPreTaskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationPreTaskOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationPreTaskOutput) ElementType() reflect.Type {
@@ -2819,12 +2422,6 @@ func (o SoftwareUpdateConfigurationPreTaskOutput) ToSoftwareUpdateConfigurationP
 
 func (o SoftwareUpdateConfigurationPreTaskOutput) ToSoftwareUpdateConfigurationPreTaskOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationPreTaskOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationPreTask] {
-	return pulumix.Output[SoftwareUpdateConfigurationPreTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a map of parameters for the task.
@@ -2849,12 +2446,6 @@ func (o SoftwareUpdateConfigurationPreTaskArrayOutput) ToSoftwareUpdateConfigura
 
 func (o SoftwareUpdateConfigurationPreTaskArrayOutput) ToSoftwareUpdateConfigurationPreTaskArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationPreTaskArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationPreTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationPreTask] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationPreTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationPreTaskArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationPreTaskOutput {
@@ -2944,12 +2535,6 @@ func (i SoftwareUpdateConfigurationScheduleArgs) ToSoftwareUpdateConfigurationSc
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleOutput)
 }
 
-func (i SoftwareUpdateConfigurationScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationSchedule] {
-	return pulumix.Output[SoftwareUpdateConfigurationSchedule]{
-		OutputState: i.ToSoftwareUpdateConfigurationScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationScheduleArrayInput is an input type that accepts SoftwareUpdateConfigurationScheduleArray and SoftwareUpdateConfigurationScheduleArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationScheduleArrayInput` via:
 //
@@ -2975,12 +2560,6 @@ func (i SoftwareUpdateConfigurationScheduleArray) ToSoftwareUpdateConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationSchedule] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationSchedule]{
-		OutputState: i.ToSoftwareUpdateConfigurationScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationScheduleOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationScheduleOutput) ElementType() reflect.Type {
@@ -2993,12 +2572,6 @@ func (o SoftwareUpdateConfigurationScheduleOutput) ToSoftwareUpdateConfiguration
 
 func (o SoftwareUpdateConfigurationScheduleOutput) ToSoftwareUpdateConfigurationScheduleOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationSchedule] {
-	return pulumix.Output[SoftwareUpdateConfigurationSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
@@ -3091,12 +2664,6 @@ func (o SoftwareUpdateConfigurationScheduleArrayOutput) ToSoftwareUpdateConfigur
 	return o
 }
 
-func (o SoftwareUpdateConfigurationScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationSchedule] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SoftwareUpdateConfigurationScheduleArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationSchedule {
 		return vs[0].([]SoftwareUpdateConfigurationSchedule)[vs[1].(int)]
@@ -3140,12 +2707,6 @@ func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs) ToSoftwareUpda
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput)
 }
 
-func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationScheduleMonthlyOccurrence] {
-	return pulumix.Output[SoftwareUpdateConfigurationScheduleMonthlyOccurrence]{
-		OutputState: i.ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput is an input type that accepts SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray and SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayInput` via:
 //
@@ -3171,12 +2732,6 @@ func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray) ToSoftwareUpd
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationScheduleMonthlyOccurrence] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationScheduleMonthlyOccurrence]{
-		OutputState: i.ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ElementType() reflect.Type {
@@ -3189,12 +2744,6 @@ func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ToSoftwareUp
 
 func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationScheduleMonthlyOccurrence] {
-	return pulumix.Output[SoftwareUpdateConfigurationScheduleMonthlyOccurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
@@ -3219,12 +2768,6 @@ func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) ToSoftw
 
 func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) ToSoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationScheduleMonthlyOccurrence] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationScheduleMonthlyOccurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationScheduleMonthlyOccurrenceOutput {
@@ -3270,12 +2813,6 @@ func (i SoftwareUpdateConfigurationTargetArgs) ToSoftwareUpdateConfigurationTarg
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTarget] {
-	return pulumix.Output[SoftwareUpdateConfigurationTarget]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SoftwareUpdateConfigurationTargetArgs) ToSoftwareUpdateConfigurationTargetPtrOutput() SoftwareUpdateConfigurationTargetPtrOutput {
 	return i.ToSoftwareUpdateConfigurationTargetPtrOutputWithContext(context.Background())
 }
@@ -3317,12 +2854,6 @@ func (i *softwareUpdateConfigurationTargetPtrType) ToSoftwareUpdateConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetPtrOutput)
 }
 
-func (i *softwareUpdateConfigurationTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*SoftwareUpdateConfigurationTarget] {
-	return pulumix.Output[*SoftwareUpdateConfigurationTarget]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationTargetOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationTargetOutput) ElementType() reflect.Type {
@@ -3345,12 +2876,6 @@ func (o SoftwareUpdateConfigurationTargetOutput) ToSoftwareUpdateConfigurationTa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationTarget) *SoftwareUpdateConfigurationTarget {
 		return &v
 	}).(SoftwareUpdateConfigurationTargetPtrOutput)
-}
-
-func (o SoftwareUpdateConfigurationTargetOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTarget] {
-	return pulumix.Output[SoftwareUpdateConfigurationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `azureQuery` blocks as defined above.
@@ -3379,12 +2904,6 @@ func (o SoftwareUpdateConfigurationTargetPtrOutput) ToSoftwareUpdateConfiguratio
 
 func (o SoftwareUpdateConfigurationTargetPtrOutput) ToSoftwareUpdateConfigurationTargetPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetPtrOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SoftwareUpdateConfigurationTarget] {
-	return pulumix.Output[*SoftwareUpdateConfigurationTarget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationTargetPtrOutput) Elem() SoftwareUpdateConfigurationTargetOutput {
@@ -3462,12 +2981,6 @@ func (i SoftwareUpdateConfigurationTargetAzureQueryArgs) ToSoftwareUpdateConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetAzureQueryOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetAzureQueryArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTargetAzureQuery] {
-	return pulumix.Output[SoftwareUpdateConfigurationTargetAzureQuery]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetAzureQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationTargetAzureQueryArrayInput is an input type that accepts SoftwareUpdateConfigurationTargetAzureQueryArray and SoftwareUpdateConfigurationTargetAzureQueryArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationTargetAzureQueryArrayInput` via:
 //
@@ -3493,12 +3006,6 @@ func (i SoftwareUpdateConfigurationTargetAzureQueryArray) ToSoftwareUpdateConfig
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetAzureQueryArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetAzureQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQuery] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQuery]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetAzureQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationTargetAzureQueryOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationTargetAzureQueryOutput) ElementType() reflect.Type {
@@ -3511,12 +3018,6 @@ func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) ToSoftwareUpdateConfi
 
 func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) ToSoftwareUpdateConfigurationTargetAzureQueryOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetAzureQueryOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetAzureQueryOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTargetAzureQuery] {
-	return pulumix.Output[SoftwareUpdateConfigurationTargetAzureQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of locations to scope the query to.
@@ -3553,12 +3054,6 @@ func (o SoftwareUpdateConfigurationTargetAzureQueryArrayOutput) ToSoftwareUpdate
 
 func (o SoftwareUpdateConfigurationTargetAzureQueryArrayOutput) ToSoftwareUpdateConfigurationTargetAzureQueryArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetAzureQueryArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetAzureQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQuery] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationTargetAzureQueryArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationTargetAzureQueryOutput {
@@ -3604,12 +3099,6 @@ func (i SoftwareUpdateConfigurationTargetAzureQueryTagArgs) ToSoftwareUpdateConf
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetAzureQueryTagOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetAzureQueryTagArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTargetAzureQueryTag] {
-	return pulumix.Output[SoftwareUpdateConfigurationTargetAzureQueryTag]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetAzureQueryTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationTargetAzureQueryTagArrayInput is an input type that accepts SoftwareUpdateConfigurationTargetAzureQueryTagArray and SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationTargetAzureQueryTagArrayInput` via:
 //
@@ -3635,12 +3124,6 @@ func (i SoftwareUpdateConfigurationTargetAzureQueryTagArray) ToSoftwareUpdateCon
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetAzureQueryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQueryTag] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQueryTag]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetAzureQueryTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationTargetAzureQueryTagOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationTargetAzureQueryTagOutput) ElementType() reflect.Type {
@@ -3653,12 +3136,6 @@ func (o SoftwareUpdateConfigurationTargetAzureQueryTagOutput) ToSoftwareUpdateCo
 
 func (o SoftwareUpdateConfigurationTargetAzureQueryTagOutput) ToSoftwareUpdateConfigurationTargetAzureQueryTagOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetAzureQueryTagOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetAzureQueryTagOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTargetAzureQueryTag] {
-	return pulumix.Output[SoftwareUpdateConfigurationTargetAzureQueryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the tag to filter.
@@ -3683,12 +3160,6 @@ func (o SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput) ToSoftwareUpd
 
 func (o SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput) ToSoftwareUpdateConfigurationTargetAzureQueryTagArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQueryTag] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationTargetAzureQueryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationTargetAzureQueryTagOutput {
@@ -3734,12 +3205,6 @@ func (i SoftwareUpdateConfigurationTargetNonAzureQueryArgs) ToSoftwareUpdateConf
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetNonAzureQueryOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetNonAzureQueryArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTargetNonAzureQuery] {
-	return pulumix.Output[SoftwareUpdateConfigurationTargetNonAzureQuery]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetNonAzureQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationTargetNonAzureQueryArrayInput is an input type that accepts SoftwareUpdateConfigurationTargetNonAzureQueryArray and SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationTargetNonAzureQueryArrayInput` via:
 //
@@ -3765,12 +3230,6 @@ func (i SoftwareUpdateConfigurationTargetNonAzureQueryArray) ToSoftwareUpdateCon
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput)
 }
 
-func (i SoftwareUpdateConfigurationTargetNonAzureQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationTargetNonAzureQuery] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationTargetNonAzureQuery]{
-		OutputState: i.ToSoftwareUpdateConfigurationTargetNonAzureQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationTargetNonAzureQueryOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationTargetNonAzureQueryOutput) ElementType() reflect.Type {
@@ -3783,12 +3242,6 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryOutput) ToSoftwareUpdateCo
 
 func (o SoftwareUpdateConfigurationTargetNonAzureQueryOutput) ToSoftwareUpdateConfigurationTargetNonAzureQueryOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetNonAzureQueryOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetNonAzureQueryOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationTargetNonAzureQuery] {
-	return pulumix.Output[SoftwareUpdateConfigurationTargetNonAzureQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Log Analytics save search name.
@@ -3813,12 +3266,6 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) ToSoftwareUpd
 
 func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) ToSoftwareUpdateConfigurationTargetNonAzureQueryArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SoftwareUpdateConfigurationTargetNonAzureQuery] {
-	return pulumix.Output[[]SoftwareUpdateConfigurationTargetNonAzureQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationTargetNonAzureQueryOutput {
@@ -3876,12 +3323,6 @@ func (i SoftwareUpdateConfigurationWindowsArgs) ToSoftwareUpdateConfigurationWin
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowsOutput)
 }
 
-func (i SoftwareUpdateConfigurationWindowsArgs) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationWindows] {
-	return pulumix.Output[SoftwareUpdateConfigurationWindows]{
-		OutputState: i.ToSoftwareUpdateConfigurationWindowsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SoftwareUpdateConfigurationWindowsArgs) ToSoftwareUpdateConfigurationWindowsPtrOutput() SoftwareUpdateConfigurationWindowsPtrOutput {
 	return i.ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(context.Background())
 }
@@ -3923,12 +3364,6 @@ func (i *softwareUpdateConfigurationWindowsPtrType) ToSoftwareUpdateConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
-func (i *softwareUpdateConfigurationWindowsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SoftwareUpdateConfigurationWindows] {
-	return pulumix.Output[*SoftwareUpdateConfigurationWindows]{
-		OutputState: i.ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationWindowsOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationWindowsOutput) ElementType() reflect.Type {
@@ -3951,12 +3386,6 @@ func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationWindows) *SoftwareUpdateConfigurationWindows {
 		return &v
 	}).(SoftwareUpdateConfigurationWindowsPtrOutput)
-}
-
-func (o SoftwareUpdateConfigurationWindowsOutput) ToOutput(ctx context.Context) pulumix.Output[SoftwareUpdateConfigurationWindows] {
-	return pulumix.Output[SoftwareUpdateConfigurationWindows]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Deprecated: windows classification can be set as a list, use `classifications_included` instead.
@@ -3996,12 +3425,6 @@ func (o SoftwareUpdateConfigurationWindowsPtrOutput) ToSoftwareUpdateConfigurati
 
 func (o SoftwareUpdateConfigurationWindowsPtrOutput) ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsPtrOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationWindowsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SoftwareUpdateConfigurationWindows] {
-	return pulumix.Output[*SoftwareUpdateConfigurationWindows]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationWindowsPtrOutput) Elem() SoftwareUpdateConfigurationWindowsOutput {
@@ -4105,12 +3528,6 @@ func (i SourceControlSecurityArgs) ToSourceControlSecurityOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSecurityOutput)
 }
 
-func (i SourceControlSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[SourceControlSecurity] {
-	return pulumix.Output[SourceControlSecurity]{
-		OutputState: i.ToSourceControlSecurityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SourceControlSecurityArgs) ToSourceControlSecurityPtrOutput() SourceControlSecurityPtrOutput {
 	return i.ToSourceControlSecurityPtrOutputWithContext(context.Background())
 }
@@ -4152,12 +3569,6 @@ func (i *sourceControlSecurityPtrType) ToSourceControlSecurityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSecurityPtrOutput)
 }
 
-func (i *sourceControlSecurityPtrType) ToOutput(ctx context.Context) pulumix.Output[*SourceControlSecurity] {
-	return pulumix.Output[*SourceControlSecurity]{
-		OutputState: i.ToSourceControlSecurityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SourceControlSecurityOutput struct{ *pulumi.OutputState }
 
 func (SourceControlSecurityOutput) ElementType() reflect.Type {
@@ -4180,12 +3591,6 @@ func (o SourceControlSecurityOutput) ToSourceControlSecurityPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlSecurity) *SourceControlSecurity {
 		return &v
 	}).(SourceControlSecurityPtrOutput)
-}
-
-func (o SourceControlSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[SourceControlSecurity] {
-	return pulumix.Output[SourceControlSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The refresh token of specified rpeo.
@@ -4215,12 +3620,6 @@ func (o SourceControlSecurityPtrOutput) ToSourceControlSecurityPtrOutput() Sourc
 
 func (o SourceControlSecurityPtrOutput) ToSourceControlSecurityPtrOutputWithContext(ctx context.Context) SourceControlSecurityPtrOutput {
 	return o
-}
-
-func (o SourceControlSecurityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceControlSecurity] {
-	return pulumix.Output[*SourceControlSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceControlSecurityPtrOutput) Elem() SourceControlSecurityOutput {
@@ -4308,12 +3707,6 @@ func (i GetAccountIdentityArgs) ToGetAccountIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput)
 }
 
-func (i GetAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdentity] {
-	return pulumix.Output[GetAccountIdentity]{
-		OutputState: i.ToGetAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountIdentityArrayInput is an input type that accepts GetAccountIdentityArray and GetAccountIdentityArrayOutput values.
 // You can construct a concrete instance of `GetAccountIdentityArrayInput` via:
 //
@@ -4339,12 +3732,6 @@ func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityArrayOutput)
 }
 
-func (i GetAccountIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountIdentity] {
-	return pulumix.Output[[]GetAccountIdentity]{
-		OutputState: i.ToGetAccountIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetAccountIdentityOutput) ElementType() reflect.Type {
@@ -4357,12 +3744,6 @@ func (o GetAccountIdentityOutput) ToGetAccountIdentityOutput() GetAccountIdentit
 
 func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
 	return o
-}
-
-func (o GetAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdentity] {
-	return pulumix.Output[GetAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Automation Account.
@@ -4397,12 +3778,6 @@ func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutput() GetAcco
 
 func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
 	return o
-}
-
-func (o GetAccountIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountIdentity] {
-	return pulumix.Output[[]GetAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdentityOutput {
@@ -4448,12 +3823,6 @@ func (i GetAccountPrivateEndpointConnectionArgs) ToGetAccountPrivateEndpointConn
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountPrivateEndpointConnectionOutput)
 }
 
-func (i GetAccountPrivateEndpointConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountPrivateEndpointConnection] {
-	return pulumix.Output[GetAccountPrivateEndpointConnection]{
-		OutputState: i.ToGetAccountPrivateEndpointConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountPrivateEndpointConnectionArrayInput is an input type that accepts GetAccountPrivateEndpointConnectionArray and GetAccountPrivateEndpointConnectionArrayOutput values.
 // You can construct a concrete instance of `GetAccountPrivateEndpointConnectionArrayInput` via:
 //
@@ -4479,12 +3848,6 @@ func (i GetAccountPrivateEndpointConnectionArray) ToGetAccountPrivateEndpointCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountPrivateEndpointConnectionArrayOutput)
 }
 
-func (i GetAccountPrivateEndpointConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountPrivateEndpointConnection] {
-	return pulumix.Output[[]GetAccountPrivateEndpointConnection]{
-		OutputState: i.ToGetAccountPrivateEndpointConnectionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (GetAccountPrivateEndpointConnectionOutput) ElementType() reflect.Type {
@@ -4497,12 +3860,6 @@ func (o GetAccountPrivateEndpointConnectionOutput) ToGetAccountPrivateEndpointCo
 
 func (o GetAccountPrivateEndpointConnectionOutput) ToGetAccountPrivateEndpointConnectionOutputWithContext(ctx context.Context) GetAccountPrivateEndpointConnectionOutput {
 	return o
-}
-
-func (o GetAccountPrivateEndpointConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountPrivateEndpointConnection] {
-	return pulumix.Output[GetAccountPrivateEndpointConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Automation Account
@@ -4527,12 +3884,6 @@ func (o GetAccountPrivateEndpointConnectionArrayOutput) ToGetAccountPrivateEndpo
 
 func (o GetAccountPrivateEndpointConnectionArrayOutput) ToGetAccountPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) GetAccountPrivateEndpointConnectionArrayOutput {
 	return o
-}
-
-func (o GetAccountPrivateEndpointConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountPrivateEndpointConnection] {
-	return pulumix.Output[[]GetAccountPrivateEndpointConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) GetAccountPrivateEndpointConnectionOutput {
@@ -4588,12 +3939,6 @@ func (i GetVariablesBoolArgs) ToGetVariablesBoolOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesBoolOutput)
 }
 
-func (i GetVariablesBoolArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesBool] {
-	return pulumix.Output[GetVariablesBool]{
-		OutputState: i.ToGetVariablesBoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesBoolArrayInput is an input type that accepts GetVariablesBoolArray and GetVariablesBoolArrayOutput values.
 // You can construct a concrete instance of `GetVariablesBoolArrayInput` via:
 //
@@ -4619,12 +3964,6 @@ func (i GetVariablesBoolArray) ToGetVariablesBoolArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesBoolArrayOutput)
 }
 
-func (i GetVariablesBoolArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesBool] {
-	return pulumix.Output[[]GetVariablesBool]{
-		OutputState: i.ToGetVariablesBoolArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesBoolOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesBoolOutput) ElementType() reflect.Type {
@@ -4637,12 +3976,6 @@ func (o GetVariablesBoolOutput) ToGetVariablesBoolOutput() GetVariablesBoolOutpu
 
 func (o GetVariablesBoolOutput) ToGetVariablesBoolOutputWithContext(ctx context.Context) GetVariablesBoolOutput {
 	return o
-}
-
-func (o GetVariablesBoolOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesBool] {
-	return pulumix.Output[GetVariablesBool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -4681,12 +4014,6 @@ func (o GetVariablesBoolArrayOutput) ToGetVariablesBoolArrayOutput() GetVariable
 
 func (o GetVariablesBoolArrayOutput) ToGetVariablesBoolArrayOutputWithContext(ctx context.Context) GetVariablesBoolArrayOutput {
 	return o
-}
-
-func (o GetVariablesBoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesBool] {
-	return pulumix.Output[[]GetVariablesBool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesBoolArrayOutput) Index(i pulumi.IntInput) GetVariablesBoolOutput {
@@ -4742,12 +4069,6 @@ func (i GetVariablesDatetimeArgs) ToGetVariablesDatetimeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesDatetimeOutput)
 }
 
-func (i GetVariablesDatetimeArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesDatetime] {
-	return pulumix.Output[GetVariablesDatetime]{
-		OutputState: i.ToGetVariablesDatetimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesDatetimeArrayInput is an input type that accepts GetVariablesDatetimeArray and GetVariablesDatetimeArrayOutput values.
 // You can construct a concrete instance of `GetVariablesDatetimeArrayInput` via:
 //
@@ -4773,12 +4094,6 @@ func (i GetVariablesDatetimeArray) ToGetVariablesDatetimeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesDatetimeArrayOutput)
 }
 
-func (i GetVariablesDatetimeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesDatetime] {
-	return pulumix.Output[[]GetVariablesDatetime]{
-		OutputState: i.ToGetVariablesDatetimeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesDatetimeOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesDatetimeOutput) ElementType() reflect.Type {
@@ -4791,12 +4106,6 @@ func (o GetVariablesDatetimeOutput) ToGetVariablesDatetimeOutput() GetVariablesD
 
 func (o GetVariablesDatetimeOutput) ToGetVariablesDatetimeOutputWithContext(ctx context.Context) GetVariablesDatetimeOutput {
 	return o
-}
-
-func (o GetVariablesDatetimeOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesDatetime] {
-	return pulumix.Output[GetVariablesDatetime]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -4835,12 +4144,6 @@ func (o GetVariablesDatetimeArrayOutput) ToGetVariablesDatetimeArrayOutput() Get
 
 func (o GetVariablesDatetimeArrayOutput) ToGetVariablesDatetimeArrayOutputWithContext(ctx context.Context) GetVariablesDatetimeArrayOutput {
 	return o
-}
-
-func (o GetVariablesDatetimeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesDatetime] {
-	return pulumix.Output[[]GetVariablesDatetime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesDatetimeArrayOutput) Index(i pulumi.IntInput) GetVariablesDatetimeOutput {
@@ -4896,12 +4199,6 @@ func (i GetVariablesEncryptedArgs) ToGetVariablesEncryptedOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesEncryptedOutput)
 }
 
-func (i GetVariablesEncryptedArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesEncrypted] {
-	return pulumix.Output[GetVariablesEncrypted]{
-		OutputState: i.ToGetVariablesEncryptedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesEncryptedArrayInput is an input type that accepts GetVariablesEncryptedArray and GetVariablesEncryptedArrayOutput values.
 // You can construct a concrete instance of `GetVariablesEncryptedArrayInput` via:
 //
@@ -4927,12 +4224,6 @@ func (i GetVariablesEncryptedArray) ToGetVariablesEncryptedArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesEncryptedArrayOutput)
 }
 
-func (i GetVariablesEncryptedArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesEncrypted] {
-	return pulumix.Output[[]GetVariablesEncrypted]{
-		OutputState: i.ToGetVariablesEncryptedArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesEncryptedOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesEncryptedOutput) ElementType() reflect.Type {
@@ -4945,12 +4236,6 @@ func (o GetVariablesEncryptedOutput) ToGetVariablesEncryptedOutput() GetVariable
 
 func (o GetVariablesEncryptedOutput) ToGetVariablesEncryptedOutputWithContext(ctx context.Context) GetVariablesEncryptedOutput {
 	return o
-}
-
-func (o GetVariablesEncryptedOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesEncrypted] {
-	return pulumix.Output[GetVariablesEncrypted]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -4989,12 +4274,6 @@ func (o GetVariablesEncryptedArrayOutput) ToGetVariablesEncryptedArrayOutput() G
 
 func (o GetVariablesEncryptedArrayOutput) ToGetVariablesEncryptedArrayOutputWithContext(ctx context.Context) GetVariablesEncryptedArrayOutput {
 	return o
-}
-
-func (o GetVariablesEncryptedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesEncrypted] {
-	return pulumix.Output[[]GetVariablesEncrypted]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesEncryptedArrayOutput) Index(i pulumi.IntInput) GetVariablesEncryptedOutput {
@@ -5050,12 +4329,6 @@ func (i GetVariablesIntArgs) ToGetVariablesIntOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesIntOutput)
 }
 
-func (i GetVariablesIntArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesInt] {
-	return pulumix.Output[GetVariablesInt]{
-		OutputState: i.ToGetVariablesIntOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesIntArrayInput is an input type that accepts GetVariablesIntArray and GetVariablesIntArrayOutput values.
 // You can construct a concrete instance of `GetVariablesIntArrayInput` via:
 //
@@ -5081,12 +4354,6 @@ func (i GetVariablesIntArray) ToGetVariablesIntArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesIntArrayOutput)
 }
 
-func (i GetVariablesIntArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesInt] {
-	return pulumix.Output[[]GetVariablesInt]{
-		OutputState: i.ToGetVariablesIntArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesIntOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesIntOutput) ElementType() reflect.Type {
@@ -5099,12 +4366,6 @@ func (o GetVariablesIntOutput) ToGetVariablesIntOutput() GetVariablesIntOutput {
 
 func (o GetVariablesIntOutput) ToGetVariablesIntOutputWithContext(ctx context.Context) GetVariablesIntOutput {
 	return o
-}
-
-func (o GetVariablesIntOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesInt] {
-	return pulumix.Output[GetVariablesInt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -5143,12 +4404,6 @@ func (o GetVariablesIntArrayOutput) ToGetVariablesIntArrayOutput() GetVariablesI
 
 func (o GetVariablesIntArrayOutput) ToGetVariablesIntArrayOutputWithContext(ctx context.Context) GetVariablesIntArrayOutput {
 	return o
-}
-
-func (o GetVariablesIntArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesInt] {
-	return pulumix.Output[[]GetVariablesInt]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesIntArrayOutput) Index(i pulumi.IntInput) GetVariablesIntOutput {
@@ -5204,12 +4459,6 @@ func (i GetVariablesNullArgs) ToGetVariablesNullOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesNullOutput)
 }
 
-func (i GetVariablesNullArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesNull] {
-	return pulumix.Output[GetVariablesNull]{
-		OutputState: i.ToGetVariablesNullOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesNullArrayInput is an input type that accepts GetVariablesNullArray and GetVariablesNullArrayOutput values.
 // You can construct a concrete instance of `GetVariablesNullArrayInput` via:
 //
@@ -5235,12 +4484,6 @@ func (i GetVariablesNullArray) ToGetVariablesNullArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesNullArrayOutput)
 }
 
-func (i GetVariablesNullArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesNull] {
-	return pulumix.Output[[]GetVariablesNull]{
-		OutputState: i.ToGetVariablesNullArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesNullOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesNullOutput) ElementType() reflect.Type {
@@ -5253,12 +4496,6 @@ func (o GetVariablesNullOutput) ToGetVariablesNullOutput() GetVariablesNullOutpu
 
 func (o GetVariablesNullOutput) ToGetVariablesNullOutputWithContext(ctx context.Context) GetVariablesNullOutput {
 	return o
-}
-
-func (o GetVariablesNullOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesNull] {
-	return pulumix.Output[GetVariablesNull]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -5297,12 +4534,6 @@ func (o GetVariablesNullArrayOutput) ToGetVariablesNullArrayOutput() GetVariable
 
 func (o GetVariablesNullArrayOutput) ToGetVariablesNullArrayOutputWithContext(ctx context.Context) GetVariablesNullArrayOutput {
 	return o
-}
-
-func (o GetVariablesNullArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesNull] {
-	return pulumix.Output[[]GetVariablesNull]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesNullArrayOutput) Index(i pulumi.IntInput) GetVariablesNullOutput {
@@ -5358,12 +4589,6 @@ func (i GetVariablesObjectArgs) ToGetVariablesObjectOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesObjectOutput)
 }
 
-func (i GetVariablesObjectArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesObject] {
-	return pulumix.Output[GetVariablesObject]{
-		OutputState: i.ToGetVariablesObjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesObjectArrayInput is an input type that accepts GetVariablesObjectArray and GetVariablesObjectArrayOutput values.
 // You can construct a concrete instance of `GetVariablesObjectArrayInput` via:
 //
@@ -5389,12 +4614,6 @@ func (i GetVariablesObjectArray) ToGetVariablesObjectArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesObjectArrayOutput)
 }
 
-func (i GetVariablesObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesObject] {
-	return pulumix.Output[[]GetVariablesObject]{
-		OutputState: i.ToGetVariablesObjectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesObjectOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesObjectOutput) ElementType() reflect.Type {
@@ -5407,12 +4626,6 @@ func (o GetVariablesObjectOutput) ToGetVariablesObjectOutput() GetVariablesObjec
 
 func (o GetVariablesObjectOutput) ToGetVariablesObjectOutputWithContext(ctx context.Context) GetVariablesObjectOutput {
 	return o
-}
-
-func (o GetVariablesObjectOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesObject] {
-	return pulumix.Output[GetVariablesObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -5451,12 +4664,6 @@ func (o GetVariablesObjectArrayOutput) ToGetVariablesObjectArrayOutput() GetVari
 
 func (o GetVariablesObjectArrayOutput) ToGetVariablesObjectArrayOutputWithContext(ctx context.Context) GetVariablesObjectArrayOutput {
 	return o
-}
-
-func (o GetVariablesObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesObject] {
-	return pulumix.Output[[]GetVariablesObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesObjectArrayOutput) Index(i pulumi.IntInput) GetVariablesObjectOutput {
@@ -5512,12 +4719,6 @@ func (i GetVariablesStringArgs) ToGetVariablesStringOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesStringOutput)
 }
 
-func (i GetVariablesStringArgs) ToOutput(ctx context.Context) pulumix.Output[GetVariablesString] {
-	return pulumix.Output[GetVariablesString]{
-		OutputState: i.ToGetVariablesStringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVariablesStringArrayInput is an input type that accepts GetVariablesStringArray and GetVariablesStringArrayOutput values.
 // You can construct a concrete instance of `GetVariablesStringArrayInput` via:
 //
@@ -5543,12 +4744,6 @@ func (i GetVariablesStringArray) ToGetVariablesStringArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetVariablesStringArrayOutput)
 }
 
-func (i GetVariablesStringArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesString] {
-	return pulumix.Output[[]GetVariablesString]{
-		OutputState: i.ToGetVariablesStringArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVariablesStringOutput struct{ *pulumi.OutputState }
 
 func (GetVariablesStringOutput) ElementType() reflect.Type {
@@ -5561,12 +4756,6 @@ func (o GetVariablesStringOutput) ToGetVariablesStringOutput() GetVariablesStrin
 
 func (o GetVariablesStringOutput) ToGetVariablesStringOutputWithContext(ctx context.Context) GetVariablesStringOutput {
 	return o
-}
-
-func (o GetVariablesStringOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesString] {
-	return pulumix.Output[GetVariablesString]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Automation Variable.
@@ -5605,12 +4794,6 @@ func (o GetVariablesStringArrayOutput) ToGetVariablesStringArrayOutput() GetVari
 
 func (o GetVariablesStringArrayOutput) ToGetVariablesStringArrayOutputWithContext(ctx context.Context) GetVariablesStringArrayOutput {
 	return o
-}
-
-func (o GetVariablesStringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVariablesString] {
-	return pulumix.Output[[]GetVariablesString]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesStringArrayOutput) Index(i pulumi.IntInput) GetVariablesStringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MySQL Flexible Server.
@@ -493,12 +492,6 @@ func (i *FlexibleServer) ToFlexibleServerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerOutput)
 }
 
-func (i *FlexibleServer) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServer] {
-	return pulumix.Output[*FlexibleServer]{
-		OutputState: i.ToFlexibleServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlexibleServerArrayInput is an input type that accepts FlexibleServerArray and FlexibleServerArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerArrayInput` via:
 //
@@ -522,12 +515,6 @@ func (i FlexibleServerArray) ToFlexibleServerArrayOutput() FlexibleServerArrayOu
 
 func (i FlexibleServerArray) ToFlexibleServerArrayOutputWithContext(ctx context.Context) FlexibleServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerArrayOutput)
-}
-
-func (i FlexibleServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServer] {
-	return pulumix.Output[[]*FlexibleServer]{
-		OutputState: i.ToFlexibleServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlexibleServerMapInput is an input type that accepts FlexibleServerMap and FlexibleServerMapOutput values.
@@ -555,12 +542,6 @@ func (i FlexibleServerMap) ToFlexibleServerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerMapOutput)
 }
 
-func (i FlexibleServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServer] {
-	return pulumix.Output[map[string]*FlexibleServer]{
-		OutputState: i.ToFlexibleServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlexibleServerOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerOutput) ElementType() reflect.Type {
@@ -573,12 +554,6 @@ func (o FlexibleServerOutput) ToFlexibleServerOutput() FlexibleServerOutput {
 
 func (o FlexibleServerOutput) ToFlexibleServerOutputWithContext(ctx context.Context) FlexibleServerOutput {
 	return o
-}
-
-func (o FlexibleServerOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServer] {
-	return pulumix.Output[*FlexibleServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Administrator login for the MySQL Flexible Server. Required when `createMode` is `Default`. Changing this forces a new MySQL Flexible Server to be created.
@@ -731,12 +706,6 @@ func (o FlexibleServerArrayOutput) ToFlexibleServerArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o FlexibleServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServer] {
-	return pulumix.Output[[]*FlexibleServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlexibleServerArrayOutput) Index(i pulumi.IntInput) FlexibleServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServer {
 		return vs[0].([]*FlexibleServer)[vs[1].(int)]
@@ -755,12 +724,6 @@ func (o FlexibleServerMapOutput) ToFlexibleServerMapOutput() FlexibleServerMapOu
 
 func (o FlexibleServerMapOutput) ToFlexibleServerMapOutputWithContext(ctx context.Context) FlexibleServerMapOutput {
 	return o
-}
-
-func (o FlexibleServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServer] {
-	return pulumix.Output[map[string]*FlexibleServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleServerMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Management Private Link Association.
@@ -335,12 +334,6 @@ func (i *PrivateLinkAssociation) ToPrivateLinkAssociationOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAssociationOutput)
 }
 
-func (i *PrivateLinkAssociation) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAssociation] {
-	return pulumix.Output[*PrivateLinkAssociation]{
-		OutputState: i.ToPrivateLinkAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateLinkAssociationArrayInput is an input type that accepts PrivateLinkAssociationArray and PrivateLinkAssociationArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkAssociationArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i PrivateLinkAssociationArray) ToPrivateLinkAssociationArrayOutput() Priva
 
 func (i PrivateLinkAssociationArray) ToPrivateLinkAssociationArrayOutputWithContext(ctx context.Context) PrivateLinkAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAssociationArrayOutput)
-}
-
-func (i PrivateLinkAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAssociation] {
-	return pulumix.Output[[]*PrivateLinkAssociation]{
-		OutputState: i.ToPrivateLinkAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrivateLinkAssociationMapInput is an input type that accepts PrivateLinkAssociationMap and PrivateLinkAssociationMapOutput values.
@@ -397,12 +384,6 @@ func (i PrivateLinkAssociationMap) ToPrivateLinkAssociationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAssociationMapOutput)
 }
 
-func (i PrivateLinkAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAssociation] {
-	return pulumix.Output[map[string]*PrivateLinkAssociation]{
-		OutputState: i.ToPrivateLinkAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateLinkAssociationOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkAssociationOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o PrivateLinkAssociationOutput) ToPrivateLinkAssociationOutput() PrivateLi
 
 func (o PrivateLinkAssociationOutput) ToPrivateLinkAssociationOutputWithContext(ctx context.Context) PrivateLinkAssociationOutput {
 	return o
-}
-
-func (o PrivateLinkAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkAssociation] {
-	return pulumix.Output[*PrivateLinkAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
@@ -490,12 +465,6 @@ func (o PrivateLinkAssociationArrayOutput) ToPrivateLinkAssociationArrayOutputWi
 	return o
 }
 
-func (o PrivateLinkAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkAssociation] {
-	return pulumix.Output[[]*PrivateLinkAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateLinkAssociationArrayOutput) Index(i pulumi.IntInput) PrivateLinkAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkAssociation {
 		return vs[0].([]*PrivateLinkAssociation)[vs[1].(int)]
@@ -514,12 +483,6 @@ func (o PrivateLinkAssociationMapOutput) ToPrivateLinkAssociationMapOutput() Pri
 
 func (o PrivateLinkAssociationMapOutput) ToPrivateLinkAssociationMapOutputWithContext(ctx context.Context) PrivateLinkAssociationMapOutput {
 	return o
-}
-
-func (o PrivateLinkAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkAssociation] {
-	return pulumix.Output[map[string]*PrivateLinkAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateLinkAssociationMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkAssociationOutput {

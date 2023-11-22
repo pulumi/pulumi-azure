@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i CacheIdentityArgs) ToCacheIdentityOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityOutput)
 }
 
-func (i CacheIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[CacheIdentity] {
-	return pulumix.Output[CacheIdentity]{
-		OutputState: i.ToCacheIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CacheIdentityArgs) ToCacheIdentityPtrOutput() CacheIdentityPtrOutput {
 	return i.ToCacheIdentityPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *cacheIdentityPtrType) ToCacheIdentityPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CacheIdentityPtrOutput)
 }
 
-func (i *cacheIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*CacheIdentity] {
-	return pulumix.Output[*CacheIdentity]{
-		OutputState: i.ToCacheIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheIdentityOutput struct{ *pulumi.OutputState }
 
 func (CacheIdentityOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheIdentity) *CacheIdentity {
 		return &v
 	}).(CacheIdentityPtrOutput)
-}
-
-func (o CacheIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[CacheIdentity] {
-	return pulumix.Output[CacheIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
@@ -174,12 +155,6 @@ func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutput() CacheIdentityPtrOutpu
 
 func (o CacheIdentityPtrOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Context) CacheIdentityPtrOutput {
 	return o
-}
-
-func (o CacheIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheIdentity] {
-	return pulumix.Output[*CacheIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
@@ -277,12 +252,6 @@ func (i CachePatchScheduleArgs) ToCachePatchScheduleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CachePatchScheduleOutput)
 }
 
-func (i CachePatchScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CachePatchSchedule] {
-	return pulumix.Output[CachePatchSchedule]{
-		OutputState: i.ToCachePatchScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CachePatchScheduleArrayInput is an input type that accepts CachePatchScheduleArray and CachePatchScheduleArrayOutput values.
 // You can construct a concrete instance of `CachePatchScheduleArrayInput` via:
 //
@@ -308,12 +277,6 @@ func (i CachePatchScheduleArray) ToCachePatchScheduleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CachePatchScheduleArrayOutput)
 }
 
-func (i CachePatchScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]CachePatchSchedule] {
-	return pulumix.Output[[]CachePatchSchedule]{
-		OutputState: i.ToCachePatchScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CachePatchScheduleOutput struct{ *pulumi.OutputState }
 
 func (CachePatchScheduleOutput) ElementType() reflect.Type {
@@ -326,12 +289,6 @@ func (o CachePatchScheduleOutput) ToCachePatchScheduleOutput() CachePatchSchedul
 
 func (o CachePatchScheduleOutput) ToCachePatchScheduleOutputWithContext(ctx context.Context) CachePatchScheduleOutput {
 	return o
-}
-
-func (o CachePatchScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CachePatchSchedule] {
-	return pulumix.Output[CachePatchSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
@@ -363,12 +320,6 @@ func (o CachePatchScheduleArrayOutput) ToCachePatchScheduleArrayOutput() CachePa
 
 func (o CachePatchScheduleArrayOutput) ToCachePatchScheduleArrayOutputWithContext(ctx context.Context) CachePatchScheduleArrayOutput {
 	return o
-}
-
-func (o CachePatchScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CachePatchSchedule] {
-	return pulumix.Output[[]CachePatchSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CachePatchScheduleArrayOutput) Index(i pulumi.IntInput) CachePatchScheduleOutput {
@@ -538,12 +489,6 @@ func (i CacheRedisConfigurationArgs) ToCacheRedisConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CacheRedisConfigurationOutput)
 }
 
-func (i CacheRedisConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CacheRedisConfiguration] {
-	return pulumix.Output[CacheRedisConfiguration]{
-		OutputState: i.ToCacheRedisConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CacheRedisConfigurationArgs) ToCacheRedisConfigurationPtrOutput() CacheRedisConfigurationPtrOutput {
 	return i.ToCacheRedisConfigurationPtrOutputWithContext(context.Background())
 }
@@ -585,12 +530,6 @@ func (i *cacheRedisConfigurationPtrType) ToCacheRedisConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CacheRedisConfigurationPtrOutput)
 }
 
-func (i *cacheRedisConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CacheRedisConfiguration] {
-	return pulumix.Output[*CacheRedisConfiguration]{
-		OutputState: i.ToCacheRedisConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheRedisConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CacheRedisConfigurationOutput) ElementType() reflect.Type {
@@ -613,12 +552,6 @@ func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CacheRedisConfiguration) *CacheRedisConfiguration {
 		return &v
 	}).(CacheRedisConfigurationPtrOutput)
-}
-
-func (o CacheRedisConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CacheRedisConfiguration] {
-	return pulumix.Output[CacheRedisConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
@@ -747,12 +680,6 @@ func (o CacheRedisConfigurationPtrOutput) ToCacheRedisConfigurationPtrOutput() C
 
 func (o CacheRedisConfigurationPtrOutput) ToCacheRedisConfigurationPtrOutputWithContext(ctx context.Context) CacheRedisConfigurationPtrOutput {
 	return o
-}
-
-func (o CacheRedisConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheRedisConfiguration] {
-	return pulumix.Output[*CacheRedisConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
@@ -988,12 +915,6 @@ func (i EnterpriseDatabaseModuleArgs) ToEnterpriseDatabaseModuleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseModuleOutput)
 }
 
-func (i EnterpriseDatabaseModuleArgs) ToOutput(ctx context.Context) pulumix.Output[EnterpriseDatabaseModule] {
-	return pulumix.Output[EnterpriseDatabaseModule]{
-		OutputState: i.ToEnterpriseDatabaseModuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnterpriseDatabaseModuleArrayInput is an input type that accepts EnterpriseDatabaseModuleArray and EnterpriseDatabaseModuleArrayOutput values.
 // You can construct a concrete instance of `EnterpriseDatabaseModuleArrayInput` via:
 //
@@ -1019,12 +940,6 @@ func (i EnterpriseDatabaseModuleArray) ToEnterpriseDatabaseModuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseModuleArrayOutput)
 }
 
-func (i EnterpriseDatabaseModuleArray) ToOutput(ctx context.Context) pulumix.Output[[]EnterpriseDatabaseModule] {
-	return pulumix.Output[[]EnterpriseDatabaseModule]{
-		OutputState: i.ToEnterpriseDatabaseModuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnterpriseDatabaseModuleOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseDatabaseModuleOutput) ElementType() reflect.Type {
@@ -1037,12 +952,6 @@ func (o EnterpriseDatabaseModuleOutput) ToEnterpriseDatabaseModuleOutput() Enter
 
 func (o EnterpriseDatabaseModuleOutput) ToEnterpriseDatabaseModuleOutputWithContext(ctx context.Context) EnterpriseDatabaseModuleOutput {
 	return o
-}
-
-func (o EnterpriseDatabaseModuleOutput) ToOutput(ctx context.Context) pulumix.Output[EnterpriseDatabaseModule] {
-	return pulumix.Output[EnterpriseDatabaseModule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
@@ -1071,12 +980,6 @@ func (o EnterpriseDatabaseModuleArrayOutput) ToEnterpriseDatabaseModuleArrayOutp
 
 func (o EnterpriseDatabaseModuleArrayOutput) ToEnterpriseDatabaseModuleArrayOutputWithContext(ctx context.Context) EnterpriseDatabaseModuleArrayOutput {
 	return o
-}
-
-func (o EnterpriseDatabaseModuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnterpriseDatabaseModule] {
-	return pulumix.Output[[]EnterpriseDatabaseModule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnterpriseDatabaseModuleArrayOutput) Index(i pulumi.IntInput) EnterpriseDatabaseModuleOutput {
@@ -1126,12 +1029,6 @@ func (i GetCachePatchScheduleArgs) ToGetCachePatchScheduleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetCachePatchScheduleOutput)
 }
 
-func (i GetCachePatchScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetCachePatchSchedule] {
-	return pulumix.Output[GetCachePatchSchedule]{
-		OutputState: i.ToGetCachePatchScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCachePatchScheduleArrayInput is an input type that accepts GetCachePatchScheduleArray and GetCachePatchScheduleArrayOutput values.
 // You can construct a concrete instance of `GetCachePatchScheduleArrayInput` via:
 //
@@ -1157,12 +1054,6 @@ func (i GetCachePatchScheduleArray) ToGetCachePatchScheduleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetCachePatchScheduleArrayOutput)
 }
 
-func (i GetCachePatchScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCachePatchSchedule] {
-	return pulumix.Output[[]GetCachePatchSchedule]{
-		OutputState: i.ToGetCachePatchScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCachePatchScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetCachePatchScheduleOutput) ElementType() reflect.Type {
@@ -1175,12 +1066,6 @@ func (o GetCachePatchScheduleOutput) ToGetCachePatchScheduleOutput() GetCachePat
 
 func (o GetCachePatchScheduleOutput) ToGetCachePatchScheduleOutputWithContext(ctx context.Context) GetCachePatchScheduleOutput {
 	return o
-}
-
-func (o GetCachePatchScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetCachePatchSchedule] {
-	return pulumix.Output[GetCachePatchSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the Weekday name for the patch item
@@ -1210,12 +1095,6 @@ func (o GetCachePatchScheduleArrayOutput) ToGetCachePatchScheduleArrayOutput() G
 
 func (o GetCachePatchScheduleArrayOutput) ToGetCachePatchScheduleArrayOutputWithContext(ctx context.Context) GetCachePatchScheduleArrayOutput {
 	return o
-}
-
-func (o GetCachePatchScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCachePatchSchedule] {
-	return pulumix.Output[[]GetCachePatchSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCachePatchScheduleArrayOutput) Index(i pulumi.IntInput) GetCachePatchScheduleOutput {
@@ -1299,12 +1178,6 @@ func (i GetCacheRedisConfigurationArgs) ToGetCacheRedisConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetCacheRedisConfigurationOutput)
 }
 
-func (i GetCacheRedisConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetCacheRedisConfiguration] {
-	return pulumix.Output[GetCacheRedisConfiguration]{
-		OutputState: i.ToGetCacheRedisConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCacheRedisConfigurationArrayInput is an input type that accepts GetCacheRedisConfigurationArray and GetCacheRedisConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetCacheRedisConfigurationArrayInput` via:
 //
@@ -1330,12 +1203,6 @@ func (i GetCacheRedisConfigurationArray) ToGetCacheRedisConfigurationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetCacheRedisConfigurationArrayOutput)
 }
 
-func (i GetCacheRedisConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCacheRedisConfiguration] {
-	return pulumix.Output[[]GetCacheRedisConfiguration]{
-		OutputState: i.ToGetCacheRedisConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCacheRedisConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetCacheRedisConfigurationOutput) ElementType() reflect.Type {
@@ -1348,12 +1215,6 @@ func (o GetCacheRedisConfigurationOutput) ToGetCacheRedisConfigurationOutput() G
 
 func (o GetCacheRedisConfigurationOutput) ToGetCacheRedisConfigurationOutputWithContext(ctx context.Context) GetCacheRedisConfigurationOutput {
 	return o
-}
-
-func (o GetCacheRedisConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetCacheRedisConfiguration] {
-	return pulumix.Output[GetCacheRedisConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolOutput {
@@ -1433,12 +1294,6 @@ func (o GetCacheRedisConfigurationArrayOutput) ToGetCacheRedisConfigurationArray
 
 func (o GetCacheRedisConfigurationArrayOutput) ToGetCacheRedisConfigurationArrayOutputWithContext(ctx context.Context) GetCacheRedisConfigurationArrayOutput {
 	return o
-}
-
-func (o GetCacheRedisConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCacheRedisConfiguration] {
-	return pulumix.Output[[]GetCacheRedisConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCacheRedisConfigurationArrayOutput) Index(i pulumi.IntInput) GetCacheRedisConfigurationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -75,12 +74,6 @@ func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToCustomHttpsConfi
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationCustomHttpsConfigurationOutput)
 }
 
-func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CustomHttpsConfigurationCustomHttpsConfiguration] {
-	return pulumix.Output[CustomHttpsConfigurationCustomHttpsConfiguration]{
-		OutputState: i.ToCustomHttpsConfigurationCustomHttpsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CustomHttpsConfigurationCustomHttpsConfigurationArgs) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutput() CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
 	return i.ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -122,12 +115,6 @@ func (i *customHttpsConfigurationCustomHttpsConfigurationPtrType) ToCustomHttpsC
 	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput)
 }
 
-func (i *customHttpsConfigurationCustomHttpsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomHttpsConfigurationCustomHttpsConfiguration] {
-	return pulumix.Output[*CustomHttpsConfigurationCustomHttpsConfiguration]{
-		OutputState: i.ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomHttpsConfigurationCustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CustomHttpsConfigurationCustomHttpsConfigurationOutput) ElementType() reflect.Type {
@@ -150,12 +137,6 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToCustomHttpsCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomHttpsConfigurationCustomHttpsConfiguration) *CustomHttpsConfigurationCustomHttpsConfiguration {
 		return &v
 	}).(CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput)
-}
-
-func (o CustomHttpsConfigurationCustomHttpsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CustomHttpsConfigurationCustomHttpsConfiguration] {
-	return pulumix.Output[CustomHttpsConfigurationCustomHttpsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Key Vault secret representing the full certificate PFX.
@@ -213,12 +194,6 @@ func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ToCustomHttps
 
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ToCustomHttpsConfigurationCustomHttpsConfigurationPtrOutputWithContext(ctx context.Context) CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput {
 	return o
-}
-
-func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomHttpsConfigurationCustomHttpsConfiguration] {
-	return pulumix.Output[*CustomHttpsConfigurationCustomHttpsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomHttpsConfigurationCustomHttpsConfigurationPtrOutput) Elem() CustomHttpsConfigurationCustomHttpsConfigurationOutput {
@@ -364,12 +339,6 @@ func (i FirewallPolicyCustomRuleArgs) ToFirewallPolicyCustomRuleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleOutput)
 }
 
-func (i FirewallPolicyCustomRuleArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyCustomRule] {
-	return pulumix.Output[FirewallPolicyCustomRule]{
-		OutputState: i.ToFirewallPolicyCustomRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyCustomRuleArrayInput is an input type that accepts FirewallPolicyCustomRuleArray and FirewallPolicyCustomRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomRuleArrayInput` via:
 //
@@ -395,12 +364,6 @@ func (i FirewallPolicyCustomRuleArray) ToFirewallPolicyCustomRuleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleArrayOutput)
 }
 
-func (i FirewallPolicyCustomRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyCustomRule] {
-	return pulumix.Output[[]FirewallPolicyCustomRule]{
-		OutputState: i.ToFirewallPolicyCustomRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleOutput) ElementType() reflect.Type {
@@ -413,12 +376,6 @@ func (o FirewallPolicyCustomRuleOutput) ToFirewallPolicyCustomRuleOutput() Firew
 
 func (o FirewallPolicyCustomRuleOutput) ToFirewallPolicyCustomRuleOutputWithContext(ctx context.Context) FirewallPolicyCustomRuleOutput {
 	return o
-}
-
-func (o FirewallPolicyCustomRuleOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyCustomRule] {
-	return pulumix.Output[FirewallPolicyCustomRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -473,12 +430,6 @@ func (o FirewallPolicyCustomRuleArrayOutput) ToFirewallPolicyCustomRuleArrayOutp
 
 func (o FirewallPolicyCustomRuleArrayOutput) ToFirewallPolicyCustomRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRuleArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyCustomRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyCustomRule] {
-	return pulumix.Output[[]FirewallPolicyCustomRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRuleOutput {
@@ -540,12 +491,6 @@ func (i FirewallPolicyCustomRuleMatchConditionArgs) ToFirewallPolicyCustomRuleMa
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleMatchConditionOutput)
 }
 
-func (i FirewallPolicyCustomRuleMatchConditionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyCustomRuleMatchCondition] {
-	return pulumix.Output[FirewallPolicyCustomRuleMatchCondition]{
-		OutputState: i.ToFirewallPolicyCustomRuleMatchConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyCustomRuleMatchConditionArrayInput is an input type that accepts FirewallPolicyCustomRuleMatchConditionArray and FirewallPolicyCustomRuleMatchConditionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyCustomRuleMatchConditionArrayInput` via:
 //
@@ -571,12 +516,6 @@ func (i FirewallPolicyCustomRuleMatchConditionArray) ToFirewallPolicyCustomRuleM
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyCustomRuleMatchConditionArrayOutput)
 }
 
-func (i FirewallPolicyCustomRuleMatchConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyCustomRuleMatchCondition] {
-	return pulumix.Output[[]FirewallPolicyCustomRuleMatchCondition]{
-		OutputState: i.ToFirewallPolicyCustomRuleMatchConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyCustomRuleMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyCustomRuleMatchConditionOutput) ElementType() reflect.Type {
@@ -589,12 +528,6 @@ func (o FirewallPolicyCustomRuleMatchConditionOutput) ToFirewallPolicyCustomRule
 
 func (o FirewallPolicyCustomRuleMatchConditionOutput) ToFirewallPolicyCustomRuleMatchConditionOutputWithContext(ctx context.Context) FirewallPolicyCustomRuleMatchConditionOutput {
 	return o
-}
-
-func (o FirewallPolicyCustomRuleMatchConditionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyCustomRuleMatchCondition] {
-	return pulumix.Output[FirewallPolicyCustomRuleMatchCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters long.
@@ -639,12 +572,6 @@ func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) ToFirewallPolicyCusto
 
 func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) ToFirewallPolicyCustomRuleMatchConditionArrayOutputWithContext(ctx context.Context) FirewallPolicyCustomRuleMatchConditionArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyCustomRuleMatchCondition] {
-	return pulumix.Output[[]FirewallPolicyCustomRuleMatchCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyCustomRuleMatchConditionOutput {
@@ -698,12 +625,6 @@ func (i FirewallPolicyManagedRuleArgs) ToFirewallPolicyManagedRuleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOutput)
 }
 
-func (i FirewallPolicyManagedRuleArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRule] {
-	return pulumix.Output[FirewallPolicyManagedRule]{
-		OutputState: i.ToFirewallPolicyManagedRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyManagedRuleArrayInput is an input type that accepts FirewallPolicyManagedRuleArray and FirewallPolicyManagedRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleArrayInput` via:
 //
@@ -729,12 +650,6 @@ func (i FirewallPolicyManagedRuleArray) ToFirewallPolicyManagedRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleArrayOutput)
 }
 
-func (i FirewallPolicyManagedRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRule] {
-	return pulumix.Output[[]FirewallPolicyManagedRule]{
-		OutputState: i.ToFirewallPolicyManagedRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyManagedRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOutput) ElementType() reflect.Type {
@@ -747,12 +662,6 @@ func (o FirewallPolicyManagedRuleOutput) ToFirewallPolicyManagedRuleOutput() Fir
 
 func (o FirewallPolicyManagedRuleOutput) ToFirewallPolicyManagedRuleOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRule] {
-	return pulumix.Output[FirewallPolicyManagedRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `exclusion` blocks as defined below.
@@ -787,12 +696,6 @@ func (o FirewallPolicyManagedRuleArrayOutput) ToFirewallPolicyManagedRuleArrayOu
 
 func (o FirewallPolicyManagedRuleArrayOutput) ToFirewallPolicyManagedRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRule] {
-	return pulumix.Output[[]FirewallPolicyManagedRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOutput {
@@ -842,12 +745,6 @@ func (i FirewallPolicyManagedRuleExclusionArgs) ToFirewallPolicyManagedRuleExclu
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleExclusionOutput)
 }
 
-func (i FirewallPolicyManagedRuleExclusionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleExclusion] {
-	return pulumix.Output[FirewallPolicyManagedRuleExclusion]{
-		OutputState: i.ToFirewallPolicyManagedRuleExclusionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyManagedRuleExclusionArrayInput is an input type that accepts FirewallPolicyManagedRuleExclusionArray and FirewallPolicyManagedRuleExclusionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleExclusionArrayInput` via:
 //
@@ -873,12 +770,6 @@ func (i FirewallPolicyManagedRuleExclusionArray) ToFirewallPolicyManagedRuleExcl
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleExclusionArrayOutput)
 }
 
-func (i FirewallPolicyManagedRuleExclusionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleExclusion] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleExclusion]{
-		OutputState: i.ToFirewallPolicyManagedRuleExclusionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyManagedRuleExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleExclusionOutput) ElementType() reflect.Type {
@@ -891,12 +782,6 @@ func (o FirewallPolicyManagedRuleExclusionOutput) ToFirewallPolicyManagedRuleExc
 
 func (o FirewallPolicyManagedRuleExclusionOutput) ToFirewallPolicyManagedRuleExclusionOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleExclusionOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleExclusionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleExclusion] {
-	return pulumix.Output[FirewallPolicyManagedRuleExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
@@ -926,12 +811,6 @@ func (o FirewallPolicyManagedRuleExclusionArrayOutput) ToFirewallPolicyManagedRu
 
 func (o FirewallPolicyManagedRuleExclusionArrayOutput) ToFirewallPolicyManagedRuleExclusionArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleExclusionArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleExclusionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleExclusion] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyManagedRuleExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleExclusionOutput {
@@ -981,12 +860,6 @@ func (i FirewallPolicyManagedRuleOverrideArgs) ToFirewallPolicyManagedRuleOverri
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverride] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverride]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyManagedRuleOverrideArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideArray and FirewallPolicyManagedRuleOverrideArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideArrayInput` via:
 //
@@ -1012,12 +885,6 @@ func (i FirewallPolicyManagedRuleOverrideArray) ToFirewallPolicyManagedRuleOverr
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideArrayOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverride] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverride]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyManagedRuleOverrideOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideOutput) ElementType() reflect.Type {
@@ -1030,12 +897,6 @@ func (o FirewallPolicyManagedRuleOverrideOutput) ToFirewallPolicyManagedRuleOver
 
 func (o FirewallPolicyManagedRuleOverrideOutput) ToFirewallPolicyManagedRuleOverrideOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverride] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `exclusion` blocks as defined below.
@@ -1067,12 +928,6 @@ func (o FirewallPolicyManagedRuleOverrideArrayOutput) ToFirewallPolicyManagedRul
 
 func (o FirewallPolicyManagedRuleOverrideArrayOutput) ToFirewallPolicyManagedRuleOverrideArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverride] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideOutput {
@@ -1122,12 +977,6 @@ func (i FirewallPolicyManagedRuleOverrideExclusionArgs) ToFirewallPolicyManagedR
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideExclusionOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideExclusionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverrideExclusion] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverrideExclusion]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideExclusionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyManagedRuleOverrideExclusionArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideExclusionArray and FirewallPolicyManagedRuleOverrideExclusionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideExclusionArrayInput` via:
 //
@@ -1153,12 +1002,6 @@ func (i FirewallPolicyManagedRuleOverrideExclusionArray) ToFirewallPolicyManaged
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideExclusionArrayOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideExclusionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverrideExclusion] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverrideExclusion]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideExclusionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyManagedRuleOverrideExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideExclusionOutput) ElementType() reflect.Type {
@@ -1171,12 +1014,6 @@ func (o FirewallPolicyManagedRuleOverrideExclusionOutput) ToFirewallPolicyManage
 
 func (o FirewallPolicyManagedRuleOverrideExclusionOutput) ToFirewallPolicyManagedRuleOverrideExclusionOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideExclusionOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideExclusionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverrideExclusion] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverrideExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
@@ -1206,12 +1043,6 @@ func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToFirewallPolicyM
 
 func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToFirewallPolicyManagedRuleOverrideExclusionArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideExclusionArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverrideExclusion] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverrideExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideExclusionOutput {
@@ -1265,12 +1096,6 @@ func (i FirewallPolicyManagedRuleOverrideRuleArgs) ToFirewallPolicyManagedRuleOv
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideRuleArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverrideRule] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverrideRule]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyManagedRuleOverrideRuleArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideRuleArray and FirewallPolicyManagedRuleOverrideRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideRuleArrayInput` via:
 //
@@ -1296,12 +1121,6 @@ func (i FirewallPolicyManagedRuleOverrideRuleArray) ToFirewallPolicyManagedRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleArrayOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverrideRule] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverrideRule]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyManagedRuleOverrideRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleOutput) ElementType() reflect.Type {
@@ -1314,12 +1133,6 @@ func (o FirewallPolicyManagedRuleOverrideRuleOutput) ToFirewallPolicyManagedRule
 
 func (o FirewallPolicyManagedRuleOverrideRuleOutput) ToFirewallPolicyManagedRuleOverrideRuleOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideRuleOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideRuleOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverrideRule] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverrideRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -1356,12 +1169,6 @@ func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) ToFirewallPolicyManage
 
 func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) ToFirewallPolicyManagedRuleOverrideRuleArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideRuleArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverrideRule] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverrideRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideRuleOutput {
@@ -1411,12 +1218,6 @@ func (i FirewallPolicyManagedRuleOverrideRuleExclusionArgs) ToFirewallPolicyMana
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleExclusionOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideRuleExclusionArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverrideRuleExclusion] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverrideRuleExclusion]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideRuleExclusionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput is an input type that accepts FirewallPolicyManagedRuleOverrideRuleExclusionArray and FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyManagedRuleOverrideRuleExclusionArrayInput` via:
 //
@@ -1442,12 +1243,6 @@ func (i FirewallPolicyManagedRuleOverrideRuleExclusionArray) ToFirewallPolicyMan
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
 }
 
-func (i FirewallPolicyManagedRuleOverrideRuleExclusionArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverrideRuleExclusion] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverrideRuleExclusion]{
-		OutputState: i.ToFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyManagedRuleOverrideRuleExclusionOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ElementType() reflect.Type {
@@ -1460,12 +1255,6 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFirewallPolicyMa
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFirewallPolicyManagedRuleOverrideRuleExclusionOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideRuleExclusionOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallPolicyManagedRuleOverrideRuleExclusion] {
-	return pulumix.Output[FirewallPolicyManagedRuleOverrideRuleExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
@@ -1495,12 +1284,6 @@ func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToFirewallPol
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutputWithContext(ctx context.Context) FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
 	return o
-}
-
-func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallPolicyManagedRuleOverrideRuleExclusion] {
-	return pulumix.Output[[]FirewallPolicyManagedRuleOverrideRuleExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Index(i pulumi.IntInput) FirewallPolicyManagedRuleOverrideRuleExclusionOutput {
@@ -1558,12 +1341,6 @@ func (i FrontdoorBackendPoolArgs) ToFrontdoorBackendPoolOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolOutput)
 }
 
-func (i FrontdoorBackendPoolArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPool] {
-	return pulumix.Output[FrontdoorBackendPool]{
-		OutputState: i.ToFrontdoorBackendPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorBackendPoolArrayInput is an input type that accepts FrontdoorBackendPoolArray and FrontdoorBackendPoolArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolArrayInput` via:
 //
@@ -1589,12 +1366,6 @@ func (i FrontdoorBackendPoolArray) ToFrontdoorBackendPoolArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolArrayOutput)
 }
 
-func (i FrontdoorBackendPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPool] {
-	return pulumix.Output[[]FrontdoorBackendPool]{
-		OutputState: i.ToFrontdoorBackendPoolArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorBackendPoolOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolOutput) ElementType() reflect.Type {
@@ -1607,12 +1378,6 @@ func (o FrontdoorBackendPoolOutput) ToFrontdoorBackendPoolOutput() FrontdoorBack
 
 func (o FrontdoorBackendPoolOutput) ToFrontdoorBackendPoolOutputWithContext(ctx context.Context) FrontdoorBackendPoolOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPool] {
-	return pulumix.Output[FrontdoorBackendPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `backend` block as defined below.
@@ -1652,12 +1417,6 @@ func (o FrontdoorBackendPoolArrayOutput) ToFrontdoorBackendPoolArrayOutput() Fro
 
 func (o FrontdoorBackendPoolArrayOutput) ToFrontdoorBackendPoolArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolArrayOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPool] {
-	return pulumix.Output[[]FrontdoorBackendPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorBackendPoolArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolOutput {
@@ -1723,12 +1482,6 @@ func (i FrontdoorBackendPoolBackendArgs) ToFrontdoorBackendPoolBackendOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolBackendOutput)
 }
 
-func (i FrontdoorBackendPoolBackendArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolBackend] {
-	return pulumix.Output[FrontdoorBackendPoolBackend]{
-		OutputState: i.ToFrontdoorBackendPoolBackendOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorBackendPoolBackendArrayInput is an input type that accepts FrontdoorBackendPoolBackendArray and FrontdoorBackendPoolBackendArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolBackendArrayInput` via:
 //
@@ -1754,12 +1507,6 @@ func (i FrontdoorBackendPoolBackendArray) ToFrontdoorBackendPoolBackendArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolBackendArrayOutput)
 }
 
-func (i FrontdoorBackendPoolBackendArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolBackend] {
-	return pulumix.Output[[]FrontdoorBackendPoolBackend]{
-		OutputState: i.ToFrontdoorBackendPoolBackendArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorBackendPoolBackendOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolBackendOutput) ElementType() reflect.Type {
@@ -1772,12 +1519,6 @@ func (o FrontdoorBackendPoolBackendOutput) ToFrontdoorBackendPoolBackendOutput()
 
 func (o FrontdoorBackendPoolBackendOutput) ToFrontdoorBackendPoolBackendOutputWithContext(ctx context.Context) FrontdoorBackendPoolBackendOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolBackendOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolBackend] {
-	return pulumix.Output[FrontdoorBackendPoolBackend]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Location of the backend (IP address or FQDN)
@@ -1827,12 +1568,6 @@ func (o FrontdoorBackendPoolBackendArrayOutput) ToFrontdoorBackendPoolBackendArr
 
 func (o FrontdoorBackendPoolBackendArrayOutput) ToFrontdoorBackendPoolBackendArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolBackendArrayOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolBackendArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolBackend] {
-	return pulumix.Output[[]FrontdoorBackendPoolBackend]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorBackendPoolBackendArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolBackendOutput {
@@ -1902,12 +1637,6 @@ func (i FrontdoorBackendPoolHealthProbeArgs) ToFrontdoorBackendPoolHealthProbeOu
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolHealthProbeOutput)
 }
 
-func (i FrontdoorBackendPoolHealthProbeArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolHealthProbe] {
-	return pulumix.Output[FrontdoorBackendPoolHealthProbe]{
-		OutputState: i.ToFrontdoorBackendPoolHealthProbeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorBackendPoolHealthProbeArrayInput is an input type that accepts FrontdoorBackendPoolHealthProbeArray and FrontdoorBackendPoolHealthProbeArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolHealthProbeArrayInput` via:
 //
@@ -1933,12 +1662,6 @@ func (i FrontdoorBackendPoolHealthProbeArray) ToFrontdoorBackendPoolHealthProbeA
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolHealthProbeArrayOutput)
 }
 
-func (i FrontdoorBackendPoolHealthProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolHealthProbe] {
-	return pulumix.Output[[]FrontdoorBackendPoolHealthProbe]{
-		OutputState: i.ToFrontdoorBackendPoolHealthProbeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorBackendPoolHealthProbeOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolHealthProbeOutput) ElementType() reflect.Type {
@@ -1951,12 +1674,6 @@ func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbe
 
 func (o FrontdoorBackendPoolHealthProbeOutput) ToFrontdoorBackendPoolHealthProbeOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbeOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolHealthProbeOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolHealthProbe] {
-	return pulumix.Output[FrontdoorBackendPoolHealthProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this health probe enabled? Defaults to `true`.
@@ -2008,12 +1725,6 @@ func (o FrontdoorBackendPoolHealthProbeArrayOutput) ToFrontdoorBackendPoolHealth
 
 func (o FrontdoorBackendPoolHealthProbeArrayOutput) ToFrontdoorBackendPoolHealthProbeArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolHealthProbeArrayOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolHealthProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolHealthProbe] {
-	return pulumix.Output[[]FrontdoorBackendPoolHealthProbe]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorBackendPoolHealthProbeArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolHealthProbeOutput {
@@ -2071,12 +1782,6 @@ func (i FrontdoorBackendPoolLoadBalancingArgs) ToFrontdoorBackendPoolLoadBalanci
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolLoadBalancingOutput)
 }
 
-func (i FrontdoorBackendPoolLoadBalancingArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolLoadBalancing] {
-	return pulumix.Output[FrontdoorBackendPoolLoadBalancing]{
-		OutputState: i.ToFrontdoorBackendPoolLoadBalancingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorBackendPoolLoadBalancingArrayInput is an input type that accepts FrontdoorBackendPoolLoadBalancingArray and FrontdoorBackendPoolLoadBalancingArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolLoadBalancingArrayInput` via:
 //
@@ -2102,12 +1807,6 @@ func (i FrontdoorBackendPoolLoadBalancingArray) ToFrontdoorBackendPoolLoadBalanc
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolLoadBalancingArrayOutput)
 }
 
-func (i FrontdoorBackendPoolLoadBalancingArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolLoadBalancing] {
-	return pulumix.Output[[]FrontdoorBackendPoolLoadBalancing]{
-		OutputState: i.ToFrontdoorBackendPoolLoadBalancingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorBackendPoolLoadBalancingOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolLoadBalancingOutput) ElementType() reflect.Type {
@@ -2120,12 +1819,6 @@ func (o FrontdoorBackendPoolLoadBalancingOutput) ToFrontdoorBackendPoolLoadBalan
 
 func (o FrontdoorBackendPoolLoadBalancingOutput) ToFrontdoorBackendPoolLoadBalancingOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolLoadBalancingOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolLoadBalancing] {
-	return pulumix.Output[FrontdoorBackendPoolLoadBalancing]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
@@ -2165,12 +1858,6 @@ func (o FrontdoorBackendPoolLoadBalancingArrayOutput) ToFrontdoorBackendPoolLoad
 
 func (o FrontdoorBackendPoolLoadBalancingArrayOutput) ToFrontdoorBackendPoolLoadBalancingArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolLoadBalancingArrayOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolLoadBalancingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolLoadBalancing] {
-	return pulumix.Output[[]FrontdoorBackendPoolLoadBalancing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorBackendPoolLoadBalancingArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolLoadBalancingOutput {
@@ -2220,12 +1907,6 @@ func (i FrontdoorBackendPoolSettingArgs) ToFrontdoorBackendPoolSettingOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolSettingOutput)
 }
 
-func (i FrontdoorBackendPoolSettingArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolSetting] {
-	return pulumix.Output[FrontdoorBackendPoolSetting]{
-		OutputState: i.ToFrontdoorBackendPoolSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorBackendPoolSettingArrayInput is an input type that accepts FrontdoorBackendPoolSettingArray and FrontdoorBackendPoolSettingArrayOutput values.
 // You can construct a concrete instance of `FrontdoorBackendPoolSettingArrayInput` via:
 //
@@ -2251,12 +1932,6 @@ func (i FrontdoorBackendPoolSettingArray) ToFrontdoorBackendPoolSettingArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorBackendPoolSettingArrayOutput)
 }
 
-func (i FrontdoorBackendPoolSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolSetting] {
-	return pulumix.Output[[]FrontdoorBackendPoolSetting]{
-		OutputState: i.ToFrontdoorBackendPoolSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorBackendPoolSettingOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorBackendPoolSettingOutput) ElementType() reflect.Type {
@@ -2269,12 +1944,6 @@ func (o FrontdoorBackendPoolSettingOutput) ToFrontdoorBackendPoolSettingOutput()
 
 func (o FrontdoorBackendPoolSettingOutput) ToFrontdoorBackendPoolSettingOutputWithContext(ctx context.Context) FrontdoorBackendPoolSettingOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolSettingOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorBackendPoolSetting] {
-	return pulumix.Output[FrontdoorBackendPoolSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
@@ -2301,12 +1970,6 @@ func (o FrontdoorBackendPoolSettingArrayOutput) ToFrontdoorBackendPoolSettingArr
 
 func (o FrontdoorBackendPoolSettingArrayOutput) ToFrontdoorBackendPoolSettingArrayOutputWithContext(ctx context.Context) FrontdoorBackendPoolSettingArrayOutput {
 	return o
-}
-
-func (o FrontdoorBackendPoolSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorBackendPoolSetting] {
-	return pulumix.Output[[]FrontdoorBackendPoolSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorBackendPoolSettingArrayOutput) Index(i pulumi.IntInput) FrontdoorBackendPoolSettingOutput {
@@ -2354,12 +2017,6 @@ func (i FrontdoorExplicitResourceOrderArgs) ToFrontdoorExplicitResourceOrderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorExplicitResourceOrderOutput)
 }
 
-func (i FrontdoorExplicitResourceOrderArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorExplicitResourceOrder] {
-	return pulumix.Output[FrontdoorExplicitResourceOrder]{
-		OutputState: i.ToFrontdoorExplicitResourceOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorExplicitResourceOrderArrayInput is an input type that accepts FrontdoorExplicitResourceOrderArray and FrontdoorExplicitResourceOrderArrayOutput values.
 // You can construct a concrete instance of `FrontdoorExplicitResourceOrderArrayInput` via:
 //
@@ -2385,12 +2042,6 @@ func (i FrontdoorExplicitResourceOrderArray) ToFrontdoorExplicitResourceOrderArr
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorExplicitResourceOrderArrayOutput)
 }
 
-func (i FrontdoorExplicitResourceOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorExplicitResourceOrder] {
-	return pulumix.Output[[]FrontdoorExplicitResourceOrder]{
-		OutputState: i.ToFrontdoorExplicitResourceOrderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorExplicitResourceOrderOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorExplicitResourceOrderOutput) ElementType() reflect.Type {
@@ -2403,12 +2054,6 @@ func (o FrontdoorExplicitResourceOrderOutput) ToFrontdoorExplicitResourceOrderOu
 
 func (o FrontdoorExplicitResourceOrderOutput) ToFrontdoorExplicitResourceOrderOutputWithContext(ctx context.Context) FrontdoorExplicitResourceOrderOutput {
 	return o
-}
-
-func (o FrontdoorExplicitResourceOrderOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorExplicitResourceOrder] {
-	return pulumix.Output[FrontdoorExplicitResourceOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorExplicitResourceOrderOutput) BackendPoolHealthProbeIds() pulumi.StringArrayOutput {
@@ -2443,12 +2088,6 @@ func (o FrontdoorExplicitResourceOrderArrayOutput) ToFrontdoorExplicitResourceOr
 
 func (o FrontdoorExplicitResourceOrderArrayOutput) ToFrontdoorExplicitResourceOrderArrayOutputWithContext(ctx context.Context) FrontdoorExplicitResourceOrderArrayOutput {
 	return o
-}
-
-func (o FrontdoorExplicitResourceOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorExplicitResourceOrder] {
-	return pulumix.Output[[]FrontdoorExplicitResourceOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorExplicitResourceOrderArrayOutput) Index(i pulumi.IntInput) FrontdoorExplicitResourceOrderOutput {
@@ -2510,12 +2149,6 @@ func (i FrontdoorFrontendEndpointArgs) ToFrontdoorFrontendEndpointOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointOutput)
 }
 
-func (i FrontdoorFrontendEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorFrontendEndpoint] {
-	return pulumix.Output[FrontdoorFrontendEndpoint]{
-		OutputState: i.ToFrontdoorFrontendEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorFrontendEndpointArrayInput is an input type that accepts FrontdoorFrontendEndpointArray and FrontdoorFrontendEndpointArrayOutput values.
 // You can construct a concrete instance of `FrontdoorFrontendEndpointArrayInput` via:
 //
@@ -2541,12 +2174,6 @@ func (i FrontdoorFrontendEndpointArray) ToFrontdoorFrontendEndpointArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFrontendEndpointArrayOutput)
 }
 
-func (i FrontdoorFrontendEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorFrontendEndpoint] {
-	return pulumix.Output[[]FrontdoorFrontendEndpoint]{
-		OutputState: i.ToFrontdoorFrontendEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorFrontendEndpointOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorFrontendEndpointOutput) ElementType() reflect.Type {
@@ -2559,12 +2186,6 @@ func (o FrontdoorFrontendEndpointOutput) ToFrontdoorFrontendEndpointOutput() Fro
 
 func (o FrontdoorFrontendEndpointOutput) ToFrontdoorFrontendEndpointOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointOutput {
 	return o
-}
-
-func (o FrontdoorFrontendEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorFrontendEndpoint] {
-	return pulumix.Output[FrontdoorFrontendEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the host name of the `frontendEndpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
@@ -2609,12 +2230,6 @@ func (o FrontdoorFrontendEndpointArrayOutput) ToFrontdoorFrontendEndpointArrayOu
 
 func (o FrontdoorFrontendEndpointArrayOutput) ToFrontdoorFrontendEndpointArrayOutputWithContext(ctx context.Context) FrontdoorFrontendEndpointArrayOutput {
 	return o
-}
-
-func (o FrontdoorFrontendEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorFrontendEndpoint] {
-	return pulumix.Output[[]FrontdoorFrontendEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorFrontendEndpointArrayOutput) Index(i pulumi.IntInput) FrontdoorFrontendEndpointOutput {
@@ -2684,12 +2299,6 @@ func (i FrontdoorRoutingRuleArgs) ToFrontdoorRoutingRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleOutput)
 }
 
-func (i FrontdoorRoutingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorRoutingRule] {
-	return pulumix.Output[FrontdoorRoutingRule]{
-		OutputState: i.ToFrontdoorRoutingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorRoutingRuleArrayInput is an input type that accepts FrontdoorRoutingRuleArray and FrontdoorRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRoutingRuleArrayInput` via:
 //
@@ -2715,12 +2324,6 @@ func (i FrontdoorRoutingRuleArray) ToFrontdoorRoutingRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleArrayOutput)
 }
 
-func (i FrontdoorRoutingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorRoutingRule] {
-	return pulumix.Output[[]FrontdoorRoutingRule]{
-		OutputState: i.ToFrontdoorRoutingRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorRoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleOutput) ElementType() reflect.Type {
@@ -2733,12 +2336,6 @@ func (o FrontdoorRoutingRuleOutput) ToFrontdoorRoutingRuleOutput() FrontdoorRout
 
 func (o FrontdoorRoutingRuleOutput) ToFrontdoorRoutingRuleOutputWithContext(ctx context.Context) FrontdoorRoutingRuleOutput {
 	return o
-}
-
-func (o FrontdoorRoutingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorRoutingRule] {
-	return pulumix.Output[FrontdoorRoutingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
@@ -2797,12 +2394,6 @@ func (o FrontdoorRoutingRuleArrayOutput) ToFrontdoorRoutingRuleArrayOutput() Fro
 
 func (o FrontdoorRoutingRuleArrayOutput) ToFrontdoorRoutingRuleArrayOutputWithContext(ctx context.Context) FrontdoorRoutingRuleArrayOutput {
 	return o
-}
-
-func (o FrontdoorRoutingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrontdoorRoutingRule] {
-	return pulumix.Output[[]FrontdoorRoutingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorRoutingRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorRoutingRuleOutput {
@@ -2872,12 +2463,6 @@ func (i FrontdoorRoutingRuleForwardingConfigurationArgs) ToFrontdoorRoutingRuleF
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleForwardingConfigurationOutput)
 }
 
-func (i FrontdoorRoutingRuleForwardingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorRoutingRuleForwardingConfiguration] {
-	return pulumix.Output[FrontdoorRoutingRuleForwardingConfiguration]{
-		OutputState: i.ToFrontdoorRoutingRuleForwardingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FrontdoorRoutingRuleForwardingConfigurationArgs) ToFrontdoorRoutingRuleForwardingConfigurationPtrOutput() FrontdoorRoutingRuleForwardingConfigurationPtrOutput {
 	return i.ToFrontdoorRoutingRuleForwardingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2919,12 +2504,6 @@ func (i *frontdoorRoutingRuleForwardingConfigurationPtrType) ToFrontdoorRoutingR
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
 }
 
-func (i *frontdoorRoutingRuleForwardingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRoutingRuleForwardingConfiguration] {
-	return pulumix.Output[*FrontdoorRoutingRuleForwardingConfiguration]{
-		OutputState: i.ToFrontdoorRoutingRuleForwardingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorRoutingRuleForwardingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleForwardingConfigurationOutput) ElementType() reflect.Type {
@@ -2947,12 +2526,6 @@ func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ToFrontdoorRoutingRul
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRoutingRuleForwardingConfiguration) *FrontdoorRoutingRuleForwardingConfiguration {
 		return &v
 	}).(FrontdoorRoutingRuleForwardingConfigurationPtrOutput)
-}
-
-func (o FrontdoorRoutingRuleForwardingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorRoutingRuleForwardingConfiguration] {
-	return pulumix.Output[FrontdoorRoutingRuleForwardingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Backend Pool to forward the incoming traffic to.
@@ -3009,12 +2582,6 @@ func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ToFrontdoorRouting
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ToFrontdoorRoutingRuleForwardingConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorRoutingRuleForwardingConfigurationPtrOutput {
 	return o
-}
-
-func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRoutingRuleForwardingConfiguration] {
-	return pulumix.Output[*FrontdoorRoutingRuleForwardingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorRoutingRuleForwardingConfigurationPtrOutput) Elem() FrontdoorRoutingRuleForwardingConfigurationOutput {
@@ -3160,12 +2727,6 @@ func (i FrontdoorRoutingRuleRedirectConfigurationArgs) ToFrontdoorRoutingRuleRed
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleRedirectConfigurationOutput)
 }
 
-func (i FrontdoorRoutingRuleRedirectConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FrontdoorRoutingRuleRedirectConfiguration] {
-	return pulumix.Output[FrontdoorRoutingRuleRedirectConfiguration]{
-		OutputState: i.ToFrontdoorRoutingRuleRedirectConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FrontdoorRoutingRuleRedirectConfigurationArgs) ToFrontdoorRoutingRuleRedirectConfigurationPtrOutput() FrontdoorRoutingRuleRedirectConfigurationPtrOutput {
 	return i.ToFrontdoorRoutingRuleRedirectConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3207,12 +2768,6 @@ func (i *frontdoorRoutingRuleRedirectConfigurationPtrType) ToFrontdoorRoutingRul
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
 }
 
-func (i *frontdoorRoutingRuleRedirectConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRoutingRuleRedirectConfiguration] {
-	return pulumix.Output[*FrontdoorRoutingRuleRedirectConfiguration]{
-		OutputState: i.ToFrontdoorRoutingRuleRedirectConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorRoutingRuleRedirectConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRoutingRuleRedirectConfigurationOutput) ElementType() reflect.Type {
@@ -3235,12 +2790,6 @@ func (o FrontdoorRoutingRuleRedirectConfigurationOutput) ToFrontdoorRoutingRuleR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRoutingRuleRedirectConfiguration) *FrontdoorRoutingRuleRedirectConfiguration {
 		return &v
 	}).(FrontdoorRoutingRuleRedirectConfigurationPtrOutput)
-}
-
-func (o FrontdoorRoutingRuleRedirectConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FrontdoorRoutingRuleRedirectConfiguration] {
-	return pulumix.Output[FrontdoorRoutingRuleRedirectConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
@@ -3285,12 +2834,6 @@ func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ToFrontdoorRoutingRu
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ToFrontdoorRoutingRuleRedirectConfigurationPtrOutputWithContext(ctx context.Context) FrontdoorRoutingRuleRedirectConfigurationPtrOutput {
 	return o
-}
-
-func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRoutingRuleRedirectConfiguration] {
-	return pulumix.Output[*FrontdoorRoutingRuleRedirectConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorRoutingRuleRedirectConfigurationPtrOutput) Elem() FrontdoorRoutingRuleRedirectConfigurationOutput {
@@ -3408,12 +2951,6 @@ func (i RulesEngineRuleArgs) ToRulesEngineRuleOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleOutput)
 }
 
-func (i RulesEngineRuleArgs) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRule] {
-	return pulumix.Output[RulesEngineRule]{
-		OutputState: i.ToRulesEngineRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RulesEngineRuleArrayInput is an input type that accepts RulesEngineRuleArray and RulesEngineRuleArrayOutput values.
 // You can construct a concrete instance of `RulesEngineRuleArrayInput` via:
 //
@@ -3439,12 +2976,6 @@ func (i RulesEngineRuleArray) ToRulesEngineRuleArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleArrayOutput)
 }
 
-func (i RulesEngineRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRule] {
-	return pulumix.Output[[]RulesEngineRule]{
-		OutputState: i.ToRulesEngineRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulesEngineRuleOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleOutput) ElementType() reflect.Type {
@@ -3457,12 +2988,6 @@ func (o RulesEngineRuleOutput) ToRulesEngineRuleOutput() RulesEngineRuleOutput {
 
 func (o RulesEngineRuleOutput) ToRulesEngineRuleOutputWithContext(ctx context.Context) RulesEngineRuleOutput {
 	return o
-}
-
-func (o RulesEngineRuleOutput) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRule] {
-	return pulumix.Output[RulesEngineRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `action` block as defined below.
@@ -3497,12 +3022,6 @@ func (o RulesEngineRuleArrayOutput) ToRulesEngineRuleArrayOutput() RulesEngineRu
 
 func (o RulesEngineRuleArrayOutput) ToRulesEngineRuleArrayOutputWithContext(ctx context.Context) RulesEngineRuleArrayOutput {
 	return o
-}
-
-func (o RulesEngineRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRule] {
-	return pulumix.Output[[]RulesEngineRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulesEngineRuleArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleOutput {
@@ -3548,12 +3067,6 @@ func (i RulesEngineRuleActionArgs) ToRulesEngineRuleActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionOutput)
 }
 
-func (i RulesEngineRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleAction] {
-	return pulumix.Output[RulesEngineRuleAction]{
-		OutputState: i.ToRulesEngineRuleActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RulesEngineRuleActionArgs) ToRulesEngineRuleActionPtrOutput() RulesEngineRuleActionPtrOutput {
 	return i.ToRulesEngineRuleActionPtrOutputWithContext(context.Background())
 }
@@ -3595,12 +3108,6 @@ func (i *rulesEngineRuleActionPtrType) ToRulesEngineRuleActionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionPtrOutput)
 }
 
-func (i *rulesEngineRuleActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*RulesEngineRuleAction] {
-	return pulumix.Output[*RulesEngineRuleAction]{
-		OutputState: i.ToRulesEngineRuleActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulesEngineRuleActionOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleActionOutput) ElementType() reflect.Type {
@@ -3625,12 +3132,6 @@ func (o RulesEngineRuleActionOutput) ToRulesEngineRuleActionPtrOutputWithContext
 	}).(RulesEngineRuleActionPtrOutput)
 }
 
-func (o RulesEngineRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleAction] {
-	return pulumix.Output[RulesEngineRuleAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `requestHeader` block as defined below.
 func (o RulesEngineRuleActionOutput) RequestHeaders() RulesEngineRuleActionRequestHeaderArrayOutput {
 	return o.ApplyT(func(v RulesEngineRuleAction) []RulesEngineRuleActionRequestHeader { return v.RequestHeaders }).(RulesEngineRuleActionRequestHeaderArrayOutput)
@@ -3653,12 +3154,6 @@ func (o RulesEngineRuleActionPtrOutput) ToRulesEngineRuleActionPtrOutput() Rules
 
 func (o RulesEngineRuleActionPtrOutput) ToRulesEngineRuleActionPtrOutputWithContext(ctx context.Context) RulesEngineRuleActionPtrOutput {
 	return o
-}
-
-func (o RulesEngineRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RulesEngineRuleAction] {
-	return pulumix.Output[*RulesEngineRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulesEngineRuleActionPtrOutput) Elem() RulesEngineRuleActionOutput {
@@ -3732,12 +3227,6 @@ func (i RulesEngineRuleActionRequestHeaderArgs) ToRulesEngineRuleActionRequestHe
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionRequestHeaderOutput)
 }
 
-func (i RulesEngineRuleActionRequestHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleActionRequestHeader] {
-	return pulumix.Output[RulesEngineRuleActionRequestHeader]{
-		OutputState: i.ToRulesEngineRuleActionRequestHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RulesEngineRuleActionRequestHeaderArrayInput is an input type that accepts RulesEngineRuleActionRequestHeaderArray and RulesEngineRuleActionRequestHeaderArrayOutput values.
 // You can construct a concrete instance of `RulesEngineRuleActionRequestHeaderArrayInput` via:
 //
@@ -3763,12 +3252,6 @@ func (i RulesEngineRuleActionRequestHeaderArray) ToRulesEngineRuleActionRequestH
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionRequestHeaderArrayOutput)
 }
 
-func (i RulesEngineRuleActionRequestHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRuleActionRequestHeader] {
-	return pulumix.Output[[]RulesEngineRuleActionRequestHeader]{
-		OutputState: i.ToRulesEngineRuleActionRequestHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulesEngineRuleActionRequestHeaderOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleActionRequestHeaderOutput) ElementType() reflect.Type {
@@ -3781,12 +3264,6 @@ func (o RulesEngineRuleActionRequestHeaderOutput) ToRulesEngineRuleActionRequest
 
 func (o RulesEngineRuleActionRequestHeaderOutput) ToRulesEngineRuleActionRequestHeaderOutputWithContext(ctx context.Context) RulesEngineRuleActionRequestHeaderOutput {
 	return o
-}
-
-func (o RulesEngineRuleActionRequestHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleActionRequestHeader] {
-	return pulumix.Output[RulesEngineRuleActionRequestHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // can be set to `Overwrite`, `Append` or `Delete`.
@@ -3816,12 +3293,6 @@ func (o RulesEngineRuleActionRequestHeaderArrayOutput) ToRulesEngineRuleActionRe
 
 func (o RulesEngineRuleActionRequestHeaderArrayOutput) ToRulesEngineRuleActionRequestHeaderArrayOutputWithContext(ctx context.Context) RulesEngineRuleActionRequestHeaderArrayOutput {
 	return o
-}
-
-func (o RulesEngineRuleActionRequestHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRuleActionRequestHeader] {
-	return pulumix.Output[[]RulesEngineRuleActionRequestHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulesEngineRuleActionRequestHeaderArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleActionRequestHeaderOutput {
@@ -3871,12 +3342,6 @@ func (i RulesEngineRuleActionResponseHeaderArgs) ToRulesEngineRuleActionResponse
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionResponseHeaderOutput)
 }
 
-func (i RulesEngineRuleActionResponseHeaderArgs) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleActionResponseHeader] {
-	return pulumix.Output[RulesEngineRuleActionResponseHeader]{
-		OutputState: i.ToRulesEngineRuleActionResponseHeaderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RulesEngineRuleActionResponseHeaderArrayInput is an input type that accepts RulesEngineRuleActionResponseHeaderArray and RulesEngineRuleActionResponseHeaderArrayOutput values.
 // You can construct a concrete instance of `RulesEngineRuleActionResponseHeaderArrayInput` via:
 //
@@ -3902,12 +3367,6 @@ func (i RulesEngineRuleActionResponseHeaderArray) ToRulesEngineRuleActionRespons
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleActionResponseHeaderArrayOutput)
 }
 
-func (i RulesEngineRuleActionResponseHeaderArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRuleActionResponseHeader] {
-	return pulumix.Output[[]RulesEngineRuleActionResponseHeader]{
-		OutputState: i.ToRulesEngineRuleActionResponseHeaderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulesEngineRuleActionResponseHeaderOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleActionResponseHeaderOutput) ElementType() reflect.Type {
@@ -3920,12 +3379,6 @@ func (o RulesEngineRuleActionResponseHeaderOutput) ToRulesEngineRuleActionRespon
 
 func (o RulesEngineRuleActionResponseHeaderOutput) ToRulesEngineRuleActionResponseHeaderOutputWithContext(ctx context.Context) RulesEngineRuleActionResponseHeaderOutput {
 	return o
-}
-
-func (o RulesEngineRuleActionResponseHeaderOutput) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleActionResponseHeader] {
-	return pulumix.Output[RulesEngineRuleActionResponseHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 // can be set to `Overwrite`, `Append` or `Delete`.
@@ -3955,12 +3408,6 @@ func (o RulesEngineRuleActionResponseHeaderArrayOutput) ToRulesEngineRuleActionR
 
 func (o RulesEngineRuleActionResponseHeaderArrayOutput) ToRulesEngineRuleActionResponseHeaderArrayOutputWithContext(ctx context.Context) RulesEngineRuleActionResponseHeaderArrayOutput {
 	return o
-}
-
-func (o RulesEngineRuleActionResponseHeaderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRuleActionResponseHeader] {
-	return pulumix.Output[[]RulesEngineRuleActionResponseHeader]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulesEngineRuleActionResponseHeaderArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleActionResponseHeaderOutput {
@@ -4022,12 +3469,6 @@ func (i RulesEngineRuleMatchConditionArgs) ToRulesEngineRuleMatchConditionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleMatchConditionOutput)
 }
 
-func (i RulesEngineRuleMatchConditionArgs) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleMatchCondition] {
-	return pulumix.Output[RulesEngineRuleMatchCondition]{
-		OutputState: i.ToRulesEngineRuleMatchConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RulesEngineRuleMatchConditionArrayInput is an input type that accepts RulesEngineRuleMatchConditionArray and RulesEngineRuleMatchConditionArrayOutput values.
 // You can construct a concrete instance of `RulesEngineRuleMatchConditionArrayInput` via:
 //
@@ -4053,12 +3494,6 @@ func (i RulesEngineRuleMatchConditionArray) ToRulesEngineRuleMatchConditionArray
 	return pulumi.ToOutputWithContext(ctx, i).(RulesEngineRuleMatchConditionArrayOutput)
 }
 
-func (i RulesEngineRuleMatchConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRuleMatchCondition] {
-	return pulumix.Output[[]RulesEngineRuleMatchCondition]{
-		OutputState: i.ToRulesEngineRuleMatchConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RulesEngineRuleMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineRuleMatchConditionOutput) ElementType() reflect.Type {
@@ -4071,12 +3506,6 @@ func (o RulesEngineRuleMatchConditionOutput) ToRulesEngineRuleMatchConditionOutp
 
 func (o RulesEngineRuleMatchConditionOutput) ToRulesEngineRuleMatchConditionOutputWithContext(ctx context.Context) RulesEngineRuleMatchConditionOutput {
 	return o
-}
-
-func (o RulesEngineRuleMatchConditionOutput) ToOutput(ctx context.Context) pulumix.Output[RulesEngineRuleMatchCondition] {
-	return pulumix.Output[RulesEngineRuleMatchCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // can be set to `true` or `false` to negate the given condition. Defaults to `false`.
@@ -4121,12 +3550,6 @@ func (o RulesEngineRuleMatchConditionArrayOutput) ToRulesEngineRuleMatchConditio
 
 func (o RulesEngineRuleMatchConditionArrayOutput) ToRulesEngineRuleMatchConditionArrayOutputWithContext(ctx context.Context) RulesEngineRuleMatchConditionArrayOutput {
 	return o
-}
-
-func (o RulesEngineRuleMatchConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RulesEngineRuleMatchCondition] {
-	return pulumix.Output[[]RulesEngineRuleMatchCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RulesEngineRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) RulesEngineRuleMatchConditionOutput {

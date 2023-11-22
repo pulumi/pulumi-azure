@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -223,12 +222,6 @@ func (i *SpringCloudDevToolPortal) ToSpringCloudDevToolPortalOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalOutput)
 }
 
-func (i *SpringCloudDevToolPortal) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudDevToolPortal] {
-	return pulumix.Output[*SpringCloudDevToolPortal]{
-		OutputState: i.ToSpringCloudDevToolPortalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudDevToolPortalArrayInput is an input type that accepts SpringCloudDevToolPortalArray and SpringCloudDevToolPortalArrayOutput values.
 // You can construct a concrete instance of `SpringCloudDevToolPortalArrayInput` via:
 //
@@ -252,12 +245,6 @@ func (i SpringCloudDevToolPortalArray) ToSpringCloudDevToolPortalArrayOutput() S
 
 func (i SpringCloudDevToolPortalArray) ToSpringCloudDevToolPortalArrayOutputWithContext(ctx context.Context) SpringCloudDevToolPortalArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalArrayOutput)
-}
-
-func (i SpringCloudDevToolPortalArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudDevToolPortal] {
-	return pulumix.Output[[]*SpringCloudDevToolPortal]{
-		OutputState: i.ToSpringCloudDevToolPortalArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudDevToolPortalMapInput is an input type that accepts SpringCloudDevToolPortalMap and SpringCloudDevToolPortalMapOutput values.
@@ -285,12 +272,6 @@ func (i SpringCloudDevToolPortalMap) ToSpringCloudDevToolPortalMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudDevToolPortalMapOutput)
 }
 
-func (i SpringCloudDevToolPortalMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudDevToolPortal] {
-	return pulumix.Output[map[string]*SpringCloudDevToolPortal]{
-		OutputState: i.ToSpringCloudDevToolPortalMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudDevToolPortalOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudDevToolPortalOutput) ElementType() reflect.Type {
@@ -303,12 +284,6 @@ func (o SpringCloudDevToolPortalOutput) ToSpringCloudDevToolPortalOutput() Sprin
 
 func (o SpringCloudDevToolPortalOutput) ToSpringCloudDevToolPortalOutputWithContext(ctx context.Context) SpringCloudDevToolPortalOutput {
 	return o
-}
-
-func (o SpringCloudDevToolPortalOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudDevToolPortal] {
-	return pulumix.Output[*SpringCloudDevToolPortal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should the Accelerator plugin be enabled?
@@ -355,12 +330,6 @@ func (o SpringCloudDevToolPortalArrayOutput) ToSpringCloudDevToolPortalArrayOutp
 	return o
 }
 
-func (o SpringCloudDevToolPortalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudDevToolPortal] {
-	return pulumix.Output[[]*SpringCloudDevToolPortal]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudDevToolPortalArrayOutput) Index(i pulumi.IntInput) SpringCloudDevToolPortalOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudDevToolPortal {
 		return vs[0].([]*SpringCloudDevToolPortal)[vs[1].(int)]
@@ -379,12 +348,6 @@ func (o SpringCloudDevToolPortalMapOutput) ToSpringCloudDevToolPortalMapOutput()
 
 func (o SpringCloudDevToolPortalMapOutput) ToSpringCloudDevToolPortalMapOutputWithContext(ctx context.Context) SpringCloudDevToolPortalMapOutput {
 	return o
-}
-
-func (o SpringCloudDevToolPortalMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudDevToolPortal] {
-	return pulumix.Output[map[string]*SpringCloudDevToolPortal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudDevToolPortalMapOutput) MapIndex(k pulumi.StringInput) SpringCloudDevToolPortalOutput {

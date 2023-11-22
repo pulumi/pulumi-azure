@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Site Recovery replication policy for HyperV within a Recovery Vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
@@ -205,12 +204,6 @@ func (i *HyperVReplicationPolicy) ToHyperVReplicationPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicationPolicyOutput)
 }
 
-func (i *HyperVReplicationPolicy) ToOutput(ctx context.Context) pulumix.Output[*HyperVReplicationPolicy] {
-	return pulumix.Output[*HyperVReplicationPolicy]{
-		OutputState: i.ToHyperVReplicationPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HyperVReplicationPolicyArrayInput is an input type that accepts HyperVReplicationPolicyArray and HyperVReplicationPolicyArrayOutput values.
 // You can construct a concrete instance of `HyperVReplicationPolicyArrayInput` via:
 //
@@ -234,12 +227,6 @@ func (i HyperVReplicationPolicyArray) ToHyperVReplicationPolicyArrayOutput() Hyp
 
 func (i HyperVReplicationPolicyArray) ToHyperVReplicationPolicyArrayOutputWithContext(ctx context.Context) HyperVReplicationPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicationPolicyArrayOutput)
-}
-
-func (i HyperVReplicationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*HyperVReplicationPolicy] {
-	return pulumix.Output[[]*HyperVReplicationPolicy]{
-		OutputState: i.ToHyperVReplicationPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HyperVReplicationPolicyMapInput is an input type that accepts HyperVReplicationPolicyMap and HyperVReplicationPolicyMapOutput values.
@@ -267,12 +254,6 @@ func (i HyperVReplicationPolicyMap) ToHyperVReplicationPolicyMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVReplicationPolicyMapOutput)
 }
 
-func (i HyperVReplicationPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HyperVReplicationPolicy] {
-	return pulumix.Output[map[string]*HyperVReplicationPolicy]{
-		OutputState: i.ToHyperVReplicationPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HyperVReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (HyperVReplicationPolicyOutput) ElementType() reflect.Type {
@@ -285,12 +266,6 @@ func (o HyperVReplicationPolicyOutput) ToHyperVReplicationPolicyOutput() HyperVR
 
 func (o HyperVReplicationPolicyOutput) ToHyperVReplicationPolicyOutputWithContext(ctx context.Context) HyperVReplicationPolicyOutput {
 	return o
-}
-
-func (o HyperVReplicationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*HyperVReplicationPolicy] {
-	return pulumix.Output[*HyperVReplicationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the frequency at which to create application consistent recovery points.
@@ -334,12 +309,6 @@ func (o HyperVReplicationPolicyArrayOutput) ToHyperVReplicationPolicyArrayOutput
 	return o
 }
 
-func (o HyperVReplicationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HyperVReplicationPolicy] {
-	return pulumix.Output[[]*HyperVReplicationPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HyperVReplicationPolicyArrayOutput) Index(i pulumi.IntInput) HyperVReplicationPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HyperVReplicationPolicy {
 		return vs[0].([]*HyperVReplicationPolicy)[vs[1].(int)]
@@ -358,12 +327,6 @@ func (o HyperVReplicationPolicyMapOutput) ToHyperVReplicationPolicyMapOutput() H
 
 func (o HyperVReplicationPolicyMapOutput) ToHyperVReplicationPolicyMapOutputWithContext(ctx context.Context) HyperVReplicationPolicyMapOutput {
 	return o
-}
-
-func (o HyperVReplicationPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HyperVReplicationPolicy] {
-	return pulumix.Output[map[string]*HyperVReplicationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HyperVReplicationPolicyMapOutput) MapIndex(k pulumi.StringInput) HyperVReplicationPolicyOutput {

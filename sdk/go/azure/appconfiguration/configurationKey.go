@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure App Configuration Key.
@@ -376,12 +375,6 @@ func (i *ConfigurationKey) ToConfigurationKeyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationKeyOutput)
 }
 
-func (i *ConfigurationKey) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationKey] {
-	return pulumix.Output[*ConfigurationKey]{
-		OutputState: i.ToConfigurationKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationKeyArrayInput is an input type that accepts ConfigurationKeyArray and ConfigurationKeyArrayOutput values.
 // You can construct a concrete instance of `ConfigurationKeyArrayInput` via:
 //
@@ -405,12 +398,6 @@ func (i ConfigurationKeyArray) ToConfigurationKeyArrayOutput() ConfigurationKeyA
 
 func (i ConfigurationKeyArray) ToConfigurationKeyArrayOutputWithContext(ctx context.Context) ConfigurationKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationKeyArrayOutput)
-}
-
-func (i ConfigurationKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationKey] {
-	return pulumix.Output[[]*ConfigurationKey]{
-		OutputState: i.ToConfigurationKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigurationKeyMapInput is an input type that accepts ConfigurationKeyMap and ConfigurationKeyMapOutput values.
@@ -438,12 +425,6 @@ func (i ConfigurationKeyMap) ToConfigurationKeyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationKeyMapOutput)
 }
 
-func (i ConfigurationKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationKey] {
-	return pulumix.Output[map[string]*ConfigurationKey]{
-		OutputState: i.ToConfigurationKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationKeyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationKeyOutput) ElementType() reflect.Type {
@@ -456,12 +437,6 @@ func (o ConfigurationKeyOutput) ToConfigurationKeyOutput() ConfigurationKeyOutpu
 
 func (o ConfigurationKeyOutput) ToConfigurationKeyOutputWithContext(ctx context.Context) ConfigurationKeyOutput {
 	return o
-}
-
-func (o ConfigurationKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationKey] {
-	return pulumix.Output[*ConfigurationKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -530,12 +505,6 @@ func (o ConfigurationKeyArrayOutput) ToConfigurationKeyArrayOutputWithContext(ct
 	return o
 }
 
-func (o ConfigurationKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationKey] {
-	return pulumix.Output[[]*ConfigurationKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigurationKeyArrayOutput) Index(i pulumi.IntInput) ConfigurationKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationKey {
 		return vs[0].([]*ConfigurationKey)[vs[1].(int)]
@@ -554,12 +523,6 @@ func (o ConfigurationKeyMapOutput) ToConfigurationKeyMapOutput() ConfigurationKe
 
 func (o ConfigurationKeyMapOutput) ToConfigurationKeyMapOutputWithContext(ctx context.Context) ConfigurationKeyMapOutput {
 	return o
-}
-
-func (o ConfigurationKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationKey] {
-	return pulumix.Output[map[string]*ConfigurationKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationKeyMapOutput) MapIndex(k pulumi.StringInput) ConfigurationKeyOutput {

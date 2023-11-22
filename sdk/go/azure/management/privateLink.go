@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Management Private Link to restrict access for managing resources in the tenant.
@@ -165,12 +164,6 @@ func (i *PrivateLink) ToPrivateLinkOutputWithContext(ctx context.Context) Privat
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkOutput)
 }
 
-func (i *PrivateLink) ToOutput(ctx context.Context) pulumix.Output[*PrivateLink] {
-	return pulumix.Output[*PrivateLink]{
-		OutputState: i.ToPrivateLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateLinkArrayInput is an input type that accepts PrivateLinkArray and PrivateLinkArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkArrayInput` via:
 //
@@ -194,12 +187,6 @@ func (i PrivateLinkArray) ToPrivateLinkArrayOutput() PrivateLinkArrayOutput {
 
 func (i PrivateLinkArray) ToPrivateLinkArrayOutputWithContext(ctx context.Context) PrivateLinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkArrayOutput)
-}
-
-func (i PrivateLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLink] {
-	return pulumix.Output[[]*PrivateLink]{
-		OutputState: i.ToPrivateLinkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrivateLinkMapInput is an input type that accepts PrivateLinkMap and PrivateLinkMapOutput values.
@@ -227,12 +214,6 @@ func (i PrivateLinkMap) ToPrivateLinkMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkMapOutput)
 }
 
-func (i PrivateLinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLink] {
-	return pulumix.Output[map[string]*PrivateLink]{
-		OutputState: i.ToPrivateLinkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateLinkOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkOutput) ElementType() reflect.Type {
@@ -245,12 +226,6 @@ func (o PrivateLinkOutput) ToPrivateLinkOutput() PrivateLinkOutput {
 
 func (o PrivateLinkOutput) ToPrivateLinkOutputWithContext(ctx context.Context) PrivateLinkOutput {
 	return o
-}
-
-func (o PrivateLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLink] {
-	return pulumix.Output[*PrivateLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Resource Management Private Link should exist. Changing this forces a new Resource Management Private Link to be created.
@@ -282,12 +257,6 @@ func (o PrivateLinkArrayOutput) ToPrivateLinkArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o PrivateLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLink] {
-	return pulumix.Output[[]*PrivateLink]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateLinkArrayOutput) Index(i pulumi.IntInput) PrivateLinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLink {
 		return vs[0].([]*PrivateLink)[vs[1].(int)]
@@ -306,12 +275,6 @@ func (o PrivateLinkMapOutput) ToPrivateLinkMapOutput() PrivateLinkMapOutput {
 
 func (o PrivateLinkMapOutput) ToPrivateLinkMapOutputWithContext(ctx context.Context) PrivateLinkMapOutput {
 	return o
-}
-
-func (o PrivateLinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLink] {
-	return pulumix.Output[map[string]*PrivateLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateLinkMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkOutput {

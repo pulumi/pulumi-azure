@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Windows Function App Slot.
@@ -556,12 +555,6 @@ func (i *WindowsFunctionAppSlot) ToWindowsFunctionAppSlotOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFunctionAppSlotOutput)
 }
 
-func (i *WindowsFunctionAppSlot) ToOutput(ctx context.Context) pulumix.Output[*WindowsFunctionAppSlot] {
-	return pulumix.Output[*WindowsFunctionAppSlot]{
-		OutputState: i.ToWindowsFunctionAppSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WindowsFunctionAppSlotArrayInput is an input type that accepts WindowsFunctionAppSlotArray and WindowsFunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `WindowsFunctionAppSlotArrayInput` via:
 //
@@ -585,12 +578,6 @@ func (i WindowsFunctionAppSlotArray) ToWindowsFunctionAppSlotArrayOutput() Windo
 
 func (i WindowsFunctionAppSlotArray) ToWindowsFunctionAppSlotArrayOutputWithContext(ctx context.Context) WindowsFunctionAppSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFunctionAppSlotArrayOutput)
-}
-
-func (i WindowsFunctionAppSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsFunctionAppSlot] {
-	return pulumix.Output[[]*WindowsFunctionAppSlot]{
-		OutputState: i.ToWindowsFunctionAppSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WindowsFunctionAppSlotMapInput is an input type that accepts WindowsFunctionAppSlotMap and WindowsFunctionAppSlotMapOutput values.
@@ -618,12 +605,6 @@ func (i WindowsFunctionAppSlotMap) ToWindowsFunctionAppSlotMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFunctionAppSlotMapOutput)
 }
 
-func (i WindowsFunctionAppSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsFunctionAppSlot] {
-	return pulumix.Output[map[string]*WindowsFunctionAppSlot]{
-		OutputState: i.ToWindowsFunctionAppSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsFunctionAppSlotOutput struct{ *pulumi.OutputState }
 
 func (WindowsFunctionAppSlotOutput) ElementType() reflect.Type {
@@ -636,12 +617,6 @@ func (o WindowsFunctionAppSlotOutput) ToWindowsFunctionAppSlotOutput() WindowsFu
 
 func (o WindowsFunctionAppSlotOutput) ToWindowsFunctionAppSlotOutputWithContext(ctx context.Context) WindowsFunctionAppSlotOutput {
 	return o
-}
-
-func (o WindowsFunctionAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFunctionAppSlot] {
-	return pulumix.Output[*WindowsFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -866,12 +841,6 @@ func (o WindowsFunctionAppSlotArrayOutput) ToWindowsFunctionAppSlotArrayOutputWi
 	return o
 }
 
-func (o WindowsFunctionAppSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsFunctionAppSlot] {
-	return pulumix.Output[[]*WindowsFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WindowsFunctionAppSlotArrayOutput) Index(i pulumi.IntInput) WindowsFunctionAppSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsFunctionAppSlot {
 		return vs[0].([]*WindowsFunctionAppSlot)[vs[1].(int)]
@@ -890,12 +859,6 @@ func (o WindowsFunctionAppSlotMapOutput) ToWindowsFunctionAppSlotMapOutput() Win
 
 func (o WindowsFunctionAppSlotMapOutput) ToWindowsFunctionAppSlotMapOutputWithContext(ctx context.Context) WindowsFunctionAppSlotMapOutput {
 	return o
-}
-
-func (o WindowsFunctionAppSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsFunctionAppSlot] {
-	return pulumix.Output[map[string]*WindowsFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsFunctionAppSlotMapOutput) MapIndex(k pulumi.StringInput) WindowsFunctionAppSlotOutput {

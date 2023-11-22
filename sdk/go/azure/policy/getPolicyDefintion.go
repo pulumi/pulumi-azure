@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
@@ -129,12 +128,6 @@ func (o GetPolicyDefintionResultOutput) ToGetPolicyDefintionResultOutput() GetPo
 
 func (o GetPolicyDefintionResultOutput) ToGetPolicyDefintionResultOutputWithContext(ctx context.Context) GetPolicyDefintionResultOutput {
 	return o
-}
-
-func (o GetPolicyDefintionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyDefintionResult] {
-	return pulumix.Output[GetPolicyDefintionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Description of the Policy.

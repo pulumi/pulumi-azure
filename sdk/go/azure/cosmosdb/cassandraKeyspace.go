@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cassandra KeySpace within a Cosmos DB Account.
@@ -221,12 +220,6 @@ func (i *CassandraKeyspace) ToCassandraKeyspaceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceOutput)
 }
 
-func (i *CassandraKeyspace) ToOutput(ctx context.Context) pulumix.Output[*CassandraKeyspace] {
-	return pulumix.Output[*CassandraKeyspace]{
-		OutputState: i.ToCassandraKeyspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CassandraKeyspaceArrayInput is an input type that accepts CassandraKeyspaceArray and CassandraKeyspaceArrayOutput values.
 // You can construct a concrete instance of `CassandraKeyspaceArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i CassandraKeyspaceArray) ToCassandraKeyspaceArrayOutput() CassandraKeyspa
 
 func (i CassandraKeyspaceArray) ToCassandraKeyspaceArrayOutputWithContext(ctx context.Context) CassandraKeyspaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceArrayOutput)
-}
-
-func (i CassandraKeyspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraKeyspace] {
-	return pulumix.Output[[]*CassandraKeyspace]{
-		OutputState: i.ToCassandraKeyspaceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CassandraKeyspaceMapInput is an input type that accepts CassandraKeyspaceMap and CassandraKeyspaceMapOutput values.
@@ -283,12 +270,6 @@ func (i CassandraKeyspaceMap) ToCassandraKeyspaceMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceMapOutput)
 }
 
-func (i CassandraKeyspaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraKeyspace] {
-	return pulumix.Output[map[string]*CassandraKeyspace]{
-		OutputState: i.ToCassandraKeyspaceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CassandraKeyspaceOutput struct{ *pulumi.OutputState }
 
 func (CassandraKeyspaceOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o CassandraKeyspaceOutput) ToCassandraKeyspaceOutput() CassandraKeyspaceOu
 
 func (o CassandraKeyspaceOutput) ToCassandraKeyspaceOutputWithContext(ctx context.Context) CassandraKeyspaceOutput {
 	return o
-}
-
-func (o CassandraKeyspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*CassandraKeyspace] {
-	return pulumix.Output[*CassandraKeyspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
@@ -350,12 +325,6 @@ func (o CassandraKeyspaceArrayOutput) ToCassandraKeyspaceArrayOutputWithContext(
 	return o
 }
 
-func (o CassandraKeyspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraKeyspace] {
-	return pulumix.Output[[]*CassandraKeyspace]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CassandraKeyspaceArrayOutput) Index(i pulumi.IntInput) CassandraKeyspaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CassandraKeyspace {
 		return vs[0].([]*CassandraKeyspace)[vs[1].(int)]
@@ -374,12 +343,6 @@ func (o CassandraKeyspaceMapOutput) ToCassandraKeyspaceMapOutput() CassandraKeys
 
 func (o CassandraKeyspaceMapOutput) ToCassandraKeyspaceMapOutputWithContext(ctx context.Context) CassandraKeyspaceMapOutput {
 	return o
-}
-
-func (o CassandraKeyspaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraKeyspace] {
-	return pulumix.Output[map[string]*CassandraKeyspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CassandraKeyspaceMapOutput) MapIndex(k pulumi.StringInput) CassandraKeyspaceOutput {

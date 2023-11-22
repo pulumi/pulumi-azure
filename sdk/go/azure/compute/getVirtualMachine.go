@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Virtual Machine.
@@ -118,12 +117,6 @@ func (o LookupVirtualMachineResultOutput) ToLookupVirtualMachineResultOutput() L
 
 func (o LookupVirtualMachineResultOutput) ToLookupVirtualMachineResultOutputWithContext(ctx context.Context) LookupVirtualMachineResultOutput {
 	return o
-}
-
-func (o LookupVirtualMachineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualMachineResult] {
-	return pulumix.Output[LookupVirtualMachineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

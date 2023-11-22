@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Mover Target Endpoint.
@@ -217,12 +216,6 @@ func (i *MoverTargetEndpoint) ToMoverTargetEndpointOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MoverTargetEndpointOutput)
 }
 
-func (i *MoverTargetEndpoint) ToOutput(ctx context.Context) pulumix.Output[*MoverTargetEndpoint] {
-	return pulumix.Output[*MoverTargetEndpoint]{
-		OutputState: i.ToMoverTargetEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MoverTargetEndpointArrayInput is an input type that accepts MoverTargetEndpointArray and MoverTargetEndpointArrayOutput values.
 // You can construct a concrete instance of `MoverTargetEndpointArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i MoverTargetEndpointArray) ToMoverTargetEndpointArrayOutput() MoverTarget
 
 func (i MoverTargetEndpointArray) ToMoverTargetEndpointArrayOutputWithContext(ctx context.Context) MoverTargetEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MoverTargetEndpointArrayOutput)
-}
-
-func (i MoverTargetEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*MoverTargetEndpoint] {
-	return pulumix.Output[[]*MoverTargetEndpoint]{
-		OutputState: i.ToMoverTargetEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MoverTargetEndpointMapInput is an input type that accepts MoverTargetEndpointMap and MoverTargetEndpointMapOutput values.
@@ -279,12 +266,6 @@ func (i MoverTargetEndpointMap) ToMoverTargetEndpointMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MoverTargetEndpointMapOutput)
 }
 
-func (i MoverTargetEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverTargetEndpoint] {
-	return pulumix.Output[map[string]*MoverTargetEndpoint]{
-		OutputState: i.ToMoverTargetEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MoverTargetEndpointOutput struct{ *pulumi.OutputState }
 
 func (MoverTargetEndpointOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o MoverTargetEndpointOutput) ToMoverTargetEndpointOutput() MoverTargetEndp
 
 func (o MoverTargetEndpointOutput) ToMoverTargetEndpointOutputWithContext(ctx context.Context) MoverTargetEndpointOutput {
 	return o
-}
-
-func (o MoverTargetEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*MoverTargetEndpoint] {
-	return pulumix.Output[*MoverTargetEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a description for the Storage Mover Target Endpoint.
@@ -344,12 +319,6 @@ func (o MoverTargetEndpointArrayOutput) ToMoverTargetEndpointArrayOutputWithCont
 	return o
 }
 
-func (o MoverTargetEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MoverTargetEndpoint] {
-	return pulumix.Output[[]*MoverTargetEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MoverTargetEndpointArrayOutput) Index(i pulumi.IntInput) MoverTargetEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MoverTargetEndpoint {
 		return vs[0].([]*MoverTargetEndpoint)[vs[1].(int)]
@@ -368,12 +337,6 @@ func (o MoverTargetEndpointMapOutput) ToMoverTargetEndpointMapOutput() MoverTarg
 
 func (o MoverTargetEndpointMapOutput) ToMoverTargetEndpointMapOutputWithContext(ctx context.Context) MoverTargetEndpointMapOutput {
 	return o
-}
-
-func (o MoverTargetEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverTargetEndpoint] {
-	return pulumix.Output[map[string]*MoverTargetEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MoverTargetEndpointMapOutput) MapIndex(k pulumi.StringInput) MoverTargetEndpointOutput {

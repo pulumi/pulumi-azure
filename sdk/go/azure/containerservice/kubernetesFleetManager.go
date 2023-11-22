@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -204,12 +203,6 @@ func (i *KubernetesFleetManager) ToKubernetesFleetManagerOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerOutput)
 }
 
-func (i *KubernetesFleetManager) ToOutput(ctx context.Context) pulumix.Output[*KubernetesFleetManager] {
-	return pulumix.Output[*KubernetesFleetManager]{
-		OutputState: i.ToKubernetesFleetManagerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KubernetesFleetManagerArrayInput is an input type that accepts KubernetesFleetManagerArray and KubernetesFleetManagerArrayOutput values.
 // You can construct a concrete instance of `KubernetesFleetManagerArrayInput` via:
 //
@@ -233,12 +226,6 @@ func (i KubernetesFleetManagerArray) ToKubernetesFleetManagerArrayOutput() Kuber
 
 func (i KubernetesFleetManagerArray) ToKubernetesFleetManagerArrayOutputWithContext(ctx context.Context) KubernetesFleetManagerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerArrayOutput)
-}
-
-func (i KubernetesFleetManagerArray) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesFleetManager] {
-	return pulumix.Output[[]*KubernetesFleetManager]{
-		OutputState: i.ToKubernetesFleetManagerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KubernetesFleetManagerMapInput is an input type that accepts KubernetesFleetManagerMap and KubernetesFleetManagerMapOutput values.
@@ -266,12 +253,6 @@ func (i KubernetesFleetManagerMap) ToKubernetesFleetManagerMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesFleetManagerMapOutput)
 }
 
-func (i KubernetesFleetManagerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesFleetManager] {
-	return pulumix.Output[map[string]*KubernetesFleetManager]{
-		OutputState: i.ToKubernetesFleetManagerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KubernetesFleetManagerOutput struct{ *pulumi.OutputState }
 
 func (KubernetesFleetManagerOutput) ElementType() reflect.Type {
@@ -284,12 +265,6 @@ func (o KubernetesFleetManagerOutput) ToKubernetesFleetManagerOutput() Kubernete
 
 func (o KubernetesFleetManagerOutput) ToKubernetesFleetManagerOutputWithContext(ctx context.Context) KubernetesFleetManagerOutput {
 	return o
-}
-
-func (o KubernetesFleetManagerOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesFleetManager] {
-	return pulumix.Output[*KubernetesFleetManager]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `hubProfile` block as defined below. The FleetHubProfile configures the Fleet's hub. Changing this forces a new Kubernetes Fleet Manager to be created.
@@ -331,12 +306,6 @@ func (o KubernetesFleetManagerArrayOutput) ToKubernetesFleetManagerArrayOutputWi
 	return o
 }
 
-func (o KubernetesFleetManagerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesFleetManager] {
-	return pulumix.Output[[]*KubernetesFleetManager]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KubernetesFleetManagerArrayOutput) Index(i pulumi.IntInput) KubernetesFleetManagerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KubernetesFleetManager {
 		return vs[0].([]*KubernetesFleetManager)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o KubernetesFleetManagerMapOutput) ToKubernetesFleetManagerMapOutput() Kub
 
 func (o KubernetesFleetManagerMapOutput) ToKubernetesFleetManagerMapOutputWithContext(ctx context.Context) KubernetesFleetManagerMapOutput {
 	return o
-}
-
-func (o KubernetesFleetManagerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesFleetManager] {
-	return pulumix.Output[map[string]*KubernetesFleetManager]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KubernetesFleetManagerMapOutput) MapIndex(k pulumi.StringInput) KubernetesFleetManagerOutput {

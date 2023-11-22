@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Networks Rulestack.
@@ -235,12 +234,6 @@ func (i *LocalRulestack) ToLocalRulestackOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackOutput)
 }
 
-func (i *LocalRulestack) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestack] {
-	return pulumix.Output[*LocalRulestack]{
-		OutputState: i.ToLocalRulestackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalRulestackArrayInput is an input type that accepts LocalRulestackArray and LocalRulestackArrayOutput values.
 // You can construct a concrete instance of `LocalRulestackArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i LocalRulestackArray) ToLocalRulestackArrayOutput() LocalRulestackArrayOu
 
 func (i LocalRulestackArray) ToLocalRulestackArrayOutputWithContext(ctx context.Context) LocalRulestackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackArrayOutput)
-}
-
-func (i LocalRulestackArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestack] {
-	return pulumix.Output[[]*LocalRulestack]{
-		OutputState: i.ToLocalRulestackArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalRulestackMapInput is an input type that accepts LocalRulestackMap and LocalRulestackMapOutput values.
@@ -297,12 +284,6 @@ func (i LocalRulestackMap) ToLocalRulestackMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackMapOutput)
 }
 
-func (i LocalRulestackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestack] {
-	return pulumix.Output[map[string]*LocalRulestack]{
-		OutputState: i.ToLocalRulestackMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalRulestackOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o LocalRulestackOutput) ToLocalRulestackOutput() LocalRulestackOutput {
 
 func (o LocalRulestackOutput) ToLocalRulestackOutputWithContext(ctx context.Context) LocalRulestackOutput {
 	return o
-}
-
-func (o LocalRulestackOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestack] {
-	return pulumix.Output[*LocalRulestack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
@@ -387,12 +362,6 @@ func (o LocalRulestackArrayOutput) ToLocalRulestackArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o LocalRulestackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestack] {
-	return pulumix.Output[[]*LocalRulestack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalRulestackArrayOutput) Index(i pulumi.IntInput) LocalRulestackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRulestack {
 		return vs[0].([]*LocalRulestack)[vs[1].(int)]
@@ -411,12 +380,6 @@ func (o LocalRulestackMapOutput) ToLocalRulestackMapOutput() LocalRulestackMapOu
 
 func (o LocalRulestackMapOutput) ToLocalRulestackMapOutputWithContext(ctx context.Context) LocalRulestackMapOutput {
 	return o
-}
-
-func (o LocalRulestackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestack] {
-	return pulumix.Output[map[string]*LocalRulestack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalRulestackMapOutput) MapIndex(k pulumi.StringInput) LocalRulestackOutput {

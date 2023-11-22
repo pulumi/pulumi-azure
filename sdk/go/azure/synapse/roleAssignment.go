@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse Role Assignment.
@@ -254,12 +253,6 @@ func (i *RoleAssignment) ToRoleAssignmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentOutput)
 }
 
-func (i *RoleAssignment) ToOutput(ctx context.Context) pulumix.Output[*RoleAssignment] {
-	return pulumix.Output[*RoleAssignment]{
-		OutputState: i.ToRoleAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoleAssignmentArrayInput is an input type that accepts RoleAssignmentArray and RoleAssignmentArrayOutput values.
 // You can construct a concrete instance of `RoleAssignmentArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i RoleAssignmentArray) ToRoleAssignmentArrayOutput() RoleAssignmentArrayOu
 
 func (i RoleAssignmentArray) ToRoleAssignmentArrayOutputWithContext(ctx context.Context) RoleAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentArrayOutput)
-}
-
-func (i RoleAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoleAssignment] {
-	return pulumix.Output[[]*RoleAssignment]{
-		OutputState: i.ToRoleAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoleAssignmentMapInput is an input type that accepts RoleAssignmentMap and RoleAssignmentMapOutput values.
@@ -316,12 +303,6 @@ func (i RoleAssignmentMap) ToRoleAssignmentMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentMapOutput)
 }
 
-func (i RoleAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleAssignment] {
-	return pulumix.Output[map[string]*RoleAssignment]{
-		OutputState: i.ToRoleAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o RoleAssignmentOutput) ToRoleAssignmentOutput() RoleAssignmentOutput {
 
 func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Context) RoleAssignmentOutput {
 	return o
-}
-
-func (o RoleAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*RoleAssignment] {
-	return pulumix.Output[*RoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Principal (User, Group or Service Principal) to assign the Synapse Role Definition to. Changing this forces a new resource to be created.
@@ -382,12 +357,6 @@ func (o RoleAssignmentArrayOutput) ToRoleAssignmentArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o RoleAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoleAssignment] {
-	return pulumix.Output[[]*RoleAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoleAssignmentArrayOutput) Index(i pulumi.IntInput) RoleAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleAssignment {
 		return vs[0].([]*RoleAssignment)[vs[1].(int)]
@@ -406,12 +375,6 @@ func (o RoleAssignmentMapOutput) ToRoleAssignmentMapOutput() RoleAssignmentMapOu
 
 func (o RoleAssignmentMapOutput) ToRoleAssignmentMapOutputWithContext(ctx context.Context) RoleAssignmentMapOutput {
 	return o
-}
-
-func (o RoleAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleAssignment] {
-	return pulumix.Output[map[string]*RoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoleAssignmentMapOutput) MapIndex(k pulumi.StringInput) RoleAssignmentOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
 }
 
-func (i AccountEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[AccountEncryption] {
-	return pulumix.Output[AccountEncryption]{
-		OutputState: i.ToAccountEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
 	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
 }
 
-func (i *accountEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountEncryption] {
-	return pulumix.Output[*AccountEncryption]{
-		OutputState: i.ToAccountEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountEncryptionOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
 		return &v
 	}).(AccountEncryptionPtrOutput)
-}
-
-func (o AccountEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[AccountEncryption] {
-	return pulumix.Output[AccountEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The current key used to encrypt the Media Services Account, including the key version.
@@ -174,12 +155,6 @@ func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryp
 
 func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
 	return o
-}
-
-func (o AccountEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountEncryption] {
-	return pulumix.Output[*AccountEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
@@ -269,12 +244,6 @@ func (i AccountEncryptionManagedIdentityArgs) ToAccountEncryptionManagedIdentity
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionManagedIdentityOutput)
 }
 
-func (i AccountEncryptionManagedIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountEncryptionManagedIdentity] {
-	return pulumix.Output[AccountEncryptionManagedIdentity]{
-		OutputState: i.ToAccountEncryptionManagedIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountEncryptionManagedIdentityArgs) ToAccountEncryptionManagedIdentityPtrOutput() AccountEncryptionManagedIdentityPtrOutput {
 	return i.ToAccountEncryptionManagedIdentityPtrOutputWithContext(context.Background())
 }
@@ -316,12 +285,6 @@ func (i *accountEncryptionManagedIdentityPtrType) ToAccountEncryptionManagedIden
 	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionManagedIdentityPtrOutput)
 }
 
-func (i *accountEncryptionManagedIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountEncryptionManagedIdentity] {
-	return pulumix.Output[*AccountEncryptionManagedIdentity]{
-		OutputState: i.ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountEncryptionManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountEncryptionManagedIdentityOutput) ElementType() reflect.Type {
@@ -346,12 +309,6 @@ func (o AccountEncryptionManagedIdentityOutput) ToAccountEncryptionManagedIdenti
 	}).(AccountEncryptionManagedIdentityPtrOutput)
 }
 
-func (o AccountEncryptionManagedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountEncryptionManagedIdentity] {
-	return pulumix.Output[AccountEncryptionManagedIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether to use System Assigned Identity. Possible Values are `true` and `false`.
 func (o AccountEncryptionManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountEncryptionManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
@@ -374,12 +331,6 @@ func (o AccountEncryptionManagedIdentityPtrOutput) ToAccountEncryptionManagedIde
 
 func (o AccountEncryptionManagedIdentityPtrOutput) ToAccountEncryptionManagedIdentityPtrOutputWithContext(ctx context.Context) AccountEncryptionManagedIdentityPtrOutput {
 	return o
-}
-
-func (o AccountEncryptionManagedIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountEncryptionManagedIdentity] {
-	return pulumix.Output[*AccountEncryptionManagedIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountEncryptionManagedIdentityPtrOutput) Elem() AccountEncryptionManagedIdentityOutput {
@@ -457,12 +408,6 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
-func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -504,12 +449,6 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -532,12 +471,6 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
-}
-
-func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
@@ -572,12 +505,6 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
-}
-
-func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -667,12 +594,6 @@ func (i AccountKeyDeliveryAccessControlArgs) ToAccountKeyDeliveryAccessControlOu
 	return pulumi.ToOutputWithContext(ctx, i).(AccountKeyDeliveryAccessControlOutput)
 }
 
-func (i AccountKeyDeliveryAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[AccountKeyDeliveryAccessControl] {
-	return pulumix.Output[AccountKeyDeliveryAccessControl]{
-		OutputState: i.ToAccountKeyDeliveryAccessControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountKeyDeliveryAccessControlArgs) ToAccountKeyDeliveryAccessControlPtrOutput() AccountKeyDeliveryAccessControlPtrOutput {
 	return i.ToAccountKeyDeliveryAccessControlPtrOutputWithContext(context.Background())
 }
@@ -714,12 +635,6 @@ func (i *accountKeyDeliveryAccessControlPtrType) ToAccountKeyDeliveryAccessContr
 	return pulumi.ToOutputWithContext(ctx, i).(AccountKeyDeliveryAccessControlPtrOutput)
 }
 
-func (i *accountKeyDeliveryAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountKeyDeliveryAccessControl] {
-	return pulumix.Output[*AccountKeyDeliveryAccessControl]{
-		OutputState: i.ToAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountKeyDeliveryAccessControlOutput struct{ *pulumi.OutputState }
 
 func (AccountKeyDeliveryAccessControlOutput) ElementType() reflect.Type {
@@ -744,12 +659,6 @@ func (o AccountKeyDeliveryAccessControlOutput) ToAccountKeyDeliveryAccessControl
 	}).(AccountKeyDeliveryAccessControlPtrOutput)
 }
 
-func (o AccountKeyDeliveryAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[AccountKeyDeliveryAccessControl] {
-	return pulumix.Output[AccountKeyDeliveryAccessControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Default Action to use when no rules match from `ipAllowList`. Possible values are `Allow` and `Deny`.
 func (o AccountKeyDeliveryAccessControlOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountKeyDeliveryAccessControl) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
@@ -772,12 +681,6 @@ func (o AccountKeyDeliveryAccessControlPtrOutput) ToAccountKeyDeliveryAccessCont
 
 func (o AccountKeyDeliveryAccessControlPtrOutput) ToAccountKeyDeliveryAccessControlPtrOutputWithContext(ctx context.Context) AccountKeyDeliveryAccessControlPtrOutput {
 	return o
-}
-
-func (o AccountKeyDeliveryAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountKeyDeliveryAccessControl] {
-	return pulumix.Output[*AccountKeyDeliveryAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountKeyDeliveryAccessControlPtrOutput) Elem() AccountKeyDeliveryAccessControlOutput {
@@ -855,12 +758,6 @@ func (i AccountStorageAccountArgs) ToAccountStorageAccountOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountOutput)
 }
 
-func (i AccountStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[AccountStorageAccount] {
-	return pulumix.Output[AccountStorageAccount]{
-		OutputState: i.ToAccountStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountStorageAccountArrayInput is an input type that accepts AccountStorageAccountArray and AccountStorageAccountArrayOutput values.
 // You can construct a concrete instance of `AccountStorageAccountArrayInput` via:
 //
@@ -886,12 +783,6 @@ func (i AccountStorageAccountArray) ToAccountStorageAccountArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountArrayOutput)
 }
 
-func (i AccountStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountStorageAccount] {
-	return pulumix.Output[[]AccountStorageAccount]{
-		OutputState: i.ToAccountStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (AccountStorageAccountOutput) ElementType() reflect.Type {
@@ -904,12 +795,6 @@ func (o AccountStorageAccountOutput) ToAccountStorageAccountOutput() AccountStor
 
 func (o AccountStorageAccountOutput) ToAccountStorageAccountOutputWithContext(ctx context.Context) AccountStorageAccountOutput {
 	return o
-}
-
-func (o AccountStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[AccountStorageAccount] {
-	return pulumix.Output[AccountStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Storage Account that will be associated with the Media Services instance.
@@ -941,12 +826,6 @@ func (o AccountStorageAccountArrayOutput) ToAccountStorageAccountArrayOutput() A
 
 func (o AccountStorageAccountArrayOutput) ToAccountStorageAccountArrayOutputWithContext(ctx context.Context) AccountStorageAccountArrayOutput {
 	return o
-}
-
-func (o AccountStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountStorageAccount] {
-	return pulumix.Output[[]AccountStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountStorageAccountArrayOutput) Index(i pulumi.IntInput) AccountStorageAccountOutput {
@@ -992,12 +871,6 @@ func (i AccountStorageAccountManagedIdentityArgs) ToAccountStorageAccountManaged
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountManagedIdentityOutput)
 }
 
-func (i AccountStorageAccountManagedIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountStorageAccountManagedIdentity] {
-	return pulumix.Output[AccountStorageAccountManagedIdentity]{
-		OutputState: i.ToAccountStorageAccountManagedIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountStorageAccountManagedIdentityArgs) ToAccountStorageAccountManagedIdentityPtrOutput() AccountStorageAccountManagedIdentityPtrOutput {
 	return i.ToAccountStorageAccountManagedIdentityPtrOutputWithContext(context.Background())
 }
@@ -1039,12 +912,6 @@ func (i *accountStorageAccountManagedIdentityPtrType) ToAccountStorageAccountMan
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStorageAccountManagedIdentityPtrOutput)
 }
 
-func (i *accountStorageAccountManagedIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountStorageAccountManagedIdentity] {
-	return pulumix.Output[*AccountStorageAccountManagedIdentity]{
-		OutputState: i.ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountStorageAccountManagedIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountStorageAccountManagedIdentityOutput) ElementType() reflect.Type {
@@ -1069,12 +936,6 @@ func (o AccountStorageAccountManagedIdentityOutput) ToAccountStorageAccountManag
 	}).(AccountStorageAccountManagedIdentityPtrOutput)
 }
 
-func (o AccountStorageAccountManagedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountStorageAccountManagedIdentity] {
-	return pulumix.Output[AccountStorageAccountManagedIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether to use System Assigned Identity. Possible Values are `true` and `false`.
 func (o AccountStorageAccountManagedIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountStorageAccountManagedIdentity) *bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolPtrOutput)
@@ -1097,12 +958,6 @@ func (o AccountStorageAccountManagedIdentityPtrOutput) ToAccountStorageAccountMa
 
 func (o AccountStorageAccountManagedIdentityPtrOutput) ToAccountStorageAccountManagedIdentityPtrOutputWithContext(ctx context.Context) AccountStorageAccountManagedIdentityPtrOutput {
 	return o
-}
-
-func (o AccountStorageAccountManagedIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountStorageAccountManagedIdentity] {
-	return pulumix.Output[*AccountStorageAccountManagedIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountStorageAccountManagedIdentityPtrOutput) Elem() AccountStorageAccountManagedIdentityOutput {

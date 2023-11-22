@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AadDiagnosticSettingEnabledLogArgs) ToAadDiagnosticSettingEnabledLogOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogOutput)
 }
 
-func (i AadDiagnosticSettingEnabledLogArgs) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingEnabledLog] {
-	return pulumix.Output[AadDiagnosticSettingEnabledLog]{
-		OutputState: i.ToAadDiagnosticSettingEnabledLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AadDiagnosticSettingEnabledLogArrayInput is an input type that accepts AadDiagnosticSettingEnabledLogArray and AadDiagnosticSettingEnabledLogArrayOutput values.
 // You can construct a concrete instance of `AadDiagnosticSettingEnabledLogArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i AadDiagnosticSettingEnabledLogArray) ToAadDiagnosticSettingEnabledLogArr
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogArrayOutput)
 }
 
-func (i AadDiagnosticSettingEnabledLogArray) ToOutput(ctx context.Context) pulumix.Output[[]AadDiagnosticSettingEnabledLog] {
-	return pulumix.Output[[]AadDiagnosticSettingEnabledLog]{
-		OutputState: i.ToAadDiagnosticSettingEnabledLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AadDiagnosticSettingEnabledLogOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingEnabledLogOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o AadDiagnosticSettingEnabledLogOutput) ToAadDiagnosticSettingEnabledLogOu
 
 func (o AadDiagnosticSettingEnabledLogOutput) ToAadDiagnosticSettingEnabledLogOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogOutput {
 	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogOutput) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingEnabledLog] {
-	return pulumix.Output[AadDiagnosticSettingEnabledLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The log category for the Azure Active Directory Diagnostic.
@@ -132,12 +113,6 @@ func (o AadDiagnosticSettingEnabledLogArrayOutput) ToAadDiagnosticSettingEnabled
 
 func (o AadDiagnosticSettingEnabledLogArrayOutput) ToAadDiagnosticSettingEnabledLogArrayOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogArrayOutput {
 	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AadDiagnosticSettingEnabledLog] {
-	return pulumix.Output[[]AadDiagnosticSettingEnabledLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AadDiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) AadDiagnosticSettingEnabledLogOutput {
@@ -183,12 +158,6 @@ func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToAadDiagnosticSettin
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingEnabledLogRetentionPolicyOutput)
 }
 
-func (i AadDiagnosticSettingEnabledLogRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingEnabledLogRetentionPolicy] {
-	return pulumix.Output[AadDiagnosticSettingEnabledLogRetentionPolicy]{
-		OutputState: i.ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AadDiagnosticSettingEnabledLogRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ElementType() reflect.Type {
@@ -201,12 +170,6 @@ func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSett
 
 func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToAadDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx context.Context) AadDiagnosticSettingEnabledLogRetentionPolicyOutput {
 	return o
-}
-
-func (o AadDiagnosticSettingEnabledLogRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingEnabledLogRetentionPolicy] {
-	return pulumix.Output[AadDiagnosticSettingEnabledLogRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days for which this Retention Policy should apply. Defaults to `0`.
@@ -260,12 +223,6 @@ func (i AadDiagnosticSettingLogArgs) ToAadDiagnosticSettingLogOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingLogOutput)
 }
 
-func (i AadDiagnosticSettingLogArgs) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingLog] {
-	return pulumix.Output[AadDiagnosticSettingLog]{
-		OutputState: i.ToAadDiagnosticSettingLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AadDiagnosticSettingLogArrayInput is an input type that accepts AadDiagnosticSettingLogArray and AadDiagnosticSettingLogArrayOutput values.
 // You can construct a concrete instance of `AadDiagnosticSettingLogArrayInput` via:
 //
@@ -291,12 +248,6 @@ func (i AadDiagnosticSettingLogArray) ToAadDiagnosticSettingLogArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingLogArrayOutput)
 }
 
-func (i AadDiagnosticSettingLogArray) ToOutput(ctx context.Context) pulumix.Output[[]AadDiagnosticSettingLog] {
-	return pulumix.Output[[]AadDiagnosticSettingLog]{
-		OutputState: i.ToAadDiagnosticSettingLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AadDiagnosticSettingLogOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingLogOutput) ElementType() reflect.Type {
@@ -309,12 +260,6 @@ func (o AadDiagnosticSettingLogOutput) ToAadDiagnosticSettingLogOutput() AadDiag
 
 func (o AadDiagnosticSettingLogOutput) ToAadDiagnosticSettingLogOutputWithContext(ctx context.Context) AadDiagnosticSettingLogOutput {
 	return o
-}
-
-func (o AadDiagnosticSettingLogOutput) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingLog] {
-	return pulumix.Output[AadDiagnosticSettingLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The log category for the Azure Active Directory Diagnostic.
@@ -344,12 +289,6 @@ func (o AadDiagnosticSettingLogArrayOutput) ToAadDiagnosticSettingLogArrayOutput
 
 func (o AadDiagnosticSettingLogArrayOutput) ToAadDiagnosticSettingLogArrayOutputWithContext(ctx context.Context) AadDiagnosticSettingLogArrayOutput {
 	return o
-}
-
-func (o AadDiagnosticSettingLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AadDiagnosticSettingLog] {
-	return pulumix.Output[[]AadDiagnosticSettingLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AadDiagnosticSettingLogArrayOutput) Index(i pulumi.IntInput) AadDiagnosticSettingLogOutput {
@@ -395,12 +334,6 @@ func (i AadDiagnosticSettingLogRetentionPolicyArgs) ToAadDiagnosticSettingLogRet
 	return pulumi.ToOutputWithContext(ctx, i).(AadDiagnosticSettingLogRetentionPolicyOutput)
 }
 
-func (i AadDiagnosticSettingLogRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingLogRetentionPolicy] {
-	return pulumix.Output[AadDiagnosticSettingLogRetentionPolicy]{
-		OutputState: i.ToAadDiagnosticSettingLogRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AadDiagnosticSettingLogRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AadDiagnosticSettingLogRetentionPolicyOutput) ElementType() reflect.Type {
@@ -413,12 +346,6 @@ func (o AadDiagnosticSettingLogRetentionPolicyOutput) ToAadDiagnosticSettingLogR
 
 func (o AadDiagnosticSettingLogRetentionPolicyOutput) ToAadDiagnosticSettingLogRetentionPolicyOutputWithContext(ctx context.Context) AadDiagnosticSettingLogRetentionPolicyOutput {
 	return o
-}
-
-func (o AadDiagnosticSettingLogRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AadDiagnosticSettingLogRetentionPolicy] {
-	return pulumix.Output[AadDiagnosticSettingLogRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days for which this Retention Policy should apply. Defaults to `0`.
@@ -472,12 +399,6 @@ func (i ActionGroupArmRoleReceiverArgs) ToActionGroupArmRoleReceiverOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupArmRoleReceiverOutput)
 }
 
-func (i ActionGroupArmRoleReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupArmRoleReceiver] {
-	return pulumix.Output[ActionGroupArmRoleReceiver]{
-		OutputState: i.ToActionGroupArmRoleReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupArmRoleReceiverArrayInput is an input type that accepts ActionGroupArmRoleReceiverArray and ActionGroupArmRoleReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupArmRoleReceiverArrayInput` via:
 //
@@ -503,12 +424,6 @@ func (i ActionGroupArmRoleReceiverArray) ToActionGroupArmRoleReceiverArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupArmRoleReceiverArrayOutput)
 }
 
-func (i ActionGroupArmRoleReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupArmRoleReceiver] {
-	return pulumix.Output[[]ActionGroupArmRoleReceiver]{
-		OutputState: i.ToActionGroupArmRoleReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupArmRoleReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupArmRoleReceiverOutput) ElementType() reflect.Type {
@@ -521,12 +436,6 @@ func (o ActionGroupArmRoleReceiverOutput) ToActionGroupArmRoleReceiverOutput() A
 
 func (o ActionGroupArmRoleReceiverOutput) ToActionGroupArmRoleReceiverOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiverOutput {
 	return o
-}
-
-func (o ActionGroupArmRoleReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupArmRoleReceiver] {
-	return pulumix.Output[ActionGroupArmRoleReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the ARM role receiver.
@@ -556,12 +465,6 @@ func (o ActionGroupArmRoleReceiverArrayOutput) ToActionGroupArmRoleReceiverArray
 
 func (o ActionGroupArmRoleReceiverArrayOutput) ToActionGroupArmRoleReceiverArrayOutputWithContext(ctx context.Context) ActionGroupArmRoleReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupArmRoleReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupArmRoleReceiver] {
-	return pulumix.Output[[]ActionGroupArmRoleReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupArmRoleReceiverOutput {
@@ -627,12 +530,6 @@ func (i ActionGroupAutomationRunbookReceiverArgs) ToActionGroupAutomationRunbook
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAutomationRunbookReceiverOutput)
 }
 
-func (i ActionGroupAutomationRunbookReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[ActionGroupAutomationRunbookReceiver]{
-		OutputState: i.ToActionGroupAutomationRunbookReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupAutomationRunbookReceiverArrayInput is an input type that accepts ActionGroupAutomationRunbookReceiverArray and ActionGroupAutomationRunbookReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupAutomationRunbookReceiverArrayInput` via:
 //
@@ -658,12 +555,6 @@ func (i ActionGroupAutomationRunbookReceiverArray) ToActionGroupAutomationRunboo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAutomationRunbookReceiverArrayOutput)
 }
 
-func (i ActionGroupAutomationRunbookReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[[]ActionGroupAutomationRunbookReceiver]{
-		OutputState: i.ToActionGroupAutomationRunbookReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupAutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAutomationRunbookReceiverOutput) ElementType() reflect.Type {
@@ -676,12 +567,6 @@ func (o ActionGroupAutomationRunbookReceiverOutput) ToActionGroupAutomationRunbo
 
 func (o ActionGroupAutomationRunbookReceiverOutput) ToActionGroupAutomationRunbookReceiverOutputWithContext(ctx context.Context) ActionGroupAutomationRunbookReceiverOutput {
 	return o
-}
-
-func (o ActionGroupAutomationRunbookReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[ActionGroupAutomationRunbookReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The automation account ID which holds this runbook and authenticates to Azure resources.
@@ -733,12 +618,6 @@ func (o ActionGroupAutomationRunbookReceiverArrayOutput) ToActionGroupAutomation
 	return o
 }
 
-func (o ActionGroupAutomationRunbookReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[[]ActionGroupAutomationRunbookReceiver]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupAutomationRunbookReceiverOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionGroupAutomationRunbookReceiver {
 		return vs[0].([]ActionGroupAutomationRunbookReceiver)[vs[1].(int)]
@@ -782,12 +661,6 @@ func (i ActionGroupAzureAppPushReceiverArgs) ToActionGroupAzureAppPushReceiverOu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAzureAppPushReceiverOutput)
 }
 
-func (i ActionGroupAzureAppPushReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[ActionGroupAzureAppPushReceiver]{
-		OutputState: i.ToActionGroupAzureAppPushReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupAzureAppPushReceiverArrayInput is an input type that accepts ActionGroupAzureAppPushReceiverArray and ActionGroupAzureAppPushReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupAzureAppPushReceiverArrayInput` via:
 //
@@ -813,12 +686,6 @@ func (i ActionGroupAzureAppPushReceiverArray) ToActionGroupAzureAppPushReceiverA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAzureAppPushReceiverArrayOutput)
 }
 
-func (i ActionGroupAzureAppPushReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[[]ActionGroupAzureAppPushReceiver]{
-		OutputState: i.ToActionGroupAzureAppPushReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupAzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAzureAppPushReceiverOutput) ElementType() reflect.Type {
@@ -831,12 +698,6 @@ func (o ActionGroupAzureAppPushReceiverOutput) ToActionGroupAzureAppPushReceiver
 
 func (o ActionGroupAzureAppPushReceiverOutput) ToActionGroupAzureAppPushReceiverOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiverOutput {
 	return o
-}
-
-func (o ActionGroupAzureAppPushReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[ActionGroupAzureAppPushReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email address of the user signed into the mobile app who will receive push notifications from this receiver.
@@ -861,12 +722,6 @@ func (o ActionGroupAzureAppPushReceiverArrayOutput) ToActionGroupAzureAppPushRec
 
 func (o ActionGroupAzureAppPushReceiverArrayOutput) ToActionGroupAzureAppPushReceiverArrayOutputWithContext(ctx context.Context) ActionGroupAzureAppPushReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupAzureAppPushReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[[]ActionGroupAzureAppPushReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupAzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupAzureAppPushReceiverOutput {
@@ -924,12 +779,6 @@ func (i ActionGroupAzureFunctionReceiverArgs) ToActionGroupAzureFunctionReceiver
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAzureFunctionReceiverOutput)
 }
 
-func (i ActionGroupAzureFunctionReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[ActionGroupAzureFunctionReceiver]{
-		OutputState: i.ToActionGroupAzureFunctionReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupAzureFunctionReceiverArrayInput is an input type that accepts ActionGroupAzureFunctionReceiverArray and ActionGroupAzureFunctionReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupAzureFunctionReceiverArrayInput` via:
 //
@@ -955,12 +804,6 @@ func (i ActionGroupAzureFunctionReceiverArray) ToActionGroupAzureFunctionReceive
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupAzureFunctionReceiverArrayOutput)
 }
 
-func (i ActionGroupAzureFunctionReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[[]ActionGroupAzureFunctionReceiver]{
-		OutputState: i.ToActionGroupAzureFunctionReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupAzureFunctionReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupAzureFunctionReceiverOutput) ElementType() reflect.Type {
@@ -973,12 +816,6 @@ func (o ActionGroupAzureFunctionReceiverOutput) ToActionGroupAzureFunctionReceiv
 
 func (o ActionGroupAzureFunctionReceiverOutput) ToActionGroupAzureFunctionReceiverOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiverOutput {
 	return o
-}
-
-func (o ActionGroupAzureFunctionReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[ActionGroupAzureFunctionReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure resource ID of the function app.
@@ -1018,12 +855,6 @@ func (o ActionGroupAzureFunctionReceiverArrayOutput) ToActionGroupAzureFunctionR
 
 func (o ActionGroupAzureFunctionReceiverArrayOutput) ToActionGroupAzureFunctionReceiverArrayOutputWithContext(ctx context.Context) ActionGroupAzureFunctionReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupAzureFunctionReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[[]ActionGroupAzureFunctionReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupAzureFunctionReceiverOutput {
@@ -1073,12 +904,6 @@ func (i ActionGroupEmailReceiverArgs) ToActionGroupEmailReceiverOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEmailReceiverOutput)
 }
 
-func (i ActionGroupEmailReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupEmailReceiver] {
-	return pulumix.Output[ActionGroupEmailReceiver]{
-		OutputState: i.ToActionGroupEmailReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupEmailReceiverArrayInput is an input type that accepts ActionGroupEmailReceiverArray and ActionGroupEmailReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupEmailReceiverArrayInput` via:
 //
@@ -1104,12 +929,6 @@ func (i ActionGroupEmailReceiverArray) ToActionGroupEmailReceiverArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEmailReceiverArrayOutput)
 }
 
-func (i ActionGroupEmailReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupEmailReceiver] {
-	return pulumix.Output[[]ActionGroupEmailReceiver]{
-		OutputState: i.ToActionGroupEmailReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupEmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupEmailReceiverOutput) ElementType() reflect.Type {
@@ -1122,12 +941,6 @@ func (o ActionGroupEmailReceiverOutput) ToActionGroupEmailReceiverOutput() Actio
 
 func (o ActionGroupEmailReceiverOutput) ToActionGroupEmailReceiverOutputWithContext(ctx context.Context) ActionGroupEmailReceiverOutput {
 	return o
-}
-
-func (o ActionGroupEmailReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupEmailReceiver] {
-	return pulumix.Output[ActionGroupEmailReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email address of this receiver.
@@ -1157,12 +970,6 @@ func (o ActionGroupEmailReceiverArrayOutput) ToActionGroupEmailReceiverArrayOutp
 
 func (o ActionGroupEmailReceiverArrayOutput) ToActionGroupEmailReceiverArrayOutputWithContext(ctx context.Context) ActionGroupEmailReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupEmailReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupEmailReceiver] {
-	return pulumix.Output[[]ActionGroupEmailReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupEmailReceiverOutput {
@@ -1236,12 +1043,6 @@ func (i ActionGroupEventHubReceiverArgs) ToActionGroupEventHubReceiverOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEventHubReceiverOutput)
 }
 
-func (i ActionGroupEventHubReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupEventHubReceiver] {
-	return pulumix.Output[ActionGroupEventHubReceiver]{
-		OutputState: i.ToActionGroupEventHubReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupEventHubReceiverArrayInput is an input type that accepts ActionGroupEventHubReceiverArray and ActionGroupEventHubReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupEventHubReceiverArrayInput` via:
 //
@@ -1267,12 +1068,6 @@ func (i ActionGroupEventHubReceiverArray) ToActionGroupEventHubReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupEventHubReceiverArrayOutput)
 }
 
-func (i ActionGroupEventHubReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupEventHubReceiver] {
-	return pulumix.Output[[]ActionGroupEventHubReceiver]{
-		OutputState: i.ToActionGroupEventHubReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupEventHubReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupEventHubReceiverOutput) ElementType() reflect.Type {
@@ -1285,12 +1080,6 @@ func (o ActionGroupEventHubReceiverOutput) ToActionGroupEventHubReceiverOutput()
 
 func (o ActionGroupEventHubReceiverOutput) ToActionGroupEventHubReceiverOutputWithContext(ctx context.Context) ActionGroupEventHubReceiverOutput {
 	return o
-}
-
-func (o ActionGroupEventHubReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupEventHubReceiver] {
-	return pulumix.Output[ActionGroupEventHubReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the respective Event Hub.
@@ -1344,12 +1133,6 @@ func (o ActionGroupEventHubReceiverArrayOutput) ToActionGroupEventHubReceiverArr
 
 func (o ActionGroupEventHubReceiverArrayOutput) ToActionGroupEventHubReceiverArrayOutputWithContext(ctx context.Context) ActionGroupEventHubReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupEventHubReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupEventHubReceiver] {
-	return pulumix.Output[[]ActionGroupEventHubReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupEventHubReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupEventHubReceiverOutput {
@@ -1411,12 +1194,6 @@ func (i ActionGroupItsmReceiverArgs) ToActionGroupItsmReceiverOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupItsmReceiverOutput)
 }
 
-func (i ActionGroupItsmReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupItsmReceiver] {
-	return pulumix.Output[ActionGroupItsmReceiver]{
-		OutputState: i.ToActionGroupItsmReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupItsmReceiverArrayInput is an input type that accepts ActionGroupItsmReceiverArray and ActionGroupItsmReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupItsmReceiverArrayInput` via:
 //
@@ -1442,12 +1219,6 @@ func (i ActionGroupItsmReceiverArray) ToActionGroupItsmReceiverArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupItsmReceiverArrayOutput)
 }
 
-func (i ActionGroupItsmReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupItsmReceiver] {
-	return pulumix.Output[[]ActionGroupItsmReceiver]{
-		OutputState: i.ToActionGroupItsmReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupItsmReceiverOutput) ElementType() reflect.Type {
@@ -1460,12 +1231,6 @@ func (o ActionGroupItsmReceiverOutput) ToActionGroupItsmReceiverOutput() ActionG
 
 func (o ActionGroupItsmReceiverOutput) ToActionGroupItsmReceiverOutputWithContext(ctx context.Context) ActionGroupItsmReceiverOutput {
 	return o
-}
-
-func (o ActionGroupItsmReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupItsmReceiver] {
-	return pulumix.Output[ActionGroupItsmReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique connection identifier of the ITSM connection.
@@ -1507,12 +1272,6 @@ func (o ActionGroupItsmReceiverArrayOutput) ToActionGroupItsmReceiverArrayOutput
 
 func (o ActionGroupItsmReceiverArrayOutput) ToActionGroupItsmReceiverArrayOutputWithContext(ctx context.Context) ActionGroupItsmReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupItsmReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupItsmReceiver] {
-	return pulumix.Output[[]ActionGroupItsmReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupItsmReceiverOutput {
@@ -1566,12 +1325,6 @@ func (i ActionGroupLogicAppReceiverArgs) ToActionGroupLogicAppReceiverOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupLogicAppReceiverOutput)
 }
 
-func (i ActionGroupLogicAppReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupLogicAppReceiver] {
-	return pulumix.Output[ActionGroupLogicAppReceiver]{
-		OutputState: i.ToActionGroupLogicAppReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupLogicAppReceiverArrayInput is an input type that accepts ActionGroupLogicAppReceiverArray and ActionGroupLogicAppReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupLogicAppReceiverArrayInput` via:
 //
@@ -1597,12 +1350,6 @@ func (i ActionGroupLogicAppReceiverArray) ToActionGroupLogicAppReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupLogicAppReceiverArrayOutput)
 }
 
-func (i ActionGroupLogicAppReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupLogicAppReceiver] {
-	return pulumix.Output[[]ActionGroupLogicAppReceiver]{
-		OutputState: i.ToActionGroupLogicAppReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupLogicAppReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupLogicAppReceiverOutput) ElementType() reflect.Type {
@@ -1615,12 +1362,6 @@ func (o ActionGroupLogicAppReceiverOutput) ToActionGroupLogicAppReceiverOutput()
 
 func (o ActionGroupLogicAppReceiverOutput) ToActionGroupLogicAppReceiverOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiverOutput {
 	return o
-}
-
-func (o ActionGroupLogicAppReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupLogicAppReceiver] {
-	return pulumix.Output[ActionGroupLogicAppReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The callback url where HTTP request sent to.
@@ -1655,12 +1396,6 @@ func (o ActionGroupLogicAppReceiverArrayOutput) ToActionGroupLogicAppReceiverArr
 
 func (o ActionGroupLogicAppReceiverArrayOutput) ToActionGroupLogicAppReceiverArrayOutputWithContext(ctx context.Context) ActionGroupLogicAppReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupLogicAppReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupLogicAppReceiver] {
-	return pulumix.Output[[]ActionGroupLogicAppReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupLogicAppReceiverOutput {
@@ -1710,12 +1445,6 @@ func (i ActionGroupSmsReceiverArgs) ToActionGroupSmsReceiverOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupSmsReceiverOutput)
 }
 
-func (i ActionGroupSmsReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupSmsReceiver] {
-	return pulumix.Output[ActionGroupSmsReceiver]{
-		OutputState: i.ToActionGroupSmsReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupSmsReceiverArrayInput is an input type that accepts ActionGroupSmsReceiverArray and ActionGroupSmsReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupSmsReceiverArrayInput` via:
 //
@@ -1741,12 +1470,6 @@ func (i ActionGroupSmsReceiverArray) ToActionGroupSmsReceiverArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupSmsReceiverArrayOutput)
 }
 
-func (i ActionGroupSmsReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupSmsReceiver] {
-	return pulumix.Output[[]ActionGroupSmsReceiver]{
-		OutputState: i.ToActionGroupSmsReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupSmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupSmsReceiverOutput) ElementType() reflect.Type {
@@ -1759,12 +1482,6 @@ func (o ActionGroupSmsReceiverOutput) ToActionGroupSmsReceiverOutput() ActionGro
 
 func (o ActionGroupSmsReceiverOutput) ToActionGroupSmsReceiverOutputWithContext(ctx context.Context) ActionGroupSmsReceiverOutput {
 	return o
-}
-
-func (o ActionGroupSmsReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupSmsReceiver] {
-	return pulumix.Output[ActionGroupSmsReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The country code of the SMS receiver.
@@ -1794,12 +1511,6 @@ func (o ActionGroupSmsReceiverArrayOutput) ToActionGroupSmsReceiverArrayOutput()
 
 func (o ActionGroupSmsReceiverArrayOutput) ToActionGroupSmsReceiverArrayOutputWithContext(ctx context.Context) ActionGroupSmsReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupSmsReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupSmsReceiver] {
-	return pulumix.Output[[]ActionGroupSmsReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupSmsReceiverOutput {
@@ -1849,12 +1560,6 @@ func (i ActionGroupVoiceReceiverArgs) ToActionGroupVoiceReceiverOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupVoiceReceiverOutput)
 }
 
-func (i ActionGroupVoiceReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupVoiceReceiver] {
-	return pulumix.Output[ActionGroupVoiceReceiver]{
-		OutputState: i.ToActionGroupVoiceReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupVoiceReceiverArrayInput is an input type that accepts ActionGroupVoiceReceiverArray and ActionGroupVoiceReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupVoiceReceiverArrayInput` via:
 //
@@ -1880,12 +1585,6 @@ func (i ActionGroupVoiceReceiverArray) ToActionGroupVoiceReceiverArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupVoiceReceiverArrayOutput)
 }
 
-func (i ActionGroupVoiceReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupVoiceReceiver] {
-	return pulumix.Output[[]ActionGroupVoiceReceiver]{
-		OutputState: i.ToActionGroupVoiceReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupVoiceReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupVoiceReceiverOutput) ElementType() reflect.Type {
@@ -1898,12 +1597,6 @@ func (o ActionGroupVoiceReceiverOutput) ToActionGroupVoiceReceiverOutput() Actio
 
 func (o ActionGroupVoiceReceiverOutput) ToActionGroupVoiceReceiverOutputWithContext(ctx context.Context) ActionGroupVoiceReceiverOutput {
 	return o
-}
-
-func (o ActionGroupVoiceReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupVoiceReceiver] {
-	return pulumix.Output[ActionGroupVoiceReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The country code of the voice receiver.
@@ -1933,12 +1626,6 @@ func (o ActionGroupVoiceReceiverArrayOutput) ToActionGroupVoiceReceiverArrayOutp
 
 func (o ActionGroupVoiceReceiverArrayOutput) ToActionGroupVoiceReceiverArrayOutputWithContext(ctx context.Context) ActionGroupVoiceReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupVoiceReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupVoiceReceiver] {
-	return pulumix.Output[[]ActionGroupVoiceReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupVoiceReceiverOutput {
@@ -1996,12 +1683,6 @@ func (i ActionGroupWebhookReceiverArgs) ToActionGroupWebhookReceiverOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverOutput)
 }
 
-func (i ActionGroupWebhookReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupWebhookReceiver] {
-	return pulumix.Output[ActionGroupWebhookReceiver]{
-		OutputState: i.ToActionGroupWebhookReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionGroupWebhookReceiverArrayInput is an input type that accepts ActionGroupWebhookReceiverArray and ActionGroupWebhookReceiverArrayOutput values.
 // You can construct a concrete instance of `ActionGroupWebhookReceiverArrayInput` via:
 //
@@ -2027,12 +1708,6 @@ func (i ActionGroupWebhookReceiverArray) ToActionGroupWebhookReceiverArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverArrayOutput)
 }
 
-func (i ActionGroupWebhookReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupWebhookReceiver] {
-	return pulumix.Output[[]ActionGroupWebhookReceiver]{
-		OutputState: i.ToActionGroupWebhookReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupWebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupWebhookReceiverOutput) ElementType() reflect.Type {
@@ -2045,12 +1720,6 @@ func (o ActionGroupWebhookReceiverOutput) ToActionGroupWebhookReceiverOutput() A
 
 func (o ActionGroupWebhookReceiverOutput) ToActionGroupWebhookReceiverOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverOutput {
 	return o
-}
-
-func (o ActionGroupWebhookReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupWebhookReceiver] {
-	return pulumix.Output[ActionGroupWebhookReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The `aadAuth` block as defined below.
@@ -2087,12 +1756,6 @@ func (o ActionGroupWebhookReceiverArrayOutput) ToActionGroupWebhookReceiverArray
 
 func (o ActionGroupWebhookReceiverArrayOutput) ToActionGroupWebhookReceiverArrayOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverArrayOutput {
 	return o
-}
-
-func (o ActionGroupWebhookReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActionGroupWebhookReceiver] {
-	return pulumix.Output[[]ActionGroupWebhookReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) ActionGroupWebhookReceiverOutput {
@@ -2142,12 +1805,6 @@ func (i ActionGroupWebhookReceiverAadAuthArgs) ToActionGroupWebhookReceiverAadAu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverAadAuthOutput)
 }
 
-func (i ActionGroupWebhookReceiverAadAuthArgs) ToOutput(ctx context.Context) pulumix.Output[ActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[ActionGroupWebhookReceiverAadAuth]{
-		OutputState: i.ToActionGroupWebhookReceiverAadAuthOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionGroupWebhookReceiverAadAuthArgs) ToActionGroupWebhookReceiverAadAuthPtrOutput() ActionGroupWebhookReceiverAadAuthPtrOutput {
 	return i.ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(context.Background())
 }
@@ -2189,12 +1846,6 @@ func (i *actionGroupWebhookReceiverAadAuthPtrType) ToActionGroupWebhookReceiverA
 	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupWebhookReceiverAadAuthPtrOutput)
 }
 
-func (i *actionGroupWebhookReceiverAadAuthPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[*ActionGroupWebhookReceiverAadAuth]{
-		OutputState: i.ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionGroupWebhookReceiverAadAuthOutput struct{ *pulumi.OutputState }
 
 func (ActionGroupWebhookReceiverAadAuthOutput) ElementType() reflect.Type {
@@ -2217,12 +1868,6 @@ func (o ActionGroupWebhookReceiverAadAuthOutput) ToActionGroupWebhookReceiverAad
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionGroupWebhookReceiverAadAuth) *ActionGroupWebhookReceiverAadAuth {
 		return &v
 	}).(ActionGroupWebhookReceiverAadAuthPtrOutput)
-}
-
-func (o ActionGroupWebhookReceiverAadAuthOutput) ToOutput(ctx context.Context) pulumix.Output[ActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[ActionGroupWebhookReceiverAadAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier URI for AAD auth.
@@ -2252,12 +1897,6 @@ func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ToActionGroupWebhookReceiver
 
 func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ToActionGroupWebhookReceiverAadAuthPtrOutputWithContext(ctx context.Context) ActionGroupWebhookReceiverAadAuthPtrOutput {
 	return o
-}
-
-func (o ActionGroupWebhookReceiverAadAuthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[*ActionGroupWebhookReceiverAadAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionGroupWebhookReceiverAadAuthPtrOutput) Elem() ActionGroupWebhookReceiverAadAuthOutput {
@@ -2357,12 +1996,6 @@ func (i ActionRuleActionGroupConditionArgs) ToActionRuleActionGroupConditionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionOutput)
 }
 
-func (i ActionRuleActionGroupConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupCondition] {
-	return pulumix.Output[ActionRuleActionGroupCondition]{
-		OutputState: i.ToActionRuleActionGroupConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionArgs) ToActionRuleActionGroupConditionPtrOutput() ActionRuleActionGroupConditionPtrOutput {
 	return i.ToActionRuleActionGroupConditionPtrOutputWithContext(context.Background())
 }
@@ -2404,12 +2037,6 @@ func (i *actionRuleActionGroupConditionPtrType) ToActionRuleActionGroupCondition
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionPtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupCondition] {
-	return pulumix.Output[*ActionRuleActionGroupCondition]{
-		OutputState: i.ToActionRuleActionGroupConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionOutput) ElementType() reflect.Type {
@@ -2432,12 +2059,6 @@ func (o ActionRuleActionGroupConditionOutput) ToActionRuleActionGroupConditionPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleActionGroupCondition) *ActionRuleActionGroupCondition {
 		return &v
 	}).(ActionRuleActionGroupConditionPtrOutput)
-}
-
-func (o ActionRuleActionGroupConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupCondition] {
-	return pulumix.Output[ActionRuleActionGroupCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `alertContext` block as defined below.
@@ -2497,12 +2118,6 @@ func (o ActionRuleActionGroupConditionPtrOutput) ToActionRuleActionGroupConditio
 
 func (o ActionRuleActionGroupConditionPtrOutput) ToActionRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionPtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupCondition] {
-	return pulumix.Output[*ActionRuleActionGroupCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionPtrOutput) Elem() ActionRuleActionGroupConditionOutput {
@@ -2622,12 +2237,6 @@ func (i ActionRuleActionGroupConditionAlertContextArgs) ToActionRuleActionGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertContextOutput)
 }
 
-func (i ActionRuleActionGroupConditionAlertContextArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[ActionRuleActionGroupConditionAlertContext]{
-		OutputState: i.ToActionRuleActionGroupConditionAlertContextOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionAlertContextArgs) ToActionRuleActionGroupConditionAlertContextPtrOutput() ActionRuleActionGroupConditionAlertContextPtrOutput {
 	return i.ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
 }
@@ -2669,12 +2278,6 @@ func (i *actionRuleActionGroupConditionAlertContextPtrType) ToActionRuleActionGr
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertContextPtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionAlertContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[*ActionRuleActionGroupConditionAlertContext]{
-		OutputState: i.ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionAlertContextOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionAlertContextOutput) ElementType() reflect.Type {
@@ -2699,12 +2302,6 @@ func (o ActionRuleActionGroupConditionAlertContextOutput) ToActionRuleActionGrou
 	}).(ActionRuleActionGroupConditionAlertContextPtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionAlertContextOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[ActionRuleActionGroupConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o ActionRuleActionGroupConditionAlertContextOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
@@ -2727,12 +2324,6 @@ func (o ActionRuleActionGroupConditionAlertContextPtrOutput) ToActionRuleActionG
 
 func (o ActionRuleActionGroupConditionAlertContextPtrOutput) ToActionRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertContextPtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionAlertContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[*ActionRuleActionGroupConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionAlertContextPtrOutput) Elem() ActionRuleActionGroupConditionAlertContextOutput {
@@ -2802,12 +2393,6 @@ func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToActionRuleActionGroupCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertRuleIdOutput)
 }
 
-func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[ActionRuleActionGroupConditionAlertRuleId]{
-		OutputState: i.ToActionRuleActionGroupConditionAlertRuleIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionAlertRuleIdArgs) ToActionRuleActionGroupConditionAlertRuleIdPtrOutput() ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
 	return i.ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
 }
@@ -2849,12 +2434,6 @@ func (i *actionRuleActionGroupConditionAlertRuleIdPtrType) ToActionRuleActionGro
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionAlertRuleIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[*ActionRuleActionGroupConditionAlertRuleId]{
-		OutputState: i.ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionAlertRuleIdOutput) ElementType() reflect.Type {
@@ -2879,12 +2458,6 @@ func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToActionRuleActionGroup
 	}).(ActionRuleActionGroupConditionAlertRuleIdPtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionAlertRuleIdOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[ActionRuleActionGroupConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o ActionRuleActionGroupConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
@@ -2907,12 +2480,6 @@ func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ToActionRuleActionGr
 
 func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ToActionRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionAlertRuleIdPtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[*ActionRuleActionGroupConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionAlertRuleIdPtrOutput) Elem() ActionRuleActionGroupConditionAlertRuleIdOutput {
@@ -2982,12 +2549,6 @@ func (i ActionRuleActionGroupConditionDescriptionArgs) ToActionRuleActionGroupCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionDescriptionOutput)
 }
 
-func (i ActionRuleActionGroupConditionDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionDescription] {
-	return pulumix.Output[ActionRuleActionGroupConditionDescription]{
-		OutputState: i.ToActionRuleActionGroupConditionDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionDescriptionArgs) ToActionRuleActionGroupConditionDescriptionPtrOutput() ActionRuleActionGroupConditionDescriptionPtrOutput {
 	return i.ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
 }
@@ -3029,12 +2590,6 @@ func (i *actionRuleActionGroupConditionDescriptionPtrType) ToActionRuleActionGro
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionDescriptionPtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionDescriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionDescription] {
-	return pulumix.Output[*ActionRuleActionGroupConditionDescription]{
-		OutputState: i.ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionDescriptionOutput) ElementType() reflect.Type {
@@ -3059,12 +2614,6 @@ func (o ActionRuleActionGroupConditionDescriptionOutput) ToActionRuleActionGroup
 	}).(ActionRuleActionGroupConditionDescriptionPtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionDescription] {
-	return pulumix.Output[ActionRuleActionGroupConditionDescription]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o ActionRuleActionGroupConditionDescriptionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
@@ -3087,12 +2636,6 @@ func (o ActionRuleActionGroupConditionDescriptionPtrOutput) ToActionRuleActionGr
 
 func (o ActionRuleActionGroupConditionDescriptionPtrOutput) ToActionRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionDescriptionPtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionDescriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionDescription] {
-	return pulumix.Output[*ActionRuleActionGroupConditionDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionDescriptionPtrOutput) Elem() ActionRuleActionGroupConditionDescriptionOutput {
@@ -3162,12 +2705,6 @@ func (i ActionRuleActionGroupConditionMonitorArgs) ToActionRuleActionGroupCondit
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorOutput)
 }
 
-func (i ActionRuleActionGroupConditionMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionMonitor] {
-	return pulumix.Output[ActionRuleActionGroupConditionMonitor]{
-		OutputState: i.ToActionRuleActionGroupConditionMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionMonitorArgs) ToActionRuleActionGroupConditionMonitorPtrOutput() ActionRuleActionGroupConditionMonitorPtrOutput {
 	return i.ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(context.Background())
 }
@@ -3209,12 +2746,6 @@ func (i *actionRuleActionGroupConditionMonitorPtrType) ToActionRuleActionGroupCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorPtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionMonitor] {
-	return pulumix.Output[*ActionRuleActionGroupConditionMonitor]{
-		OutputState: i.ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionMonitorOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionMonitorOutput) ElementType() reflect.Type {
@@ -3239,12 +2770,6 @@ func (o ActionRuleActionGroupConditionMonitorOutput) ToActionRuleActionGroupCond
 	}).(ActionRuleActionGroupConditionMonitorPtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionMonitor] {
-	return pulumix.Output[ActionRuleActionGroupConditionMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o ActionRuleActionGroupConditionMonitorOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitor) string { return v.Operator }).(pulumi.StringOutput)
@@ -3267,12 +2792,6 @@ func (o ActionRuleActionGroupConditionMonitorPtrOutput) ToActionRuleActionGroupC
 
 func (o ActionRuleActionGroupConditionMonitorPtrOutput) ToActionRuleActionGroupConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorPtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionMonitor] {
-	return pulumix.Output[*ActionRuleActionGroupConditionMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionMonitorPtrOutput) Elem() ActionRuleActionGroupConditionMonitorOutput {
@@ -3342,12 +2861,6 @@ func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToActionRuleActionGrou
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorServiceOutput)
 }
 
-func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[ActionRuleActionGroupConditionMonitorService]{
-		OutputState: i.ToActionRuleActionGroupConditionMonitorServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionMonitorServiceArgs) ToActionRuleActionGroupConditionMonitorServicePtrOutput() ActionRuleActionGroupConditionMonitorServicePtrOutput {
 	return i.ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
 }
@@ -3389,12 +2902,6 @@ func (i *actionRuleActionGroupConditionMonitorServicePtrType) ToActionRuleAction
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionMonitorServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[*ActionRuleActionGroupConditionMonitorService]{
-		OutputState: i.ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionMonitorServiceOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionMonitorServiceOutput) ElementType() reflect.Type {
@@ -3419,12 +2926,6 @@ func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToActionRuleActionGr
 	}).(ActionRuleActionGroupConditionMonitorServicePtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionMonitorServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[ActionRuleActionGroupConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o ActionRuleActionGroupConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
@@ -3447,12 +2948,6 @@ func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) ToActionRuleActio
 
 func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) ToActionRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionMonitorServicePtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[*ActionRuleActionGroupConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionMonitorServicePtrOutput) Elem() ActionRuleActionGroupConditionMonitorServiceOutput {
@@ -3522,12 +3017,6 @@ func (i ActionRuleActionGroupConditionSeverityArgs) ToActionRuleActionGroupCondi
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionSeverityOutput)
 }
 
-func (i ActionRuleActionGroupConditionSeverityArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionSeverity] {
-	return pulumix.Output[ActionRuleActionGroupConditionSeverity]{
-		OutputState: i.ToActionRuleActionGroupConditionSeverityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionSeverityArgs) ToActionRuleActionGroupConditionSeverityPtrOutput() ActionRuleActionGroupConditionSeverityPtrOutput {
 	return i.ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
 }
@@ -3569,12 +3058,6 @@ func (i *actionRuleActionGroupConditionSeverityPtrType) ToActionRuleActionGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionSeverityPtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionSeverityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionSeverity] {
-	return pulumix.Output[*ActionRuleActionGroupConditionSeverity]{
-		OutputState: i.ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionSeverityOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionSeverityOutput) ElementType() reflect.Type {
@@ -3599,12 +3082,6 @@ func (o ActionRuleActionGroupConditionSeverityOutput) ToActionRuleActionGroupCon
 	}).(ActionRuleActionGroupConditionSeverityPtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionSeverity] {
-	return pulumix.Output[ActionRuleActionGroupConditionSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`and `NotEquals`.
 func (o ActionRuleActionGroupConditionSeverityOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
@@ -3627,12 +3104,6 @@ func (o ActionRuleActionGroupConditionSeverityPtrOutput) ToActionRuleActionGroup
 
 func (o ActionRuleActionGroupConditionSeverityPtrOutput) ToActionRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionSeverityPtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionSeverity] {
-	return pulumix.Output[*ActionRuleActionGroupConditionSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionSeverityPtrOutput) Elem() ActionRuleActionGroupConditionSeverityOutput {
@@ -3702,12 +3173,6 @@ func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToActionRuleAction
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionTargetResourceTypeOutput)
 }
 
-func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[ActionRuleActionGroupConditionTargetResourceType]{
-		OutputState: i.ToActionRuleActionGroupConditionTargetResourceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupConditionTargetResourceTypeArgs) ToActionRuleActionGroupConditionTargetResourceTypePtrOutput() ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
 	return i.ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
 }
@@ -3749,12 +3214,6 @@ func (i *actionRuleActionGroupConditionTargetResourceTypePtrType) ToActionRuleAc
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
 }
 
-func (i *actionRuleActionGroupConditionTargetResourceTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[*ActionRuleActionGroupConditionTargetResourceType]{
-		OutputState: i.ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupConditionTargetResourceTypeOutput) ElementType() reflect.Type {
@@ -3779,12 +3238,6 @@ func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToActionRuleActi
 	}).(ActionRuleActionGroupConditionTargetResourceTypePtrOutput)
 }
 
-func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[ActionRuleActionGroupConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o ActionRuleActionGroupConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
@@ -3807,12 +3260,6 @@ func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ToActionRuleA
 
 func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ToActionRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupConditionTargetResourceTypePtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[*ActionRuleActionGroupConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupConditionTargetResourceTypePtrOutput) Elem() ActionRuleActionGroupConditionTargetResourceTypeOutput {
@@ -3882,12 +3329,6 @@ func (i ActionRuleActionGroupScopeArgs) ToActionRuleActionGroupScopeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupScopeOutput)
 }
 
-func (i ActionRuleActionGroupScopeArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupScope] {
-	return pulumix.Output[ActionRuleActionGroupScope]{
-		OutputState: i.ToActionRuleActionGroupScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleActionGroupScopeArgs) ToActionRuleActionGroupScopePtrOutput() ActionRuleActionGroupScopePtrOutput {
 	return i.ToActionRuleActionGroupScopePtrOutputWithContext(context.Background())
 }
@@ -3929,12 +3370,6 @@ func (i *actionRuleActionGroupScopePtrType) ToActionRuleActionGroupScopePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleActionGroupScopePtrOutput)
 }
 
-func (i *actionRuleActionGroupScopePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupScope] {
-	return pulumix.Output[*ActionRuleActionGroupScope]{
-		OutputState: i.ToActionRuleActionGroupScopePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleActionGroupScopeOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleActionGroupScopeOutput) ElementType() reflect.Type {
@@ -3959,12 +3394,6 @@ func (o ActionRuleActionGroupScopeOutput) ToActionRuleActionGroupScopePtrOutputW
 	}).(ActionRuleActionGroupScopePtrOutput)
 }
 
-func (o ActionRuleActionGroupScopeOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleActionGroupScope] {
-	return pulumix.Output[ActionRuleActionGroupScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of resource IDs of the given scope type which will be the target of action rule.
 func (o ActionRuleActionGroupScopeOutput) ResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionRuleActionGroupScope) []string { return v.ResourceIds }).(pulumi.StringArrayOutput)
@@ -3987,12 +3416,6 @@ func (o ActionRuleActionGroupScopePtrOutput) ToActionRuleActionGroupScopePtrOutp
 
 func (o ActionRuleActionGroupScopePtrOutput) ToActionRuleActionGroupScopePtrOutputWithContext(ctx context.Context) ActionRuleActionGroupScopePtrOutput {
 	return o
-}
-
-func (o ActionRuleActionGroupScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleActionGroupScope] {
-	return pulumix.Output[*ActionRuleActionGroupScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleActionGroupScopePtrOutput) Elem() ActionRuleActionGroupScopeOutput {
@@ -4082,12 +3505,6 @@ func (i ActionRuleSuppressionConditionArgs) ToActionRuleSuppressionConditionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionOutput)
 }
 
-func (i ActionRuleSuppressionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionCondition] {
-	return pulumix.Output[ActionRuleSuppressionCondition]{
-		OutputState: i.ToActionRuleSuppressionConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionArgs) ToActionRuleSuppressionConditionPtrOutput() ActionRuleSuppressionConditionPtrOutput {
 	return i.ToActionRuleSuppressionConditionPtrOutputWithContext(context.Background())
 }
@@ -4129,12 +3546,6 @@ func (i *actionRuleSuppressionConditionPtrType) ToActionRuleSuppressionCondition
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionPtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionCondition] {
-	return pulumix.Output[*ActionRuleSuppressionCondition]{
-		OutputState: i.ToActionRuleSuppressionConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionOutput) ElementType() reflect.Type {
@@ -4157,12 +3568,6 @@ func (o ActionRuleSuppressionConditionOutput) ToActionRuleSuppressionConditionPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionCondition) *ActionRuleSuppressionCondition {
 		return &v
 	}).(ActionRuleSuppressionConditionPtrOutput)
-}
-
-func (o ActionRuleSuppressionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionCondition] {
-	return pulumix.Output[ActionRuleSuppressionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `alertContext` block as defined below.
@@ -4222,12 +3627,6 @@ func (o ActionRuleSuppressionConditionPtrOutput) ToActionRuleSuppressionConditio
 
 func (o ActionRuleSuppressionConditionPtrOutput) ToActionRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionCondition] {
-	return pulumix.Output[*ActionRuleSuppressionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionPtrOutput) Elem() ActionRuleSuppressionConditionOutput {
@@ -4347,12 +3746,6 @@ func (i ActionRuleSuppressionConditionAlertContextArgs) ToActionRuleSuppressionC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertContextOutput)
 }
 
-func (i ActionRuleSuppressionConditionAlertContextArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[ActionRuleSuppressionConditionAlertContext]{
-		OutputState: i.ToActionRuleSuppressionConditionAlertContextOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionAlertContextArgs) ToActionRuleSuppressionConditionAlertContextPtrOutput() ActionRuleSuppressionConditionAlertContextPtrOutput {
 	return i.ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
 }
@@ -4394,12 +3787,6 @@ func (i *actionRuleSuppressionConditionAlertContextPtrType) ToActionRuleSuppress
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertContextPtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionAlertContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[*ActionRuleSuppressionConditionAlertContext]{
-		OutputState: i.ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionAlertContextOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionAlertContextOutput) ElementType() reflect.Type {
@@ -4424,12 +3811,6 @@ func (o ActionRuleSuppressionConditionAlertContextOutput) ToActionRuleSuppressio
 	}).(ActionRuleSuppressionConditionAlertContextPtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionAlertContextOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[ActionRuleSuppressionConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o ActionRuleSuppressionConditionAlertContextOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
@@ -4452,12 +3833,6 @@ func (o ActionRuleSuppressionConditionAlertContextPtrOutput) ToActionRuleSuppres
 
 func (o ActionRuleSuppressionConditionAlertContextPtrOutput) ToActionRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertContextPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionAlertContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[*ActionRuleSuppressionConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionAlertContextPtrOutput) Elem() ActionRuleSuppressionConditionAlertContextOutput {
@@ -4527,12 +3902,6 @@ func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToActionRuleSuppressionCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertRuleIdOutput)
 }
 
-func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[ActionRuleSuppressionConditionAlertRuleId]{
-		OutputState: i.ToActionRuleSuppressionConditionAlertRuleIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionAlertRuleIdArgs) ToActionRuleSuppressionConditionAlertRuleIdPtrOutput() ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
 	return i.ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
 }
@@ -4574,12 +3943,6 @@ func (i *actionRuleSuppressionConditionAlertRuleIdPtrType) ToActionRuleSuppressi
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionAlertRuleIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[*ActionRuleSuppressionConditionAlertRuleId]{
-		OutputState: i.ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionAlertRuleIdOutput) ElementType() reflect.Type {
@@ -4604,12 +3967,6 @@ func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToActionRuleSuppression
 	}).(ActionRuleSuppressionConditionAlertRuleIdPtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionAlertRuleIdOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[ActionRuleSuppressionConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o ActionRuleSuppressionConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
@@ -4632,12 +3989,6 @@ func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ToActionRuleSuppress
 
 func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ToActionRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionAlertRuleIdPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[*ActionRuleSuppressionConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionAlertRuleIdPtrOutput) Elem() ActionRuleSuppressionConditionAlertRuleIdOutput {
@@ -4707,12 +4058,6 @@ func (i ActionRuleSuppressionConditionDescriptionArgs) ToActionRuleSuppressionCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionDescriptionOutput)
 }
 
-func (i ActionRuleSuppressionConditionDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionDescription] {
-	return pulumix.Output[ActionRuleSuppressionConditionDescription]{
-		OutputState: i.ToActionRuleSuppressionConditionDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionDescriptionArgs) ToActionRuleSuppressionConditionDescriptionPtrOutput() ActionRuleSuppressionConditionDescriptionPtrOutput {
 	return i.ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
 }
@@ -4754,12 +4099,6 @@ func (i *actionRuleSuppressionConditionDescriptionPtrType) ToActionRuleSuppressi
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionDescriptionPtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionDescriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionDescription] {
-	return pulumix.Output[*ActionRuleSuppressionConditionDescription]{
-		OutputState: i.ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionDescriptionOutput) ElementType() reflect.Type {
@@ -4784,12 +4123,6 @@ func (o ActionRuleSuppressionConditionDescriptionOutput) ToActionRuleSuppression
 	}).(ActionRuleSuppressionConditionDescriptionPtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionDescription] {
-	return pulumix.Output[ActionRuleSuppressionConditionDescription]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o ActionRuleSuppressionConditionDescriptionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
@@ -4812,12 +4145,6 @@ func (o ActionRuleSuppressionConditionDescriptionPtrOutput) ToActionRuleSuppress
 
 func (o ActionRuleSuppressionConditionDescriptionPtrOutput) ToActionRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionDescriptionPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionDescriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionDescription] {
-	return pulumix.Output[*ActionRuleSuppressionConditionDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionDescriptionPtrOutput) Elem() ActionRuleSuppressionConditionDescriptionOutput {
@@ -4887,12 +4214,6 @@ func (i ActionRuleSuppressionConditionMonitorArgs) ToActionRuleSuppressionCondit
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorOutput)
 }
 
-func (i ActionRuleSuppressionConditionMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionMonitor] {
-	return pulumix.Output[ActionRuleSuppressionConditionMonitor]{
-		OutputState: i.ToActionRuleSuppressionConditionMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionMonitorArgs) ToActionRuleSuppressionConditionMonitorPtrOutput() ActionRuleSuppressionConditionMonitorPtrOutput {
 	return i.ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(context.Background())
 }
@@ -4934,12 +4255,6 @@ func (i *actionRuleSuppressionConditionMonitorPtrType) ToActionRuleSuppressionCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorPtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionMonitor] {
-	return pulumix.Output[*ActionRuleSuppressionConditionMonitor]{
-		OutputState: i.ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionMonitorOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionMonitorOutput) ElementType() reflect.Type {
@@ -4964,12 +4279,6 @@ func (o ActionRuleSuppressionConditionMonitorOutput) ToActionRuleSuppressionCond
 	}).(ActionRuleSuppressionConditionMonitorPtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionMonitor] {
-	return pulumix.Output[ActionRuleSuppressionConditionMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o ActionRuleSuppressionConditionMonitorOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitor) string { return v.Operator }).(pulumi.StringOutput)
@@ -4992,12 +4301,6 @@ func (o ActionRuleSuppressionConditionMonitorPtrOutput) ToActionRuleSuppressionC
 
 func (o ActionRuleSuppressionConditionMonitorPtrOutput) ToActionRuleSuppressionConditionMonitorPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionMonitor] {
-	return pulumix.Output[*ActionRuleSuppressionConditionMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionMonitorPtrOutput) Elem() ActionRuleSuppressionConditionMonitorOutput {
@@ -5067,12 +4370,6 @@ func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToActionRuleSuppressio
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorServiceOutput)
 }
 
-func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[ActionRuleSuppressionConditionMonitorService]{
-		OutputState: i.ToActionRuleSuppressionConditionMonitorServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionMonitorServiceArgs) ToActionRuleSuppressionConditionMonitorServicePtrOutput() ActionRuleSuppressionConditionMonitorServicePtrOutput {
 	return i.ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
 }
@@ -5114,12 +4411,6 @@ func (i *actionRuleSuppressionConditionMonitorServicePtrType) ToActionRuleSuppre
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionMonitorServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[*ActionRuleSuppressionConditionMonitorService]{
-		OutputState: i.ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionMonitorServiceOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionMonitorServiceOutput) ElementType() reflect.Type {
@@ -5144,12 +4435,6 @@ func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToActionRuleSuppress
 	}).(ActionRuleSuppressionConditionMonitorServicePtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionMonitorServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[ActionRuleSuppressionConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o ActionRuleSuppressionConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
@@ -5172,12 +4457,6 @@ func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) ToActionRuleSuppr
 
 func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) ToActionRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionMonitorServicePtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[*ActionRuleSuppressionConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionMonitorServicePtrOutput) Elem() ActionRuleSuppressionConditionMonitorServiceOutput {
@@ -5247,12 +4526,6 @@ func (i ActionRuleSuppressionConditionSeverityArgs) ToActionRuleSuppressionCondi
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionSeverityOutput)
 }
 
-func (i ActionRuleSuppressionConditionSeverityArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionSeverity] {
-	return pulumix.Output[ActionRuleSuppressionConditionSeverity]{
-		OutputState: i.ToActionRuleSuppressionConditionSeverityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionSeverityArgs) ToActionRuleSuppressionConditionSeverityPtrOutput() ActionRuleSuppressionConditionSeverityPtrOutput {
 	return i.ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
 }
@@ -5294,12 +4567,6 @@ func (i *actionRuleSuppressionConditionSeverityPtrType) ToActionRuleSuppressionC
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionSeverityPtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionSeverityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionSeverity] {
-	return pulumix.Output[*ActionRuleSuppressionConditionSeverity]{
-		OutputState: i.ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionSeverityOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionSeverityOutput) ElementType() reflect.Type {
@@ -5324,12 +4591,6 @@ func (o ActionRuleSuppressionConditionSeverityOutput) ToActionRuleSuppressionCon
 	}).(ActionRuleSuppressionConditionSeverityPtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionSeverity] {
-	return pulumix.Output[ActionRuleSuppressionConditionSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`and `NotEquals`.
 func (o ActionRuleSuppressionConditionSeverityOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
@@ -5352,12 +4613,6 @@ func (o ActionRuleSuppressionConditionSeverityPtrOutput) ToActionRuleSuppression
 
 func (o ActionRuleSuppressionConditionSeverityPtrOutput) ToActionRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionSeverityPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionSeverity] {
-	return pulumix.Output[*ActionRuleSuppressionConditionSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionSeverityPtrOutput) Elem() ActionRuleSuppressionConditionSeverityOutput {
@@ -5427,12 +4682,6 @@ func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToActionRuleSuppre
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionTargetResourceTypeOutput)
 }
 
-func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[ActionRuleSuppressionConditionTargetResourceType]{
-		OutputState: i.ToActionRuleSuppressionConditionTargetResourceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionConditionTargetResourceTypeArgs) ToActionRuleSuppressionConditionTargetResourceTypePtrOutput() ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
 	return i.ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
 }
@@ -5474,12 +4723,6 @@ func (i *actionRuleSuppressionConditionTargetResourceTypePtrType) ToActionRuleSu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
 }
 
-func (i *actionRuleSuppressionConditionTargetResourceTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[*ActionRuleSuppressionConditionTargetResourceType]{
-		OutputState: i.ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionConditionTargetResourceTypeOutput) ElementType() reflect.Type {
@@ -5504,12 +4747,6 @@ func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToActionRuleSupp
 	}).(ActionRuleSuppressionConditionTargetResourceTypePtrOutput)
 }
 
-func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[ActionRuleSuppressionConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o ActionRuleSuppressionConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
@@ -5532,12 +4769,6 @@ func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ToActionRuleS
 
 func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ToActionRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionConditionTargetResourceTypePtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[*ActionRuleSuppressionConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionConditionTargetResourceTypePtrOutput) Elem() ActionRuleSuppressionConditionTargetResourceTypeOutput {
@@ -5607,12 +4838,6 @@ func (i ActionRuleSuppressionScopeArgs) ToActionRuleSuppressionScopeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionScopeOutput)
 }
 
-func (i ActionRuleSuppressionScopeArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionScope] {
-	return pulumix.Output[ActionRuleSuppressionScope]{
-		OutputState: i.ToActionRuleSuppressionScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionScopeArgs) ToActionRuleSuppressionScopePtrOutput() ActionRuleSuppressionScopePtrOutput {
 	return i.ToActionRuleSuppressionScopePtrOutputWithContext(context.Background())
 }
@@ -5654,12 +4879,6 @@ func (i *actionRuleSuppressionScopePtrType) ToActionRuleSuppressionScopePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionScopePtrOutput)
 }
 
-func (i *actionRuleSuppressionScopePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionScope] {
-	return pulumix.Output[*ActionRuleSuppressionScope]{
-		OutputState: i.ToActionRuleSuppressionScopePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionScopeOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionScopeOutput) ElementType() reflect.Type {
@@ -5684,12 +4903,6 @@ func (o ActionRuleSuppressionScopeOutput) ToActionRuleSuppressionScopePtrOutputW
 	}).(ActionRuleSuppressionScopePtrOutput)
 }
 
-func (o ActionRuleSuppressionScopeOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionScope] {
-	return pulumix.Output[ActionRuleSuppressionScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of resource IDs of the given scope type which will be the target of action rule.
 func (o ActionRuleSuppressionScopeOutput) ResourceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionScope) []string { return v.ResourceIds }).(pulumi.StringArrayOutput)
@@ -5712,12 +4925,6 @@ func (o ActionRuleSuppressionScopePtrOutput) ToActionRuleSuppressionScopePtrOutp
 
 func (o ActionRuleSuppressionScopePtrOutput) ToActionRuleSuppressionScopePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionScopePtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionScope] {
-	return pulumix.Output[*ActionRuleSuppressionScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionScopePtrOutput) Elem() ActionRuleSuppressionScopeOutput {
@@ -5787,12 +4994,6 @@ func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppression
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionOutput)
 }
 
-func (i ActionRuleSuppressionSuppressionArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionSuppression] {
-	return pulumix.Output[ActionRuleSuppressionSuppression]{
-		OutputState: i.ToActionRuleSuppressionSuppressionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionSuppressionArgs) ToActionRuleSuppressionSuppressionPtrOutput() ActionRuleSuppressionSuppressionPtrOutput {
 	return i.ToActionRuleSuppressionSuppressionPtrOutputWithContext(context.Background())
 }
@@ -5834,12 +5035,6 @@ func (i *actionRuleSuppressionSuppressionPtrType) ToActionRuleSuppressionSuppres
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionPtrOutput)
 }
 
-func (i *actionRuleSuppressionSuppressionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionSuppression] {
-	return pulumix.Output[*ActionRuleSuppressionSuppression]{
-		OutputState: i.ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionSuppressionOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionSuppressionOutput) ElementType() reflect.Type {
@@ -5864,12 +5059,6 @@ func (o ActionRuleSuppressionSuppressionOutput) ToActionRuleSuppressionSuppressi
 	}).(ActionRuleSuppressionSuppressionPtrOutput)
 }
 
-func (o ActionRuleSuppressionSuppressionOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionSuppression] {
-	return pulumix.Output[ActionRuleSuppressionSuppression]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
 func (o ActionRuleSuppressionSuppressionOutput) RecurrenceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionRuleSuppressionSuppression) string { return v.RecurrenceType }).(pulumi.StringOutput)
@@ -5892,12 +5081,6 @@ func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppre
 
 func (o ActionRuleSuppressionSuppressionPtrOutput) ToActionRuleSuppressionSuppressionPtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionPtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionSuppressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionSuppression] {
-	return pulumix.Output[*ActionRuleSuppressionSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionSuppressionPtrOutput) Elem() ActionRuleSuppressionSuppressionOutput {
@@ -5975,12 +5158,6 @@ func (i ActionRuleSuppressionSuppressionScheduleArgs) ToActionRuleSuppressionSup
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionScheduleOutput)
 }
 
-func (i ActionRuleSuppressionSuppressionScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionSuppressionSchedule] {
-	return pulumix.Output[ActionRuleSuppressionSuppressionSchedule]{
-		OutputState: i.ToActionRuleSuppressionSuppressionScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActionRuleSuppressionSuppressionScheduleArgs) ToActionRuleSuppressionSuppressionSchedulePtrOutput() ActionRuleSuppressionSuppressionSchedulePtrOutput {
 	return i.ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(context.Background())
 }
@@ -6022,12 +5199,6 @@ func (i *actionRuleSuppressionSuppressionSchedulePtrType) ToActionRuleSuppressio
 	return pulumi.ToOutputWithContext(ctx, i).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
 }
 
-func (i *actionRuleSuppressionSuppressionSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionSuppressionSchedule] {
-	return pulumix.Output[*ActionRuleSuppressionSuppressionSchedule]{
-		OutputState: i.ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionRuleSuppressionSuppressionScheduleOutput struct{ *pulumi.OutputState }
 
 func (ActionRuleSuppressionSuppressionScheduleOutput) ElementType() reflect.Type {
@@ -6050,12 +5221,6 @@ func (o ActionRuleSuppressionSuppressionScheduleOutput) ToActionRuleSuppressionS
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleSuppressionSuppressionSchedule) *ActionRuleSuppressionSuppressionSchedule {
 		return &v
 	}).(ActionRuleSuppressionSuppressionSchedulePtrOutput)
-}
-
-func (o ActionRuleSuppressionSuppressionScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ActionRuleSuppressionSuppressionSchedule] {
-	return pulumix.Output[ActionRuleSuppressionSuppressionSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
@@ -6090,12 +5255,6 @@ func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) ToActionRuleSuppressi
 
 func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) ToActionRuleSuppressionSuppressionSchedulePtrOutputWithContext(ctx context.Context) ActionRuleSuppressionSuppressionSchedulePtrOutput {
 	return o
-}
-
-func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionRuleSuppressionSuppressionSchedule] {
-	return pulumix.Output[*ActionRuleSuppressionSuppressionSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionRuleSuppressionSuppressionSchedulePtrOutput) Elem() ActionRuleSuppressionSuppressionScheduleOutput {
@@ -6185,12 +5344,6 @@ func (i ActivityLogAlertActionArgs) ToActivityLogAlertActionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionOutput)
 }
 
-func (i ActivityLogAlertActionArgs) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertAction] {
-	return pulumix.Output[ActivityLogAlertAction]{
-		OutputState: i.ToActivityLogAlertActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActivityLogAlertActionArrayInput is an input type that accepts ActivityLogAlertActionArray and ActivityLogAlertActionArrayOutput values.
 // You can construct a concrete instance of `ActivityLogAlertActionArrayInput` via:
 //
@@ -6216,12 +5369,6 @@ func (i ActivityLogAlertActionArray) ToActivityLogAlertActionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionArrayOutput)
 }
 
-func (i ActivityLogAlertActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ActivityLogAlertAction] {
-	return pulumix.Output[[]ActivityLogAlertAction]{
-		OutputState: i.ToActivityLogAlertActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActivityLogAlertActionOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionOutput) ElementType() reflect.Type {
@@ -6234,12 +5381,6 @@ func (o ActivityLogAlertActionOutput) ToActivityLogAlertActionOutput() ActivityL
 
 func (o ActivityLogAlertActionOutput) ToActivityLogAlertActionOutputWithContext(ctx context.Context) ActivityLogAlertActionOutput {
 	return o
-}
-
-func (o ActivityLogAlertActionOutput) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertAction] {
-	return pulumix.Output[ActivityLogAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
@@ -6264,12 +5405,6 @@ func (o ActivityLogAlertActionArrayOutput) ToActivityLogAlertActionArrayOutput()
 
 func (o ActivityLogAlertActionArrayOutput) ToActivityLogAlertActionArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionArrayOutput {
 	return o
-}
-
-func (o ActivityLogAlertActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActivityLogAlertAction] {
-	return pulumix.Output[[]ActivityLogAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActivityLogAlertActionArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertActionOutput {
@@ -6423,12 +5558,6 @@ func (i ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaOutput)
 }
 
-func (i ActivityLogAlertCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertCriteria] {
-	return pulumix.Output[ActivityLogAlertCriteria]{
-		OutputState: i.ToActivityLogAlertCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ActivityLogAlertCriteriaArgs) ToActivityLogAlertCriteriaPtrOutput() ActivityLogAlertCriteriaPtrOutput {
 	return i.ToActivityLogAlertCriteriaPtrOutputWithContext(context.Background())
 }
@@ -6470,12 +5599,6 @@ func (i *activityLogAlertCriteriaPtrType) ToActivityLogAlertCriteriaPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaPtrOutput)
 }
 
-func (i *activityLogAlertCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ActivityLogAlertCriteria] {
-	return pulumix.Output[*ActivityLogAlertCriteria]{
-		OutputState: i.ToActivityLogAlertCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActivityLogAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertCriteriaOutput) ElementType() reflect.Type {
@@ -6498,12 +5621,6 @@ func (o ActivityLogAlertCriteriaOutput) ToActivityLogAlertCriteriaPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertCriteria) *ActivityLogAlertCriteria {
 		return &v
 	}).(ActivityLogAlertCriteriaPtrOutput)
-}
-
-func (o ActivityLogAlertCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertCriteria] {
-	return pulumix.Output[ActivityLogAlertCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email address or Azure Active Directory identifier of the user who performed the operation.
@@ -6642,12 +5759,6 @@ func (o ActivityLogAlertCriteriaPtrOutput) ToActivityLogAlertCriteriaPtrOutput()
 
 func (o ActivityLogAlertCriteriaPtrOutput) ToActivityLogAlertCriteriaPtrOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaPtrOutput {
 	return o
-}
-
-func (o ActivityLogAlertCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ActivityLogAlertCriteria] {
-	return pulumix.Output[*ActivityLogAlertCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActivityLogAlertCriteriaPtrOutput) Elem() ActivityLogAlertCriteriaOutput {
@@ -6935,12 +6046,6 @@ func (i ActivityLogAlertCriteriaResourceHealthArgs) ToActivityLogAlertCriteriaRe
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaResourceHealthOutput)
 }
 
-func (i ActivityLogAlertCriteriaResourceHealthArgs) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertCriteriaResourceHealth] {
-	return pulumix.Output[ActivityLogAlertCriteriaResourceHealth]{
-		OutputState: i.ToActivityLogAlertCriteriaResourceHealthOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActivityLogAlertCriteriaResourceHealthArrayInput is an input type that accepts ActivityLogAlertCriteriaResourceHealthArray and ActivityLogAlertCriteriaResourceHealthArrayOutput values.
 // You can construct a concrete instance of `ActivityLogAlertCriteriaResourceHealthArrayInput` via:
 //
@@ -6966,12 +6071,6 @@ func (i ActivityLogAlertCriteriaResourceHealthArray) ToActivityLogAlertCriteriaR
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaResourceHealthArrayOutput)
 }
 
-func (i ActivityLogAlertCriteriaResourceHealthArray) ToOutput(ctx context.Context) pulumix.Output[[]ActivityLogAlertCriteriaResourceHealth] {
-	return pulumix.Output[[]ActivityLogAlertCriteriaResourceHealth]{
-		OutputState: i.ToActivityLogAlertCriteriaResourceHealthArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActivityLogAlertCriteriaResourceHealthOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertCriteriaResourceHealthOutput) ElementType() reflect.Type {
@@ -6984,12 +6083,6 @@ func (o ActivityLogAlertCriteriaResourceHealthOutput) ToActivityLogAlertCriteria
 
 func (o ActivityLogAlertCriteriaResourceHealthOutput) ToActivityLogAlertCriteriaResourceHealthOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaResourceHealthOutput {
 	return o
-}
-
-func (o ActivityLogAlertCriteriaResourceHealthOutput) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertCriteriaResourceHealth] {
-	return pulumix.Output[ActivityLogAlertCriteriaResourceHealth]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
@@ -7019,12 +6112,6 @@ func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) ToActivityLogAlertCri
 
 func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) ToActivityLogAlertCriteriaResourceHealthArrayOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaResourceHealthArrayOutput {
 	return o
-}
-
-func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActivityLogAlertCriteriaResourceHealth] {
-	return pulumix.Output[[]ActivityLogAlertCriteriaResourceHealth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActivityLogAlertCriteriaResourceHealthArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertCriteriaResourceHealthOutput {
@@ -7074,12 +6161,6 @@ func (i ActivityLogAlertCriteriaServiceHealthArgs) ToActivityLogAlertCriteriaSer
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaServiceHealthOutput)
 }
 
-func (i ActivityLogAlertCriteriaServiceHealthArgs) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertCriteriaServiceHealth] {
-	return pulumix.Output[ActivityLogAlertCriteriaServiceHealth]{
-		OutputState: i.ToActivityLogAlertCriteriaServiceHealthOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActivityLogAlertCriteriaServiceHealthArrayInput is an input type that accepts ActivityLogAlertCriteriaServiceHealthArray and ActivityLogAlertCriteriaServiceHealthArrayOutput values.
 // You can construct a concrete instance of `ActivityLogAlertCriteriaServiceHealthArrayInput` via:
 //
@@ -7105,12 +6186,6 @@ func (i ActivityLogAlertCriteriaServiceHealthArray) ToActivityLogAlertCriteriaSe
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertCriteriaServiceHealthArrayOutput)
 }
 
-func (i ActivityLogAlertCriteriaServiceHealthArray) ToOutput(ctx context.Context) pulumix.Output[[]ActivityLogAlertCriteriaServiceHealth] {
-	return pulumix.Output[[]ActivityLogAlertCriteriaServiceHealth]{
-		OutputState: i.ToActivityLogAlertCriteriaServiceHealthArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActivityLogAlertCriteriaServiceHealthOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertCriteriaServiceHealthOutput) ElementType() reflect.Type {
@@ -7123,12 +6198,6 @@ func (o ActivityLogAlertCriteriaServiceHealthOutput) ToActivityLogAlertCriteriaS
 
 func (o ActivityLogAlertCriteriaServiceHealthOutput) ToActivityLogAlertCriteriaServiceHealthOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaServiceHealthOutput {
 	return o
-}
-
-func (o ActivityLogAlertCriteriaServiceHealthOutput) ToOutput(ctx context.Context) pulumix.Output[ActivityLogAlertCriteriaServiceHealth] {
-	return pulumix.Output[ActivityLogAlertCriteriaServiceHealth]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
@@ -7158,12 +6227,6 @@ func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) ToActivityLogAlertCrit
 
 func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) ToActivityLogAlertCriteriaServiceHealthArrayOutputWithContext(ctx context.Context) ActivityLogAlertCriteriaServiceHealthArrayOutput {
 	return o
-}
-
-func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ActivityLogAlertCriteriaServiceHealth] {
-	return pulumix.Output[[]ActivityLogAlertCriteriaServiceHealth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) Index(i pulumi.IntInput) ActivityLogAlertCriteriaServiceHealthOutput {
@@ -7249,12 +6312,6 @@ func (i AlertProcessingRuleActionGroupConditionArgs) ToAlertProcessingRuleAction
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupCondition] {
-	return pulumix.Output[AlertProcessingRuleActionGroupCondition]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionArgs) ToAlertProcessingRuleActionGroupConditionPtrOutput() AlertProcessingRuleActionGroupConditionPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(context.Background())
 }
@@ -7296,12 +6353,6 @@ func (i *alertProcessingRuleActionGroupConditionPtrType) ToAlertProcessingRuleAc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupCondition] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupCondition]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionOutput) ElementType() reflect.Type {
@@ -7324,12 +6375,6 @@ func (o AlertProcessingRuleActionGroupConditionOutput) ToAlertProcessingRuleActi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupCondition {
 		return &v
 	}).(AlertProcessingRuleActionGroupConditionPtrOutput)
-}
-
-func (o AlertProcessingRuleActionGroupConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupCondition] {
-	return pulumix.Output[AlertProcessingRuleActionGroupCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `alertContext` block as defined above.
@@ -7423,12 +6468,6 @@ func (o AlertProcessingRuleActionGroupConditionPtrOutput) ToAlertProcessingRuleA
 
 func (o AlertProcessingRuleActionGroupConditionPtrOutput) ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupCondition] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionPtrOutput) Elem() AlertProcessingRuleActionGroupConditionOutput {
@@ -7590,12 +6629,6 @@ func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToAlertProcessi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertContextOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionAlertContext]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionAlertContextOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutput() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
 }
@@ -7637,12 +6670,6 @@ func (i *alertProcessingRuleActionGroupConditionAlertContextPtrType) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionAlertContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertContext]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionAlertContextOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionAlertContextOutput) ElementType() reflect.Type {
@@ -7667,12 +6694,6 @@ func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) ToAlertProces
 	}).(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
@@ -7695,12 +6716,6 @@ func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) ToAlertPro
 
 func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertContext] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) Elem() AlertProcessingRuleActionGroupConditionAlertContextOutput {
@@ -7770,12 +6785,6 @@ func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToAlertProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleIdOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleId]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
 }
@@ -7817,12 +6826,6 @@ func (i *alertProcessingRuleActionGroupConditionAlertRuleIdPtrType) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionAlertRuleIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleId]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ElementType() reflect.Type {
@@ -7847,12 +6850,6 @@ func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ToAlertProcess
 	}).(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
@@ -7875,12 +6872,6 @@ func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) ToAlertProc
 
 func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleId] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) Elem() AlertProcessingRuleActionGroupConditionAlertRuleIdOutput {
@@ -7950,12 +6941,6 @@ func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToAlertProcess
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleNameOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleName] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleName]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(context.Background())
 }
@@ -7997,12 +6982,6 @@ func (i *alertProcessingRuleActionGroupConditionAlertRuleNamePtrType) ToAlertPro
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionAlertRuleNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleName] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleName]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionAlertRuleNameOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ElementType() reflect.Type {
@@ -8027,12 +7006,6 @@ func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ToAlertProce
 	}).(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleName] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionAlertRuleName]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertRuleName) string { return v.Operator }).(pulumi.StringOutput)
@@ -8055,12 +7028,6 @@ func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) ToAlertPr
 
 func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleName] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionAlertRuleName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) Elem() AlertProcessingRuleActionGroupConditionAlertRuleNameOutput {
@@ -8130,12 +7097,6 @@ func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToAlertProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionDescriptionOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionDescription] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionDescription]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutput() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
 }
@@ -8177,12 +7138,6 @@ func (i *alertProcessingRuleActionGroupConditionDescriptionPtrType) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionDescriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionDescription] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionDescription]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionDescriptionOutput) ElementType() reflect.Type {
@@ -8207,12 +7162,6 @@ func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) ToAlertProcess
 	}).(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionDescription] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionDescription]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
@@ -8235,12 +7184,6 @@ func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) ToAlertProc
 
 func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionDescription] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) Elem() AlertProcessingRuleActionGroupConditionDescriptionOutput {
@@ -8310,12 +7253,6 @@ func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorConditionOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorCondition] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorCondition]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionMonitorConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(context.Background())
 }
@@ -8357,12 +7294,6 @@ func (i *alertProcessingRuleActionGroupConditionMonitorConditionPtrType) ToAlert
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionMonitorConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorCondition] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorCondition]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionMonitorConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ElementType() reflect.Type {
@@ -8387,12 +7318,6 @@ func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ToAlertPr
 	}).(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorCondition] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionMonitorCondition) string { return v.Operator }).(pulumi.StringOutput)
@@ -8415,12 +7340,6 @@ func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) ToAler
 
 func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorCondition] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) Elem() AlertProcessingRuleActionGroupConditionMonitorConditionOutput {
@@ -8490,12 +7409,6 @@ func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorServiceOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorService]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionMonitorServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutput() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
 }
@@ -8537,12 +7450,6 @@ func (i *alertProcessingRuleActionGroupConditionMonitorServicePtrType) ToAlertPr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionMonitorServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorService]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionMonitorServiceOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ElementType() reflect.Type {
@@ -8567,12 +7474,6 @@ func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ToAlertProc
 	}).(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
@@ -8595,12 +7496,6 @@ func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) ToAlertP
 
 func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorService] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) Elem() AlertProcessingRuleActionGroupConditionMonitorServiceOutput {
@@ -8670,12 +7565,6 @@ func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToAlertProcessingRu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSeverityOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionSeverity] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionSeverity]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionSeverityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutput() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
 }
@@ -8717,12 +7606,6 @@ func (i *alertProcessingRuleActionGroupConditionSeverityPtrType) ToAlertProcessi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSeverityPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionSeverityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionSeverity] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionSeverity]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionSeverityOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionSeverityOutput) ElementType() reflect.Type {
@@ -8747,12 +7630,6 @@ func (o AlertProcessingRuleActionGroupConditionSeverityOutput) ToAlertProcessing
 	}).(AlertProcessingRuleActionGroupConditionSeverityPtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionSeverity] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleActionGroupConditionSeverityOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
@@ -8775,12 +7652,6 @@ func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) ToAlertProcess
 
 func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionSeverity] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) Elem() AlertProcessingRuleActionGroupConditionSeverityOutput {
@@ -8850,12 +7721,6 @@ func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToAlertProcessing
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSignalTypeOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionSignalType] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionSignalType]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionSignalTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutput() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(context.Background())
 }
@@ -8897,12 +7762,6 @@ func (i *alertProcessingRuleActionGroupConditionSignalTypePtrType) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionSignalTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionSignalType] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionSignalType]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionSignalTypeOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionSignalTypeOutput) ElementType() reflect.Type {
@@ -8927,12 +7786,6 @@ func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) ToAlertProcessi
 	}).(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionSignalType] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionSignalType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionSignalType) string { return v.Operator }).(pulumi.StringOutput)
@@ -8955,12 +7808,6 @@ func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) ToAlertProce
 
 func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionSignalType] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionSignalType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) Elem() AlertProcessingRuleActionGroupConditionSignalTypeOutput {
@@ -9030,12 +7877,6 @@ func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResource] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResource]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionTargetResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(context.Background())
 }
@@ -9077,12 +7918,6 @@ func (i *alertProcessingRuleActionGroupConditionTargetResourcePtrType) ToAlertPr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionTargetResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResource] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResource]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionTargetResourceOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionTargetResourceOutput) ElementType() reflect.Type {
@@ -9107,12 +7942,6 @@ func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) ToAlertProc
 	}).(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResource] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResource) string { return v.Operator }).(pulumi.StringOutput)
@@ -9135,12 +7964,6 @@ func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) ToAlertP
 
 func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResource] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) Elem() AlertProcessingRuleActionGroupConditionTargetResourceOutput {
@@ -9210,12 +8033,6 @@ func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToAlertP
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceGroup] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceGroup]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(context.Background())
 }
@@ -9257,12 +8074,6 @@ func (i *alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType) ToAl
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceGroup] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceGroup]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ElementType() reflect.Type {
@@ -9287,12 +8098,6 @@ func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ToAler
 	}).(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceGroup] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResourceGroup) string { return v.Operator }).(pulumi.StringOutput)
@@ -9315,12 +8120,6 @@ func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) ToA
 
 func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceGroup] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) Elem() AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput {
@@ -9390,12 +8189,6 @@ func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToAlertPr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput)
 }
 
-func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceType]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
 }
@@ -9437,12 +8230,6 @@ func (i *alertProcessingRuleActionGroupConditionTargetResourceTypePtrType) ToAle
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupConditionTargetResourceTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceType]{
-		OutputState: i.ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ElementType() reflect.Type {
@@ -9467,12 +8254,6 @@ func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ToAlert
 	}).(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput)
 }
 
-func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[AlertProcessingRuleActionGroupConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
@@ -9495,12 +8276,6 @@ func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) ToAl
 
 func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceType] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) Elem() AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput {
@@ -9578,12 +8353,6 @@ func (i AlertProcessingRuleActionGroupScheduleArgs) ToAlertProcessingRuleActionG
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupSchedule] {
-	return pulumix.Output[AlertProcessingRuleActionGroupSchedule]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupScheduleArgs) ToAlertProcessingRuleActionGroupSchedulePtrOutput() AlertProcessingRuleActionGroupSchedulePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(context.Background())
 }
@@ -9625,12 +8394,6 @@ func (i *alertProcessingRuleActionGroupSchedulePtrType) ToAlertProcessingRuleAct
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupSchedulePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupSchedule] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupSchedule]{
-		OutputState: i.ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupScheduleOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupScheduleOutput) ElementType() reflect.Type {
@@ -9653,12 +8416,6 @@ func (o AlertProcessingRuleActionGroupScheduleOutput) ToAlertProcessingRuleActio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupSchedule) *AlertProcessingRuleActionGroupSchedule {
 		return &v
 	}).(AlertProcessingRuleActionGroupSchedulePtrOutput)
-}
-
-func (o AlertProcessingRuleActionGroupScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupSchedule] {
-	return pulumix.Output[AlertProcessingRuleActionGroupSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
@@ -9695,12 +8452,6 @@ func (o AlertProcessingRuleActionGroupSchedulePtrOutput) ToAlertProcessingRuleAc
 
 func (o AlertProcessingRuleActionGroupSchedulePtrOutput) ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupSchedulePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupSchedule] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupSchedulePtrOutput) Elem() AlertProcessingRuleActionGroupScheduleOutput {
@@ -9794,12 +8545,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToAlertProcessingR
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrence] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrence]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutput() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
 	return i.ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(context.Background())
 }
@@ -9841,12 +8586,6 @@ func (i *alertProcessingRuleActionGroupScheduleRecurrencePtrType) ToAlertProcess
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
 }
 
-func (i *alertProcessingRuleActionGroupScheduleRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupScheduleRecurrence] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupScheduleRecurrence]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupScheduleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ElementType() reflect.Type {
@@ -9869,12 +8608,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ToAlertProcessin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupScheduleRecurrence) *AlertProcessingRuleActionGroupScheduleRecurrence {
 		return &v
 	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrence] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `daily` blocks as defined above.
@@ -9910,12 +8643,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) ToAlertProces
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleActionGroupScheduleRecurrence] {
-	return pulumix.Output[*AlertProcessingRuleActionGroupScheduleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) Elem() AlertProcessingRuleActionGroupScheduleRecurrenceOutput {
@@ -9995,12 +8722,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceDaily] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceDaily]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray and AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput` via:
 //
@@ -10026,12 +8747,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceDaily] {
-	return pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceDaily]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ElementType() reflect.Type {
@@ -10044,12 +8759,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ToAlertProc
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceDaily] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the recurrence end time (H:M:S).
@@ -10074,12 +8783,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) ToAler
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceDaily] {
-	return pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
@@ -10129,12 +8832,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceMonthly] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceMonthly]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray and AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput` via:
 //
@@ -10160,12 +8857,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray) ToAlertPro
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly] {
-	return pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ElementType() reflect.Type {
@@ -10178,12 +8869,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ToAlertPr
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceMonthly] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
@@ -10213,12 +8898,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) ToAl
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly] {
-	return pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
@@ -10268,12 +8947,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceWeekly] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceWeekly]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray and AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput` via:
 //
@@ -10299,12 +8972,6 @@ func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput)
 }
 
-func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly] {
-	return pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly]{
-		OutputState: i.ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ElementType() reflect.Type {
@@ -10317,12 +8984,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToAlertPro
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceWeekly] {
-	return pulumix.Output[AlertProcessingRuleActionGroupScheduleRecurrenceWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
@@ -10352,12 +9013,6 @@ func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) ToAle
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
 	return o
-}
-
-func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly] {
-	return pulumix.Output[[]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
@@ -10439,12 +9094,6 @@ func (i AlertProcessingRuleSuppressionConditionArgs) ToAlertProcessingRuleSuppre
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionCondition] {
-	return pulumix.Output[AlertProcessingRuleSuppressionCondition]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionArgs) ToAlertProcessingRuleSuppressionConditionPtrOutput() AlertProcessingRuleSuppressionConditionPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(context.Background())
 }
@@ -10486,12 +9135,6 @@ func (i *alertProcessingRuleSuppressionConditionPtrType) ToAlertProcessingRuleSu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionCondition] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionCondition]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionOutput) ElementType() reflect.Type {
@@ -10514,12 +9157,6 @@ func (o AlertProcessingRuleSuppressionConditionOutput) ToAlertProcessingRuleSupp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionCondition {
 		return &v
 	}).(AlertProcessingRuleSuppressionConditionPtrOutput)
-}
-
-func (o AlertProcessingRuleSuppressionConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionCondition] {
-	return pulumix.Output[AlertProcessingRuleSuppressionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `alertContext` block as defined above.
@@ -10611,12 +9248,6 @@ func (o AlertProcessingRuleSuppressionConditionPtrOutput) ToAlertProcessingRuleS
 
 func (o AlertProcessingRuleSuppressionConditionPtrOutput) ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionCondition] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionPtrOutput) Elem() AlertProcessingRuleSuppressionConditionOutput {
@@ -10776,12 +9407,6 @@ func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToAlertProcessi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertContextOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionAlertContext]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionAlertContextOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutput() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
 }
@@ -10823,12 +9448,6 @@ func (i *alertProcessingRuleSuppressionConditionAlertContextPtrType) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionAlertContextPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertContext]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionAlertContextOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionAlertContextOutput) ElementType() reflect.Type {
@@ -10853,12 +9472,6 @@ func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) ToAlertProces
 	}).(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
@@ -10881,12 +9494,6 @@ func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) ToAlertPro
 
 func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertContext] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertContext]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) Elem() AlertProcessingRuleSuppressionConditionAlertContextOutput {
@@ -10956,12 +9563,6 @@ func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToAlertProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleIdOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleId]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
 }
@@ -11003,12 +9604,6 @@ func (i *alertProcessingRuleSuppressionConditionAlertRuleIdPtrType) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionAlertRuleIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleId]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ElementType() reflect.Type {
@@ -11033,12 +9628,6 @@ func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ToAlertProcess
 	}).(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
@@ -11061,12 +9650,6 @@ func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) ToAlertProc
 
 func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleId] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) Elem() AlertProcessingRuleSuppressionConditionAlertRuleIdOutput {
@@ -11136,12 +9719,6 @@ func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToAlertProcess
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleNameOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleName] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleName]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(context.Background())
 }
@@ -11183,12 +9760,6 @@ func (i *alertProcessingRuleSuppressionConditionAlertRuleNamePtrType) ToAlertPro
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionAlertRuleNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleName] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleName]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionAlertRuleNameOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ElementType() reflect.Type {
@@ -11213,12 +9784,6 @@ func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ToAlertProce
 	}).(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleName] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionAlertRuleName]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertRuleName) string { return v.Operator }).(pulumi.StringOutput)
@@ -11241,12 +9806,6 @@ func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) ToAlertPr
 
 func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleName] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionAlertRuleName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) Elem() AlertProcessingRuleSuppressionConditionAlertRuleNameOutput {
@@ -11316,12 +9875,6 @@ func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToAlertProcessin
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionDescriptionOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionDescription] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionDescription]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutput() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
 }
@@ -11363,12 +9916,6 @@ func (i *alertProcessingRuleSuppressionConditionDescriptionPtrType) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionDescriptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionDescription] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionDescription]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionDescriptionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionDescriptionOutput) ElementType() reflect.Type {
@@ -11393,12 +9940,6 @@ func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) ToAlertProcess
 	}).(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionDescription] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionDescription]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
@@ -11421,12 +9962,6 @@ func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) ToAlertProc
 
 func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionDescription] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) Elem() AlertProcessingRuleSuppressionConditionDescriptionOutput {
@@ -11496,12 +10031,6 @@ func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorConditionOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorCondition] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorCondition]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionMonitorConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(context.Background())
 }
@@ -11543,12 +10072,6 @@ func (i *alertProcessingRuleSuppressionConditionMonitorConditionPtrType) ToAlert
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionMonitorConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorCondition] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorCondition]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionMonitorConditionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ElementType() reflect.Type {
@@ -11573,12 +10096,6 @@ func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ToAlertPr
 	}).(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorCondition] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionMonitorCondition) string { return v.Operator }).(pulumi.StringOutput)
@@ -11601,12 +10118,6 @@ func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) ToAler
 
 func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorCondition] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) Elem() AlertProcessingRuleSuppressionConditionMonitorConditionOutput {
@@ -11676,12 +10187,6 @@ func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorServiceOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorService]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionMonitorServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutput() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
 }
@@ -11723,12 +10228,6 @@ func (i *alertProcessingRuleSuppressionConditionMonitorServicePtrType) ToAlertPr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionMonitorServicePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorService]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionMonitorServiceOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ElementType() reflect.Type {
@@ -11753,12 +10252,6 @@ func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ToAlertProc
 	}).(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
@@ -11781,12 +10274,6 @@ func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) ToAlertP
 
 func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorService] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionMonitorService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) Elem() AlertProcessingRuleSuppressionConditionMonitorServiceOutput {
@@ -11856,12 +10343,6 @@ func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToAlertProcessingRu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSeverityOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionSeverity] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionSeverity]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionSeverityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutput() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
 }
@@ -11903,12 +10384,6 @@ func (i *alertProcessingRuleSuppressionConditionSeverityPtrType) ToAlertProcessi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSeverityPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionSeverityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionSeverity] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionSeverity]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionSeverityOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionSeverityOutput) ElementType() reflect.Type {
@@ -11933,12 +10408,6 @@ func (o AlertProcessingRuleSuppressionConditionSeverityOutput) ToAlertProcessing
 	}).(AlertProcessingRuleSuppressionConditionSeverityPtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionSeverity] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleSuppressionConditionSeverityOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
@@ -11961,12 +10430,6 @@ func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) ToAlertProcess
 
 func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionSeverity] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) Elem() AlertProcessingRuleSuppressionConditionSeverityOutput {
@@ -12036,12 +10499,6 @@ func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToAlertProcessing
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSignalTypeOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionSignalType] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionSignalType]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionSignalTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutput() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(context.Background())
 }
@@ -12083,12 +10540,6 @@ func (i *alertProcessingRuleSuppressionConditionSignalTypePtrType) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionSignalTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionSignalType] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionSignalType]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionSignalTypeOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionSignalTypeOutput) ElementType() reflect.Type {
@@ -12113,12 +10564,6 @@ func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) ToAlertProcessi
 	}).(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionSignalType] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionSignalType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals` and `NotEquals`.
 func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionSignalType) string { return v.Operator }).(pulumi.StringOutput)
@@ -12141,12 +10586,6 @@ func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) ToAlertProce
 
 func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionSignalType] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionSignalType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) Elem() AlertProcessingRuleSuppressionConditionSignalTypeOutput {
@@ -12216,12 +10655,6 @@ func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResource] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResource]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionTargetResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(context.Background())
 }
@@ -12263,12 +10696,6 @@ func (i *alertProcessingRuleSuppressionConditionTargetResourcePtrType) ToAlertPr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionTargetResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResource] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResource]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionTargetResourceOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionTargetResourceOutput) ElementType() reflect.Type {
@@ -12293,12 +10720,6 @@ func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) ToAlertProc
 	}).(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResource] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResource) string { return v.Operator }).(pulumi.StringOutput)
@@ -12321,12 +10742,6 @@ func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) ToAlertP
 
 func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResource] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) Elem() AlertProcessingRuleSuppressionConditionTargetResourceOutput {
@@ -12396,12 +10811,6 @@ func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToAlertP
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceGroup] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceGroup]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(context.Background())
 }
@@ -12443,12 +10852,6 @@ func (i *alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType) ToAl
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceGroup] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceGroup]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ElementType() reflect.Type {
@@ -12473,12 +10876,6 @@ func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ToAler
 	}).(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceGroup] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResourceGroup) string { return v.Operator }).(pulumi.StringOutput)
@@ -12501,12 +10898,6 @@ func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) ToA
 
 func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceGroup] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) Elem() AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput {
@@ -12576,12 +10967,6 @@ func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToAlertPr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput)
 }
 
-func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceType]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
 }
@@ -12623,12 +11008,6 @@ func (i *alertProcessingRuleSuppressionConditionTargetResourceTypePtrType) ToAle
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionConditionTargetResourceTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceType]{
-		OutputState: i.ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ElementType() reflect.Type {
@@ -12653,12 +11032,6 @@ func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ToAlert
 	}).(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput)
 }
 
-func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[AlertProcessingRuleSuppressionConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
 func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
@@ -12681,12 +11054,6 @@ func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) ToAl
 
 func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceType] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionConditionTargetResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) Elem() AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput {
@@ -12764,12 +11131,6 @@ func (i AlertProcessingRuleSuppressionScheduleArgs) ToAlertProcessingRuleSuppres
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionSchedule] {
-	return pulumix.Output[AlertProcessingRuleSuppressionSchedule]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionScheduleArgs) ToAlertProcessingRuleSuppressionSchedulePtrOutput() AlertProcessingRuleSuppressionSchedulePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(context.Background())
 }
@@ -12811,12 +11172,6 @@ func (i *alertProcessingRuleSuppressionSchedulePtrType) ToAlertProcessingRuleSup
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionSchedulePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionSchedule] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionSchedule]{
-		OutputState: i.ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionScheduleOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionScheduleOutput) ElementType() reflect.Type {
@@ -12839,12 +11194,6 @@ func (o AlertProcessingRuleSuppressionScheduleOutput) ToAlertProcessingRuleSuppr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionSchedule) *AlertProcessingRuleSuppressionSchedule {
 		return &v
 	}).(AlertProcessingRuleSuppressionSchedulePtrOutput)
-}
-
-func (o AlertProcessingRuleSuppressionScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionSchedule] {
-	return pulumix.Output[AlertProcessingRuleSuppressionSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
@@ -12881,12 +11230,6 @@ func (o AlertProcessingRuleSuppressionSchedulePtrOutput) ToAlertProcessingRuleSu
 
 func (o AlertProcessingRuleSuppressionSchedulePtrOutput) ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionSchedulePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionSchedule] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionSchedulePtrOutput) Elem() AlertProcessingRuleSuppressionScheduleOutput {
@@ -12980,12 +11323,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToAlertProcessingR
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrence] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrence]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutput() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
 	return i.ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(context.Background())
 }
@@ -13027,12 +11364,6 @@ func (i *alertProcessingRuleSuppressionScheduleRecurrencePtrType) ToAlertProcess
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
 }
 
-func (i *alertProcessingRuleSuppressionScheduleRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionScheduleRecurrence] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionScheduleRecurrence]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionScheduleRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ElementType() reflect.Type {
@@ -13055,12 +11386,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ToAlertProcessin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionScheduleRecurrence) *AlertProcessingRuleSuppressionScheduleRecurrence {
 		return &v
 	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrence] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `daily` blocks as defined above.
@@ -13096,12 +11421,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) ToAlertProces
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppressionScheduleRecurrence] {
-	return pulumix.Output[*AlertProcessingRuleSuppressionScheduleRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) Elem() AlertProcessingRuleSuppressionScheduleRecurrenceOutput {
@@ -13181,12 +11500,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs) ToAlertProces
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceDaily] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceDaily]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray and AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput` via:
 //
@@ -13212,12 +11525,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceDaily] {
-	return pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceDaily]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ElementType() reflect.Type {
@@ -13230,12 +11537,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ToAlertProc
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceDaily] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the recurrence end time (H:M:S).
@@ -13260,12 +11561,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) ToAler
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceDaily] {
-	return pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
@@ -13315,12 +11610,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceMonthly] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceMonthly]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray and AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput` via:
 //
@@ -13346,12 +11635,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray) ToAlertPro
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly] {
-	return pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ElementType() reflect.Type {
@@ -13364,12 +11647,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ToAlertPr
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceMonthly] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
@@ -13399,12 +11676,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) ToAl
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly] {
-	return pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
@@ -13454,12 +11725,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs) ToAlertProce
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceWeekly] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceWeekly]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray and AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput` via:
 //
@@ -13485,12 +11750,6 @@ func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray) ToAlertProc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput)
 }
 
-func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly] {
-	return pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly]{
-		OutputState: i.ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ElementType() reflect.Type {
@@ -13503,12 +11762,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToAlertPro
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceWeekly] {
-	return pulumix.Output[AlertProcessingRuleSuppressionScheduleRecurrenceWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
@@ -13538,12 +11791,6 @@ func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) ToAle
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly] {
-	return pulumix.Output[[]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
@@ -13621,12 +11868,6 @@ func (i AlertPrometheusRuleGroupRuleArgs) ToAlertPrometheusRuleGroupRuleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleOutput)
 }
 
-func (i AlertPrometheusRuleGroupRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPrometheusRuleGroupRule] {
-	return pulumix.Output[AlertPrometheusRuleGroupRule]{
-		OutputState: i.ToAlertPrometheusRuleGroupRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPrometheusRuleGroupRuleArrayInput is an input type that accepts AlertPrometheusRuleGroupRuleArray and AlertPrometheusRuleGroupRuleArrayOutput values.
 // You can construct a concrete instance of `AlertPrometheusRuleGroupRuleArrayInput` via:
 //
@@ -13652,12 +11893,6 @@ func (i AlertPrometheusRuleGroupRuleArray) ToAlertPrometheusRuleGroupRuleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleArrayOutput)
 }
 
-func (i AlertPrometheusRuleGroupRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPrometheusRuleGroupRule] {
-	return pulumix.Output[[]AlertPrometheusRuleGroupRule]{
-		OutputState: i.ToAlertPrometheusRuleGroupRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPrometheusRuleGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (AlertPrometheusRuleGroupRuleOutput) ElementType() reflect.Type {
@@ -13670,12 +11905,6 @@ func (o AlertPrometheusRuleGroupRuleOutput) ToAlertPrometheusRuleGroupRuleOutput
 
 func (o AlertPrometheusRuleGroupRuleOutput) ToAlertPrometheusRuleGroupRuleOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleOutput {
 	return o
-}
-
-func (o AlertPrometheusRuleGroupRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPrometheusRuleGroupRule] {
-	return pulumix.Output[AlertPrometheusRuleGroupRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `action` block as defined below.
@@ -13744,12 +11973,6 @@ func (o AlertPrometheusRuleGroupRuleArrayOutput) ToAlertPrometheusRuleGroupRuleA
 	return o
 }
 
-func (o AlertPrometheusRuleGroupRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPrometheusRuleGroupRule] {
-	return pulumix.Output[[]AlertPrometheusRuleGroupRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertPrometheusRuleGroupRuleArrayOutput) Index(i pulumi.IntInput) AlertPrometheusRuleGroupRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertPrometheusRuleGroupRule {
 		return vs[0].([]AlertPrometheusRuleGroupRule)[vs[1].(int)]
@@ -13797,12 +12020,6 @@ func (i AlertPrometheusRuleGroupRuleActionArgs) ToAlertPrometheusRuleGroupRuleAc
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleActionOutput)
 }
 
-func (i AlertPrometheusRuleGroupRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPrometheusRuleGroupRuleAction] {
-	return pulumix.Output[AlertPrometheusRuleGroupRuleAction]{
-		OutputState: i.ToAlertPrometheusRuleGroupRuleActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertPrometheusRuleGroupRuleActionArrayInput is an input type that accepts AlertPrometheusRuleGroupRuleActionArray and AlertPrometheusRuleGroupRuleActionArrayOutput values.
 // You can construct a concrete instance of `AlertPrometheusRuleGroupRuleActionArrayInput` via:
 //
@@ -13828,12 +12045,6 @@ func (i AlertPrometheusRuleGroupRuleActionArray) ToAlertPrometheusRuleGroupRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleActionArrayOutput)
 }
 
-func (i AlertPrometheusRuleGroupRuleActionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlertPrometheusRuleGroupRuleAction] {
-	return pulumix.Output[[]AlertPrometheusRuleGroupRuleAction]{
-		OutputState: i.ToAlertPrometheusRuleGroupRuleActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPrometheusRuleGroupRuleActionOutput struct{ *pulumi.OutputState }
 
 func (AlertPrometheusRuleGroupRuleActionOutput) ElementType() reflect.Type {
@@ -13846,12 +12057,6 @@ func (o AlertPrometheusRuleGroupRuleActionOutput) ToAlertPrometheusRuleGroupRule
 
 func (o AlertPrometheusRuleGroupRuleActionOutput) ToAlertPrometheusRuleGroupRuleActionOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleActionOutput {
 	return o
-}
-
-func (o AlertPrometheusRuleGroupRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPrometheusRuleGroupRuleAction] {
-	return pulumix.Output[AlertPrometheusRuleGroupRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the resource id of the monitor action group.
@@ -13878,12 +12083,6 @@ func (o AlertPrometheusRuleGroupRuleActionArrayOutput) ToAlertPrometheusRuleGrou
 
 func (o AlertPrometheusRuleGroupRuleActionArrayOutput) ToAlertPrometheusRuleGroupRuleActionArrayOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleActionArrayOutput {
 	return o
-}
-
-func (o AlertPrometheusRuleGroupRuleActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlertPrometheusRuleGroupRuleAction] {
-	return pulumix.Output[[]AlertPrometheusRuleGroupRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPrometheusRuleGroupRuleActionArrayOutput) Index(i pulumi.IntInput) AlertPrometheusRuleGroupRuleActionOutput {
@@ -13929,12 +12128,6 @@ func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToAlertPrometheusRuleGr
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleAlertResolutionOutput)
 }
 
-func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToOutput(ctx context.Context) pulumix.Output[AlertPrometheusRuleGroupRuleAlertResolution] {
-	return pulumix.Output[AlertPrometheusRuleGroupRuleAlertResolution]{
-		OutputState: i.ToAlertPrometheusRuleGroupRuleAlertResolutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlertPrometheusRuleGroupRuleAlertResolutionArgs) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutput() AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
 	return i.ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(context.Background())
 }
@@ -13976,12 +12169,6 @@ func (i *alertPrometheusRuleGroupRuleAlertResolutionPtrType) ToAlertPrometheusRu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput)
 }
 
-func (i *alertPrometheusRuleGroupRuleAlertResolutionPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlertPrometheusRuleGroupRuleAlertResolution] {
-	return pulumix.Output[*AlertPrometheusRuleGroupRuleAlertResolution]{
-		OutputState: i.ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertPrometheusRuleGroupRuleAlertResolutionOutput struct{ *pulumi.OutputState }
 
 func (AlertPrometheusRuleGroupRuleAlertResolutionOutput) ElementType() reflect.Type {
@@ -14006,12 +12193,6 @@ func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) ToAlertPrometheusRule
 	}).(AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput)
 }
 
-func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) ToOutput(ctx context.Context) pulumix.Output[AlertPrometheusRuleGroupRuleAlertResolution] {
-	return pulumix.Output[AlertPrometheusRuleGroupRuleAlertResolution]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Is the alert auto-resolution? Possible values are `true` and `false`.
 func (o AlertPrometheusRuleGroupRuleAlertResolutionOutput) AutoResolved() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AlertPrometheusRuleGroupRuleAlertResolution) *bool { return v.AutoResolved }).(pulumi.BoolPtrOutput)
@@ -14034,12 +12215,6 @@ func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) ToAlertPrometheusR
 
 func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) ToAlertPrometheusRuleGroupRuleAlertResolutionPtrOutputWithContext(ctx context.Context) AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput {
 	return o
-}
-
-func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertPrometheusRuleGroupRuleAlertResolution] {
-	return pulumix.Output[*AlertPrometheusRuleGroupRuleAlertResolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertPrometheusRuleGroupRuleAlertResolutionPtrOutput) Elem() AlertPrometheusRuleGroupRuleAlertResolutionOutput {
@@ -14109,12 +12284,6 @@ func (i AutoscaleSettingNotificationArgs) ToAutoscaleSettingNotificationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationOutput)
 }
 
-func (i AutoscaleSettingNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingNotification] {
-	return pulumix.Output[AutoscaleSettingNotification]{
-		OutputState: i.ToAutoscaleSettingNotificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoscaleSettingNotificationArgs) ToAutoscaleSettingNotificationPtrOutput() AutoscaleSettingNotificationPtrOutput {
 	return i.ToAutoscaleSettingNotificationPtrOutputWithContext(context.Background())
 }
@@ -14156,12 +12325,6 @@ func (i *autoscaleSettingNotificationPtrType) ToAutoscaleSettingNotificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationPtrOutput)
 }
 
-func (i *autoscaleSettingNotificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingNotification] {
-	return pulumix.Output[*AutoscaleSettingNotification]{
-		OutputState: i.ToAutoscaleSettingNotificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingNotificationOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationOutput) ElementType() reflect.Type {
@@ -14186,12 +12349,6 @@ func (o AutoscaleSettingNotificationOutput) ToAutoscaleSettingNotificationPtrOut
 	}).(AutoscaleSettingNotificationPtrOutput)
 }
 
-func (o AutoscaleSettingNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingNotification] {
-	return pulumix.Output[AutoscaleSettingNotification]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `email` block as defined below.
 func (o AutoscaleSettingNotificationOutput) Email() AutoscaleSettingNotificationEmailPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingNotification) *AutoscaleSettingNotificationEmail { return v.Email }).(AutoscaleSettingNotificationEmailPtrOutput)
@@ -14214,12 +12371,6 @@ func (o AutoscaleSettingNotificationPtrOutput) ToAutoscaleSettingNotificationPtr
 
 func (o AutoscaleSettingNotificationPtrOutput) ToAutoscaleSettingNotificationPtrOutputWithContext(ctx context.Context) AutoscaleSettingNotificationPtrOutput {
 	return o
-}
-
-func (o AutoscaleSettingNotificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingNotification] {
-	return pulumix.Output[*AutoscaleSettingNotification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingNotificationPtrOutput) Elem() AutoscaleSettingNotificationOutput {
@@ -14293,12 +12444,6 @@ func (i AutoscaleSettingNotificationEmailArgs) ToAutoscaleSettingNotificationEma
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationEmailOutput)
 }
 
-func (i AutoscaleSettingNotificationEmailArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingNotificationEmail] {
-	return pulumix.Output[AutoscaleSettingNotificationEmail]{
-		OutputState: i.ToAutoscaleSettingNotificationEmailOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoscaleSettingNotificationEmailArgs) ToAutoscaleSettingNotificationEmailPtrOutput() AutoscaleSettingNotificationEmailPtrOutput {
 	return i.ToAutoscaleSettingNotificationEmailPtrOutputWithContext(context.Background())
 }
@@ -14340,12 +12485,6 @@ func (i *autoscaleSettingNotificationEmailPtrType) ToAutoscaleSettingNotificatio
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationEmailPtrOutput)
 }
 
-func (i *autoscaleSettingNotificationEmailPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingNotificationEmail] {
-	return pulumix.Output[*AutoscaleSettingNotificationEmail]{
-		OutputState: i.ToAutoscaleSettingNotificationEmailPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingNotificationEmailOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationEmailOutput) ElementType() reflect.Type {
@@ -14368,12 +12507,6 @@ func (o AutoscaleSettingNotificationEmailOutput) ToAutoscaleSettingNotificationE
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingNotificationEmail) *AutoscaleSettingNotificationEmail {
 		return &v
 	}).(AutoscaleSettingNotificationEmailPtrOutput)
-}
-
-func (o AutoscaleSettingNotificationEmailOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingNotificationEmail] {
-	return pulumix.Output[AutoscaleSettingNotificationEmail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of custom email addresses to which the email notifications will be sent.
@@ -14403,12 +12536,6 @@ func (o AutoscaleSettingNotificationEmailPtrOutput) ToAutoscaleSettingNotificati
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) ToAutoscaleSettingNotificationEmailPtrOutputWithContext(ctx context.Context) AutoscaleSettingNotificationEmailPtrOutput {
 	return o
-}
-
-func (o AutoscaleSettingNotificationEmailPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingNotificationEmail] {
-	return pulumix.Output[*AutoscaleSettingNotificationEmail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingNotificationEmailPtrOutput) Elem() AutoscaleSettingNotificationEmailOutput {
@@ -14488,12 +12615,6 @@ func (i AutoscaleSettingNotificationWebhookArgs) ToAutoscaleSettingNotificationW
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationWebhookOutput)
 }
 
-func (i AutoscaleSettingNotificationWebhookArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingNotificationWebhook] {
-	return pulumix.Output[AutoscaleSettingNotificationWebhook]{
-		OutputState: i.ToAutoscaleSettingNotificationWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoscaleSettingNotificationWebhookArrayInput is an input type that accepts AutoscaleSettingNotificationWebhookArray and AutoscaleSettingNotificationWebhookArrayOutput values.
 // You can construct a concrete instance of `AutoscaleSettingNotificationWebhookArrayInput` via:
 //
@@ -14519,12 +12640,6 @@ func (i AutoscaleSettingNotificationWebhookArray) ToAutoscaleSettingNotification
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingNotificationWebhookArrayOutput)
 }
 
-func (i AutoscaleSettingNotificationWebhookArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingNotificationWebhook] {
-	return pulumix.Output[[]AutoscaleSettingNotificationWebhook]{
-		OutputState: i.ToAutoscaleSettingNotificationWebhookArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingNotificationWebhookOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingNotificationWebhookOutput) ElementType() reflect.Type {
@@ -14537,12 +12652,6 @@ func (o AutoscaleSettingNotificationWebhookOutput) ToAutoscaleSettingNotificatio
 
 func (o AutoscaleSettingNotificationWebhookOutput) ToAutoscaleSettingNotificationWebhookOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhookOutput {
 	return o
-}
-
-func (o AutoscaleSettingNotificationWebhookOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingNotificationWebhook] {
-	return pulumix.Output[AutoscaleSettingNotificationWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of settings.
@@ -14567,12 +12676,6 @@ func (o AutoscaleSettingNotificationWebhookArrayOutput) ToAutoscaleSettingNotifi
 
 func (o AutoscaleSettingNotificationWebhookArrayOutput) ToAutoscaleSettingNotificationWebhookArrayOutputWithContext(ctx context.Context) AutoscaleSettingNotificationWebhookArrayOutput {
 	return o
-}
-
-func (o AutoscaleSettingNotificationWebhookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingNotificationWebhook] {
-	return pulumix.Output[[]AutoscaleSettingNotificationWebhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingNotificationWebhookArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingNotificationWebhookOutput {
@@ -14618,12 +12721,6 @@ func (i AutoscaleSettingPredictiveArgs) ToAutoscaleSettingPredictiveOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPredictiveOutput)
 }
 
-func (i AutoscaleSettingPredictiveArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingPredictive] {
-	return pulumix.Output[AutoscaleSettingPredictive]{
-		OutputState: i.ToAutoscaleSettingPredictiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoscaleSettingPredictiveArgs) ToAutoscaleSettingPredictivePtrOutput() AutoscaleSettingPredictivePtrOutput {
 	return i.ToAutoscaleSettingPredictivePtrOutputWithContext(context.Background())
 }
@@ -14665,12 +12762,6 @@ func (i *autoscaleSettingPredictivePtrType) ToAutoscaleSettingPredictivePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingPredictivePtrOutput)
 }
 
-func (i *autoscaleSettingPredictivePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingPredictive] {
-	return pulumix.Output[*AutoscaleSettingPredictive]{
-		OutputState: i.ToAutoscaleSettingPredictivePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingPredictiveOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingPredictiveOutput) ElementType() reflect.Type {
@@ -14695,12 +12786,6 @@ func (o AutoscaleSettingPredictiveOutput) ToAutoscaleSettingPredictivePtrOutputW
 	}).(AutoscaleSettingPredictivePtrOutput)
 }
 
-func (o AutoscaleSettingPredictiveOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingPredictive] {
-	return pulumix.Output[AutoscaleSettingPredictive]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
 func (o AutoscaleSettingPredictiveOutput) LookAheadTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutoscaleSettingPredictive) *string { return v.LookAheadTime }).(pulumi.StringPtrOutput)
@@ -14723,12 +12808,6 @@ func (o AutoscaleSettingPredictivePtrOutput) ToAutoscaleSettingPredictivePtrOutp
 
 func (o AutoscaleSettingPredictivePtrOutput) ToAutoscaleSettingPredictivePtrOutputWithContext(ctx context.Context) AutoscaleSettingPredictivePtrOutput {
 	return o
-}
-
-func (o AutoscaleSettingPredictivePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingPredictive] {
-	return pulumix.Output[*AutoscaleSettingPredictive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingPredictivePtrOutput) Elem() AutoscaleSettingPredictiveOutput {
@@ -14810,12 +12889,6 @@ func (i AutoscaleSettingProfileArgs) ToAutoscaleSettingProfileOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileOutput)
 }
 
-func (i AutoscaleSettingProfileArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfile] {
-	return pulumix.Output[AutoscaleSettingProfile]{
-		OutputState: i.ToAutoscaleSettingProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoscaleSettingProfileArrayInput is an input type that accepts AutoscaleSettingProfileArray and AutoscaleSettingProfileArrayOutput values.
 // You can construct a concrete instance of `AutoscaleSettingProfileArrayInput` via:
 //
@@ -14841,12 +12914,6 @@ func (i AutoscaleSettingProfileArray) ToAutoscaleSettingProfileArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileArrayOutput)
 }
 
-func (i AutoscaleSettingProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingProfile] {
-	return pulumix.Output[[]AutoscaleSettingProfile]{
-		OutputState: i.ToAutoscaleSettingProfileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileOutput) ElementType() reflect.Type {
@@ -14859,12 +12926,6 @@ func (o AutoscaleSettingProfileOutput) ToAutoscaleSettingProfileOutput() Autosca
 
 func (o AutoscaleSettingProfileOutput) ToAutoscaleSettingProfileOutputWithContext(ctx context.Context) AutoscaleSettingProfileOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfile] {
-	return pulumix.Output[AutoscaleSettingProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `capacity` block as defined below.
@@ -14904,12 +12965,6 @@ func (o AutoscaleSettingProfileArrayOutput) ToAutoscaleSettingProfileArrayOutput
 
 func (o AutoscaleSettingProfileArrayOutput) ToAutoscaleSettingProfileArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfileArrayOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingProfile] {
-	return pulumix.Output[[]AutoscaleSettingProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingProfileArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfileOutput {
@@ -14963,12 +13018,6 @@ func (i AutoscaleSettingProfileCapacityArgs) ToAutoscaleSettingProfileCapacityOu
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileCapacityOutput)
 }
 
-func (i AutoscaleSettingProfileCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileCapacity] {
-	return pulumix.Output[AutoscaleSettingProfileCapacity]{
-		OutputState: i.ToAutoscaleSettingProfileCapacityOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileCapacityOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileCapacityOutput) ElementType() reflect.Type {
@@ -14981,12 +13030,6 @@ func (o AutoscaleSettingProfileCapacityOutput) ToAutoscaleSettingProfileCapacity
 
 func (o AutoscaleSettingProfileCapacityOutput) ToAutoscaleSettingProfileCapacityOutputWithContext(ctx context.Context) AutoscaleSettingProfileCapacityOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileCapacity] {
-	return pulumix.Output[AutoscaleSettingProfileCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
@@ -15047,12 +13090,6 @@ func (i AutoscaleSettingProfileFixedDateArgs) ToAutoscaleSettingProfileFixedDate
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileFixedDateOutput)
 }
 
-func (i AutoscaleSettingProfileFixedDateArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileFixedDate] {
-	return pulumix.Output[AutoscaleSettingProfileFixedDate]{
-		OutputState: i.ToAutoscaleSettingProfileFixedDateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoscaleSettingProfileFixedDateArgs) ToAutoscaleSettingProfileFixedDatePtrOutput() AutoscaleSettingProfileFixedDatePtrOutput {
 	return i.ToAutoscaleSettingProfileFixedDatePtrOutputWithContext(context.Background())
 }
@@ -15094,12 +13131,6 @@ func (i *autoscaleSettingProfileFixedDatePtrType) ToAutoscaleSettingProfileFixed
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileFixedDatePtrOutput)
 }
 
-func (i *autoscaleSettingProfileFixedDatePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingProfileFixedDate] {
-	return pulumix.Output[*AutoscaleSettingProfileFixedDate]{
-		OutputState: i.ToAutoscaleSettingProfileFixedDatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileFixedDateOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileFixedDateOutput) ElementType() reflect.Type {
@@ -15122,12 +13153,6 @@ func (o AutoscaleSettingProfileFixedDateOutput) ToAutoscaleSettingProfileFixedDa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingProfileFixedDate) *AutoscaleSettingProfileFixedDate {
 		return &v
 	}).(AutoscaleSettingProfileFixedDatePtrOutput)
-}
-
-func (o AutoscaleSettingProfileFixedDateOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileFixedDate] {
-	return pulumix.Output[AutoscaleSettingProfileFixedDate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the end date for the profile, formatted as an RFC3339 date string.
@@ -15157,12 +13182,6 @@ func (o AutoscaleSettingProfileFixedDatePtrOutput) ToAutoscaleSettingProfileFixe
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) ToAutoscaleSettingProfileFixedDatePtrOutputWithContext(ctx context.Context) AutoscaleSettingProfileFixedDatePtrOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileFixedDatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingProfileFixedDate] {
-	return pulumix.Output[*AutoscaleSettingProfileFixedDate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingProfileFixedDatePtrOutput) Elem() AutoscaleSettingProfileFixedDateOutput {
@@ -15250,12 +13269,6 @@ func (i AutoscaleSettingProfileRecurrenceArgs) ToAutoscaleSettingProfileRecurren
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRecurrenceOutput)
 }
 
-func (i AutoscaleSettingProfileRecurrenceArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRecurrence] {
-	return pulumix.Output[AutoscaleSettingProfileRecurrence]{
-		OutputState: i.ToAutoscaleSettingProfileRecurrenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutoscaleSettingProfileRecurrenceArgs) ToAutoscaleSettingProfileRecurrencePtrOutput() AutoscaleSettingProfileRecurrencePtrOutput {
 	return i.ToAutoscaleSettingProfileRecurrencePtrOutputWithContext(context.Background())
 }
@@ -15297,12 +13310,6 @@ func (i *autoscaleSettingProfileRecurrencePtrType) ToAutoscaleSettingProfileRecu
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRecurrencePtrOutput)
 }
 
-func (i *autoscaleSettingProfileRecurrencePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingProfileRecurrence] {
-	return pulumix.Output[*AutoscaleSettingProfileRecurrence]{
-		OutputState: i.ToAutoscaleSettingProfileRecurrencePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileRecurrenceOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRecurrenceOutput) ElementType() reflect.Type {
@@ -15325,12 +13332,6 @@ func (o AutoscaleSettingProfileRecurrenceOutput) ToAutoscaleSettingProfileRecurr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingProfileRecurrence) *AutoscaleSettingProfileRecurrence {
 		return &v
 	}).(AutoscaleSettingProfileRecurrencePtrOutput)
-}
-
-func (o AutoscaleSettingProfileRecurrenceOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRecurrence] {
-	return pulumix.Output[AutoscaleSettingProfileRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -15365,12 +13366,6 @@ func (o AutoscaleSettingProfileRecurrencePtrOutput) ToAutoscaleSettingProfileRec
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) ToAutoscaleSettingProfileRecurrencePtrOutputWithContext(ctx context.Context) AutoscaleSettingProfileRecurrencePtrOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRecurrencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSettingProfileRecurrence] {
-	return pulumix.Output[*AutoscaleSettingProfileRecurrence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingProfileRecurrencePtrOutput) Elem() AutoscaleSettingProfileRecurrenceOutput {
@@ -15460,12 +13455,6 @@ func (i AutoscaleSettingProfileRuleArgs) ToAutoscaleSettingProfileRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleOutput)
 }
 
-func (i AutoscaleSettingProfileRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRule] {
-	return pulumix.Output[AutoscaleSettingProfileRule]{
-		OutputState: i.ToAutoscaleSettingProfileRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoscaleSettingProfileRuleArrayInput is an input type that accepts AutoscaleSettingProfileRuleArray and AutoscaleSettingProfileRuleArrayOutput values.
 // You can construct a concrete instance of `AutoscaleSettingProfileRuleArrayInput` via:
 //
@@ -15491,12 +13480,6 @@ func (i AutoscaleSettingProfileRuleArray) ToAutoscaleSettingProfileRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleArrayOutput)
 }
 
-func (i AutoscaleSettingProfileRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingProfileRule] {
-	return pulumix.Output[[]AutoscaleSettingProfileRule]{
-		OutputState: i.ToAutoscaleSettingProfileRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileRuleOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleOutput) ElementType() reflect.Type {
@@ -15509,12 +13492,6 @@ func (o AutoscaleSettingProfileRuleOutput) ToAutoscaleSettingProfileRuleOutput()
 
 func (o AutoscaleSettingProfileRuleOutput) ToAutoscaleSettingProfileRuleOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRule] {
-	return pulumix.Output[AutoscaleSettingProfileRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `metricTrigger` block as defined below.
@@ -15539,12 +13516,6 @@ func (o AutoscaleSettingProfileRuleArrayOutput) ToAutoscaleSettingProfileRuleArr
 
 func (o AutoscaleSettingProfileRuleArrayOutput) ToAutoscaleSettingProfileRuleArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleArrayOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingProfileRule] {
-	return pulumix.Output[[]AutoscaleSettingProfileRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingProfileRuleArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfileRuleOutput {
@@ -15630,12 +13601,6 @@ func (i AutoscaleSettingProfileRuleMetricTriggerArgs) ToAutoscaleSettingProfileR
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleMetricTriggerOutput)
 }
 
-func (i AutoscaleSettingProfileRuleMetricTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRuleMetricTrigger] {
-	return pulumix.Output[AutoscaleSettingProfileRuleMetricTrigger]{
-		OutputState: i.ToAutoscaleSettingProfileRuleMetricTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileRuleMetricTriggerOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleMetricTriggerOutput) ElementType() reflect.Type {
@@ -15648,12 +13613,6 @@ func (o AutoscaleSettingProfileRuleMetricTriggerOutput) ToAutoscaleSettingProfil
 
 func (o AutoscaleSettingProfileRuleMetricTriggerOutput) ToAutoscaleSettingProfileRuleMetricTriggerOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRuleMetricTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRuleMetricTrigger] {
-	return pulumix.Output[AutoscaleSettingProfileRuleMetricTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `dimensions` block as defined below.
@@ -15756,12 +13715,6 @@ func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArgs) ToAutoscaleSettin
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleMetricTriggerDimensionOutput)
 }
 
-func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRuleMetricTriggerDimension] {
-	return pulumix.Output[AutoscaleSettingProfileRuleMetricTriggerDimension]{
-		OutputState: i.ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput is an input type that accepts AutoscaleSettingProfileRuleMetricTriggerDimensionArray and AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput values.
 // You can construct a concrete instance of `AutoscaleSettingProfileRuleMetricTriggerDimensionArrayInput` via:
 //
@@ -15787,12 +13740,6 @@ func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArray) ToAutoscaleSetti
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput)
 }
 
-func (i AutoscaleSettingProfileRuleMetricTriggerDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingProfileRuleMetricTriggerDimension] {
-	return pulumix.Output[[]AutoscaleSettingProfileRuleMetricTriggerDimension]{
-		OutputState: i.ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileRuleMetricTriggerDimensionOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ElementType() reflect.Type {
@@ -15805,12 +13752,6 @@ func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ToAutoscaleSett
 
 func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ToAutoscaleSettingProfileRuleMetricTriggerDimensionOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRuleMetricTriggerDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRuleMetricTriggerDimension] {
-	return pulumix.Output[AutoscaleSettingProfileRuleMetricTriggerDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the dimension.
@@ -15840,12 +13781,6 @@ func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) ToAutoscal
 
 func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) ToAutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutoscaleSettingProfileRuleMetricTriggerDimension] {
-	return pulumix.Output[[]AutoscaleSettingProfileRuleMetricTriggerDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingProfileRuleMetricTriggerDimensionArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingProfileRuleMetricTriggerDimensionOutput {
@@ -15899,12 +13834,6 @@ func (i AutoscaleSettingProfileRuleScaleActionArgs) ToAutoscaleSettingProfileRul
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingProfileRuleScaleActionOutput)
 }
 
-func (i AutoscaleSettingProfileRuleScaleActionArgs) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRuleScaleAction] {
-	return pulumix.Output[AutoscaleSettingProfileRuleScaleAction]{
-		OutputState: i.ToAutoscaleSettingProfileRuleScaleActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingProfileRuleScaleActionOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingProfileRuleScaleActionOutput) ElementType() reflect.Type {
@@ -15917,12 +13846,6 @@ func (o AutoscaleSettingProfileRuleScaleActionOutput) ToAutoscaleSettingProfileR
 
 func (o AutoscaleSettingProfileRuleScaleActionOutput) ToAutoscaleSettingProfileRuleScaleActionOutputWithContext(ctx context.Context) AutoscaleSettingProfileRuleScaleActionOutput {
 	return o
-}
-
-func (o AutoscaleSettingProfileRuleScaleActionOutput) ToOutput(ctx context.Context) pulumix.Output[AutoscaleSettingProfileRuleScaleAction] {
-	return pulumix.Output[AutoscaleSettingProfileRuleScaleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
@@ -15994,12 +13917,6 @@ func (i DataCollectionRuleDataFlowArgs) ToDataCollectionRuleDataFlowOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataFlowOutput)
 }
 
-func (i DataCollectionRuleDataFlowArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataFlow] {
-	return pulumix.Output[DataCollectionRuleDataFlow]{
-		OutputState: i.ToDataCollectionRuleDataFlowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataFlowArrayInput is an input type that accepts DataCollectionRuleDataFlowArray and DataCollectionRuleDataFlowArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataFlowArrayInput` via:
 //
@@ -16025,12 +13942,6 @@ func (i DataCollectionRuleDataFlowArray) ToDataCollectionRuleDataFlowArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataFlowArrayOutput)
 }
 
-func (i DataCollectionRuleDataFlowArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataFlow] {
-	return pulumix.Output[[]DataCollectionRuleDataFlow]{
-		OutputState: i.ToDataCollectionRuleDataFlowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataFlowOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataFlowOutput) ElementType() reflect.Type {
@@ -16043,12 +13954,6 @@ func (o DataCollectionRuleDataFlowOutput) ToDataCollectionRuleDataFlowOutput() D
 
 func (o DataCollectionRuleDataFlowOutput) ToDataCollectionRuleDataFlowOutputWithContext(ctx context.Context) DataCollectionRuleDataFlowOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataFlowOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataFlow] {
-	return pulumix.Output[DataCollectionRuleDataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The built-in transform to transform stream data.
@@ -16088,12 +13993,6 @@ func (o DataCollectionRuleDataFlowArrayOutput) ToDataCollectionRuleDataFlowArray
 
 func (o DataCollectionRuleDataFlowArrayOutput) ToDataCollectionRuleDataFlowArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataFlowArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataFlowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataFlow] {
-	return pulumix.Output[[]DataCollectionRuleDataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataFlowArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataFlowOutput {
@@ -16171,12 +14070,6 @@ func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesOutput)
 }
 
-func (i DataCollectionRuleDataSourcesArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSources] {
-	return pulumix.Output[DataCollectionRuleDataSources]{
-		OutputState: i.ToDataCollectionRuleDataSourcesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDataSourcesArgs) ToDataCollectionRuleDataSourcesPtrOutput() DataCollectionRuleDataSourcesPtrOutput {
 	return i.ToDataCollectionRuleDataSourcesPtrOutputWithContext(context.Background())
 }
@@ -16218,12 +14111,6 @@ func (i *dataCollectionRuleDataSourcesPtrType) ToDataCollectionRuleDataSourcesPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPtrOutput)
 }
 
-func (i *dataCollectionRuleDataSourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSources] {
-	return pulumix.Output[*DataCollectionRuleDataSources]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesOutput) ElementType() reflect.Type {
@@ -16246,12 +14133,6 @@ func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
 		return &v
 	}).(DataCollectionRuleDataSourcesPtrOutput)
-}
-
-func (o DataCollectionRuleDataSourcesOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSources] {
-	return pulumix.Output[DataCollectionRuleDataSources]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `dataImport` block as defined above.
@@ -16326,12 +14207,6 @@ func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesP
 
 func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSources] {
-	return pulumix.Output[*DataCollectionRuleDataSources]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesPtrOutput) Elem() DataCollectionRuleDataSourcesOutput {
@@ -16477,12 +14352,6 @@ func (i DataCollectionRuleDataSourcesDataImportArgs) ToDataCollectionRuleDataSou
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesDataImportOutput)
 }
 
-func (i DataCollectionRuleDataSourcesDataImportArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesDataImport] {
-	return pulumix.Output[DataCollectionRuleDataSourcesDataImport]{
-		OutputState: i.ToDataCollectionRuleDataSourcesDataImportOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDataSourcesDataImportArgs) ToDataCollectionRuleDataSourcesDataImportPtrOutput() DataCollectionRuleDataSourcesDataImportPtrOutput {
 	return i.ToDataCollectionRuleDataSourcesDataImportPtrOutputWithContext(context.Background())
 }
@@ -16524,12 +14393,6 @@ func (i *dataCollectionRuleDataSourcesDataImportPtrType) ToDataCollectionRuleDat
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesDataImportPtrOutput)
 }
 
-func (i *dataCollectionRuleDataSourcesDataImportPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSourcesDataImport] {
-	return pulumix.Output[*DataCollectionRuleDataSourcesDataImport]{
-		OutputState: i.ToDataCollectionRuleDataSourcesDataImportPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesDataImportOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesDataImportOutput) ElementType() reflect.Type {
@@ -16554,12 +14417,6 @@ func (o DataCollectionRuleDataSourcesDataImportOutput) ToDataCollectionRuleDataS
 	}).(DataCollectionRuleDataSourcesDataImportPtrOutput)
 }
 
-func (o DataCollectionRuleDataSourcesDataImportOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesDataImport] {
-	return pulumix.Output[DataCollectionRuleDataSourcesDataImport]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An `eventHubDataSource` block as defined below.
 func (o DataCollectionRuleDataSourcesDataImportOutput) EventHubDataSources() DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesDataImport) []DataCollectionRuleDataSourcesDataImportEventHubDataSource {
@@ -16579,12 +14436,6 @@ func (o DataCollectionRuleDataSourcesDataImportPtrOutput) ToDataCollectionRuleDa
 
 func (o DataCollectionRuleDataSourcesDataImportPtrOutput) ToDataCollectionRuleDataSourcesDataImportPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesDataImportPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesDataImportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSourcesDataImport] {
-	return pulumix.Output[*DataCollectionRuleDataSourcesDataImport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesDataImportPtrOutput) Elem() DataCollectionRuleDataSourcesDataImportOutput {
@@ -16648,12 +14499,6 @@ func (i DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs) ToDataCol
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput)
 }
 
-func (i DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesDataImportEventHubDataSource] {
-	return pulumix.Output[DataCollectionRuleDataSourcesDataImportEventHubDataSource]{
-		OutputState: i.ToDataCollectionRuleDataSourcesDataImportEventHubDataSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayInput is an input type that accepts DataCollectionRuleDataSourcesDataImportEventHubDataSourceArray and DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayInput` via:
 //
@@ -16679,12 +14524,6 @@ func (i DataCollectionRuleDataSourcesDataImportEventHubDataSourceArray) ToDataCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesDataImportEventHubDataSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesDataImportEventHubDataSource] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesDataImportEventHubDataSource]{
-		OutputState: i.ToDataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput) ElementType() reflect.Type {
@@ -16697,12 +14536,6 @@ func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput) ToDataC
 
 func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput) ToDataCollectionRuleDataSourcesDataImportEventHubDataSourceOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesDataImportEventHubDataSource] {
-	return pulumix.Output[DataCollectionRuleDataSourcesDataImportEventHubDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Event Hub consumer group name.
@@ -16732,12 +14565,6 @@ func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput) To
 
 func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput) ToDataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesDataImportEventHubDataSource] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesDataImportEventHubDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesDataImportEventHubDataSourceArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesDataImportEventHubDataSourceOutput {
@@ -16795,12 +14622,6 @@ func (i DataCollectionRuleDataSourcesExtensionArgs) ToDataCollectionRuleDataSour
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesExtensionOutput)
 }
 
-func (i DataCollectionRuleDataSourcesExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesExtension] {
-	return pulumix.Output[DataCollectionRuleDataSourcesExtension]{
-		OutputState: i.ToDataCollectionRuleDataSourcesExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesExtensionArrayInput is an input type that accepts DataCollectionRuleDataSourcesExtensionArray and DataCollectionRuleDataSourcesExtensionArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesExtensionArrayInput` via:
 //
@@ -16826,12 +14647,6 @@ func (i DataCollectionRuleDataSourcesExtensionArray) ToDataCollectionRuleDataSou
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesExtensionArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesExtension] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesExtension]{
-		OutputState: i.ToDataCollectionRuleDataSourcesExtensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesExtensionOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesExtensionOutput) ElementType() reflect.Type {
@@ -16844,12 +14659,6 @@ func (o DataCollectionRuleDataSourcesExtensionOutput) ToDataCollectionRuleDataSo
 
 func (o DataCollectionRuleDataSourcesExtensionOutput) ToDataCollectionRuleDataSourcesExtensionOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesExtensionOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesExtension] {
-	return pulumix.Output[DataCollectionRuleDataSourcesExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A JSON String which specifies the extension setting.
@@ -16889,12 +14698,6 @@ func (o DataCollectionRuleDataSourcesExtensionArrayOutput) ToDataCollectionRuleD
 
 func (o DataCollectionRuleDataSourcesExtensionArrayOutput) ToDataCollectionRuleDataSourcesExtensionArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesExtensionArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesExtension] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesExtensionArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesExtensionOutput {
@@ -16944,12 +14747,6 @@ func (i DataCollectionRuleDataSourcesIisLogArgs) ToDataCollectionRuleDataSources
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesIisLogOutput)
 }
 
-func (i DataCollectionRuleDataSourcesIisLogArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesIisLog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesIisLog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesIisLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesIisLogArrayInput is an input type that accepts DataCollectionRuleDataSourcesIisLogArray and DataCollectionRuleDataSourcesIisLogArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesIisLogArrayInput` via:
 //
@@ -16975,12 +14772,6 @@ func (i DataCollectionRuleDataSourcesIisLogArray) ToDataCollectionRuleDataSource
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesIisLogArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesIisLogArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesIisLog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesIisLog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesIisLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesIisLogOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesIisLogOutput) ElementType() reflect.Type {
@@ -16993,12 +14784,6 @@ func (o DataCollectionRuleDataSourcesIisLogOutput) ToDataCollectionRuleDataSourc
 
 func (o DataCollectionRuleDataSourcesIisLogOutput) ToDataCollectionRuleDataSourcesIisLogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesIisLogOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesIisLogOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesIisLog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesIisLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of absolute paths where the log files are located.
@@ -17028,12 +14813,6 @@ func (o DataCollectionRuleDataSourcesIisLogArrayOutput) ToDataCollectionRuleData
 
 func (o DataCollectionRuleDataSourcesIisLogArrayOutput) ToDataCollectionRuleDataSourcesIisLogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesIisLogArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesIisLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesIisLog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesIisLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesIisLogArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesIisLogOutput {
@@ -17091,12 +14870,6 @@ func (i DataCollectionRuleDataSourcesLogFileArgs) ToDataCollectionRuleDataSource
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesLogFileOutput)
 }
 
-func (i DataCollectionRuleDataSourcesLogFileArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesLogFile] {
-	return pulumix.Output[DataCollectionRuleDataSourcesLogFile]{
-		OutputState: i.ToDataCollectionRuleDataSourcesLogFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesLogFileArrayInput is an input type that accepts DataCollectionRuleDataSourcesLogFileArray and DataCollectionRuleDataSourcesLogFileArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesLogFileArrayInput` via:
 //
@@ -17122,12 +14895,6 @@ func (i DataCollectionRuleDataSourcesLogFileArray) ToDataCollectionRuleDataSourc
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesLogFileArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesLogFileArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesLogFile] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesLogFile]{
-		OutputState: i.ToDataCollectionRuleDataSourcesLogFileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesLogFileOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesLogFileOutput) ElementType() reflect.Type {
@@ -17140,12 +14907,6 @@ func (o DataCollectionRuleDataSourcesLogFileOutput) ToDataCollectionRuleDataSour
 
 func (o DataCollectionRuleDataSourcesLogFileOutput) ToDataCollectionRuleDataSourcesLogFileOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesLogFileOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesLogFileOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesLogFile] {
-	return pulumix.Output[DataCollectionRuleDataSourcesLogFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
@@ -17189,12 +14950,6 @@ func (o DataCollectionRuleDataSourcesLogFileArrayOutput) ToDataCollectionRuleDat
 	return o
 }
 
-func (o DataCollectionRuleDataSourcesLogFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesLogFile] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesLogFile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataCollectionRuleDataSourcesLogFileArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesLogFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCollectionRuleDataSourcesLogFile {
 		return vs[0].([]DataCollectionRuleDataSourcesLogFile)[vs[1].(int)]
@@ -17232,12 +14987,6 @@ func (i DataCollectionRuleDataSourcesLogFileSettingsArgs) ToDataCollectionRuleDa
 
 func (i DataCollectionRuleDataSourcesLogFileSettingsArgs) ToDataCollectionRuleDataSourcesLogFileSettingsOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesLogFileSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesLogFileSettingsOutput)
-}
-
-func (i DataCollectionRuleDataSourcesLogFileSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesLogFileSettings] {
-	return pulumix.Output[DataCollectionRuleDataSourcesLogFileSettings]{
-		OutputState: i.ToDataCollectionRuleDataSourcesLogFileSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataCollectionRuleDataSourcesLogFileSettingsArgs) ToDataCollectionRuleDataSourcesLogFileSettingsPtrOutput() DataCollectionRuleDataSourcesLogFileSettingsPtrOutput {
@@ -17281,12 +15030,6 @@ func (i *dataCollectionRuleDataSourcesLogFileSettingsPtrType) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesLogFileSettingsPtrOutput)
 }
 
-func (i *dataCollectionRuleDataSourcesLogFileSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettings] {
-	return pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettings]{
-		OutputState: i.ToDataCollectionRuleDataSourcesLogFileSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesLogFileSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesLogFileSettingsOutput) ElementType() reflect.Type {
@@ -17311,12 +15054,6 @@ func (o DataCollectionRuleDataSourcesLogFileSettingsOutput) ToDataCollectionRule
 	}).(DataCollectionRuleDataSourcesLogFileSettingsPtrOutput)
 }
 
-func (o DataCollectionRuleDataSourcesLogFileSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesLogFileSettings] {
-	return pulumix.Output[DataCollectionRuleDataSourcesLogFileSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `text` block as defined below.
 func (o DataCollectionRuleDataSourcesLogFileSettingsOutput) Text() DataCollectionRuleDataSourcesLogFileSettingsTextOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesLogFileSettings) DataCollectionRuleDataSourcesLogFileSettingsText {
@@ -17336,12 +15073,6 @@ func (o DataCollectionRuleDataSourcesLogFileSettingsPtrOutput) ToDataCollectionR
 
 func (o DataCollectionRuleDataSourcesLogFileSettingsPtrOutput) ToDataCollectionRuleDataSourcesLogFileSettingsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesLogFileSettingsPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesLogFileSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettings] {
-	return pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesLogFileSettingsPtrOutput) Elem() DataCollectionRuleDataSourcesLogFileSettingsOutput {
@@ -17397,12 +15128,6 @@ func (i DataCollectionRuleDataSourcesLogFileSettingsTextArgs) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesLogFileSettingsTextOutput)
 }
 
-func (i DataCollectionRuleDataSourcesLogFileSettingsTextArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesLogFileSettingsText] {
-	return pulumix.Output[DataCollectionRuleDataSourcesLogFileSettingsText]{
-		OutputState: i.ToDataCollectionRuleDataSourcesLogFileSettingsTextOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDataSourcesLogFileSettingsTextArgs) ToDataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput() DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput {
 	return i.ToDataCollectionRuleDataSourcesLogFileSettingsTextPtrOutputWithContext(context.Background())
 }
@@ -17444,12 +15169,6 @@ func (i *dataCollectionRuleDataSourcesLogFileSettingsTextPtrType) ToDataCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput)
 }
 
-func (i *dataCollectionRuleDataSourcesLogFileSettingsTextPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettingsText] {
-	return pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettingsText]{
-		OutputState: i.ToDataCollectionRuleDataSourcesLogFileSettingsTextPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesLogFileSettingsTextOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesLogFileSettingsTextOutput) ElementType() reflect.Type {
@@ -17474,12 +15193,6 @@ func (o DataCollectionRuleDataSourcesLogFileSettingsTextOutput) ToDataCollection
 	}).(DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput)
 }
 
-func (o DataCollectionRuleDataSourcesLogFileSettingsTextOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesLogFileSettingsText] {
-	return pulumix.Output[DataCollectionRuleDataSourcesLogFileSettingsText]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
 func (o DataCollectionRuleDataSourcesLogFileSettingsTextOutput) RecordStartTimestampFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesLogFileSettingsText) string { return v.RecordStartTimestampFormat }).(pulumi.StringOutput)
@@ -17497,12 +15210,6 @@ func (o DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput) ToDataCollect
 
 func (o DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput) ToDataCollectionRuleDataSourcesLogFileSettingsTextPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettingsText] {
-	return pulumix.Output[*DataCollectionRuleDataSourcesLogFileSettingsText]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesLogFileSettingsTextPtrOutput) Elem() DataCollectionRuleDataSourcesLogFileSettingsTextOutput {
@@ -17570,12 +15277,6 @@ func (i DataCollectionRuleDataSourcesPerformanceCounterArgs) ToDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPerformanceCounterOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPerformanceCounterArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPerformanceCounter] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPerformanceCounter]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPerformanceCounterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesPerformanceCounterArrayInput is an input type that accepts DataCollectionRuleDataSourcesPerformanceCounterArray and DataCollectionRuleDataSourcesPerformanceCounterArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesPerformanceCounterArrayInput` via:
 //
@@ -17601,12 +15302,6 @@ func (i DataCollectionRuleDataSourcesPerformanceCounterArray) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPerformanceCounterArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPerformanceCounterArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPerformanceCounter] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPerformanceCounter]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesPerformanceCounterOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesPerformanceCounterOutput) ElementType() reflect.Type {
@@ -17619,12 +15314,6 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionR
 
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToDataCollectionRuleDataSourcesPerformanceCounterOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPerformanceCounterOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPerformanceCounter] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPerformanceCounter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
@@ -17659,12 +15348,6 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) ToDataCollec
 
 func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) ToDataCollectionRuleDataSourcesPerformanceCounterArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPerformanceCounterArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPerformanceCounter] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPerformanceCounter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesPerformanceCounterArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesPerformanceCounterOutput {
@@ -17710,12 +15393,6 @@ func (i DataCollectionRuleDataSourcesPlatformTelemetryArgs) ToDataCollectionRule
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPlatformTelemetryOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPlatformTelemetryArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPlatformTelemetry] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPlatformTelemetry]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPlatformTelemetryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesPlatformTelemetryArrayInput is an input type that accepts DataCollectionRuleDataSourcesPlatformTelemetryArray and DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesPlatformTelemetryArrayInput` via:
 //
@@ -17741,12 +15418,6 @@ func (i DataCollectionRuleDataSourcesPlatformTelemetryArray) ToDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPlatformTelemetryArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPlatformTelemetry] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPlatformTelemetry]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPlatformTelemetryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesPlatformTelemetryOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesPlatformTelemetryOutput) ElementType() reflect.Type {
@@ -17759,12 +15430,6 @@ func (o DataCollectionRuleDataSourcesPlatformTelemetryOutput) ToDataCollectionRu
 
 func (o DataCollectionRuleDataSourcesPlatformTelemetryOutput) ToDataCollectionRuleDataSourcesPlatformTelemetryOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPlatformTelemetryOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPlatformTelemetryOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPlatformTelemetry] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPlatformTelemetry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
@@ -17789,12 +15454,6 @@ func (o DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput) ToDataCollect
 
 func (o DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput) ToDataCollectionRuleDataSourcesPlatformTelemetryArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPlatformTelemetry] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPlatformTelemetry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesPlatformTelemetryArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesPlatformTelemetryOutput {
@@ -17844,12 +15503,6 @@ func (i DataCollectionRuleDataSourcesPrometheusForwarderArgs) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPrometheusForwarderOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPrometheusForwarderArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarder] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarder]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPrometheusForwarderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesPrometheusForwarderArrayInput is an input type that accepts DataCollectionRuleDataSourcesPrometheusForwarderArray and DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesPrometheusForwarderArrayInput` via:
 //
@@ -17875,12 +15528,6 @@ func (i DataCollectionRuleDataSourcesPrometheusForwarderArray) ToDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPrometheusForwarderArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarder] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarder]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPrometheusForwarderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesPrometheusForwarderOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesPrometheusForwarderOutput) ElementType() reflect.Type {
@@ -17893,12 +15540,6 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderOutput) ToDataCollection
 
 func (o DataCollectionRuleDataSourcesPrometheusForwarderOutput) ToDataCollectionRuleDataSourcesPrometheusForwarderOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPrometheusForwarderOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPrometheusForwarderOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarder] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `labelIncludeFilter` blocks as defined above.
@@ -17930,12 +15571,6 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput) ToDataColle
 
 func (o DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput) ToDataCollectionRuleDataSourcesPrometheusForwarderArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarder] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesPrometheusForwarderArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesPrometheusForwarderOutput {
@@ -17981,12 +15616,6 @@ func (i DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayInput is an input type that accepts DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArray and DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayInput` via:
 //
@@ -18012,12 +15641,6 @@ func (i DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArray)
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter]{
-		OutputState: i.ToDataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput) ElementType() reflect.Type {
@@ -18030,12 +15653,6 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput
 
 func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput) ToDataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
@@ -18060,12 +15677,6 @@ func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayO
 
 func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutput) ToDataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterOutput {
@@ -18123,12 +15734,6 @@ func (i DataCollectionRuleDataSourcesSyslogArgs) ToDataCollectionRuleDataSources
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesSyslogOutput)
 }
 
-func (i DataCollectionRuleDataSourcesSyslogArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesSyslog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesSyslog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesSyslogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesSyslogArrayInput is an input type that accepts DataCollectionRuleDataSourcesSyslogArray and DataCollectionRuleDataSourcesSyslogArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesSyslogArrayInput` via:
 //
@@ -18154,12 +15759,6 @@ func (i DataCollectionRuleDataSourcesSyslogArray) ToDataCollectionRuleDataSource
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesSyslogArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesSyslogArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesSyslog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesSyslog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesSyslogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesSyslogOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesSyslogOutput) ElementType() reflect.Type {
@@ -18172,12 +15771,6 @@ func (o DataCollectionRuleDataSourcesSyslogOutput) ToDataCollectionRuleDataSourc
 
 func (o DataCollectionRuleDataSourcesSyslogOutput) ToDataCollectionRuleDataSourcesSyslogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesSyslogOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesSyslogOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesSyslog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesSyslog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
@@ -18214,12 +15807,6 @@ func (o DataCollectionRuleDataSourcesSyslogArrayOutput) ToDataCollectionRuleData
 
 func (o DataCollectionRuleDataSourcesSyslogArrayOutput) ToDataCollectionRuleDataSourcesSyslogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesSyslogArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesSyslogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesSyslog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesSyslog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesSyslogArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesSyslogOutput {
@@ -18269,12 +15856,6 @@ func (i DataCollectionRuleDataSourcesWindowsEventLogArgs) ToDataCollectionRuleDa
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesWindowsEventLogOutput)
 }
 
-func (i DataCollectionRuleDataSourcesWindowsEventLogArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesWindowsEventLog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesWindowsEventLog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesWindowsEventLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesWindowsEventLogArrayInput is an input type that accepts DataCollectionRuleDataSourcesWindowsEventLogArray and DataCollectionRuleDataSourcesWindowsEventLogArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesWindowsEventLogArrayInput` via:
 //
@@ -18300,12 +15881,6 @@ func (i DataCollectionRuleDataSourcesWindowsEventLogArray) ToDataCollectionRuleD
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesWindowsEventLogArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesWindowsEventLogArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesWindowsEventLog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesWindowsEventLog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesWindowsEventLogOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesWindowsEventLogOutput) ElementType() reflect.Type {
@@ -18318,12 +15893,6 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) ToDataCollectionRule
 
 func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) ToDataCollectionRuleDataSourcesWindowsEventLogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsEventLogOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesWindowsEventLogOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesWindowsEventLog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesWindowsEventLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
@@ -18353,12 +15922,6 @@ func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) ToDataCollectio
 
 func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) ToDataCollectionRuleDataSourcesWindowsEventLogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsEventLogArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesWindowsEventLog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesWindowsEventLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesWindowsEventLogArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesWindowsEventLogOutput {
@@ -18404,12 +15967,6 @@ func (i DataCollectionRuleDataSourcesWindowsFirewallLogArgs) ToDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesWindowsFirewallLogOutput)
 }
 
-func (i DataCollectionRuleDataSourcesWindowsFirewallLogArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesWindowsFirewallLog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesWindowsFirewallLog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesWindowsFirewallLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDataSourcesWindowsFirewallLogArrayInput is an input type that accepts DataCollectionRuleDataSourcesWindowsFirewallLogArray and DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDataSourcesWindowsFirewallLogArrayInput` via:
 //
@@ -18435,12 +15992,6 @@ func (i DataCollectionRuleDataSourcesWindowsFirewallLogArray) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput)
 }
 
-func (i DataCollectionRuleDataSourcesWindowsFirewallLogArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesWindowsFirewallLog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesWindowsFirewallLog]{
-		OutputState: i.ToDataCollectionRuleDataSourcesWindowsFirewallLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDataSourcesWindowsFirewallLogOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDataSourcesWindowsFirewallLogOutput) ElementType() reflect.Type {
@@ -18453,12 +16004,6 @@ func (o DataCollectionRuleDataSourcesWindowsFirewallLogOutput) ToDataCollectionR
 
 func (o DataCollectionRuleDataSourcesWindowsFirewallLogOutput) ToDataCollectionRuleDataSourcesWindowsFirewallLogOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsFirewallLogOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesWindowsFirewallLogOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDataSourcesWindowsFirewallLog] {
-	return pulumix.Output[DataCollectionRuleDataSourcesWindowsFirewallLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
@@ -18483,12 +16028,6 @@ func (o DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput) ToDataCollec
 
 func (o DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput) ToDataCollectionRuleDataSourcesWindowsFirewallLogArrayOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDataSourcesWindowsFirewallLog] {
-	return pulumix.Output[[]DataCollectionRuleDataSourcesWindowsFirewallLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDataSourcesWindowsFirewallLogArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDataSourcesWindowsFirewallLogOutput {
@@ -18566,12 +16105,6 @@ func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsOutput)
 }
 
-func (i DataCollectionRuleDestinationsArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinations] {
-	return pulumix.Output[DataCollectionRuleDestinations]{
-		OutputState: i.ToDataCollectionRuleDestinationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDestinationsArgs) ToDataCollectionRuleDestinationsPtrOutput() DataCollectionRuleDestinationsPtrOutput {
 	return i.ToDataCollectionRuleDestinationsPtrOutputWithContext(context.Background())
 }
@@ -18613,12 +16146,6 @@ func (i *dataCollectionRuleDestinationsPtrType) ToDataCollectionRuleDestinations
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsPtrOutput)
 }
 
-func (i *dataCollectionRuleDestinationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinations] {
-	return pulumix.Output[*DataCollectionRuleDestinations]{
-		OutputState: i.ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsOutput) ElementType() reflect.Type {
@@ -18641,12 +16168,6 @@ func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
 		return &v
 	}).(DataCollectionRuleDestinationsPtrOutput)
-}
-
-func (o DataCollectionRuleDestinationsOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinations] {
-	return pulumix.Output[DataCollectionRuleDestinations]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `azureMonitorMetrics` block as defined above.
@@ -18719,12 +16240,6 @@ func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestination
 
 func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinations] {
-	return pulumix.Output[*DataCollectionRuleDestinations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsPtrOutput) Elem() DataCollectionRuleDestinationsOutput {
@@ -18854,12 +16369,6 @@ func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsAzureMonitorMetricsOutput)
 }
 
-func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsAzureMonitorMetrics] {
-	return pulumix.Output[DataCollectionRuleDestinationsAzureMonitorMetrics]{
-		OutputState: i.ToDataCollectionRuleDestinationsAzureMonitorMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDestinationsAzureMonitorMetricsArgs) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput() DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
 	return i.ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(context.Background())
 }
@@ -18901,12 +16410,6 @@ func (i *dataCollectionRuleDestinationsAzureMonitorMetricsPtrType) ToDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput)
 }
 
-func (i *dataCollectionRuleDestinationsAzureMonitorMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinationsAzureMonitorMetrics] {
-	return pulumix.Output[*DataCollectionRuleDestinationsAzureMonitorMetrics]{
-		OutputState: i.ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsAzureMonitorMetricsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ElementType() reflect.Type {
@@ -18931,12 +16434,6 @@ func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ToDataCollectio
 	}).(DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput)
 }
 
-func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsAzureMonitorMetrics] {
-	return pulumix.Output[DataCollectionRuleDestinationsAzureMonitorMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 func (o DataCollectionRuleDestinationsAzureMonitorMetricsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinationsAzureMonitorMetrics) string { return v.Name }).(pulumi.StringOutput)
@@ -18954,12 +16451,6 @@ func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) ToDataCollec
 
 func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) ToDataCollectionRuleDestinationsAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinationsAzureMonitorMetrics] {
-	return pulumix.Output[*DataCollectionRuleDestinationsAzureMonitorMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsAzureMonitorMetricsPtrOutput) Elem() DataCollectionRuleDestinationsAzureMonitorMetricsOutput {
@@ -19019,12 +16510,6 @@ func (i DataCollectionRuleDestinationsEventHubArgs) ToDataCollectionRuleDestinat
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsEventHubOutput)
 }
 
-func (i DataCollectionRuleDestinationsEventHubArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsEventHub] {
-	return pulumix.Output[DataCollectionRuleDestinationsEventHub]{
-		OutputState: i.ToDataCollectionRuleDestinationsEventHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDestinationsEventHubArgs) ToDataCollectionRuleDestinationsEventHubPtrOutput() DataCollectionRuleDestinationsEventHubPtrOutput {
 	return i.ToDataCollectionRuleDestinationsEventHubPtrOutputWithContext(context.Background())
 }
@@ -19066,12 +16551,6 @@ func (i *dataCollectionRuleDestinationsEventHubPtrType) ToDataCollectionRuleDest
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsEventHubPtrOutput)
 }
 
-func (i *dataCollectionRuleDestinationsEventHubPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinationsEventHub] {
-	return pulumix.Output[*DataCollectionRuleDestinationsEventHub]{
-		OutputState: i.ToDataCollectionRuleDestinationsEventHubPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsEventHubOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsEventHubOutput) ElementType() reflect.Type {
@@ -19096,12 +16575,6 @@ func (o DataCollectionRuleDestinationsEventHubOutput) ToDataCollectionRuleDestin
 	}).(DataCollectionRuleDestinationsEventHubPtrOutput)
 }
 
-func (o DataCollectionRuleDestinationsEventHubOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsEventHub] {
-	return pulumix.Output[DataCollectionRuleDestinationsEventHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The resource ID of the Event Hub.
 func (o DataCollectionRuleDestinationsEventHubOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinationsEventHub) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -19124,12 +16597,6 @@ func (o DataCollectionRuleDestinationsEventHubPtrOutput) ToDataCollectionRuleDes
 
 func (o DataCollectionRuleDestinationsEventHubPtrOutput) ToDataCollectionRuleDestinationsEventHubPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsEventHubPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsEventHubPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinationsEventHub] {
-	return pulumix.Output[*DataCollectionRuleDestinationsEventHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsEventHubPtrOutput) Elem() DataCollectionRuleDestinationsEventHubOutput {
@@ -19199,12 +16666,6 @@ func (i DataCollectionRuleDestinationsEventHubDirectArgs) ToDataCollectionRuleDe
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsEventHubDirectOutput)
 }
 
-func (i DataCollectionRuleDestinationsEventHubDirectArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsEventHubDirect] {
-	return pulumix.Output[DataCollectionRuleDestinationsEventHubDirect]{
-		OutputState: i.ToDataCollectionRuleDestinationsEventHubDirectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleDestinationsEventHubDirectArgs) ToDataCollectionRuleDestinationsEventHubDirectPtrOutput() DataCollectionRuleDestinationsEventHubDirectPtrOutput {
 	return i.ToDataCollectionRuleDestinationsEventHubDirectPtrOutputWithContext(context.Background())
 }
@@ -19246,12 +16707,6 @@ func (i *dataCollectionRuleDestinationsEventHubDirectPtrType) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsEventHubDirectPtrOutput)
 }
 
-func (i *dataCollectionRuleDestinationsEventHubDirectPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinationsEventHubDirect] {
-	return pulumix.Output[*DataCollectionRuleDestinationsEventHubDirect]{
-		OutputState: i.ToDataCollectionRuleDestinationsEventHubDirectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsEventHubDirectOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsEventHubDirectOutput) ElementType() reflect.Type {
@@ -19276,12 +16731,6 @@ func (o DataCollectionRuleDestinationsEventHubDirectOutput) ToDataCollectionRule
 	}).(DataCollectionRuleDestinationsEventHubDirectPtrOutput)
 }
 
-func (o DataCollectionRuleDestinationsEventHubDirectOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsEventHubDirect] {
-	return pulumix.Output[DataCollectionRuleDestinationsEventHubDirect]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The resource ID of the Event Hub.
 func (o DataCollectionRuleDestinationsEventHubDirectOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDestinationsEventHubDirect) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -19304,12 +16753,6 @@ func (o DataCollectionRuleDestinationsEventHubDirectPtrOutput) ToDataCollectionR
 
 func (o DataCollectionRuleDestinationsEventHubDirectPtrOutput) ToDataCollectionRuleDestinationsEventHubDirectPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsEventHubDirectPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsEventHubDirectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleDestinationsEventHubDirect] {
-	return pulumix.Output[*DataCollectionRuleDestinationsEventHubDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsEventHubDirectPtrOutput) Elem() DataCollectionRuleDestinationsEventHubDirectOutput {
@@ -19379,12 +16822,6 @@ func (i DataCollectionRuleDestinationsLogAnalyticArgs) ToDataCollectionRuleDesti
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsLogAnalyticOutput)
 }
 
-func (i DataCollectionRuleDestinationsLogAnalyticArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsLogAnalytic] {
-	return pulumix.Output[DataCollectionRuleDestinationsLogAnalytic]{
-		OutputState: i.ToDataCollectionRuleDestinationsLogAnalyticOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDestinationsLogAnalyticArrayInput is an input type that accepts DataCollectionRuleDestinationsLogAnalyticArray and DataCollectionRuleDestinationsLogAnalyticArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsLogAnalyticArrayInput` via:
 //
@@ -19410,12 +16847,6 @@ func (i DataCollectionRuleDestinationsLogAnalyticArray) ToDataCollectionRuleDest
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsLogAnalyticArrayOutput)
 }
 
-func (i DataCollectionRuleDestinationsLogAnalyticArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsLogAnalytic] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsLogAnalytic]{
-		OutputState: i.ToDataCollectionRuleDestinationsLogAnalyticArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsLogAnalyticOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsLogAnalyticOutput) ElementType() reflect.Type {
@@ -19428,12 +16859,6 @@ func (o DataCollectionRuleDestinationsLogAnalyticOutput) ToDataCollectionRuleDes
 
 func (o DataCollectionRuleDestinationsLogAnalyticOutput) ToDataCollectionRuleDestinationsLogAnalyticOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsLogAnalyticOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsLogAnalyticOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsLogAnalytic] {
-	return pulumix.Output[DataCollectionRuleDestinationsLogAnalytic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
@@ -19458,12 +16883,6 @@ func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) ToDataCollectionRu
 
 func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) ToDataCollectionRuleDestinationsLogAnalyticArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsLogAnalyticArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsLogAnalytic] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsLogAnalytic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDestinationsLogAnalyticOutput {
@@ -19509,12 +16928,6 @@ func (i DataCollectionRuleDestinationsMonitorAccountArgs) ToDataCollectionRuleDe
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsMonitorAccountOutput)
 }
 
-func (i DataCollectionRuleDestinationsMonitorAccountArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsMonitorAccount] {
-	return pulumix.Output[DataCollectionRuleDestinationsMonitorAccount]{
-		OutputState: i.ToDataCollectionRuleDestinationsMonitorAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDestinationsMonitorAccountArrayInput is an input type that accepts DataCollectionRuleDestinationsMonitorAccountArray and DataCollectionRuleDestinationsMonitorAccountArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsMonitorAccountArrayInput` via:
 //
@@ -19540,12 +16953,6 @@ func (i DataCollectionRuleDestinationsMonitorAccountArray) ToDataCollectionRuleD
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsMonitorAccountArrayOutput)
 }
 
-func (i DataCollectionRuleDestinationsMonitorAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsMonitorAccount] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsMonitorAccount]{
-		OutputState: i.ToDataCollectionRuleDestinationsMonitorAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsMonitorAccountOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsMonitorAccountOutput) ElementType() reflect.Type {
@@ -19558,12 +16965,6 @@ func (o DataCollectionRuleDestinationsMonitorAccountOutput) ToDataCollectionRule
 
 func (o DataCollectionRuleDestinationsMonitorAccountOutput) ToDataCollectionRuleDestinationsMonitorAccountOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsMonitorAccountOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsMonitorAccountOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsMonitorAccount] {
-	return pulumix.Output[DataCollectionRuleDestinationsMonitorAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Monitor Account.
@@ -19588,12 +16989,6 @@ func (o DataCollectionRuleDestinationsMonitorAccountArrayOutput) ToDataCollectio
 
 func (o DataCollectionRuleDestinationsMonitorAccountArrayOutput) ToDataCollectionRuleDestinationsMonitorAccountArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsMonitorAccountArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsMonitorAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsMonitorAccount] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsMonitorAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsMonitorAccountArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDestinationsMonitorAccountOutput {
@@ -19643,12 +17038,6 @@ func (i DataCollectionRuleDestinationsStorageBlobArgs) ToDataCollectionRuleDesti
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsStorageBlobOutput)
 }
 
-func (i DataCollectionRuleDestinationsStorageBlobArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsStorageBlob] {
-	return pulumix.Output[DataCollectionRuleDestinationsStorageBlob]{
-		OutputState: i.ToDataCollectionRuleDestinationsStorageBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDestinationsStorageBlobArrayInput is an input type that accepts DataCollectionRuleDestinationsStorageBlobArray and DataCollectionRuleDestinationsStorageBlobArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsStorageBlobArrayInput` via:
 //
@@ -19674,12 +17063,6 @@ func (i DataCollectionRuleDestinationsStorageBlobArray) ToDataCollectionRuleDest
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsStorageBlobArrayOutput)
 }
 
-func (i DataCollectionRuleDestinationsStorageBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsStorageBlob] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsStorageBlob]{
-		OutputState: i.ToDataCollectionRuleDestinationsStorageBlobArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsStorageBlobOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsStorageBlobOutput) ElementType() reflect.Type {
@@ -19692,12 +17075,6 @@ func (o DataCollectionRuleDestinationsStorageBlobOutput) ToDataCollectionRuleDes
 
 func (o DataCollectionRuleDestinationsStorageBlobOutput) ToDataCollectionRuleDestinationsStorageBlobOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsStorageBlobOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsStorageBlobOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsStorageBlob] {
-	return pulumix.Output[DataCollectionRuleDestinationsStorageBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Storage Container name.
@@ -19727,12 +17104,6 @@ func (o DataCollectionRuleDestinationsStorageBlobArrayOutput) ToDataCollectionRu
 
 func (o DataCollectionRuleDestinationsStorageBlobArrayOutput) ToDataCollectionRuleDestinationsStorageBlobArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsStorageBlobArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsStorageBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsStorageBlob] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsStorageBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsStorageBlobArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDestinationsStorageBlobOutput {
@@ -19782,12 +17153,6 @@ func (i DataCollectionRuleDestinationsStorageBlobDirectArgs) ToDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsStorageBlobDirectOutput)
 }
 
-func (i DataCollectionRuleDestinationsStorageBlobDirectArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsStorageBlobDirect] {
-	return pulumix.Output[DataCollectionRuleDestinationsStorageBlobDirect]{
-		OutputState: i.ToDataCollectionRuleDestinationsStorageBlobDirectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDestinationsStorageBlobDirectArrayInput is an input type that accepts DataCollectionRuleDestinationsStorageBlobDirectArray and DataCollectionRuleDestinationsStorageBlobDirectArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsStorageBlobDirectArrayInput` via:
 //
@@ -19813,12 +17178,6 @@ func (i DataCollectionRuleDestinationsStorageBlobDirectArray) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsStorageBlobDirectArrayOutput)
 }
 
-func (i DataCollectionRuleDestinationsStorageBlobDirectArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsStorageBlobDirect] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsStorageBlobDirect]{
-		OutputState: i.ToDataCollectionRuleDestinationsStorageBlobDirectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsStorageBlobDirectOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsStorageBlobDirectOutput) ElementType() reflect.Type {
@@ -19831,12 +17190,6 @@ func (o DataCollectionRuleDestinationsStorageBlobDirectOutput) ToDataCollectionR
 
 func (o DataCollectionRuleDestinationsStorageBlobDirectOutput) ToDataCollectionRuleDestinationsStorageBlobDirectOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsStorageBlobDirectOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsStorageBlobDirectOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsStorageBlobDirect] {
-	return pulumix.Output[DataCollectionRuleDestinationsStorageBlobDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Storage Container name.
@@ -19866,12 +17219,6 @@ func (o DataCollectionRuleDestinationsStorageBlobDirectArrayOutput) ToDataCollec
 
 func (o DataCollectionRuleDestinationsStorageBlobDirectArrayOutput) ToDataCollectionRuleDestinationsStorageBlobDirectArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsStorageBlobDirectArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsStorageBlobDirectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsStorageBlobDirect] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsStorageBlobDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsStorageBlobDirectArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDestinationsStorageBlobDirectOutput {
@@ -19921,12 +17268,6 @@ func (i DataCollectionRuleDestinationsStorageTableDirectArgs) ToDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsStorageTableDirectOutput)
 }
 
-func (i DataCollectionRuleDestinationsStorageTableDirectArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsStorageTableDirect] {
-	return pulumix.Output[DataCollectionRuleDestinationsStorageTableDirect]{
-		OutputState: i.ToDataCollectionRuleDestinationsStorageTableDirectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleDestinationsStorageTableDirectArrayInput is an input type that accepts DataCollectionRuleDestinationsStorageTableDirectArray and DataCollectionRuleDestinationsStorageTableDirectArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleDestinationsStorageTableDirectArrayInput` via:
 //
@@ -19952,12 +17293,6 @@ func (i DataCollectionRuleDestinationsStorageTableDirectArray) ToDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleDestinationsStorageTableDirectArrayOutput)
 }
 
-func (i DataCollectionRuleDestinationsStorageTableDirectArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsStorageTableDirect] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsStorageTableDirect]{
-		OutputState: i.ToDataCollectionRuleDestinationsStorageTableDirectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleDestinationsStorageTableDirectOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleDestinationsStorageTableDirectOutput) ElementType() reflect.Type {
@@ -19970,12 +17305,6 @@ func (o DataCollectionRuleDestinationsStorageTableDirectOutput) ToDataCollection
 
 func (o DataCollectionRuleDestinationsStorageTableDirectOutput) ToDataCollectionRuleDestinationsStorageTableDirectOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsStorageTableDirectOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsStorageTableDirectOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleDestinationsStorageTableDirect] {
-	return pulumix.Output[DataCollectionRuleDestinationsStorageTableDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
@@ -20005,12 +17334,6 @@ func (o DataCollectionRuleDestinationsStorageTableDirectArrayOutput) ToDataColle
 
 func (o DataCollectionRuleDestinationsStorageTableDirectArrayOutput) ToDataCollectionRuleDestinationsStorageTableDirectArrayOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsStorageTableDirectArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleDestinationsStorageTableDirectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleDestinationsStorageTableDirect] {
-	return pulumix.Output[[]DataCollectionRuleDestinationsStorageTableDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleDestinationsStorageTableDirectArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleDestinationsStorageTableDirectOutput {
@@ -20068,12 +17391,6 @@ func (i DataCollectionRuleIdentityArgs) ToDataCollectionRuleIdentityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleIdentityOutput)
 }
 
-func (i DataCollectionRuleIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleIdentity] {
-	return pulumix.Output[DataCollectionRuleIdentity]{
-		OutputState: i.ToDataCollectionRuleIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCollectionRuleIdentityArgs) ToDataCollectionRuleIdentityPtrOutput() DataCollectionRuleIdentityPtrOutput {
 	return i.ToDataCollectionRuleIdentityPtrOutputWithContext(context.Background())
 }
@@ -20115,12 +17432,6 @@ func (i *dataCollectionRuleIdentityPtrType) ToDataCollectionRuleIdentityPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleIdentityPtrOutput)
 }
 
-func (i *dataCollectionRuleIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleIdentity] {
-	return pulumix.Output[*DataCollectionRuleIdentity]{
-		OutputState: i.ToDataCollectionRuleIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleIdentityOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleIdentityOutput) ElementType() reflect.Type {
@@ -20143,12 +17454,6 @@ func (o DataCollectionRuleIdentityOutput) ToDataCollectionRuleIdentityPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleIdentity) *DataCollectionRuleIdentity {
 		return &v
 	}).(DataCollectionRuleIdentityPtrOutput)
-}
-
-func (o DataCollectionRuleIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleIdentity] {
-	return pulumix.Output[DataCollectionRuleIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
@@ -20185,12 +17490,6 @@ func (o DataCollectionRuleIdentityPtrOutput) ToDataCollectionRuleIdentityPtrOutp
 
 func (o DataCollectionRuleIdentityPtrOutput) ToDataCollectionRuleIdentityPtrOutputWithContext(ctx context.Context) DataCollectionRuleIdentityPtrOutput {
 	return o
-}
-
-func (o DataCollectionRuleIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRuleIdentity] {
-	return pulumix.Output[*DataCollectionRuleIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleIdentityPtrOutput) Elem() DataCollectionRuleIdentityOutput {
@@ -20282,12 +17581,6 @@ func (i DataCollectionRuleStreamDeclarationArgs) ToDataCollectionRuleStreamDecla
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleStreamDeclarationOutput)
 }
 
-func (i DataCollectionRuleStreamDeclarationArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[DataCollectionRuleStreamDeclaration]{
-		OutputState: i.ToDataCollectionRuleStreamDeclarationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleStreamDeclarationArrayInput is an input type that accepts DataCollectionRuleStreamDeclarationArray and DataCollectionRuleStreamDeclarationArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleStreamDeclarationArrayInput` via:
 //
@@ -20313,12 +17606,6 @@ func (i DataCollectionRuleStreamDeclarationArray) ToDataCollectionRuleStreamDecl
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleStreamDeclarationArrayOutput)
 }
 
-func (i DataCollectionRuleStreamDeclarationArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[[]DataCollectionRuleStreamDeclaration]{
-		OutputState: i.ToDataCollectionRuleStreamDeclarationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleStreamDeclarationOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleStreamDeclarationOutput) ElementType() reflect.Type {
@@ -20331,12 +17618,6 @@ func (o DataCollectionRuleStreamDeclarationOutput) ToDataCollectionRuleStreamDec
 
 func (o DataCollectionRuleStreamDeclarationOutput) ToDataCollectionRuleStreamDeclarationOutputWithContext(ctx context.Context) DataCollectionRuleStreamDeclarationOutput {
 	return o
-}
-
-func (o DataCollectionRuleStreamDeclarationOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[DataCollectionRuleStreamDeclaration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `column` blocks as defined above.
@@ -20363,12 +17644,6 @@ func (o DataCollectionRuleStreamDeclarationArrayOutput) ToDataCollectionRuleStre
 
 func (o DataCollectionRuleStreamDeclarationArrayOutput) ToDataCollectionRuleStreamDeclarationArrayOutputWithContext(ctx context.Context) DataCollectionRuleStreamDeclarationArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleStreamDeclarationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[[]DataCollectionRuleStreamDeclaration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleStreamDeclarationArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleStreamDeclarationOutput {
@@ -20414,12 +17689,6 @@ func (i DataCollectionRuleStreamDeclarationColumnArgs) ToDataCollectionRuleStrea
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleStreamDeclarationColumnOutput)
 }
 
-func (i DataCollectionRuleStreamDeclarationColumnArgs) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[DataCollectionRuleStreamDeclarationColumn]{
-		OutputState: i.ToDataCollectionRuleStreamDeclarationColumnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleStreamDeclarationColumnArrayInput is an input type that accepts DataCollectionRuleStreamDeclarationColumnArray and DataCollectionRuleStreamDeclarationColumnArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleStreamDeclarationColumnArrayInput` via:
 //
@@ -20445,12 +17714,6 @@ func (i DataCollectionRuleStreamDeclarationColumnArray) ToDataCollectionRuleStre
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleStreamDeclarationColumnArrayOutput)
 }
 
-func (i DataCollectionRuleStreamDeclarationColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[[]DataCollectionRuleStreamDeclarationColumn]{
-		OutputState: i.ToDataCollectionRuleStreamDeclarationColumnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleStreamDeclarationColumnOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleStreamDeclarationColumnOutput) ElementType() reflect.Type {
@@ -20463,12 +17726,6 @@ func (o DataCollectionRuleStreamDeclarationColumnOutput) ToDataCollectionRuleStr
 
 func (o DataCollectionRuleStreamDeclarationColumnOutput) ToDataCollectionRuleStreamDeclarationColumnOutputWithContext(ctx context.Context) DataCollectionRuleStreamDeclarationColumnOutput {
 	return o
-}
-
-func (o DataCollectionRuleStreamDeclarationColumnOutput) ToOutput(ctx context.Context) pulumix.Output[DataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[DataCollectionRuleStreamDeclarationColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the column.
@@ -20493,12 +17750,6 @@ func (o DataCollectionRuleStreamDeclarationColumnArrayOutput) ToDataCollectionRu
 
 func (o DataCollectionRuleStreamDeclarationColumnArrayOutput) ToDataCollectionRuleStreamDeclarationColumnArrayOutputWithContext(ctx context.Context) DataCollectionRuleStreamDeclarationColumnArrayOutput {
 	return o
-}
-
-func (o DataCollectionRuleStreamDeclarationColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[[]DataCollectionRuleStreamDeclarationColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleStreamDeclarationColumnArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleStreamDeclarationColumnOutput {
@@ -20568,12 +17819,6 @@ func (i DiagnosticSettingEnabledLogArgs) ToDiagnosticSettingEnabledLogOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogOutput)
 }
 
-func (i DiagnosticSettingEnabledLogArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingEnabledLog] {
-	return pulumix.Output[DiagnosticSettingEnabledLog]{
-		OutputState: i.ToDiagnosticSettingEnabledLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiagnosticSettingEnabledLogArrayInput is an input type that accepts DiagnosticSettingEnabledLogArray and DiagnosticSettingEnabledLogArrayOutput values.
 // You can construct a concrete instance of `DiagnosticSettingEnabledLogArrayInput` via:
 //
@@ -20599,12 +17844,6 @@ func (i DiagnosticSettingEnabledLogArray) ToDiagnosticSettingEnabledLogArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogArrayOutput)
 }
 
-func (i DiagnosticSettingEnabledLogArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticSettingEnabledLog] {
-	return pulumix.Output[[]DiagnosticSettingEnabledLog]{
-		OutputState: i.ToDiagnosticSettingEnabledLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingEnabledLogOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingEnabledLogOutput) ElementType() reflect.Type {
@@ -20617,12 +17856,6 @@ func (o DiagnosticSettingEnabledLogOutput) ToDiagnosticSettingEnabledLogOutput()
 
 func (o DiagnosticSettingEnabledLogOutput) ToDiagnosticSettingEnabledLogOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogOutput {
 	return o
-}
-
-func (o DiagnosticSettingEnabledLogOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingEnabledLog] {
-	return pulumix.Output[DiagnosticSettingEnabledLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of a Diagnostic Log Category for this Resource.
@@ -20664,12 +17897,6 @@ func (o DiagnosticSettingEnabledLogArrayOutput) ToDiagnosticSettingEnabledLogArr
 
 func (o DiagnosticSettingEnabledLogArrayOutput) ToDiagnosticSettingEnabledLogArrayOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogArrayOutput {
 	return o
-}
-
-func (o DiagnosticSettingEnabledLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticSettingEnabledLog] {
-	return pulumix.Output[[]DiagnosticSettingEnabledLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingEnabledLogArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingEnabledLogOutput {
@@ -20719,12 +17946,6 @@ func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabl
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyOutput)
 }
 
-func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingEnabledLogRetentionPolicy] {
-	return pulumix.Output[DiagnosticSettingEnabledLogRetentionPolicy]{
-		OutputState: i.ToDiagnosticSettingEnabledLogRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DiagnosticSettingEnabledLogRetentionPolicyArgs) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutput() DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
 	return i.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -20766,12 +17987,6 @@ func (i *diagnosticSettingEnabledLogRetentionPolicyPtrType) ToDiagnosticSettingE
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
 }
 
-func (i *diagnosticSettingEnabledLogRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSettingEnabledLogRetentionPolicy] {
-	return pulumix.Output[*DiagnosticSettingEnabledLogRetentionPolicy]{
-		OutputState: i.ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingEnabledLogRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingEnabledLogRetentionPolicyOutput) ElementType() reflect.Type {
@@ -20794,12 +18009,6 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToDiagnosticSettingEna
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingEnabledLogRetentionPolicy) *DiagnosticSettingEnabledLogRetentionPolicy {
 		return &v
 	}).(DiagnosticSettingEnabledLogRetentionPolicyPtrOutput)
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingEnabledLogRetentionPolicy] {
-	return pulumix.Output[DiagnosticSettingEnabledLogRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days for which this Retention Policy should apply.
@@ -20826,12 +18035,6 @@ func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToDiagnosticSetting
 
 func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToDiagnosticSettingEnabledLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingEnabledLogRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSettingEnabledLogRetentionPolicy] {
-	return pulumix.Output[*DiagnosticSettingEnabledLogRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingEnabledLogRetentionPolicyPtrOutput) Elem() DiagnosticSettingEnabledLogRetentionPolicyOutput {
@@ -20931,12 +18134,6 @@ func (i DiagnosticSettingLogArgs) ToDiagnosticSettingLogOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingLogOutput)
 }
 
-func (i DiagnosticSettingLogArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingLog] {
-	return pulumix.Output[DiagnosticSettingLog]{
-		OutputState: i.ToDiagnosticSettingLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiagnosticSettingLogArrayInput is an input type that accepts DiagnosticSettingLogArray and DiagnosticSettingLogArrayOutput values.
 // You can construct a concrete instance of `DiagnosticSettingLogArrayInput` via:
 //
@@ -20962,12 +18159,6 @@ func (i DiagnosticSettingLogArray) ToDiagnosticSettingLogArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingLogArrayOutput)
 }
 
-func (i DiagnosticSettingLogArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticSettingLog] {
-	return pulumix.Output[[]DiagnosticSettingLog]{
-		OutputState: i.ToDiagnosticSettingLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingLogOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingLogOutput) ElementType() reflect.Type {
@@ -20980,12 +18171,6 @@ func (o DiagnosticSettingLogOutput) ToDiagnosticSettingLogOutput() DiagnosticSet
 
 func (o DiagnosticSettingLogOutput) ToDiagnosticSettingLogOutputWithContext(ctx context.Context) DiagnosticSettingLogOutput {
 	return o
-}
-
-func (o DiagnosticSettingLogOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingLog] {
-	return pulumix.Output[DiagnosticSettingLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of a Diagnostic Log Category for this Resource.
@@ -21030,12 +18215,6 @@ func (o DiagnosticSettingLogArrayOutput) ToDiagnosticSettingLogArrayOutput() Dia
 
 func (o DiagnosticSettingLogArrayOutput) ToDiagnosticSettingLogArrayOutputWithContext(ctx context.Context) DiagnosticSettingLogArrayOutput {
 	return o
-}
-
-func (o DiagnosticSettingLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticSettingLog] {
-	return pulumix.Output[[]DiagnosticSettingLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingLogArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingLogOutput {
@@ -21085,12 +18264,6 @@ func (i DiagnosticSettingLogRetentionPolicyArgs) ToDiagnosticSettingLogRetention
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingLogRetentionPolicyOutput)
 }
 
-func (i DiagnosticSettingLogRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingLogRetentionPolicy] {
-	return pulumix.Output[DiagnosticSettingLogRetentionPolicy]{
-		OutputState: i.ToDiagnosticSettingLogRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DiagnosticSettingLogRetentionPolicyArgs) ToDiagnosticSettingLogRetentionPolicyPtrOutput() DiagnosticSettingLogRetentionPolicyPtrOutput {
 	return i.ToDiagnosticSettingLogRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -21132,12 +18305,6 @@ func (i *diagnosticSettingLogRetentionPolicyPtrType) ToDiagnosticSettingLogReten
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingLogRetentionPolicyPtrOutput)
 }
 
-func (i *diagnosticSettingLogRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSettingLogRetentionPolicy] {
-	return pulumix.Output[*DiagnosticSettingLogRetentionPolicy]{
-		OutputState: i.ToDiagnosticSettingLogRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingLogRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingLogRetentionPolicyOutput) ElementType() reflect.Type {
@@ -21160,12 +18327,6 @@ func (o DiagnosticSettingLogRetentionPolicyOutput) ToDiagnosticSettingLogRetenti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingLogRetentionPolicy) *DiagnosticSettingLogRetentionPolicy {
 		return &v
 	}).(DiagnosticSettingLogRetentionPolicyPtrOutput)
-}
-
-func (o DiagnosticSettingLogRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingLogRetentionPolicy] {
-	return pulumix.Output[DiagnosticSettingLogRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days for which this Retention Policy should apply.
@@ -21192,12 +18353,6 @@ func (o DiagnosticSettingLogRetentionPolicyPtrOutput) ToDiagnosticSettingLogRete
 
 func (o DiagnosticSettingLogRetentionPolicyPtrOutput) ToDiagnosticSettingLogRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingLogRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o DiagnosticSettingLogRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSettingLogRetentionPolicy] {
-	return pulumix.Output[*DiagnosticSettingLogRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingLogRetentionPolicyPtrOutput) Elem() DiagnosticSettingLogRetentionPolicyOutput {
@@ -21285,12 +18440,6 @@ func (i DiagnosticSettingMetricArgs) ToDiagnosticSettingMetricOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricOutput)
 }
 
-func (i DiagnosticSettingMetricArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingMetric] {
-	return pulumix.Output[DiagnosticSettingMetric]{
-		OutputState: i.ToDiagnosticSettingMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiagnosticSettingMetricArrayInput is an input type that accepts DiagnosticSettingMetricArray and DiagnosticSettingMetricArrayOutput values.
 // You can construct a concrete instance of `DiagnosticSettingMetricArrayInput` via:
 //
@@ -21316,12 +18465,6 @@ func (i DiagnosticSettingMetricArray) ToDiagnosticSettingMetricArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricArrayOutput)
 }
 
-func (i DiagnosticSettingMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticSettingMetric] {
-	return pulumix.Output[[]DiagnosticSettingMetric]{
-		OutputState: i.ToDiagnosticSettingMetricArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingMetricOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingMetricOutput) ElementType() reflect.Type {
@@ -21334,12 +18477,6 @@ func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutput() Diagnos
 
 func (o DiagnosticSettingMetricOutput) ToDiagnosticSettingMetricOutputWithContext(ctx context.Context) DiagnosticSettingMetricOutput {
 	return o
-}
-
-func (o DiagnosticSettingMetricOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingMetric] {
-	return pulumix.Output[DiagnosticSettingMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of a Diagnostic Metric Category for this Resource.
@@ -21375,12 +18512,6 @@ func (o DiagnosticSettingMetricArrayOutput) ToDiagnosticSettingMetricArrayOutput
 
 func (o DiagnosticSettingMetricArrayOutput) ToDiagnosticSettingMetricArrayOutputWithContext(ctx context.Context) DiagnosticSettingMetricArrayOutput {
 	return o
-}
-
-func (o DiagnosticSettingMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiagnosticSettingMetric] {
-	return pulumix.Output[[]DiagnosticSettingMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingMetricArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingMetricOutput {
@@ -21430,12 +18561,6 @@ func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRet
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricRetentionPolicyOutput)
 }
 
-func (i DiagnosticSettingMetricRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingMetricRetentionPolicy] {
-	return pulumix.Output[DiagnosticSettingMetricRetentionPolicy]{
-		OutputState: i.ToDiagnosticSettingMetricRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DiagnosticSettingMetricRetentionPolicyArgs) ToDiagnosticSettingMetricRetentionPolicyPtrOutput() DiagnosticSettingMetricRetentionPolicyPtrOutput {
 	return i.ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -21477,12 +18602,6 @@ func (i *diagnosticSettingMetricRetentionPolicyPtrType) ToDiagnosticSettingMetri
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
 }
 
-func (i *diagnosticSettingMetricRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSettingMetricRetentionPolicy] {
-	return pulumix.Output[*DiagnosticSettingMetricRetentionPolicy]{
-		OutputState: i.ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingMetricRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingMetricRetentionPolicyOutput) ElementType() reflect.Type {
@@ -21505,12 +18624,6 @@ func (o DiagnosticSettingMetricRetentionPolicyOutput) ToDiagnosticSettingMetricR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticSettingMetricRetentionPolicy) *DiagnosticSettingMetricRetentionPolicy {
 		return &v
 	}).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DiagnosticSettingMetricRetentionPolicy] {
-	return pulumix.Output[DiagnosticSettingMetricRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days for which this Retention Policy should apply.
@@ -21537,12 +18650,6 @@ func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) ToDiagnosticSettingMetr
 
 func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) ToDiagnosticSettingMetricRetentionPolicyPtrOutputWithContext(ctx context.Context) DiagnosticSettingMetricRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSettingMetricRetentionPolicy] {
-	return pulumix.Output[*DiagnosticSettingMetricRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingMetricRetentionPolicyPtrOutput) Elem() DiagnosticSettingMetricRetentionPolicyOutput {
@@ -21614,12 +18721,6 @@ func (i LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileRetentionPolicyOutput)
 }
 
-func (i LogProfileRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[LogProfileRetentionPolicy] {
-	return pulumix.Output[LogProfileRetentionPolicy]{
-		OutputState: i.ToLogProfileRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LogProfileRetentionPolicyArgs) ToLogProfileRetentionPolicyPtrOutput() LogProfileRetentionPolicyPtrOutput {
 	return i.ToLogProfileRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -21661,12 +18762,6 @@ func (i *logProfileRetentionPolicyPtrType) ToLogProfileRetentionPolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LogProfileRetentionPolicyPtrOutput)
 }
 
-func (i *logProfileRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogProfileRetentionPolicy] {
-	return pulumix.Output[*LogProfileRetentionPolicy]{
-		OutputState: i.ToLogProfileRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogProfileRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LogProfileRetentionPolicyOutput) ElementType() reflect.Type {
@@ -21691,12 +18786,6 @@ func (o LogProfileRetentionPolicyOutput) ToLogProfileRetentionPolicyPtrOutputWit
 	}).(LogProfileRetentionPolicyPtrOutput)
 }
 
-func (o LogProfileRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[LogProfileRetentionPolicy] {
-	return pulumix.Output[LogProfileRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of days for the retention policy. Defaults to `0`.
 func (o LogProfileRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LogProfileRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -21719,12 +18808,6 @@ func (o LogProfileRetentionPolicyPtrOutput) ToLogProfileRetentionPolicyPtrOutput
 
 func (o LogProfileRetentionPolicyPtrOutput) ToLogProfileRetentionPolicyPtrOutputWithContext(ctx context.Context) LogProfileRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o LogProfileRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogProfileRetentionPolicy] {
-	return pulumix.Output[*LogProfileRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogProfileRetentionPolicyPtrOutput) Elem() LogProfileRetentionPolicyOutput {
@@ -21802,12 +18885,6 @@ func (i LogzMonitorPlanArgs) ToLogzMonitorPlanOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanOutput)
 }
 
-func (i LogzMonitorPlanArgs) ToOutput(ctx context.Context) pulumix.Output[LogzMonitorPlan] {
-	return pulumix.Output[LogzMonitorPlan]{
-		OutputState: i.ToLogzMonitorPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LogzMonitorPlanArgs) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPtrOutput {
 	return i.ToLogzMonitorPlanPtrOutputWithContext(context.Background())
 }
@@ -21849,12 +18926,6 @@ func (i *logzMonitorPlanPtrType) ToLogzMonitorPlanPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorPlanPtrOutput)
 }
 
-func (i *logzMonitorPlanPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogzMonitorPlan] {
-	return pulumix.Output[*LogzMonitorPlan]{
-		OutputState: i.ToLogzMonitorPlanPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzMonitorPlanOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorPlanOutput) ElementType() reflect.Type {
@@ -21877,12 +18948,6 @@ func (o LogzMonitorPlanOutput) ToLogzMonitorPlanPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitorPlan) *LogzMonitorPlan {
 		return &v
 	}).(LogzMonitorPlanPtrOutput)
-}
-
-func (o LogzMonitorPlanOutput) ToOutput(ctx context.Context) pulumix.Output[LogzMonitorPlan] {
-	return pulumix.Output[LogzMonitorPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
@@ -21917,12 +18982,6 @@ func (o LogzMonitorPlanPtrOutput) ToLogzMonitorPlanPtrOutput() LogzMonitorPlanPt
 
 func (o LogzMonitorPlanPtrOutput) ToLogzMonitorPlanPtrOutputWithContext(ctx context.Context) LogzMonitorPlanPtrOutput {
 	return o
-}
-
-func (o LogzMonitorPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzMonitorPlan] {
-	return pulumix.Output[*LogzMonitorPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzMonitorPlanPtrOutput) Elem() LogzMonitorPlanOutput {
@@ -22024,12 +19083,6 @@ func (i LogzMonitorUserArgs) ToLogzMonitorUserOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserOutput)
 }
 
-func (i LogzMonitorUserArgs) ToOutput(ctx context.Context) pulumix.Output[LogzMonitorUser] {
-	return pulumix.Output[LogzMonitorUser]{
-		OutputState: i.ToLogzMonitorUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LogzMonitorUserArgs) ToLogzMonitorUserPtrOutput() LogzMonitorUserPtrOutput {
 	return i.ToLogzMonitorUserPtrOutputWithContext(context.Background())
 }
@@ -22071,12 +19124,6 @@ func (i *logzMonitorUserPtrType) ToLogzMonitorUserPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LogzMonitorUserPtrOutput)
 }
 
-func (i *logzMonitorUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogzMonitorUser] {
-	return pulumix.Output[*LogzMonitorUser]{
-		OutputState: i.ToLogzMonitorUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzMonitorUserOutput struct{ *pulumi.OutputState }
 
 func (LogzMonitorUserOutput) ElementType() reflect.Type {
@@ -22099,12 +19146,6 @@ func (o LogzMonitorUserOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzMonitorUser) *LogzMonitorUser {
 		return &v
 	}).(LogzMonitorUserPtrOutput)
-}
-
-func (o LogzMonitorUserOutput) ToOutput(ctx context.Context) pulumix.Output[LogzMonitorUser] {
-	return pulumix.Output[LogzMonitorUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
@@ -22141,12 +19182,6 @@ func (o LogzMonitorUserPtrOutput) ToLogzMonitorUserPtrOutput() LogzMonitorUserPt
 
 func (o LogzMonitorUserPtrOutput) ToLogzMonitorUserPtrOutputWithContext(ctx context.Context) LogzMonitorUserPtrOutput {
 	return o
-}
-
-func (o LogzMonitorUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzMonitorUser] {
-	return pulumix.Output[*LogzMonitorUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzMonitorUserPtrOutput) Elem() LogzMonitorUserOutput {
@@ -22242,12 +19277,6 @@ func (i LogzSubAccountTagRuleTagFilterArgs) ToLogzSubAccountTagRuleTagFilterOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountTagRuleTagFilterOutput)
 }
 
-func (i LogzSubAccountTagRuleTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[LogzSubAccountTagRuleTagFilter] {
-	return pulumix.Output[LogzSubAccountTagRuleTagFilter]{
-		OutputState: i.ToLogzSubAccountTagRuleTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogzSubAccountTagRuleTagFilterArrayInput is an input type that accepts LogzSubAccountTagRuleTagFilterArray and LogzSubAccountTagRuleTagFilterArrayOutput values.
 // You can construct a concrete instance of `LogzSubAccountTagRuleTagFilterArrayInput` via:
 //
@@ -22273,12 +19302,6 @@ func (i LogzSubAccountTagRuleTagFilterArray) ToLogzSubAccountTagRuleTagFilterArr
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountTagRuleTagFilterArrayOutput)
 }
 
-func (i LogzSubAccountTagRuleTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]LogzSubAccountTagRuleTagFilter] {
-	return pulumix.Output[[]LogzSubAccountTagRuleTagFilter]{
-		OutputState: i.ToLogzSubAccountTagRuleTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzSubAccountTagRuleTagFilterOutput struct{ *pulumi.OutputState }
 
 func (LogzSubAccountTagRuleTagFilterOutput) ElementType() reflect.Type {
@@ -22291,12 +19314,6 @@ func (o LogzSubAccountTagRuleTagFilterOutput) ToLogzSubAccountTagRuleTagFilterOu
 
 func (o LogzSubAccountTagRuleTagFilterOutput) ToLogzSubAccountTagRuleTagFilterOutputWithContext(ctx context.Context) LogzSubAccountTagRuleTagFilterOutput {
 	return o
-}
-
-func (o LogzSubAccountTagRuleTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[LogzSubAccountTagRuleTagFilter] {
-	return pulumix.Output[LogzSubAccountTagRuleTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
@@ -22326,12 +19343,6 @@ func (o LogzSubAccountTagRuleTagFilterArrayOutput) ToLogzSubAccountTagRuleTagFil
 
 func (o LogzSubAccountTagRuleTagFilterArrayOutput) ToLogzSubAccountTagRuleTagFilterArrayOutputWithContext(ctx context.Context) LogzSubAccountTagRuleTagFilterArrayOutput {
 	return o
-}
-
-func (o LogzSubAccountTagRuleTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LogzSubAccountTagRuleTagFilter] {
-	return pulumix.Output[[]LogzSubAccountTagRuleTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzSubAccountTagRuleTagFilterArrayOutput) Index(i pulumi.IntInput) LogzSubAccountTagRuleTagFilterOutput {
@@ -22389,12 +19400,6 @@ func (i LogzSubAccountUserArgs) ToLogzSubAccountUserOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountUserOutput)
 }
 
-func (i LogzSubAccountUserArgs) ToOutput(ctx context.Context) pulumix.Output[LogzSubAccountUser] {
-	return pulumix.Output[LogzSubAccountUser]{
-		OutputState: i.ToLogzSubAccountUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LogzSubAccountUserArgs) ToLogzSubAccountUserPtrOutput() LogzSubAccountUserPtrOutput {
 	return i.ToLogzSubAccountUserPtrOutputWithContext(context.Background())
 }
@@ -22436,12 +19441,6 @@ func (i *logzSubAccountUserPtrType) ToLogzSubAccountUserPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountUserPtrOutput)
 }
 
-func (i *logzSubAccountUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogzSubAccountUser] {
-	return pulumix.Output[*LogzSubAccountUser]{
-		OutputState: i.ToLogzSubAccountUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzSubAccountUserOutput struct{ *pulumi.OutputState }
 
 func (LogzSubAccountUserOutput) ElementType() reflect.Type {
@@ -22464,12 +19463,6 @@ func (o LogzSubAccountUserOutput) ToLogzSubAccountUserPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzSubAccountUser) *LogzSubAccountUser {
 		return &v
 	}).(LogzSubAccountUserPtrOutput)
-}
-
-func (o LogzSubAccountUserOutput) ToOutput(ctx context.Context) pulumix.Output[LogzSubAccountUser] {
-	return pulumix.Output[LogzSubAccountUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
@@ -22506,12 +19499,6 @@ func (o LogzSubAccountUserPtrOutput) ToLogzSubAccountUserPtrOutput() LogzSubAcco
 
 func (o LogzSubAccountUserPtrOutput) ToLogzSubAccountUserPtrOutputWithContext(ctx context.Context) LogzSubAccountUserPtrOutput {
 	return o
-}
-
-func (o LogzSubAccountUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzSubAccountUser] {
-	return pulumix.Output[*LogzSubAccountUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzSubAccountUserPtrOutput) Elem() LogzSubAccountUserOutput {
@@ -22607,12 +19594,6 @@ func (i LogzTagRuleTagFilterArgs) ToLogzTagRuleTagFilterOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleTagFilterOutput)
 }
 
-func (i LogzTagRuleTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[LogzTagRuleTagFilter] {
-	return pulumix.Output[LogzTagRuleTagFilter]{
-		OutputState: i.ToLogzTagRuleTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogzTagRuleTagFilterArrayInput is an input type that accepts LogzTagRuleTagFilterArray and LogzTagRuleTagFilterArrayOutput values.
 // You can construct a concrete instance of `LogzTagRuleTagFilterArrayInput` via:
 //
@@ -22638,12 +19619,6 @@ func (i LogzTagRuleTagFilterArray) ToLogzTagRuleTagFilterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LogzTagRuleTagFilterArrayOutput)
 }
 
-func (i LogzTagRuleTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]LogzTagRuleTagFilter] {
-	return pulumix.Output[[]LogzTagRuleTagFilter]{
-		OutputState: i.ToLogzTagRuleTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzTagRuleTagFilterOutput struct{ *pulumi.OutputState }
 
 func (LogzTagRuleTagFilterOutput) ElementType() reflect.Type {
@@ -22656,12 +19631,6 @@ func (o LogzTagRuleTagFilterOutput) ToLogzTagRuleTagFilterOutput() LogzTagRuleTa
 
 func (o LogzTagRuleTagFilterOutput) ToLogzTagRuleTagFilterOutputWithContext(ctx context.Context) LogzTagRuleTagFilterOutput {
 	return o
-}
-
-func (o LogzTagRuleTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[LogzTagRuleTagFilter] {
-	return pulumix.Output[LogzTagRuleTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
@@ -22691,12 +19660,6 @@ func (o LogzTagRuleTagFilterArrayOutput) ToLogzTagRuleTagFilterArrayOutput() Log
 
 func (o LogzTagRuleTagFilterArrayOutput) ToLogzTagRuleTagFilterArrayOutputWithContext(ctx context.Context) LogzTagRuleTagFilterArrayOutput {
 	return o
-}
-
-func (o LogzTagRuleTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LogzTagRuleTagFilter] {
-	return pulumix.Output[[]LogzTagRuleTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzTagRuleTagFilterArrayOutput) Index(i pulumi.IntInput) LogzTagRuleTagFilterOutput {
@@ -22742,12 +19705,6 @@ func (i MetricAlertActionArgs) ToMetricAlertActionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionOutput)
 }
 
-func (i MetricAlertActionArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlertAction] {
-	return pulumix.Output[MetricAlertAction]{
-		OutputState: i.ToMetricAlertActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricAlertActionArrayInput is an input type that accepts MetricAlertActionArray and MetricAlertActionArrayOutput values.
 // You can construct a concrete instance of `MetricAlertActionArrayInput` via:
 //
@@ -22773,12 +19730,6 @@ func (i MetricAlertActionArray) ToMetricAlertActionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertActionArrayOutput)
 }
 
-func (i MetricAlertActionArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertAction] {
-	return pulumix.Output[[]MetricAlertAction]{
-		OutputState: i.ToMetricAlertActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlertActionOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertActionOutput) ElementType() reflect.Type {
@@ -22791,12 +19742,6 @@ func (o MetricAlertActionOutput) ToMetricAlertActionOutput() MetricAlertActionOu
 
 func (o MetricAlertActionOutput) ToMetricAlertActionOutputWithContext(ctx context.Context) MetricAlertActionOutput {
 	return o
-}
-
-func (o MetricAlertActionOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlertAction] {
-	return pulumix.Output[MetricAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
@@ -22821,12 +19766,6 @@ func (o MetricAlertActionArrayOutput) ToMetricAlertActionArrayOutput() MetricAle
 
 func (o MetricAlertActionArrayOutput) ToMetricAlertActionArrayOutputWithContext(ctx context.Context) MetricAlertActionArrayOutput {
 	return o
-}
-
-func (o MetricAlertActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertAction] {
-	return pulumix.Output[[]MetricAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricAlertActionArrayOutput) Index(i pulumi.IntInput) MetricAlertActionOutput {
@@ -22876,12 +19815,6 @@ func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
 }
 
-func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria] {
-	return pulumix.Output[MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria]{
-		OutputState: i.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
 	return i.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(context.Background())
 }
@@ -22923,12 +19856,6 @@ func (i *metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput)
 }
 
-func (i *metricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria] {
-	return pulumix.Output[*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria]{
-		OutputState: i.ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ElementType() reflect.Type {
@@ -22951,12 +19878,6 @@ func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria) *MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria {
 		return &v
 	}).(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput)
-}
-
-func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria] {
-	return pulumix.Output[MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Application Insights Resource.
@@ -22988,12 +19909,6 @@ func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutp
 
 func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) ToMetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput {
 	return o
-}
-
-func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria] {
-	return pulumix.Output[*MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaPtrOutput) Elem() MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaOutput {
@@ -23093,12 +20008,6 @@ func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaOutput)
 }
 
-func (i MetricAlertCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlertCriteria] {
-	return pulumix.Output[MetricAlertCriteria]{
-		OutputState: i.ToMetricAlertCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricAlertCriteriaArrayInput is an input type that accepts MetricAlertCriteriaArray and MetricAlertCriteriaArrayOutput values.
 // You can construct a concrete instance of `MetricAlertCriteriaArrayInput` via:
 //
@@ -23124,12 +20033,6 @@ func (i MetricAlertCriteriaArray) ToMetricAlertCriteriaArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaArrayOutput)
 }
 
-func (i MetricAlertCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertCriteria] {
-	return pulumix.Output[[]MetricAlertCriteria]{
-		OutputState: i.ToMetricAlertCriteriaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlertCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertCriteriaOutput) ElementType() reflect.Type {
@@ -23142,12 +20045,6 @@ func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutput() MetricAlertCrit
 
 func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutputWithContext(ctx context.Context) MetricAlertCriteriaOutput {
 	return o
-}
-
-func (o MetricAlertCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlertCriteria] {
-	return pulumix.Output[MetricAlertCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
@@ -23199,12 +20096,6 @@ func (o MetricAlertCriteriaArrayOutput) ToMetricAlertCriteriaArrayOutputWithCont
 	return o
 }
 
-func (o MetricAlertCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertCriteria] {
-	return pulumix.Output[[]MetricAlertCriteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricAlertCriteriaArrayOutput) Index(i pulumi.IntInput) MetricAlertCriteriaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAlertCriteria {
 		return vs[0].([]MetricAlertCriteria)[vs[1].(int)]
@@ -23252,12 +20143,6 @@ func (i MetricAlertCriteriaDimensionArgs) ToMetricAlertCriteriaDimensionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaDimensionOutput)
 }
 
-func (i MetricAlertCriteriaDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlertCriteriaDimension] {
-	return pulumix.Output[MetricAlertCriteriaDimension]{
-		OutputState: i.ToMetricAlertCriteriaDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricAlertCriteriaDimensionArrayInput is an input type that accepts MetricAlertCriteriaDimensionArray and MetricAlertCriteriaDimensionArrayOutput values.
 // You can construct a concrete instance of `MetricAlertCriteriaDimensionArrayInput` via:
 //
@@ -23283,12 +20168,6 @@ func (i MetricAlertCriteriaDimensionArray) ToMetricAlertCriteriaDimensionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaDimensionArrayOutput)
 }
 
-func (i MetricAlertCriteriaDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertCriteriaDimension] {
-	return pulumix.Output[[]MetricAlertCriteriaDimension]{
-		OutputState: i.ToMetricAlertCriteriaDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlertCriteriaDimensionOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertCriteriaDimensionOutput) ElementType() reflect.Type {
@@ -23301,12 +20180,6 @@ func (o MetricAlertCriteriaDimensionOutput) ToMetricAlertCriteriaDimensionOutput
 
 func (o MetricAlertCriteriaDimensionOutput) ToMetricAlertCriteriaDimensionOutputWithContext(ctx context.Context) MetricAlertCriteriaDimensionOutput {
 	return o
-}
-
-func (o MetricAlertCriteriaDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlertCriteriaDimension] {
-	return pulumix.Output[MetricAlertCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One of the dimension names.
@@ -23336,12 +20209,6 @@ func (o MetricAlertCriteriaDimensionArrayOutput) ToMetricAlertCriteriaDimensionA
 
 func (o MetricAlertCriteriaDimensionArrayOutput) ToMetricAlertCriteriaDimensionArrayOutputWithContext(ctx context.Context) MetricAlertCriteriaDimensionArrayOutput {
 	return o
-}
-
-func (o MetricAlertCriteriaDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertCriteriaDimension] {
-	return pulumix.Output[[]MetricAlertCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricAlertCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) MetricAlertCriteriaDimensionOutput {
@@ -23419,12 +20286,6 @@ func (i MetricAlertDynamicCriteriaArgs) ToMetricAlertDynamicCriteriaOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaOutput)
 }
 
-func (i MetricAlertDynamicCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlertDynamicCriteria] {
-	return pulumix.Output[MetricAlertDynamicCriteria]{
-		OutputState: i.ToMetricAlertDynamicCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MetricAlertDynamicCriteriaArgs) ToMetricAlertDynamicCriteriaPtrOutput() MetricAlertDynamicCriteriaPtrOutput {
 	return i.ToMetricAlertDynamicCriteriaPtrOutputWithContext(context.Background())
 }
@@ -23466,12 +20327,6 @@ func (i *metricAlertDynamicCriteriaPtrType) ToMetricAlertDynamicCriteriaPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaPtrOutput)
 }
 
-func (i *metricAlertDynamicCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetricAlertDynamicCriteria] {
-	return pulumix.Output[*MetricAlertDynamicCriteria]{
-		OutputState: i.ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlertDynamicCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertDynamicCriteriaOutput) ElementType() reflect.Type {
@@ -23494,12 +20349,6 @@ func (o MetricAlertDynamicCriteriaOutput) ToMetricAlertDynamicCriteriaPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlertDynamicCriteria) *MetricAlertDynamicCriteria {
 		return &v
 	}).(MetricAlertDynamicCriteriaPtrOutput)
-}
-
-func (o MetricAlertDynamicCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlertDynamicCriteria] {
-	return pulumix.Output[MetricAlertDynamicCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
@@ -23564,12 +20413,6 @@ func (o MetricAlertDynamicCriteriaPtrOutput) ToMetricAlertDynamicCriteriaPtrOutp
 
 func (o MetricAlertDynamicCriteriaPtrOutput) ToMetricAlertDynamicCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaPtrOutput {
 	return o
-}
-
-func (o MetricAlertDynamicCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricAlertDynamicCriteria] {
-	return pulumix.Output[*MetricAlertDynamicCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricAlertDynamicCriteriaPtrOutput) Elem() MetricAlertDynamicCriteriaOutput {
@@ -23723,12 +20566,6 @@ func (i MetricAlertDynamicCriteriaDimensionArgs) ToMetricAlertDynamicCriteriaDim
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaDimensionOutput)
 }
 
-func (i MetricAlertDynamicCriteriaDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[MetricAlertDynamicCriteriaDimension] {
-	return pulumix.Output[MetricAlertDynamicCriteriaDimension]{
-		OutputState: i.ToMetricAlertDynamicCriteriaDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricAlertDynamicCriteriaDimensionArrayInput is an input type that accepts MetricAlertDynamicCriteriaDimensionArray and MetricAlertDynamicCriteriaDimensionArrayOutput values.
 // You can construct a concrete instance of `MetricAlertDynamicCriteriaDimensionArrayInput` via:
 //
@@ -23754,12 +20591,6 @@ func (i MetricAlertDynamicCriteriaDimensionArray) ToMetricAlertDynamicCriteriaDi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertDynamicCriteriaDimensionArrayOutput)
 }
 
-func (i MetricAlertDynamicCriteriaDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertDynamicCriteriaDimension] {
-	return pulumix.Output[[]MetricAlertDynamicCriteriaDimension]{
-		OutputState: i.ToMetricAlertDynamicCriteriaDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetricAlertDynamicCriteriaDimensionOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertDynamicCriteriaDimensionOutput) ElementType() reflect.Type {
@@ -23772,12 +20603,6 @@ func (o MetricAlertDynamicCriteriaDimensionOutput) ToMetricAlertDynamicCriteriaD
 
 func (o MetricAlertDynamicCriteriaDimensionOutput) ToMetricAlertDynamicCriteriaDimensionOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaDimensionOutput {
 	return o
-}
-
-func (o MetricAlertDynamicCriteriaDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[MetricAlertDynamicCriteriaDimension] {
-	return pulumix.Output[MetricAlertDynamicCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One of the dimension names.
@@ -23807,12 +20632,6 @@ func (o MetricAlertDynamicCriteriaDimensionArrayOutput) ToMetricAlertDynamicCrit
 
 func (o MetricAlertDynamicCriteriaDimensionArrayOutput) ToMetricAlertDynamicCriteriaDimensionArrayOutputWithContext(ctx context.Context) MetricAlertDynamicCriteriaDimensionArrayOutput {
 	return o
-}
-
-func (o MetricAlertDynamicCriteriaDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricAlertDynamicCriteriaDimension] {
-	return pulumix.Output[[]MetricAlertDynamicCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricAlertDynamicCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) MetricAlertDynamicCriteriaDimensionOutput {
@@ -23862,12 +20681,6 @@ func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionOutput)
 }
 
-func (i ScheduledQueryRulesAlertActionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertAction] {
-	return pulumix.Output[ScheduledQueryRulesAlertAction]{
-		OutputState: i.ToScheduledQueryRulesAlertActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryRulesAlertActionArgs) ToScheduledQueryRulesAlertActionPtrOutput() ScheduledQueryRulesAlertActionPtrOutput {
 	return i.ToScheduledQueryRulesAlertActionPtrOutputWithContext(context.Background())
 }
@@ -23909,12 +20722,6 @@ func (i *scheduledQueryRulesAlertActionPtrType) ToScheduledQueryRulesAlertAction
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertActionPtrOutput)
 }
 
-func (i *scheduledQueryRulesAlertActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertAction] {
-	return pulumix.Output[*ScheduledQueryRulesAlertAction]{
-		OutputState: i.ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertActionOutput) ElementType() reflect.Type {
@@ -23937,12 +20744,6 @@ func (o ScheduledQueryRulesAlertActionOutput) ToScheduledQueryRulesAlertActionPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertAction) *ScheduledQueryRulesAlertAction {
 		return &v
 	}).(ScheduledQueryRulesAlertActionPtrOutput)
-}
-
-func (o ScheduledQueryRulesAlertActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertAction] {
-	return pulumix.Output[ScheduledQueryRulesAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of action group reference resource IDs.
@@ -23972,12 +20773,6 @@ func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActio
 
 func (o ScheduledQueryRulesAlertActionPtrOutput) ToScheduledQueryRulesAlertActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertActionPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertAction] {
-	return pulumix.Output[*ScheduledQueryRulesAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesAlertActionPtrOutput) Elem() ScheduledQueryRulesAlertActionOutput {
@@ -24061,12 +20856,6 @@ func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerOu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerOutput)
 }
 
-func (i ScheduledQueryRulesAlertTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[ScheduledQueryRulesAlertTrigger]{
-		OutputState: i.ToScheduledQueryRulesAlertTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryRulesAlertTriggerArgs) ToScheduledQueryRulesAlertTriggerPtrOutput() ScheduledQueryRulesAlertTriggerPtrOutput {
 	return i.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(context.Background())
 }
@@ -24108,12 +20897,6 @@ func (i *scheduledQueryRulesAlertTriggerPtrType) ToScheduledQueryRulesAlertTrigg
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerPtrOutput)
 }
 
-func (i *scheduledQueryRulesAlertTriggerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[*ScheduledQueryRulesAlertTrigger]{
-		OutputState: i.ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertTriggerOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertTriggerOutput) ElementType() reflect.Type {
@@ -24136,12 +20919,6 @@ func (o ScheduledQueryRulesAlertTriggerOutput) ToScheduledQueryRulesAlertTrigger
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertTrigger) *ScheduledQueryRulesAlertTrigger {
 		return &v
 	}).(ScheduledQueryRulesAlertTriggerPtrOutput)
-}
-
-func (o ScheduledQueryRulesAlertTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[ScheduledQueryRulesAlertTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `metricTrigger` block as defined above. Trigger condition for metric query rule.
@@ -24173,12 +20950,6 @@ func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTrig
 
 func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[*ScheduledQueryRulesAlertTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesAlertTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerOutput {
@@ -24266,12 +21037,6 @@ func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToScheduledQueryRulesA
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerMetricTriggerOutput)
 }
 
-func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[ScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: i.ToScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput() ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
 	return i.ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(context.Background())
 }
@@ -24313,12 +21078,6 @@ func (i *scheduledQueryRulesAlertTriggerMetricTriggerPtrType) ToScheduledQueryRu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
 }
 
-func (i *scheduledQueryRulesAlertTriggerMetricTriggerPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[*ScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: i.ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertTriggerMetricTriggerOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ElementType() reflect.Type {
@@ -24341,12 +21100,6 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToScheduledQueryRule
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertTriggerMetricTrigger) *ScheduledQueryRulesAlertTriggerMetricTrigger {
 		return &v
 	}).(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput)
-}
-
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[ScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Evaluation of metric on a particular column.
@@ -24381,12 +21134,6 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ToScheduledQueryR
 
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ToScheduledQueryRulesAlertTriggerMetricTriggerPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[*ScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Elem() ScheduledQueryRulesAlertTriggerMetricTriggerOutput {
@@ -24476,12 +21223,6 @@ func (i ScheduledQueryRulesAlertV2ActionArgs) ToScheduledQueryRulesAlertV2Action
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2ActionOutput)
 }
 
-func (i ScheduledQueryRulesAlertV2ActionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2Action] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2Action]{
-		OutputState: i.ToScheduledQueryRulesAlertV2ActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryRulesAlertV2ActionArgs) ToScheduledQueryRulesAlertV2ActionPtrOutput() ScheduledQueryRulesAlertV2ActionPtrOutput {
 	return i.ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(context.Background())
 }
@@ -24523,12 +21264,6 @@ func (i *scheduledQueryRulesAlertV2ActionPtrType) ToScheduledQueryRulesAlertV2Ac
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2ActionPtrOutput)
 }
 
-func (i *scheduledQueryRulesAlertV2ActionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertV2Action] {
-	return pulumix.Output[*ScheduledQueryRulesAlertV2Action]{
-		OutputState: i.ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertV2ActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertV2ActionOutput) ElementType() reflect.Type {
@@ -24553,12 +21288,6 @@ func (o ScheduledQueryRulesAlertV2ActionOutput) ToScheduledQueryRulesAlertV2Acti
 	}).(ScheduledQueryRulesAlertV2ActionPtrOutput)
 }
 
-func (o ScheduledQueryRulesAlertV2ActionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2Action] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2Action]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of Action Group resource IDs to invoke when the alert fires.
 func (o ScheduledQueryRulesAlertV2ActionOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Action) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
@@ -24581,12 +21310,6 @@ func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ToScheduledQueryRulesAlertV2A
 
 func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertV2Action] {
-	return pulumix.Output[*ScheduledQueryRulesAlertV2Action]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesAlertV2ActionPtrOutput) Elem() ScheduledQueryRulesAlertV2ActionOutput {
@@ -24684,12 +21407,6 @@ func (i ScheduledQueryRulesAlertV2CriteriaArgs) ToScheduledQueryRulesAlertV2Crit
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaOutput)
 }
 
-func (i ScheduledQueryRulesAlertV2CriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2Criteria] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2Criteria]{
-		OutputState: i.ToScheduledQueryRulesAlertV2CriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryRulesAlertV2CriteriaArrayInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaArray and ScheduledQueryRulesAlertV2CriteriaArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaArrayInput` via:
 //
@@ -24715,12 +21432,6 @@ func (i ScheduledQueryRulesAlertV2CriteriaArray) ToScheduledQueryRulesAlertV2Cri
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaArrayOutput)
 }
 
-func (i ScheduledQueryRulesAlertV2CriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryRulesAlertV2Criteria] {
-	return pulumix.Output[[]ScheduledQueryRulesAlertV2Criteria]{
-		OutputState: i.ToScheduledQueryRulesAlertV2CriteriaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertV2CriteriaOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertV2CriteriaOutput) ElementType() reflect.Type {
@@ -24733,12 +21444,6 @@ func (o ScheduledQueryRulesAlertV2CriteriaOutput) ToScheduledQueryRulesAlertV2Cr
 
 func (o ScheduledQueryRulesAlertV2CriteriaOutput) ToScheduledQueryRulesAlertV2CriteriaOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertV2CriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2Criteria] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2Criteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `dimension` block as defined below.
@@ -24801,12 +21506,6 @@ func (o ScheduledQueryRulesAlertV2CriteriaArrayOutput) ToScheduledQueryRulesAler
 	return o
 }
 
-func (o ScheduledQueryRulesAlertV2CriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryRulesAlertV2Criteria] {
-	return pulumix.Output[[]ScheduledQueryRulesAlertV2Criteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryRulesAlertV2CriteriaArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertV2CriteriaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryRulesAlertV2Criteria {
 		return vs[0].([]ScheduledQueryRulesAlertV2Criteria)[vs[1].(int)]
@@ -24854,12 +21553,6 @@ func (i ScheduledQueryRulesAlertV2CriteriaDimensionArgs) ToScheduledQueryRulesAl
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaDimensionOutput)
 }
 
-func (i ScheduledQueryRulesAlertV2CriteriaDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2CriteriaDimension] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2CriteriaDimension]{
-		OutputState: i.ToScheduledQueryRulesAlertV2CriteriaDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaDimensionArray and ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput` via:
 //
@@ -24885,12 +21578,6 @@ func (i ScheduledQueryRulesAlertV2CriteriaDimensionArray) ToScheduledQueryRulesA
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput)
 }
 
-func (i ScheduledQueryRulesAlertV2CriteriaDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryRulesAlertV2CriteriaDimension] {
-	return pulumix.Output[[]ScheduledQueryRulesAlertV2CriteriaDimension]{
-		OutputState: i.ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertV2CriteriaDimensionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ElementType() reflect.Type {
@@ -24903,12 +21590,6 @@ func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ToScheduledQueryRules
 
 func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ToScheduledQueryRulesAlertV2CriteriaDimensionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2CriteriaDimension] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2CriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the dimension.
@@ -24938,12 +21619,6 @@ func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) ToScheduledQuery
 
 func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryRulesAlertV2CriteriaDimension] {
-	return pulumix.Output[[]ScheduledQueryRulesAlertV2CriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
@@ -24997,12 +21672,6 @@ func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToScheduledQueryRu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput)
 }
 
-func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2CriteriaFailingPeriods] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2CriteriaFailingPeriods]{
-		OutputState: i.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
 	return i.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(context.Background())
 }
@@ -25044,12 +21713,6 @@ func (i *scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType) ToScheduledQue
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput)
 }
 
-func (i *scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertV2CriteriaFailingPeriods] {
-	return pulumix.Output[*ScheduledQueryRulesAlertV2CriteriaFailingPeriods]{
-		OutputState: i.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ElementType() reflect.Type {
@@ -25072,12 +21735,6 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ToScheduledQuery
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertV2CriteriaFailingPeriods) *ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
 		return &v
 	}).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput)
-}
-
-func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesAlertV2CriteriaFailingPeriods] {
-	return pulumix.Output[ScheduledQueryRulesAlertV2CriteriaFailingPeriods]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
@@ -25108,12 +21765,6 @@ func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) ToScheduledQu
 
 func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesAlertV2CriteriaFailingPeriods] {
-	return pulumix.Output[*ScheduledQueryRulesAlertV2CriteriaFailingPeriods]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) Elem() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput {
@@ -25187,12 +21838,6 @@ func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaOutput)
 }
 
-func (i ScheduledQueryRulesLogCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[ScheduledQueryRulesLogCriteria]{
-		OutputState: i.ToScheduledQueryRulesLogCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryRulesLogCriteriaArgs) ToScheduledQueryRulesLogCriteriaPtrOutput() ScheduledQueryRulesLogCriteriaPtrOutput {
 	return i.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(context.Background())
 }
@@ -25234,12 +21879,6 @@ func (i *scheduledQueryRulesLogCriteriaPtrType) ToScheduledQueryRulesLogCriteria
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaPtrOutput)
 }
 
-func (i *scheduledQueryRulesLogCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[*ScheduledQueryRulesLogCriteria]{
-		OutputState: i.ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesLogCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogCriteriaOutput) ElementType() reflect.Type {
@@ -25264,12 +21903,6 @@ func (o ScheduledQueryRulesLogCriteriaOutput) ToScheduledQueryRulesLogCriteriaPt
 	}).(ScheduledQueryRulesLogCriteriaPtrOutput)
 }
 
-func (o ScheduledQueryRulesLogCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[ScheduledQueryRulesLogCriteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A `dimension` block as defined below.
 func (o ScheduledQueryRulesLogCriteriaOutput) Dimensions() ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRulesLogCriteria) []ScheduledQueryRulesLogCriteriaDimension { return v.Dimensions }).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
@@ -25292,12 +21925,6 @@ func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteri
 
 func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToScheduledQueryRulesLogCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesLogCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[*ScheduledQueryRulesLogCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesLogCriteriaPtrOutput) Elem() ScheduledQueryRulesLogCriteriaOutput {
@@ -25371,12 +21998,6 @@ func (i ScheduledQueryRulesLogCriteriaDimensionArgs) ToScheduledQueryRulesLogCri
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaDimensionOutput)
 }
 
-func (i ScheduledQueryRulesLogCriteriaDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[ScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: i.ToScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryRulesLogCriteriaDimensionArrayInput is an input type that accepts ScheduledQueryRulesLogCriteriaDimensionArray and ScheduledQueryRulesLogCriteriaDimensionArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesLogCriteriaDimensionArrayInput` via:
 //
@@ -25402,12 +22023,6 @@ func (i ScheduledQueryRulesLogCriteriaDimensionArray) ToScheduledQueryRulesLogCr
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
-func (i ScheduledQueryRulesLogCriteriaDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[[]ScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: i.ToScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesLogCriteriaDimensionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogCriteriaDimensionOutput) ElementType() reflect.Type {
@@ -25420,12 +22035,6 @@ func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToScheduledQueryRulesLogC
 
 func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaDimensionOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesLogCriteriaDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[ScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the dimension.
@@ -25455,12 +22064,6 @@ func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToScheduledQueryRule
 
 func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesLogCriteriaDimensionArrayOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[[]ScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesLogCriteriaDimensionOutput {
@@ -25510,12 +22113,6 @@ func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGro
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupOutput)
 }
 
-func (i SmartDetectorAlertRuleActionGroupArgs) ToOutput(ctx context.Context) pulumix.Output[SmartDetectorAlertRuleActionGroup] {
-	return pulumix.Output[SmartDetectorAlertRuleActionGroup]{
-		OutputState: i.ToSmartDetectorAlertRuleActionGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SmartDetectorAlertRuleActionGroupArgs) ToSmartDetectorAlertRuleActionGroupPtrOutput() SmartDetectorAlertRuleActionGroupPtrOutput {
 	return i.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(context.Background())
 }
@@ -25557,12 +22154,6 @@ func (i *smartDetectorAlertRuleActionGroupPtrType) ToSmartDetectorAlertRuleActio
 	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleActionGroupPtrOutput)
 }
 
-func (i *smartDetectorAlertRuleActionGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*SmartDetectorAlertRuleActionGroup] {
-	return pulumix.Output[*SmartDetectorAlertRuleActionGroup]{
-		OutputState: i.ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SmartDetectorAlertRuleActionGroupOutput struct{ *pulumi.OutputState }
 
 func (SmartDetectorAlertRuleActionGroupOutput) ElementType() reflect.Type {
@@ -25585,12 +22176,6 @@ func (o SmartDetectorAlertRuleActionGroupOutput) ToSmartDetectorAlertRuleActionG
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmartDetectorAlertRuleActionGroup) *SmartDetectorAlertRuleActionGroup {
 		return &v
 	}).(SmartDetectorAlertRuleActionGroupPtrOutput)
-}
-
-func (o SmartDetectorAlertRuleActionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[SmartDetectorAlertRuleActionGroup] {
-	return pulumix.Output[SmartDetectorAlertRuleActionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
@@ -25620,12 +22205,6 @@ func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActi
 
 func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToSmartDetectorAlertRuleActionGroupPtrOutputWithContext(ctx context.Context) SmartDetectorAlertRuleActionGroupPtrOutput {
 	return o
-}
-
-func (o SmartDetectorAlertRuleActionGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SmartDetectorAlertRuleActionGroup] {
-	return pulumix.Output[*SmartDetectorAlertRuleActionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SmartDetectorAlertRuleActionGroupPtrOutput) Elem() SmartDetectorAlertRuleActionGroupOutput {
@@ -25709,12 +22288,6 @@ func (i GetActionGroupArmRoleReceiverArgs) ToGetActionGroupArmRoleReceiverOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupArmRoleReceiverOutput)
 }
 
-func (i GetActionGroupArmRoleReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupArmRoleReceiver] {
-	return pulumix.Output[GetActionGroupArmRoleReceiver]{
-		OutputState: i.ToGetActionGroupArmRoleReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupArmRoleReceiverArrayInput is an input type that accepts GetActionGroupArmRoleReceiverArray and GetActionGroupArmRoleReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupArmRoleReceiverArrayInput` via:
 //
@@ -25740,12 +22313,6 @@ func (i GetActionGroupArmRoleReceiverArray) ToGetActionGroupArmRoleReceiverArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupArmRoleReceiverArrayOutput)
 }
 
-func (i GetActionGroupArmRoleReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupArmRoleReceiver] {
-	return pulumix.Output[[]GetActionGroupArmRoleReceiver]{
-		OutputState: i.ToGetActionGroupArmRoleReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupArmRoleReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupArmRoleReceiverOutput) ElementType() reflect.Type {
@@ -25758,12 +22325,6 @@ func (o GetActionGroupArmRoleReceiverOutput) ToGetActionGroupArmRoleReceiverOutp
 
 func (o GetActionGroupArmRoleReceiverOutput) ToGetActionGroupArmRoleReceiverOutputWithContext(ctx context.Context) GetActionGroupArmRoleReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupArmRoleReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupArmRoleReceiver] {
-	return pulumix.Output[GetActionGroupArmRoleReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Action Group.
@@ -25793,12 +22354,6 @@ func (o GetActionGroupArmRoleReceiverArrayOutput) ToGetActionGroupArmRoleReceive
 
 func (o GetActionGroupArmRoleReceiverArrayOutput) ToGetActionGroupArmRoleReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupArmRoleReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupArmRoleReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupArmRoleReceiver] {
-	return pulumix.Output[[]GetActionGroupArmRoleReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupArmRoleReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupArmRoleReceiverOutput {
@@ -25864,12 +22419,6 @@ func (i GetActionGroupAutomationRunbookReceiverArgs) ToGetActionGroupAutomationR
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAutomationRunbookReceiverOutput)
 }
 
-func (i GetActionGroupAutomationRunbookReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[GetActionGroupAutomationRunbookReceiver]{
-		OutputState: i.ToGetActionGroupAutomationRunbookReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupAutomationRunbookReceiverArrayInput is an input type that accepts GetActionGroupAutomationRunbookReceiverArray and GetActionGroupAutomationRunbookReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupAutomationRunbookReceiverArrayInput` via:
 //
@@ -25895,12 +22444,6 @@ func (i GetActionGroupAutomationRunbookReceiverArray) ToGetActionGroupAutomation
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAutomationRunbookReceiverArrayOutput)
 }
 
-func (i GetActionGroupAutomationRunbookReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[[]GetActionGroupAutomationRunbookReceiver]{
-		OutputState: i.ToGetActionGroupAutomationRunbookReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupAutomationRunbookReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAutomationRunbookReceiverOutput) ElementType() reflect.Type {
@@ -25913,12 +22456,6 @@ func (o GetActionGroupAutomationRunbookReceiverOutput) ToGetActionGroupAutomatio
 
 func (o GetActionGroupAutomationRunbookReceiverOutput) ToGetActionGroupAutomationRunbookReceiverOutputWithContext(ctx context.Context) GetActionGroupAutomationRunbookReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupAutomationRunbookReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[GetActionGroupAutomationRunbookReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The automation account ID which holds this runbook and authenticates to Azure resources.
@@ -25970,12 +22507,6 @@ func (o GetActionGroupAutomationRunbookReceiverArrayOutput) ToGetActionGroupAuto
 	return o
 }
 
-func (o GetActionGroupAutomationRunbookReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupAutomationRunbookReceiver] {
-	return pulumix.Output[[]GetActionGroupAutomationRunbookReceiver]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetActionGroupAutomationRunbookReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupAutomationRunbookReceiverOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetActionGroupAutomationRunbookReceiver {
 		return vs[0].([]GetActionGroupAutomationRunbookReceiver)[vs[1].(int)]
@@ -26019,12 +22550,6 @@ func (i GetActionGroupAzureAppPushReceiverArgs) ToGetActionGroupAzureAppPushRece
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAzureAppPushReceiverOutput)
 }
 
-func (i GetActionGroupAzureAppPushReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[GetActionGroupAzureAppPushReceiver]{
-		OutputState: i.ToGetActionGroupAzureAppPushReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupAzureAppPushReceiverArrayInput is an input type that accepts GetActionGroupAzureAppPushReceiverArray and GetActionGroupAzureAppPushReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupAzureAppPushReceiverArrayInput` via:
 //
@@ -26050,12 +22575,6 @@ func (i GetActionGroupAzureAppPushReceiverArray) ToGetActionGroupAzureAppPushRec
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAzureAppPushReceiverArrayOutput)
 }
 
-func (i GetActionGroupAzureAppPushReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[[]GetActionGroupAzureAppPushReceiver]{
-		OutputState: i.ToGetActionGroupAzureAppPushReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupAzureAppPushReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAzureAppPushReceiverOutput) ElementType() reflect.Type {
@@ -26068,12 +22587,6 @@ func (o GetActionGroupAzureAppPushReceiverOutput) ToGetActionGroupAzureAppPushRe
 
 func (o GetActionGroupAzureAppPushReceiverOutput) ToGetActionGroupAzureAppPushReceiverOutputWithContext(ctx context.Context) GetActionGroupAzureAppPushReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupAzureAppPushReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[GetActionGroupAzureAppPushReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email address of this receiver.
@@ -26098,12 +22611,6 @@ func (o GetActionGroupAzureAppPushReceiverArrayOutput) ToGetActionGroupAzureAppP
 
 func (o GetActionGroupAzureAppPushReceiverArrayOutput) ToGetActionGroupAzureAppPushReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupAzureAppPushReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupAzureAppPushReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupAzureAppPushReceiver] {
-	return pulumix.Output[[]GetActionGroupAzureAppPushReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupAzureAppPushReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupAzureAppPushReceiverOutput {
@@ -26161,12 +22668,6 @@ func (i GetActionGroupAzureFunctionReceiverArgs) ToGetActionGroupAzureFunctionRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAzureFunctionReceiverOutput)
 }
 
-func (i GetActionGroupAzureFunctionReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[GetActionGroupAzureFunctionReceiver]{
-		OutputState: i.ToGetActionGroupAzureFunctionReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupAzureFunctionReceiverArrayInput is an input type that accepts GetActionGroupAzureFunctionReceiverArray and GetActionGroupAzureFunctionReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupAzureFunctionReceiverArrayInput` via:
 //
@@ -26192,12 +22693,6 @@ func (i GetActionGroupAzureFunctionReceiverArray) ToGetActionGroupAzureFunctionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupAzureFunctionReceiverArrayOutput)
 }
 
-func (i GetActionGroupAzureFunctionReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[[]GetActionGroupAzureFunctionReceiver]{
-		OutputState: i.ToGetActionGroupAzureFunctionReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupAzureFunctionReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupAzureFunctionReceiverOutput) ElementType() reflect.Type {
@@ -26210,12 +22705,6 @@ func (o GetActionGroupAzureFunctionReceiverOutput) ToGetActionGroupAzureFunction
 
 func (o GetActionGroupAzureFunctionReceiverOutput) ToGetActionGroupAzureFunctionReceiverOutputWithContext(ctx context.Context) GetActionGroupAzureFunctionReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupAzureFunctionReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[GetActionGroupAzureFunctionReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure resource ID of the function app.
@@ -26255,12 +22744,6 @@ func (o GetActionGroupAzureFunctionReceiverArrayOutput) ToGetActionGroupAzureFun
 
 func (o GetActionGroupAzureFunctionReceiverArrayOutput) ToGetActionGroupAzureFunctionReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupAzureFunctionReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupAzureFunctionReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupAzureFunctionReceiver] {
-	return pulumix.Output[[]GetActionGroupAzureFunctionReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupAzureFunctionReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupAzureFunctionReceiverOutput {
@@ -26310,12 +22793,6 @@ func (i GetActionGroupEmailReceiverArgs) ToGetActionGroupEmailReceiverOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEmailReceiverOutput)
 }
 
-func (i GetActionGroupEmailReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupEmailReceiver] {
-	return pulumix.Output[GetActionGroupEmailReceiver]{
-		OutputState: i.ToGetActionGroupEmailReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupEmailReceiverArrayInput is an input type that accepts GetActionGroupEmailReceiverArray and GetActionGroupEmailReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupEmailReceiverArrayInput` via:
 //
@@ -26341,12 +22818,6 @@ func (i GetActionGroupEmailReceiverArray) ToGetActionGroupEmailReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEmailReceiverArrayOutput)
 }
 
-func (i GetActionGroupEmailReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupEmailReceiver] {
-	return pulumix.Output[[]GetActionGroupEmailReceiver]{
-		OutputState: i.ToGetActionGroupEmailReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupEmailReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupEmailReceiverOutput) ElementType() reflect.Type {
@@ -26359,12 +22830,6 @@ func (o GetActionGroupEmailReceiverOutput) ToGetActionGroupEmailReceiverOutput()
 
 func (o GetActionGroupEmailReceiverOutput) ToGetActionGroupEmailReceiverOutputWithContext(ctx context.Context) GetActionGroupEmailReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupEmailReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupEmailReceiver] {
-	return pulumix.Output[GetActionGroupEmailReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email address of this receiver.
@@ -26394,12 +22859,6 @@ func (o GetActionGroupEmailReceiverArrayOutput) ToGetActionGroupEmailReceiverArr
 
 func (o GetActionGroupEmailReceiverArrayOutput) ToGetActionGroupEmailReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupEmailReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupEmailReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupEmailReceiver] {
-	return pulumix.Output[[]GetActionGroupEmailReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupEmailReceiverOutput {
@@ -26469,12 +22928,6 @@ func (i GetActionGroupEventHubReceiverArgs) ToGetActionGroupEventHubReceiverOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEventHubReceiverOutput)
 }
 
-func (i GetActionGroupEventHubReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupEventHubReceiver] {
-	return pulumix.Output[GetActionGroupEventHubReceiver]{
-		OutputState: i.ToGetActionGroupEventHubReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupEventHubReceiverArrayInput is an input type that accepts GetActionGroupEventHubReceiverArray and GetActionGroupEventHubReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupEventHubReceiverArrayInput` via:
 //
@@ -26500,12 +22953,6 @@ func (i GetActionGroupEventHubReceiverArray) ToGetActionGroupEventHubReceiverArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupEventHubReceiverArrayOutput)
 }
 
-func (i GetActionGroupEventHubReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupEventHubReceiver] {
-	return pulumix.Output[[]GetActionGroupEventHubReceiver]{
-		OutputState: i.ToGetActionGroupEventHubReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupEventHubReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupEventHubReceiverOutput) ElementType() reflect.Type {
@@ -26518,12 +22965,6 @@ func (o GetActionGroupEventHubReceiverOutput) ToGetActionGroupEventHubReceiverOu
 
 func (o GetActionGroupEventHubReceiverOutput) ToGetActionGroupEventHubReceiverOutputWithContext(ctx context.Context) GetActionGroupEventHubReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupEventHubReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupEventHubReceiver] {
-	return pulumix.Output[GetActionGroupEventHubReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the respective Event Hub.
@@ -26575,12 +23016,6 @@ func (o GetActionGroupEventHubReceiverArrayOutput) ToGetActionGroupEventHubRecei
 
 func (o GetActionGroupEventHubReceiverArrayOutput) ToGetActionGroupEventHubReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupEventHubReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupEventHubReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupEventHubReceiver] {
-	return pulumix.Output[[]GetActionGroupEventHubReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupEventHubReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupEventHubReceiverOutput {
@@ -26638,12 +23073,6 @@ func (i GetActionGroupItsmReceiverArgs) ToGetActionGroupItsmReceiverOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupItsmReceiverOutput)
 }
 
-func (i GetActionGroupItsmReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupItsmReceiver] {
-	return pulumix.Output[GetActionGroupItsmReceiver]{
-		OutputState: i.ToGetActionGroupItsmReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupItsmReceiverArrayInput is an input type that accepts GetActionGroupItsmReceiverArray and GetActionGroupItsmReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupItsmReceiverArrayInput` via:
 //
@@ -26669,12 +23098,6 @@ func (i GetActionGroupItsmReceiverArray) ToGetActionGroupItsmReceiverArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupItsmReceiverArrayOutput)
 }
 
-func (i GetActionGroupItsmReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupItsmReceiver] {
-	return pulumix.Output[[]GetActionGroupItsmReceiver]{
-		OutputState: i.ToGetActionGroupItsmReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupItsmReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupItsmReceiverOutput) ElementType() reflect.Type {
@@ -26687,12 +23110,6 @@ func (o GetActionGroupItsmReceiverOutput) ToGetActionGroupItsmReceiverOutput() G
 
 func (o GetActionGroupItsmReceiverOutput) ToGetActionGroupItsmReceiverOutputWithContext(ctx context.Context) GetActionGroupItsmReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupItsmReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupItsmReceiver] {
-	return pulumix.Output[GetActionGroupItsmReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique connection identifier of the ITSM connection.
@@ -26732,12 +23149,6 @@ func (o GetActionGroupItsmReceiverArrayOutput) ToGetActionGroupItsmReceiverArray
 
 func (o GetActionGroupItsmReceiverArrayOutput) ToGetActionGroupItsmReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupItsmReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupItsmReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupItsmReceiver] {
-	return pulumix.Output[[]GetActionGroupItsmReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupItsmReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupItsmReceiverOutput {
@@ -26791,12 +23202,6 @@ func (i GetActionGroupLogicAppReceiverArgs) ToGetActionGroupLogicAppReceiverOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupLogicAppReceiverOutput)
 }
 
-func (i GetActionGroupLogicAppReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupLogicAppReceiver] {
-	return pulumix.Output[GetActionGroupLogicAppReceiver]{
-		OutputState: i.ToGetActionGroupLogicAppReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupLogicAppReceiverArrayInput is an input type that accepts GetActionGroupLogicAppReceiverArray and GetActionGroupLogicAppReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupLogicAppReceiverArrayInput` via:
 //
@@ -26822,12 +23227,6 @@ func (i GetActionGroupLogicAppReceiverArray) ToGetActionGroupLogicAppReceiverArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupLogicAppReceiverArrayOutput)
 }
 
-func (i GetActionGroupLogicAppReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupLogicAppReceiver] {
-	return pulumix.Output[[]GetActionGroupLogicAppReceiver]{
-		OutputState: i.ToGetActionGroupLogicAppReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupLogicAppReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupLogicAppReceiverOutput) ElementType() reflect.Type {
@@ -26840,12 +23239,6 @@ func (o GetActionGroupLogicAppReceiverOutput) ToGetActionGroupLogicAppReceiverOu
 
 func (o GetActionGroupLogicAppReceiverOutput) ToGetActionGroupLogicAppReceiverOutputWithContext(ctx context.Context) GetActionGroupLogicAppReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupLogicAppReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupLogicAppReceiver] {
-	return pulumix.Output[GetActionGroupLogicAppReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The callback url where HTTP request sent to.
@@ -26880,12 +23273,6 @@ func (o GetActionGroupLogicAppReceiverArrayOutput) ToGetActionGroupLogicAppRecei
 
 func (o GetActionGroupLogicAppReceiverArrayOutput) ToGetActionGroupLogicAppReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupLogicAppReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupLogicAppReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupLogicAppReceiver] {
-	return pulumix.Output[[]GetActionGroupLogicAppReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupLogicAppReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupLogicAppReceiverOutput {
@@ -26935,12 +23322,6 @@ func (i GetActionGroupSmsReceiverArgs) ToGetActionGroupSmsReceiverOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupSmsReceiverOutput)
 }
 
-func (i GetActionGroupSmsReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupSmsReceiver] {
-	return pulumix.Output[GetActionGroupSmsReceiver]{
-		OutputState: i.ToGetActionGroupSmsReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupSmsReceiverArrayInput is an input type that accepts GetActionGroupSmsReceiverArray and GetActionGroupSmsReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupSmsReceiverArrayInput` via:
 //
@@ -26966,12 +23347,6 @@ func (i GetActionGroupSmsReceiverArray) ToGetActionGroupSmsReceiverArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupSmsReceiverArrayOutput)
 }
 
-func (i GetActionGroupSmsReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupSmsReceiver] {
-	return pulumix.Output[[]GetActionGroupSmsReceiver]{
-		OutputState: i.ToGetActionGroupSmsReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupSmsReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupSmsReceiverOutput) ElementType() reflect.Type {
@@ -26984,12 +23359,6 @@ func (o GetActionGroupSmsReceiverOutput) ToGetActionGroupSmsReceiverOutput() Get
 
 func (o GetActionGroupSmsReceiverOutput) ToGetActionGroupSmsReceiverOutputWithContext(ctx context.Context) GetActionGroupSmsReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupSmsReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupSmsReceiver] {
-	return pulumix.Output[GetActionGroupSmsReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The country code of the voice receiver.
@@ -27019,12 +23388,6 @@ func (o GetActionGroupSmsReceiverArrayOutput) ToGetActionGroupSmsReceiverArrayOu
 
 func (o GetActionGroupSmsReceiverArrayOutput) ToGetActionGroupSmsReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupSmsReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupSmsReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupSmsReceiver] {
-	return pulumix.Output[[]GetActionGroupSmsReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupSmsReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupSmsReceiverOutput {
@@ -27074,12 +23437,6 @@ func (i GetActionGroupVoiceReceiverArgs) ToGetActionGroupVoiceReceiverOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupVoiceReceiverOutput)
 }
 
-func (i GetActionGroupVoiceReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupVoiceReceiver] {
-	return pulumix.Output[GetActionGroupVoiceReceiver]{
-		OutputState: i.ToGetActionGroupVoiceReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupVoiceReceiverArrayInput is an input type that accepts GetActionGroupVoiceReceiverArray and GetActionGroupVoiceReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupVoiceReceiverArrayInput` via:
 //
@@ -27105,12 +23462,6 @@ func (i GetActionGroupVoiceReceiverArray) ToGetActionGroupVoiceReceiverArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupVoiceReceiverArrayOutput)
 }
 
-func (i GetActionGroupVoiceReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupVoiceReceiver] {
-	return pulumix.Output[[]GetActionGroupVoiceReceiver]{
-		OutputState: i.ToGetActionGroupVoiceReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupVoiceReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupVoiceReceiverOutput) ElementType() reflect.Type {
@@ -27123,12 +23474,6 @@ func (o GetActionGroupVoiceReceiverOutput) ToGetActionGroupVoiceReceiverOutput()
 
 func (o GetActionGroupVoiceReceiverOutput) ToGetActionGroupVoiceReceiverOutputWithContext(ctx context.Context) GetActionGroupVoiceReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupVoiceReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupVoiceReceiver] {
-	return pulumix.Output[GetActionGroupVoiceReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The country code of the voice receiver.
@@ -27158,12 +23503,6 @@ func (o GetActionGroupVoiceReceiverArrayOutput) ToGetActionGroupVoiceReceiverArr
 
 func (o GetActionGroupVoiceReceiverArrayOutput) ToGetActionGroupVoiceReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupVoiceReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupVoiceReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupVoiceReceiver] {
-	return pulumix.Output[[]GetActionGroupVoiceReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupVoiceReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupVoiceReceiverOutput {
@@ -27215,12 +23554,6 @@ func (i GetActionGroupWebhookReceiverArgs) ToGetActionGroupWebhookReceiverOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverOutput)
 }
 
-func (i GetActionGroupWebhookReceiverArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupWebhookReceiver] {
-	return pulumix.Output[GetActionGroupWebhookReceiver]{
-		OutputState: i.ToGetActionGroupWebhookReceiverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupWebhookReceiverArrayInput is an input type that accepts GetActionGroupWebhookReceiverArray and GetActionGroupWebhookReceiverArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupWebhookReceiverArrayInput` via:
 //
@@ -27246,12 +23579,6 @@ func (i GetActionGroupWebhookReceiverArray) ToGetActionGroupWebhookReceiverArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverArrayOutput)
 }
 
-func (i GetActionGroupWebhookReceiverArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupWebhookReceiver] {
-	return pulumix.Output[[]GetActionGroupWebhookReceiver]{
-		OutputState: i.ToGetActionGroupWebhookReceiverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupWebhookReceiverOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupWebhookReceiverOutput) ElementType() reflect.Type {
@@ -27264,12 +23591,6 @@ func (o GetActionGroupWebhookReceiverOutput) ToGetActionGroupWebhookReceiverOutp
 
 func (o GetActionGroupWebhookReceiverOutput) ToGetActionGroupWebhookReceiverOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverOutput {
 	return o
-}
-
-func (o GetActionGroupWebhookReceiverOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupWebhookReceiver] {
-	return pulumix.Output[GetActionGroupWebhookReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupWebhookReceiverOutput) AadAuths() GetActionGroupWebhookReceiverAadAuthArrayOutput {
@@ -27303,12 +23624,6 @@ func (o GetActionGroupWebhookReceiverArrayOutput) ToGetActionGroupWebhookReceive
 
 func (o GetActionGroupWebhookReceiverArrayOutput) ToGetActionGroupWebhookReceiverArrayOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverArrayOutput {
 	return o
-}
-
-func (o GetActionGroupWebhookReceiverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupWebhookReceiver] {
-	return pulumix.Output[[]GetActionGroupWebhookReceiver]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupWebhookReceiverArrayOutput) Index(i pulumi.IntInput) GetActionGroupWebhookReceiverOutput {
@@ -27354,12 +23669,6 @@ func (i GetActionGroupWebhookReceiverAadAuthArgs) ToGetActionGroupWebhookReceive
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverAadAuthOutput)
 }
 
-func (i GetActionGroupWebhookReceiverAadAuthArgs) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[GetActionGroupWebhookReceiverAadAuth]{
-		OutputState: i.ToGetActionGroupWebhookReceiverAadAuthOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetActionGroupWebhookReceiverAadAuthArrayInput is an input type that accepts GetActionGroupWebhookReceiverAadAuthArray and GetActionGroupWebhookReceiverAadAuthArrayOutput values.
 // You can construct a concrete instance of `GetActionGroupWebhookReceiverAadAuthArrayInput` via:
 //
@@ -27385,12 +23694,6 @@ func (i GetActionGroupWebhookReceiverAadAuthArray) ToGetActionGroupWebhookReceiv
 	return pulumi.ToOutputWithContext(ctx, i).(GetActionGroupWebhookReceiverAadAuthArrayOutput)
 }
 
-func (i GetActionGroupWebhookReceiverAadAuthArray) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[[]GetActionGroupWebhookReceiverAadAuth]{
-		OutputState: i.ToGetActionGroupWebhookReceiverAadAuthArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetActionGroupWebhookReceiverAadAuthOutput struct{ *pulumi.OutputState }
 
 func (GetActionGroupWebhookReceiverAadAuthOutput) ElementType() reflect.Type {
@@ -27403,12 +23706,6 @@ func (o GetActionGroupWebhookReceiverAadAuthOutput) ToGetActionGroupWebhookRecei
 
 func (o GetActionGroupWebhookReceiverAadAuthOutput) ToGetActionGroupWebhookReceiverAadAuthOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverAadAuthOutput {
 	return o
-}
-
-func (o GetActionGroupWebhookReceiverAadAuthOutput) ToOutput(ctx context.Context) pulumix.Output[GetActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[GetActionGroupWebhookReceiverAadAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupWebhookReceiverAadAuthOutput) IdentifierUri() pulumi.StringOutput {
@@ -27436,12 +23733,6 @@ func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) ToGetActionGroupWebhook
 
 func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) ToGetActionGroupWebhookReceiverAadAuthArrayOutputWithContext(ctx context.Context) GetActionGroupWebhookReceiverAadAuthArrayOutput {
 	return o
-}
-
-func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetActionGroupWebhookReceiverAadAuth] {
-	return pulumix.Output[[]GetActionGroupWebhookReceiverAadAuth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) Index(i pulumi.IntInput) GetActionGroupWebhookReceiverAadAuthOutput {
@@ -27499,12 +23790,6 @@ func (i GetDataCollectionRuleDataFlowArgs) ToGetDataCollectionRuleDataFlowOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataFlowOutput)
 }
 
-func (i GetDataCollectionRuleDataFlowArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataFlow] {
-	return pulumix.Output[GetDataCollectionRuleDataFlow]{
-		OutputState: i.ToGetDataCollectionRuleDataFlowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataFlowArrayInput is an input type that accepts GetDataCollectionRuleDataFlowArray and GetDataCollectionRuleDataFlowArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataFlowArrayInput` via:
 //
@@ -27530,12 +23815,6 @@ func (i GetDataCollectionRuleDataFlowArray) ToGetDataCollectionRuleDataFlowArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataFlowArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataFlowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataFlow] {
-	return pulumix.Output[[]GetDataCollectionRuleDataFlow]{
-		OutputState: i.ToGetDataCollectionRuleDataFlowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataFlowOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataFlowOutput) ElementType() reflect.Type {
@@ -27548,12 +23827,6 @@ func (o GetDataCollectionRuleDataFlowOutput) ToGetDataCollectionRuleDataFlowOutp
 
 func (o GetDataCollectionRuleDataFlowOutput) ToGetDataCollectionRuleDataFlowOutputWithContext(ctx context.Context) GetDataCollectionRuleDataFlowOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataFlowOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataFlow] {
-	return pulumix.Output[GetDataCollectionRuleDataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The built-in transform to transform stream data.
@@ -27593,12 +23866,6 @@ func (o GetDataCollectionRuleDataFlowArrayOutput) ToGetDataCollectionRuleDataFlo
 
 func (o GetDataCollectionRuleDataFlowArrayOutput) ToGetDataCollectionRuleDataFlowArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataFlowArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataFlowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataFlow] {
-	return pulumix.Output[[]GetDataCollectionRuleDataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataFlowArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataFlowOutput {
@@ -27676,12 +23943,6 @@ func (i GetDataCollectionRuleDataSourceArgs) ToGetDataCollectionRuleDataSourceOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSource] {
-	return pulumix.Output[GetDataCollectionRuleDataSource]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceArrayInput is an input type that accepts GetDataCollectionRuleDataSourceArray and GetDataCollectionRuleDataSourceArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceArrayInput` via:
 //
@@ -27707,12 +23968,6 @@ func (i GetDataCollectionRuleDataSourceArray) ToGetDataCollectionRuleDataSourceA
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSource] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSource]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceOutput) ElementType() reflect.Type {
@@ -27725,12 +23980,6 @@ func (o GetDataCollectionRuleDataSourceOutput) ToGetDataCollectionRuleDataSource
 
 func (o GetDataCollectionRuleDataSourceOutput) ToGetDataCollectionRuleDataSourceOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSource] {
-	return pulumix.Output[GetDataCollectionRuleDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `dataImport` block as defined above.
@@ -27811,12 +24060,6 @@ func (o GetDataCollectionRuleDataSourceArrayOutput) ToGetDataCollectionRuleDataS
 	return o
 }
 
-func (o GetDataCollectionRuleDataSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSource] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetDataCollectionRuleDataSourceArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSource {
 		return vs[0].([]GetDataCollectionRuleDataSource)[vs[1].(int)]
@@ -27856,12 +24099,6 @@ func (i GetDataCollectionRuleDataSourceDataImportArgs) ToGetDataCollectionRuleDa
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceDataImportOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceDataImportArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceDataImport] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceDataImport]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceDataImportOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceDataImportArrayInput is an input type that accepts GetDataCollectionRuleDataSourceDataImportArray and GetDataCollectionRuleDataSourceDataImportArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceDataImportArrayInput` via:
 //
@@ -27887,12 +24124,6 @@ func (i GetDataCollectionRuleDataSourceDataImportArray) ToGetDataCollectionRuleD
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceDataImportArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceDataImportArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceDataImport] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceDataImport]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceDataImportArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceDataImportOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceDataImportOutput) ElementType() reflect.Type {
@@ -27905,12 +24136,6 @@ func (o GetDataCollectionRuleDataSourceDataImportOutput) ToGetDataCollectionRule
 
 func (o GetDataCollectionRuleDataSourceDataImportOutput) ToGetDataCollectionRuleDataSourceDataImportOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceDataImportOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceDataImportOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceDataImport] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceDataImport]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `eventHubDataSource` block as defined below.
@@ -27932,12 +24157,6 @@ func (o GetDataCollectionRuleDataSourceDataImportArrayOutput) ToGetDataCollectio
 
 func (o GetDataCollectionRuleDataSourceDataImportArrayOutput) ToGetDataCollectionRuleDataSourceDataImportArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceDataImportArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceDataImportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceDataImport] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceDataImport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceDataImportArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceDataImportOutput {
@@ -27987,12 +24206,6 @@ func (i GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArgs) ToGetDa
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceDataImportEventHubDataSource] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceDataImportEventHubDataSource]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayInput is an input type that accepts GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArray and GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayInput` via:
 //
@@ -28018,12 +24231,6 @@ func (i GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArray) ToGetD
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceDataImportEventHubDataSource] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceDataImportEventHubDataSource]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput) ElementType() reflect.Type {
@@ -28036,12 +24243,6 @@ func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput) ToGet
 
 func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput) ToGetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceDataImportEventHubDataSource] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceDataImportEventHubDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Event Hub consumer group name.
@@ -28071,12 +24272,6 @@ func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput) 
 
 func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput) ToGetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceDataImportEventHubDataSource] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceDataImportEventHubDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceDataImportEventHubDataSourceArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceDataImportEventHubDataSourceOutput {
@@ -28134,12 +24329,6 @@ func (i GetDataCollectionRuleDataSourceExtensionArgs) ToGetDataCollectionRuleDat
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceExtensionOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceExtension] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceExtension]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceExtensionArrayInput is an input type that accepts GetDataCollectionRuleDataSourceExtensionArray and GetDataCollectionRuleDataSourceExtensionArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceExtensionArrayInput` via:
 //
@@ -28165,12 +24354,6 @@ func (i GetDataCollectionRuleDataSourceExtensionArray) ToGetDataCollectionRuleDa
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceExtensionArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceExtension] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceExtension]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceExtensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceExtensionOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceExtensionOutput) ElementType() reflect.Type {
@@ -28183,12 +24366,6 @@ func (o GetDataCollectionRuleDataSourceExtensionOutput) ToGetDataCollectionRuleD
 
 func (o GetDataCollectionRuleDataSourceExtensionOutput) ToGetDataCollectionRuleDataSourceExtensionOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceExtensionOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceExtension] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A JSON String which specifies the extension setting.
@@ -28228,12 +24405,6 @@ func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) ToGetDataCollection
 
 func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) ToGetDataCollectionRuleDataSourceExtensionArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceExtensionArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceExtension] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceExtensionOutput {
@@ -28283,12 +24454,6 @@ func (i GetDataCollectionRuleDataSourceIisLogArgs) ToGetDataCollectionRuleDataSo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceIisLogOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceIisLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceIisLog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceIisLog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceIisLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceIisLogArrayInput is an input type that accepts GetDataCollectionRuleDataSourceIisLogArray and GetDataCollectionRuleDataSourceIisLogArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceIisLogArrayInput` via:
 //
@@ -28314,12 +24479,6 @@ func (i GetDataCollectionRuleDataSourceIisLogArray) ToGetDataCollectionRuleDataS
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceIisLogArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceIisLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceIisLog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceIisLog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceIisLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceIisLogOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceIisLogOutput) ElementType() reflect.Type {
@@ -28332,12 +24491,6 @@ func (o GetDataCollectionRuleDataSourceIisLogOutput) ToGetDataCollectionRuleData
 
 func (o GetDataCollectionRuleDataSourceIisLogOutput) ToGetDataCollectionRuleDataSourceIisLogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceIisLogOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceIisLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceIisLog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceIisLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of absolute paths where the log files are located.
@@ -28367,12 +24520,6 @@ func (o GetDataCollectionRuleDataSourceIisLogArrayOutput) ToGetDataCollectionRul
 
 func (o GetDataCollectionRuleDataSourceIisLogArrayOutput) ToGetDataCollectionRuleDataSourceIisLogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceIisLogArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceIisLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceIisLog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceIisLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceIisLogArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceIisLogOutput {
@@ -28430,12 +24577,6 @@ func (i GetDataCollectionRuleDataSourceLogFileArgs) ToGetDataCollectionRuleDataS
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceLogFileOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceLogFileArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceLogFile] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceLogFile]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceLogFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceLogFileArrayInput is an input type that accepts GetDataCollectionRuleDataSourceLogFileArray and GetDataCollectionRuleDataSourceLogFileArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceLogFileArrayInput` via:
 //
@@ -28461,12 +24602,6 @@ func (i GetDataCollectionRuleDataSourceLogFileArray) ToGetDataCollectionRuleData
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceLogFileArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceLogFileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceLogFile] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceLogFile]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceLogFileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceLogFileOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceLogFileOutput) ElementType() reflect.Type {
@@ -28479,12 +24614,6 @@ func (o GetDataCollectionRuleDataSourceLogFileOutput) ToGetDataCollectionRuleDat
 
 func (o GetDataCollectionRuleDataSourceLogFileOutput) ToGetDataCollectionRuleDataSourceLogFileOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceLogFileOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceLogFileOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceLogFile] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceLogFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
@@ -28528,12 +24657,6 @@ func (o GetDataCollectionRuleDataSourceLogFileArrayOutput) ToGetDataCollectionRu
 	return o
 }
 
-func (o GetDataCollectionRuleDataSourceLogFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceLogFile] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceLogFile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetDataCollectionRuleDataSourceLogFileArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceLogFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSourceLogFile {
 		return vs[0].([]GetDataCollectionRuleDataSourceLogFile)[vs[1].(int)]
@@ -28573,12 +24696,6 @@ func (i GetDataCollectionRuleDataSourceLogFileSettingArgs) ToGetDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceLogFileSettingOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceLogFileSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceLogFileSetting] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceLogFileSetting]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceLogFileSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceLogFileSettingArrayInput is an input type that accepts GetDataCollectionRuleDataSourceLogFileSettingArray and GetDataCollectionRuleDataSourceLogFileSettingArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceLogFileSettingArrayInput` via:
 //
@@ -28604,12 +24721,6 @@ func (i GetDataCollectionRuleDataSourceLogFileSettingArray) ToGetDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceLogFileSettingArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceLogFileSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSetting] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSetting]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceLogFileSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceLogFileSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceLogFileSettingOutput) ElementType() reflect.Type {
@@ -28622,12 +24733,6 @@ func (o GetDataCollectionRuleDataSourceLogFileSettingOutput) ToGetDataCollection
 
 func (o GetDataCollectionRuleDataSourceLogFileSettingOutput) ToGetDataCollectionRuleDataSourceLogFileSettingOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceLogFileSettingOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceLogFileSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceLogFileSetting] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceLogFileSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `text` block as defined below.
@@ -28649,12 +24754,6 @@ func (o GetDataCollectionRuleDataSourceLogFileSettingArrayOutput) ToGetDataColle
 
 func (o GetDataCollectionRuleDataSourceLogFileSettingArrayOutput) ToGetDataCollectionRuleDataSourceLogFileSettingArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceLogFileSettingArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceLogFileSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSetting] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceLogFileSettingArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceLogFileSettingOutput {
@@ -28696,12 +24795,6 @@ func (i GetDataCollectionRuleDataSourceLogFileSettingTextArgs) ToGetDataCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceLogFileSettingTextOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceLogFileSettingTextArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceLogFileSettingText] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceLogFileSettingText]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceLogFileSettingTextOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceLogFileSettingTextArrayInput is an input type that accepts GetDataCollectionRuleDataSourceLogFileSettingTextArray and GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceLogFileSettingTextArrayInput` via:
 //
@@ -28727,12 +24820,6 @@ func (i GetDataCollectionRuleDataSourceLogFileSettingTextArray) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceLogFileSettingTextArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSettingText] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSettingText]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceLogFileSettingTextArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceLogFileSettingTextOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceLogFileSettingTextOutput) ElementType() reflect.Type {
@@ -28745,12 +24832,6 @@ func (o GetDataCollectionRuleDataSourceLogFileSettingTextOutput) ToGetDataCollec
 
 func (o GetDataCollectionRuleDataSourceLogFileSettingTextOutput) ToGetDataCollectionRuleDataSourceLogFileSettingTextOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceLogFileSettingTextOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceLogFileSettingTextOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceLogFileSettingText] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceLogFileSettingText]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
@@ -28770,12 +24851,6 @@ func (o GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput) ToGetDataC
 
 func (o GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput) ToGetDataCollectionRuleDataSourceLogFileSettingTextArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSettingText] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceLogFileSettingText]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceLogFileSettingTextArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceLogFileSettingTextOutput {
@@ -28829,12 +24904,6 @@ func (i GetDataCollectionRuleDataSourcePerformanceCounterArgs) ToGetDataCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePerformanceCounterOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePerformanceCounterArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePerformanceCounter] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePerformanceCounter]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePerformanceCounterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourcePerformanceCounterArrayInput is an input type that accepts GetDataCollectionRuleDataSourcePerformanceCounterArray and GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourcePerformanceCounterArrayInput` via:
 //
@@ -28860,12 +24929,6 @@ func (i GetDataCollectionRuleDataSourcePerformanceCounterArray) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePerformanceCounterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePerformanceCounter] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePerformanceCounter]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourcePerformanceCounterOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourcePerformanceCounterOutput) ElementType() reflect.Type {
@@ -28878,12 +24941,6 @@ func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) ToGetDataCollec
 
 func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) ToGetDataCollectionRuleDataSourcePerformanceCounterOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePerformanceCounterOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePerformanceCounter] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePerformanceCounter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
@@ -28918,12 +24975,6 @@ func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) ToGetDataC
 
 func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePerformanceCounter] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePerformanceCounter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourcePerformanceCounterOutput {
@@ -28969,12 +25020,6 @@ func (i GetDataCollectionRuleDataSourcePlatformTelemetryArgs) ToGetDataCollectio
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePlatformTelemetryOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePlatformTelemetryArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePlatformTelemetry] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePlatformTelemetry]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePlatformTelemetryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourcePlatformTelemetryArrayInput is an input type that accepts GetDataCollectionRuleDataSourcePlatformTelemetryArray and GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourcePlatformTelemetryArrayInput` via:
 //
@@ -29000,12 +25045,6 @@ func (i GetDataCollectionRuleDataSourcePlatformTelemetryArray) ToGetDataCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePlatformTelemetryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePlatformTelemetry] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePlatformTelemetry]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePlatformTelemetryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourcePlatformTelemetryOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourcePlatformTelemetryOutput) ElementType() reflect.Type {
@@ -29018,12 +25057,6 @@ func (o GetDataCollectionRuleDataSourcePlatformTelemetryOutput) ToGetDataCollect
 
 func (o GetDataCollectionRuleDataSourcePlatformTelemetryOutput) ToGetDataCollectionRuleDataSourcePlatformTelemetryOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePlatformTelemetryOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePlatformTelemetryOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePlatformTelemetry] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePlatformTelemetry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -29048,12 +25081,6 @@ func (o GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput) ToGetDataCo
 
 func (o GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput) ToGetDataCollectionRuleDataSourcePlatformTelemetryArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePlatformTelemetry] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePlatformTelemetry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourcePlatformTelemetryArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourcePlatformTelemetryOutput {
@@ -29103,12 +25130,6 @@ func (i GetDataCollectionRuleDataSourcePrometheusForwarderArgs) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePrometheusForwarderOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePrometheusForwarderArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarder] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarder]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePrometheusForwarderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourcePrometheusForwarderArrayInput is an input type that accepts GetDataCollectionRuleDataSourcePrometheusForwarderArray and GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourcePrometheusForwarderArrayInput` via:
 //
@@ -29134,12 +25155,6 @@ func (i GetDataCollectionRuleDataSourcePrometheusForwarderArray) ToGetDataCollec
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePrometheusForwarderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarder] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarder]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePrometheusForwarderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourcePrometheusForwarderOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourcePrometheusForwarderOutput) ElementType() reflect.Type {
@@ -29152,12 +25167,6 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderOutput) ToGetDataColle
 
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderOutput) ToGetDataCollectionRuleDataSourcePrometheusForwarderOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePrometheusForwarderOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePrometheusForwarderOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarder] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `labelIncludeFilter` blocks as defined above.
@@ -29189,12 +25198,6 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput) ToGetData
 
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput) ToGetDataCollectionRuleDataSourcePrometheusForwarderArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarder] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourcePrometheusForwarderOutput {
@@ -29240,12 +25243,6 @@ func (i GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArgs
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayInput is an input type that accepts GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArray and GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayInput` via:
 //
@@ -29271,12 +25268,6 @@ func (i GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArra
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter]{
-		OutputState: i.ToGetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput) ElementType() reflect.Type {
@@ -29289,12 +25280,6 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutp
 
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput) ToGetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The label of the filter. This label should be unique across all `labelIncludeFileter` block. Possible value is `microsoftMetricsIncludeLabel`.
@@ -29319,12 +25304,6 @@ func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArra
 
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutput) ToGetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterOutput {
@@ -29378,12 +25357,6 @@ func (i GetDataCollectionRuleDataSourceSyslogArgs) ToGetDataCollectionRuleDataSo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceSyslogOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceSyslogArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceSyslog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceSyslog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceSyslogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceSyslogArrayInput is an input type that accepts GetDataCollectionRuleDataSourceSyslogArray and GetDataCollectionRuleDataSourceSyslogArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceSyslogArrayInput` via:
 //
@@ -29409,12 +25382,6 @@ func (i GetDataCollectionRuleDataSourceSyslogArray) ToGetDataCollectionRuleDataS
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceSyslogArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceSyslogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceSyslog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceSyslog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceSyslogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceSyslogOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceSyslogOutput) ElementType() reflect.Type {
@@ -29427,12 +25394,6 @@ func (o GetDataCollectionRuleDataSourceSyslogOutput) ToGetDataCollectionRuleData
 
 func (o GetDataCollectionRuleDataSourceSyslogOutput) ToGetDataCollectionRuleDataSourceSyslogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceSyslogOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceSyslogOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceSyslog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceSyslog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
@@ -29467,12 +25428,6 @@ func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) ToGetDataCollectionRul
 
 func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) ToGetDataCollectionRuleDataSourceSyslogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceSyslogArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceSyslog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceSyslog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceSyslogOutput {
@@ -29522,12 +25477,6 @@ func (i GetDataCollectionRuleDataSourceWindowsEventLogArgs) ToGetDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceWindowsEventLogOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceWindowsEventLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceWindowsEventLog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceWindowsEventLog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceWindowsEventLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceWindowsEventLogArrayInput is an input type that accepts GetDataCollectionRuleDataSourceWindowsEventLogArray and GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceWindowsEventLogArrayInput` via:
 //
@@ -29553,12 +25502,6 @@ func (i GetDataCollectionRuleDataSourceWindowsEventLogArray) ToGetDataCollection
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceWindowsEventLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsEventLog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsEventLog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceWindowsEventLogOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceWindowsEventLogOutput) ElementType() reflect.Type {
@@ -29571,12 +25514,6 @@ func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) ToGetDataCollectio
 
 func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) ToGetDataCollectionRuleDataSourceWindowsEventLogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsEventLogOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceWindowsEventLog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceWindowsEventLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -29606,12 +25543,6 @@ func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) ToGetDataColl
 
 func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsEventLog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsEventLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceWindowsEventLogOutput {
@@ -29657,12 +25588,6 @@ func (i GetDataCollectionRuleDataSourceWindowsFirewallLogArgs) ToGetDataCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceWindowsFirewallLogOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceWindowsFirewallLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceWindowsFirewallLog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceWindowsFirewallLog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceWindowsFirewallLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDataSourceWindowsFirewallLogArrayInput is an input type that accepts GetDataCollectionRuleDataSourceWindowsFirewallLogArray and GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDataSourceWindowsFirewallLogArrayInput` via:
 //
@@ -29688,12 +25613,6 @@ func (i GetDataCollectionRuleDataSourceWindowsFirewallLogArray) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput)
 }
 
-func (i GetDataCollectionRuleDataSourceWindowsFirewallLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsFirewallLog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsFirewallLog]{
-		OutputState: i.ToGetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDataSourceWindowsFirewallLogOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDataSourceWindowsFirewallLogOutput) ElementType() reflect.Type {
@@ -29706,12 +25625,6 @@ func (o GetDataCollectionRuleDataSourceWindowsFirewallLogOutput) ToGetDataCollec
 
 func (o GetDataCollectionRuleDataSourceWindowsFirewallLogOutput) ToGetDataCollectionRuleDataSourceWindowsFirewallLogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsFirewallLogOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceWindowsFirewallLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDataSourceWindowsFirewallLog] {
-	return pulumix.Output[GetDataCollectionRuleDataSourceWindowsFirewallLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -29736,12 +25649,6 @@ func (o GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput) ToGetDataC
 
 func (o GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput) ToGetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsFirewallLog] {
-	return pulumix.Output[[]GetDataCollectionRuleDataSourceWindowsFirewallLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDataSourceWindowsFirewallLogArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceWindowsFirewallLogOutput {
@@ -29811,12 +25718,6 @@ func (i GetDataCollectionRuleDestinationArgs) ToGetDataCollectionRuleDestination
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationOutput)
 }
 
-func (i GetDataCollectionRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestination] {
-	return pulumix.Output[GetDataCollectionRuleDestination]{
-		OutputState: i.ToGetDataCollectionRuleDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationArrayInput is an input type that accepts GetDataCollectionRuleDestinationArray and GetDataCollectionRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationArrayInput` via:
 //
@@ -29842,12 +25743,6 @@ func (i GetDataCollectionRuleDestinationArray) ToGetDataCollectionRuleDestinatio
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestination] {
-	return pulumix.Output[[]GetDataCollectionRuleDestination]{
-		OutputState: i.ToGetDataCollectionRuleDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationOutput) ElementType() reflect.Type {
@@ -29860,12 +25755,6 @@ func (o GetDataCollectionRuleDestinationOutput) ToGetDataCollectionRuleDestinati
 
 func (o GetDataCollectionRuleDestinationOutput) ToGetDataCollectionRuleDestinationOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestination] {
-	return pulumix.Output[GetDataCollectionRuleDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `azureMonitorMetrics` block as defined above.
@@ -29936,12 +25825,6 @@ func (o GetDataCollectionRuleDestinationArrayOutput) ToGetDataCollectionRuleDest
 	return o
 }
 
-func (o GetDataCollectionRuleDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestination] {
-	return pulumix.Output[[]GetDataCollectionRuleDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetDataCollectionRuleDestinationArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDestination {
 		return vs[0].([]GetDataCollectionRuleDestination)[vs[1].(int)]
@@ -29981,12 +25864,6 @@ func (i GetDataCollectionRuleDestinationAzureMonitorMetricArgs) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationAzureMonitorMetricOutput)
 }
 
-func (i GetDataCollectionRuleDestinationAzureMonitorMetricArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationAzureMonitorMetric] {
-	return pulumix.Output[GetDataCollectionRuleDestinationAzureMonitorMetric]{
-		OutputState: i.ToGetDataCollectionRuleDestinationAzureMonitorMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput is an input type that accepts GetDataCollectionRuleDestinationAzureMonitorMetricArray and GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput` via:
 //
@@ -30012,12 +25889,6 @@ func (i GetDataCollectionRuleDestinationAzureMonitorMetricArray) ToGetDataCollec
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationAzureMonitorMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationAzureMonitorMetric] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationAzureMonitorMetric]{
-		OutputState: i.ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationAzureMonitorMetricOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ElementType() reflect.Type {
@@ -30030,12 +25901,6 @@ func (o GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ToGetDataColle
 
 func (o GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ToGetDataCollectionRuleDestinationAzureMonitorMetricOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationAzureMonitorMetric] {
-	return pulumix.Output[GetDataCollectionRuleDestinationAzureMonitorMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -30055,12 +25920,6 @@ func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) ToGetData
 
 func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationAzureMonitorMetric] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationAzureMonitorMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
@@ -30106,12 +25965,6 @@ func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDes
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubOutput)
 }
 
-func (i GetDataCollectionRuleDestinationEventHubArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationEventHub] {
-	return pulumix.Output[GetDataCollectionRuleDestinationEventHub]{
-		OutputState: i.ToGetDataCollectionRuleDestinationEventHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetDataCollectionRuleDestinationEventHubArgs) ToGetDataCollectionRuleDestinationEventHubPtrOutput() GetDataCollectionRuleDestinationEventHubPtrOutput {
 	return i.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(context.Background())
 }
@@ -30153,12 +26006,6 @@ func (i *getDataCollectionRuleDestinationEventHubPtrType) ToGetDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubPtrOutput)
 }
 
-func (i *getDataCollectionRuleDestinationEventHubPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetDataCollectionRuleDestinationEventHub] {
-	return pulumix.Output[*GetDataCollectionRuleDestinationEventHub]{
-		OutputState: i.ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationEventHubOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationEventHubOutput) ElementType() reflect.Type {
@@ -30183,12 +26030,6 @@ func (o GetDataCollectionRuleDestinationEventHubOutput) ToGetDataCollectionRuleD
 	}).(GetDataCollectionRuleDestinationEventHubPtrOutput)
 }
 
-func (o GetDataCollectionRuleDestinationEventHubOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationEventHub] {
-	return pulumix.Output[GetDataCollectionRuleDestinationEventHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The resource ID of the Event Hub.
 func (o GetDataCollectionRuleDestinationEventHubOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHub) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -30211,12 +26052,6 @@ func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToGetDataCollectionRu
 
 func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToGetDataCollectionRuleDestinationEventHubPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubPtrOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetDataCollectionRuleDestinationEventHub] {
-	return pulumix.Output[*GetDataCollectionRuleDestinationEventHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationEventHubPtrOutput) Elem() GetDataCollectionRuleDestinationEventHubOutput {
@@ -30286,12 +26121,6 @@ func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectOutput)
 }
 
-func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationEventHubDirect] {
-	return pulumix.Output[GetDataCollectionRuleDestinationEventHubDirect]{
-		OutputState: i.ToGetDataCollectionRuleDestinationEventHubDirectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GetDataCollectionRuleDestinationEventHubDirectArgs) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutput() GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
 	return i.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(context.Background())
 }
@@ -30333,12 +26162,6 @@ func (i *getDataCollectionRuleDestinationEventHubDirectPtrType) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
 }
 
-func (i *getDataCollectionRuleDestinationEventHubDirectPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetDataCollectionRuleDestinationEventHubDirect] {
-	return pulumix.Output[*GetDataCollectionRuleDestinationEventHubDirect]{
-		OutputState: i.ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationEventHubDirectOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationEventHubDirectOutput) ElementType() reflect.Type {
@@ -30363,12 +26186,6 @@ func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToGetDataCollectio
 	}).(GetDataCollectionRuleDestinationEventHubDirectPtrOutput)
 }
 
-func (o GetDataCollectionRuleDestinationEventHubDirectOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationEventHubDirect] {
-	return pulumix.Output[GetDataCollectionRuleDestinationEventHubDirect]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The resource ID of the Event Hub.
 func (o GetDataCollectionRuleDestinationEventHubDirectOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDestinationEventHubDirect) string { return v.EventHubId }).(pulumi.StringOutput)
@@ -30391,12 +26208,6 @@ func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToGetDataCollec
 
 func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToGetDataCollectionRuleDestinationEventHubDirectPtrOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationEventHubDirectPtrOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetDataCollectionRuleDestinationEventHubDirect] {
-	return pulumix.Output[*GetDataCollectionRuleDestinationEventHubDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationEventHubDirectPtrOutput) Elem() GetDataCollectionRuleDestinationEventHubDirectOutput {
@@ -30466,12 +26277,6 @@ func (i GetDataCollectionRuleDestinationLogAnalyticArgs) ToGetDataCollectionRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationLogAnalyticOutput)
 }
 
-func (i GetDataCollectionRuleDestinationLogAnalyticArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationLogAnalytic] {
-	return pulumix.Output[GetDataCollectionRuleDestinationLogAnalytic]{
-		OutputState: i.ToGetDataCollectionRuleDestinationLogAnalyticOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationLogAnalyticArrayInput is an input type that accepts GetDataCollectionRuleDestinationLogAnalyticArray and GetDataCollectionRuleDestinationLogAnalyticArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationLogAnalyticArrayInput` via:
 //
@@ -30497,12 +26302,6 @@ func (i GetDataCollectionRuleDestinationLogAnalyticArray) ToGetDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationLogAnalyticArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationLogAnalyticArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationLogAnalytic] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationLogAnalytic]{
-		OutputState: i.ToGetDataCollectionRuleDestinationLogAnalyticArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationLogAnalyticOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationLogAnalyticOutput) ElementType() reflect.Type {
@@ -30515,12 +26314,6 @@ func (o GetDataCollectionRuleDestinationLogAnalyticOutput) ToGetDataCollectionRu
 
 func (o GetDataCollectionRuleDestinationLogAnalyticOutput) ToGetDataCollectionRuleDestinationLogAnalyticOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationLogAnalyticOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationLogAnalyticOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationLogAnalytic] {
-	return pulumix.Output[GetDataCollectionRuleDestinationLogAnalytic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -30545,12 +26338,6 @@ func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) ToGetDataCollect
 
 func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) ToGetDataCollectionRuleDestinationLogAnalyticArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationLogAnalyticArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationLogAnalytic] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationLogAnalytic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationLogAnalyticOutput {
@@ -30596,12 +26383,6 @@ func (i GetDataCollectionRuleDestinationMonitorAccountArgs) ToGetDataCollectionR
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationMonitorAccountOutput)
 }
 
-func (i GetDataCollectionRuleDestinationMonitorAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationMonitorAccount] {
-	return pulumix.Output[GetDataCollectionRuleDestinationMonitorAccount]{
-		OutputState: i.ToGetDataCollectionRuleDestinationMonitorAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationMonitorAccountArrayInput is an input type that accepts GetDataCollectionRuleDestinationMonitorAccountArray and GetDataCollectionRuleDestinationMonitorAccountArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationMonitorAccountArrayInput` via:
 //
@@ -30627,12 +26408,6 @@ func (i GetDataCollectionRuleDestinationMonitorAccountArray) ToGetDataCollection
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationMonitorAccountArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationMonitorAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationMonitorAccount] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationMonitorAccount]{
-		OutputState: i.ToGetDataCollectionRuleDestinationMonitorAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationMonitorAccountOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationMonitorAccountOutput) ElementType() reflect.Type {
@@ -30645,12 +26420,6 @@ func (o GetDataCollectionRuleDestinationMonitorAccountOutput) ToGetDataCollectio
 
 func (o GetDataCollectionRuleDestinationMonitorAccountOutput) ToGetDataCollectionRuleDestinationMonitorAccountOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationMonitorAccountOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationMonitorAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationMonitorAccount] {
-	return pulumix.Output[GetDataCollectionRuleDestinationMonitorAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Monitor Account.
@@ -30675,12 +26444,6 @@ func (o GetDataCollectionRuleDestinationMonitorAccountArrayOutput) ToGetDataColl
 
 func (o GetDataCollectionRuleDestinationMonitorAccountArrayOutput) ToGetDataCollectionRuleDestinationMonitorAccountArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationMonitorAccountArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationMonitorAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationMonitorAccount] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationMonitorAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationMonitorAccountArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationMonitorAccountOutput {
@@ -30730,12 +26493,6 @@ func (i GetDataCollectionRuleDestinationStorageBlobArgs) ToGetDataCollectionRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationStorageBlobOutput)
 }
 
-func (i GetDataCollectionRuleDestinationStorageBlobArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationStorageBlob] {
-	return pulumix.Output[GetDataCollectionRuleDestinationStorageBlob]{
-		OutputState: i.ToGetDataCollectionRuleDestinationStorageBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationStorageBlobArrayInput is an input type that accepts GetDataCollectionRuleDestinationStorageBlobArray and GetDataCollectionRuleDestinationStorageBlobArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationStorageBlobArrayInput` via:
 //
@@ -30761,12 +26518,6 @@ func (i GetDataCollectionRuleDestinationStorageBlobArray) ToGetDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationStorageBlobArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationStorageBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlob] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlob]{
-		OutputState: i.ToGetDataCollectionRuleDestinationStorageBlobArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationStorageBlobOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationStorageBlobOutput) ElementType() reflect.Type {
@@ -30779,12 +26530,6 @@ func (o GetDataCollectionRuleDestinationStorageBlobOutput) ToGetDataCollectionRu
 
 func (o GetDataCollectionRuleDestinationStorageBlobOutput) ToGetDataCollectionRuleDestinationStorageBlobOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationStorageBlobOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationStorageBlobOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationStorageBlob] {
-	return pulumix.Output[GetDataCollectionRuleDestinationStorageBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Storage Container name.
@@ -30814,12 +26559,6 @@ func (o GetDataCollectionRuleDestinationStorageBlobArrayOutput) ToGetDataCollect
 
 func (o GetDataCollectionRuleDestinationStorageBlobArrayOutput) ToGetDataCollectionRuleDestinationStorageBlobArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationStorageBlobArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationStorageBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlob] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationStorageBlobArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationStorageBlobOutput {
@@ -30869,12 +26608,6 @@ func (i GetDataCollectionRuleDestinationStorageBlobDirectArgs) ToGetDataCollecti
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationStorageBlobDirectOutput)
 }
 
-func (i GetDataCollectionRuleDestinationStorageBlobDirectArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationStorageBlobDirect] {
-	return pulumix.Output[GetDataCollectionRuleDestinationStorageBlobDirect]{
-		OutputState: i.ToGetDataCollectionRuleDestinationStorageBlobDirectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationStorageBlobDirectArrayInput is an input type that accepts GetDataCollectionRuleDestinationStorageBlobDirectArray and GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationStorageBlobDirectArrayInput` via:
 //
@@ -30900,12 +26633,6 @@ func (i GetDataCollectionRuleDestinationStorageBlobDirectArray) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationStorageBlobDirectArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlobDirect] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlobDirect]{
-		OutputState: i.ToGetDataCollectionRuleDestinationStorageBlobDirectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationStorageBlobDirectOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationStorageBlobDirectOutput) ElementType() reflect.Type {
@@ -30918,12 +26645,6 @@ func (o GetDataCollectionRuleDestinationStorageBlobDirectOutput) ToGetDataCollec
 
 func (o GetDataCollectionRuleDestinationStorageBlobDirectOutput) ToGetDataCollectionRuleDestinationStorageBlobDirectOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationStorageBlobDirectOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationStorageBlobDirectOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationStorageBlobDirect] {
-	return pulumix.Output[GetDataCollectionRuleDestinationStorageBlobDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Storage Container name.
@@ -30953,12 +26674,6 @@ func (o GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput) ToGetDataC
 
 func (o GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput) ToGetDataCollectionRuleDestinationStorageBlobDirectArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlobDirect] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationStorageBlobDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationStorageBlobDirectArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationStorageBlobDirectOutput {
@@ -31008,12 +26723,6 @@ func (i GetDataCollectionRuleDestinationStorageTableDirectArgs) ToGetDataCollect
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationStorageTableDirectOutput)
 }
 
-func (i GetDataCollectionRuleDestinationStorageTableDirectArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationStorageTableDirect] {
-	return pulumix.Output[GetDataCollectionRuleDestinationStorageTableDirect]{
-		OutputState: i.ToGetDataCollectionRuleDestinationStorageTableDirectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleDestinationStorageTableDirectArrayInput is an input type that accepts GetDataCollectionRuleDestinationStorageTableDirectArray and GetDataCollectionRuleDestinationStorageTableDirectArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleDestinationStorageTableDirectArrayInput` via:
 //
@@ -31039,12 +26748,6 @@ func (i GetDataCollectionRuleDestinationStorageTableDirectArray) ToGetDataCollec
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationStorageTableDirectArrayOutput)
 }
 
-func (i GetDataCollectionRuleDestinationStorageTableDirectArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationStorageTableDirect] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationStorageTableDirect]{
-		OutputState: i.ToGetDataCollectionRuleDestinationStorageTableDirectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleDestinationStorageTableDirectOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleDestinationStorageTableDirectOutput) ElementType() reflect.Type {
@@ -31057,12 +26760,6 @@ func (o GetDataCollectionRuleDestinationStorageTableDirectOutput) ToGetDataColle
 
 func (o GetDataCollectionRuleDestinationStorageTableDirectOutput) ToGetDataCollectionRuleDestinationStorageTableDirectOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationStorageTableDirectOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationStorageTableDirectOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleDestinationStorageTableDirect] {
-	return pulumix.Output[GetDataCollectionRuleDestinationStorageTableDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -31092,12 +26789,6 @@ func (o GetDataCollectionRuleDestinationStorageTableDirectArrayOutput) ToGetData
 
 func (o GetDataCollectionRuleDestinationStorageTableDirectArrayOutput) ToGetDataCollectionRuleDestinationStorageTableDirectArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationStorageTableDirectArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleDestinationStorageTableDirectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleDestinationStorageTableDirect] {
-	return pulumix.Output[[]GetDataCollectionRuleDestinationStorageTableDirect]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleDestinationStorageTableDirectArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationStorageTableDirectOutput {
@@ -31151,12 +26842,6 @@ func (i GetDataCollectionRuleIdentityArgs) ToGetDataCollectionRuleIdentityOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleIdentityOutput)
 }
 
-func (i GetDataCollectionRuleIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleIdentity] {
-	return pulumix.Output[GetDataCollectionRuleIdentity]{
-		OutputState: i.ToGetDataCollectionRuleIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleIdentityArrayInput is an input type that accepts GetDataCollectionRuleIdentityArray and GetDataCollectionRuleIdentityArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleIdentityArrayInput` via:
 //
@@ -31182,12 +26867,6 @@ func (i GetDataCollectionRuleIdentityArray) ToGetDataCollectionRuleIdentityArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleIdentityArrayOutput)
 }
 
-func (i GetDataCollectionRuleIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleIdentity] {
-	return pulumix.Output[[]GetDataCollectionRuleIdentity]{
-		OutputState: i.ToGetDataCollectionRuleIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleIdentityOutput) ElementType() reflect.Type {
@@ -31200,12 +26879,6 @@ func (o GetDataCollectionRuleIdentityOutput) ToGetDataCollectionRuleIdentityOutp
 
 func (o GetDataCollectionRuleIdentityOutput) ToGetDataCollectionRuleIdentityOutputWithContext(ctx context.Context) GetDataCollectionRuleIdentityOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleIdentity] {
-	return pulumix.Output[GetDataCollectionRuleIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
@@ -31240,12 +26913,6 @@ func (o GetDataCollectionRuleIdentityArrayOutput) ToGetDataCollectionRuleIdentit
 
 func (o GetDataCollectionRuleIdentityArrayOutput) ToGetDataCollectionRuleIdentityArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleIdentityArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleIdentity] {
-	return pulumix.Output[[]GetDataCollectionRuleIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleIdentityArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleIdentityOutput {
@@ -31291,12 +26958,6 @@ func (i GetDataCollectionRuleStreamDeclarationArgs) ToGetDataCollectionRuleStrea
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleStreamDeclarationOutput)
 }
 
-func (i GetDataCollectionRuleStreamDeclarationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[GetDataCollectionRuleStreamDeclaration]{
-		OutputState: i.ToGetDataCollectionRuleStreamDeclarationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleStreamDeclarationArrayInput is an input type that accepts GetDataCollectionRuleStreamDeclarationArray and GetDataCollectionRuleStreamDeclarationArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleStreamDeclarationArrayInput` via:
 //
@@ -31322,12 +26983,6 @@ func (i GetDataCollectionRuleStreamDeclarationArray) ToGetDataCollectionRuleStre
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleStreamDeclarationArrayOutput)
 }
 
-func (i GetDataCollectionRuleStreamDeclarationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[[]GetDataCollectionRuleStreamDeclaration]{
-		OutputState: i.ToGetDataCollectionRuleStreamDeclarationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleStreamDeclarationOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleStreamDeclarationOutput) ElementType() reflect.Type {
@@ -31340,12 +26995,6 @@ func (o GetDataCollectionRuleStreamDeclarationOutput) ToGetDataCollectionRuleStr
 
 func (o GetDataCollectionRuleStreamDeclarationOutput) ToGetDataCollectionRuleStreamDeclarationOutputWithContext(ctx context.Context) GetDataCollectionRuleStreamDeclarationOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleStreamDeclarationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[GetDataCollectionRuleStreamDeclaration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `column` blocks as defined above.
@@ -31372,12 +27021,6 @@ func (o GetDataCollectionRuleStreamDeclarationArrayOutput) ToGetDataCollectionRu
 
 func (o GetDataCollectionRuleStreamDeclarationArrayOutput) ToGetDataCollectionRuleStreamDeclarationArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleStreamDeclarationArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleStreamDeclarationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleStreamDeclaration] {
-	return pulumix.Output[[]GetDataCollectionRuleStreamDeclaration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleStreamDeclarationArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleStreamDeclarationOutput {
@@ -31423,12 +27066,6 @@ func (i GetDataCollectionRuleStreamDeclarationColumnArgs) ToGetDataCollectionRul
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleStreamDeclarationColumnOutput)
 }
 
-func (i GetDataCollectionRuleStreamDeclarationColumnArgs) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[GetDataCollectionRuleStreamDeclarationColumn]{
-		OutputState: i.ToGetDataCollectionRuleStreamDeclarationColumnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDataCollectionRuleStreamDeclarationColumnArrayInput is an input type that accepts GetDataCollectionRuleStreamDeclarationColumnArray and GetDataCollectionRuleStreamDeclarationColumnArrayOutput values.
 // You can construct a concrete instance of `GetDataCollectionRuleStreamDeclarationColumnArrayInput` via:
 //
@@ -31454,12 +27091,6 @@ func (i GetDataCollectionRuleStreamDeclarationColumnArray) ToGetDataCollectionRu
 	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleStreamDeclarationColumnArrayOutput)
 }
 
-func (i GetDataCollectionRuleStreamDeclarationColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[[]GetDataCollectionRuleStreamDeclarationColumn]{
-		OutputState: i.ToGetDataCollectionRuleStreamDeclarationColumnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDataCollectionRuleStreamDeclarationColumnOutput struct{ *pulumi.OutputState }
 
 func (GetDataCollectionRuleStreamDeclarationColumnOutput) ElementType() reflect.Type {
@@ -31472,12 +27103,6 @@ func (o GetDataCollectionRuleStreamDeclarationColumnOutput) ToGetDataCollectionR
 
 func (o GetDataCollectionRuleStreamDeclarationColumnOutput) ToGetDataCollectionRuleStreamDeclarationColumnOutputWithContext(ctx context.Context) GetDataCollectionRuleStreamDeclarationColumnOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleStreamDeclarationColumnOutput) ToOutput(ctx context.Context) pulumix.Output[GetDataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[GetDataCollectionRuleStreamDeclarationColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Data Collection Rule.
@@ -31502,12 +27127,6 @@ func (o GetDataCollectionRuleStreamDeclarationColumnArrayOutput) ToGetDataCollec
 
 func (o GetDataCollectionRuleStreamDeclarationColumnArrayOutput) ToGetDataCollectionRuleStreamDeclarationColumnArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleStreamDeclarationColumnArrayOutput {
 	return o
-}
-
-func (o GetDataCollectionRuleStreamDeclarationColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDataCollectionRuleStreamDeclarationColumn] {
-	return pulumix.Output[[]GetDataCollectionRuleStreamDeclarationColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDataCollectionRuleStreamDeclarationColumnArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleStreamDeclarationColumnOutput {
@@ -31553,12 +27172,6 @@ func (i GetLogProfileRetentionPolicyArgs) ToGetLogProfileRetentionPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogProfileRetentionPolicyOutput)
 }
 
-func (i GetLogProfileRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetLogProfileRetentionPolicy] {
-	return pulumix.Output[GetLogProfileRetentionPolicy]{
-		OutputState: i.ToGetLogProfileRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetLogProfileRetentionPolicyArrayInput is an input type that accepts GetLogProfileRetentionPolicyArray and GetLogProfileRetentionPolicyArrayOutput values.
 // You can construct a concrete instance of `GetLogProfileRetentionPolicyArrayInput` via:
 //
@@ -31584,12 +27197,6 @@ func (i GetLogProfileRetentionPolicyArray) ToGetLogProfileRetentionPolicyArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetLogProfileRetentionPolicyArrayOutput)
 }
 
-func (i GetLogProfileRetentionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLogProfileRetentionPolicy] {
-	return pulumix.Output[[]GetLogProfileRetentionPolicy]{
-		OutputState: i.ToGetLogProfileRetentionPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetLogProfileRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetLogProfileRetentionPolicyOutput) ElementType() reflect.Type {
@@ -31602,12 +27209,6 @@ func (o GetLogProfileRetentionPolicyOutput) ToGetLogProfileRetentionPolicyOutput
 
 func (o GetLogProfileRetentionPolicyOutput) ToGetLogProfileRetentionPolicyOutputWithContext(ctx context.Context) GetLogProfileRetentionPolicyOutput {
 	return o
-}
-
-func (o GetLogProfileRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetLogProfileRetentionPolicy] {
-	return pulumix.Output[GetLogProfileRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of days for the retention policy.
@@ -31632,12 +27233,6 @@ func (o GetLogProfileRetentionPolicyArrayOutput) ToGetLogProfileRetentionPolicyA
 
 func (o GetLogProfileRetentionPolicyArrayOutput) ToGetLogProfileRetentionPolicyArrayOutputWithContext(ctx context.Context) GetLogProfileRetentionPolicyArrayOutput {
 	return o
-}
-
-func (o GetLogProfileRetentionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLogProfileRetentionPolicy] {
-	return pulumix.Output[[]GetLogProfileRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLogProfileRetentionPolicyArrayOutput) Index(i pulumi.IntInput) GetLogProfileRetentionPolicyOutput {
@@ -31687,12 +27282,6 @@ func (i GetScheduledQueryRulesAlertActionArgs) ToGetScheduledQueryRulesAlertActi
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertActionOutput)
 }
 
-func (i GetScheduledQueryRulesAlertActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesAlertAction] {
-	return pulumix.Output[GetScheduledQueryRulesAlertAction]{
-		OutputState: i.ToGetScheduledQueryRulesAlertActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetScheduledQueryRulesAlertActionArrayInput is an input type that accepts GetScheduledQueryRulesAlertActionArray and GetScheduledQueryRulesAlertActionArrayOutput values.
 // You can construct a concrete instance of `GetScheduledQueryRulesAlertActionArrayInput` via:
 //
@@ -31718,12 +27307,6 @@ func (i GetScheduledQueryRulesAlertActionArray) ToGetScheduledQueryRulesAlertAct
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertActionArrayOutput)
 }
 
-func (i GetScheduledQueryRulesAlertActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesAlertAction] {
-	return pulumix.Output[[]GetScheduledQueryRulesAlertAction]{
-		OutputState: i.ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetScheduledQueryRulesAlertActionOutput struct{ *pulumi.OutputState }
 
 func (GetScheduledQueryRulesAlertActionOutput) ElementType() reflect.Type {
@@ -31736,12 +27319,6 @@ func (o GetScheduledQueryRulesAlertActionOutput) ToGetScheduledQueryRulesAlertAc
 
 func (o GetScheduledQueryRulesAlertActionOutput) ToGetScheduledQueryRulesAlertActionOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesAlertActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesAlertAction] {
-	return pulumix.Output[GetScheduledQueryRulesAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of action group reference resource IDs.
@@ -31771,12 +27348,6 @@ func (o GetScheduledQueryRulesAlertActionArrayOutput) ToGetScheduledQueryRulesAl
 
 func (o GetScheduledQueryRulesAlertActionArrayOutput) ToGetScheduledQueryRulesAlertActionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertActionArrayOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesAlertActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesAlertAction] {
-	return pulumix.Output[[]GetScheduledQueryRulesAlertAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesAlertActionArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertActionOutput {
@@ -31824,12 +27395,6 @@ func (i GetScheduledQueryRulesAlertTriggerArgs) ToGetScheduledQueryRulesAlertTri
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerOutput)
 }
 
-func (i GetScheduledQueryRulesAlertTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[GetScheduledQueryRulesAlertTrigger]{
-		OutputState: i.ToGetScheduledQueryRulesAlertTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetScheduledQueryRulesAlertTriggerArrayInput is an input type that accepts GetScheduledQueryRulesAlertTriggerArray and GetScheduledQueryRulesAlertTriggerArrayOutput values.
 // You can construct a concrete instance of `GetScheduledQueryRulesAlertTriggerArrayInput` via:
 //
@@ -31855,12 +27420,6 @@ func (i GetScheduledQueryRulesAlertTriggerArray) ToGetScheduledQueryRulesAlertTr
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerArrayOutput)
 }
 
-func (i GetScheduledQueryRulesAlertTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[[]GetScheduledQueryRulesAlertTrigger]{
-		OutputState: i.ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetScheduledQueryRulesAlertTriggerOutput struct{ *pulumi.OutputState }
 
 func (GetScheduledQueryRulesAlertTriggerOutput) ElementType() reflect.Type {
@@ -31873,12 +27432,6 @@ func (o GetScheduledQueryRulesAlertTriggerOutput) ToGetScheduledQueryRulesAlertT
 
 func (o GetScheduledQueryRulesAlertTriggerOutput) ToGetScheduledQueryRulesAlertTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesAlertTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[GetScheduledQueryRulesAlertTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesAlertTriggerOutput) MetricTriggers() GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
@@ -31909,12 +27462,6 @@ func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToGetScheduledQueryRulesA
 
 func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerArrayOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesAlertTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesAlertTrigger] {
-	return pulumix.Output[[]GetScheduledQueryRulesAlertTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesAlertTriggerArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertTriggerOutput {
@@ -31964,12 +27511,6 @@ func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToGetScheduledQuery
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerMetricTriggerOutput)
 }
 
-func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[GetScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: i.ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetScheduledQueryRulesAlertTriggerMetricTriggerArrayInput is an input type that accepts GetScheduledQueryRulesAlertTriggerMetricTriggerArray and GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput values.
 // You can construct a concrete instance of `GetScheduledQueryRulesAlertTriggerMetricTriggerArrayInput` via:
 //
@@ -31995,12 +27536,6 @@ func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ToGetScheduledQuer
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput)
 }
 
-func (i GetScheduledQueryRulesAlertTriggerMetricTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[[]GetScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: i.ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetScheduledQueryRulesAlertTriggerMetricTriggerOutput struct{ *pulumi.OutputState }
 
 func (GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ElementType() reflect.Type {
@@ -32013,12 +27548,6 @@ func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToGetScheduledQue
 
 func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[GetScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesAlertTriggerMetricTriggerOutput) MetricColumn() pulumi.StringOutput {
@@ -32051,12 +27580,6 @@ func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToGetSchedul
 
 func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToGetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesAlertTriggerMetricTrigger] {
-	return pulumix.Output[[]GetScheduledQueryRulesAlertTriggerMetricTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesAlertTriggerMetricTriggerArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesAlertTriggerMetricTriggerOutput {
@@ -32102,12 +27625,6 @@ func (i GetScheduledQueryRulesLogCriteriaArgs) ToGetScheduledQueryRulesLogCriter
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaOutput)
 }
 
-func (i GetScheduledQueryRulesLogCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[GetScheduledQueryRulesLogCriteria]{
-		OutputState: i.ToGetScheduledQueryRulesLogCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetScheduledQueryRulesLogCriteriaArrayInput is an input type that accepts GetScheduledQueryRulesLogCriteriaArray and GetScheduledQueryRulesLogCriteriaArrayOutput values.
 // You can construct a concrete instance of `GetScheduledQueryRulesLogCriteriaArrayInput` via:
 //
@@ -32133,12 +27650,6 @@ func (i GetScheduledQueryRulesLogCriteriaArray) ToGetScheduledQueryRulesLogCrite
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaArrayOutput)
 }
 
-func (i GetScheduledQueryRulesLogCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[[]GetScheduledQueryRulesLogCriteria]{
-		OutputState: i.ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetScheduledQueryRulesLogCriteriaOutput struct{ *pulumi.OutputState }
 
 func (GetScheduledQueryRulesLogCriteriaOutput) ElementType() reflect.Type {
@@ -32151,12 +27662,6 @@ func (o GetScheduledQueryRulesLogCriteriaOutput) ToGetScheduledQueryRulesLogCrit
 
 func (o GetScheduledQueryRulesLogCriteriaOutput) ToGetScheduledQueryRulesLogCriteriaOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesLogCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[GetScheduledQueryRulesLogCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `dimension` block as defined below.
@@ -32183,12 +27688,6 @@ func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToGetScheduledQueryRulesLo
 
 func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToGetScheduledQueryRulesLogCriteriaArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaArrayOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesLogCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesLogCriteria] {
-	return pulumix.Output[[]GetScheduledQueryRulesLogCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesLogCriteriaArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesLogCriteriaOutput {
@@ -32238,12 +27737,6 @@ func (i GetScheduledQueryRulesLogCriteriaDimensionArgs) ToGetScheduledQueryRules
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaDimensionOutput)
 }
 
-func (i GetScheduledQueryRulesLogCriteriaDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[GetScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: i.ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetScheduledQueryRulesLogCriteriaDimensionArrayInput is an input type that accepts GetScheduledQueryRulesLogCriteriaDimensionArray and GetScheduledQueryRulesLogCriteriaDimensionArrayOutput values.
 // You can construct a concrete instance of `GetScheduledQueryRulesLogCriteriaDimensionArrayInput` via:
 //
@@ -32269,12 +27762,6 @@ func (i GetScheduledQueryRulesLogCriteriaDimensionArray) ToGetScheduledQueryRule
 	return pulumi.ToOutputWithContext(ctx, i).(GetScheduledQueryRulesLogCriteriaDimensionArrayOutput)
 }
 
-func (i GetScheduledQueryRulesLogCriteriaDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[[]GetScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: i.ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetScheduledQueryRulesLogCriteriaDimensionOutput struct{ *pulumi.OutputState }
 
 func (GetScheduledQueryRulesLogCriteriaDimensionOutput) ElementType() reflect.Type {
@@ -32287,12 +27774,6 @@ func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToGetScheduledQueryRul
 
 func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToGetScheduledQueryRulesLogCriteriaDimensionOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesLogCriteriaDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[GetScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[GetScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the scheduled query rule.
@@ -32322,12 +27803,6 @@ func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToGetScheduledQue
 
 func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToGetScheduledQueryRulesLogCriteriaDimensionArrayOutputWithContext(ctx context.Context) GetScheduledQueryRulesLogCriteriaDimensionArrayOutput {
 	return o
-}
-
-func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetScheduledQueryRulesLogCriteriaDimension] {
-	return pulumix.Output[[]GetScheduledQueryRulesLogCriteriaDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetScheduledQueryRulesLogCriteriaDimensionArrayOutput) Index(i pulumi.IntInput) GetScheduledQueryRulesLogCriteriaDimensionOutput {

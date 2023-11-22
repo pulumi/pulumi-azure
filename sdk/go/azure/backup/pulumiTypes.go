@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i PolicyFileShareBackupArgs) ToPolicyFileShareBackupOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupOutput)
 }
 
-func (i PolicyFileShareBackupArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareBackup] {
-	return pulumix.Output[PolicyFileShareBackup]{
-		OutputState: i.ToPolicyFileShareBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyFileShareBackupArgs) ToPolicyFileShareBackupPtrOutput() PolicyFileShareBackupPtrOutput {
 	return i.ToPolicyFileShareBackupPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *policyFileShareBackupPtrType) ToPolicyFileShareBackupPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupPtrOutput)
 }
 
-func (i *policyFileShareBackupPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareBackup] {
-	return pulumix.Output[*PolicyFileShareBackup]{
-		OutputState: i.ToPolicyFileShareBackupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyFileShareBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareBackupOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareBackup) *PolicyFileShareBackup {
 		return &v
 	}).(PolicyFileShareBackupPtrOutput)
-}
-
-func (o PolicyFileShareBackupOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareBackup] {
-	return pulumix.Output[PolicyFileShareBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Sets the backup frequency. Possible values are `Daily` and `Hourly`.
@@ -177,12 +158,6 @@ func (o PolicyFileShareBackupPtrOutput) ToPolicyFileShareBackupPtrOutput() Polic
 
 func (o PolicyFileShareBackupPtrOutput) ToPolicyFileShareBackupPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupPtrOutput {
 	return o
-}
-
-func (o PolicyFileShareBackupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareBackup] {
-	return pulumix.Output[*PolicyFileShareBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFileShareBackupPtrOutput) Elem() PolicyFileShareBackupOutput {
@@ -270,12 +245,6 @@ func (i PolicyFileShareBackupHourlyArgs) ToPolicyFileShareBackupHourlyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupHourlyOutput)
 }
 
-func (i PolicyFileShareBackupHourlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareBackupHourly] {
-	return pulumix.Output[PolicyFileShareBackupHourly]{
-		OutputState: i.ToPolicyFileShareBackupHourlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyFileShareBackupHourlyArgs) ToPolicyFileShareBackupHourlyPtrOutput() PolicyFileShareBackupHourlyPtrOutput {
 	return i.ToPolicyFileShareBackupHourlyPtrOutputWithContext(context.Background())
 }
@@ -317,12 +286,6 @@ func (i *policyFileShareBackupHourlyPtrType) ToPolicyFileShareBackupHourlyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareBackupHourlyPtrOutput)
 }
 
-func (i *policyFileShareBackupHourlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareBackupHourly] {
-	return pulumix.Output[*PolicyFileShareBackupHourly]{
-		OutputState: i.ToPolicyFileShareBackupHourlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyFileShareBackupHourlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareBackupHourlyOutput) ElementType() reflect.Type {
@@ -345,12 +308,6 @@ func (o PolicyFileShareBackupHourlyOutput) ToPolicyFileShareBackupHourlyPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareBackupHourly) *PolicyFileShareBackupHourly {
 		return &v
 	}).(PolicyFileShareBackupHourlyPtrOutput)
-}
-
-func (o PolicyFileShareBackupHourlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareBackupHourly] {
-	return pulumix.Output[PolicyFileShareBackupHourly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the interval at which backup needs to be triggered. Possible values are `4`, `6`, `8` and `12`.
@@ -380,12 +337,6 @@ func (o PolicyFileShareBackupHourlyPtrOutput) ToPolicyFileShareBackupHourlyPtrOu
 
 func (o PolicyFileShareBackupHourlyPtrOutput) ToPolicyFileShareBackupHourlyPtrOutputWithContext(ctx context.Context) PolicyFileShareBackupHourlyPtrOutput {
 	return o
-}
-
-func (o PolicyFileShareBackupHourlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareBackupHourly] {
-	return pulumix.Output[*PolicyFileShareBackupHourly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFileShareBackupHourlyPtrOutput) Elem() PolicyFileShareBackupHourlyOutput {
@@ -461,12 +412,6 @@ func (i PolicyFileShareRetentionDailyArgs) ToPolicyFileShareRetentionDailyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionDailyOutput)
 }
 
-func (i PolicyFileShareRetentionDailyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionDaily] {
-	return pulumix.Output[PolicyFileShareRetentionDaily]{
-		OutputState: i.ToPolicyFileShareRetentionDailyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyFileShareRetentionDailyArgs) ToPolicyFileShareRetentionDailyPtrOutput() PolicyFileShareRetentionDailyPtrOutput {
 	return i.ToPolicyFileShareRetentionDailyPtrOutputWithContext(context.Background())
 }
@@ -508,12 +453,6 @@ func (i *policyFileShareRetentionDailyPtrType) ToPolicyFileShareRetentionDailyPt
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionDailyPtrOutput)
 }
 
-func (i *policyFileShareRetentionDailyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionDaily] {
-	return pulumix.Output[*PolicyFileShareRetentionDaily]{
-		OutputState: i.ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyFileShareRetentionDailyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionDailyOutput) ElementType() reflect.Type {
@@ -538,12 +477,6 @@ func (o PolicyFileShareRetentionDailyOutput) ToPolicyFileShareRetentionDailyPtrO
 	}).(PolicyFileShareRetentionDailyPtrOutput)
 }
 
-func (o PolicyFileShareRetentionDailyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionDaily] {
-	return pulumix.Output[PolicyFileShareRetentionDaily]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 func (o PolicyFileShareRetentionDailyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
@@ -561,12 +494,6 @@ func (o PolicyFileShareRetentionDailyPtrOutput) ToPolicyFileShareRetentionDailyP
 
 func (o PolicyFileShareRetentionDailyPtrOutput) ToPolicyFileShareRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionDailyPtrOutput {
 	return o
-}
-
-func (o PolicyFileShareRetentionDailyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionDaily] {
-	return pulumix.Output[*PolicyFileShareRetentionDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFileShareRetentionDailyPtrOutput) Elem() PolicyFileShareRetentionDailyOutput {
@@ -642,12 +569,6 @@ func (i PolicyFileShareRetentionMonthlyArgs) ToPolicyFileShareRetentionMonthlyOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionMonthlyOutput)
 }
 
-func (i PolicyFileShareRetentionMonthlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionMonthly] {
-	return pulumix.Output[PolicyFileShareRetentionMonthly]{
-		OutputState: i.ToPolicyFileShareRetentionMonthlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyFileShareRetentionMonthlyArgs) ToPolicyFileShareRetentionMonthlyPtrOutput() PolicyFileShareRetentionMonthlyPtrOutput {
 	return i.ToPolicyFileShareRetentionMonthlyPtrOutputWithContext(context.Background())
 }
@@ -689,12 +610,6 @@ func (i *policyFileShareRetentionMonthlyPtrType) ToPolicyFileShareRetentionMonth
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionMonthlyPtrOutput)
 }
 
-func (i *policyFileShareRetentionMonthlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionMonthly] {
-	return pulumix.Output[*PolicyFileShareRetentionMonthly]{
-		OutputState: i.ToPolicyFileShareRetentionMonthlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyFileShareRetentionMonthlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionMonthlyOutput) ElementType() reflect.Type {
@@ -717,12 +632,6 @@ func (o PolicyFileShareRetentionMonthlyOutput) ToPolicyFileShareRetentionMonthly
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionMonthly) *PolicyFileShareRetentionMonthly {
 		return &v
 	}).(PolicyFileShareRetentionMonthlyPtrOutput)
-}
-
-func (o PolicyFileShareRetentionMonthlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionMonthly] {
-	return pulumix.Output[PolicyFileShareRetentionMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of monthly backups to keep. Must be between `1` and `120`
@@ -764,12 +673,6 @@ func (o PolicyFileShareRetentionMonthlyPtrOutput) ToPolicyFileShareRetentionMont
 
 func (o PolicyFileShareRetentionMonthlyPtrOutput) ToPolicyFileShareRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionMonthlyPtrOutput {
 	return o
-}
-
-func (o PolicyFileShareRetentionMonthlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionMonthly] {
-	return pulumix.Output[*PolicyFileShareRetentionMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFileShareRetentionMonthlyPtrOutput) Elem() PolicyFileShareRetentionMonthlyOutput {
@@ -871,12 +774,6 @@ func (i PolicyFileShareRetentionWeeklyArgs) ToPolicyFileShareRetentionWeeklyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionWeeklyOutput)
 }
 
-func (i PolicyFileShareRetentionWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionWeekly] {
-	return pulumix.Output[PolicyFileShareRetentionWeekly]{
-		OutputState: i.ToPolicyFileShareRetentionWeeklyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyFileShareRetentionWeeklyArgs) ToPolicyFileShareRetentionWeeklyPtrOutput() PolicyFileShareRetentionWeeklyPtrOutput {
 	return i.ToPolicyFileShareRetentionWeeklyPtrOutputWithContext(context.Background())
 }
@@ -918,12 +815,6 @@ func (i *policyFileShareRetentionWeeklyPtrType) ToPolicyFileShareRetentionWeekly
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionWeeklyPtrOutput)
 }
 
-func (i *policyFileShareRetentionWeeklyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionWeekly] {
-	return pulumix.Output[*PolicyFileShareRetentionWeekly]{
-		OutputState: i.ToPolicyFileShareRetentionWeeklyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyFileShareRetentionWeeklyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionWeeklyOutput) ElementType() reflect.Type {
@@ -948,12 +839,6 @@ func (o PolicyFileShareRetentionWeeklyOutput) ToPolicyFileShareRetentionWeeklyPt
 	}).(PolicyFileShareRetentionWeeklyPtrOutput)
 }
 
-func (o PolicyFileShareRetentionWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionWeekly] {
-	return pulumix.Output[PolicyFileShareRetentionWeekly]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of daily backups to keep. Must be between `1` and `200` (inclusive)
 func (o PolicyFileShareRetentionWeeklyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
@@ -976,12 +861,6 @@ func (o PolicyFileShareRetentionWeeklyPtrOutput) ToPolicyFileShareRetentionWeekl
 
 func (o PolicyFileShareRetentionWeeklyPtrOutput) ToPolicyFileShareRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionWeeklyPtrOutput {
 	return o
-}
-
-func (o PolicyFileShareRetentionWeeklyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionWeekly] {
-	return pulumix.Output[*PolicyFileShareRetentionWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFileShareRetentionWeeklyPtrOutput) Elem() PolicyFileShareRetentionWeeklyOutput {
@@ -1071,12 +950,6 @@ func (i PolicyFileShareRetentionYearlyArgs) ToPolicyFileShareRetentionYearlyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionYearlyOutput)
 }
 
-func (i PolicyFileShareRetentionYearlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionYearly] {
-	return pulumix.Output[PolicyFileShareRetentionYearly]{
-		OutputState: i.ToPolicyFileShareRetentionYearlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyFileShareRetentionYearlyArgs) ToPolicyFileShareRetentionYearlyPtrOutput() PolicyFileShareRetentionYearlyPtrOutput {
 	return i.ToPolicyFileShareRetentionYearlyPtrOutputWithContext(context.Background())
 }
@@ -1118,12 +991,6 @@ func (i *policyFileShareRetentionYearlyPtrType) ToPolicyFileShareRetentionYearly
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyFileShareRetentionYearlyPtrOutput)
 }
 
-func (i *policyFileShareRetentionYearlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionYearly] {
-	return pulumix.Output[*PolicyFileShareRetentionYearly]{
-		OutputState: i.ToPolicyFileShareRetentionYearlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyFileShareRetentionYearlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyFileShareRetentionYearlyOutput) ElementType() reflect.Type {
@@ -1146,12 +1013,6 @@ func (o PolicyFileShareRetentionYearlyOutput) ToPolicyFileShareRetentionYearlyPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFileShareRetentionYearly) *PolicyFileShareRetentionYearly {
 		return &v
 	}).(PolicyFileShareRetentionYearlyPtrOutput)
-}
-
-func (o PolicyFileShareRetentionYearlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFileShareRetentionYearly] {
-	return pulumix.Output[PolicyFileShareRetentionYearly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of yearly backups to keep. Must be between `1` and `10`
@@ -1198,12 +1059,6 @@ func (o PolicyFileShareRetentionYearlyPtrOutput) ToPolicyFileShareRetentionYearl
 
 func (o PolicyFileShareRetentionYearlyPtrOutput) ToPolicyFileShareRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyFileShareRetentionYearlyPtrOutput {
 	return o
-}
-
-func (o PolicyFileShareRetentionYearlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFileShareRetentionYearly] {
-	return pulumix.Output[*PolicyFileShareRetentionYearly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFileShareRetentionYearlyPtrOutput) Elem() PolicyFileShareRetentionYearlyOutput {
@@ -1331,12 +1186,6 @@ func (i PolicyVMBackupArgs) ToPolicyVMBackupOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMBackupOutput)
 }
 
-func (i PolicyVMBackupArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMBackup] {
-	return pulumix.Output[PolicyVMBackup]{
-		OutputState: i.ToPolicyVMBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMBackupArgs) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOutput {
 	return i.ToPolicyVMBackupPtrOutputWithContext(context.Background())
 }
@@ -1378,12 +1227,6 @@ func (i *policyVMBackupPtrType) ToPolicyVMBackupPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMBackupPtrOutput)
 }
 
-func (i *policyVMBackupPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMBackup] {
-	return pulumix.Output[*PolicyVMBackup]{
-		OutputState: i.ToPolicyVMBackupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMBackupOutput) ElementType() reflect.Type {
@@ -1406,12 +1249,6 @@ func (o PolicyVMBackupOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMBackup) *PolicyVMBackup {
 		return &v
 	}).(PolicyVMBackupPtrOutput)
-}
-
-func (o PolicyVMBackupOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMBackup] {
-	return pulumix.Output[PolicyVMBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
@@ -1453,12 +1290,6 @@ func (o PolicyVMBackupPtrOutput) ToPolicyVMBackupPtrOutput() PolicyVMBackupPtrOu
 
 func (o PolicyVMBackupPtrOutput) ToPolicyVMBackupPtrOutputWithContext(ctx context.Context) PolicyVMBackupPtrOutput {
 	return o
-}
-
-func (o PolicyVMBackupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMBackup] {
-	return pulumix.Output[*PolicyVMBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMBackupPtrOutput) Elem() PolicyVMBackupOutput {
@@ -1560,12 +1391,6 @@ func (i PolicyVMInstantRestoreResourceGroupArgs) ToPolicyVMInstantRestoreResourc
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMInstantRestoreResourceGroupOutput)
 }
 
-func (i PolicyVMInstantRestoreResourceGroupArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMInstantRestoreResourceGroup] {
-	return pulumix.Output[PolicyVMInstantRestoreResourceGroup]{
-		OutputState: i.ToPolicyVMInstantRestoreResourceGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMInstantRestoreResourceGroupArgs) ToPolicyVMInstantRestoreResourceGroupPtrOutput() PolicyVMInstantRestoreResourceGroupPtrOutput {
 	return i.ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(context.Background())
 }
@@ -1607,12 +1432,6 @@ func (i *policyVMInstantRestoreResourceGroupPtrType) ToPolicyVMInstantRestoreRes
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMInstantRestoreResourceGroupPtrOutput)
 }
 
-func (i *policyVMInstantRestoreResourceGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMInstantRestoreResourceGroup] {
-	return pulumix.Output[*PolicyVMInstantRestoreResourceGroup]{
-		OutputState: i.ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMInstantRestoreResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMInstantRestoreResourceGroupOutput) ElementType() reflect.Type {
@@ -1637,12 +1456,6 @@ func (o PolicyVMInstantRestoreResourceGroupOutput) ToPolicyVMInstantRestoreResou
 	}).(PolicyVMInstantRestoreResourceGroupPtrOutput)
 }
 
-func (o PolicyVMInstantRestoreResourceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMInstantRestoreResourceGroup] {
-	return pulumix.Output[PolicyVMInstantRestoreResourceGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The prefix for the `instantRestoreResourceGroup` name.
 func (o PolicyVMInstantRestoreResourceGroupOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyVMInstantRestoreResourceGroup) string { return v.Prefix }).(pulumi.StringOutput)
@@ -1665,12 +1478,6 @@ func (o PolicyVMInstantRestoreResourceGroupPtrOutput) ToPolicyVMInstantRestoreRe
 
 func (o PolicyVMInstantRestoreResourceGroupPtrOutput) ToPolicyVMInstantRestoreResourceGroupPtrOutputWithContext(ctx context.Context) PolicyVMInstantRestoreResourceGroupPtrOutput {
 	return o
-}
-
-func (o PolicyVMInstantRestoreResourceGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMInstantRestoreResourceGroup] {
-	return pulumix.Output[*PolicyVMInstantRestoreResourceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMInstantRestoreResourceGroupPtrOutput) Elem() PolicyVMInstantRestoreResourceGroupOutput {
@@ -1740,12 +1547,6 @@ func (i PolicyVMRetentionDailyArgs) ToPolicyVMRetentionDailyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionDailyOutput)
 }
 
-func (i PolicyVMRetentionDailyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionDaily] {
-	return pulumix.Output[PolicyVMRetentionDaily]{
-		OutputState: i.ToPolicyVMRetentionDailyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMRetentionDailyArgs) ToPolicyVMRetentionDailyPtrOutput() PolicyVMRetentionDailyPtrOutput {
 	return i.ToPolicyVMRetentionDailyPtrOutputWithContext(context.Background())
 }
@@ -1787,12 +1588,6 @@ func (i *policyVMRetentionDailyPtrType) ToPolicyVMRetentionDailyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionDailyPtrOutput)
 }
 
-func (i *policyVMRetentionDailyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionDaily] {
-	return pulumix.Output[*PolicyVMRetentionDaily]{
-		OutputState: i.ToPolicyVMRetentionDailyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMRetentionDailyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionDailyOutput) ElementType() reflect.Type {
@@ -1817,12 +1612,6 @@ func (o PolicyVMRetentionDailyOutput) ToPolicyVMRetentionDailyPtrOutputWithConte
 	}).(PolicyVMRetentionDailyPtrOutput)
 }
 
-func (o PolicyVMRetentionDailyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionDaily] {
-	return pulumix.Output[PolicyVMRetentionDaily]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of daily backups to keep. Must be between `7` and `9999`.
 //
 // > **Note:** Azure previously allows this field to be set to a minimum of 1 (day) - but for new resources/to update this value on existing Backup Policies - this value must now be at least 7 (days).
@@ -1842,12 +1631,6 @@ func (o PolicyVMRetentionDailyPtrOutput) ToPolicyVMRetentionDailyPtrOutput() Pol
 
 func (o PolicyVMRetentionDailyPtrOutput) ToPolicyVMRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionDailyPtrOutput {
 	return o
-}
-
-func (o PolicyVMRetentionDailyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionDaily] {
-	return pulumix.Output[*PolicyVMRetentionDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMRetentionDailyPtrOutput) Elem() PolicyVMRetentionDailyOutput {
@@ -1925,12 +1708,6 @@ func (i PolicyVMRetentionMonthlyArgs) ToPolicyVMRetentionMonthlyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionMonthlyOutput)
 }
 
-func (i PolicyVMRetentionMonthlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionMonthly] {
-	return pulumix.Output[PolicyVMRetentionMonthly]{
-		OutputState: i.ToPolicyVMRetentionMonthlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMRetentionMonthlyArgs) ToPolicyVMRetentionMonthlyPtrOutput() PolicyVMRetentionMonthlyPtrOutput {
 	return i.ToPolicyVMRetentionMonthlyPtrOutputWithContext(context.Background())
 }
@@ -1972,12 +1749,6 @@ func (i *policyVMRetentionMonthlyPtrType) ToPolicyVMRetentionMonthlyPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionMonthlyPtrOutput)
 }
 
-func (i *policyVMRetentionMonthlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionMonthly] {
-	return pulumix.Output[*PolicyVMRetentionMonthly]{
-		OutputState: i.ToPolicyVMRetentionMonthlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMRetentionMonthlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionMonthlyOutput) ElementType() reflect.Type {
@@ -2000,12 +1771,6 @@ func (o PolicyVMRetentionMonthlyOutput) ToPolicyVMRetentionMonthlyPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMRetentionMonthly) *PolicyVMRetentionMonthly {
 		return &v
 	}).(PolicyVMRetentionMonthlyPtrOutput)
-}
-
-func (o PolicyVMRetentionMonthlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionMonthly] {
-	return pulumix.Output[PolicyVMRetentionMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of monthly backups to keep. Must be between `1` and `9999`
@@ -2047,12 +1812,6 @@ func (o PolicyVMRetentionMonthlyPtrOutput) ToPolicyVMRetentionMonthlyPtrOutput()
 
 func (o PolicyVMRetentionMonthlyPtrOutput) ToPolicyVMRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionMonthlyPtrOutput {
 	return o
-}
-
-func (o PolicyVMRetentionMonthlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionMonthly] {
-	return pulumix.Output[*PolicyVMRetentionMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMRetentionMonthlyPtrOutput) Elem() PolicyVMRetentionMonthlyOutput {
@@ -2154,12 +1913,6 @@ func (i PolicyVMRetentionWeeklyArgs) ToPolicyVMRetentionWeeklyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionWeeklyOutput)
 }
 
-func (i PolicyVMRetentionWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionWeekly] {
-	return pulumix.Output[PolicyVMRetentionWeekly]{
-		OutputState: i.ToPolicyVMRetentionWeeklyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMRetentionWeeklyArgs) ToPolicyVMRetentionWeeklyPtrOutput() PolicyVMRetentionWeeklyPtrOutput {
 	return i.ToPolicyVMRetentionWeeklyPtrOutputWithContext(context.Background())
 }
@@ -2201,12 +1954,6 @@ func (i *policyVMRetentionWeeklyPtrType) ToPolicyVMRetentionWeeklyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionWeeklyPtrOutput)
 }
 
-func (i *policyVMRetentionWeeklyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionWeekly] {
-	return pulumix.Output[*PolicyVMRetentionWeekly]{
-		OutputState: i.ToPolicyVMRetentionWeeklyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMRetentionWeeklyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionWeeklyOutput) ElementType() reflect.Type {
@@ -2231,12 +1978,6 @@ func (o PolicyVMRetentionWeeklyOutput) ToPolicyVMRetentionWeeklyPtrOutputWithCon
 	}).(PolicyVMRetentionWeeklyPtrOutput)
 }
 
-func (o PolicyVMRetentionWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionWeekly] {
-	return pulumix.Output[PolicyVMRetentionWeekly]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of weekly backups to keep. Must be between `1` and `9999`
 func (o PolicyVMRetentionWeeklyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
@@ -2259,12 +2000,6 @@ func (o PolicyVMRetentionWeeklyPtrOutput) ToPolicyVMRetentionWeeklyPtrOutput() P
 
 func (o PolicyVMRetentionWeeklyPtrOutput) ToPolicyVMRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionWeeklyPtrOutput {
 	return o
-}
-
-func (o PolicyVMRetentionWeeklyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionWeekly] {
-	return pulumix.Output[*PolicyVMRetentionWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMRetentionWeeklyPtrOutput) Elem() PolicyVMRetentionWeeklyOutput {
@@ -2354,12 +2089,6 @@ func (i PolicyVMRetentionYearlyArgs) ToPolicyVMRetentionYearlyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionYearlyOutput)
 }
 
-func (i PolicyVMRetentionYearlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionYearly] {
-	return pulumix.Output[PolicyVMRetentionYearly]{
-		OutputState: i.ToPolicyVMRetentionYearlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMRetentionYearlyArgs) ToPolicyVMRetentionYearlyPtrOutput() PolicyVMRetentionYearlyPtrOutput {
 	return i.ToPolicyVMRetentionYearlyPtrOutputWithContext(context.Background())
 }
@@ -2401,12 +2130,6 @@ func (i *policyVMRetentionYearlyPtrType) ToPolicyVMRetentionYearlyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMRetentionYearlyPtrOutput)
 }
 
-func (i *policyVMRetentionYearlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionYearly] {
-	return pulumix.Output[*PolicyVMRetentionYearly]{
-		OutputState: i.ToPolicyVMRetentionYearlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMRetentionYearlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMRetentionYearlyOutput) ElementType() reflect.Type {
@@ -2429,12 +2152,6 @@ func (o PolicyVMRetentionYearlyOutput) ToPolicyVMRetentionYearlyPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMRetentionYearly) *PolicyVMRetentionYearly {
 		return &v
 	}).(PolicyVMRetentionYearlyPtrOutput)
-}
-
-func (o PolicyVMRetentionYearlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMRetentionYearly] {
-	return pulumix.Output[PolicyVMRetentionYearly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of yearly backups to keep. Must be between `1` and `9999`
@@ -2481,12 +2198,6 @@ func (o PolicyVMRetentionYearlyPtrOutput) ToPolicyVMRetentionYearlyPtrOutput() P
 
 func (o PolicyVMRetentionYearlyPtrOutput) ToPolicyVMRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMRetentionYearlyPtrOutput {
 	return o
-}
-
-func (o PolicyVMRetentionYearlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMRetentionYearly] {
-	return pulumix.Output[*PolicyVMRetentionYearly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMRetentionYearlyPtrOutput) Elem() PolicyVMRetentionYearlyOutput {
@@ -2618,12 +2329,6 @@ func (i PolicyVMWorkloadProtectionPolicyArgs) ToPolicyVMWorkloadProtectionPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicy] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicy]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyVMWorkloadProtectionPolicyArrayInput is an input type that accepts PolicyVMWorkloadProtectionPolicyArray and PolicyVMWorkloadProtectionPolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyArrayInput` via:
 //
@@ -2649,12 +2354,6 @@ func (i PolicyVMWorkloadProtectionPolicyArray) ToPolicyVMWorkloadProtectionPolic
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyArrayOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyVMWorkloadProtectionPolicy] {
-	return pulumix.Output[[]PolicyVMWorkloadProtectionPolicy]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicyOutput) ElementType() reflect.Type {
@@ -2667,12 +2366,6 @@ func (o PolicyVMWorkloadProtectionPolicyOutput) ToPolicyVMWorkloadProtectionPoli
 
 func (o PolicyVMWorkloadProtectionPolicyOutput) ToPolicyVMWorkloadProtectionPolicyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicy] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `backup` block as defined below.
@@ -2734,12 +2427,6 @@ func (o PolicyVMWorkloadProtectionPolicyArrayOutput) ToPolicyVMWorkloadProtectio
 	return o
 }
 
-func (o PolicyVMWorkloadProtectionPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyVMWorkloadProtectionPolicy] {
-	return pulumix.Output[[]PolicyVMWorkloadProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyVMWorkloadProtectionPolicyArrayOutput) Index(i pulumi.IntInput) PolicyVMWorkloadProtectionPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyVMWorkloadProtectionPolicy {
 		return vs[0].([]PolicyVMWorkloadProtectionPolicy)[vs[1].(int)]
@@ -2791,12 +2478,6 @@ func (i PolicyVMWorkloadProtectionPolicyBackupArgs) ToPolicyVMWorkloadProtection
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyBackupOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyBackupArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyBackup] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyBackup]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicyBackupOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicyBackupOutput) ElementType() reflect.Type {
@@ -2809,12 +2490,6 @@ func (o PolicyVMWorkloadProtectionPolicyBackupOutput) ToPolicyVMWorkloadProtecti
 
 func (o PolicyVMWorkloadProtectionPolicyBackupOutput) ToPolicyVMWorkloadProtectionPolicyBackupOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyBackupOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicyBackupOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyBackup] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
@@ -2870,12 +2545,6 @@ func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToPolicyVMWorkloadPr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionDailyOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionDaily] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionDaily]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
 	return i.ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(context.Background())
 }
@@ -2917,12 +2586,6 @@ func (i *policyVMWorkloadProtectionPolicyRetentionDailyPtrType) ToPolicyVMWorklo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput)
 }
 
-func (i *policyVMWorkloadProtectionPolicyRetentionDailyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionDaily] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionDaily]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicyRetentionDailyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ElementType() reflect.Type {
@@ -2947,12 +2610,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ToPolicyVMWorkload
 	}).(PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput)
 }
 
-func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionDaily] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionDaily]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of daily backups to keep. Possible values are between `7` and `9999`.
 func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
@@ -2970,12 +2627,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) ToPolicyVMWorkl
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionDaily] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionDaily]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionDailyOutput {
@@ -3047,12 +2698,6 @@ func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToPolicyVMWorkload
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionMonthly] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionMonthly]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
 	return i.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(context.Background())
 }
@@ -3094,12 +2739,6 @@ func (i *policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType) ToPolicyVMWork
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput)
 }
 
-func (i *policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionMonthly] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionMonthly]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ElementType() reflect.Type {
@@ -3122,12 +2761,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ToPolicyVMWorklo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicyRetentionMonthly) *PolicyVMWorkloadProtectionPolicyRetentionMonthly {
 		return &v
 	}).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput)
-}
-
-func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionMonthly] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of monthly backups to keep. Must be between `1` and `1188`.
@@ -3167,12 +2800,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) ToPolicyVMWor
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionMonthly] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionMonthly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput {
@@ -3272,12 +2899,6 @@ func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToPolicyVMWorkloadP
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionWeekly] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionWeekly]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
 	return i.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(context.Background())
 }
@@ -3319,12 +2940,6 @@ func (i *policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType) ToPolicyVMWorkl
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput)
 }
 
-func (i *policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionWeekly] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionWeekly]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ElementType() reflect.Type {
@@ -3349,12 +2964,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ToPolicyVMWorkloa
 	}).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput)
 }
 
-func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionWeekly] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionWeekly]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of weekly backups to keep. Possible values are between `1` and `5163`.
 func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
@@ -3377,12 +2986,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) ToPolicyVMWork
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionWeekly] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionWeekly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput {
@@ -3468,12 +3071,6 @@ func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToPolicyVMWorkloadP
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionYearly] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionYearly]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
 	return i.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(context.Background())
 }
@@ -3515,12 +3112,6 @@ func (i *policyVMWorkloadProtectionPolicyRetentionYearlyPtrType) ToPolicyVMWorkl
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput)
 }
 
-func (i *policyVMWorkloadProtectionPolicyRetentionYearlyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionYearly] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionYearly]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ElementType() reflect.Type {
@@ -3543,12 +3134,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ToPolicyVMWorkloa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicyRetentionYearly) *PolicyVMWorkloadProtectionPolicyRetentionYearly {
 		return &v
 	}).(PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput)
-}
-
-func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionYearly] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicyRetentionYearly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of yearly backups to keep. Possible values are between `1` and `99`
@@ -3593,12 +3178,6 @@ func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) ToPolicyVMWork
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionYearly] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicyRetentionYearly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput {
@@ -3704,12 +3283,6 @@ func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToPolicyVMWorkloadP
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicySimpleRetentionOutput)
 }
 
-func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicySimpleRetention] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicySimpleRetention]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
 	return i.ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(context.Background())
 }
@@ -3751,12 +3324,6 @@ func (i *policyVMWorkloadProtectionPolicySimpleRetentionPtrType) ToPolicyVMWorkl
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput)
 }
 
-func (i *policyVMWorkloadProtectionPolicySimpleRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicySimpleRetention] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicySimpleRetention]{
-		OutputState: i.ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadProtectionPolicySimpleRetentionOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ElementType() reflect.Type {
@@ -3781,12 +3348,6 @@ func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ToPolicyVMWorkloa
 	}).(PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput)
 }
 
-func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadProtectionPolicySimpleRetention] {
-	return pulumix.Output[PolicyVMWorkloadProtectionPolicySimpleRetention]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
 func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicySimpleRetention) int { return v.Count }).(pulumi.IntOutput)
@@ -3804,12 +3365,6 @@ func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) ToPolicyVMWork
 
 func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadProtectionPolicySimpleRetention] {
-	return pulumix.Output[*PolicyVMWorkloadProtectionPolicySimpleRetention]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) Elem() PolicyVMWorkloadProtectionPolicySimpleRetentionOutput {
@@ -3869,12 +3424,6 @@ func (i PolicyVMWorkloadSettingsArgs) ToPolicyVMWorkloadSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadSettingsOutput)
 }
 
-func (i PolicyVMWorkloadSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadSettings] {
-	return pulumix.Output[PolicyVMWorkloadSettings]{
-		OutputState: i.ToPolicyVMWorkloadSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyVMWorkloadSettingsArgs) ToPolicyVMWorkloadSettingsPtrOutput() PolicyVMWorkloadSettingsPtrOutput {
 	return i.ToPolicyVMWorkloadSettingsPtrOutputWithContext(context.Background())
 }
@@ -3916,12 +3465,6 @@ func (i *policyVMWorkloadSettingsPtrType) ToPolicyVMWorkloadSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadSettingsPtrOutput)
 }
 
-func (i *policyVMWorkloadSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadSettings] {
-	return pulumix.Output[*PolicyVMWorkloadSettings]{
-		OutputState: i.ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyVMWorkloadSettingsOutput struct{ *pulumi.OutputState }
 
 func (PolicyVMWorkloadSettingsOutput) ElementType() reflect.Type {
@@ -3946,12 +3489,6 @@ func (o PolicyVMWorkloadSettingsOutput) ToPolicyVMWorkloadSettingsPtrOutputWithC
 	}).(PolicyVMWorkloadSettingsPtrOutput)
 }
 
-func (o PolicyVMWorkloadSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyVMWorkloadSettings] {
-	return pulumix.Output[PolicyVMWorkloadSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The compression setting for the VM Workload Backup Policy. Defaults to `false`.
 func (o PolicyVMWorkloadSettingsOutput) CompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyVMWorkloadSettings) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
@@ -3974,12 +3511,6 @@ func (o PolicyVMWorkloadSettingsPtrOutput) ToPolicyVMWorkloadSettingsPtrOutput()
 
 func (o PolicyVMWorkloadSettingsPtrOutput) ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsPtrOutput {
 	return o
-}
-
-func (o PolicyVMWorkloadSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyVMWorkloadSettings] {
-	return pulumix.Output[*PolicyVMWorkloadSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyVMWorkloadSettingsPtrOutput) Elem() PolicyVMWorkloadSettingsOutput {

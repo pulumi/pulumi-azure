@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Volume Quota Rule.
@@ -322,12 +321,6 @@ func (i *VolumeQuotaRule) ToVolumeQuotaRuleOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeQuotaRuleOutput)
 }
 
-func (i *VolumeQuotaRule) ToOutput(ctx context.Context) pulumix.Output[*VolumeQuotaRule] {
-	return pulumix.Output[*VolumeQuotaRule]{
-		OutputState: i.ToVolumeQuotaRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeQuotaRuleArrayInput is an input type that accepts VolumeQuotaRuleArray and VolumeQuotaRuleArrayOutput values.
 // You can construct a concrete instance of `VolumeQuotaRuleArrayInput` via:
 //
@@ -351,12 +344,6 @@ func (i VolumeQuotaRuleArray) ToVolumeQuotaRuleArrayOutput() VolumeQuotaRuleArra
 
 func (i VolumeQuotaRuleArray) ToVolumeQuotaRuleArrayOutputWithContext(ctx context.Context) VolumeQuotaRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeQuotaRuleArrayOutput)
-}
-
-func (i VolumeQuotaRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*VolumeQuotaRule] {
-	return pulumix.Output[[]*VolumeQuotaRule]{
-		OutputState: i.ToVolumeQuotaRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VolumeQuotaRuleMapInput is an input type that accepts VolumeQuotaRuleMap and VolumeQuotaRuleMapOutput values.
@@ -384,12 +371,6 @@ func (i VolumeQuotaRuleMap) ToVolumeQuotaRuleMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeQuotaRuleMapOutput)
 }
 
-func (i VolumeQuotaRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VolumeQuotaRule] {
-	return pulumix.Output[map[string]*VolumeQuotaRule]{
-		OutputState: i.ToVolumeQuotaRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeQuotaRuleOutput struct{ *pulumi.OutputState }
 
 func (VolumeQuotaRuleOutput) ElementType() reflect.Type {
@@ -402,12 +383,6 @@ func (o VolumeQuotaRuleOutput) ToVolumeQuotaRuleOutput() VolumeQuotaRuleOutput {
 
 func (o VolumeQuotaRuleOutput) ToVolumeQuotaRuleOutputWithContext(ctx context.Context) VolumeQuotaRuleOutput {
 	return o
-}
-
-func (o VolumeQuotaRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeQuotaRule] {
-	return pulumix.Output[*VolumeQuotaRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created.
@@ -458,12 +433,6 @@ func (o VolumeQuotaRuleArrayOutput) ToVolumeQuotaRuleArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o VolumeQuotaRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VolumeQuotaRule] {
-	return pulumix.Output[[]*VolumeQuotaRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeQuotaRuleArrayOutput) Index(i pulumi.IntInput) VolumeQuotaRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VolumeQuotaRule {
 		return vs[0].([]*VolumeQuotaRule)[vs[1].(int)]
@@ -482,12 +451,6 @@ func (o VolumeQuotaRuleMapOutput) ToVolumeQuotaRuleMapOutput() VolumeQuotaRuleMa
 
 func (o VolumeQuotaRuleMapOutput) ToVolumeQuotaRuleMapOutputWithContext(ctx context.Context) VolumeQuotaRuleMapOutput {
 	return o
-}
-
-func (o VolumeQuotaRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VolumeQuotaRule] {
-	return pulumix.Output[map[string]*VolumeQuotaRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeQuotaRuleMapOutput) MapIndex(k pulumi.StringInput) VolumeQuotaRuleOutput {

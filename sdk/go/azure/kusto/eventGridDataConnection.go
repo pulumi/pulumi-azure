@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
@@ -394,12 +393,6 @@ func (i *EventGridDataConnection) ToEventGridDataConnectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionOutput)
 }
 
-func (i *EventGridDataConnection) ToOutput(ctx context.Context) pulumix.Output[*EventGridDataConnection] {
-	return pulumix.Output[*EventGridDataConnection]{
-		OutputState: i.ToEventGridDataConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventGridDataConnectionArrayInput is an input type that accepts EventGridDataConnectionArray and EventGridDataConnectionArrayOutput values.
 // You can construct a concrete instance of `EventGridDataConnectionArrayInput` via:
 //
@@ -423,12 +416,6 @@ func (i EventGridDataConnectionArray) ToEventGridDataConnectionArrayOutput() Eve
 
 func (i EventGridDataConnectionArray) ToEventGridDataConnectionArrayOutputWithContext(ctx context.Context) EventGridDataConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionArrayOutput)
-}
-
-func (i EventGridDataConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventGridDataConnection] {
-	return pulumix.Output[[]*EventGridDataConnection]{
-		OutputState: i.ToEventGridDataConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventGridDataConnectionMapInput is an input type that accepts EventGridDataConnectionMap and EventGridDataConnectionMapOutput values.
@@ -456,12 +443,6 @@ func (i EventGridDataConnectionMap) ToEventGridDataConnectionMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionMapOutput)
 }
 
-func (i EventGridDataConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventGridDataConnection] {
-	return pulumix.Output[map[string]*EventGridDataConnection]{
-		OutputState: i.ToEventGridDataConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventGridDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionOutput) ElementType() reflect.Type {
@@ -474,12 +455,6 @@ func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutput() EventGr
 
 func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutputWithContext(ctx context.Context) EventGridDataConnectionOutput {
 	return o
-}
-
-func (o EventGridDataConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventGridDataConnection] {
-	return pulumix.Output[*EventGridDataConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
@@ -576,12 +551,6 @@ func (o EventGridDataConnectionArrayOutput) ToEventGridDataConnectionArrayOutput
 	return o
 }
 
-func (o EventGridDataConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventGridDataConnection] {
-	return pulumix.Output[[]*EventGridDataConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventGridDataConnectionArrayOutput) Index(i pulumi.IntInput) EventGridDataConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventGridDataConnection {
 		return vs[0].([]*EventGridDataConnection)[vs[1].(int)]
@@ -600,12 +569,6 @@ func (o EventGridDataConnectionMapOutput) ToEventGridDataConnectionMapOutput() E
 
 func (o EventGridDataConnectionMapOutput) ToEventGridDataConnectionMapOutputWithContext(ctx context.Context) EventGridDataConnectionMapOutput {
 	return o
-}
-
-func (o EventGridDataConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventGridDataConnection] {
-	return pulumix.Output[map[string]*EventGridDataConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventGridDataConnectionMapOutput) MapIndex(k pulumi.StringInput) EventGridDataConnectionOutput {

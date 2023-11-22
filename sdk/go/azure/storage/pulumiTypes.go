@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationOu
 
 func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationOutput)
-}
-
-func (i AccountAzureFilesAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[AccountAzureFilesAuthentication] {
-	return pulumix.Output[AccountAzureFilesAuthentication]{
-		OutputState: i.ToAccountAzureFilesAuthenticationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccountAzureFilesAuthenticationArgs) ToAccountAzureFilesAuthenticationPtrOutput() AccountAzureFilesAuthenticationPtrOutput {
@@ -98,12 +91,6 @@ func (i *accountAzureFilesAuthenticationPtrType) ToAccountAzureFilesAuthenticati
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationPtrOutput)
 }
 
-func (i *accountAzureFilesAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountAzureFilesAuthentication] {
-	return pulumix.Output[*AccountAzureFilesAuthentication]{
-		OutputState: i.ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountAzureFilesAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (AccountAzureFilesAuthenticationOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o AccountAzureFilesAuthenticationOutput) ToAccountAzureFilesAuthentication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAzureFilesAuthentication) *AccountAzureFilesAuthentication {
 		return &v
 	}).(AccountAzureFilesAuthenticationPtrOutput)
-}
-
-func (o AccountAzureFilesAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[AccountAzureFilesAuthentication] {
-	return pulumix.Output[AccountAzureFilesAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `activeDirectory` block as defined below. Required when `directoryType` is `AD`.
@@ -158,12 +139,6 @@ func (o AccountAzureFilesAuthenticationPtrOutput) ToAccountAzureFilesAuthenticat
 
 func (o AccountAzureFilesAuthenticationPtrOutput) ToAccountAzureFilesAuthenticationPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationPtrOutput {
 	return o
-}
-
-func (o AccountAzureFilesAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountAzureFilesAuthentication] {
-	return pulumix.Output[*AccountAzureFilesAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountAzureFilesAuthenticationPtrOutput) Elem() AccountAzureFilesAuthenticationOutput {
@@ -249,12 +224,6 @@ func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToAccountAzureFilesA
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationActiveDirectoryOutput)
 }
 
-func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[AccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[AccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: i.ToAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountAzureFilesAuthenticationActiveDirectoryArgs) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutput() AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
 	return i.ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(context.Background())
 }
@@ -296,12 +265,6 @@ func (i *accountAzureFilesAuthenticationActiveDirectoryPtrType) ToAccountAzureFi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
 }
 
-func (i *accountAzureFilesAuthenticationActiveDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[*AccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: i.ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountAzureFilesAuthenticationActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccountAzureFilesAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
@@ -324,12 +287,6 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToAccountAzureFile
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAzureFilesAuthenticationActiveDirectory) *AccountAzureFilesAuthenticationActiveDirectory {
 		return &v
 	}).(AccountAzureFilesAuthenticationActiveDirectoryPtrOutput)
-}
-
-func (o AccountAzureFilesAuthenticationActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[AccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[AccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the domain GUID.
@@ -374,12 +331,6 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ToAccountAzureF
 
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ToAccountAzureFilesAuthenticationActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountAzureFilesAuthenticationActiveDirectoryPtrOutput {
 	return o
-}
-
-func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[*AccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) Elem() AccountAzureFilesAuthenticationActiveDirectoryOutput {
@@ -537,12 +488,6 @@ func (i AccountBlobPropertiesArgs) ToAccountBlobPropertiesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesOutput)
 }
 
-func (i AccountBlobPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountBlobProperties] {
-	return pulumix.Output[AccountBlobProperties]{
-		OutputState: i.ToAccountBlobPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountBlobPropertiesArgs) ToAccountBlobPropertiesPtrOutput() AccountBlobPropertiesPtrOutput {
 	return i.ToAccountBlobPropertiesPtrOutputWithContext(context.Background())
 }
@@ -584,12 +529,6 @@ func (i *accountBlobPropertiesPtrType) ToAccountBlobPropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesPtrOutput)
 }
 
-func (i *accountBlobPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobProperties] {
-	return pulumix.Output[*AccountBlobProperties]{
-		OutputState: i.ToAccountBlobPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountBlobPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesOutput) ElementType() reflect.Type {
@@ -612,12 +551,6 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountBlobProperties) *AccountBlobProperties {
 		return &v
 	}).(AccountBlobPropertiesPtrOutput)
-}
-
-func (o AccountBlobPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountBlobProperties] {
-	return pulumix.Output[AccountBlobProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is the blob service properties for change feed events enabled? Default to `false`.
@@ -691,12 +624,6 @@ func (o AccountBlobPropertiesPtrOutput) ToAccountBlobPropertiesPtrOutput() Accou
 
 func (o AccountBlobPropertiesPtrOutput) ToAccountBlobPropertiesPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesPtrOutput {
 	return o
-}
-
-func (o AccountBlobPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobProperties] {
-	return pulumix.Output[*AccountBlobProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
@@ -842,12 +769,6 @@ func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToAccountBlobPr
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesContainerDeleteRetentionPolicyOutput)
 }
 
-func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesContainerDeleteRetentionPolicy] {
-	return pulumix.Output[AccountBlobPropertiesContainerDeleteRetentionPolicy]{
-		OutputState: i.ToAccountBlobPropertiesContainerDeleteRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountBlobPropertiesContainerDeleteRetentionPolicyArgs) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
 	return i.ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -889,12 +810,6 @@ func (i *accountBlobPropertiesContainerDeleteRetentionPolicyPtrType) ToAccountBl
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
 }
 
-func (i *accountBlobPropertiesContainerDeleteRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobPropertiesContainerDeleteRetentionPolicy] {
-	return pulumix.Output[*AccountBlobPropertiesContainerDeleteRetentionPolicy]{
-		OutputState: i.ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountBlobPropertiesContainerDeleteRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ElementType() reflect.Type {
@@ -919,12 +834,6 @@ func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToAccountBlob
 	}).(AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput)
 }
 
-func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesContainerDeleteRetentionPolicy] {
-	return pulumix.Output[AccountBlobPropertiesContainerDeleteRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountBlobPropertiesContainerDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesContainerDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -942,12 +851,6 @@ func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ToAccountB
 
 func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ToAccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobPropertiesContainerDeleteRetentionPolicy] {
-	return pulumix.Output[*AccountBlobPropertiesContainerDeleteRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountBlobPropertiesContainerDeleteRetentionPolicyPtrOutput) Elem() AccountBlobPropertiesContainerDeleteRetentionPolicyOutput {
@@ -1021,12 +924,6 @@ func (i AccountBlobPropertiesCorsRuleArgs) ToAccountBlobPropertiesCorsRuleOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesCorsRuleOutput)
 }
 
-func (i AccountBlobPropertiesCorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesCorsRule] {
-	return pulumix.Output[AccountBlobPropertiesCorsRule]{
-		OutputState: i.ToAccountBlobPropertiesCorsRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountBlobPropertiesCorsRuleArrayInput is an input type that accepts AccountBlobPropertiesCorsRuleArray and AccountBlobPropertiesCorsRuleArrayOutput values.
 // You can construct a concrete instance of `AccountBlobPropertiesCorsRuleArrayInput` via:
 //
@@ -1052,12 +949,6 @@ func (i AccountBlobPropertiesCorsRuleArray) ToAccountBlobPropertiesCorsRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesCorsRuleArrayOutput)
 }
 
-func (i AccountBlobPropertiesCorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountBlobPropertiesCorsRule] {
-	return pulumix.Output[[]AccountBlobPropertiesCorsRule]{
-		OutputState: i.ToAccountBlobPropertiesCorsRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountBlobPropertiesCorsRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesCorsRuleOutput) ElementType() reflect.Type {
@@ -1070,12 +961,6 @@ func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutp
 
 func (o AccountBlobPropertiesCorsRuleOutput) ToAccountBlobPropertiesCorsRuleOutputWithContext(ctx context.Context) AccountBlobPropertiesCorsRuleOutput {
 	return o
-}
-
-func (o AccountBlobPropertiesCorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesCorsRule] {
-	return pulumix.Output[AccountBlobPropertiesCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of headers that are allowed to be a part of the cross-origin request.
@@ -1118,12 +1003,6 @@ func (o AccountBlobPropertiesCorsRuleArrayOutput) ToAccountBlobPropertiesCorsRul
 	return o
 }
 
-func (o AccountBlobPropertiesCorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountBlobPropertiesCorsRule] {
-	return pulumix.Output[[]AccountBlobPropertiesCorsRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountBlobPropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountBlobPropertiesCorsRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountBlobPropertiesCorsRule {
 		return vs[0].([]AccountBlobPropertiesCorsRule)[vs[1].(int)]
@@ -1161,12 +1040,6 @@ func (i AccountBlobPropertiesDeleteRetentionPolicyArgs) ToAccountBlobPropertiesD
 
 func (i AccountBlobPropertiesDeleteRetentionPolicyArgs) ToAccountBlobPropertiesDeleteRetentionPolicyOutputWithContext(ctx context.Context) AccountBlobPropertiesDeleteRetentionPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesDeleteRetentionPolicyOutput)
-}
-
-func (i AccountBlobPropertiesDeleteRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesDeleteRetentionPolicy] {
-	return pulumix.Output[AccountBlobPropertiesDeleteRetentionPolicy]{
-		OutputState: i.ToAccountBlobPropertiesDeleteRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccountBlobPropertiesDeleteRetentionPolicyArgs) ToAccountBlobPropertiesDeleteRetentionPolicyPtrOutput() AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
@@ -1210,12 +1083,6 @@ func (i *accountBlobPropertiesDeleteRetentionPolicyPtrType) ToAccountBlobPropert
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
 
-func (i *accountBlobPropertiesDeleteRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobPropertiesDeleteRetentionPolicy] {
-	return pulumix.Output[*AccountBlobPropertiesDeleteRetentionPolicy]{
-		OutputState: i.ToAccountBlobPropertiesDeleteRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountBlobPropertiesDeleteRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesDeleteRetentionPolicyOutput) ElementType() reflect.Type {
@@ -1240,12 +1107,6 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) ToAccountBlobPropertie
 	}).(AccountBlobPropertiesDeleteRetentionPolicyPtrOutput)
 }
 
-func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesDeleteRetentionPolicy] {
-	return pulumix.Output[AccountBlobPropertiesDeleteRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -1263,12 +1124,6 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ToAccountBlobProper
 
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ToAccountBlobPropertiesDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesDeleteRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobPropertiesDeleteRetentionPolicy] {
-	return pulumix.Output[*AccountBlobPropertiesDeleteRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Elem() AccountBlobPropertiesDeleteRetentionPolicyOutput {
@@ -1324,12 +1179,6 @@ func (i AccountBlobPropertiesRestorePolicyArgs) ToAccountBlobPropertiesRestorePo
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesRestorePolicyOutput)
 }
 
-func (i AccountBlobPropertiesRestorePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesRestorePolicy] {
-	return pulumix.Output[AccountBlobPropertiesRestorePolicy]{
-		OutputState: i.ToAccountBlobPropertiesRestorePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountBlobPropertiesRestorePolicyArgs) ToAccountBlobPropertiesRestorePolicyPtrOutput() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return i.ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(context.Background())
 }
@@ -1371,12 +1220,6 @@ func (i *accountBlobPropertiesRestorePolicyPtrType) ToAccountBlobPropertiesResto
 	return pulumi.ToOutputWithContext(ctx, i).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
 
-func (i *accountBlobPropertiesRestorePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobPropertiesRestorePolicy] {
-	return pulumix.Output[*AccountBlobPropertiesRestorePolicy]{
-		OutputState: i.ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountBlobPropertiesRestorePolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountBlobPropertiesRestorePolicyOutput) ElementType() reflect.Type {
@@ -1401,12 +1244,6 @@ func (o AccountBlobPropertiesRestorePolicyOutput) ToAccountBlobPropertiesRestore
 	}).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
 
-func (o AccountBlobPropertiesRestorePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountBlobPropertiesRestorePolicy] {
-	return pulumix.Output[AccountBlobPropertiesRestorePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `deleteRetentionPolicy`.
 func (o AccountBlobPropertiesRestorePolicyOutput) Days() pulumi.IntOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesRestorePolicy) int { return v.Days }).(pulumi.IntOutput)
@@ -1424,12 +1261,6 @@ func (o AccountBlobPropertiesRestorePolicyPtrOutput) ToAccountBlobPropertiesRest
 
 func (o AccountBlobPropertiesRestorePolicyPtrOutput) ToAccountBlobPropertiesRestorePolicyPtrOutputWithContext(ctx context.Context) AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o
-}
-
-func (o AccountBlobPropertiesRestorePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountBlobPropertiesRestorePolicy] {
-	return pulumix.Output[*AccountBlobPropertiesRestorePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountBlobPropertiesRestorePolicyPtrOutput) Elem() AccountBlobPropertiesRestorePolicyOutput {
@@ -1489,12 +1320,6 @@ func (i AccountCustomDomainArgs) ToAccountCustomDomainOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomDomainOutput)
 }
 
-func (i AccountCustomDomainArgs) ToOutput(ctx context.Context) pulumix.Output[AccountCustomDomain] {
-	return pulumix.Output[AccountCustomDomain]{
-		OutputState: i.ToAccountCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountCustomDomainArgs) ToAccountCustomDomainPtrOutput() AccountCustomDomainPtrOutput {
 	return i.ToAccountCustomDomainPtrOutputWithContext(context.Background())
 }
@@ -1536,12 +1361,6 @@ func (i *accountCustomDomainPtrType) ToAccountCustomDomainPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomDomainPtrOutput)
 }
 
-func (i *accountCustomDomainPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomDomain] {
-	return pulumix.Output[*AccountCustomDomain]{
-		OutputState: i.ToAccountCustomDomainPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomDomainOutput) ElementType() reflect.Type {
@@ -1566,12 +1385,6 @@ func (o AccountCustomDomainOutput) ToAccountCustomDomainPtrOutputWithContext(ctx
 	}).(AccountCustomDomainPtrOutput)
 }
 
-func (o AccountCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[AccountCustomDomain] {
-	return pulumix.Output[AccountCustomDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 func (o AccountCustomDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCustomDomain) string { return v.Name }).(pulumi.StringOutput)
@@ -1594,12 +1407,6 @@ func (o AccountCustomDomainPtrOutput) ToAccountCustomDomainPtrOutput() AccountCu
 
 func (o AccountCustomDomainPtrOutput) ToAccountCustomDomainPtrOutputWithContext(ctx context.Context) AccountCustomDomainPtrOutput {
 	return o
-}
-
-func (o AccountCustomDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomDomain] {
-	return pulumix.Output[*AccountCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountCustomDomainPtrOutput) Elem() AccountCustomDomainOutput {
@@ -1673,12 +1480,6 @@ func (i AccountCustomerManagedKeyArgs) ToAccountCustomerManagedKeyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyOutput)
 }
 
-func (i AccountCustomerManagedKeyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountCustomerManagedKey] {
-	return pulumix.Output[AccountCustomerManagedKey]{
-		OutputState: i.ToAccountCustomerManagedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountCustomerManagedKeyArgs) ToAccountCustomerManagedKeyPtrOutput() AccountCustomerManagedKeyPtrOutput {
 	return i.ToAccountCustomerManagedKeyPtrOutputWithContext(context.Background())
 }
@@ -1720,12 +1521,6 @@ func (i *accountCustomerManagedKeyPtrType) ToAccountCustomerManagedKeyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyPtrOutput)
 }
 
-func (i *accountCustomerManagedKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomerManagedKey] {
-	return pulumix.Output[*AccountCustomerManagedKey]{
-		OutputState: i.ToAccountCustomerManagedKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (AccountCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -1748,12 +1543,6 @@ func (o AccountCustomerManagedKeyOutput) ToAccountCustomerManagedKeyPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCustomerManagedKey) *AccountCustomerManagedKey {
 		return &v
 	}).(AccountCustomerManagedKeyPtrOutput)
-}
-
-func (o AccountCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountCustomerManagedKey] {
-	return pulumix.Output[AccountCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
@@ -1780,12 +1569,6 @@ func (o AccountCustomerManagedKeyPtrOutput) ToAccountCustomerManagedKeyPtrOutput
 
 func (o AccountCustomerManagedKeyPtrOutput) ToAccountCustomerManagedKeyPtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyPtrOutput {
 	return o
-}
-
-func (o AccountCustomerManagedKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCustomerManagedKey] {
-	return pulumix.Output[*AccountCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountCustomerManagedKeyPtrOutput) Elem() AccountCustomerManagedKeyOutput {
@@ -1873,12 +1656,6 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
-func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -1920,12 +1697,6 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -1948,12 +1719,6 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
-}
-
-func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
@@ -1992,12 +1757,6 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
-}
-
-func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -2095,12 +1854,6 @@ func (i AccountImmutabilityPolicyArgs) ToAccountImmutabilityPolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyOutput)
 }
 
-func (i AccountImmutabilityPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountImmutabilityPolicy] {
-	return pulumix.Output[AccountImmutabilityPolicy]{
-		OutputState: i.ToAccountImmutabilityPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountImmutabilityPolicyArgs) ToAccountImmutabilityPolicyPtrOutput() AccountImmutabilityPolicyPtrOutput {
 	return i.ToAccountImmutabilityPolicyPtrOutputWithContext(context.Background())
 }
@@ -2142,12 +1895,6 @@ func (i *accountImmutabilityPolicyPtrType) ToAccountImmutabilityPolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AccountImmutabilityPolicyPtrOutput)
 }
 
-func (i *accountImmutabilityPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountImmutabilityPolicy] {
-	return pulumix.Output[*AccountImmutabilityPolicy]{
-		OutputState: i.ToAccountImmutabilityPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountImmutabilityPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountImmutabilityPolicyOutput) ElementType() reflect.Type {
@@ -2170,12 +1917,6 @@ func (o AccountImmutabilityPolicyOutput) ToAccountImmutabilityPolicyPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountImmutabilityPolicy) *AccountImmutabilityPolicy {
 		return &v
 	}).(AccountImmutabilityPolicyPtrOutput)
-}
-
-func (o AccountImmutabilityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountImmutabilityPolicy] {
-	return pulumix.Output[AccountImmutabilityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
@@ -2205,12 +1946,6 @@ func (o AccountImmutabilityPolicyPtrOutput) ToAccountImmutabilityPolicyPtrOutput
 
 func (o AccountImmutabilityPolicyPtrOutput) ToAccountImmutabilityPolicyPtrOutputWithContext(ctx context.Context) AccountImmutabilityPolicyPtrOutput {
 	return o
-}
-
-func (o AccountImmutabilityPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountImmutabilityPolicy] {
-	return pulumix.Output[*AccountImmutabilityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountImmutabilityPolicyPtrOutput) Elem() AccountImmutabilityPolicyOutput {
@@ -2318,12 +2053,6 @@ func (i AccountNetworkRulesTypeArgs) ToAccountNetworkRulesTypeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypeOutput)
 }
 
-func (i AccountNetworkRulesTypeArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkRulesType] {
-	return pulumix.Output[AccountNetworkRulesType]{
-		OutputState: i.ToAccountNetworkRulesTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountNetworkRulesTypeArgs) ToAccountNetworkRulesTypePtrOutput() AccountNetworkRulesTypePtrOutput {
 	return i.ToAccountNetworkRulesTypePtrOutputWithContext(context.Background())
 }
@@ -2365,12 +2094,6 @@ func (i *accountNetworkRulesTypePtrType) ToAccountNetworkRulesTypePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesTypePtrOutput)
 }
 
-func (i *accountNetworkRulesTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkRulesType] {
-	return pulumix.Output[*AccountNetworkRulesType]{
-		OutputState: i.ToAccountNetworkRulesTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountNetworkRulesTypeOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesTypeOutput) ElementType() reflect.Type {
@@ -2393,12 +2116,6 @@ func (o AccountNetworkRulesTypeOutput) ToAccountNetworkRulesTypePtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountNetworkRulesType) *AccountNetworkRulesType {
 		return &v
 	}).(AccountNetworkRulesTypePtrOutput)
-}
-
-func (o AccountNetworkRulesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkRulesType] {
-	return pulumix.Output[AccountNetworkRulesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -2446,12 +2163,6 @@ func (o AccountNetworkRulesTypePtrOutput) ToAccountNetworkRulesTypePtrOutput() A
 
 func (o AccountNetworkRulesTypePtrOutput) ToAccountNetworkRulesTypePtrOutputWithContext(ctx context.Context) AccountNetworkRulesTypePtrOutput {
 	return o
-}
-
-func (o AccountNetworkRulesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkRulesType] {
-	return pulumix.Output[*AccountNetworkRulesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountNetworkRulesTypePtrOutput) Elem() AccountNetworkRulesTypeOutput {
@@ -2559,12 +2270,6 @@ func (i AccountNetworkRulesPrivateLinkAccessArgs) ToAccountNetworkRulesPrivateLi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessOutput)
 }
 
-func (i AccountNetworkRulesPrivateLinkAccessArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkRulesPrivateLinkAccess] {
-	return pulumix.Output[AccountNetworkRulesPrivateLinkAccess]{
-		OutputState: i.ToAccountNetworkRulesPrivateLinkAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountNetworkRulesPrivateLinkAccessArrayInput is an input type that accepts AccountNetworkRulesPrivateLinkAccessArray and AccountNetworkRulesPrivateLinkAccessArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesPrivateLinkAccessArrayInput` via:
 //
@@ -2590,12 +2295,6 @@ func (i AccountNetworkRulesPrivateLinkAccessArray) ToAccountNetworkRulesPrivateL
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessArrayOutput)
 }
 
-func (i AccountNetworkRulesPrivateLinkAccessArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkRulesPrivateLinkAccess] {
-	return pulumix.Output[[]AccountNetworkRulesPrivateLinkAccess]{
-		OutputState: i.ToAccountNetworkRulesPrivateLinkAccessArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountNetworkRulesPrivateLinkAccessOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesPrivateLinkAccessOutput) ElementType() reflect.Type {
@@ -2608,12 +2307,6 @@ func (o AccountNetworkRulesPrivateLinkAccessOutput) ToAccountNetworkRulesPrivate
 
 func (o AccountNetworkRulesPrivateLinkAccessOutput) ToAccountNetworkRulesPrivateLinkAccessOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessOutput {
 	return o
-}
-
-func (o AccountNetworkRulesPrivateLinkAccessOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkRulesPrivateLinkAccess] {
-	return pulumix.Output[AccountNetworkRulesPrivateLinkAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource id of the resource access rule to be granted access.
@@ -2638,12 +2331,6 @@ func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) ToAccountNetworkRulesPr
 
 func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) ToAccountNetworkRulesPrivateLinkAccessArrayOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessArrayOutput {
 	return o
-}
-
-func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkRulesPrivateLinkAccess] {
-	return pulumix.Output[[]AccountNetworkRulesPrivateLinkAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountNetworkRulesPrivateLinkAccessArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesPrivateLinkAccessOutput {
@@ -2689,12 +2376,6 @@ func (i AccountNetworkRulesPrivateLinkAccessRuleArgs) ToAccountNetworkRulesPriva
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessRuleOutput)
 }
 
-func (i AccountNetworkRulesPrivateLinkAccessRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkRulesPrivateLinkAccessRule] {
-	return pulumix.Output[AccountNetworkRulesPrivateLinkAccessRule]{
-		OutputState: i.ToAccountNetworkRulesPrivateLinkAccessRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountNetworkRulesPrivateLinkAccessRuleArrayInput is an input type that accepts AccountNetworkRulesPrivateLinkAccessRuleArray and AccountNetworkRulesPrivateLinkAccessRuleArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesPrivateLinkAccessRuleArrayInput` via:
 //
@@ -2720,12 +2401,6 @@ func (i AccountNetworkRulesPrivateLinkAccessRuleArray) ToAccountNetworkRulesPriv
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesPrivateLinkAccessRuleArrayOutput)
 }
 
-func (i AccountNetworkRulesPrivateLinkAccessRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkRulesPrivateLinkAccessRule] {
-	return pulumix.Output[[]AccountNetworkRulesPrivateLinkAccessRule]{
-		OutputState: i.ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountNetworkRulesPrivateLinkAccessRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesPrivateLinkAccessRuleOutput) ElementType() reflect.Type {
@@ -2738,12 +2413,6 @@ func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) ToAccountNetworkRulesPri
 
 func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) ToAccountNetworkRulesPrivateLinkAccessRuleOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessRuleOutput {
 	return o
-}
-
-func (o AccountNetworkRulesPrivateLinkAccessRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountNetworkRulesPrivateLinkAccessRule] {
-	return pulumix.Output[AccountNetworkRulesPrivateLinkAccessRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource id of the resource access rule to be granted access.
@@ -2768,12 +2437,6 @@ func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) ToAccountNetworkRul
 
 func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) ToAccountNetworkRulesPrivateLinkAccessRuleArrayOutputWithContext(ctx context.Context) AccountNetworkRulesPrivateLinkAccessRuleArrayOutput {
 	return o
-}
-
-func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountNetworkRulesPrivateLinkAccessRule] {
-	return pulumix.Output[[]AccountNetworkRulesPrivateLinkAccessRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountNetworkRulesPrivateLinkAccessRuleArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesPrivateLinkAccessRuleOutput {
@@ -2827,12 +2490,6 @@ func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesOutput)
 }
 
-func (i AccountQueuePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountQueueProperties] {
-	return pulumix.Output[AccountQueueProperties]{
-		OutputState: i.ToAccountQueuePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountQueuePropertiesArgs) ToAccountQueuePropertiesPtrOutput() AccountQueuePropertiesPtrOutput {
 	return i.ToAccountQueuePropertiesPtrOutputWithContext(context.Background())
 }
@@ -2874,12 +2531,6 @@ func (i *accountQueuePropertiesPtrType) ToAccountQueuePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesPtrOutput)
 }
 
-func (i *accountQueuePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountQueueProperties] {
-	return pulumix.Output[*AccountQueueProperties]{
-		OutputState: i.ToAccountQueuePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountQueuePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesOutput) ElementType() reflect.Type {
@@ -2902,12 +2553,6 @@ func (o AccountQueuePropertiesOutput) ToAccountQueuePropertiesPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueueProperties) *AccountQueueProperties {
 		return &v
 	}).(AccountQueuePropertiesPtrOutput)
-}
-
-func (o AccountQueuePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountQueueProperties] {
-	return pulumix.Output[AccountQueueProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `corsRule` block as defined above.
@@ -2942,12 +2587,6 @@ func (o AccountQueuePropertiesPtrOutput) ToAccountQueuePropertiesPtrOutput() Acc
 
 func (o AccountQueuePropertiesPtrOutput) ToAccountQueuePropertiesPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesPtrOutput {
 	return o
-}
-
-func (o AccountQueuePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountQueueProperties] {
-	return pulumix.Output[*AccountQueueProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountQueuePropertiesPtrOutput) Elem() AccountQueuePropertiesOutput {
@@ -3051,12 +2690,6 @@ func (i AccountQueuePropertiesCorsRuleArgs) ToAccountQueuePropertiesCorsRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesCorsRuleOutput)
 }
 
-func (i AccountQueuePropertiesCorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesCorsRule] {
-	return pulumix.Output[AccountQueuePropertiesCorsRule]{
-		OutputState: i.ToAccountQueuePropertiesCorsRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountQueuePropertiesCorsRuleArrayInput is an input type that accepts AccountQueuePropertiesCorsRuleArray and AccountQueuePropertiesCorsRuleArrayOutput values.
 // You can construct a concrete instance of `AccountQueuePropertiesCorsRuleArrayInput` via:
 //
@@ -3082,12 +2715,6 @@ func (i AccountQueuePropertiesCorsRuleArray) ToAccountQueuePropertiesCorsRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesCorsRuleArrayOutput)
 }
 
-func (i AccountQueuePropertiesCorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountQueuePropertiesCorsRule] {
-	return pulumix.Output[[]AccountQueuePropertiesCorsRule]{
-		OutputState: i.ToAccountQueuePropertiesCorsRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountQueuePropertiesCorsRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesCorsRuleOutput) ElementType() reflect.Type {
@@ -3100,12 +2727,6 @@ func (o AccountQueuePropertiesCorsRuleOutput) ToAccountQueuePropertiesCorsRuleOu
 
 func (o AccountQueuePropertiesCorsRuleOutput) ToAccountQueuePropertiesCorsRuleOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRuleOutput {
 	return o
-}
-
-func (o AccountQueuePropertiesCorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesCorsRule] {
-	return pulumix.Output[AccountQueuePropertiesCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of headers that are allowed to be a part of the cross-origin request.
@@ -3146,12 +2767,6 @@ func (o AccountQueuePropertiesCorsRuleArrayOutput) ToAccountQueuePropertiesCorsR
 
 func (o AccountQueuePropertiesCorsRuleArrayOutput) ToAccountQueuePropertiesCorsRuleArrayOutputWithContext(ctx context.Context) AccountQueuePropertiesCorsRuleArrayOutput {
 	return o
-}
-
-func (o AccountQueuePropertiesCorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountQueuePropertiesCorsRule] {
-	return pulumix.Output[[]AccountQueuePropertiesCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountQueuePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountQueuePropertiesCorsRuleOutput {
@@ -3205,12 +2820,6 @@ func (i AccountQueuePropertiesHourMetricsArgs) ToAccountQueuePropertiesHourMetri
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesHourMetricsOutput)
 }
 
-func (i AccountQueuePropertiesHourMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesHourMetrics] {
-	return pulumix.Output[AccountQueuePropertiesHourMetrics]{
-		OutputState: i.ToAccountQueuePropertiesHourMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountQueuePropertiesHourMetricsArgs) ToAccountQueuePropertiesHourMetricsPtrOutput() AccountQueuePropertiesHourMetricsPtrOutput {
 	return i.ToAccountQueuePropertiesHourMetricsPtrOutputWithContext(context.Background())
 }
@@ -3252,12 +2861,6 @@ func (i *accountQueuePropertiesHourMetricsPtrType) ToAccountQueuePropertiesHourM
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesHourMetricsPtrOutput)
 }
 
-func (i *accountQueuePropertiesHourMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountQueuePropertiesHourMetrics] {
-	return pulumix.Output[*AccountQueuePropertiesHourMetrics]{
-		OutputState: i.ToAccountQueuePropertiesHourMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountQueuePropertiesHourMetricsOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesHourMetricsOutput) ElementType() reflect.Type {
@@ -3280,12 +2883,6 @@ func (o AccountQueuePropertiesHourMetricsOutput) ToAccountQueuePropertiesHourMet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesHourMetrics) *AccountQueuePropertiesHourMetrics {
 		return &v
 	}).(AccountQueuePropertiesHourMetricsPtrOutput)
-}
-
-func (o AccountQueuePropertiesHourMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesHourMetrics] {
-	return pulumix.Output[AccountQueuePropertiesHourMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether hour metrics are enabled for the Queue service.
@@ -3320,12 +2917,6 @@ func (o AccountQueuePropertiesHourMetricsPtrOutput) ToAccountQueuePropertiesHour
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) ToAccountQueuePropertiesHourMetricsPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesHourMetricsPtrOutput {
 	return o
-}
-
-func (o AccountQueuePropertiesHourMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountQueuePropertiesHourMetrics] {
-	return pulumix.Output[*AccountQueuePropertiesHourMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountQueuePropertiesHourMetricsPtrOutput) Elem() AccountQueuePropertiesHourMetricsOutput {
@@ -3427,12 +3018,6 @@ func (i AccountQueuePropertiesLoggingArgs) ToAccountQueuePropertiesLoggingOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesLoggingOutput)
 }
 
-func (i AccountQueuePropertiesLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesLogging] {
-	return pulumix.Output[AccountQueuePropertiesLogging]{
-		OutputState: i.ToAccountQueuePropertiesLoggingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountQueuePropertiesLoggingArgs) ToAccountQueuePropertiesLoggingPtrOutput() AccountQueuePropertiesLoggingPtrOutput {
 	return i.ToAccountQueuePropertiesLoggingPtrOutputWithContext(context.Background())
 }
@@ -3474,12 +3059,6 @@ func (i *accountQueuePropertiesLoggingPtrType) ToAccountQueuePropertiesLoggingPt
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesLoggingPtrOutput)
 }
 
-func (i *accountQueuePropertiesLoggingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountQueuePropertiesLogging] {
-	return pulumix.Output[*AccountQueuePropertiesLogging]{
-		OutputState: i.ToAccountQueuePropertiesLoggingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountQueuePropertiesLoggingOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesLoggingOutput) ElementType() reflect.Type {
@@ -3502,12 +3081,6 @@ func (o AccountQueuePropertiesLoggingOutput) ToAccountQueuePropertiesLoggingPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesLogging) *AccountQueuePropertiesLogging {
 		return &v
 	}).(AccountQueuePropertiesLoggingPtrOutput)
-}
-
-func (o AccountQueuePropertiesLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesLogging] {
-	return pulumix.Output[AccountQueuePropertiesLogging]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether all delete requests should be logged.
@@ -3547,12 +3120,6 @@ func (o AccountQueuePropertiesLoggingPtrOutput) ToAccountQueuePropertiesLoggingP
 
 func (o AccountQueuePropertiesLoggingPtrOutput) ToAccountQueuePropertiesLoggingPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesLoggingPtrOutput {
 	return o
-}
-
-func (o AccountQueuePropertiesLoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountQueuePropertiesLogging] {
-	return pulumix.Output[*AccountQueuePropertiesLogging]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountQueuePropertiesLoggingPtrOutput) Elem() AccountQueuePropertiesLoggingOutput {
@@ -3660,12 +3227,6 @@ func (i AccountQueuePropertiesMinuteMetricsArgs) ToAccountQueuePropertiesMinuteM
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesMinuteMetricsOutput)
 }
 
-func (i AccountQueuePropertiesMinuteMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesMinuteMetrics] {
-	return pulumix.Output[AccountQueuePropertiesMinuteMetrics]{
-		OutputState: i.ToAccountQueuePropertiesMinuteMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountQueuePropertiesMinuteMetricsArgs) ToAccountQueuePropertiesMinuteMetricsPtrOutput() AccountQueuePropertiesMinuteMetricsPtrOutput {
 	return i.ToAccountQueuePropertiesMinuteMetricsPtrOutputWithContext(context.Background())
 }
@@ -3707,12 +3268,6 @@ func (i *accountQueuePropertiesMinuteMetricsPtrType) ToAccountQueuePropertiesMin
 	return pulumi.ToOutputWithContext(ctx, i).(AccountQueuePropertiesMinuteMetricsPtrOutput)
 }
 
-func (i *accountQueuePropertiesMinuteMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountQueuePropertiesMinuteMetrics] {
-	return pulumix.Output[*AccountQueuePropertiesMinuteMetrics]{
-		OutputState: i.ToAccountQueuePropertiesMinuteMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountQueuePropertiesMinuteMetricsOutput struct{ *pulumi.OutputState }
 
 func (AccountQueuePropertiesMinuteMetricsOutput) ElementType() reflect.Type {
@@ -3735,12 +3290,6 @@ func (o AccountQueuePropertiesMinuteMetricsOutput) ToAccountQueuePropertiesMinut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountQueuePropertiesMinuteMetrics) *AccountQueuePropertiesMinuteMetrics {
 		return &v
 	}).(AccountQueuePropertiesMinuteMetricsPtrOutput)
-}
-
-func (o AccountQueuePropertiesMinuteMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[AccountQueuePropertiesMinuteMetrics] {
-	return pulumix.Output[AccountQueuePropertiesMinuteMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether minute metrics are enabled for the Queue service.
@@ -3775,12 +3324,6 @@ func (o AccountQueuePropertiesMinuteMetricsPtrOutput) ToAccountQueuePropertiesMi
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) ToAccountQueuePropertiesMinuteMetricsPtrOutputWithContext(ctx context.Context) AccountQueuePropertiesMinuteMetricsPtrOutput {
 	return o
-}
-
-func (o AccountQueuePropertiesMinuteMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountQueuePropertiesMinuteMetrics] {
-	return pulumix.Output[*AccountQueuePropertiesMinuteMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountQueuePropertiesMinuteMetricsPtrOutput) Elem() AccountQueuePropertiesMinuteMetricsOutput {
@@ -3874,12 +3417,6 @@ func (i AccountRoutingArgs) ToAccountRoutingOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountRoutingOutput)
 }
 
-func (i AccountRoutingArgs) ToOutput(ctx context.Context) pulumix.Output[AccountRouting] {
-	return pulumix.Output[AccountRouting]{
-		OutputState: i.ToAccountRoutingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountRoutingArgs) ToAccountRoutingPtrOutput() AccountRoutingPtrOutput {
 	return i.ToAccountRoutingPtrOutputWithContext(context.Background())
 }
@@ -3921,12 +3458,6 @@ func (i *accountRoutingPtrType) ToAccountRoutingPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccountRoutingPtrOutput)
 }
 
-func (i *accountRoutingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountRouting] {
-	return pulumix.Output[*AccountRouting]{
-		OutputState: i.ToAccountRoutingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountRoutingOutput struct{ *pulumi.OutputState }
 
 func (AccountRoutingOutput) ElementType() reflect.Type {
@@ -3949,12 +3480,6 @@ func (o AccountRoutingOutput) ToAccountRoutingPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountRouting) *AccountRouting {
 		return &v
 	}).(AccountRoutingPtrOutput)
-}
-
-func (o AccountRoutingOutput) ToOutput(ctx context.Context) pulumix.Output[AccountRouting] {
-	return pulumix.Output[AccountRouting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
@@ -3984,12 +3509,6 @@ func (o AccountRoutingPtrOutput) ToAccountRoutingPtrOutput() AccountRoutingPtrOu
 
 func (o AccountRoutingPtrOutput) ToAccountRoutingPtrOutputWithContext(ctx context.Context) AccountRoutingPtrOutput {
 	return o
-}
-
-func (o AccountRoutingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountRouting] {
-	return pulumix.Output[*AccountRouting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountRoutingPtrOutput) Elem() AccountRoutingOutput {
@@ -4069,12 +3588,6 @@ func (i AccountSasPolicyArgs) ToAccountSasPolicyOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSasPolicyOutput)
 }
 
-func (i AccountSasPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountSasPolicy] {
-	return pulumix.Output[AccountSasPolicy]{
-		OutputState: i.ToAccountSasPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountSasPolicyArgs) ToAccountSasPolicyPtrOutput() AccountSasPolicyPtrOutput {
 	return i.ToAccountSasPolicyPtrOutputWithContext(context.Background())
 }
@@ -4116,12 +3629,6 @@ func (i *accountSasPolicyPtrType) ToAccountSasPolicyPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSasPolicyPtrOutput)
 }
 
-func (i *accountSasPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountSasPolicy] {
-	return pulumix.Output[*AccountSasPolicy]{
-		OutputState: i.ToAccountSasPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountSasPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountSasPolicyOutput) ElementType() reflect.Type {
@@ -4146,12 +3653,6 @@ func (o AccountSasPolicyOutput) ToAccountSasPolicyPtrOutputWithContext(ctx conte
 	}).(AccountSasPolicyPtrOutput)
 }
 
-func (o AccountSasPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountSasPolicy] {
-	return pulumix.Output[AccountSasPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
 func (o AccountSasPolicyOutput) ExpirationAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountSasPolicy) *string { return v.ExpirationAction }).(pulumi.StringPtrOutput)
@@ -4174,12 +3675,6 @@ func (o AccountSasPolicyPtrOutput) ToAccountSasPolicyPtrOutput() AccountSasPolic
 
 func (o AccountSasPolicyPtrOutput) ToAccountSasPolicyPtrOutputWithContext(ctx context.Context) AccountSasPolicyPtrOutput {
 	return o
-}
-
-func (o AccountSasPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountSasPolicy] {
-	return pulumix.Output[*AccountSasPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountSasPolicyPtrOutput) Elem() AccountSasPolicyOutput {
@@ -4253,12 +3748,6 @@ func (i AccountSharePropertiesArgs) ToAccountSharePropertiesOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesOutput)
 }
 
-func (i AccountSharePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AccountShareProperties] {
-	return pulumix.Output[AccountShareProperties]{
-		OutputState: i.ToAccountSharePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountSharePropertiesArgs) ToAccountSharePropertiesPtrOutput() AccountSharePropertiesPtrOutput {
 	return i.ToAccountSharePropertiesPtrOutputWithContext(context.Background())
 }
@@ -4300,12 +3789,6 @@ func (i *accountSharePropertiesPtrType) ToAccountSharePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesPtrOutput)
 }
 
-func (i *accountSharePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountShareProperties] {
-	return pulumix.Output[*AccountShareProperties]{
-		OutputState: i.ToAccountSharePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountSharePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AccountSharePropertiesOutput) ElementType() reflect.Type {
@@ -4328,12 +3811,6 @@ func (o AccountSharePropertiesOutput) ToAccountSharePropertiesPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountShareProperties) *AccountShareProperties {
 		return &v
 	}).(AccountSharePropertiesPtrOutput)
-}
-
-func (o AccountSharePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AccountShareProperties] {
-	return pulumix.Output[AccountShareProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `corsRule` block as defined below.
@@ -4363,12 +3840,6 @@ func (o AccountSharePropertiesPtrOutput) ToAccountSharePropertiesPtrOutput() Acc
 
 func (o AccountSharePropertiesPtrOutput) ToAccountSharePropertiesPtrOutputWithContext(ctx context.Context) AccountSharePropertiesPtrOutput {
 	return o
-}
-
-func (o AccountSharePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountShareProperties] {
-	return pulumix.Output[*AccountShareProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountSharePropertiesPtrOutput) Elem() AccountSharePropertiesOutput {
@@ -4462,12 +3933,6 @@ func (i AccountSharePropertiesCorsRuleArgs) ToAccountSharePropertiesCorsRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesCorsRuleOutput)
 }
 
-func (i AccountSharePropertiesCorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AccountSharePropertiesCorsRule] {
-	return pulumix.Output[AccountSharePropertiesCorsRule]{
-		OutputState: i.ToAccountSharePropertiesCorsRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountSharePropertiesCorsRuleArrayInput is an input type that accepts AccountSharePropertiesCorsRuleArray and AccountSharePropertiesCorsRuleArrayOutput values.
 // You can construct a concrete instance of `AccountSharePropertiesCorsRuleArrayInput` via:
 //
@@ -4493,12 +3958,6 @@ func (i AccountSharePropertiesCorsRuleArray) ToAccountSharePropertiesCorsRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesCorsRuleArrayOutput)
 }
 
-func (i AccountSharePropertiesCorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountSharePropertiesCorsRule] {
-	return pulumix.Output[[]AccountSharePropertiesCorsRule]{
-		OutputState: i.ToAccountSharePropertiesCorsRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountSharePropertiesCorsRuleOutput struct{ *pulumi.OutputState }
 
 func (AccountSharePropertiesCorsRuleOutput) ElementType() reflect.Type {
@@ -4511,12 +3970,6 @@ func (o AccountSharePropertiesCorsRuleOutput) ToAccountSharePropertiesCorsRuleOu
 
 func (o AccountSharePropertiesCorsRuleOutput) ToAccountSharePropertiesCorsRuleOutputWithContext(ctx context.Context) AccountSharePropertiesCorsRuleOutput {
 	return o
-}
-
-func (o AccountSharePropertiesCorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AccountSharePropertiesCorsRule] {
-	return pulumix.Output[AccountSharePropertiesCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of headers that are allowed to be a part of the cross-origin request.
@@ -4559,12 +4012,6 @@ func (o AccountSharePropertiesCorsRuleArrayOutput) ToAccountSharePropertiesCorsR
 	return o
 }
 
-func (o AccountSharePropertiesCorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountSharePropertiesCorsRule] {
-	return pulumix.Output[[]AccountSharePropertiesCorsRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountSharePropertiesCorsRuleArrayOutput) Index(i pulumi.IntInput) AccountSharePropertiesCorsRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountSharePropertiesCorsRule {
 		return vs[0].([]AccountSharePropertiesCorsRule)[vs[1].(int)]
@@ -4602,12 +4049,6 @@ func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesReten
 
 func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesRetentionPolicyOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesRetentionPolicyOutput)
-}
-
-func (i AccountSharePropertiesRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccountSharePropertiesRetentionPolicy] {
-	return pulumix.Output[AccountSharePropertiesRetentionPolicy]{
-		OutputState: i.ToAccountSharePropertiesRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccountSharePropertiesRetentionPolicyArgs) ToAccountSharePropertiesRetentionPolicyPtrOutput() AccountSharePropertiesRetentionPolicyPtrOutput {
@@ -4651,12 +4092,6 @@ func (i *accountSharePropertiesRetentionPolicyPtrType) ToAccountSharePropertiesR
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesRetentionPolicyPtrOutput)
 }
 
-func (i *accountSharePropertiesRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountSharePropertiesRetentionPolicy] {
-	return pulumix.Output[*AccountSharePropertiesRetentionPolicy]{
-		OutputState: i.ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountSharePropertiesRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccountSharePropertiesRetentionPolicyOutput) ElementType() reflect.Type {
@@ -4681,12 +4116,6 @@ func (o AccountSharePropertiesRetentionPolicyOutput) ToAccountSharePropertiesRet
 	}).(AccountSharePropertiesRetentionPolicyPtrOutput)
 }
 
-func (o AccountSharePropertiesRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccountSharePropertiesRetentionPolicy] {
-	return pulumix.Output[AccountSharePropertiesRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
 func (o AccountSharePropertiesRetentionPolicyOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountSharePropertiesRetentionPolicy) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -4704,12 +4133,6 @@ func (o AccountSharePropertiesRetentionPolicyPtrOutput) ToAccountShareProperties
 
 func (o AccountSharePropertiesRetentionPolicyPtrOutput) ToAccountSharePropertiesRetentionPolicyPtrOutputWithContext(ctx context.Context) AccountSharePropertiesRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o AccountSharePropertiesRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountSharePropertiesRetentionPolicy] {
-	return pulumix.Output[*AccountSharePropertiesRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountSharePropertiesRetentionPolicyPtrOutput) Elem() AccountSharePropertiesRetentionPolicyOutput {
@@ -4781,12 +4204,6 @@ func (i AccountSharePropertiesSmbArgs) ToAccountSharePropertiesSmbOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesSmbOutput)
 }
 
-func (i AccountSharePropertiesSmbArgs) ToOutput(ctx context.Context) pulumix.Output[AccountSharePropertiesSmb] {
-	return pulumix.Output[AccountSharePropertiesSmb]{
-		OutputState: i.ToAccountSharePropertiesSmbOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountSharePropertiesSmbArgs) ToAccountSharePropertiesSmbPtrOutput() AccountSharePropertiesSmbPtrOutput {
 	return i.ToAccountSharePropertiesSmbPtrOutputWithContext(context.Background())
 }
@@ -4828,12 +4245,6 @@ func (i *accountSharePropertiesSmbPtrType) ToAccountSharePropertiesSmbPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AccountSharePropertiesSmbPtrOutput)
 }
 
-func (i *accountSharePropertiesSmbPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountSharePropertiesSmb] {
-	return pulumix.Output[*AccountSharePropertiesSmb]{
-		OutputState: i.ToAccountSharePropertiesSmbPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountSharePropertiesSmbOutput struct{ *pulumi.OutputState }
 
 func (AccountSharePropertiesSmbOutput) ElementType() reflect.Type {
@@ -4856,12 +4267,6 @@ func (o AccountSharePropertiesSmbOutput) ToAccountSharePropertiesSmbPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSharePropertiesSmb) *AccountSharePropertiesSmb {
 		return &v
 	}).(AccountSharePropertiesSmbPtrOutput)
-}
-
-func (o AccountSharePropertiesSmbOutput) ToOutput(ctx context.Context) pulumix.Output[AccountSharePropertiesSmb] {
-	return pulumix.Output[AccountSharePropertiesSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
@@ -4901,12 +4306,6 @@ func (o AccountSharePropertiesSmbPtrOutput) ToAccountSharePropertiesSmbPtrOutput
 
 func (o AccountSharePropertiesSmbPtrOutput) ToAccountSharePropertiesSmbPtrOutputWithContext(ctx context.Context) AccountSharePropertiesSmbPtrOutput {
 	return o
-}
-
-func (o AccountSharePropertiesSmbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountSharePropertiesSmb] {
-	return pulumix.Output[*AccountSharePropertiesSmb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountSharePropertiesSmbPtrOutput) Elem() AccountSharePropertiesSmbOutput {
@@ -5006,12 +4405,6 @@ func (i AccountStaticWebsiteArgs) ToAccountStaticWebsiteOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsiteOutput)
 }
 
-func (i AccountStaticWebsiteArgs) ToOutput(ctx context.Context) pulumix.Output[AccountStaticWebsite] {
-	return pulumix.Output[AccountStaticWebsite]{
-		OutputState: i.ToAccountStaticWebsiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountStaticWebsiteArgs) ToAccountStaticWebsitePtrOutput() AccountStaticWebsitePtrOutput {
 	return i.ToAccountStaticWebsitePtrOutputWithContext(context.Background())
 }
@@ -5053,12 +4446,6 @@ func (i *accountStaticWebsitePtrType) ToAccountStaticWebsitePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccountStaticWebsitePtrOutput)
 }
 
-func (i *accountStaticWebsitePtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountStaticWebsite] {
-	return pulumix.Output[*AccountStaticWebsite]{
-		OutputState: i.ToAccountStaticWebsitePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountStaticWebsiteOutput struct{ *pulumi.OutputState }
 
 func (AccountStaticWebsiteOutput) ElementType() reflect.Type {
@@ -5083,12 +4470,6 @@ func (o AccountStaticWebsiteOutput) ToAccountStaticWebsitePtrOutputWithContext(c
 	}).(AccountStaticWebsitePtrOutput)
 }
 
-func (o AccountStaticWebsiteOutput) ToOutput(ctx context.Context) pulumix.Output[AccountStaticWebsite] {
-	return pulumix.Output[AccountStaticWebsite]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
 func (o AccountStaticWebsiteOutput) Error404Document() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStaticWebsite) *string { return v.Error404Document }).(pulumi.StringPtrOutput)
@@ -5111,12 +4492,6 @@ func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutput() Account
 
 func (o AccountStaticWebsitePtrOutput) ToAccountStaticWebsitePtrOutputWithContext(ctx context.Context) AccountStaticWebsitePtrOutput {
 	return o
-}
-
-func (o AccountStaticWebsitePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountStaticWebsite] {
-	return pulumix.Output[*AccountStaticWebsite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountStaticWebsitePtrOutput) Elem() AccountStaticWebsiteOutput {
@@ -5206,12 +4581,6 @@ func (i BlobInventoryPolicyRuleArgs) ToBlobInventoryPolicyRuleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleOutput)
 }
 
-func (i BlobInventoryPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BlobInventoryPolicyRule] {
-	return pulumix.Output[BlobInventoryPolicyRule]{
-		OutputState: i.ToBlobInventoryPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BlobInventoryPolicyRuleArrayInput is an input type that accepts BlobInventoryPolicyRuleArray and BlobInventoryPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `BlobInventoryPolicyRuleArrayInput` via:
 //
@@ -5237,12 +4606,6 @@ func (i BlobInventoryPolicyRuleArray) ToBlobInventoryPolicyRuleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleArrayOutput)
 }
 
-func (i BlobInventoryPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BlobInventoryPolicyRule] {
-	return pulumix.Output[[]BlobInventoryPolicyRule]{
-		OutputState: i.ToBlobInventoryPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BlobInventoryPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyRuleOutput) ElementType() reflect.Type {
@@ -5255,12 +4618,6 @@ func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutput() BlobInv
 
 func (o BlobInventoryPolicyRuleOutput) ToBlobInventoryPolicyRuleOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleOutput {
 	return o
-}
-
-func (o BlobInventoryPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BlobInventoryPolicyRule] {
-	return pulumix.Output[BlobInventoryPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
@@ -5310,12 +4667,6 @@ func (o BlobInventoryPolicyRuleArrayOutput) ToBlobInventoryPolicyRuleArrayOutput
 
 func (o BlobInventoryPolicyRuleArrayOutput) ToBlobInventoryPolicyRuleArrayOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleArrayOutput {
 	return o
-}
-
-func (o BlobInventoryPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BlobInventoryPolicyRule] {
-	return pulumix.Output[[]BlobInventoryPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BlobInventoryPolicyRuleArrayOutput) Index(i pulumi.IntInput) BlobInventoryPolicyRuleOutput {
@@ -5393,12 +4744,6 @@ func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleFilterOutput)
 }
 
-func (i BlobInventoryPolicyRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BlobInventoryPolicyRuleFilter] {
-	return pulumix.Output[BlobInventoryPolicyRuleFilter]{
-		OutputState: i.ToBlobInventoryPolicyRuleFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BlobInventoryPolicyRuleFilterArgs) ToBlobInventoryPolicyRuleFilterPtrOutput() BlobInventoryPolicyRuleFilterPtrOutput {
 	return i.ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(context.Background())
 }
@@ -5440,12 +4785,6 @@ func (i *blobInventoryPolicyRuleFilterPtrType) ToBlobInventoryPolicyRuleFilterPt
 	return pulumi.ToOutputWithContext(ctx, i).(BlobInventoryPolicyRuleFilterPtrOutput)
 }
 
-func (i *blobInventoryPolicyRuleFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BlobInventoryPolicyRuleFilter] {
-	return pulumix.Output[*BlobInventoryPolicyRuleFilter]{
-		OutputState: i.ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BlobInventoryPolicyRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BlobInventoryPolicyRuleFilterOutput) ElementType() reflect.Type {
@@ -5468,12 +4807,6 @@ func (o BlobInventoryPolicyRuleFilterOutput) ToBlobInventoryPolicyRuleFilterPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobInventoryPolicyRuleFilter) *BlobInventoryPolicyRuleFilter {
 		return &v
 	}).(BlobInventoryPolicyRuleFilterPtrOutput)
-}
-
-func (o BlobInventoryPolicyRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BlobInventoryPolicyRuleFilter] {
-	return pulumix.Output[BlobInventoryPolicyRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `isHnsEnabled` is `true` doesn't support `pageBlob`.
@@ -5526,12 +4859,6 @@ func (o BlobInventoryPolicyRuleFilterPtrOutput) ToBlobInventoryPolicyRuleFilterP
 
 func (o BlobInventoryPolicyRuleFilterPtrOutput) ToBlobInventoryPolicyRuleFilterPtrOutputWithContext(ctx context.Context) BlobInventoryPolicyRuleFilterPtrOutput {
 	return o
-}
-
-func (o BlobInventoryPolicyRuleFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BlobInventoryPolicyRuleFilter] {
-	return pulumix.Output[*BlobInventoryPolicyRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BlobInventoryPolicyRuleFilterPtrOutput) Elem() BlobInventoryPolicyRuleFilterOutput {
@@ -5661,12 +4988,6 @@ func (i DataLakeGen2FilesystemAceArgs) ToDataLakeGen2FilesystemAceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemAceOutput)
 }
 
-func (i DataLakeGen2FilesystemAceArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeGen2FilesystemAce] {
-	return pulumix.Output[DataLakeGen2FilesystemAce]{
-		OutputState: i.ToDataLakeGen2FilesystemAceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataLakeGen2FilesystemAceArrayInput is an input type that accepts DataLakeGen2FilesystemAceArray and DataLakeGen2FilesystemAceArrayOutput values.
 // You can construct a concrete instance of `DataLakeGen2FilesystemAceArrayInput` via:
 //
@@ -5692,12 +5013,6 @@ func (i DataLakeGen2FilesystemAceArray) ToDataLakeGen2FilesystemAceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2FilesystemAceArrayOutput)
 }
 
-func (i DataLakeGen2FilesystemAceArray) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeGen2FilesystemAce] {
-	return pulumix.Output[[]DataLakeGen2FilesystemAce]{
-		OutputState: i.ToDataLakeGen2FilesystemAceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeGen2FilesystemAceOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2FilesystemAceOutput) ElementType() reflect.Type {
@@ -5710,12 +5025,6 @@ func (o DataLakeGen2FilesystemAceOutput) ToDataLakeGen2FilesystemAceOutput() Dat
 
 func (o DataLakeGen2FilesystemAceOutput) ToDataLakeGen2FilesystemAceOutputWithContext(ctx context.Context) DataLakeGen2FilesystemAceOutput {
 	return o
-}
-
-func (o DataLakeGen2FilesystemAceOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeGen2FilesystemAce] {
-	return pulumix.Output[DataLakeGen2FilesystemAce]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
@@ -5752,12 +5061,6 @@ func (o DataLakeGen2FilesystemAceArrayOutput) ToDataLakeGen2FilesystemAceArrayOu
 
 func (o DataLakeGen2FilesystemAceArrayOutput) ToDataLakeGen2FilesystemAceArrayOutputWithContext(ctx context.Context) DataLakeGen2FilesystemAceArrayOutput {
 	return o
-}
-
-func (o DataLakeGen2FilesystemAceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeGen2FilesystemAce] {
-	return pulumix.Output[[]DataLakeGen2FilesystemAce]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeGen2FilesystemAceArrayOutput) Index(i pulumi.IntInput) DataLakeGen2FilesystemAceOutput {
@@ -5809,12 +5112,6 @@ func (i DataLakeGen2PathAceArgs) ToDataLakeGen2PathAceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathAceOutput)
 }
 
-func (i DataLakeGen2PathAceArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeGen2PathAce] {
-	return pulumix.Output[DataLakeGen2PathAce]{
-		OutputState: i.ToDataLakeGen2PathAceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataLakeGen2PathAceArrayInput is an input type that accepts DataLakeGen2PathAceArray and DataLakeGen2PathAceArrayOutput values.
 // You can construct a concrete instance of `DataLakeGen2PathAceArrayInput` via:
 //
@@ -5840,12 +5137,6 @@ func (i DataLakeGen2PathAceArray) ToDataLakeGen2PathAceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeGen2PathAceArrayOutput)
 }
 
-func (i DataLakeGen2PathAceArray) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeGen2PathAce] {
-	return pulumix.Output[[]DataLakeGen2PathAce]{
-		OutputState: i.ToDataLakeGen2PathAceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeGen2PathAceOutput struct{ *pulumi.OutputState }
 
 func (DataLakeGen2PathAceOutput) ElementType() reflect.Type {
@@ -5858,12 +5149,6 @@ func (o DataLakeGen2PathAceOutput) ToDataLakeGen2PathAceOutput() DataLakeGen2Pat
 
 func (o DataLakeGen2PathAceOutput) ToDataLakeGen2PathAceOutputWithContext(ctx context.Context) DataLakeGen2PathAceOutput {
 	return o
-}
-
-func (o DataLakeGen2PathAceOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeGen2PathAce] {
-	return pulumix.Output[DataLakeGen2PathAce]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
@@ -5897,12 +5182,6 @@ func (o DataLakeGen2PathAceArrayOutput) ToDataLakeGen2PathAceArrayOutput() DataL
 
 func (o DataLakeGen2PathAceArrayOutput) ToDataLakeGen2PathAceArrayOutputWithContext(ctx context.Context) DataLakeGen2PathAceArrayOutput {
 	return o
-}
-
-func (o DataLakeGen2PathAceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataLakeGen2PathAce] {
-	return pulumix.Output[[]DataLakeGen2PathAce]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeGen2PathAceArrayOutput) Index(i pulumi.IntInput) DataLakeGen2PathAceOutput {
@@ -5952,12 +5231,6 @@ func (i LocalUserPermissionScopeArgs) ToLocalUserPermissionScopeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserPermissionScopeOutput)
 }
 
-func (i LocalUserPermissionScopeArgs) ToOutput(ctx context.Context) pulumix.Output[LocalUserPermissionScope] {
-	return pulumix.Output[LocalUserPermissionScope]{
-		OutputState: i.ToLocalUserPermissionScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalUserPermissionScopeArrayInput is an input type that accepts LocalUserPermissionScopeArray and LocalUserPermissionScopeArrayOutput values.
 // You can construct a concrete instance of `LocalUserPermissionScopeArrayInput` via:
 //
@@ -5983,12 +5256,6 @@ func (i LocalUserPermissionScopeArray) ToLocalUserPermissionScopeArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserPermissionScopeArrayOutput)
 }
 
-func (i LocalUserPermissionScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]LocalUserPermissionScope] {
-	return pulumix.Output[[]LocalUserPermissionScope]{
-		OutputState: i.ToLocalUserPermissionScopeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalUserPermissionScopeOutput struct{ *pulumi.OutputState }
 
 func (LocalUserPermissionScopeOutput) ElementType() reflect.Type {
@@ -6001,12 +5268,6 @@ func (o LocalUserPermissionScopeOutput) ToLocalUserPermissionScopeOutput() Local
 
 func (o LocalUserPermissionScopeOutput) ToLocalUserPermissionScopeOutputWithContext(ctx context.Context) LocalUserPermissionScopeOutput {
 	return o
-}
-
-func (o LocalUserPermissionScopeOutput) ToOutput(ctx context.Context) pulumix.Output[LocalUserPermissionScope] {
-	return pulumix.Output[LocalUserPermissionScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `permissions` block as defined below.
@@ -6036,12 +5297,6 @@ func (o LocalUserPermissionScopeArrayOutput) ToLocalUserPermissionScopeArrayOutp
 
 func (o LocalUserPermissionScopeArrayOutput) ToLocalUserPermissionScopeArrayOutputWithContext(ctx context.Context) LocalUserPermissionScopeArrayOutput {
 	return o
-}
-
-func (o LocalUserPermissionScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocalUserPermissionScope] {
-	return pulumix.Output[[]LocalUserPermissionScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalUserPermissionScopeArrayOutput) Index(i pulumi.IntInput) LocalUserPermissionScopeOutput {
@@ -6099,12 +5354,6 @@ func (i LocalUserPermissionScopePermissionsArgs) ToLocalUserPermissionScopePermi
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserPermissionScopePermissionsOutput)
 }
 
-func (i LocalUserPermissionScopePermissionsArgs) ToOutput(ctx context.Context) pulumix.Output[LocalUserPermissionScopePermissions] {
-	return pulumix.Output[LocalUserPermissionScopePermissions]{
-		OutputState: i.ToLocalUserPermissionScopePermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalUserPermissionScopePermissionsOutput struct{ *pulumi.OutputState }
 
 func (LocalUserPermissionScopePermissionsOutput) ElementType() reflect.Type {
@@ -6117,12 +5366,6 @@ func (o LocalUserPermissionScopePermissionsOutput) ToLocalUserPermissionScopePer
 
 func (o LocalUserPermissionScopePermissionsOutput) ToLocalUserPermissionScopePermissionsOutputWithContext(ctx context.Context) LocalUserPermissionScopePermissionsOutput {
 	return o
-}
-
-func (o LocalUserPermissionScopePermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[LocalUserPermissionScopePermissions] {
-	return pulumix.Output[LocalUserPermissionScopePermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the Local User has the create permission for this scope. Defaults to `false`.
@@ -6187,12 +5430,6 @@ func (i LocalUserSshAuthorizedKeyArgs) ToLocalUserSshAuthorizedKeyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserSshAuthorizedKeyOutput)
 }
 
-func (i LocalUserSshAuthorizedKeyArgs) ToOutput(ctx context.Context) pulumix.Output[LocalUserSshAuthorizedKey] {
-	return pulumix.Output[LocalUserSshAuthorizedKey]{
-		OutputState: i.ToLocalUserSshAuthorizedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalUserSshAuthorizedKeyArrayInput is an input type that accepts LocalUserSshAuthorizedKeyArray and LocalUserSshAuthorizedKeyArrayOutput values.
 // You can construct a concrete instance of `LocalUserSshAuthorizedKeyArrayInput` via:
 //
@@ -6218,12 +5455,6 @@ func (i LocalUserSshAuthorizedKeyArray) ToLocalUserSshAuthorizedKeyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LocalUserSshAuthorizedKeyArrayOutput)
 }
 
-func (i LocalUserSshAuthorizedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]LocalUserSshAuthorizedKey] {
-	return pulumix.Output[[]LocalUserSshAuthorizedKey]{
-		OutputState: i.ToLocalUserSshAuthorizedKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalUserSshAuthorizedKeyOutput struct{ *pulumi.OutputState }
 
 func (LocalUserSshAuthorizedKeyOutput) ElementType() reflect.Type {
@@ -6236,12 +5467,6 @@ func (o LocalUserSshAuthorizedKeyOutput) ToLocalUserSshAuthorizedKeyOutput() Loc
 
 func (o LocalUserSshAuthorizedKeyOutput) ToLocalUserSshAuthorizedKeyOutputWithContext(ctx context.Context) LocalUserSshAuthorizedKeyOutput {
 	return o
-}
-
-func (o LocalUserSshAuthorizedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[LocalUserSshAuthorizedKey] {
-	return pulumix.Output[LocalUserSshAuthorizedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of this SSH authorized key.
@@ -6266,12 +5491,6 @@ func (o LocalUserSshAuthorizedKeyArrayOutput) ToLocalUserSshAuthorizedKeyArrayOu
 
 func (o LocalUserSshAuthorizedKeyArrayOutput) ToLocalUserSshAuthorizedKeyArrayOutputWithContext(ctx context.Context) LocalUserSshAuthorizedKeyArrayOutput {
 	return o
-}
-
-func (o LocalUserSshAuthorizedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LocalUserSshAuthorizedKey] {
-	return pulumix.Output[[]LocalUserSshAuthorizedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalUserSshAuthorizedKeyArrayOutput) Index(i pulumi.IntInput) LocalUserSshAuthorizedKeyOutput {
@@ -6325,12 +5544,6 @@ func (i ManagementPolicyRuleArgs) ToManagementPolicyRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleOutput)
 }
 
-func (i ManagementPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRule] {
-	return pulumix.Output[ManagementPolicyRule]{
-		OutputState: i.ToManagementPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagementPolicyRuleArrayInput is an input type that accepts ManagementPolicyRuleArray and ManagementPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleArrayInput` via:
 //
@@ -6356,12 +5569,6 @@ func (i ManagementPolicyRuleArray) ToManagementPolicyRuleArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleArrayOutput)
 }
 
-func (i ManagementPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagementPolicyRule] {
-	return pulumix.Output[[]ManagementPolicyRule]{
-		OutputState: i.ToManagementPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleOutput) ElementType() reflect.Type {
@@ -6374,12 +5581,6 @@ func (o ManagementPolicyRuleOutput) ToManagementPolicyRuleOutput() ManagementPol
 
 func (o ManagementPolicyRuleOutput) ToManagementPolicyRuleOutputWithContext(ctx context.Context) ManagementPolicyRuleOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRule] {
-	return pulumix.Output[ManagementPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `actions` block as documented below.
@@ -6414,12 +5615,6 @@ func (o ManagementPolicyRuleArrayOutput) ToManagementPolicyRuleArrayOutput() Man
 
 func (o ManagementPolicyRuleArrayOutput) ToManagementPolicyRuleArrayOutputWithContext(ctx context.Context) ManagementPolicyRuleArrayOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagementPolicyRule] {
-	return pulumix.Output[[]ManagementPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagementPolicyRuleArrayOutput) Index(i pulumi.IntInput) ManagementPolicyRuleOutput {
@@ -6469,12 +5664,6 @@ func (i ManagementPolicyRuleActionsArgs) ToManagementPolicyRuleActionsOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsOutput)
 }
 
-func (i ManagementPolicyRuleActionsArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActions] {
-	return pulumix.Output[ManagementPolicyRuleActions]{
-		OutputState: i.ToManagementPolicyRuleActionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleActionsOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsOutput) ElementType() reflect.Type {
@@ -6487,12 +5676,6 @@ func (o ManagementPolicyRuleActionsOutput) ToManagementPolicyRuleActionsOutput()
 
 func (o ManagementPolicyRuleActionsOutput) ToManagementPolicyRuleActionsOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleActionsOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActions] {
-	return pulumix.Output[ManagementPolicyRuleActions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `baseBlob` block as documented below.
@@ -6619,12 +5802,6 @@ func (i ManagementPolicyRuleActionsBaseBlobArgs) ToManagementPolicyRuleActionsBa
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsBaseBlobOutput)
 }
 
-func (i ManagementPolicyRuleActionsBaseBlobArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActionsBaseBlob] {
-	return pulumix.Output[ManagementPolicyRuleActionsBaseBlob]{
-		OutputState: i.ToManagementPolicyRuleActionsBaseBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagementPolicyRuleActionsBaseBlobArgs) ToManagementPolicyRuleActionsBaseBlobPtrOutput() ManagementPolicyRuleActionsBaseBlobPtrOutput {
 	return i.ToManagementPolicyRuleActionsBaseBlobPtrOutputWithContext(context.Background())
 }
@@ -6666,12 +5843,6 @@ func (i *managementPolicyRuleActionsBaseBlobPtrType) ToManagementPolicyRuleActio
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
 }
 
-func (i *managementPolicyRuleActionsBaseBlobPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicyRuleActionsBaseBlob] {
-	return pulumix.Output[*ManagementPolicyRuleActionsBaseBlob]{
-		OutputState: i.ToManagementPolicyRuleActionsBaseBlobPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleActionsBaseBlobOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsBaseBlobOutput) ElementType() reflect.Type {
@@ -6694,12 +5865,6 @@ func (o ManagementPolicyRuleActionsBaseBlobOutput) ToManagementPolicyRuleActions
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleActionsBaseBlob) *ManagementPolicyRuleActionsBaseBlob {
 		return &v
 	}).(ManagementPolicyRuleActionsBaseBlobPtrOutput)
-}
-
-func (o ManagementPolicyRuleActionsBaseBlobOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActionsBaseBlob] {
-	return pulumix.Output[ManagementPolicyRuleActionsBaseBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
@@ -6814,12 +5979,6 @@ func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) ToManagementPolicyRuleActi
 
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) ToManagementPolicyRuleActionsBaseBlobPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsBaseBlobPtrOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicyRuleActionsBaseBlob] {
-	return pulumix.Output[*ManagementPolicyRuleActionsBaseBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagementPolicyRuleActionsBaseBlobPtrOutput) Elem() ManagementPolicyRuleActionsBaseBlobOutput {
@@ -7033,12 +6192,6 @@ func (i ManagementPolicyRuleActionsSnapshotArgs) ToManagementPolicyRuleActionsSn
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsSnapshotOutput)
 }
 
-func (i ManagementPolicyRuleActionsSnapshotArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActionsSnapshot] {
-	return pulumix.Output[ManagementPolicyRuleActionsSnapshot]{
-		OutputState: i.ToManagementPolicyRuleActionsSnapshotOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagementPolicyRuleActionsSnapshotArgs) ToManagementPolicyRuleActionsSnapshotPtrOutput() ManagementPolicyRuleActionsSnapshotPtrOutput {
 	return i.ToManagementPolicyRuleActionsSnapshotPtrOutputWithContext(context.Background())
 }
@@ -7080,12 +6233,6 @@ func (i *managementPolicyRuleActionsSnapshotPtrType) ToManagementPolicyRuleActio
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsSnapshotPtrOutput)
 }
 
-func (i *managementPolicyRuleActionsSnapshotPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicyRuleActionsSnapshot] {
-	return pulumix.Output[*ManagementPolicyRuleActionsSnapshot]{
-		OutputState: i.ToManagementPolicyRuleActionsSnapshotPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleActionsSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsSnapshotOutput) ElementType() reflect.Type {
@@ -7108,12 +6255,6 @@ func (o ManagementPolicyRuleActionsSnapshotOutput) ToManagementPolicyRuleActions
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleActionsSnapshot) *ManagementPolicyRuleActionsSnapshot {
 		return &v
 	}).(ManagementPolicyRuleActionsSnapshotPtrOutput)
-}
-
-func (o ManagementPolicyRuleActionsSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActionsSnapshot] {
-	return pulumix.Output[ManagementPolicyRuleActionsSnapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
@@ -7155,12 +6296,6 @@ func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ToManagementPolicyRuleActi
 
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ToManagementPolicyRuleActionsSnapshotPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsSnapshotPtrOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleActionsSnapshotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicyRuleActionsSnapshot] {
-	return pulumix.Output[*ManagementPolicyRuleActionsSnapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagementPolicyRuleActionsSnapshotPtrOutput) Elem() ManagementPolicyRuleActionsSnapshotOutput {
@@ -7272,12 +6407,6 @@ func (i ManagementPolicyRuleActionsVersionArgs) ToManagementPolicyRuleActionsVer
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsVersionOutput)
 }
 
-func (i ManagementPolicyRuleActionsVersionArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActionsVersion] {
-	return pulumix.Output[ManagementPolicyRuleActionsVersion]{
-		OutputState: i.ToManagementPolicyRuleActionsVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagementPolicyRuleActionsVersionArgs) ToManagementPolicyRuleActionsVersionPtrOutput() ManagementPolicyRuleActionsVersionPtrOutput {
 	return i.ToManagementPolicyRuleActionsVersionPtrOutputWithContext(context.Background())
 }
@@ -7319,12 +6448,6 @@ func (i *managementPolicyRuleActionsVersionPtrType) ToManagementPolicyRuleAction
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleActionsVersionPtrOutput)
 }
 
-func (i *managementPolicyRuleActionsVersionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicyRuleActionsVersion] {
-	return pulumix.Output[*ManagementPolicyRuleActionsVersion]{
-		OutputState: i.ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleActionsVersionOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleActionsVersionOutput) ElementType() reflect.Type {
@@ -7347,12 +6470,6 @@ func (o ManagementPolicyRuleActionsVersionOutput) ToManagementPolicyRuleActionsV
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyRuleActionsVersion) *ManagementPolicyRuleActionsVersion {
 		return &v
 	}).(ManagementPolicyRuleActionsVersionPtrOutput)
-}
-
-func (o ManagementPolicyRuleActionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleActionsVersion] {
-	return pulumix.Output[ManagementPolicyRuleActionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
@@ -7394,12 +6511,6 @@ func (o ManagementPolicyRuleActionsVersionPtrOutput) ToManagementPolicyRuleActio
 
 func (o ManagementPolicyRuleActionsVersionPtrOutput) ToManagementPolicyRuleActionsVersionPtrOutputWithContext(ctx context.Context) ManagementPolicyRuleActionsVersionPtrOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleActionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagementPolicyRuleActionsVersion] {
-	return pulumix.Output[*ManagementPolicyRuleActionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagementPolicyRuleActionsVersionPtrOutput) Elem() ManagementPolicyRuleActionsVersionOutput {
@@ -7507,12 +6618,6 @@ func (i ManagementPolicyRuleFiltersArgs) ToManagementPolicyRuleFiltersOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleFiltersOutput)
 }
 
-func (i ManagementPolicyRuleFiltersArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleFilters] {
-	return pulumix.Output[ManagementPolicyRuleFilters]{
-		OutputState: i.ToManagementPolicyRuleFiltersOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleFiltersOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleFiltersOutput) ElementType() reflect.Type {
@@ -7525,12 +6630,6 @@ func (o ManagementPolicyRuleFiltersOutput) ToManagementPolicyRuleFiltersOutput()
 
 func (o ManagementPolicyRuleFiltersOutput) ToManagementPolicyRuleFiltersOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleFiltersOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleFilters] {
-	return pulumix.Output[ManagementPolicyRuleFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
@@ -7593,12 +6692,6 @@ func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArgs) ToManagementPolicyRule
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleFiltersMatchBlobIndexTagOutput)
 }
 
-func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArgs) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleFiltersMatchBlobIndexTag] {
-	return pulumix.Output[ManagementPolicyRuleFiltersMatchBlobIndexTag]{
-		OutputState: i.ToManagementPolicyRuleFiltersMatchBlobIndexTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput is an input type that accepts ManagementPolicyRuleFiltersMatchBlobIndexTagArray and ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput values.
 // You can construct a concrete instance of `ManagementPolicyRuleFiltersMatchBlobIndexTagArrayInput` via:
 //
@@ -7624,12 +6717,6 @@ func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArray) ToManagementPolicyRul
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput)
 }
 
-func (i ManagementPolicyRuleFiltersMatchBlobIndexTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagementPolicyRuleFiltersMatchBlobIndexTag] {
-	return pulumix.Output[[]ManagementPolicyRuleFiltersMatchBlobIndexTag]{
-		OutputState: i.ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagementPolicyRuleFiltersMatchBlobIndexTagOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ElementType() reflect.Type {
@@ -7642,12 +6729,6 @@ func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ToManagementPolicyRu
 
 func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ToManagementPolicyRuleFiltersMatchBlobIndexTagOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleFiltersMatchBlobIndexTagOutput) ToOutput(ctx context.Context) pulumix.Output[ManagementPolicyRuleFiltersMatchBlobIndexTag] {
-	return pulumix.Output[ManagementPolicyRuleFiltersMatchBlobIndexTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The filter tag name used for tag based filtering for blob objects.
@@ -7677,12 +6758,6 @@ func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) ToManagementPol
 
 func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) ToManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutputWithContext(ctx context.Context) ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput {
 	return o
-}
-
-func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagementPolicyRuleFiltersMatchBlobIndexTag] {
-	return pulumix.Output[[]ManagementPolicyRuleFiltersMatchBlobIndexTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagementPolicyRuleFiltersMatchBlobIndexTagArrayOutput) Index(i pulumi.IntInput) ManagementPolicyRuleFiltersMatchBlobIndexTagOutput {
@@ -7738,12 +6813,6 @@ func (i ObjectReplicationRuleArgs) ToObjectReplicationRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationRuleOutput)
 }
 
-func (i ObjectReplicationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ObjectReplicationRule] {
-	return pulumix.Output[ObjectReplicationRule]{
-		OutputState: i.ToObjectReplicationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ObjectReplicationRuleArrayInput is an input type that accepts ObjectReplicationRuleArray and ObjectReplicationRuleArrayOutput values.
 // You can construct a concrete instance of `ObjectReplicationRuleArrayInput` via:
 //
@@ -7769,12 +6838,6 @@ func (i ObjectReplicationRuleArray) ToObjectReplicationRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectReplicationRuleArrayOutput)
 }
 
-func (i ObjectReplicationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ObjectReplicationRule] {
-	return pulumix.Output[[]ObjectReplicationRule]{
-		OutputState: i.ToObjectReplicationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectReplicationRuleOutput struct{ *pulumi.OutputState }
 
 func (ObjectReplicationRuleOutput) ElementType() reflect.Type {
@@ -7787,12 +6850,6 @@ func (o ObjectReplicationRuleOutput) ToObjectReplicationRuleOutput() ObjectRepli
 
 func (o ObjectReplicationRuleOutput) ToObjectReplicationRuleOutputWithContext(ctx context.Context) ObjectReplicationRuleOutput {
 	return o
-}
-
-func (o ObjectReplicationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectReplicationRule] {
-	return pulumix.Output[ObjectReplicationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
@@ -7831,12 +6888,6 @@ func (o ObjectReplicationRuleArrayOutput) ToObjectReplicationRuleArrayOutput() O
 
 func (o ObjectReplicationRuleArrayOutput) ToObjectReplicationRuleArrayOutputWithContext(ctx context.Context) ObjectReplicationRuleArrayOutput {
 	return o
-}
-
-func (o ObjectReplicationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ObjectReplicationRule] {
-	return pulumix.Output[[]ObjectReplicationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectReplicationRuleArrayOutput) Index(i pulumi.IntInput) ObjectReplicationRuleOutput {
@@ -7882,12 +6933,6 @@ func (i ShareAclArgs) ToShareAclOutputWithContext(ctx context.Context) ShareAclO
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAclOutput)
 }
 
-func (i ShareAclArgs) ToOutput(ctx context.Context) pulumix.Output[ShareAcl] {
-	return pulumix.Output[ShareAcl]{
-		OutputState: i.ToShareAclOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ShareAclArrayInput is an input type that accepts ShareAclArray and ShareAclArrayOutput values.
 // You can construct a concrete instance of `ShareAclArrayInput` via:
 //
@@ -7913,12 +6958,6 @@ func (i ShareAclArray) ToShareAclArrayOutputWithContext(ctx context.Context) Sha
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAclArrayOutput)
 }
 
-func (i ShareAclArray) ToOutput(ctx context.Context) pulumix.Output[[]ShareAcl] {
-	return pulumix.Output[[]ShareAcl]{
-		OutputState: i.ToShareAclArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ShareAclOutput struct{ *pulumi.OutputState }
 
 func (ShareAclOutput) ElementType() reflect.Type {
@@ -7931,12 +6970,6 @@ func (o ShareAclOutput) ToShareAclOutput() ShareAclOutput {
 
 func (o ShareAclOutput) ToShareAclOutputWithContext(ctx context.Context) ShareAclOutput {
 	return o
-}
-
-func (o ShareAclOutput) ToOutput(ctx context.Context) pulumix.Output[ShareAcl] {
-	return pulumix.Output[ShareAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `accessPolicy` block as defined below.
@@ -7961,12 +6994,6 @@ func (o ShareAclArrayOutput) ToShareAclArrayOutput() ShareAclArrayOutput {
 
 func (o ShareAclArrayOutput) ToShareAclArrayOutputWithContext(ctx context.Context) ShareAclArrayOutput {
 	return o
-}
-
-func (o ShareAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ShareAcl] {
-	return pulumix.Output[[]ShareAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ShareAclArrayOutput) Index(i pulumi.IntInput) ShareAclOutput {
@@ -8020,12 +7047,6 @@ func (i ShareAclAccessPolicyArgs) ToShareAclAccessPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAclAccessPolicyOutput)
 }
 
-func (i ShareAclAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ShareAclAccessPolicy] {
-	return pulumix.Output[ShareAclAccessPolicy]{
-		OutputState: i.ToShareAclAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ShareAclAccessPolicyArrayInput is an input type that accepts ShareAclAccessPolicyArray and ShareAclAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `ShareAclAccessPolicyArrayInput` via:
 //
@@ -8051,12 +7072,6 @@ func (i ShareAclAccessPolicyArray) ToShareAclAccessPolicyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ShareAclAccessPolicyArrayOutput)
 }
 
-func (i ShareAclAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]ShareAclAccessPolicy] {
-	return pulumix.Output[[]ShareAclAccessPolicy]{
-		OutputState: i.ToShareAclAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ShareAclAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (ShareAclAccessPolicyOutput) ElementType() reflect.Type {
@@ -8069,12 +7084,6 @@ func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutput() ShareAclAcces
 
 func (o ShareAclAccessPolicyOutput) ToShareAclAccessPolicyOutputWithContext(ctx context.Context) ShareAclAccessPolicyOutput {
 	return o
-}
-
-func (o ShareAclAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ShareAclAccessPolicy] {
-	return pulumix.Output[ShareAclAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -8106,12 +7115,6 @@ func (o ShareAclAccessPolicyArrayOutput) ToShareAclAccessPolicyArrayOutput() Sha
 
 func (o ShareAclAccessPolicyArrayOutput) ToShareAclAccessPolicyArrayOutputWithContext(ctx context.Context) ShareAclAccessPolicyArrayOutput {
 	return o
-}
-
-func (o ShareAclAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ShareAclAccessPolicy] {
-	return pulumix.Output[[]ShareAclAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) ShareAclAccessPolicyOutput {
@@ -8157,12 +7160,6 @@ func (i TableAclArgs) ToTableAclOutputWithContext(ctx context.Context) TableAclO
 	return pulumi.ToOutputWithContext(ctx, i).(TableAclOutput)
 }
 
-func (i TableAclArgs) ToOutput(ctx context.Context) pulumix.Output[TableAcl] {
-	return pulumix.Output[TableAcl]{
-		OutputState: i.ToTableAclOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableAclArrayInput is an input type that accepts TableAclArray and TableAclArrayOutput values.
 // You can construct a concrete instance of `TableAclArrayInput` via:
 //
@@ -8188,12 +7185,6 @@ func (i TableAclArray) ToTableAclArrayOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableAclArrayOutput)
 }
 
-func (i TableAclArray) ToOutput(ctx context.Context) pulumix.Output[[]TableAcl] {
-	return pulumix.Output[[]TableAcl]{
-		OutputState: i.ToTableAclArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableAclOutput struct{ *pulumi.OutputState }
 
 func (TableAclOutput) ElementType() reflect.Type {
@@ -8206,12 +7197,6 @@ func (o TableAclOutput) ToTableAclOutput() TableAclOutput {
 
 func (o TableAclOutput) ToTableAclOutputWithContext(ctx context.Context) TableAclOutput {
 	return o
-}
-
-func (o TableAclOutput) ToOutput(ctx context.Context) pulumix.Output[TableAcl] {
-	return pulumix.Output[TableAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `accessPolicy` block as defined below.
@@ -8236,12 +7221,6 @@ func (o TableAclArrayOutput) ToTableAclArrayOutput() TableAclArrayOutput {
 
 func (o TableAclArrayOutput) ToTableAclArrayOutputWithContext(ctx context.Context) TableAclArrayOutput {
 	return o
-}
-
-func (o TableAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableAcl] {
-	return pulumix.Output[[]TableAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableAclArrayOutput) Index(i pulumi.IntInput) TableAclOutput {
@@ -8291,12 +7270,6 @@ func (i TableAclAccessPolicyArgs) ToTableAclAccessPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TableAclAccessPolicyOutput)
 }
 
-func (i TableAclAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[TableAclAccessPolicy] {
-	return pulumix.Output[TableAclAccessPolicy]{
-		OutputState: i.ToTableAclAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableAclAccessPolicyArrayInput is an input type that accepts TableAclAccessPolicyArray and TableAclAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `TableAclAccessPolicyArrayInput` via:
 //
@@ -8322,12 +7295,6 @@ func (i TableAclAccessPolicyArray) ToTableAclAccessPolicyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TableAclAccessPolicyArrayOutput)
 }
 
-func (i TableAclAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]TableAclAccessPolicy] {
-	return pulumix.Output[[]TableAclAccessPolicy]{
-		OutputState: i.ToTableAclAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TableAclAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (TableAclAccessPolicyOutput) ElementType() reflect.Type {
@@ -8340,12 +7307,6 @@ func (o TableAclAccessPolicyOutput) ToTableAclAccessPolicyOutput() TableAclAcces
 
 func (o TableAclAccessPolicyOutput) ToTableAclAccessPolicyOutputWithContext(ctx context.Context) TableAclAccessPolicyOutput {
 	return o
-}
-
-func (o TableAclAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[TableAclAccessPolicy] {
-	return pulumix.Output[TableAclAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ISO8061 UTC time at which this Access Policy should be valid until.
@@ -8375,12 +7336,6 @@ func (o TableAclAccessPolicyArrayOutput) ToTableAclAccessPolicyArrayOutput() Tab
 
 func (o TableAclAccessPolicyArrayOutput) ToTableAclAccessPolicyArrayOutputWithContext(ctx context.Context) TableAclAccessPolicyArrayOutput {
 	return o
-}
-
-func (o TableAclAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableAclAccessPolicy] {
-	return pulumix.Output[[]TableAclAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) TableAclAccessPolicyOutput {
@@ -8426,12 +7381,6 @@ func (i GetAccountAzureFilesAuthenticationArgs) ToGetAccountAzureFilesAuthentica
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationOutput)
 }
 
-func (i GetAccountAzureFilesAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountAzureFilesAuthentication] {
-	return pulumix.Output[GetAccountAzureFilesAuthentication]{
-		OutputState: i.ToGetAccountAzureFilesAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountAzureFilesAuthenticationArrayInput is an input type that accepts GetAccountAzureFilesAuthenticationArray and GetAccountAzureFilesAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetAccountAzureFilesAuthenticationArrayInput` via:
 //
@@ -8457,12 +7406,6 @@ func (i GetAccountAzureFilesAuthenticationArray) ToGetAccountAzureFilesAuthentic
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationArrayOutput)
 }
 
-func (i GetAccountAzureFilesAuthenticationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountAzureFilesAuthentication] {
-	return pulumix.Output[[]GetAccountAzureFilesAuthentication]{
-		OutputState: i.ToGetAccountAzureFilesAuthenticationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountAzureFilesAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (GetAccountAzureFilesAuthenticationOutput) ElementType() reflect.Type {
@@ -8475,12 +7418,6 @@ func (o GetAccountAzureFilesAuthenticationOutput) ToGetAccountAzureFilesAuthenti
 
 func (o GetAccountAzureFilesAuthenticationOutput) ToGetAccountAzureFilesAuthenticationOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationOutput {
 	return o
-}
-
-func (o GetAccountAzureFilesAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountAzureFilesAuthentication] {
-	return pulumix.Output[GetAccountAzureFilesAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `activeDirectory` block as documented below.
@@ -8507,12 +7444,6 @@ func (o GetAccountAzureFilesAuthenticationArrayOutput) ToGetAccountAzureFilesAut
 
 func (o GetAccountAzureFilesAuthenticationArrayOutput) ToGetAccountAzureFilesAuthenticationArrayOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationArrayOutput {
 	return o
-}
-
-func (o GetAccountAzureFilesAuthenticationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountAzureFilesAuthentication] {
-	return pulumix.Output[[]GetAccountAzureFilesAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountAzureFilesAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAccountAzureFilesAuthenticationOutput {
@@ -8574,12 +7505,6 @@ func (i GetAccountAzureFilesAuthenticationActiveDirectoryArgs) ToGetAccountAzure
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationActiveDirectoryOutput)
 }
 
-func (i GetAccountAzureFilesAuthenticationActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[GetAccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: i.ToGetAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput is an input type that accepts GetAccountAzureFilesAuthenticationActiveDirectoryArray and GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput values.
 // You can construct a concrete instance of `GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput` via:
 //
@@ -8605,12 +7530,6 @@ func (i GetAccountAzureFilesAuthenticationActiveDirectoryArray) ToGetAccountAzur
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput)
 }
 
-func (i GetAccountAzureFilesAuthenticationActiveDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[[]GetAccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: i.ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountAzureFilesAuthenticationActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
@@ -8623,12 +7542,6 @@ func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ToGetAccountAzu
 
 func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ToGetAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
 	return o
-}
-
-func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[GetAccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The domain GUID.
@@ -8673,12 +7586,6 @@ func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) ToGetAccou
 
 func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
 	return o
-}
-
-func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountAzureFilesAuthenticationActiveDirectory] {
-	return pulumix.Output[[]GetAccountAzureFilesAuthenticationActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
@@ -8746,12 +7653,6 @@ func (i GetAccountBlobContainerSASPermissionsArgs) ToGetAccountBlobContainerSASP
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountBlobContainerSASPermissionsOutput)
 }
 
-func (i GetAccountBlobContainerSASPermissionsArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountBlobContainerSASPermissions] {
-	return pulumix.Output[GetAccountBlobContainerSASPermissions]{
-		OutputState: i.ToGetAccountBlobContainerSASPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountBlobContainerSASPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GetAccountBlobContainerSASPermissionsOutput) ElementType() reflect.Type {
@@ -8764,12 +7665,6 @@ func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSA
 
 func (o GetAccountBlobContainerSASPermissionsOutput) ToGetAccountBlobContainerSASPermissionsOutputWithContext(ctx context.Context) GetAccountBlobContainerSASPermissionsOutput {
 	return o
-}
-
-func (o GetAccountBlobContainerSASPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountBlobContainerSASPermissions] {
-	return pulumix.Output[GetAccountBlobContainerSASPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should Add permissions be enabled for this SAS?
@@ -8838,12 +7733,6 @@ func (i GetAccountCustomDomainArgs) ToGetAccountCustomDomainOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomDomainOutput)
 }
 
-func (i GetAccountCustomDomainArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountCustomDomain] {
-	return pulumix.Output[GetAccountCustomDomain]{
-		OutputState: i.ToGetAccountCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountCustomDomainArrayInput is an input type that accepts GetAccountCustomDomainArray and GetAccountCustomDomainArrayOutput values.
 // You can construct a concrete instance of `GetAccountCustomDomainArrayInput` via:
 //
@@ -8869,12 +7758,6 @@ func (i GetAccountCustomDomainArray) ToGetAccountCustomDomainArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountCustomDomainArrayOutput)
 }
 
-func (i GetAccountCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountCustomDomain] {
-	return pulumix.Output[[]GetAccountCustomDomain]{
-		OutputState: i.ToGetAccountCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (GetAccountCustomDomainOutput) ElementType() reflect.Type {
@@ -8887,12 +7770,6 @@ func (o GetAccountCustomDomainOutput) ToGetAccountCustomDomainOutput() GetAccoun
 
 func (o GetAccountCustomDomainOutput) ToGetAccountCustomDomainOutputWithContext(ctx context.Context) GetAccountCustomDomainOutput {
 	return o
-}
-
-func (o GetAccountCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountCustomDomain] {
-	return pulumix.Output[GetAccountCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Storage Account
@@ -8912,12 +7789,6 @@ func (o GetAccountCustomDomainArrayOutput) ToGetAccountCustomDomainArrayOutput()
 
 func (o GetAccountCustomDomainArrayOutput) ToGetAccountCustomDomainArrayOutputWithContext(ctx context.Context) GetAccountCustomDomainArrayOutput {
 	return o
-}
-
-func (o GetAccountCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountCustomDomain] {
-	return pulumix.Output[[]GetAccountCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountCustomDomainArrayOutput) Index(i pulumi.IntInput) GetAccountCustomDomainOutput {
@@ -8971,12 +7842,6 @@ func (i GetAccountIdentityArgs) ToGetAccountIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput)
 }
 
-func (i GetAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdentity] {
-	return pulumix.Output[GetAccountIdentity]{
-		OutputState: i.ToGetAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountIdentityArrayInput is an input type that accepts GetAccountIdentityArray and GetAccountIdentityArrayOutput values.
 // You can construct a concrete instance of `GetAccountIdentityArrayInput` via:
 //
@@ -9002,12 +7867,6 @@ func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityArrayOutput)
 }
 
-func (i GetAccountIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountIdentity] {
-	return pulumix.Output[[]GetAccountIdentity]{
-		OutputState: i.ToGetAccountIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetAccountIdentityOutput) ElementType() reflect.Type {
@@ -9020,12 +7879,6 @@ func (o GetAccountIdentityOutput) ToGetAccountIdentityOutput() GetAccountIdentit
 
 func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
 	return o
-}
-
-func (o GetAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdentity] {
-	return pulumix.Output[GetAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs assigned with the Identity of this Storage Account.
@@ -9060,12 +7913,6 @@ func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutput() GetAcco
 
 func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
 	return o
-}
-
-func (o GetAccountIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountIdentity] {
-	return pulumix.Output[[]GetAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdentityOutput {
@@ -9149,12 +7996,6 @@ func (i GetAccountSASPermissionsArgs) ToGetAccountSASPermissionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASPermissionsOutput)
 }
 
-func (i GetAccountSASPermissionsArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASPermissions] {
-	return pulumix.Output[GetAccountSASPermissions]{
-		OutputState: i.ToGetAccountSASPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountSASPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GetAccountSASPermissionsOutput) ElementType() reflect.Type {
@@ -9167,12 +8008,6 @@ func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsOutput() GetAc
 
 func (o GetAccountSASPermissionsOutput) ToGetAccountSASPermissionsOutputWithContext(ctx context.Context) GetAccountSASPermissionsOutput {
 	return o
-}
-
-func (o GetAccountSASPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASPermissions] {
-	return pulumix.Output[GetAccountSASPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should Add permissions be enabled for this SAS?
@@ -9269,12 +8104,6 @@ func (i GetAccountSASResourceTypesArgs) ToGetAccountSASResourceTypesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASResourceTypesOutput)
 }
 
-func (i GetAccountSASResourceTypesArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASResourceTypes] {
-	return pulumix.Output[GetAccountSASResourceTypes]{
-		OutputState: i.ToGetAccountSASResourceTypesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountSASResourceTypesOutput struct{ *pulumi.OutputState }
 
 func (GetAccountSASResourceTypesOutput) ElementType() reflect.Type {
@@ -9287,12 +8116,6 @@ func (o GetAccountSASResourceTypesOutput) ToGetAccountSASResourceTypesOutput() G
 
 func (o GetAccountSASResourceTypesOutput) ToGetAccountSASResourceTypesOutputWithContext(ctx context.Context) GetAccountSASResourceTypesOutput {
 	return o
-}
-
-func (o GetAccountSASResourceTypesOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASResourceTypes] {
-	return pulumix.Output[GetAccountSASResourceTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should permission be granted to the container?
@@ -9355,12 +8178,6 @@ func (i GetAccountSASServicesArgs) ToGetAccountSASServicesOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountSASServicesOutput)
 }
 
-func (i GetAccountSASServicesArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASServices] {
-	return pulumix.Output[GetAccountSASServices]{
-		OutputState: i.ToGetAccountSASServicesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountSASServicesOutput struct{ *pulumi.OutputState }
 
 func (GetAccountSASServicesOutput) ElementType() reflect.Type {
@@ -9373,12 +8190,6 @@ func (o GetAccountSASServicesOutput) ToGetAccountSASServicesOutput() GetAccountS
 
 func (o GetAccountSASServicesOutput) ToGetAccountSASServicesOutputWithContext(ctx context.Context) GetAccountSASServicesOutput {
 	return o
-}
-
-func (o GetAccountSASServicesOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountSASServices] {
-	return pulumix.Output[GetAccountSASServices]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should permission be granted to `blob` services within this storage account?
@@ -9446,12 +8257,6 @@ func (i GetPolicyRuleArgs) ToGetPolicyRuleOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleOutput)
 }
 
-func (i GetPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRule] {
-	return pulumix.Output[GetPolicyRule]{
-		OutputState: i.ToGetPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleArrayInput is an input type that accepts GetPolicyRuleArray and GetPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleArrayInput` via:
 //
@@ -9477,12 +8282,6 @@ func (i GetPolicyRuleArray) ToGetPolicyRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleArrayOutput)
 }
 
-func (i GetPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRule] {
-	return pulumix.Output[[]GetPolicyRule]{
-		OutputState: i.ToGetPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleOutput) ElementType() reflect.Type {
@@ -9495,12 +8294,6 @@ func (o GetPolicyRuleOutput) ToGetPolicyRuleOutput() GetPolicyRuleOutput {
 
 func (o GetPolicyRuleOutput) ToGetPolicyRuleOutputWithContext(ctx context.Context) GetPolicyRuleOutput {
 	return o
-}
-
-func (o GetPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRule] {
-	return pulumix.Output[GetPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `actions` block as documented below.
@@ -9535,12 +8328,6 @@ func (o GetPolicyRuleArrayOutput) ToGetPolicyRuleArrayOutput() GetPolicyRuleArra
 
 func (o GetPolicyRuleArrayOutput) ToGetPolicyRuleArrayOutputWithContext(ctx context.Context) GetPolicyRuleArrayOutput {
 	return o
-}
-
-func (o GetPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRule] {
-	return pulumix.Output[[]GetPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleOutput {
@@ -9590,12 +8377,6 @@ func (i GetPolicyRuleActionArgs) ToGetPolicyRuleActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionOutput)
 }
 
-func (i GetPolicyRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleAction] {
-	return pulumix.Output[GetPolicyRuleAction]{
-		OutputState: i.ToGetPolicyRuleActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleActionArrayInput is an input type that accepts GetPolicyRuleActionArray and GetPolicyRuleActionArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionArrayInput` via:
 //
@@ -9621,12 +8402,6 @@ func (i GetPolicyRuleActionArray) ToGetPolicyRuleActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionArrayOutput)
 }
 
-func (i GetPolicyRuleActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleAction] {
-	return pulumix.Output[[]GetPolicyRuleAction]{
-		OutputState: i.ToGetPolicyRuleActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleActionOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleActionOutput) ElementType() reflect.Type {
@@ -9639,12 +8414,6 @@ func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutput() GetPolicyRuleAc
 
 func (o GetPolicyRuleActionOutput) ToGetPolicyRuleActionOutputWithContext(ctx context.Context) GetPolicyRuleActionOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleAction] {
-	return pulumix.Output[GetPolicyRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `baseBlob` block as documented below.
@@ -9674,12 +8443,6 @@ func (o GetPolicyRuleActionArrayOutput) ToGetPolicyRuleActionArrayOutput() GetPo
 
 func (o GetPolicyRuleActionArrayOutput) ToGetPolicyRuleActionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionArrayOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleAction] {
-	return pulumix.Output[[]GetPolicyRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyRuleActionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionOutput {
@@ -9773,12 +8536,6 @@ func (i GetPolicyRuleActionBaseBlobArgs) ToGetPolicyRuleActionBaseBlobOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionBaseBlobOutput)
 }
 
-func (i GetPolicyRuleActionBaseBlobArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleActionBaseBlob] {
-	return pulumix.Output[GetPolicyRuleActionBaseBlob]{
-		OutputState: i.ToGetPolicyRuleActionBaseBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleActionBaseBlobArrayInput is an input type that accepts GetPolicyRuleActionBaseBlobArray and GetPolicyRuleActionBaseBlobArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionBaseBlobArrayInput` via:
 //
@@ -9804,12 +8561,6 @@ func (i GetPolicyRuleActionBaseBlobArray) ToGetPolicyRuleActionBaseBlobArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionBaseBlobArrayOutput)
 }
 
-func (i GetPolicyRuleActionBaseBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleActionBaseBlob] {
-	return pulumix.Output[[]GetPolicyRuleActionBaseBlob]{
-		OutputState: i.ToGetPolicyRuleActionBaseBlobArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleActionBaseBlobOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleActionBaseBlobOutput) ElementType() reflect.Type {
@@ -9822,12 +8573,6 @@ func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutput()
 
 func (o GetPolicyRuleActionBaseBlobOutput) ToGetPolicyRuleActionBaseBlobOutputWithContext(ctx context.Context) GetPolicyRuleActionBaseBlobOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionBaseBlobOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleActionBaseBlob] {
-	return pulumix.Output[GetPolicyRuleActionBaseBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool.
@@ -9914,12 +8659,6 @@ func (o GetPolicyRuleActionBaseBlobArrayOutput) ToGetPolicyRuleActionBaseBlobArr
 	return o
 }
 
-func (o GetPolicyRuleActionBaseBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleActionBaseBlob] {
-	return pulumix.Output[[]GetPolicyRuleActionBaseBlob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetPolicyRuleActionBaseBlobArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionBaseBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPolicyRuleActionBaseBlob {
 		return vs[0].([]GetPolicyRuleActionBaseBlob)[vs[1].(int)]
@@ -9975,12 +8714,6 @@ func (i GetPolicyRuleActionSnapshotArgs) ToGetPolicyRuleActionSnapshotOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionSnapshotOutput)
 }
 
-func (i GetPolicyRuleActionSnapshotArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleActionSnapshot] {
-	return pulumix.Output[GetPolicyRuleActionSnapshot]{
-		OutputState: i.ToGetPolicyRuleActionSnapshotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleActionSnapshotArrayInput is an input type that accepts GetPolicyRuleActionSnapshotArray and GetPolicyRuleActionSnapshotArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionSnapshotArrayInput` via:
 //
@@ -10006,12 +8739,6 @@ func (i GetPolicyRuleActionSnapshotArray) ToGetPolicyRuleActionSnapshotArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionSnapshotArrayOutput)
 }
 
-func (i GetPolicyRuleActionSnapshotArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleActionSnapshot] {
-	return pulumix.Output[[]GetPolicyRuleActionSnapshot]{
-		OutputState: i.ToGetPolicyRuleActionSnapshotArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleActionSnapshotOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleActionSnapshotOutput) ElementType() reflect.Type {
@@ -10024,12 +8751,6 @@ func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutput()
 
 func (o GetPolicyRuleActionSnapshotOutput) ToGetPolicyRuleActionSnapshotOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleActionSnapshot] {
-	return pulumix.Output[GetPolicyRuleActionSnapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The age in days after creation to tier blob version to archive storage.
@@ -10069,12 +8790,6 @@ func (o GetPolicyRuleActionSnapshotArrayOutput) ToGetPolicyRuleActionSnapshotArr
 
 func (o GetPolicyRuleActionSnapshotArrayOutput) ToGetPolicyRuleActionSnapshotArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionSnapshotArrayOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionSnapshotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleActionSnapshot] {
-	return pulumix.Output[[]GetPolicyRuleActionSnapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyRuleActionSnapshotArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionSnapshotOutput {
@@ -10132,12 +8847,6 @@ func (i GetPolicyRuleActionVersionArgs) ToGetPolicyRuleActionVersionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionVersionOutput)
 }
 
-func (i GetPolicyRuleActionVersionArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleActionVersion] {
-	return pulumix.Output[GetPolicyRuleActionVersion]{
-		OutputState: i.ToGetPolicyRuleActionVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleActionVersionArrayInput is an input type that accepts GetPolicyRuleActionVersionArray and GetPolicyRuleActionVersionArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleActionVersionArrayInput` via:
 //
@@ -10163,12 +8872,6 @@ func (i GetPolicyRuleActionVersionArray) ToGetPolicyRuleActionVersionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleActionVersionArrayOutput)
 }
 
-func (i GetPolicyRuleActionVersionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleActionVersion] {
-	return pulumix.Output[[]GetPolicyRuleActionVersion]{
-		OutputState: i.ToGetPolicyRuleActionVersionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleActionVersionOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleActionVersionOutput) ElementType() reflect.Type {
@@ -10181,12 +8884,6 @@ func (o GetPolicyRuleActionVersionOutput) ToGetPolicyRuleActionVersionOutput() G
 
 func (o GetPolicyRuleActionVersionOutput) ToGetPolicyRuleActionVersionOutputWithContext(ctx context.Context) GetPolicyRuleActionVersionOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionVersionOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleActionVersion] {
-	return pulumix.Output[GetPolicyRuleActionVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The age in days after creation to tier blob version to archive storage.
@@ -10226,12 +8923,6 @@ func (o GetPolicyRuleActionVersionArrayOutput) ToGetPolicyRuleActionVersionArray
 
 func (o GetPolicyRuleActionVersionArrayOutput) ToGetPolicyRuleActionVersionArrayOutputWithContext(ctx context.Context) GetPolicyRuleActionVersionArrayOutput {
 	return o
-}
-
-func (o GetPolicyRuleActionVersionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleActionVersion] {
-	return pulumix.Output[[]GetPolicyRuleActionVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyRuleActionVersionArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleActionVersionOutput {
@@ -10281,12 +8972,6 @@ func (i GetPolicyRuleFilterArgs) ToGetPolicyRuleFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterOutput)
 }
 
-func (i GetPolicyRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleFilter] {
-	return pulumix.Output[GetPolicyRuleFilter]{
-		OutputState: i.ToGetPolicyRuleFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleFilterArrayInput is an input type that accepts GetPolicyRuleFilterArray and GetPolicyRuleFilterArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleFilterArrayInput` via:
 //
@@ -10312,12 +8997,6 @@ func (i GetPolicyRuleFilterArray) ToGetPolicyRuleFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterArrayOutput)
 }
 
-func (i GetPolicyRuleFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleFilter] {
-	return pulumix.Output[[]GetPolicyRuleFilter]{
-		OutputState: i.ToGetPolicyRuleFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleFilterOutput) ElementType() reflect.Type {
@@ -10330,12 +9009,6 @@ func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutput() GetPolicyRuleFi
 
 func (o GetPolicyRuleFilterOutput) ToGetPolicyRuleFilterOutputWithContext(ctx context.Context) GetPolicyRuleFilterOutput {
 	return o
-}
-
-func (o GetPolicyRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleFilter] {
-	return pulumix.Output[GetPolicyRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
@@ -10365,12 +9038,6 @@ func (o GetPolicyRuleFilterArrayOutput) ToGetPolicyRuleFilterArrayOutput() GetPo
 
 func (o GetPolicyRuleFilterArrayOutput) ToGetPolicyRuleFilterArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterArrayOutput {
 	return o
-}
-
-func (o GetPolicyRuleFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleFilter] {
-	return pulumix.Output[[]GetPolicyRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyRuleFilterArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFilterOutput {
@@ -10420,12 +9087,6 @@ func (i GetPolicyRuleFilterMatchBlobIndexTagArgs) ToGetPolicyRuleFilterMatchBlob
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterMatchBlobIndexTagOutput)
 }
 
-func (i GetPolicyRuleFilterMatchBlobIndexTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleFilterMatchBlobIndexTag] {
-	return pulumix.Output[GetPolicyRuleFilterMatchBlobIndexTag]{
-		OutputState: i.ToGetPolicyRuleFilterMatchBlobIndexTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyRuleFilterMatchBlobIndexTagArrayInput is an input type that accepts GetPolicyRuleFilterMatchBlobIndexTagArray and GetPolicyRuleFilterMatchBlobIndexTagArrayOutput values.
 // You can construct a concrete instance of `GetPolicyRuleFilterMatchBlobIndexTagArrayInput` via:
 //
@@ -10451,12 +9112,6 @@ func (i GetPolicyRuleFilterMatchBlobIndexTagArray) ToGetPolicyRuleFilterMatchBlo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyRuleFilterMatchBlobIndexTagArrayOutput)
 }
 
-func (i GetPolicyRuleFilterMatchBlobIndexTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleFilterMatchBlobIndexTag] {
-	return pulumix.Output[[]GetPolicyRuleFilterMatchBlobIndexTag]{
-		OutputState: i.ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyRuleFilterMatchBlobIndexTagOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyRuleFilterMatchBlobIndexTagOutput) ElementType() reflect.Type {
@@ -10469,12 +9124,6 @@ func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) ToGetPolicyRuleFilterMatchBl
 
 func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) ToGetPolicyRuleFilterMatchBlobIndexTagOutputWithContext(ctx context.Context) GetPolicyRuleFilterMatchBlobIndexTagOutput {
 	return o
-}
-
-func (o GetPolicyRuleFilterMatchBlobIndexTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyRuleFilterMatchBlobIndexTag] {
-	return pulumix.Output[GetPolicyRuleFilterMatchBlobIndexTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The filter tag name used for tag based filtering for blob objects.
@@ -10504,12 +9153,6 @@ func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) ToGetPolicyRuleFilterMa
 
 func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) ToGetPolicyRuleFilterMatchBlobIndexTagArrayOutputWithContext(ctx context.Context) GetPolicyRuleFilterMatchBlobIndexTagArrayOutput {
 	return o
-}
-
-func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyRuleFilterMatchBlobIndexTag] {
-	return pulumix.Output[[]GetPolicyRuleFilterMatchBlobIndexTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyRuleFilterMatchBlobIndexTagArrayOutput) Index(i pulumi.IntInput) GetPolicyRuleFilterMatchBlobIndexTagOutput {
@@ -10555,12 +9198,6 @@ func (i GetShareAclArgs) ToGetShareAclOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclOutput)
 }
 
-func (i GetShareAclArgs) ToOutput(ctx context.Context) pulumix.Output[GetShareAcl] {
-	return pulumix.Output[GetShareAcl]{
-		OutputState: i.ToGetShareAclOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetShareAclArrayInput is an input type that accepts GetShareAclArray and GetShareAclArrayOutput values.
 // You can construct a concrete instance of `GetShareAclArrayInput` via:
 //
@@ -10586,12 +9223,6 @@ func (i GetShareAclArray) ToGetShareAclArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclArrayOutput)
 }
 
-func (i GetShareAclArray) ToOutput(ctx context.Context) pulumix.Output[[]GetShareAcl] {
-	return pulumix.Output[[]GetShareAcl]{
-		OutputState: i.ToGetShareAclArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetShareAclOutput struct{ *pulumi.OutputState }
 
 func (GetShareAclOutput) ElementType() reflect.Type {
@@ -10604,12 +9235,6 @@ func (o GetShareAclOutput) ToGetShareAclOutput() GetShareAclOutput {
 
 func (o GetShareAclOutput) ToGetShareAclOutputWithContext(ctx context.Context) GetShareAclOutput {
 	return o
-}
-
-func (o GetShareAclOutput) ToOutput(ctx context.Context) pulumix.Output[GetShareAcl] {
-	return pulumix.Output[GetShareAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `accessPolicy` block as defined below.
@@ -10634,12 +9259,6 @@ func (o GetShareAclArrayOutput) ToGetShareAclArrayOutput() GetShareAclArrayOutpu
 
 func (o GetShareAclArrayOutput) ToGetShareAclArrayOutputWithContext(ctx context.Context) GetShareAclArrayOutput {
 	return o
-}
-
-func (o GetShareAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetShareAcl] {
-	return pulumix.Output[[]GetShareAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetShareAclArrayOutput) Index(i pulumi.IntInput) GetShareAclOutput {
@@ -10689,12 +9308,6 @@ func (i GetShareAclAccessPolicyArgs) ToGetShareAclAccessPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclAccessPolicyOutput)
 }
 
-func (i GetShareAclAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetShareAclAccessPolicy] {
-	return pulumix.Output[GetShareAclAccessPolicy]{
-		OutputState: i.ToGetShareAclAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetShareAclAccessPolicyArrayInput is an input type that accepts GetShareAclAccessPolicyArray and GetShareAclAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `GetShareAclAccessPolicyArrayInput` via:
 //
@@ -10720,12 +9333,6 @@ func (i GetShareAclAccessPolicyArray) ToGetShareAclAccessPolicyArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetShareAclAccessPolicyArrayOutput)
 }
 
-func (i GetShareAclAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetShareAclAccessPolicy] {
-	return pulumix.Output[[]GetShareAclAccessPolicy]{
-		OutputState: i.ToGetShareAclAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetShareAclAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetShareAclAccessPolicyOutput) ElementType() reflect.Type {
@@ -10738,12 +9345,6 @@ func (o GetShareAclAccessPolicyOutput) ToGetShareAclAccessPolicyOutput() GetShar
 
 func (o GetShareAclAccessPolicyOutput) ToGetShareAclAccessPolicyOutputWithContext(ctx context.Context) GetShareAclAccessPolicyOutput {
 	return o
-}
-
-func (o GetShareAclAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetShareAclAccessPolicy] {
-	return pulumix.Output[GetShareAclAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -10773,12 +9374,6 @@ func (o GetShareAclAccessPolicyArrayOutput) ToGetShareAclAccessPolicyArrayOutput
 
 func (o GetShareAclAccessPolicyArrayOutput) ToGetShareAclAccessPolicyArrayOutputWithContext(ctx context.Context) GetShareAclAccessPolicyArrayOutput {
 	return o
-}
-
-func (o GetShareAclAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetShareAclAccessPolicy] {
-	return pulumix.Output[[]GetShareAclAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetShareAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) GetShareAclAccessPolicyOutput {
