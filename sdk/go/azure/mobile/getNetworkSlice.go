@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Slice.
@@ -119,12 +118,6 @@ func (o LookupNetworkSliceResultOutput) ToLookupNetworkSliceResultOutput() Looku
 
 func (o LookupNetworkSliceResultOutput) ToLookupNetworkSliceResultOutputWithContext(ctx context.Context) LookupNetworkSliceResultOutput {
 	return o
-}
-
-func (o LookupNetworkSliceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkSliceResult] {
-	return pulumix.Output[LookupNetworkSliceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of this Mobile Network Slice.

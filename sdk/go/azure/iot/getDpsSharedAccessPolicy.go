@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing IotHub Device Provisioning Service Shared Access Policy
@@ -118,12 +117,6 @@ func (o LookupDpsSharedAccessPolicyResultOutput) ToLookupDpsSharedAccessPolicyRe
 
 func (o LookupDpsSharedAccessPolicyResultOutput) ToLookupDpsSharedAccessPolicyResultOutputWithContext(ctx context.Context) LookupDpsSharedAccessPolicyResultOutput {
 	return o
-}
-
-func (o LookupDpsSharedAccessPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDpsSharedAccessPolicyResult] {
-	return pulumix.Output[LookupDpsSharedAccessPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

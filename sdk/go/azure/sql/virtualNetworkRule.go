@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
@@ -268,12 +267,6 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
 }
 
-func (i *VirtualNetworkRule) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkRule] {
-	return pulumix.Output[*VirtualNetworkRule]{
-		OutputState: i.ToVirtualNetworkRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualNetworkRuleArrayInput is an input type that accepts VirtualNetworkRuleArray and VirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkRuleArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutput() VirtualNetwor
 
 func (i VirtualNetworkRuleArray) ToVirtualNetworkRuleArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleArrayOutput)
-}
-
-func (i VirtualNetworkRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkRule] {
-	return pulumix.Output[[]*VirtualNetworkRule]{
-		OutputState: i.ToVirtualNetworkRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualNetworkRuleMapInput is an input type that accepts VirtualNetworkRuleMap and VirtualNetworkRuleMapOutput values.
@@ -330,12 +317,6 @@ func (i VirtualNetworkRuleMap) ToVirtualNetworkRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleMapOutput)
 }
 
-func (i VirtualNetworkRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkRule] {
-	return pulumix.Output[map[string]*VirtualNetworkRule]{
-		OutputState: i.ToVirtualNetworkRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutput() VirtualNetworkRul
 
 func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx context.Context) VirtualNetworkRuleOutput {
 	return o
-}
-
-func (o VirtualNetworkRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkRule] {
-	return pulumix.Output[*VirtualNetworkRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
@@ -403,12 +378,6 @@ func (o VirtualNetworkRuleArrayOutput) ToVirtualNetworkRuleArrayOutputWithContex
 	return o
 }
 
-func (o VirtualNetworkRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkRule] {
-	return pulumix.Output[[]*VirtualNetworkRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualNetworkRuleArrayOutput) Index(i pulumi.IntInput) VirtualNetworkRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkRule {
 		return vs[0].([]*VirtualNetworkRule)[vs[1].(int)]
@@ -427,12 +396,6 @@ func (o VirtualNetworkRuleMapOutput) ToVirtualNetworkRuleMapOutput() VirtualNetw
 
 func (o VirtualNetworkRuleMapOutput) ToVirtualNetworkRuleMapOutputWithContext(ctx context.Context) VirtualNetworkRuleMapOutput {
 	return o
-}
-
-func (o VirtualNetworkRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkRule] {
-	return pulumix.Output[map[string]*VirtualNetworkRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualNetworkRuleMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkRuleOutput {

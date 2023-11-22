@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Windows Function App.
@@ -180,12 +179,6 @@ func (o LookupWindowsFunctionAppResultOutput) ToLookupWindowsFunctionAppResultOu
 
 func (o LookupWindowsFunctionAppResultOutput) ToLookupWindowsFunctionAppResultOutputWithContext(ctx context.Context) LookupWindowsFunctionAppResultOutput {
 	return o
-}
-
-func (o LookupWindowsFunctionAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWindowsFunctionAppResult] {
-	return pulumix.Output[LookupWindowsFunctionAppResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `map of key-value pairs for App Settings and custom values.

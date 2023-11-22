@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
@@ -318,12 +317,6 @@ func (i *LinkedServiceSftp) ToLinkedServiceSftpOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpOutput)
 }
 
-func (i *LinkedServiceSftp) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSftp] {
-	return pulumix.Output[*LinkedServiceSftp]{
-		OutputState: i.ToLinkedServiceSftpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceSftpArrayInput is an input type that accepts LinkedServiceSftpArray and LinkedServiceSftpArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceSftpArrayInput` via:
 //
@@ -347,12 +340,6 @@ func (i LinkedServiceSftpArray) ToLinkedServiceSftpArrayOutput() LinkedServiceSf
 
 func (i LinkedServiceSftpArray) ToLinkedServiceSftpArrayOutputWithContext(ctx context.Context) LinkedServiceSftpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpArrayOutput)
-}
-
-func (i LinkedServiceSftpArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSftp] {
-	return pulumix.Output[[]*LinkedServiceSftp]{
-		OutputState: i.ToLinkedServiceSftpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceSftpMapInput is an input type that accepts LinkedServiceSftpMap and LinkedServiceSftpMapOutput values.
@@ -380,12 +367,6 @@ func (i LinkedServiceSftpMap) ToLinkedServiceSftpMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpMapOutput)
 }
 
-func (i LinkedServiceSftpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSftp] {
-	return pulumix.Output[map[string]*LinkedServiceSftp]{
-		OutputState: i.ToLinkedServiceSftpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceSftpOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSftpOutput) ElementType() reflect.Type {
@@ -398,12 +379,6 @@ func (o LinkedServiceSftpOutput) ToLinkedServiceSftpOutput() LinkedServiceSftpOu
 
 func (o LinkedServiceSftpOutput) ToLinkedServiceSftpOutputWithContext(ctx context.Context) LinkedServiceSftpOutput {
 	return o
-}
-
-func (o LinkedServiceSftpOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSftp] {
-	return pulumix.Output[*LinkedServiceSftp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -492,12 +467,6 @@ func (o LinkedServiceSftpArrayOutput) ToLinkedServiceSftpArrayOutputWithContext(
 	return o
 }
 
-func (o LinkedServiceSftpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSftp] {
-	return pulumix.Output[[]*LinkedServiceSftp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceSftpArrayOutput) Index(i pulumi.IntInput) LinkedServiceSftpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceSftp {
 		return vs[0].([]*LinkedServiceSftp)[vs[1].(int)]
@@ -516,12 +485,6 @@ func (o LinkedServiceSftpMapOutput) ToLinkedServiceSftpMapOutput() LinkedService
 
 func (o LinkedServiceSftpMapOutput) ToLinkedServiceSftpMapOutputWithContext(ctx context.Context) LinkedServiceSftpMapOutput {
 	return o
-}
-
-func (o LinkedServiceSftpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSftp] {
-	return pulumix.Output[map[string]*LinkedServiceSftp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceSftpMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceSftpOutput {

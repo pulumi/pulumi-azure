@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Live Event.
@@ -349,12 +348,6 @@ func (i *LiveEvent) ToLiveEventOutputWithContext(ctx context.Context) LiveEventO
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutput)
 }
 
-func (i *LiveEvent) ToOutput(ctx context.Context) pulumix.Output[*LiveEvent] {
-	return pulumix.Output[*LiveEvent]{
-		OutputState: i.ToLiveEventOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LiveEventArrayInput is an input type that accepts LiveEventArray and LiveEventArrayOutput values.
 // You can construct a concrete instance of `LiveEventArrayInput` via:
 //
@@ -378,12 +371,6 @@ func (i LiveEventArray) ToLiveEventArrayOutput() LiveEventArrayOutput {
 
 func (i LiveEventArray) ToLiveEventArrayOutputWithContext(ctx context.Context) LiveEventArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventArrayOutput)
-}
-
-func (i LiveEventArray) ToOutput(ctx context.Context) pulumix.Output[[]*LiveEvent] {
-	return pulumix.Output[[]*LiveEvent]{
-		OutputState: i.ToLiveEventArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LiveEventMapInput is an input type that accepts LiveEventMap and LiveEventMapOutput values.
@@ -411,12 +398,6 @@ func (i LiveEventMap) ToLiveEventMapOutputWithContext(ctx context.Context) LiveE
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventMapOutput)
 }
 
-func (i LiveEventMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LiveEvent] {
-	return pulumix.Output[map[string]*LiveEvent]{
-		OutputState: i.ToLiveEventMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LiveEventOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutput) ElementType() reflect.Type {
@@ -429,12 +410,6 @@ func (o LiveEventOutput) ToLiveEventOutput() LiveEventOutput {
 
 func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveEventOutput {
 	return o
-}
-
-func (o LiveEventOutput) ToOutput(ctx context.Context) pulumix.Output[*LiveEvent] {
-	return pulumix.Output[*LiveEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created.
@@ -526,12 +501,6 @@ func (o LiveEventArrayOutput) ToLiveEventArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o LiveEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LiveEvent] {
-	return pulumix.Output[[]*LiveEvent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LiveEventArrayOutput) Index(i pulumi.IntInput) LiveEventOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LiveEvent {
 		return vs[0].([]*LiveEvent)[vs[1].(int)]
@@ -550,12 +519,6 @@ func (o LiveEventMapOutput) ToLiveEventMapOutput() LiveEventMapOutput {
 
 func (o LiveEventMapOutput) ToLiveEventMapOutputWithContext(ctx context.Context) LiveEventMapOutput {
 	return o
-}
-
-func (o LiveEventMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LiveEvent] {
-	return pulumix.Output[map[string]*LiveEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LiveEventMapOutput) MapIndex(k pulumi.StringInput) LiveEventOutput {

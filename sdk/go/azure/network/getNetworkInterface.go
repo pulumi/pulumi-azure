@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Network Interface.
@@ -132,12 +131,6 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 
 func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceResultOutput {
 	return o
-}
-
-func (o LookupNetworkInterfaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkInterfaceResult] {
-	return pulumix.Output[LookupNetworkInterfaceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of DNS servers applied to the specified Network Interface.

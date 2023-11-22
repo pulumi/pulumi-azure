@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Security Center Assessment Metadata for Azure Security Center.
@@ -218,12 +217,6 @@ func (i *AssessmentPolicy) ToAssessmentPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyOutput)
 }
 
-func (i *AssessmentPolicy) ToOutput(ctx context.Context) pulumix.Output[*AssessmentPolicy] {
-	return pulumix.Output[*AssessmentPolicy]{
-		OutputState: i.ToAssessmentPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssessmentPolicyArrayInput is an input type that accepts AssessmentPolicyArray and AssessmentPolicyArrayOutput values.
 // You can construct a concrete instance of `AssessmentPolicyArrayInput` via:
 //
@@ -247,12 +240,6 @@ func (i AssessmentPolicyArray) ToAssessmentPolicyArrayOutput() AssessmentPolicyA
 
 func (i AssessmentPolicyArray) ToAssessmentPolicyArrayOutputWithContext(ctx context.Context) AssessmentPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyArrayOutput)
-}
-
-func (i AssessmentPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentPolicy] {
-	return pulumix.Output[[]*AssessmentPolicy]{
-		OutputState: i.ToAssessmentPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssessmentPolicyMapInput is an input type that accepts AssessmentPolicyMap and AssessmentPolicyMapOutput values.
@@ -280,12 +267,6 @@ func (i AssessmentPolicyMap) ToAssessmentPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentPolicyMapOutput)
 }
 
-func (i AssessmentPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentPolicy] {
-	return pulumix.Output[map[string]*AssessmentPolicy]{
-		OutputState: i.ToAssessmentPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentPolicyOutput struct{ *pulumi.OutputState }
 
 func (AssessmentPolicyOutput) ElementType() reflect.Type {
@@ -298,12 +279,6 @@ func (o AssessmentPolicyOutput) ToAssessmentPolicyOutput() AssessmentPolicyOutpu
 
 func (o AssessmentPolicyOutput) ToAssessmentPolicyOutputWithContext(ctx context.Context) AssessmentPolicyOutput {
 	return o
-}
-
-func (o AssessmentPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentPolicy] {
-	return pulumix.Output[*AssessmentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
@@ -365,12 +340,6 @@ func (o AssessmentPolicyArrayOutput) ToAssessmentPolicyArrayOutputWithContext(ct
 	return o
 }
 
-func (o AssessmentPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssessmentPolicy] {
-	return pulumix.Output[[]*AssessmentPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentPolicyArrayOutput) Index(i pulumi.IntInput) AssessmentPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssessmentPolicy {
 		return vs[0].([]*AssessmentPolicy)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o AssessmentPolicyMapOutput) ToAssessmentPolicyMapOutput() AssessmentPolic
 
 func (o AssessmentPolicyMapOutput) ToAssessmentPolicyMapOutputWithContext(ctx context.Context) AssessmentPolicyMapOutput {
 	return o
-}
-
-func (o AssessmentPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssessmentPolicy] {
-	return pulumix.Output[map[string]*AssessmentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentPolicyMapOutput) MapIndex(k pulumi.StringInput) AssessmentPolicyOutput {

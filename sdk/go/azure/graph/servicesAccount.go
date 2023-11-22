@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft Graph Services Account.
@@ -194,12 +193,6 @@ func (i *ServicesAccount) ToServicesAccountOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesAccountOutput)
 }
 
-func (i *ServicesAccount) ToOutput(ctx context.Context) pulumix.Output[*ServicesAccount] {
-	return pulumix.Output[*ServicesAccount]{
-		OutputState: i.ToServicesAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServicesAccountArrayInput is an input type that accepts ServicesAccountArray and ServicesAccountArrayOutput values.
 // You can construct a concrete instance of `ServicesAccountArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i ServicesAccountArray) ToServicesAccountArrayOutput() ServicesAccountArra
 
 func (i ServicesAccountArray) ToServicesAccountArrayOutputWithContext(ctx context.Context) ServicesAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesAccountArrayOutput)
-}
-
-func (i ServicesAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServicesAccount] {
-	return pulumix.Output[[]*ServicesAccount]{
-		OutputState: i.ToServicesAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServicesAccountMapInput is an input type that accepts ServicesAccountMap and ServicesAccountMapOutput values.
@@ -256,12 +243,6 @@ func (i ServicesAccountMap) ToServicesAccountMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesAccountMapOutput)
 }
 
-func (i ServicesAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicesAccount] {
-	return pulumix.Output[map[string]*ServicesAccount]{
-		OutputState: i.ToServicesAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServicesAccountOutput struct{ *pulumi.OutputState }
 
 func (ServicesAccountOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o ServicesAccountOutput) ToServicesAccountOutput() ServicesAccountOutput {
 
 func (o ServicesAccountOutput) ToServicesAccountOutputWithContext(ctx context.Context) ServicesAccountOutput {
 	return o
-}
-
-func (o ServicesAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicesAccount] {
-	return pulumix.Output[*ServicesAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Customer owned application ID. Changing this forces a new Account to be created.
@@ -321,12 +296,6 @@ func (o ServicesAccountArrayOutput) ToServicesAccountArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ServicesAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServicesAccount] {
-	return pulumix.Output[[]*ServicesAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicesAccountArrayOutput) Index(i pulumi.IntInput) ServicesAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServicesAccount {
 		return vs[0].([]*ServicesAccount)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o ServicesAccountMapOutput) ToServicesAccountMapOutput() ServicesAccountMa
 
 func (o ServicesAccountMapOutput) ToServicesAccountMapOutputWithContext(ctx context.Context) ServicesAccountMapOutput {
 	return o
-}
-
-func (o ServicesAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicesAccount] {
-	return pulumix.Output[map[string]*ServicesAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicesAccountMapOutput) MapIndex(k pulumi.StringInput) ServicesAccountOutput {

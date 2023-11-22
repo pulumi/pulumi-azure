@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Policy Assignment to a Management Group.
@@ -311,12 +310,6 @@ func (i *GroupPolicyAssignment) ToGroupPolicyAssignmentOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentOutput)
 }
 
-func (i *GroupPolicyAssignment) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicyAssignment] {
-	return pulumix.Output[*GroupPolicyAssignment]{
-		OutputState: i.ToGroupPolicyAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupPolicyAssignmentArrayInput is an input type that accepts GroupPolicyAssignmentArray and GroupPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `GroupPolicyAssignmentArrayInput` via:
 //
@@ -340,12 +333,6 @@ func (i GroupPolicyAssignmentArray) ToGroupPolicyAssignmentArrayOutput() GroupPo
 
 func (i GroupPolicyAssignmentArray) ToGroupPolicyAssignmentArrayOutputWithContext(ctx context.Context) GroupPolicyAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentArrayOutput)
-}
-
-func (i GroupPolicyAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupPolicyAssignment] {
-	return pulumix.Output[[]*GroupPolicyAssignment]{
-		OutputState: i.ToGroupPolicyAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupPolicyAssignmentMapInput is an input type that accepts GroupPolicyAssignmentMap and GroupPolicyAssignmentMapOutput values.
@@ -373,12 +360,6 @@ func (i GroupPolicyAssignmentMap) ToGroupPolicyAssignmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyAssignmentMapOutput)
 }
 
-func (i GroupPolicyAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupPolicyAssignment] {
-	return pulumix.Output[map[string]*GroupPolicyAssignment]{
-		OutputState: i.ToGroupPolicyAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyAssignmentOutput) ElementType() reflect.Type {
@@ -391,12 +372,6 @@ func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentOutput() GroupPolicy
 
 func (o GroupPolicyAssignmentOutput) ToGroupPolicyAssignmentOutputWithContext(ctx context.Context) GroupPolicyAssignmentOutput {
 	return o
-}
-
-func (o GroupPolicyAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupPolicyAssignment] {
-	return pulumix.Output[*GroupPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description which should be used for this Policy Assignment.
@@ -489,12 +464,6 @@ func (o GroupPolicyAssignmentArrayOutput) ToGroupPolicyAssignmentArrayOutputWith
 	return o
 }
 
-func (o GroupPolicyAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupPolicyAssignment] {
-	return pulumix.Output[[]*GroupPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) GroupPolicyAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupPolicyAssignment {
 		return vs[0].([]*GroupPolicyAssignment)[vs[1].(int)]
@@ -513,12 +482,6 @@ func (o GroupPolicyAssignmentMapOutput) ToGroupPolicyAssignmentMapOutput() Group
 
 func (o GroupPolicyAssignmentMapOutput) ToGroupPolicyAssignmentMapOutputWithContext(ctx context.Context) GroupPolicyAssignmentMapOutput {
 	return o
-}
-
-func (o GroupPolicyAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupPolicyAssignment] {
-	return pulumix.Output[map[string]*GroupPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) GroupPolicyAssignmentOutput {

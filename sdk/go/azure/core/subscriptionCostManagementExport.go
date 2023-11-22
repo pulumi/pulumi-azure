@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cost Management Export for a Subscription.
@@ -259,12 +258,6 @@ func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportOut
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportOutput)
 }
 
-func (i *SubscriptionCostManagementExport) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementExport] {
-	return pulumix.Output[*SubscriptionCostManagementExport]{
-		OutputState: i.ToSubscriptionCostManagementExportOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionCostManagementExportArrayInput is an input type that accepts SubscriptionCostManagementExportArray and SubscriptionCostManagementExportArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportArrayInput` via:
 //
@@ -288,12 +281,6 @@ func (i SubscriptionCostManagementExportArray) ToSubscriptionCostManagementExpor
 
 func (i SubscriptionCostManagementExportArray) ToSubscriptionCostManagementExportArrayOutputWithContext(ctx context.Context) SubscriptionCostManagementExportArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportArrayOutput)
-}
-
-func (i SubscriptionCostManagementExportArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionCostManagementExport] {
-	return pulumix.Output[[]*SubscriptionCostManagementExport]{
-		OutputState: i.ToSubscriptionCostManagementExportArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubscriptionCostManagementExportMapInput is an input type that accepts SubscriptionCostManagementExportMap and SubscriptionCostManagementExportMapOutput values.
@@ -321,12 +308,6 @@ func (i SubscriptionCostManagementExportMap) ToSubscriptionCostManagementExportM
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionCostManagementExportMapOutput)
 }
 
-func (i SubscriptionCostManagementExportMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionCostManagementExport] {
-	return pulumix.Output[map[string]*SubscriptionCostManagementExport]{
-		OutputState: i.ToSubscriptionCostManagementExportMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionCostManagementExportOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionCostManagementExportOutput) ElementType() reflect.Type {
@@ -339,12 +320,6 @@ func (o SubscriptionCostManagementExportOutput) ToSubscriptionCostManagementExpo
 
 func (o SubscriptionCostManagementExportOutput) ToSubscriptionCostManagementExportOutputWithContext(ctx context.Context) SubscriptionCostManagementExportOutput {
 	return o
-}
-
-func (o SubscriptionCostManagementExportOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionCostManagementExport] {
-	return pulumix.Output[*SubscriptionCostManagementExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is the cost management export active? Default is `true`.
@@ -405,12 +380,6 @@ func (o SubscriptionCostManagementExportArrayOutput) ToSubscriptionCostManagemen
 	return o
 }
 
-func (o SubscriptionCostManagementExportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionCostManagementExport] {
-	return pulumix.Output[[]*SubscriptionCostManagementExport]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionCostManagementExportArrayOutput) Index(i pulumi.IntInput) SubscriptionCostManagementExportOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionCostManagementExport {
 		return vs[0].([]*SubscriptionCostManagementExport)[vs[1].(int)]
@@ -429,12 +398,6 @@ func (o SubscriptionCostManagementExportMapOutput) ToSubscriptionCostManagementE
 
 func (o SubscriptionCostManagementExportMapOutput) ToSubscriptionCostManagementExportMapOutputWithContext(ctx context.Context) SubscriptionCostManagementExportMapOutput {
 	return o
-}
-
-func (o SubscriptionCostManagementExportMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionCostManagementExport] {
-	return pulumix.Output[map[string]*SubscriptionCostManagementExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionCostManagementExportMapOutput) MapIndex(k pulumi.StringInput) SubscriptionCostManagementExportOutput {

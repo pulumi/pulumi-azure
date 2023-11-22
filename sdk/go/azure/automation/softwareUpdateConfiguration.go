@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Automation Software Update Configuraion.
@@ -334,12 +333,6 @@ func (i *SoftwareUpdateConfiguration) ToSoftwareUpdateConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationOutput)
 }
 
-func (i *SoftwareUpdateConfiguration) ToOutput(ctx context.Context) pulumix.Output[*SoftwareUpdateConfiguration] {
-	return pulumix.Output[*SoftwareUpdateConfiguration]{
-		OutputState: i.ToSoftwareUpdateConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SoftwareUpdateConfigurationArrayInput is an input type that accepts SoftwareUpdateConfigurationArray and SoftwareUpdateConfigurationArrayOutput values.
 // You can construct a concrete instance of `SoftwareUpdateConfigurationArrayInput` via:
 //
@@ -363,12 +356,6 @@ func (i SoftwareUpdateConfigurationArray) ToSoftwareUpdateConfigurationArrayOutp
 
 func (i SoftwareUpdateConfigurationArray) ToSoftwareUpdateConfigurationArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationArrayOutput)
-}
-
-func (i SoftwareUpdateConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SoftwareUpdateConfiguration] {
-	return pulumix.Output[[]*SoftwareUpdateConfiguration]{
-		OutputState: i.ToSoftwareUpdateConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SoftwareUpdateConfigurationMapInput is an input type that accepts SoftwareUpdateConfigurationMap and SoftwareUpdateConfigurationMapOutput values.
@@ -396,12 +383,6 @@ func (i SoftwareUpdateConfigurationMap) ToSoftwareUpdateConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationMapOutput)
 }
 
-func (i SoftwareUpdateConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SoftwareUpdateConfiguration] {
-	return pulumix.Output[map[string]*SoftwareUpdateConfiguration]{
-		OutputState: i.ToSoftwareUpdateConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SoftwareUpdateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationOutput) ElementType() reflect.Type {
@@ -414,12 +395,6 @@ func (o SoftwareUpdateConfigurationOutput) ToSoftwareUpdateConfigurationOutput()
 
 func (o SoftwareUpdateConfigurationOutput) ToSoftwareUpdateConfigurationOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*SoftwareUpdateConfiguration] {
-	return pulumix.Output[*SoftwareUpdateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
@@ -518,12 +493,6 @@ func (o SoftwareUpdateConfigurationArrayOutput) ToSoftwareUpdateConfigurationArr
 	return o
 }
 
-func (o SoftwareUpdateConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SoftwareUpdateConfiguration] {
-	return pulumix.Output[[]*SoftwareUpdateConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SoftwareUpdateConfigurationArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SoftwareUpdateConfiguration {
 		return vs[0].([]*SoftwareUpdateConfiguration)[vs[1].(int)]
@@ -542,12 +511,6 @@ func (o SoftwareUpdateConfigurationMapOutput) ToSoftwareUpdateConfigurationMapOu
 
 func (o SoftwareUpdateConfigurationMapOutput) ToSoftwareUpdateConfigurationMapOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationMapOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SoftwareUpdateConfiguration] {
-	return pulumix.Output[map[string]*SoftwareUpdateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SoftwareUpdateConfigurationMapOutput) MapIndex(k pulumi.StringInput) SoftwareUpdateConfigurationOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
@@ -521,12 +520,6 @@ func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanOutput)
 }
 
-func (i *ReplicationRecoveryPlan) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlan] {
-	return pulumix.Output[*ReplicationRecoveryPlan]{
-		OutputState: i.ToReplicationRecoveryPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanArrayInput is an input type that accepts ReplicationRecoveryPlanArray and ReplicationRecoveryPlanArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanArrayInput` via:
 //
@@ -550,12 +543,6 @@ func (i ReplicationRecoveryPlanArray) ToReplicationRecoveryPlanArrayOutput() Rep
 
 func (i ReplicationRecoveryPlanArray) ToReplicationRecoveryPlanArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanArrayOutput)
-}
-
-func (i ReplicationRecoveryPlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationRecoveryPlan] {
-	return pulumix.Output[[]*ReplicationRecoveryPlan]{
-		OutputState: i.ToReplicationRecoveryPlanArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ReplicationRecoveryPlanMapInput is an input type that accepts ReplicationRecoveryPlanMap and ReplicationRecoveryPlanMapOutput values.
@@ -583,12 +570,6 @@ func (i ReplicationRecoveryPlanMap) ToReplicationRecoveryPlanMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanMapOutput)
 }
 
-func (i ReplicationRecoveryPlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationRecoveryPlan] {
-	return pulumix.Output[map[string]*ReplicationRecoveryPlan]{
-		OutputState: i.ToReplicationRecoveryPlanMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
@@ -601,12 +582,6 @@ func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutput() Replica
 
 func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutputWithContext(ctx context.Context) ReplicationRecoveryPlanOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlan] {
-	return pulumix.Output[*ReplicationRecoveryPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `azureToAzureSettings` block as defined below.
@@ -688,12 +663,6 @@ func (o ReplicationRecoveryPlanArrayOutput) ToReplicationRecoveryPlanArrayOutput
 	return o
 }
 
-func (o ReplicationRecoveryPlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReplicationRecoveryPlan] {
-	return pulumix.Output[[]*ReplicationRecoveryPlan]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationRecoveryPlanArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationRecoveryPlan {
 		return vs[0].([]*ReplicationRecoveryPlan)[vs[1].(int)]
@@ -712,12 +681,6 @@ func (o ReplicationRecoveryPlanMapOutput) ToReplicationRecoveryPlanMapOutput() R
 
 func (o ReplicationRecoveryPlanMapOutput) ToReplicationRecoveryPlanMapOutputWithContext(ctx context.Context) ReplicationRecoveryPlanMapOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReplicationRecoveryPlan] {
-	return pulumix.Output[map[string]*ReplicationRecoveryPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanMapOutput) MapIndex(k pulumi.StringInput) ReplicationRecoveryPlanOutput {

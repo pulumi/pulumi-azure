@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i DatabaseImportArgs) ToDatabaseImportOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportOutput)
 }
 
-func (i DatabaseImportArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseImport] {
-	return pulumix.Output[DatabaseImport]{
-		OutputState: i.ToDatabaseImportOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DatabaseImportArgs) ToDatabaseImportPtrOutput() DatabaseImportPtrOutput {
 	return i.ToDatabaseImportPtrOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (i *databaseImportPtrType) ToDatabaseImportPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportPtrOutput)
 }
 
-func (i *databaseImportPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseImport] {
-	return pulumix.Output[*DatabaseImport]{
-		OutputState: i.ToDatabaseImportPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseImportOutput struct{ *pulumi.OutputState }
 
 func (DatabaseImportOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o DatabaseImportOutput) ToDatabaseImportPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseImport) *DatabaseImport {
 		return &v
 	}).(DatabaseImportPtrOutput)
-}
-
-func (o DatabaseImportOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseImport] {
-	return pulumix.Output[DatabaseImport]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the SQL administrator.
@@ -201,12 +182,6 @@ func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutput() DatabaseImportPtrOu
 
 func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
 	return o
-}
-
-func (o DatabaseImportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseImport] {
-	return pulumix.Output[*DatabaseImport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseImportPtrOutput) Elem() DatabaseImportOutput {
@@ -334,12 +309,6 @@ func (i DatabaseLongTermRetentionPolicyArgs) ToDatabaseLongTermRetentionPolicyOu
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseLongTermRetentionPolicyOutput)
 }
 
-func (i DatabaseLongTermRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[DatabaseLongTermRetentionPolicy]{
-		OutputState: i.ToDatabaseLongTermRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DatabaseLongTermRetentionPolicyArgs) ToDatabaseLongTermRetentionPolicyPtrOutput() DatabaseLongTermRetentionPolicyPtrOutput {
 	return i.ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -381,12 +350,6 @@ func (i *databaseLongTermRetentionPolicyPtrType) ToDatabaseLongTermRetentionPoli
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-func (i *databaseLongTermRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[*DatabaseLongTermRetentionPolicy]{
-		OutputState: i.ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseLongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseLongTermRetentionPolicyOutput) ElementType() reflect.Type {
@@ -409,12 +372,6 @@ func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicy
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseLongTermRetentionPolicy) *DatabaseLongTermRetentionPolicy {
 		return &v
 	}).(DatabaseLongTermRetentionPolicyPtrOutput)
-}
-
-func (o DatabaseLongTermRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[DatabaseLongTermRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -449,12 +406,6 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) ToDatabaseLongTermRetentionPol
 
 func (o DatabaseLongTermRetentionPolicyPtrOutput) ToDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseLongTermRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o DatabaseLongTermRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[*DatabaseLongTermRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseLongTermRetentionPolicyPtrOutput) Elem() DatabaseLongTermRetentionPolicyOutput {
@@ -544,12 +495,6 @@ func (i DatabaseShortTermRetentionPolicyArgs) ToDatabaseShortTermRetentionPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseShortTermRetentionPolicyOutput)
 }
 
-func (i DatabaseShortTermRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseShortTermRetentionPolicy] {
-	return pulumix.Output[DatabaseShortTermRetentionPolicy]{
-		OutputState: i.ToDatabaseShortTermRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DatabaseShortTermRetentionPolicyArgs) ToDatabaseShortTermRetentionPolicyPtrOutput() DatabaseShortTermRetentionPolicyPtrOutput {
 	return i.ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -591,12 +536,6 @@ func (i *databaseShortTermRetentionPolicyPtrType) ToDatabaseShortTermRetentionPo
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseShortTermRetentionPolicyPtrOutput)
 }
 
-func (i *databaseShortTermRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseShortTermRetentionPolicy] {
-	return pulumix.Output[*DatabaseShortTermRetentionPolicy]{
-		OutputState: i.ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseShortTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseShortTermRetentionPolicyOutput) ElementType() reflect.Type {
@@ -621,12 +560,6 @@ func (o DatabaseShortTermRetentionPolicyOutput) ToDatabaseShortTermRetentionPoli
 	}).(DatabaseShortTermRetentionPolicyPtrOutput)
 }
 
-func (o DatabaseShortTermRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseShortTermRetentionPolicy] {
-	return pulumix.Output[DatabaseShortTermRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
 func (o DatabaseShortTermRetentionPolicyOutput) BackupIntervalInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) *int { return v.BackupIntervalInHours }).(pulumi.IntPtrOutput)
@@ -649,12 +582,6 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) ToDatabaseShortTermRetentionP
 
 func (o DatabaseShortTermRetentionPolicyPtrOutput) ToDatabaseShortTermRetentionPolicyPtrOutputWithContext(ctx context.Context) DatabaseShortTermRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o DatabaseShortTermRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseShortTermRetentionPolicy] {
-	return pulumix.Output[*DatabaseShortTermRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseShortTermRetentionPolicyPtrOutput) Elem() DatabaseShortTermRetentionPolicyOutput {
@@ -744,12 +671,6 @@ func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyOutput)
 }
 
-func (i DatabaseThreatDetectionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseThreatDetectionPolicy] {
-	return pulumix.Output[DatabaseThreatDetectionPolicy]{
-		OutputState: i.ToDatabaseThreatDetectionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DatabaseThreatDetectionPolicyArgs) ToDatabaseThreatDetectionPolicyPtrOutput() DatabaseThreatDetectionPolicyPtrOutput {
 	return i.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(context.Background())
 }
@@ -791,12 +712,6 @@ func (i *databaseThreatDetectionPolicyPtrType) ToDatabaseThreatDetectionPolicyPt
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseThreatDetectionPolicyPtrOutput)
 }
 
-func (i *databaseThreatDetectionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatabaseThreatDetectionPolicy] {
-	return pulumix.Output[*DatabaseThreatDetectionPolicy]{
-		OutputState: i.ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseThreatDetectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseThreatDetectionPolicyOutput) ElementType() reflect.Type {
@@ -819,12 +734,6 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseThreatDetectionPolicy) *DatabaseThreatDetectionPolicy {
 		return &v
 	}).(DatabaseThreatDetectionPolicyPtrOutput)
-}
-
-func (o DatabaseThreatDetectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseThreatDetectionPolicy] {
-	return pulumix.Output[DatabaseThreatDetectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
@@ -874,12 +783,6 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyP
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) ToDatabaseThreatDetectionPolicyPtrOutputWithContext(ctx context.Context) DatabaseThreatDetectionPolicyPtrOutput {
 	return o
-}
-
-func (o DatabaseThreatDetectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatabaseThreatDetectionPolicy] {
-	return pulumix.Output[*DatabaseThreatDetectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseThreatDetectionPolicyPtrOutput) Elem() DatabaseThreatDetectionPolicyOutput {
@@ -995,12 +898,6 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs) ToDatabas
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput)
 }
 
-func (i DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult] {
-	return pulumix.Output[DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult]{
-		OutputState: i.ToDatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayInput is an input type that accepts DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArray and DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput values.
 // You can construct a concrete instance of `DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayInput` via:
 //
@@ -1026,12 +923,6 @@ func (i DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArray) ToDataba
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput)
 }
 
-func (i DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArray) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult] {
-	return pulumix.Output[[]DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult]{
-		OutputState: i.ToDatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput struct{ *pulumi.OutputState }
 
 func (DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ElementType() reflect.Type {
@@ -1044,12 +935,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ToDatab
 
 func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput {
 	return o
-}
-
-func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult] {
-	return pulumix.Output[DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list representing a result of the baseline.
@@ -1069,12 +954,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) To
 
 func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) ToDatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutputWithContext(ctx context.Context) DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput {
 	return o
-}
-
-func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult] {
-	return pulumix.Output[[]DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArrayOutput) Index(i pulumi.IntInput) DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultOutput {
@@ -1120,12 +999,6 @@ func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsOutput)
 }
 
-func (i ElasticPoolPerDatabaseSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ElasticPoolPerDatabaseSettings] {
-	return pulumix.Output[ElasticPoolPerDatabaseSettings]{
-		OutputState: i.ToElasticPoolPerDatabaseSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ElasticPoolPerDatabaseSettingsArgs) ToElasticPoolPerDatabaseSettingsPtrOutput() ElasticPoolPerDatabaseSettingsPtrOutput {
 	return i.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(context.Background())
 }
@@ -1167,12 +1040,6 @@ func (i *elasticPoolPerDatabaseSettingsPtrType) ToElasticPoolPerDatabaseSettings
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
 
-func (i *elasticPoolPerDatabaseSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ElasticPoolPerDatabaseSettings] {
-	return pulumix.Output[*ElasticPoolPerDatabaseSettings]{
-		OutputState: i.ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticPoolPerDatabaseSettingsOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolPerDatabaseSettingsOutput) ElementType() reflect.Type {
@@ -1197,12 +1064,6 @@ func (o ElasticPoolPerDatabaseSettingsOutput) ToElasticPoolPerDatabaseSettingsPt
 	}).(ElasticPoolPerDatabaseSettingsPtrOutput)
 }
 
-func (o ElasticPoolPerDatabaseSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ElasticPoolPerDatabaseSettings] {
-	return pulumix.Output[ElasticPoolPerDatabaseSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum capacity any one database can consume.
 func (o ElasticPoolPerDatabaseSettingsOutput) MaxCapacity() pulumi.Float64Output {
 	return o.ApplyT(func(v ElasticPoolPerDatabaseSettings) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
@@ -1225,12 +1086,6 @@ func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSetting
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToElasticPoolPerDatabaseSettingsPtrOutputWithContext(ctx context.Context) ElasticPoolPerDatabaseSettingsPtrOutput {
 	return o
-}
-
-func (o ElasticPoolPerDatabaseSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ElasticPoolPerDatabaseSettings] {
-	return pulumix.Output[*ElasticPoolPerDatabaseSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticPoolPerDatabaseSettingsPtrOutput) Elem() ElasticPoolPerDatabaseSettingsOutput {
@@ -1308,12 +1163,6 @@ func (i ElasticPoolSkuArgs) ToElasticPoolSkuOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolSkuOutput)
 }
 
-func (i ElasticPoolSkuArgs) ToOutput(ctx context.Context) pulumix.Output[ElasticPoolSku] {
-	return pulumix.Output[ElasticPoolSku]{
-		OutputState: i.ToElasticPoolSkuOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ElasticPoolSkuArgs) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOutput {
 	return i.ToElasticPoolSkuPtrOutputWithContext(context.Background())
 }
@@ -1355,12 +1204,6 @@ func (i *elasticPoolSkuPtrType) ToElasticPoolSkuPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticPoolSkuPtrOutput)
 }
 
-func (i *elasticPoolSkuPtrType) ToOutput(ctx context.Context) pulumix.Output[*ElasticPoolSku] {
-	return pulumix.Output[*ElasticPoolSku]{
-		OutputState: i.ToElasticPoolSkuPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticPoolSkuOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolSkuOutput) ElementType() reflect.Type {
@@ -1383,12 +1226,6 @@ func (o ElasticPoolSkuOutput) ToElasticPoolSkuPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPoolSku) *ElasticPoolSku {
 		return &v
 	}).(ElasticPoolSkuPtrOutput)
-}
-
-func (o ElasticPoolSkuOutput) ToOutput(ctx context.Context) pulumix.Output[ElasticPoolSku] {
-	return pulumix.Output[ElasticPoolSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
@@ -1423,12 +1260,6 @@ func (o ElasticPoolSkuPtrOutput) ToElasticPoolSkuPtrOutput() ElasticPoolSkuPtrOu
 
 func (o ElasticPoolSkuPtrOutput) ToElasticPoolSkuPtrOutputWithContext(ctx context.Context) ElasticPoolSkuPtrOutput {
 	return o
-}
-
-func (o ElasticPoolSkuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ElasticPoolSku] {
-	return pulumix.Output[*ElasticPoolSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticPoolSkuPtrOutput) Elem() ElasticPoolSkuOutput {
@@ -1522,12 +1353,6 @@ func (i FailoverGroupPartnerServerArgs) ToFailoverGroupPartnerServerOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupPartnerServerOutput)
 }
 
-func (i FailoverGroupPartnerServerArgs) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupPartnerServer] {
-	return pulumix.Output[FailoverGroupPartnerServer]{
-		OutputState: i.ToFailoverGroupPartnerServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FailoverGroupPartnerServerArrayInput is an input type that accepts FailoverGroupPartnerServerArray and FailoverGroupPartnerServerArrayOutput values.
 // You can construct a concrete instance of `FailoverGroupPartnerServerArrayInput` via:
 //
@@ -1553,12 +1378,6 @@ func (i FailoverGroupPartnerServerArray) ToFailoverGroupPartnerServerArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupPartnerServerArrayOutput)
 }
 
-func (i FailoverGroupPartnerServerArray) ToOutput(ctx context.Context) pulumix.Output[[]FailoverGroupPartnerServer] {
-	return pulumix.Output[[]FailoverGroupPartnerServer]{
-		OutputState: i.ToFailoverGroupPartnerServerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FailoverGroupPartnerServerOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupPartnerServerOutput) ElementType() reflect.Type {
@@ -1571,12 +1390,6 @@ func (o FailoverGroupPartnerServerOutput) ToFailoverGroupPartnerServerOutput() F
 
 func (o FailoverGroupPartnerServerOutput) ToFailoverGroupPartnerServerOutputWithContext(ctx context.Context) FailoverGroupPartnerServerOutput {
 	return o
-}
-
-func (o FailoverGroupPartnerServerOutput) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupPartnerServer] {
-	return pulumix.Output[FailoverGroupPartnerServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of a partner SQL server to include in the failover group.
@@ -1606,12 +1419,6 @@ func (o FailoverGroupPartnerServerArrayOutput) ToFailoverGroupPartnerServerArray
 
 func (o FailoverGroupPartnerServerArrayOutput) ToFailoverGroupPartnerServerArrayOutputWithContext(ctx context.Context) FailoverGroupPartnerServerArrayOutput {
 	return o
-}
-
-func (o FailoverGroupPartnerServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FailoverGroupPartnerServer] {
-	return pulumix.Output[[]FailoverGroupPartnerServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FailoverGroupPartnerServerArrayOutput) Index(i pulumi.IntInput) FailoverGroupPartnerServerOutput {
@@ -1657,12 +1464,6 @@ func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWri
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
-func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: i.ToFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FailoverGroupReadWriteEndpointFailoverPolicyArgs) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
 }
@@ -1704,12 +1505,6 @@ func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToFailoverGroupRea
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
-func (i *failoverGroupReadWriteEndpointFailoverPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: i.ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -1734,12 +1529,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToFailoverGroupReadW
 	}).(FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
-func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[FailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
 func (o FailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -1762,12 +1551,6 @@ func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupRe
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return o
-}
-
-func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[*FailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() FailoverGroupReadWriteEndpointFailoverPolicyOutput {
@@ -1845,12 +1628,6 @@ func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToManagedDatabaseLongTermRet
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseLongTermRetentionPolicyOutput)
 }
 
-func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedDatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[ManagedDatabaseLongTermRetentionPolicy]{
-		OutputState: i.ToManagedDatabaseLongTermRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedDatabaseLongTermRetentionPolicyArgs) ToManagedDatabaseLongTermRetentionPolicyPtrOutput() ManagedDatabaseLongTermRetentionPolicyPtrOutput {
 	return i.ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -1892,12 +1669,6 @@ func (i *managedDatabaseLongTermRetentionPolicyPtrType) ToManagedDatabaseLongTer
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-func (i *managedDatabaseLongTermRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedDatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[*ManagedDatabaseLongTermRetentionPolicy]{
-		OutputState: i.ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedDatabaseLongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseLongTermRetentionPolicyOutput) ElementType() reflect.Type {
@@ -1920,12 +1691,6 @@ func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedDatabaseLongTermRetentionPolicy) *ManagedDatabaseLongTermRetentionPolicy {
 		return &v
 	}).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
-}
-
-func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedDatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[ManagedDatabaseLongTermRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -1960,12 +1725,6 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ToManagedDatabaseLongTe
 
 func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ToManagedDatabaseLongTermRetentionPolicyPtrOutputWithContext(ctx context.Context) ManagedDatabaseLongTermRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedDatabaseLongTermRetentionPolicy] {
-	return pulumix.Output[*ManagedDatabaseLongTermRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) Elem() ManagedDatabaseLongTermRetentionPolicyOutput {
@@ -2055,12 +1814,6 @@ func (i ManagedInstanceFailoverGroupPartnerRegionArgs) ToManagedInstanceFailover
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPartnerRegionOutput)
 }
 
-func (i ManagedInstanceFailoverGroupPartnerRegionArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion] {
-	return pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion]{
-		OutputState: i.ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedInstanceFailoverGroupPartnerRegionArrayInput is an input type that accepts ManagedInstanceFailoverGroupPartnerRegionArray and ManagedInstanceFailoverGroupPartnerRegionArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceFailoverGroupPartnerRegionArrayInput` via:
 //
@@ -2086,12 +1839,6 @@ func (i ManagedInstanceFailoverGroupPartnerRegionArray) ToManagedInstanceFailove
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupPartnerRegionArrayOutput)
 }
 
-func (i ManagedInstanceFailoverGroupPartnerRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion] {
-	return pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion]{
-		OutputState: i.ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedInstanceFailoverGroupPartnerRegionOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupPartnerRegionOutput) ElementType() reflect.Type {
@@ -2104,12 +1851,6 @@ func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailov
 
 func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToManagedInstanceFailoverGroupPartnerRegionOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionOutput {
 	return o
-}
-
-func (o ManagedInstanceFailoverGroupPartnerRegionOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion] {
-	return pulumix.Output[ManagedInstanceFailoverGroupPartnerRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -2134,12 +1875,6 @@ func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToManagedInstanceF
 
 func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToManagedInstanceFailoverGroupPartnerRegionArrayOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupPartnerRegionArrayOutput {
 	return o
-}
-
-func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion] {
-	return pulumix.Output[[]ManagedInstanceFailoverGroupPartnerRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedInstanceFailoverGroupPartnerRegionArrayOutput) Index(i pulumi.IntInput) ManagedInstanceFailoverGroupPartnerRegionOutput {
@@ -2185,12 +1920,6 @@ func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManag
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput)
 }
 
-func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
 }
@@ -2232,12 +1961,6 @@ func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToM
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
-func (i *managedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: i.ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
@@ -2262,12 +1985,6 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToMan
 	}).(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput)
 }
 
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput) GraceMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy) *int { return v.GraceMinutes }).(pulumi.IntPtrOutput)
@@ -2290,12 +2007,6 @@ func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) To
 
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput {
 	return o
-}
-
-func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy] {
-	return pulumix.Output[*ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyPtrOutput) Elem() ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyOutput {
@@ -2377,12 +2088,6 @@ func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityOutput)
 }
 
-func (i ManagedInstanceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceIdentity] {
-	return pulumix.Output[ManagedInstanceIdentity]{
-		OutputState: i.ToManagedInstanceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedInstanceIdentityArgs) ToManagedInstanceIdentityPtrOutput() ManagedInstanceIdentityPtrOutput {
 	return i.ToManagedInstanceIdentityPtrOutputWithContext(context.Background())
 }
@@ -2424,12 +2129,6 @@ func (i *managedInstanceIdentityPtrType) ToManagedInstanceIdentityPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceIdentityPtrOutput)
 }
 
-func (i *managedInstanceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceIdentity] {
-	return pulumix.Output[*ManagedInstanceIdentity]{
-		OutputState: i.ToManagedInstanceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceIdentityOutput) ElementType() reflect.Type {
@@ -2452,12 +2151,6 @@ func (o ManagedInstanceIdentityOutput) ToManagedInstanceIdentityPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceIdentity) *ManagedInstanceIdentity {
 		return &v
 	}).(ManagedInstanceIdentityPtrOutput)
-}
-
-func (o ManagedInstanceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceIdentity] {
-	return pulumix.Output[ManagedInstanceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
@@ -2494,12 +2187,6 @@ func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutput() M
 
 func (o ManagedInstanceIdentityPtrOutput) ToManagedInstanceIdentityPtrOutputWithContext(ctx context.Context) ManagedInstanceIdentityPtrOutput {
 	return o
-}
-
-func (o ManagedInstanceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceIdentity] {
-	return pulumix.Output[*ManagedInstanceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedInstanceIdentityPtrOutput) Elem() ManagedInstanceIdentityOutput {
@@ -2595,12 +2282,6 @@ func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToManagedInsta
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceVulnerabilityAssessmentRecurringScansOutput)
 }
 
-func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[ManagedInstanceVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToManagedInstanceVulnerabilityAssessmentRecurringScansOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ManagedInstanceVulnerabilityAssessmentRecurringScansArgs) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput() ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
 	return i.ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
 }
@@ -2642,12 +2323,6 @@ func (i *managedInstanceVulnerabilityAssessmentRecurringScansPtrType) ToManagedI
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput)
 }
 
-func (i *managedInstanceVulnerabilityAssessmentRecurringScansPtrType) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*ManagedInstanceVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedInstanceVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
@@ -2670,12 +2345,6 @@ func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ToManagedIns
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceVulnerabilityAssessmentRecurringScans) *ManagedInstanceVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput)
-}
-
-func (o ManagedInstanceVulnerabilityAssessmentRecurringScansOutput) ToOutput(ctx context.Context) pulumix.Output[ManagedInstanceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[ManagedInstanceVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
@@ -2705,12 +2374,6 @@ func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) ToManaged
 
 func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) ToManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput {
 	return o
-}
-
-func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedInstanceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*ManagedInstanceVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedInstanceVulnerabilityAssessmentRecurringScansPtrOutput) Elem() ManagedInstanceVulnerabilityAssessmentRecurringScansOutput {
@@ -2798,12 +2461,6 @@ func (i ServerAzureadAdministratorArgs) ToServerAzureadAdministratorOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureadAdministratorOutput)
 }
 
-func (i ServerAzureadAdministratorArgs) ToOutput(ctx context.Context) pulumix.Output[ServerAzureadAdministrator] {
-	return pulumix.Output[ServerAzureadAdministrator]{
-		OutputState: i.ToServerAzureadAdministratorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerAzureadAdministratorArgs) ToServerAzureadAdministratorPtrOutput() ServerAzureadAdministratorPtrOutput {
 	return i.ToServerAzureadAdministratorPtrOutputWithContext(context.Background())
 }
@@ -2845,12 +2502,6 @@ func (i *serverAzureadAdministratorPtrType) ToServerAzureadAdministratorPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAzureadAdministratorPtrOutput)
 }
 
-func (i *serverAzureadAdministratorPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerAzureadAdministrator] {
-	return pulumix.Output[*ServerAzureadAdministrator]{
-		OutputState: i.ToServerAzureadAdministratorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerAzureadAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ServerAzureadAdministratorOutput) ElementType() reflect.Type {
@@ -2873,12 +2524,6 @@ func (o ServerAzureadAdministratorOutput) ToServerAzureadAdministratorPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAzureadAdministrator) *ServerAzureadAdministrator {
 		return &v
 	}).(ServerAzureadAdministratorPtrOutput)
-}
-
-func (o ServerAzureadAdministratorOutput) ToOutput(ctx context.Context) pulumix.Output[ServerAzureadAdministrator] {
-	return pulumix.Output[ServerAzureadAdministrator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administratorLogin`). When `true`, the `administratorLogin` and `administratorLoginPassword` properties can be omitted.
@@ -2913,12 +2558,6 @@ func (o ServerAzureadAdministratorPtrOutput) ToServerAzureadAdministratorPtrOutp
 
 func (o ServerAzureadAdministratorPtrOutput) ToServerAzureadAdministratorPtrOutputWithContext(ctx context.Context) ServerAzureadAdministratorPtrOutput {
 	return o
-}
-
-func (o ServerAzureadAdministratorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerAzureadAdministrator] {
-	return pulumix.Output[*ServerAzureadAdministrator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerAzureadAdministratorPtrOutput) Elem() ServerAzureadAdministratorOutput {
@@ -3024,12 +2663,6 @@ func (i ServerIdentityArgs) ToServerIdentityOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityOutput)
 }
 
-func (i ServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServerIdentity] {
-	return pulumix.Output[ServerIdentity]{
-		OutputState: i.ToServerIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerIdentityArgs) ToServerIdentityPtrOutput() ServerIdentityPtrOutput {
 	return i.ToServerIdentityPtrOutputWithContext(context.Background())
 }
@@ -3071,12 +2704,6 @@ func (i *serverIdentityPtrType) ToServerIdentityPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityPtrOutput)
 }
 
-func (i *serverIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentity] {
-	return pulumix.Output[*ServerIdentity]{
-		OutputState: i.ToServerIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServerIdentityOutput) ElementType() reflect.Type {
@@ -3099,12 +2726,6 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentity) *ServerIdentity {
 		return &v
 	}).(ServerIdentityPtrOutput)
-}
-
-func (o ServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServerIdentity] {
-	return pulumix.Output[ServerIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
@@ -3143,12 +2764,6 @@ func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutput() ServerIdentityPtrOu
 
 func (o ServerIdentityPtrOutput) ToServerIdentityPtrOutputWithContext(ctx context.Context) ServerIdentityPtrOutput {
 	return o
-}
-
-func (o ServerIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentity] {
-	return pulumix.Output[*ServerIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
@@ -3246,12 +2861,6 @@ func (i ServerVulnerabilityAssessmentRecurringScansArgs) ToServerVulnerabilityAs
 	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentRecurringScansOutput)
 }
 
-func (i ServerVulnerabilityAssessmentRecurringScansArgs) ToOutput(ctx context.Context) pulumix.Output[ServerVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[ServerVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToServerVulnerabilityAssessmentRecurringScansOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerVulnerabilityAssessmentRecurringScansArgs) ToServerVulnerabilityAssessmentRecurringScansPtrOutput() ServerVulnerabilityAssessmentRecurringScansPtrOutput {
 	return i.ToServerVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
 }
@@ -3293,12 +2902,6 @@ func (i *serverVulnerabilityAssessmentRecurringScansPtrType) ToServerVulnerabili
 	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentRecurringScansPtrOutput)
 }
 
-func (i *serverVulnerabilityAssessmentRecurringScansPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*ServerVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToServerVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
 
 func (ServerVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
@@ -3321,12 +2924,6 @@ func (o ServerVulnerabilityAssessmentRecurringScansOutput) ToServerVulnerability
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerVulnerabilityAssessmentRecurringScans) *ServerVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(ServerVulnerabilityAssessmentRecurringScansPtrOutput)
-}
-
-func (o ServerVulnerabilityAssessmentRecurringScansOutput) ToOutput(ctx context.Context) pulumix.Output[ServerVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[ServerVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
@@ -3356,12 +2953,6 @@ func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) ToServerVulnerabil
 
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) ToServerVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentRecurringScansPtrOutput {
 	return o
-}
-
-func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*ServerVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerVulnerabilityAssessmentRecurringScansPtrOutput) Elem() ServerVulnerabilityAssessmentRecurringScansOutput {
@@ -3445,12 +3036,6 @@ func (i VirtualMachineAssessmentArgs) ToVirtualMachineAssessmentOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentOutput)
 }
 
-func (i VirtualMachineAssessmentArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAssessment] {
-	return pulumix.Output[VirtualMachineAssessment]{
-		OutputState: i.ToVirtualMachineAssessmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineAssessmentArgs) ToVirtualMachineAssessmentPtrOutput() VirtualMachineAssessmentPtrOutput {
 	return i.ToVirtualMachineAssessmentPtrOutputWithContext(context.Background())
 }
@@ -3492,12 +3077,6 @@ func (i *virtualMachineAssessmentPtrType) ToVirtualMachineAssessmentPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentPtrOutput)
 }
 
-func (i *virtualMachineAssessmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAssessment] {
-	return pulumix.Output[*VirtualMachineAssessment]{
-		OutputState: i.ToVirtualMachineAssessmentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAssessmentOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAssessmentOutput) ElementType() reflect.Type {
@@ -3520,12 +3099,6 @@ func (o VirtualMachineAssessmentOutput) ToVirtualMachineAssessmentPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAssessment) *VirtualMachineAssessment {
 		return &v
 	}).(VirtualMachineAssessmentPtrOutput)
-}
-
-func (o VirtualMachineAssessmentOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAssessment] {
-	return pulumix.Output[VirtualMachineAssessment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should Assessment be enabled? Defaults to `true`.
@@ -3555,12 +3128,6 @@ func (o VirtualMachineAssessmentPtrOutput) ToVirtualMachineAssessmentPtrOutput()
 
 func (o VirtualMachineAssessmentPtrOutput) ToVirtualMachineAssessmentPtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentPtrOutput {
 	return o
-}
-
-func (o VirtualMachineAssessmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAssessment] {
-	return pulumix.Output[*VirtualMachineAssessment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAssessmentPtrOutput) Elem() VirtualMachineAssessmentOutput {
@@ -3652,12 +3219,6 @@ func (i VirtualMachineAssessmentScheduleArgs) ToVirtualMachineAssessmentSchedule
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentScheduleOutput)
 }
 
-func (i VirtualMachineAssessmentScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAssessmentSchedule] {
-	return pulumix.Output[VirtualMachineAssessmentSchedule]{
-		OutputState: i.ToVirtualMachineAssessmentScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineAssessmentScheduleArgs) ToVirtualMachineAssessmentSchedulePtrOutput() VirtualMachineAssessmentSchedulePtrOutput {
 	return i.ToVirtualMachineAssessmentSchedulePtrOutputWithContext(context.Background())
 }
@@ -3699,12 +3260,6 @@ func (i *virtualMachineAssessmentSchedulePtrType) ToVirtualMachineAssessmentSche
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAssessmentSchedulePtrOutput)
 }
 
-func (i *virtualMachineAssessmentSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAssessmentSchedule] {
-	return pulumix.Output[*VirtualMachineAssessmentSchedule]{
-		OutputState: i.ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAssessmentScheduleOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAssessmentScheduleOutput) ElementType() reflect.Type {
@@ -3727,12 +3282,6 @@ func (o VirtualMachineAssessmentScheduleOutput) ToVirtualMachineAssessmentSchedu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAssessmentSchedule) *VirtualMachineAssessmentSchedule {
 		return &v
 	}).(VirtualMachineAssessmentSchedulePtrOutput)
-}
-
-func (o VirtualMachineAssessmentScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAssessmentSchedule] {
-	return pulumix.Output[VirtualMachineAssessmentSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
@@ -3769,12 +3318,6 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) ToVirtualMachineAssessmentSch
 
 func (o VirtualMachineAssessmentSchedulePtrOutput) ToVirtualMachineAssessmentSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAssessmentSchedulePtrOutput {
 	return o
-}
-
-func (o VirtualMachineAssessmentSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAssessmentSchedule] {
-	return pulumix.Output[*VirtualMachineAssessmentSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAssessmentSchedulePtrOutput) Elem() VirtualMachineAssessmentScheduleOutput {
@@ -3886,12 +3429,6 @@ func (i VirtualMachineAutoBackupArgs) ToVirtualMachineAutoBackupOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupOutput)
 }
 
-func (i VirtualMachineAutoBackupArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAutoBackup] {
-	return pulumix.Output[VirtualMachineAutoBackup]{
-		OutputState: i.ToVirtualMachineAutoBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineAutoBackupArgs) ToVirtualMachineAutoBackupPtrOutput() VirtualMachineAutoBackupPtrOutput {
 	return i.ToVirtualMachineAutoBackupPtrOutputWithContext(context.Background())
 }
@@ -3933,12 +3470,6 @@ func (i *virtualMachineAutoBackupPtrType) ToVirtualMachineAutoBackupPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupPtrOutput)
 }
 
-func (i *virtualMachineAutoBackupPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAutoBackup] {
-	return pulumix.Output[*VirtualMachineAutoBackup]{
-		OutputState: i.ToVirtualMachineAutoBackupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAutoBackupOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAutoBackupOutput) ElementType() reflect.Type {
@@ -3961,12 +3492,6 @@ func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAutoBackup) *VirtualMachineAutoBackup {
 		return &v
 	}).(VirtualMachineAutoBackupPtrOutput)
-}
-
-func (o VirtualMachineAutoBackupOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAutoBackup] {
-	return pulumix.Output[VirtualMachineAutoBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enable or disable encryption for backups. Defaults to `false`.
@@ -4016,12 +3541,6 @@ func (o VirtualMachineAutoBackupPtrOutput) ToVirtualMachineAutoBackupPtrOutput()
 
 func (o VirtualMachineAutoBackupPtrOutput) ToVirtualMachineAutoBackupPtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupPtrOutput {
 	return o
-}
-
-func (o VirtualMachineAutoBackupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAutoBackup] {
-	return pulumix.Output[*VirtualMachineAutoBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAutoBackupPtrOutput) Elem() VirtualMachineAutoBackupOutput {
@@ -4157,12 +3676,6 @@ func (i VirtualMachineAutoBackupManualScheduleArgs) ToVirtualMachineAutoBackupMa
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupManualScheduleOutput)
 }
 
-func (i VirtualMachineAutoBackupManualScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAutoBackupManualSchedule] {
-	return pulumix.Output[VirtualMachineAutoBackupManualSchedule]{
-		OutputState: i.ToVirtualMachineAutoBackupManualScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineAutoBackupManualScheduleArgs) ToVirtualMachineAutoBackupManualSchedulePtrOutput() VirtualMachineAutoBackupManualSchedulePtrOutput {
 	return i.ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(context.Background())
 }
@@ -4204,12 +3717,6 @@ func (i *virtualMachineAutoBackupManualSchedulePtrType) ToVirtualMachineAutoBack
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoBackupManualSchedulePtrOutput)
 }
 
-func (i *virtualMachineAutoBackupManualSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAutoBackupManualSchedule] {
-	return pulumix.Output[*VirtualMachineAutoBackupManualSchedule]{
-		OutputState: i.ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAutoBackupManualScheduleOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAutoBackupManualScheduleOutput) ElementType() reflect.Type {
@@ -4232,12 +3739,6 @@ func (o VirtualMachineAutoBackupManualScheduleOutput) ToVirtualMachineAutoBackup
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAutoBackupManualSchedule) *VirtualMachineAutoBackupManualSchedule {
 		return &v
 	}).(VirtualMachineAutoBackupManualSchedulePtrOutput)
-}
-
-func (o VirtualMachineAutoBackupManualScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAutoBackupManualSchedule] {
-	return pulumix.Output[VirtualMachineAutoBackupManualSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
@@ -4279,12 +3780,6 @@ func (o VirtualMachineAutoBackupManualSchedulePtrOutput) ToVirtualMachineAutoBac
 
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) ToVirtualMachineAutoBackupManualSchedulePtrOutputWithContext(ctx context.Context) VirtualMachineAutoBackupManualSchedulePtrOutput {
 	return o
-}
-
-func (o VirtualMachineAutoBackupManualSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAutoBackupManualSchedule] {
-	return pulumix.Output[*VirtualMachineAutoBackupManualSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAutoBackupManualSchedulePtrOutput) Elem() VirtualMachineAutoBackupManualScheduleOutput {
@@ -4390,12 +3885,6 @@ func (i VirtualMachineAutoPatchingArgs) ToVirtualMachineAutoPatchingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoPatchingOutput)
 }
 
-func (i VirtualMachineAutoPatchingArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAutoPatching] {
-	return pulumix.Output[VirtualMachineAutoPatching]{
-		OutputState: i.ToVirtualMachineAutoPatchingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineAutoPatchingArgs) ToVirtualMachineAutoPatchingPtrOutput() VirtualMachineAutoPatchingPtrOutput {
 	return i.ToVirtualMachineAutoPatchingPtrOutputWithContext(context.Background())
 }
@@ -4437,12 +3926,6 @@ func (i *virtualMachineAutoPatchingPtrType) ToVirtualMachineAutoPatchingPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAutoPatchingPtrOutput)
 }
 
-func (i *virtualMachineAutoPatchingPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAutoPatching] {
-	return pulumix.Output[*VirtualMachineAutoPatching]{
-		OutputState: i.ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAutoPatchingOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAutoPatchingOutput) ElementType() reflect.Type {
@@ -4465,12 +3948,6 @@ func (o VirtualMachineAutoPatchingOutput) ToVirtualMachineAutoPatchingPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAutoPatching) *VirtualMachineAutoPatching {
 		return &v
 	}).(VirtualMachineAutoPatchingPtrOutput)
-}
-
-func (o VirtualMachineAutoPatchingOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAutoPatching] {
-	return pulumix.Output[VirtualMachineAutoPatching]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
@@ -4500,12 +3977,6 @@ func (o VirtualMachineAutoPatchingPtrOutput) ToVirtualMachineAutoPatchingPtrOutp
 
 func (o VirtualMachineAutoPatchingPtrOutput) ToVirtualMachineAutoPatchingPtrOutputWithContext(ctx context.Context) VirtualMachineAutoPatchingPtrOutput {
 	return o
-}
-
-func (o VirtualMachineAutoPatchingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAutoPatching] {
-	return pulumix.Output[*VirtualMachineAutoPatching]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAutoPatchingPtrOutput) Elem() VirtualMachineAutoPatchingOutput {
@@ -4601,12 +4072,6 @@ func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput)
 }
 
-func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration] {
-	return pulumix.Output[VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
 	return i.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4648,12 +4113,6 @@ func (i *virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput)
 }
 
-func (i *virtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration] {
-	return pulumix.Output[*VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ElementType() reflect.Type {
@@ -4676,12 +4135,6 @@ func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration) *VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration {
 		return &v
 	}).(VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput)
-}
-
-func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration] {
-	return pulumix.Output[VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Load Balancer. Changing this forces a new resource to be created.
@@ -4729,12 +4182,6 @@ func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutpu
 
 func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) ToVirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration] {
-	return pulumix.Output[*VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationPtrOutput) Elem() VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationOutput {
@@ -4844,12 +4291,6 @@ func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput)
 }
 
-func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration] {
-	return pulumix.Output[VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput is an input type that accepts VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray and VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayInput` via:
 //
@@ -4875,12 +4316,6 @@ func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput)
 }
 
-func (i VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration] {
-	return pulumix.Output[[]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) ElementType() reflect.Type {
@@ -4893,12 +4328,6 @@ func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput)
 
 func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration] {
-	return pulumix.Output[VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The private IP Address of the listener. Changing this forces a new resource to be created.
@@ -4934,12 +4363,6 @@ func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOu
 
 func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) ToVirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration] {
-	return pulumix.Output[[]VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArrayOutput) Index(i pulumi.IntInput) VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationOutput {
@@ -4997,12 +4420,6 @@ func (i VirtualMachineAvailabilityGroupListenerReplicaArgs) ToVirtualMachineAvai
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerReplicaOutput)
 }
 
-func (i VirtualMachineAvailabilityGroupListenerReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAvailabilityGroupListenerReplica] {
-	return pulumix.Output[VirtualMachineAvailabilityGroupListenerReplica]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerReplicaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualMachineAvailabilityGroupListenerReplicaArrayInput is an input type that accepts VirtualMachineAvailabilityGroupListenerReplicaArray and VirtualMachineAvailabilityGroupListenerReplicaArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerReplicaArrayInput` via:
 //
@@ -5028,12 +4445,6 @@ func (i VirtualMachineAvailabilityGroupListenerReplicaArray) ToVirtualMachineAva
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerReplicaArrayOutput)
 }
 
-func (i VirtualMachineAvailabilityGroupListenerReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMachineAvailabilityGroupListenerReplica] {
-	return pulumix.Output[[]VirtualMachineAvailabilityGroupListenerReplica]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAvailabilityGroupListenerReplicaOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAvailabilityGroupListenerReplicaOutput) ElementType() reflect.Type {
@@ -5046,12 +4457,6 @@ func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) ToVirtualMachineAv
 
 func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) ToVirtualMachineAvailabilityGroupListenerReplicaOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerReplicaOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineAvailabilityGroupListenerReplica] {
-	return pulumix.Output[VirtualMachineAvailabilityGroupListenerReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
@@ -5091,12 +4496,6 @@ func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) ToVirtualMach
 
 func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) ToVirtualMachineAvailabilityGroupListenerReplicaArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerReplicaArrayOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMachineAvailabilityGroupListenerReplica] {
-	return pulumix.Output[[]VirtualMachineAvailabilityGroupListenerReplica]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAvailabilityGroupListenerReplicaArrayOutput) Index(i pulumi.IntInput) VirtualMachineAvailabilityGroupListenerReplicaOutput {
@@ -5166,12 +4565,6 @@ func (i VirtualMachineGroupWsfcDomainProfileArgs) ToVirtualMachineGroupWsfcDomai
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupWsfcDomainProfileOutput)
 }
 
-func (i VirtualMachineGroupWsfcDomainProfileArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineGroupWsfcDomainProfile] {
-	return pulumix.Output[VirtualMachineGroupWsfcDomainProfile]{
-		OutputState: i.ToVirtualMachineGroupWsfcDomainProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineGroupWsfcDomainProfileArgs) ToVirtualMachineGroupWsfcDomainProfilePtrOutput() VirtualMachineGroupWsfcDomainProfilePtrOutput {
 	return i.ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(context.Background())
 }
@@ -5213,12 +4606,6 @@ func (i *virtualMachineGroupWsfcDomainProfilePtrType) ToVirtualMachineGroupWsfcD
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineGroupWsfcDomainProfilePtrOutput)
 }
 
-func (i *virtualMachineGroupWsfcDomainProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineGroupWsfcDomainProfile] {
-	return pulumix.Output[*VirtualMachineGroupWsfcDomainProfile]{
-		OutputState: i.ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineGroupWsfcDomainProfileOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineGroupWsfcDomainProfileOutput) ElementType() reflect.Type {
@@ -5241,12 +4628,6 @@ func (o VirtualMachineGroupWsfcDomainProfileOutput) ToVirtualMachineGroupWsfcDom
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineGroupWsfcDomainProfile) *VirtualMachineGroupWsfcDomainProfile {
 		return &v
 	}).(VirtualMachineGroupWsfcDomainProfilePtrOutput)
-}
-
-func (o VirtualMachineGroupWsfcDomainProfileOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineGroupWsfcDomainProfile] {
-	return pulumix.Output[VirtualMachineGroupWsfcDomainProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account name used for creating cluster. Changing this forces a new resource to be created.
@@ -5301,12 +4682,6 @@ func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ToVirtualMachineGroupWsfc
 
 func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ToVirtualMachineGroupWsfcDomainProfilePtrOutputWithContext(ctx context.Context) VirtualMachineGroupWsfcDomainProfilePtrOutput {
 	return o
-}
-
-func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineGroupWsfcDomainProfile] {
-	return pulumix.Output[*VirtualMachineGroupWsfcDomainProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineGroupWsfcDomainProfilePtrOutput) Elem() VirtualMachineGroupWsfcDomainProfileOutput {
@@ -5444,12 +4819,6 @@ func (i VirtualMachineKeyVaultCredentialArgs) ToVirtualMachineKeyVaultCredential
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineKeyVaultCredentialOutput)
 }
 
-func (i VirtualMachineKeyVaultCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineKeyVaultCredential] {
-	return pulumix.Output[VirtualMachineKeyVaultCredential]{
-		OutputState: i.ToVirtualMachineKeyVaultCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineKeyVaultCredentialArgs) ToVirtualMachineKeyVaultCredentialPtrOutput() VirtualMachineKeyVaultCredentialPtrOutput {
 	return i.ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(context.Background())
 }
@@ -5491,12 +4860,6 @@ func (i *virtualMachineKeyVaultCredentialPtrType) ToVirtualMachineKeyVaultCreden
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineKeyVaultCredentialPtrOutput)
 }
 
-func (i *virtualMachineKeyVaultCredentialPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineKeyVaultCredential] {
-	return pulumix.Output[*VirtualMachineKeyVaultCredential]{
-		OutputState: i.ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineKeyVaultCredentialOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineKeyVaultCredentialOutput) ElementType() reflect.Type {
@@ -5519,12 +4882,6 @@ func (o VirtualMachineKeyVaultCredentialOutput) ToVirtualMachineKeyVaultCredenti
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineKeyVaultCredential) *VirtualMachineKeyVaultCredential {
 		return &v
 	}).(VirtualMachineKeyVaultCredentialPtrOutput)
-}
-
-func (o VirtualMachineKeyVaultCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineKeyVaultCredential] {
-	return pulumix.Output[VirtualMachineKeyVaultCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Key Vault url. Changing this forces a new resource to be created.
@@ -5559,12 +4916,6 @@ func (o VirtualMachineKeyVaultCredentialPtrOutput) ToVirtualMachineKeyVaultCrede
 
 func (o VirtualMachineKeyVaultCredentialPtrOutput) ToVirtualMachineKeyVaultCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineKeyVaultCredentialPtrOutput {
 	return o
-}
-
-func (o VirtualMachineKeyVaultCredentialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineKeyVaultCredential] {
-	return pulumix.Output[*VirtualMachineKeyVaultCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineKeyVaultCredentialPtrOutput) Elem() VirtualMachineKeyVaultCredentialOutput {
@@ -5678,12 +5029,6 @@ func (i VirtualMachineSqlInstanceArgs) ToVirtualMachineSqlInstanceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSqlInstanceOutput)
 }
 
-func (i VirtualMachineSqlInstanceArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineSqlInstance] {
-	return pulumix.Output[VirtualMachineSqlInstance]{
-		OutputState: i.ToVirtualMachineSqlInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineSqlInstanceArgs) ToVirtualMachineSqlInstancePtrOutput() VirtualMachineSqlInstancePtrOutput {
 	return i.ToVirtualMachineSqlInstancePtrOutputWithContext(context.Background())
 }
@@ -5725,12 +5070,6 @@ func (i *virtualMachineSqlInstancePtrType) ToVirtualMachineSqlInstancePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineSqlInstancePtrOutput)
 }
 
-func (i *virtualMachineSqlInstancePtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineSqlInstance] {
-	return pulumix.Output[*VirtualMachineSqlInstance]{
-		OutputState: i.ToVirtualMachineSqlInstancePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineSqlInstanceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineSqlInstanceOutput) ElementType() reflect.Type {
@@ -5753,12 +5092,6 @@ func (o VirtualMachineSqlInstanceOutput) ToVirtualMachineSqlInstancePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineSqlInstance) *VirtualMachineSqlInstance {
 		return &v
 	}).(VirtualMachineSqlInstancePtrOutput)
-}
-
-func (o VirtualMachineSqlInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineSqlInstance] {
-	return pulumix.Output[VirtualMachineSqlInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
@@ -5810,12 +5143,6 @@ func (o VirtualMachineSqlInstancePtrOutput) ToVirtualMachineSqlInstancePtrOutput
 
 func (o VirtualMachineSqlInstancePtrOutput) ToVirtualMachineSqlInstancePtrOutputWithContext(ctx context.Context) VirtualMachineSqlInstancePtrOutput {
 	return o
-}
-
-func (o VirtualMachineSqlInstancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineSqlInstance] {
-	return pulumix.Output[*VirtualMachineSqlInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineSqlInstancePtrOutput) Elem() VirtualMachineSqlInstanceOutput {
@@ -5953,12 +5280,6 @@ func (i VirtualMachineStorageConfigurationArgs) ToVirtualMachineStorageConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationOutput)
 }
 
-func (i VirtualMachineStorageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfiguration] {
-	return pulumix.Output[VirtualMachineStorageConfiguration]{
-		OutputState: i.ToVirtualMachineStorageConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineStorageConfigurationArgs) ToVirtualMachineStorageConfigurationPtrOutput() VirtualMachineStorageConfigurationPtrOutput {
 	return i.ToVirtualMachineStorageConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6000,12 +5321,6 @@ func (i *virtualMachineStorageConfigurationPtrType) ToVirtualMachineStorageConfi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationPtrOutput)
 }
 
-func (i *virtualMachineStorageConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfiguration] {
-	return pulumix.Output[*VirtualMachineStorageConfiguration]{
-		OutputState: i.ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineStorageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageConfigurationOutput) ElementType() reflect.Type {
@@ -6028,12 +5343,6 @@ func (o VirtualMachineStorageConfigurationOutput) ToVirtualMachineStorageConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageConfiguration) *VirtualMachineStorageConfiguration {
 		return &v
 	}).(VirtualMachineStorageConfigurationPtrOutput)
-}
-
-func (o VirtualMachineStorageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfiguration] {
-	return pulumix.Output[VirtualMachineStorageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `storageSettings` block as defined below.
@@ -6084,12 +5393,6 @@ func (o VirtualMachineStorageConfigurationPtrOutput) ToVirtualMachineStorageConf
 
 func (o VirtualMachineStorageConfigurationPtrOutput) ToVirtualMachineStorageConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationPtrOutput {
 	return o
-}
-
-func (o VirtualMachineStorageConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfiguration] {
-	return pulumix.Output[*VirtualMachineStorageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineStorageConfigurationPtrOutput) Elem() VirtualMachineStorageConfigurationOutput {
@@ -6199,12 +5502,6 @@ func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToVirtualMachineStor
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationDataSettingsOutput)
 }
 
-func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfigurationDataSettings] {
-	return pulumix.Output[VirtualMachineStorageConfigurationDataSettings]{
-		OutputState: i.ToVirtualMachineStorageConfigurationDataSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineStorageConfigurationDataSettingsArgs) ToVirtualMachineStorageConfigurationDataSettingsPtrOutput() VirtualMachineStorageConfigurationDataSettingsPtrOutput {
 	return i.ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(context.Background())
 }
@@ -6246,12 +5543,6 @@ func (i *virtualMachineStorageConfigurationDataSettingsPtrType) ToVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
 }
 
-func (i *virtualMachineStorageConfigurationDataSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfigurationDataSettings] {
-	return pulumix.Output[*VirtualMachineStorageConfigurationDataSettings]{
-		OutputState: i.ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineStorageConfigurationDataSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageConfigurationDataSettingsOutput) ElementType() reflect.Type {
@@ -6276,12 +5567,6 @@ func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToVirtualMachineSt
 	}).(VirtualMachineStorageConfigurationDataSettingsPtrOutput)
 }
 
-func (o VirtualMachineStorageConfigurationDataSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfigurationDataSettings] {
-	return pulumix.Output[VirtualMachineStorageConfigurationDataSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The SQL Server default path
 func (o VirtualMachineStorageConfigurationDataSettingsOutput) DefaultFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationDataSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
@@ -6304,12 +5589,6 @@ func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) ToVirtualMachin
 
 func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) ToVirtualMachineStorageConfigurationDataSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationDataSettingsPtrOutput {
 	return o
-}
-
-func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfigurationDataSettings] {
-	return pulumix.Output[*VirtualMachineStorageConfigurationDataSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineStorageConfigurationDataSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationDataSettingsOutput {
@@ -6379,12 +5658,6 @@ func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToVirtualMachineStora
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationLogSettingsOutput)
 }
 
-func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfigurationLogSettings] {
-	return pulumix.Output[VirtualMachineStorageConfigurationLogSettings]{
-		OutputState: i.ToVirtualMachineStorageConfigurationLogSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineStorageConfigurationLogSettingsArgs) ToVirtualMachineStorageConfigurationLogSettingsPtrOutput() VirtualMachineStorageConfigurationLogSettingsPtrOutput {
 	return i.ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(context.Background())
 }
@@ -6426,12 +5699,6 @@ func (i *virtualMachineStorageConfigurationLogSettingsPtrType) ToVirtualMachineS
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
 }
 
-func (i *virtualMachineStorageConfigurationLogSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfigurationLogSettings] {
-	return pulumix.Output[*VirtualMachineStorageConfigurationLogSettings]{
-		OutputState: i.ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineStorageConfigurationLogSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageConfigurationLogSettingsOutput) ElementType() reflect.Type {
@@ -6456,12 +5723,6 @@ func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToVirtualMachineSto
 	}).(VirtualMachineStorageConfigurationLogSettingsPtrOutput)
 }
 
-func (o VirtualMachineStorageConfigurationLogSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfigurationLogSettings] {
-	return pulumix.Output[VirtualMachineStorageConfigurationLogSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The SQL Server default path
 func (o VirtualMachineStorageConfigurationLogSettingsOutput) DefaultFilePath() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineStorageConfigurationLogSettings) string { return v.DefaultFilePath }).(pulumi.StringOutput)
@@ -6484,12 +5745,6 @@ func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) ToVirtualMachine
 
 func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) ToVirtualMachineStorageConfigurationLogSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationLogSettingsPtrOutput {
 	return o
-}
-
-func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfigurationLogSettings] {
-	return pulumix.Output[*VirtualMachineStorageConfigurationLogSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineStorageConfigurationLogSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationLogSettingsOutput {
@@ -6579,12 +5834,6 @@ func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToVirtualMachineSt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationTempDbSettingsOutput)
 }
 
-func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfigurationTempDbSettings] {
-	return pulumix.Output[VirtualMachineStorageConfigurationTempDbSettings]{
-		OutputState: i.ToVirtualMachineStorageConfigurationTempDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineStorageConfigurationTempDbSettingsArgs) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutput() VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return i.ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -6626,12 +5875,6 @@ func (i *virtualMachineStorageConfigurationTempDbSettingsPtrType) ToVirtualMachi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
 }
 
-func (i *virtualMachineStorageConfigurationTempDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfigurationTempDbSettings] {
-	return pulumix.Output[*VirtualMachineStorageConfigurationTempDbSettings]{
-		OutputState: i.ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineStorageConfigurationTempDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineStorageConfigurationTempDbSettingsOutput) ElementType() reflect.Type {
@@ -6654,12 +5897,6 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToVirtualMachine
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineStorageConfigurationTempDbSettings) *VirtualMachineStorageConfigurationTempDbSettings {
 		return &v
 	}).(VirtualMachineStorageConfigurationTempDbSettingsPtrOutput)
-}
-
-func (o VirtualMachineStorageConfigurationTempDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineStorageConfigurationTempDbSettings] {
-	return pulumix.Output[VirtualMachineStorageConfigurationTempDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The SQL Server default file count. This value defaults to `8`
@@ -6709,12 +5946,6 @@ func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ToVirtualMach
 
 func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ToVirtualMachineStorageConfigurationTempDbSettingsPtrOutputWithContext(ctx context.Context) VirtualMachineStorageConfigurationTempDbSettingsPtrOutput {
 	return o
-}
-
-func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineStorageConfigurationTempDbSettings] {
-	return pulumix.Output[*VirtualMachineStorageConfigurationTempDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineStorageConfigurationTempDbSettingsPtrOutput) Elem() VirtualMachineStorageConfigurationTempDbSettingsOutput {
@@ -6838,12 +6069,6 @@ func (i VirtualMachineWsfcDomainCredentialArgs) ToVirtualMachineWsfcDomainCreden
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineWsfcDomainCredentialOutput)
 }
 
-func (i VirtualMachineWsfcDomainCredentialArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineWsfcDomainCredential] {
-	return pulumix.Output[VirtualMachineWsfcDomainCredential]{
-		OutputState: i.ToVirtualMachineWsfcDomainCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineWsfcDomainCredentialArgs) ToVirtualMachineWsfcDomainCredentialPtrOutput() VirtualMachineWsfcDomainCredentialPtrOutput {
 	return i.ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(context.Background())
 }
@@ -6885,12 +6110,6 @@ func (i *virtualMachineWsfcDomainCredentialPtrType) ToVirtualMachineWsfcDomainCr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineWsfcDomainCredentialPtrOutput)
 }
 
-func (i *virtualMachineWsfcDomainCredentialPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineWsfcDomainCredential] {
-	return pulumix.Output[*VirtualMachineWsfcDomainCredential]{
-		OutputState: i.ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineWsfcDomainCredentialOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineWsfcDomainCredentialOutput) ElementType() reflect.Type {
@@ -6913,12 +6132,6 @@ func (o VirtualMachineWsfcDomainCredentialOutput) ToVirtualMachineWsfcDomainCred
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineWsfcDomainCredential) *VirtualMachineWsfcDomainCredential {
 		return &v
 	}).(VirtualMachineWsfcDomainCredentialPtrOutput)
-}
-
-func (o VirtualMachineWsfcDomainCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineWsfcDomainCredential] {
-	return pulumix.Output[VirtualMachineWsfcDomainCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account password used for creating cluster.
@@ -6948,12 +6161,6 @@ func (o VirtualMachineWsfcDomainCredentialPtrOutput) ToVirtualMachineWsfcDomainC
 
 func (o VirtualMachineWsfcDomainCredentialPtrOutput) ToVirtualMachineWsfcDomainCredentialPtrOutputWithContext(ctx context.Context) VirtualMachineWsfcDomainCredentialPtrOutput {
 	return o
-}
-
-func (o VirtualMachineWsfcDomainCredentialPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineWsfcDomainCredential] {
-	return pulumix.Output[*VirtualMachineWsfcDomainCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineWsfcDomainCredentialPtrOutput) Elem() VirtualMachineWsfcDomainCredentialOutput {
@@ -7041,12 +6248,6 @@ func (i GetElasticPoolSkusArgs) ToGetElasticPoolSkusOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetElasticPoolSkusOutput)
 }
 
-func (i GetElasticPoolSkusArgs) ToOutput(ctx context.Context) pulumix.Output[GetElasticPoolSkus] {
-	return pulumix.Output[GetElasticPoolSkus]{
-		OutputState: i.ToGetElasticPoolSkusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetElasticPoolSkusArrayInput is an input type that accepts GetElasticPoolSkusArray and GetElasticPoolSkusArrayOutput values.
 // You can construct a concrete instance of `GetElasticPoolSkusArrayInput` via:
 //
@@ -7072,12 +6273,6 @@ func (i GetElasticPoolSkusArray) ToGetElasticPoolSkusArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetElasticPoolSkusArrayOutput)
 }
 
-func (i GetElasticPoolSkusArray) ToOutput(ctx context.Context) pulumix.Output[[]GetElasticPoolSkus] {
-	return pulumix.Output[[]GetElasticPoolSkus]{
-		OutputState: i.ToGetElasticPoolSkusArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetElasticPoolSkusOutput struct{ *pulumi.OutputState }
 
 func (GetElasticPoolSkusOutput) ElementType() reflect.Type {
@@ -7090,12 +6285,6 @@ func (o GetElasticPoolSkusOutput) ToGetElasticPoolSkusOutput() GetElasticPoolSku
 
 func (o GetElasticPoolSkusOutput) ToGetElasticPoolSkusOutputWithContext(ctx context.Context) GetElasticPoolSkusOutput {
 	return o
-}
-
-func (o GetElasticPoolSkusOutput) ToOutput(ctx context.Context) pulumix.Output[GetElasticPoolSkus] {
-	return pulumix.Output[GetElasticPoolSkus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The scale up/out capacity, representing server's compute units.
@@ -7130,12 +6319,6 @@ func (o GetElasticPoolSkusArrayOutput) ToGetElasticPoolSkusArrayOutput() GetElas
 
 func (o GetElasticPoolSkusArrayOutput) ToGetElasticPoolSkusArrayOutputWithContext(ctx context.Context) GetElasticPoolSkusArrayOutput {
 	return o
-}
-
-func (o GetElasticPoolSkusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetElasticPoolSkus] {
-	return pulumix.Output[[]GetElasticPoolSkus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetElasticPoolSkusArrayOutput) Index(i pulumi.IntInput) GetElasticPoolSkusOutput {
@@ -7189,12 +6372,6 @@ func (i GetManagedInstanceIdentityArgs) ToGetManagedInstanceIdentityOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetManagedInstanceIdentityOutput)
 }
 
-func (i GetManagedInstanceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetManagedInstanceIdentity] {
-	return pulumix.Output[GetManagedInstanceIdentity]{
-		OutputState: i.ToGetManagedInstanceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetManagedInstanceIdentityArrayInput is an input type that accepts GetManagedInstanceIdentityArray and GetManagedInstanceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetManagedInstanceIdentityArrayInput` via:
 //
@@ -7220,12 +6397,6 @@ func (i GetManagedInstanceIdentityArray) ToGetManagedInstanceIdentityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetManagedInstanceIdentityArrayOutput)
 }
 
-func (i GetManagedInstanceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetManagedInstanceIdentity] {
-	return pulumix.Output[[]GetManagedInstanceIdentity]{
-		OutputState: i.ToGetManagedInstanceIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetManagedInstanceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetManagedInstanceIdentityOutput) ElementType() reflect.Type {
@@ -7238,12 +6409,6 @@ func (o GetManagedInstanceIdentityOutput) ToGetManagedInstanceIdentityOutput() G
 
 func (o GetManagedInstanceIdentityOutput) ToGetManagedInstanceIdentityOutputWithContext(ctx context.Context) GetManagedInstanceIdentityOutput {
 	return o
-}
-
-func (o GetManagedInstanceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetManagedInstanceIdentity] {
-	return pulumix.Output[GetManagedInstanceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs assigned with the Identity of this SQL Managed Instance.
@@ -7278,12 +6443,6 @@ func (o GetManagedInstanceIdentityArrayOutput) ToGetManagedInstanceIdentityArray
 
 func (o GetManagedInstanceIdentityArrayOutput) ToGetManagedInstanceIdentityArrayOutputWithContext(ctx context.Context) GetManagedInstanceIdentityArrayOutput {
 	return o
-}
-
-func (o GetManagedInstanceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetManagedInstanceIdentity] {
-	return pulumix.Output[[]GetManagedInstanceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetManagedInstanceIdentityArrayOutput) Index(i pulumi.IntInput) GetManagedInstanceIdentityOutput {
@@ -7337,12 +6496,6 @@ func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityOutput)
 }
 
-func (i GetServerIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetServerIdentity] {
-	return pulumix.Output[GetServerIdentity]{
-		OutputState: i.ToGetServerIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServerIdentityArrayInput` via:
 //
@@ -7368,12 +6521,6 @@ func (i GetServerIdentityArray) ToGetServerIdentityArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServerIdentityArrayOutput)
 }
 
-func (i GetServerIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServerIdentity] {
-	return pulumix.Output[[]GetServerIdentity]{
-		OutputState: i.ToGetServerIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServerIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetServerIdentityOutput) ElementType() reflect.Type {
@@ -7386,12 +6533,6 @@ func (o GetServerIdentityOutput) ToGetServerIdentityOutput() GetServerIdentityOu
 
 func (o GetServerIdentityOutput) ToGetServerIdentityOutputWithContext(ctx context.Context) GetServerIdentityOutput {
 	return o
-}
-
-func (o GetServerIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetServerIdentity] {
-	return pulumix.Output[GetServerIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of User Assigned Managed Identity IDs assigned to this Microsoft SQL Server.
@@ -7426,12 +6567,6 @@ func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutput() GetServer
 
 func (o GetServerIdentityArrayOutput) ToGetServerIdentityArrayOutputWithContext(ctx context.Context) GetServerIdentityArrayOutput {
 	return o
-}
-
-func (o GetServerIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServerIdentity] {
-	return pulumix.Output[[]GetServerIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentityOutput {

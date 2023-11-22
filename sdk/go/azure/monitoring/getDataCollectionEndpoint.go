@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Data Collection Endpoint.
@@ -119,12 +118,6 @@ func (o LookupDataCollectionEndpointResultOutput) ToLookupDataCollectionEndpoint
 
 func (o LookupDataCollectionEndpointResultOutput) ToLookupDataCollectionEndpointResultOutputWithContext(ctx context.Context) LookupDataCollectionEndpointResultOutput {
 	return o
-}
-
-func (o LookupDataCollectionEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataCollectionEndpointResult] {
-	return pulumix.Output[LookupDataCollectionEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.

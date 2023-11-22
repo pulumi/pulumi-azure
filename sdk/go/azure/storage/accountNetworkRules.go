@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages network rules inside of a Azure Storage Account.
@@ -299,12 +298,6 @@ func (i *AccountNetworkRules) ToAccountNetworkRulesOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesOutput)
 }
 
-func (i *AccountNetworkRules) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkRules] {
-	return pulumix.Output[*AccountNetworkRules]{
-		OutputState: i.ToAccountNetworkRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountNetworkRulesArrayInput is an input type that accepts AccountNetworkRulesArray and AccountNetworkRulesArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkRulesArrayInput` via:
 //
@@ -328,12 +321,6 @@ func (i AccountNetworkRulesArray) ToAccountNetworkRulesArrayOutput() AccountNetw
 
 func (i AccountNetworkRulesArray) ToAccountNetworkRulesArrayOutputWithContext(ctx context.Context) AccountNetworkRulesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesArrayOutput)
-}
-
-func (i AccountNetworkRulesArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountNetworkRules] {
-	return pulumix.Output[[]*AccountNetworkRules]{
-		OutputState: i.ToAccountNetworkRulesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountNetworkRulesMapInput is an input type that accepts AccountNetworkRulesMap and AccountNetworkRulesMapOutput values.
@@ -361,12 +348,6 @@ func (i AccountNetworkRulesMap) ToAccountNetworkRulesMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccountNetworkRulesMapOutput)
 }
 
-func (i AccountNetworkRulesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountNetworkRules] {
-	return pulumix.Output[map[string]*AccountNetworkRules]{
-		OutputState: i.ToAccountNetworkRulesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountNetworkRulesOutput struct{ *pulumi.OutputState }
 
 func (AccountNetworkRulesOutput) ElementType() reflect.Type {
@@ -379,12 +360,6 @@ func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutput() AccountNetworkR
 
 func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx context.Context) AccountNetworkRulesOutput {
 	return o
-}
-
-func (o AccountNetworkRulesOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountNetworkRules] {
-	return pulumix.Output[*AccountNetworkRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -443,12 +418,6 @@ func (o AccountNetworkRulesArrayOutput) ToAccountNetworkRulesArrayOutputWithCont
 	return o
 }
 
-func (o AccountNetworkRulesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountNetworkRules] {
-	return pulumix.Output[[]*AccountNetworkRules]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountNetworkRulesArrayOutput) Index(i pulumi.IntInput) AccountNetworkRulesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountNetworkRules {
 		return vs[0].([]*AccountNetworkRules)[vs[1].(int)]
@@ -467,12 +436,6 @@ func (o AccountNetworkRulesMapOutput) ToAccountNetworkRulesMapOutput() AccountNe
 
 func (o AccountNetworkRulesMapOutput) ToAccountNetworkRulesMapOutputWithContext(ctx context.Context) AccountNetworkRulesMapOutput {
 	return o
-}
-
-func (o AccountNetworkRulesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountNetworkRules] {
-	return pulumix.Output[map[string]*AccountNetworkRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountNetworkRulesMapOutput) MapIndex(k pulumi.StringInput) AccountNetworkRulesOutput {

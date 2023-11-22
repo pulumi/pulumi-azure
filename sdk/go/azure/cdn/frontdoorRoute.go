@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Front Door (standard/premium) Route.
@@ -283,12 +282,6 @@ func (i *FrontdoorRoute) ToFrontdoorRouteOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteOutput)
 }
 
-func (i *FrontdoorRoute) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRoute] {
-	return pulumix.Output[*FrontdoorRoute]{
-		OutputState: i.ToFrontdoorRouteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorRouteArrayInput is an input type that accepts FrontdoorRouteArray and FrontdoorRouteArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRouteArrayInput` via:
 //
@@ -312,12 +305,6 @@ func (i FrontdoorRouteArray) ToFrontdoorRouteArrayOutput() FrontdoorRouteArrayOu
 
 func (i FrontdoorRouteArray) ToFrontdoorRouteArrayOutputWithContext(ctx context.Context) FrontdoorRouteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteArrayOutput)
-}
-
-func (i FrontdoorRouteArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRoute] {
-	return pulumix.Output[[]*FrontdoorRoute]{
-		OutputState: i.ToFrontdoorRouteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrontdoorRouteMapInput is an input type that accepts FrontdoorRouteMap and FrontdoorRouteMapOutput values.
@@ -345,12 +332,6 @@ func (i FrontdoorRouteMap) ToFrontdoorRouteMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteMapOutput)
 }
 
-func (i FrontdoorRouteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRoute] {
-	return pulumix.Output[map[string]*FrontdoorRoute]{
-		OutputState: i.ToFrontdoorRouteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorRouteOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRouteOutput) ElementType() reflect.Type {
@@ -363,12 +344,6 @@ func (o FrontdoorRouteOutput) ToFrontdoorRouteOutput() FrontdoorRouteOutput {
 
 func (o FrontdoorRouteOutput) ToFrontdoorRouteOutputWithContext(ctx context.Context) FrontdoorRouteOutput {
 	return o
-}
-
-func (o FrontdoorRouteOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRoute] {
-	return pulumix.Output[*FrontdoorRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `cache` block as defined below.
@@ -461,12 +436,6 @@ func (o FrontdoorRouteArrayOutput) ToFrontdoorRouteArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o FrontdoorRouteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRoute] {
-	return pulumix.Output[[]*FrontdoorRoute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrontdoorRouteArrayOutput) Index(i pulumi.IntInput) FrontdoorRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorRoute {
 		return vs[0].([]*FrontdoorRoute)[vs[1].(int)]
@@ -485,12 +454,6 @@ func (o FrontdoorRouteMapOutput) ToFrontdoorRouteMapOutput() FrontdoorRouteMapOu
 
 func (o FrontdoorRouteMapOutput) ToFrontdoorRouteMapOutputWithContext(ctx context.Context) FrontdoorRouteMapOutput {
 	return o
-}
-
-func (o FrontdoorRouteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRoute] {
-	return pulumix.Output[map[string]*FrontdoorRoute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorRouteMapOutput) MapIndex(k pulumi.StringInput) FrontdoorRouteOutput {

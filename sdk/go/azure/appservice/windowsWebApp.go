@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Windows Web App.
@@ -506,12 +505,6 @@ func (i *WindowsWebApp) ToWindowsWebAppOutputWithContext(ctx context.Context) Wi
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsWebAppOutput)
 }
 
-func (i *WindowsWebApp) ToOutput(ctx context.Context) pulumix.Output[*WindowsWebApp] {
-	return pulumix.Output[*WindowsWebApp]{
-		OutputState: i.ToWindowsWebAppOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WindowsWebAppArrayInput is an input type that accepts WindowsWebAppArray and WindowsWebAppArrayOutput values.
 // You can construct a concrete instance of `WindowsWebAppArrayInput` via:
 //
@@ -535,12 +528,6 @@ func (i WindowsWebAppArray) ToWindowsWebAppArrayOutput() WindowsWebAppArrayOutpu
 
 func (i WindowsWebAppArray) ToWindowsWebAppArrayOutputWithContext(ctx context.Context) WindowsWebAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsWebAppArrayOutput)
-}
-
-func (i WindowsWebAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsWebApp] {
-	return pulumix.Output[[]*WindowsWebApp]{
-		OutputState: i.ToWindowsWebAppArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WindowsWebAppMapInput is an input type that accepts WindowsWebAppMap and WindowsWebAppMapOutput values.
@@ -568,12 +555,6 @@ func (i WindowsWebAppMap) ToWindowsWebAppMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsWebAppMapOutput)
 }
 
-func (i WindowsWebAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsWebApp] {
-	return pulumix.Output[map[string]*WindowsWebApp]{
-		OutputState: i.ToWindowsWebAppMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsWebAppOutput struct{ *pulumi.OutputState }
 
 func (WindowsWebAppOutput) ElementType() reflect.Type {
@@ -586,12 +567,6 @@ func (o WindowsWebAppOutput) ToWindowsWebAppOutput() WindowsWebAppOutput {
 
 func (o WindowsWebAppOutput) ToWindowsWebAppOutputWithContext(ctx context.Context) WindowsWebAppOutput {
 	return o
-}
-
-func (o WindowsWebAppOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsWebApp] {
-	return pulumix.Output[*WindowsWebApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of key-value pairs of App Settings.
@@ -793,12 +768,6 @@ func (o WindowsWebAppArrayOutput) ToWindowsWebAppArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o WindowsWebAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsWebApp] {
-	return pulumix.Output[[]*WindowsWebApp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WindowsWebAppArrayOutput) Index(i pulumi.IntInput) WindowsWebAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsWebApp {
 		return vs[0].([]*WindowsWebApp)[vs[1].(int)]
@@ -817,12 +786,6 @@ func (o WindowsWebAppMapOutput) ToWindowsWebAppMapOutput() WindowsWebAppMapOutpu
 
 func (o WindowsWebAppMapOutput) ToWindowsWebAppMapOutputWithContext(ctx context.Context) WindowsWebAppMapOutput {
 	return o
-}
-
-func (o WindowsWebAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsWebApp] {
-	return pulumix.Output[map[string]*WindowsWebApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsWebAppMapOutput) MapIndex(k pulumi.StringInput) WindowsWebAppOutput {

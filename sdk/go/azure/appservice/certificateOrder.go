@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Certificate Order.
@@ -301,12 +300,6 @@ func (i *CertificateOrder) ToCertificateOrderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderOutput)
 }
 
-func (i *CertificateOrder) ToOutput(ctx context.Context) pulumix.Output[*CertificateOrder] {
-	return pulumix.Output[*CertificateOrder]{
-		OutputState: i.ToCertificateOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateOrderArrayInput is an input type that accepts CertificateOrderArray and CertificateOrderArrayOutput values.
 // You can construct a concrete instance of `CertificateOrderArrayInput` via:
 //
@@ -330,12 +323,6 @@ func (i CertificateOrderArray) ToCertificateOrderArrayOutput() CertificateOrderA
 
 func (i CertificateOrderArray) ToCertificateOrderArrayOutputWithContext(ctx context.Context) CertificateOrderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderArrayOutput)
-}
-
-func (i CertificateOrderArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateOrder] {
-	return pulumix.Output[[]*CertificateOrder]{
-		OutputState: i.ToCertificateOrderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertificateOrderMapInput is an input type that accepts CertificateOrderMap and CertificateOrderMapOutput values.
@@ -363,12 +350,6 @@ func (i CertificateOrderMap) ToCertificateOrderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderMapOutput)
 }
 
-func (i CertificateOrderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateOrder] {
-	return pulumix.Output[map[string]*CertificateOrder]{
-		OutputState: i.ToCertificateOrderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateOrderOutput struct{ *pulumi.OutputState }
 
 func (CertificateOrderOutput) ElementType() reflect.Type {
@@ -381,12 +362,6 @@ func (o CertificateOrderOutput) ToCertificateOrderOutput() CertificateOrderOutpu
 
 func (o CertificateOrderOutput) ToCertificateOrderOutputWithContext(ctx context.Context) CertificateOrderOutput {
 	return o
-}
-
-func (o CertificateOrderOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateOrder] {
-	return pulumix.Output[*CertificateOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Reasons why App Service Certificate is not renewable at the current moment.
@@ -500,12 +475,6 @@ func (o CertificateOrderArrayOutput) ToCertificateOrderArrayOutputWithContext(ct
 	return o
 }
 
-func (o CertificateOrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateOrder] {
-	return pulumix.Output[[]*CertificateOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateOrderArrayOutput) Index(i pulumi.IntInput) CertificateOrderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateOrder {
 		return vs[0].([]*CertificateOrder)[vs[1].(int)]
@@ -524,12 +493,6 @@ func (o CertificateOrderMapOutput) ToCertificateOrderMapOutput() CertificateOrde
 
 func (o CertificateOrderMapOutput) ToCertificateOrderMapOutputWithContext(ctx context.Context) CertificateOrderMapOutput {
 	return o
-}
-
-func (o CertificateOrderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateOrder] {
-	return pulumix.Output[map[string]*CertificateOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateOrderMapOutput) MapIndex(k pulumi.StringInput) CertificateOrderOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -293,12 +292,6 @@ func (i *AlertRuleAnomalyBuiltIn) ToAlertRuleAnomalyBuiltInOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInOutput)
 }
 
-func (i *AlertRuleAnomalyBuiltIn) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleAnomalyBuiltIn] {
-	return pulumix.Output[*AlertRuleAnomalyBuiltIn]{
-		OutputState: i.ToAlertRuleAnomalyBuiltInOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertRuleAnomalyBuiltInArrayInput is an input type that accepts AlertRuleAnomalyBuiltInArray and AlertRuleAnomalyBuiltInArrayOutput values.
 // You can construct a concrete instance of `AlertRuleAnomalyBuiltInArrayInput` via:
 //
@@ -322,12 +315,6 @@ func (i AlertRuleAnomalyBuiltInArray) ToAlertRuleAnomalyBuiltInArrayOutput() Ale
 
 func (i AlertRuleAnomalyBuiltInArray) ToAlertRuleAnomalyBuiltInArrayOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInArrayOutput)
-}
-
-func (i AlertRuleAnomalyBuiltInArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleAnomalyBuiltIn] {
-	return pulumix.Output[[]*AlertRuleAnomalyBuiltIn]{
-		OutputState: i.ToAlertRuleAnomalyBuiltInArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertRuleAnomalyBuiltInMapInput is an input type that accepts AlertRuleAnomalyBuiltInMap and AlertRuleAnomalyBuiltInMapOutput values.
@@ -355,12 +342,6 @@ func (i AlertRuleAnomalyBuiltInMap) ToAlertRuleAnomalyBuiltInMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleAnomalyBuiltInMapOutput)
 }
 
-func (i AlertRuleAnomalyBuiltInMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleAnomalyBuiltIn] {
-	return pulumix.Output[map[string]*AlertRuleAnomalyBuiltIn]{
-		OutputState: i.ToAlertRuleAnomalyBuiltInMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertRuleAnomalyBuiltInOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleAnomalyBuiltInOutput) ElementType() reflect.Type {
@@ -373,12 +354,6 @@ func (o AlertRuleAnomalyBuiltInOutput) ToAlertRuleAnomalyBuiltInOutput() AlertRu
 
 func (o AlertRuleAnomalyBuiltInOutput) ToAlertRuleAnomalyBuiltInOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInOutput {
 	return o
-}
-
-func (o AlertRuleAnomalyBuiltInOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleAnomalyBuiltIn] {
-	return pulumix.Output[*AlertRuleAnomalyBuiltIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The version of the Anomaly Security ML Analytics Settings.
@@ -492,12 +467,6 @@ func (o AlertRuleAnomalyBuiltInArrayOutput) ToAlertRuleAnomalyBuiltInArrayOutput
 	return o
 }
 
-func (o AlertRuleAnomalyBuiltInArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleAnomalyBuiltIn] {
-	return pulumix.Output[[]*AlertRuleAnomalyBuiltIn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertRuleAnomalyBuiltInArrayOutput) Index(i pulumi.IntInput) AlertRuleAnomalyBuiltInOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleAnomalyBuiltIn {
 		return vs[0].([]*AlertRuleAnomalyBuiltIn)[vs[1].(int)]
@@ -516,12 +485,6 @@ func (o AlertRuleAnomalyBuiltInMapOutput) ToAlertRuleAnomalyBuiltInMapOutput() A
 
 func (o AlertRuleAnomalyBuiltInMapOutput) ToAlertRuleAnomalyBuiltInMapOutputWithContext(ctx context.Context) AlertRuleAnomalyBuiltInMapOutput {
 	return o
-}
-
-func (o AlertRuleAnomalyBuiltInMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleAnomalyBuiltIn] {
-	return pulumix.Output[map[string]*AlertRuleAnomalyBuiltIn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertRuleAnomalyBuiltInMapOutput) MapIndex(k pulumi.StringInput) AlertRuleAnomalyBuiltInOutput {

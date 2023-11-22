@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing ServiceBus Namespace.
@@ -129,12 +128,6 @@ func (o GetServiceBusNamespaceResultOutput) ToGetServiceBusNamespaceResultOutput
 
 func (o GetServiceBusNamespaceResultOutput) ToGetServiceBusNamespaceResultOutputWithContext(ctx context.Context) GetServiceBusNamespaceResultOutput {
 	return o
-}
-
-func (o GetServiceBusNamespaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceBusNamespaceResult] {
-	return pulumix.Output[GetServiceBusNamespaceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The capacity of the ServiceBus Namespace.

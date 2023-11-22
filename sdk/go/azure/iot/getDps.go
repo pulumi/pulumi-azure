@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing IotHub Device Provisioning Service.
@@ -117,12 +116,6 @@ func (o GetDpsResultOutput) ToGetDpsResultOutput() GetDpsResultOutput {
 
 func (o GetDpsResultOutput) ToGetDpsResultOutputWithContext(ctx context.Context) GetDpsResultOutput {
 	return o
-}
-
-func (o GetDpsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDpsResult] {
-	return pulumix.Output[GetDpsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allocation policy of the IoT Device Provisioning Service.

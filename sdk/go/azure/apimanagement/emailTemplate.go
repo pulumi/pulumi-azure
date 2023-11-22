@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management Email Template.
@@ -248,12 +247,6 @@ func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) Em
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateOutput)
 }
 
-func (i *EmailTemplate) ToOutput(ctx context.Context) pulumix.Output[*EmailTemplate] {
-	return pulumix.Output[*EmailTemplate]{
-		OutputState: i.ToEmailTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmailTemplateArrayInput is an input type that accepts EmailTemplateArray and EmailTemplateArrayOutput values.
 // You can construct a concrete instance of `EmailTemplateArrayInput` via:
 //
@@ -277,12 +270,6 @@ func (i EmailTemplateArray) ToEmailTemplateArrayOutput() EmailTemplateArrayOutpu
 
 func (i EmailTemplateArray) ToEmailTemplateArrayOutputWithContext(ctx context.Context) EmailTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateArrayOutput)
-}
-
-func (i EmailTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailTemplate] {
-	return pulumix.Output[[]*EmailTemplate]{
-		OutputState: i.ToEmailTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmailTemplateMapInput is an input type that accepts EmailTemplateMap and EmailTemplateMapOutput values.
@@ -310,12 +297,6 @@ func (i EmailTemplateMap) ToEmailTemplateMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailTemplateMapOutput)
 }
 
-func (i EmailTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailTemplate] {
-	return pulumix.Output[map[string]*EmailTemplate]{
-		OutputState: i.ToEmailTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
@@ -328,12 +309,6 @@ func (o EmailTemplateOutput) ToEmailTemplateOutput() EmailTemplateOutput {
 
 func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Context) EmailTemplateOutput {
 	return o
-}
-
-func (o EmailTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailTemplate] {
-	return pulumix.Output[*EmailTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
@@ -387,12 +362,6 @@ func (o EmailTemplateArrayOutput) ToEmailTemplateArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o EmailTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailTemplate] {
-	return pulumix.Output[[]*EmailTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmailTemplateArrayOutput) Index(i pulumi.IntInput) EmailTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailTemplate {
 		return vs[0].([]*EmailTemplate)[vs[1].(int)]
@@ -411,12 +380,6 @@ func (o EmailTemplateMapOutput) ToEmailTemplateMapOutput() EmailTemplateMapOutpu
 
 func (o EmailTemplateMapOutput) ToEmailTemplateMapOutputWithContext(ctx context.Context) EmailTemplateMapOutput {
 	return o
-}
-
-func (o EmailTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailTemplate] {
-	return pulumix.Output[map[string]*EmailTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmailTemplateMapOutput) MapIndex(k pulumi.StringInput) EmailTemplateOutput {

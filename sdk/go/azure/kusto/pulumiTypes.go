@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationSharingOutput)
 }
 
-func (i AttachedDatabaseConfigurationSharingArgs) ToOutput(ctx context.Context) pulumix.Output[AttachedDatabaseConfigurationSharing] {
-	return pulumix.Output[AttachedDatabaseConfigurationSharing]{
-		OutputState: i.ToAttachedDatabaseConfigurationSharingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AttachedDatabaseConfigurationSharingArgs) ToAttachedDatabaseConfigurationSharingPtrOutput() AttachedDatabaseConfigurationSharingPtrOutput {
 	return i.ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *attachedDatabaseConfigurationSharingPtrType) ToAttachedDatabaseConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationSharingPtrOutput)
 }
 
-func (i *attachedDatabaseConfigurationSharingPtrType) ToOutput(ctx context.Context) pulumix.Output[*AttachedDatabaseConfigurationSharing] {
-	return pulumix.Output[*AttachedDatabaseConfigurationSharing]{
-		OutputState: i.ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AttachedDatabaseConfigurationSharingOutput struct{ *pulumi.OutputState }
 
 func (AttachedDatabaseConfigurationSharingOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o AttachedDatabaseConfigurationSharingOutput) ToAttachedDatabaseConfigurat
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttachedDatabaseConfigurationSharing) *AttachedDatabaseConfigurationSharing {
 		return &v
 	}).(AttachedDatabaseConfigurationSharingPtrOutput)
-}
-
-func (o AttachedDatabaseConfigurationSharingOutput) ToOutput(ctx context.Context) pulumix.Output[AttachedDatabaseConfigurationSharing] {
-	return pulumix.Output[AttachedDatabaseConfigurationSharing]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of external tables exclude from the follower database.
@@ -192,12 +173,6 @@ func (o AttachedDatabaseConfigurationSharingPtrOutput) ToAttachedDatabaseConfigu
 
 func (o AttachedDatabaseConfigurationSharingPtrOutput) ToAttachedDatabaseConfigurationSharingPtrOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationSharingPtrOutput {
 	return o
-}
-
-func (o AttachedDatabaseConfigurationSharingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AttachedDatabaseConfigurationSharing] {
-	return pulumix.Output[*AttachedDatabaseConfigurationSharing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AttachedDatabaseConfigurationSharingPtrOutput) Elem() AttachedDatabaseConfigurationSharingOutput {
@@ -319,12 +294,6 @@ func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
 }
 
-func (i ClusterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterIdentity] {
-	return pulumix.Output[ClusterIdentity]{
-		OutputState: i.ToClusterIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterIdentityArgs) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
 	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
 }
@@ -366,12 +335,6 @@ func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPtrOutput)
 }
 
-func (i *clusterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterIdentity] {
-	return pulumix.Output[*ClusterIdentity]{
-		OutputState: i.ToClusterIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityOutput) ElementType() reflect.Type {
@@ -394,12 +357,6 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
 		return &v
 	}).(ClusterIdentityPtrOutput)
-}
-
-func (o ClusterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterIdentity] {
-	return pulumix.Output[ClusterIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
@@ -436,12 +393,6 @@ func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutput() ClusterIdentityPt
 
 func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
 	return o
-}
-
-func (o ClusterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterIdentity] {
-	return pulumix.Output[*ClusterIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
@@ -533,12 +484,6 @@ func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScaleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOptimizedAutoScaleOutput)
 }
 
-func (i ClusterOptimizedAutoScaleArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterOptimizedAutoScale] {
-	return pulumix.Output[ClusterOptimizedAutoScale]{
-		OutputState: i.ToClusterOptimizedAutoScaleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterOptimizedAutoScaleArgs) ToClusterOptimizedAutoScalePtrOutput() ClusterOptimizedAutoScalePtrOutput {
 	return i.ToClusterOptimizedAutoScalePtrOutputWithContext(context.Background())
 }
@@ -580,12 +525,6 @@ func (i *clusterOptimizedAutoScalePtrType) ToClusterOptimizedAutoScalePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOptimizedAutoScalePtrOutput)
 }
 
-func (i *clusterOptimizedAutoScalePtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterOptimizedAutoScale] {
-	return pulumix.Output[*ClusterOptimizedAutoScale]{
-		OutputState: i.ToClusterOptimizedAutoScalePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterOptimizedAutoScaleOutput struct{ *pulumi.OutputState }
 
 func (ClusterOptimizedAutoScaleOutput) ElementType() reflect.Type {
@@ -610,12 +549,6 @@ func (o ClusterOptimizedAutoScaleOutput) ToClusterOptimizedAutoScalePtrOutputWit
 	}).(ClusterOptimizedAutoScalePtrOutput)
 }
 
-func (o ClusterOptimizedAutoScaleOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterOptimizedAutoScale] {
-	return pulumix.Output[ClusterOptimizedAutoScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum number of allowed instances. Must between `0` and `1000`.
 func (o ClusterOptimizedAutoScaleOutput) MaximumInstances() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterOptimizedAutoScale) int { return v.MaximumInstances }).(pulumi.IntOutput)
@@ -638,12 +571,6 @@ func (o ClusterOptimizedAutoScalePtrOutput) ToClusterOptimizedAutoScalePtrOutput
 
 func (o ClusterOptimizedAutoScalePtrOutput) ToClusterOptimizedAutoScalePtrOutputWithContext(ctx context.Context) ClusterOptimizedAutoScalePtrOutput {
 	return o
-}
-
-func (o ClusterOptimizedAutoScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterOptimizedAutoScale] {
-	return pulumix.Output[*ClusterOptimizedAutoScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterOptimizedAutoScalePtrOutput) Elem() ClusterOptimizedAutoScaleOutput {
@@ -719,12 +646,6 @@ func (i ClusterSkuArgs) ToClusterSkuOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuOutput)
 }
 
-func (i ClusterSkuArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterSku] {
-	return pulumix.Output[ClusterSku]{
-		OutputState: i.ToClusterSkuOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterSkuArgs) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 	return i.ToClusterSkuPtrOutputWithContext(context.Background())
 }
@@ -766,12 +687,6 @@ func (i *clusterSkuPtrType) ToClusterSkuPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterSkuPtrOutput)
 }
 
-func (i *clusterSkuPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterSku] {
-	return pulumix.Output[*ClusterSku]{
-		OutputState: i.ToClusterSkuPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterSkuOutput struct{ *pulumi.OutputState }
 
 func (ClusterSkuOutput) ElementType() reflect.Type {
@@ -794,12 +709,6 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
-}
-
-func (o ClusterSkuOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterSku] {
-	return pulumix.Output[ClusterSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the node count for the cluster. Boundaries depend on the SKU name.
@@ -827,12 +736,6 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 
 func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
 	return o
-}
-
-func (o ClusterSkuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterSku] {
-	return pulumix.Output[*ClusterSku]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
@@ -909,12 +812,6 @@ func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationOutput)
 }
 
-func (i ClusterVirtualNetworkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterVirtualNetworkConfiguration] {
-	return pulumix.Output[ClusterVirtualNetworkConfiguration]{
-		OutputState: i.ToClusterVirtualNetworkConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
 	return i.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
 }
@@ -956,12 +853,6 @@ func (i *clusterVirtualNetworkConfigurationPtrType) ToClusterVirtualNetworkConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationPtrOutput)
 }
 
-func (i *clusterVirtualNetworkConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterVirtualNetworkConfiguration] {
-	return pulumix.Output[*ClusterVirtualNetworkConfiguration]{
-		OutputState: i.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -984,12 +875,6 @@ func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVirtualNetworkConfiguration) *ClusterVirtualNetworkConfiguration {
 		return &v
 	}).(ClusterVirtualNetworkConfigurationPtrOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterVirtualNetworkConfiguration] {
-	return pulumix.Output[ClusterVirtualNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Data management's service public IP address resource id.
@@ -1019,12 +904,6 @@ func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConf
 
 func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
 	return o
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterVirtualNetworkConfiguration] {
-	return pulumix.Output[*ClusterVirtualNetworkConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterVirtualNetworkConfigurationPtrOutput) Elem() ClusterVirtualNetworkConfigurationOutput {

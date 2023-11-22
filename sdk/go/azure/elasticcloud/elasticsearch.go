@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Elasticsearch in Elastic Cloud.
@@ -279,12 +278,6 @@ func (i *Elasticsearch) ToElasticsearchOutputWithContext(ctx context.Context) El
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchOutput)
 }
 
-func (i *Elasticsearch) ToOutput(ctx context.Context) pulumix.Output[*Elasticsearch] {
-	return pulumix.Output[*Elasticsearch]{
-		OutputState: i.ToElasticsearchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ElasticsearchArrayInput is an input type that accepts ElasticsearchArray and ElasticsearchArrayOutput values.
 // You can construct a concrete instance of `ElasticsearchArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i ElasticsearchArray) ToElasticsearchArrayOutput() ElasticsearchArrayOutpu
 
 func (i ElasticsearchArray) ToElasticsearchArrayOutputWithContext(ctx context.Context) ElasticsearchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchArrayOutput)
-}
-
-func (i ElasticsearchArray) ToOutput(ctx context.Context) pulumix.Output[[]*Elasticsearch] {
-	return pulumix.Output[[]*Elasticsearch]{
-		OutputState: i.ToElasticsearchArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ElasticsearchMapInput is an input type that accepts ElasticsearchMap and ElasticsearchMapOutput values.
@@ -341,12 +328,6 @@ func (i ElasticsearchMap) ToElasticsearchMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchMapOutput)
 }
 
-func (i ElasticsearchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Elasticsearch] {
-	return pulumix.Output[map[string]*Elasticsearch]{
-		OutputState: i.ToElasticsearchMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticsearchOutput struct{ *pulumi.OutputState }
 
 func (ElasticsearchOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o ElasticsearchOutput) ToElasticsearchOutput() ElasticsearchOutput {
 
 func (o ElasticsearchOutput) ToElasticsearchOutputWithContext(ctx context.Context) ElasticsearchOutput {
 	return o
-}
-
-func (o ElasticsearchOutput) ToOutput(ctx context.Context) pulumix.Output[*Elasticsearch] {
-	return pulumix.Output[*Elasticsearch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Deployment within Elastic Cloud.
@@ -455,12 +430,6 @@ func (o ElasticsearchArrayOutput) ToElasticsearchArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ElasticsearchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Elasticsearch] {
-	return pulumix.Output[[]*Elasticsearch]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ElasticsearchArrayOutput) Index(i pulumi.IntInput) ElasticsearchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Elasticsearch {
 		return vs[0].([]*Elasticsearch)[vs[1].(int)]
@@ -479,12 +448,6 @@ func (o ElasticsearchMapOutput) ToElasticsearchMapOutput() ElasticsearchMapOutpu
 
 func (o ElasticsearchMapOutput) ToElasticsearchMapOutputWithContext(ctx context.Context) ElasticsearchMapOutput {
 	return o
-}
-
-func (o ElasticsearchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Elasticsearch] {
-	return pulumix.Output[map[string]*Elasticsearch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticsearchMapOutput) MapIndex(k pulumi.StringInput) ElasticsearchOutput {

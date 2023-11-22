@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Healthcare DICOM Service
@@ -115,12 +114,6 @@ func (o LookupDicomServiceResultOutput) ToLookupDicomServiceResultOutput() Looku
 
 func (o LookupDicomServiceResultOutput) ToLookupDicomServiceResultOutputWithContext(ctx context.Context) LookupDicomServiceResultOutput {
 	return o
-}
-
-func (o LookupDicomServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDicomServiceResult] {
-	return pulumix.Output[LookupDicomServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The `authentication` block as defined below.

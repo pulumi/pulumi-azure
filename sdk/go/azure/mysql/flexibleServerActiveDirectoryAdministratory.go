@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type FlexibleServerActiveDirectoryAdministratory struct {
@@ -133,12 +132,6 @@ func (i *FlexibleServerActiveDirectoryAdministratory) ToFlexibleServerActiveDire
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerActiveDirectoryAdministratoryOutput)
 }
 
-func (i *FlexibleServerActiveDirectoryAdministratory) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerActiveDirectoryAdministratory] {
-	return pulumix.Output[*FlexibleServerActiveDirectoryAdministratory]{
-		OutputState: i.ToFlexibleServerActiveDirectoryAdministratoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlexibleServerActiveDirectoryAdministratoryArrayInput is an input type that accepts FlexibleServerActiveDirectoryAdministratoryArray and FlexibleServerActiveDirectoryAdministratoryArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerActiveDirectoryAdministratoryArrayInput` via:
 //
@@ -162,12 +155,6 @@ func (i FlexibleServerActiveDirectoryAdministratoryArray) ToFlexibleServerActive
 
 func (i FlexibleServerActiveDirectoryAdministratoryArray) ToFlexibleServerActiveDirectoryAdministratoryArrayOutputWithContext(ctx context.Context) FlexibleServerActiveDirectoryAdministratoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerActiveDirectoryAdministratoryArrayOutput)
-}
-
-func (i FlexibleServerActiveDirectoryAdministratoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerActiveDirectoryAdministratory] {
-	return pulumix.Output[[]*FlexibleServerActiveDirectoryAdministratory]{
-		OutputState: i.ToFlexibleServerActiveDirectoryAdministratoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlexibleServerActiveDirectoryAdministratoryMapInput is an input type that accepts FlexibleServerActiveDirectoryAdministratoryMap and FlexibleServerActiveDirectoryAdministratoryMapOutput values.
@@ -195,12 +182,6 @@ func (i FlexibleServerActiveDirectoryAdministratoryMap) ToFlexibleServerActiveDi
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerActiveDirectoryAdministratoryMapOutput)
 }
 
-func (i FlexibleServerActiveDirectoryAdministratoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministratory] {
-	return pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministratory]{
-		OutputState: i.ToFlexibleServerActiveDirectoryAdministratoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlexibleServerActiveDirectoryAdministratoryOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerActiveDirectoryAdministratoryOutput) ElementType() reflect.Type {
@@ -213,12 +194,6 @@ func (o FlexibleServerActiveDirectoryAdministratoryOutput) ToFlexibleServerActiv
 
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) ToFlexibleServerActiveDirectoryAdministratoryOutputWithContext(ctx context.Context) FlexibleServerActiveDirectoryAdministratoryOutput {
 	return o
-}
-
-func (o FlexibleServerActiveDirectoryAdministratoryOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerActiveDirectoryAdministratory] {
-	return pulumix.Output[*FlexibleServerActiveDirectoryAdministratory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleServerActiveDirectoryAdministratoryOutput) IdentityId() pulumi.StringOutput {
@@ -255,12 +230,6 @@ func (o FlexibleServerActiveDirectoryAdministratoryArrayOutput) ToFlexibleServer
 	return o
 }
 
-func (o FlexibleServerActiveDirectoryAdministratoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerActiveDirectoryAdministratory] {
-	return pulumix.Output[[]*FlexibleServerActiveDirectoryAdministratory]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlexibleServerActiveDirectoryAdministratoryArrayOutput) Index(i pulumi.IntInput) FlexibleServerActiveDirectoryAdministratoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServerActiveDirectoryAdministratory {
 		return vs[0].([]*FlexibleServerActiveDirectoryAdministratory)[vs[1].(int)]
@@ -279,12 +248,6 @@ func (o FlexibleServerActiveDirectoryAdministratoryMapOutput) ToFlexibleServerAc
 
 func (o FlexibleServerActiveDirectoryAdministratoryMapOutput) ToFlexibleServerActiveDirectoryAdministratoryMapOutputWithContext(ctx context.Context) FlexibleServerActiveDirectoryAdministratoryMapOutput {
 	return o
-}
-
-func (o FlexibleServerActiveDirectoryAdministratoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministratory] {
-	return pulumix.Output[map[string]*FlexibleServerActiveDirectoryAdministratory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleServerActiveDirectoryAdministratoryMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerActiveDirectoryAdministratoryOutput {

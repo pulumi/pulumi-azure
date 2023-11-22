@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IP group that contains a list of CIDRs and/or IP addresses.
@@ -200,12 +199,6 @@ func (i *IPGroup) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IPGroupOutput)
 }
 
-func (i *IPGroup) ToOutput(ctx context.Context) pulumix.Output[*IPGroup] {
-	return pulumix.Output[*IPGroup]{
-		OutputState: i.ToIPGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IPGroupArrayInput is an input type that accepts IPGroupArray and IPGroupArrayOutput values.
 // You can construct a concrete instance of `IPGroupArrayInput` via:
 //
@@ -229,12 +222,6 @@ func (i IPGroupArray) ToIPGroupArrayOutput() IPGroupArrayOutput {
 
 func (i IPGroupArray) ToIPGroupArrayOutputWithContext(ctx context.Context) IPGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPGroupArrayOutput)
-}
-
-func (i IPGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*IPGroup] {
-	return pulumix.Output[[]*IPGroup]{
-		OutputState: i.ToIPGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IPGroupMapInput is an input type that accepts IPGroupMap and IPGroupMapOutput values.
@@ -262,12 +249,6 @@ func (i IPGroupMap) ToIPGroupMapOutputWithContext(ctx context.Context) IPGroupMa
 	return pulumi.ToOutputWithContext(ctx, i).(IPGroupMapOutput)
 }
 
-func (i IPGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IPGroup] {
-	return pulumix.Output[map[string]*IPGroup]{
-		OutputState: i.ToIPGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IPGroupOutput struct{ *pulumi.OutputState }
 
 func (IPGroupOutput) ElementType() reflect.Type {
@@ -280,12 +261,6 @@ func (o IPGroupOutput) ToIPGroupOutput() IPGroupOutput {
 
 func (o IPGroupOutput) ToIPGroupOutputWithContext(ctx context.Context) IPGroupOutput {
 	return o
-}
-
-func (o IPGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*IPGroup] {
-	return pulumix.Output[*IPGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IPGroupOutput) Cidrs() pulumi.StringArrayOutput {
@@ -336,12 +311,6 @@ func (o IPGroupArrayOutput) ToIPGroupArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o IPGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IPGroup] {
-	return pulumix.Output[[]*IPGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IPGroupArrayOutput) Index(i pulumi.IntInput) IPGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IPGroup {
 		return vs[0].([]*IPGroup)[vs[1].(int)]
@@ -360,12 +329,6 @@ func (o IPGroupMapOutput) ToIPGroupMapOutput() IPGroupMapOutput {
 
 func (o IPGroupMapOutput) ToIPGroupMapOutputWithContext(ctx context.Context) IPGroupMapOutput {
 	return o
-}
-
-func (o IPGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IPGroup] {
-	return pulumix.Output[map[string]*IPGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IPGroupMapOutput) MapIndex(k pulumi.StringInput) IPGroupOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i AccountActiveDirectoryArgs) ToAccountActiveDirectoryOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryOutput)
 }
 
-func (i AccountActiveDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[AccountActiveDirectory] {
-	return pulumix.Output[AccountActiveDirectory]{
-		OutputState: i.ToAccountActiveDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountActiveDirectoryArgs) ToAccountActiveDirectoryPtrOutput() AccountActiveDirectoryPtrOutput {
 	return i.ToAccountActiveDirectoryPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *accountActiveDirectoryPtrType) ToAccountActiveDirectoryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AccountActiveDirectoryPtrOutput)
 }
 
-func (i *accountActiveDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountActiveDirectory] {
-	return pulumix.Output[*AccountActiveDirectory]{
-		OutputState: i.ToAccountActiveDirectoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountActiveDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccountActiveDirectoryOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o AccountActiveDirectoryOutput) ToAccountActiveDirectoryPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountActiveDirectory) *AccountActiveDirectory {
 		return &v
 	}).(AccountActiveDirectoryPtrOutput)
-}
-
-func (o AccountActiveDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[AccountActiveDirectory] {
-	return pulumix.Output[AccountActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
@@ -192,12 +173,6 @@ func (o AccountActiveDirectoryPtrOutput) ToAccountActiveDirectoryPtrOutput() Acc
 
 func (o AccountActiveDirectoryPtrOutput) ToAccountActiveDirectoryPtrOutputWithContext(ctx context.Context) AccountActiveDirectoryPtrOutput {
 	return o
-}
-
-func (o AccountActiveDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountActiveDirectory] {
-	return pulumix.Output[*AccountActiveDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountActiveDirectoryPtrOutput) Elem() AccountActiveDirectoryOutput {
@@ -311,12 +286,6 @@ func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailyScheduleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyDailyScheduleOutput)
 }
 
-func (i SnapshotPolicyDailyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyDailySchedule] {
-	return pulumix.Output[SnapshotPolicyDailySchedule]{
-		OutputState: i.ToSnapshotPolicyDailyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SnapshotPolicyDailyScheduleArgs) ToSnapshotPolicyDailySchedulePtrOutput() SnapshotPolicyDailySchedulePtrOutput {
 	return i.ToSnapshotPolicyDailySchedulePtrOutputWithContext(context.Background())
 }
@@ -358,12 +327,6 @@ func (i *snapshotPolicyDailySchedulePtrType) ToSnapshotPolicyDailySchedulePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyDailySchedulePtrOutput)
 }
 
-func (i *snapshotPolicyDailySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyDailySchedule] {
-	return pulumix.Output[*SnapshotPolicyDailySchedule]{
-		OutputState: i.ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotPolicyDailyScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyDailyScheduleOutput) ElementType() reflect.Type {
@@ -386,12 +349,6 @@ func (o SnapshotPolicyDailyScheduleOutput) ToSnapshotPolicyDailySchedulePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyDailySchedule) *SnapshotPolicyDailySchedule {
 		return &v
 	}).(SnapshotPolicyDailySchedulePtrOutput)
-}
-
-func (o SnapshotPolicyDailyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyDailySchedule] {
-	return pulumix.Output[SnapshotPolicyDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Hour of the day that the snapshots will be created, valid range is from 0 to 23.
@@ -421,12 +378,6 @@ func (o SnapshotPolicyDailySchedulePtrOutput) ToSnapshotPolicyDailySchedulePtrOu
 
 func (o SnapshotPolicyDailySchedulePtrOutput) ToSnapshotPolicyDailySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyDailySchedulePtrOutput {
 	return o
-}
-
-func (o SnapshotPolicyDailySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyDailySchedule] {
-	return pulumix.Output[*SnapshotPolicyDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotPolicyDailySchedulePtrOutput) Elem() SnapshotPolicyDailyScheduleOutput {
@@ -506,12 +457,6 @@ func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlyScheduleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyHourlyScheduleOutput)
 }
 
-func (i SnapshotPolicyHourlyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyHourlySchedule] {
-	return pulumix.Output[SnapshotPolicyHourlySchedule]{
-		OutputState: i.ToSnapshotPolicyHourlyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SnapshotPolicyHourlyScheduleArgs) ToSnapshotPolicyHourlySchedulePtrOutput() SnapshotPolicyHourlySchedulePtrOutput {
 	return i.ToSnapshotPolicyHourlySchedulePtrOutputWithContext(context.Background())
 }
@@ -553,12 +498,6 @@ func (i *snapshotPolicyHourlySchedulePtrType) ToSnapshotPolicyHourlySchedulePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyHourlySchedulePtrOutput)
 }
 
-func (i *snapshotPolicyHourlySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyHourlySchedule] {
-	return pulumix.Output[*SnapshotPolicyHourlySchedule]{
-		OutputState: i.ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotPolicyHourlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyHourlyScheduleOutput) ElementType() reflect.Type {
@@ -583,12 +522,6 @@ func (o SnapshotPolicyHourlyScheduleOutput) ToSnapshotPolicyHourlySchedulePtrOut
 	}).(SnapshotPolicyHourlySchedulePtrOutput)
 }
 
-func (o SnapshotPolicyHourlyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyHourlySchedule] {
-	return pulumix.Output[SnapshotPolicyHourlySchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
 func (o SnapshotPolicyHourlyScheduleOutput) Minute() pulumi.IntOutput {
 	return o.ApplyT(func(v SnapshotPolicyHourlySchedule) int { return v.Minute }).(pulumi.IntOutput)
@@ -611,12 +544,6 @@ func (o SnapshotPolicyHourlySchedulePtrOutput) ToSnapshotPolicyHourlySchedulePtr
 
 func (o SnapshotPolicyHourlySchedulePtrOutput) ToSnapshotPolicyHourlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyHourlySchedulePtrOutput {
 	return o
-}
-
-func (o SnapshotPolicyHourlySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyHourlySchedule] {
-	return pulumix.Output[*SnapshotPolicyHourlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotPolicyHourlySchedulePtrOutput) Elem() SnapshotPolicyHourlyScheduleOutput {
@@ -694,12 +621,6 @@ func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlyScheduleOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyMonthlyScheduleOutput)
 }
 
-func (i SnapshotPolicyMonthlyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[SnapshotPolicyMonthlySchedule]{
-		OutputState: i.ToSnapshotPolicyMonthlyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SnapshotPolicyMonthlyScheduleArgs) ToSnapshotPolicyMonthlySchedulePtrOutput() SnapshotPolicyMonthlySchedulePtrOutput {
 	return i.ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(context.Background())
 }
@@ -741,12 +662,6 @@ func (i *snapshotPolicyMonthlySchedulePtrType) ToSnapshotPolicyMonthlySchedulePt
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyMonthlySchedulePtrOutput)
 }
 
-func (i *snapshotPolicyMonthlySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[*SnapshotPolicyMonthlySchedule]{
-		OutputState: i.ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotPolicyMonthlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyMonthlyScheduleOutput) ElementType() reflect.Type {
@@ -769,12 +684,6 @@ func (o SnapshotPolicyMonthlyScheduleOutput) ToSnapshotPolicyMonthlySchedulePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyMonthlySchedule) *SnapshotPolicyMonthlySchedule {
 		return &v
 	}).(SnapshotPolicyMonthlySchedulePtrOutput)
-}
-
-func (o SnapshotPolicyMonthlyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[SnapshotPolicyMonthlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
@@ -809,12 +718,6 @@ func (o SnapshotPolicyMonthlySchedulePtrOutput) ToSnapshotPolicyMonthlyScheduleP
 
 func (o SnapshotPolicyMonthlySchedulePtrOutput) ToSnapshotPolicyMonthlySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyMonthlySchedulePtrOutput {
 	return o
-}
-
-func (o SnapshotPolicyMonthlySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[*SnapshotPolicyMonthlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotPolicyMonthlySchedulePtrOutput) Elem() SnapshotPolicyMonthlyScheduleOutput {
@@ -912,12 +815,6 @@ func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklyScheduleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyWeeklyScheduleOutput)
 }
 
-func (i SnapshotPolicyWeeklyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[SnapshotPolicyWeeklySchedule]{
-		OutputState: i.ToSnapshotPolicyWeeklyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SnapshotPolicyWeeklyScheduleArgs) ToSnapshotPolicyWeeklySchedulePtrOutput() SnapshotPolicyWeeklySchedulePtrOutput {
 	return i.ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(context.Background())
 }
@@ -959,12 +856,6 @@ func (i *snapshotPolicyWeeklySchedulePtrType) ToSnapshotPolicyWeeklySchedulePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPolicyWeeklySchedulePtrOutput)
 }
 
-func (i *snapshotPolicyWeeklySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[*SnapshotPolicyWeeklySchedule]{
-		OutputState: i.ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotPolicyWeeklyScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotPolicyWeeklyScheduleOutput) ElementType() reflect.Type {
@@ -987,12 +878,6 @@ func (o SnapshotPolicyWeeklyScheduleOutput) ToSnapshotPolicyWeeklySchedulePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotPolicyWeeklySchedule) *SnapshotPolicyWeeklySchedule {
 		return &v
 	}).(SnapshotPolicyWeeklySchedulePtrOutput)
-}
-
-func (o SnapshotPolicyWeeklyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[SnapshotPolicyWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the week days using English names when the snapshots will be created.
@@ -1027,12 +912,6 @@ func (o SnapshotPolicyWeeklySchedulePtrOutput) ToSnapshotPolicyWeeklySchedulePtr
 
 func (o SnapshotPolicyWeeklySchedulePtrOutput) ToSnapshotPolicyWeeklySchedulePtrOutputWithContext(ctx context.Context) SnapshotPolicyWeeklySchedulePtrOutput {
 	return o
-}
-
-func (o SnapshotPolicyWeeklySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[*SnapshotPolicyWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotPolicyWeeklySchedulePtrOutput) Elem() SnapshotPolicyWeeklyScheduleOutput {
@@ -1128,12 +1007,6 @@ func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationOu
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionReplicationOutput)
 }
 
-func (i VolumeDataProtectionReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeDataProtectionReplication] {
-	return pulumix.Output[VolumeDataProtectionReplication]{
-		OutputState: i.ToVolumeDataProtectionReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeDataProtectionReplicationArgs) ToVolumeDataProtectionReplicationPtrOutput() VolumeDataProtectionReplicationPtrOutput {
 	return i.ToVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
 }
@@ -1175,12 +1048,6 @@ func (i *volumeDataProtectionReplicationPtrType) ToVolumeDataProtectionReplicati
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionReplicationPtrOutput)
 }
 
-func (i *volumeDataProtectionReplicationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeDataProtectionReplication] {
-	return pulumix.Output[*VolumeDataProtectionReplication]{
-		OutputState: i.ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
 
 func (VolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
@@ -1203,12 +1070,6 @@ func (o VolumeDataProtectionReplicationOutput) ToVolumeDataProtectionReplication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeDataProtectionReplication) *VolumeDataProtectionReplication {
 		return &v
 	}).(VolumeDataProtectionReplicationPtrOutput)
-}
-
-func (o VolumeDataProtectionReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeDataProtectionReplication] {
-	return pulumix.Output[VolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint type, default value is `dst` for destination.
@@ -1242,12 +1103,6 @@ func (o VolumeDataProtectionReplicationPtrOutput) ToVolumeDataProtectionReplicat
 
 func (o VolumeDataProtectionReplicationPtrOutput) ToVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeDataProtectionReplicationPtrOutput {
 	return o
-}
-
-func (o VolumeDataProtectionReplicationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeDataProtectionReplication] {
-	return pulumix.Output[*VolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeDataProtectionReplicationPtrOutput) Elem() VolumeDataProtectionReplicationOutput {
@@ -1330,12 +1185,6 @@ func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPo
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionSnapshotPolicyOutput)
 }
 
-func (i VolumeDataProtectionSnapshotPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[VolumeDataProtectionSnapshotPolicy]{
-		OutputState: i.ToVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeDataProtectionSnapshotPolicyArgs) ToVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeDataProtectionSnapshotPolicyPtrOutput {
 	return i.ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
 }
@@ -1377,12 +1226,6 @@ func (i *volumeDataProtectionSnapshotPolicyPtrType) ToVolumeDataProtectionSnapsh
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
-func (i *volumeDataProtectionSnapshotPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[*VolumeDataProtectionSnapshotPolicy]{
-		OutputState: i.ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
@@ -1407,12 +1250,6 @@ func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshot
 	}).(VolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
-func (o VolumeDataProtectionSnapshotPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[VolumeDataProtectionSnapshotPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
 }
@@ -1429,12 +1266,6 @@ func (o VolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeDataProtectionSnaps
 
 func (o VolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeDataProtectionSnapshotPolicyPtrOutput {
 	return o
-}
-
-func (o VolumeDataProtectionSnapshotPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[*VolumeDataProtectionSnapshotPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeDataProtectionSnapshotPolicyOutput {
@@ -1509,12 +1340,6 @@ func (i VolumeExportPolicyRuleArgs) ToVolumeExportPolicyRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeExportPolicyRuleOutput)
 }
 
-func (i VolumeExportPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeExportPolicyRule] {
-	return pulumix.Output[VolumeExportPolicyRule]{
-		OutputState: i.ToVolumeExportPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeExportPolicyRuleArrayInput is an input type that accepts VolumeExportPolicyRuleArray and VolumeExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `VolumeExportPolicyRuleArrayInput` via:
 //
@@ -1540,12 +1365,6 @@ func (i VolumeExportPolicyRuleArray) ToVolumeExportPolicyRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeExportPolicyRuleArrayOutput)
 }
 
-func (i VolumeExportPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeExportPolicyRule] {
-	return pulumix.Output[[]VolumeExportPolicyRule]{
-		OutputState: i.ToVolumeExportPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (VolumeExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -1558,12 +1377,6 @@ func (o VolumeExportPolicyRuleOutput) ToVolumeExportPolicyRuleOutput() VolumeExp
 
 func (o VolumeExportPolicyRuleOutput) ToVolumeExportPolicyRuleOutputWithContext(ctx context.Context) VolumeExportPolicyRuleOutput {
 	return o
-}
-
-func (o VolumeExportPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeExportPolicyRule] {
-	return pulumix.Output[VolumeExportPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of allowed clients IPv4 addresses.
@@ -1608,12 +1421,6 @@ func (o VolumeExportPolicyRuleArrayOutput) ToVolumeExportPolicyRuleArrayOutput()
 
 func (o VolumeExportPolicyRuleArrayOutput) ToVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) VolumeExportPolicyRuleArrayOutput {
 	return o
-}
-
-func (o VolumeExportPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeExportPolicyRule] {
-	return pulumix.Output[[]VolumeExportPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeExportPolicyRuleOutput {
@@ -1721,12 +1528,6 @@ func (i VolumeGroupSapHanaVolumeArgs) ToVolumeGroupSapHanaVolumeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeOutput)
 }
 
-func (i VolumeGroupSapHanaVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolume] {
-	return pulumix.Output[VolumeGroupSapHanaVolume]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeGroupSapHanaVolumeArrayInput is an input type that accepts VolumeGroupSapHanaVolumeArray and VolumeGroupSapHanaVolumeArrayOutput values.
 // You can construct a concrete instance of `VolumeGroupSapHanaVolumeArrayInput` via:
 //
@@ -1752,12 +1553,6 @@ func (i VolumeGroupSapHanaVolumeArray) ToVolumeGroupSapHanaVolumeArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeArrayOutput)
 }
 
-func (i VolumeGroupSapHanaVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeGroupSapHanaVolume] {
-	return pulumix.Output[[]VolumeGroupSapHanaVolume]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeGroupSapHanaVolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeGroupSapHanaVolumeOutput) ElementType() reflect.Type {
@@ -1770,12 +1565,6 @@ func (o VolumeGroupSapHanaVolumeOutput) ToVolumeGroupSapHanaVolumeOutput() Volum
 
 func (o VolumeGroupSapHanaVolumeOutput) ToVolumeGroupSapHanaVolumeOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeOutput {
 	return o
-}
-
-func (o VolumeGroupSapHanaVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolume] {
-	return pulumix.Output[VolumeGroupSapHanaVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -1887,12 +1676,6 @@ func (o VolumeGroupSapHanaVolumeArrayOutput) ToVolumeGroupSapHanaVolumeArrayOutp
 	return o
 }
 
-func (o VolumeGroupSapHanaVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeGroupSapHanaVolume] {
-	return pulumix.Output[[]VolumeGroupSapHanaVolume]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) VolumeGroupSapHanaVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupSapHanaVolume {
 		return vs[0].([]VolumeGroupSapHanaVolume)[vs[1].(int)]
@@ -1944,12 +1727,6 @@ func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToVolumeGroupSapH
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
 }
 
-func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput() VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
 	return i.ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(context.Background())
 }
@@ -1991,12 +1768,6 @@ func (i *volumeGroupSapHanaVolumeDataProtectionReplicationPtrType) ToVolumeGroup
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
 }
 
-func (i *volumeGroupSapHanaVolumeDataProtectionReplicationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeGroupSapHanaVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
 
 func (VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
@@ -2019,12 +1790,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToVolumeGroupSa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupSapHanaVolumeDataProtectionReplication) *VolumeGroupSapHanaVolumeDataProtectionReplication {
 		return &v
 	}).(VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput)
-}
-
-func (o VolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
@@ -2059,12 +1824,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ToVolumeGrou
 
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ToVolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput {
 	return o
-}
-
-func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeGroupSapHanaVolumeDataProtectionReplicationPtrOutput) Elem() VolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
@@ -2150,12 +1909,6 @@ func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupS
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput)
 }
 
-func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
 	return i.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(context.Background())
 }
@@ -2197,12 +1950,6 @@ func (i *volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType) ToVolumeGr
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
-func (i *volumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
@@ -2227,12 +1974,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToVolumeGrou
 	}).(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput)
 }
 
-func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Resource ID of the snapshot policy to apply to the volume.
 func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
@@ -2250,12 +1991,6 @@ func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeG
 
 func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) ToVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput {
 	return o
-}
-
-func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
@@ -2335,12 +2070,6 @@ func (i VolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToVolumeGroupSapHanaVolume
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeExportPolicyRuleOutput)
 }
 
-func (i VolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[VolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput is an input type that accepts VolumeGroupSapHanaVolumeExportPolicyRuleArray and VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput` via:
 //
@@ -2366,12 +2095,6 @@ func (i VolumeGroupSapHanaVolumeExportPolicyRuleArray) ToVolumeGroupSapHanaVolum
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput)
 }
 
-func (i VolumeGroupSapHanaVolumeExportPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[[]VolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: i.ToVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeGroupSapHanaVolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -2384,12 +2107,6 @@ func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToVolumeGroupSapHanaVolu
 
 func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx context.Context) VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
 	return o
-}
-
-func (o VolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[VolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A comma-sperated list of allowed client IPv4 addresses.
@@ -2441,12 +2158,6 @@ func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToVolumeGroupSapHan
 	return o
 }
 
-func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[[]VolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) VolumeGroupSapHanaVolumeExportPolicyRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupSapHanaVolumeExportPolicyRule {
 		return vs[0].([]VolumeGroupSapHanaVolumeExportPolicyRule)[vs[1].(int)]
@@ -2494,12 +2205,6 @@ func (i GetSnapshotPolicyDailyScheduleArgs) ToGetSnapshotPolicyDailyScheduleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyDailyScheduleOutput)
 }
 
-func (i GetSnapshotPolicyDailyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyDailySchedule] {
-	return pulumix.Output[GetSnapshotPolicyDailySchedule]{
-		OutputState: i.ToGetSnapshotPolicyDailyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSnapshotPolicyDailyScheduleArrayInput is an input type that accepts GetSnapshotPolicyDailyScheduleArray and GetSnapshotPolicyDailyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyDailyScheduleArrayInput` via:
 //
@@ -2525,12 +2230,6 @@ func (i GetSnapshotPolicyDailyScheduleArray) ToGetSnapshotPolicyDailyScheduleArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyDailyScheduleArrayOutput)
 }
 
-func (i GetSnapshotPolicyDailyScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyDailySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyDailySchedule]{
-		OutputState: i.ToGetSnapshotPolicyDailyScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSnapshotPolicyDailyScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotPolicyDailyScheduleOutput) ElementType() reflect.Type {
@@ -2543,12 +2242,6 @@ func (o GetSnapshotPolicyDailyScheduleOutput) ToGetSnapshotPolicyDailyScheduleOu
 
 func (o GetSnapshotPolicyDailyScheduleOutput) ToGetSnapshotPolicyDailyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyDailyScheduleOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyDailyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyDailySchedule] {
-	return pulumix.Output[GetSnapshotPolicyDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Hour of the day that the snapshots will be created.
@@ -2578,12 +2271,6 @@ func (o GetSnapshotPolicyDailyScheduleArrayOutput) ToGetSnapshotPolicyDailySched
 
 func (o GetSnapshotPolicyDailyScheduleArrayOutput) ToGetSnapshotPolicyDailyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyDailyScheduleArrayOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyDailyScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyDailySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSnapshotPolicyDailyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyDailyScheduleOutput {
@@ -2629,12 +2316,6 @@ func (i GetSnapshotPolicyHourlyScheduleArgs) ToGetSnapshotPolicyHourlyScheduleOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyHourlyScheduleOutput)
 }
 
-func (i GetSnapshotPolicyHourlyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyHourlySchedule] {
-	return pulumix.Output[GetSnapshotPolicyHourlySchedule]{
-		OutputState: i.ToGetSnapshotPolicyHourlyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSnapshotPolicyHourlyScheduleArrayInput is an input type that accepts GetSnapshotPolicyHourlyScheduleArray and GetSnapshotPolicyHourlyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyHourlyScheduleArrayInput` via:
 //
@@ -2660,12 +2341,6 @@ func (i GetSnapshotPolicyHourlyScheduleArray) ToGetSnapshotPolicyHourlyScheduleA
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyHourlyScheduleArrayOutput)
 }
 
-func (i GetSnapshotPolicyHourlyScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyHourlySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyHourlySchedule]{
-		OutputState: i.ToGetSnapshotPolicyHourlyScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSnapshotPolicyHourlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotPolicyHourlyScheduleOutput) ElementType() reflect.Type {
@@ -2678,12 +2353,6 @@ func (o GetSnapshotPolicyHourlyScheduleOutput) ToGetSnapshotPolicyHourlySchedule
 
 func (o GetSnapshotPolicyHourlyScheduleOutput) ToGetSnapshotPolicyHourlyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyHourlyScheduleOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyHourlyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyHourlySchedule] {
-	return pulumix.Output[GetSnapshotPolicyHourlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Minute of the hour that the snapshots will be created.
@@ -2708,12 +2377,6 @@ func (o GetSnapshotPolicyHourlyScheduleArrayOutput) ToGetSnapshotPolicyHourlySch
 
 func (o GetSnapshotPolicyHourlyScheduleArrayOutput) ToGetSnapshotPolicyHourlyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyHourlyScheduleArrayOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyHourlyScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyHourlySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyHourlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSnapshotPolicyHourlyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyHourlyScheduleOutput {
@@ -2765,12 +2428,6 @@ func (i GetSnapshotPolicyMonthlyScheduleArgs) ToGetSnapshotPolicyMonthlySchedule
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyMonthlyScheduleOutput)
 }
 
-func (i GetSnapshotPolicyMonthlyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[GetSnapshotPolicyMonthlySchedule]{
-		OutputState: i.ToGetSnapshotPolicyMonthlyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSnapshotPolicyMonthlyScheduleArrayInput is an input type that accepts GetSnapshotPolicyMonthlyScheduleArray and GetSnapshotPolicyMonthlyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyMonthlyScheduleArrayInput` via:
 //
@@ -2796,12 +2453,6 @@ func (i GetSnapshotPolicyMonthlyScheduleArray) ToGetSnapshotPolicyMonthlySchedul
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyMonthlyScheduleArrayOutput)
 }
 
-func (i GetSnapshotPolicyMonthlyScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyMonthlySchedule]{
-		OutputState: i.ToGetSnapshotPolicyMonthlyScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSnapshotPolicyMonthlyScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotPolicyMonthlyScheduleOutput) ElementType() reflect.Type {
@@ -2814,12 +2465,6 @@ func (o GetSnapshotPolicyMonthlyScheduleOutput) ToGetSnapshotPolicyMonthlySchedu
 
 func (o GetSnapshotPolicyMonthlyScheduleOutput) ToGetSnapshotPolicyMonthlyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyMonthlyScheduleOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyMonthlyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[GetSnapshotPolicyMonthlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSnapshotPolicyMonthlyScheduleOutput) DaysOfMonths() pulumi.IntArrayOutput {
@@ -2853,12 +2498,6 @@ func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) ToGetSnapshotPolicyMonthlyS
 
 func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) ToGetSnapshotPolicyMonthlyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyMonthlyScheduleArrayOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyMonthlySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyMonthlySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSnapshotPolicyMonthlyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyMonthlyScheduleOutput {
@@ -2912,12 +2551,6 @@ func (i GetSnapshotPolicyWeeklyScheduleArgs) ToGetSnapshotPolicyWeeklyScheduleOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyWeeklyScheduleOutput)
 }
 
-func (i GetSnapshotPolicyWeeklyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[GetSnapshotPolicyWeeklySchedule]{
-		OutputState: i.ToGetSnapshotPolicyWeeklyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSnapshotPolicyWeeklyScheduleArrayInput is an input type that accepts GetSnapshotPolicyWeeklyScheduleArray and GetSnapshotPolicyWeeklyScheduleArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotPolicyWeeklyScheduleArrayInput` via:
 //
@@ -2943,12 +2576,6 @@ func (i GetSnapshotPolicyWeeklyScheduleArray) ToGetSnapshotPolicyWeeklyScheduleA
 	return pulumi.ToOutputWithContext(ctx, i).(GetSnapshotPolicyWeeklyScheduleArrayOutput)
 }
 
-func (i GetSnapshotPolicyWeeklyScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyWeeklySchedule]{
-		OutputState: i.ToGetSnapshotPolicyWeeklyScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSnapshotPolicyWeeklyScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetSnapshotPolicyWeeklyScheduleOutput) ElementType() reflect.Type {
@@ -2961,12 +2588,6 @@ func (o GetSnapshotPolicyWeeklyScheduleOutput) ToGetSnapshotPolicyWeeklySchedule
 
 func (o GetSnapshotPolicyWeeklyScheduleOutput) ToGetSnapshotPolicyWeeklyScheduleOutputWithContext(ctx context.Context) GetSnapshotPolicyWeeklyScheduleOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyWeeklyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetSnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[GetSnapshotPolicyWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of the week days using English names when the snapshots will be created.
@@ -3001,12 +2622,6 @@ func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) ToGetSnapshotPolicyWeeklySch
 
 func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) ToGetSnapshotPolicyWeeklyScheduleArrayOutputWithContext(ctx context.Context) GetSnapshotPolicyWeeklyScheduleArrayOutput {
 	return o
-}
-
-func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSnapshotPolicyWeeklySchedule] {
-	return pulumix.Output[[]GetSnapshotPolicyWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) Index(i pulumi.IntInput) GetSnapshotPolicyWeeklyScheduleOutput {
@@ -3060,12 +2675,6 @@ func (i GetVolumeDataProtectionReplicationArgs) ToGetVolumeDataProtectionReplica
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionReplicationOutput)
 }
 
-func (i GetVolumeDataProtectionReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[GetVolumeDataProtectionReplication] {
-	return pulumix.Output[GetVolumeDataProtectionReplication]{
-		OutputState: i.ToGetVolumeDataProtectionReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVolumeDataProtectionReplicationArrayInput is an input type that accepts GetVolumeDataProtectionReplicationArray and GetVolumeDataProtectionReplicationArrayOutput values.
 // You can construct a concrete instance of `GetVolumeDataProtectionReplicationArrayInput` via:
 //
@@ -3091,12 +2700,6 @@ func (i GetVolumeDataProtectionReplicationArray) ToGetVolumeDataProtectionReplic
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeDataProtectionReplicationArrayOutput)
 }
 
-func (i GetVolumeDataProtectionReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeDataProtectionReplication] {
-	return pulumix.Output[[]GetVolumeDataProtectionReplication]{
-		OutputState: i.ToGetVolumeDataProtectionReplicationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
@@ -3109,12 +2712,6 @@ func (o GetVolumeDataProtectionReplicationOutput) ToGetVolumeDataProtectionRepli
 
 func (o GetVolumeDataProtectionReplicationOutput) ToGetVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeDataProtectionReplicationOutput {
 	return o
-}
-
-func (o GetVolumeDataProtectionReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[GetVolumeDataProtectionReplication] {
-	return pulumix.Output[GetVolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint type.
@@ -3149,12 +2746,6 @@ func (o GetVolumeDataProtectionReplicationArrayOutput) ToGetVolumeDataProtection
 
 func (o GetVolumeDataProtectionReplicationArrayOutput) ToGetVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeDataProtectionReplicationArrayOutput {
 	return o
-}
-
-func (o GetVolumeDataProtectionReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeDataProtectionReplication] {
-	return pulumix.Output[[]GetVolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) GetVolumeDataProtectionReplicationOutput {
@@ -3264,12 +2855,6 @@ func (i GetVolumeGroupSapHanaVolumeArgs) ToGetVolumeGroupSapHanaVolumeOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeArgs) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolume] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolume]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVolumeGroupSapHanaVolumeArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeArray and GetVolumeGroupSapHanaVolumeArrayOutput values.
 // You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeArrayInput` via:
 //
@@ -3295,12 +2880,6 @@ func (i GetVolumeGroupSapHanaVolumeArray) ToGetVolumeGroupSapHanaVolumeArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeArrayOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolume] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolume]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVolumeGroupSapHanaVolumeOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeGroupSapHanaVolumeOutput) ElementType() reflect.Type {
@@ -3313,12 +2892,6 @@ func (o GetVolumeGroupSapHanaVolumeOutput) ToGetVolumeGroupSapHanaVolumeOutput()
 
 func (o GetVolumeGroupSapHanaVolumeOutput) ToGetVolumeGroupSapHanaVolumeOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeOutput) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolume] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolume]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Capacity Pool.
@@ -3431,12 +3004,6 @@ func (o GetVolumeGroupSapHanaVolumeArrayOutput) ToGetVolumeGroupSapHanaVolumeArr
 	return o
 }
 
-func (o GetVolumeGroupSapHanaVolumeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolume] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolume]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetVolumeGroupSapHanaVolumeArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeGroupSapHanaVolume {
 		return vs[0].([]GetVolumeGroupSapHanaVolume)[vs[1].(int)]
@@ -3488,12 +3055,6 @@ func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToGetVolumeGro
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray and GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput values.
 // You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayInput` via:
 //
@@ -3519,12 +3080,6 @@ func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray) ToGetVolumeGr
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeDataProtectionReplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ElementType() reflect.Type {
@@ -3537,12 +3092,6 @@ func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToGetVolumeG
 
 func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The endpoint type.
@@ -3577,12 +3126,6 @@ func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) ToGetVo
 
 func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionReplication] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVolumeGroupSapHanaVolumeDataProtectionReplicationArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeDataProtectionReplicationOutput {
@@ -3624,12 +3167,6 @@ func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToGetVolume
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray and GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput values.
 // You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput` via:
 //
@@ -3655,12 +3192,6 @@ func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray) ToGetVolum
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ElementType() reflect.Type {
@@ -3673,12 +3204,6 @@ func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToGetVolu
 
 func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Resource ID of the snapshot policy to apply to the volume.
@@ -3698,12 +3223,6 @@ func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) ToGe
 
 func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) ToGetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyOutput {
@@ -3769,12 +3288,6 @@ func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToGetVolumeGroupSapHana
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput is an input type that accepts GetVolumeGroupSapHanaVolumeExportPolicyRuleArray and GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput` via:
 //
@@ -3800,12 +3313,6 @@ func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArray) ToGetVolumeGroupSapHan
 	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput)
 }
 
-func (i GetVolumeGroupSapHanaVolumeExportPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: i.ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ElementType() reflect.Type {
@@ -3818,12 +3325,6 @@ func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToGetVolumeGroupSapHa
 
 func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetVolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[GetVolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of allowed clients IPv4 addresses.
@@ -3873,12 +3374,6 @@ func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToGetVolumeGroup
 
 func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToGetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutputWithContext(ctx context.Context) GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput {
 	return o
-}
-
-func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetVolumeGroupSapHanaVolumeExportPolicyRule] {
-	return pulumix.Output[[]GetVolumeGroupSapHanaVolumeExportPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Pim Eligible Role Assignment.
@@ -296,12 +295,6 @@ func (i *EligibleRoleAssignment) ToEligibleRoleAssignmentOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentOutput)
 }
 
-func (i *EligibleRoleAssignment) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignment] {
-	return pulumix.Output[*EligibleRoleAssignment]{
-		OutputState: i.ToEligibleRoleAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EligibleRoleAssignmentArrayInput is an input type that accepts EligibleRoleAssignmentArray and EligibleRoleAssignmentArrayOutput values.
 // You can construct a concrete instance of `EligibleRoleAssignmentArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i EligibleRoleAssignmentArray) ToEligibleRoleAssignmentArrayOutput() Eligi
 
 func (i EligibleRoleAssignmentArray) ToEligibleRoleAssignmentArrayOutputWithContext(ctx context.Context) EligibleRoleAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentArrayOutput)
-}
-
-func (i EligibleRoleAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*EligibleRoleAssignment] {
-	return pulumix.Output[[]*EligibleRoleAssignment]{
-		OutputState: i.ToEligibleRoleAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EligibleRoleAssignmentMapInput is an input type that accepts EligibleRoleAssignmentMap and EligibleRoleAssignmentMapOutput values.
@@ -358,12 +345,6 @@ func (i EligibleRoleAssignmentMap) ToEligibleRoleAssignmentMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EligibleRoleAssignmentMapOutput)
 }
 
-func (i EligibleRoleAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EligibleRoleAssignment] {
-	return pulumix.Output[map[string]*EligibleRoleAssignment]{
-		OutputState: i.ToEligibleRoleAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EligibleRoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (EligibleRoleAssignmentOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o EligibleRoleAssignmentOutput) ToEligibleRoleAssignmentOutput() EligibleR
 
 func (o EligibleRoleAssignmentOutput) ToEligibleRoleAssignmentOutputWithContext(ctx context.Context) EligibleRoleAssignmentOutput {
 	return o
-}
-
-func (o EligibleRoleAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*EligibleRoleAssignment] {
-	return pulumix.Output[*EligibleRoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
@@ -433,12 +408,6 @@ func (o EligibleRoleAssignmentArrayOutput) ToEligibleRoleAssignmentArrayOutputWi
 	return o
 }
 
-func (o EligibleRoleAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EligibleRoleAssignment] {
-	return pulumix.Output[[]*EligibleRoleAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EligibleRoleAssignmentArrayOutput) Index(i pulumi.IntInput) EligibleRoleAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EligibleRoleAssignment {
 		return vs[0].([]*EligibleRoleAssignment)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o EligibleRoleAssignmentMapOutput) ToEligibleRoleAssignmentMapOutput() Eli
 
 func (o EligibleRoleAssignmentMapOutput) ToEligibleRoleAssignmentMapOutputWithContext(ctx context.Context) EligibleRoleAssignmentMapOutput {
 	return o
-}
-
-func (o EligibleRoleAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EligibleRoleAssignment] {
-	return pulumix.Output[map[string]*EligibleRoleAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EligibleRoleAssignmentMapOutput) MapIndex(k pulumi.StringInput) EligibleRoleAssignmentOutput {

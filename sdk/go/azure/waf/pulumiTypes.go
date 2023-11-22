@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -79,12 +78,6 @@ func (i PolicyCustomRuleArgs) ToPolicyCustomRuleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleOutput)
 }
 
-func (i PolicyCustomRuleArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyCustomRule] {
-	return pulumix.Output[PolicyCustomRule]{
-		OutputState: i.ToPolicyCustomRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyCustomRuleArrayInput is an input type that accepts PolicyCustomRuleArray and PolicyCustomRuleArrayOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleArrayInput` via:
 //
@@ -110,12 +103,6 @@ func (i PolicyCustomRuleArray) ToPolicyCustomRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleArrayOutput)
 }
 
-func (i PolicyCustomRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyCustomRule] {
-	return pulumix.Output[[]PolicyCustomRule]{
-		OutputState: i.ToPolicyCustomRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutput() PolicyCustomRuleOutpu
 
 func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutputWithContext(ctx context.Context) PolicyCustomRuleOutput {
 	return o
-}
-
-func (o PolicyCustomRuleOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyCustomRule] {
-	return pulumix.Output[PolicyCustomRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of action. Possible values are `Allow`, `Block` and `Log`.
@@ -195,12 +176,6 @@ func (o PolicyCustomRuleArrayOutput) ToPolicyCustomRuleArrayOutputWithContext(ct
 	return o
 }
 
-func (o PolicyCustomRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyCustomRule] {
-	return pulumix.Output[[]PolicyCustomRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyCustomRule {
 		return vs[0].([]PolicyCustomRule)[vs[1].(int)]
@@ -256,12 +231,6 @@ func (i PolicyCustomRuleMatchConditionArgs) ToPolicyCustomRuleMatchConditionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleMatchConditionOutput)
 }
 
-func (i PolicyCustomRuleMatchConditionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyCustomRuleMatchCondition] {
-	return pulumix.Output[PolicyCustomRuleMatchCondition]{
-		OutputState: i.ToPolicyCustomRuleMatchConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyCustomRuleMatchConditionArrayInput is an input type that accepts PolicyCustomRuleMatchConditionArray and PolicyCustomRuleMatchConditionArrayOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleMatchConditionArrayInput` via:
 //
@@ -287,12 +256,6 @@ func (i PolicyCustomRuleMatchConditionArray) ToPolicyCustomRuleMatchConditionArr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleMatchConditionArrayOutput)
 }
 
-func (i PolicyCustomRuleMatchConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyCustomRuleMatchCondition] {
-	return pulumix.Output[[]PolicyCustomRuleMatchCondition]{
-		OutputState: i.ToPolicyCustomRuleMatchConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyCustomRuleMatchConditionOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleMatchConditionOutput) ElementType() reflect.Type {
@@ -305,12 +268,6 @@ func (o PolicyCustomRuleMatchConditionOutput) ToPolicyCustomRuleMatchConditionOu
 
 func (o PolicyCustomRuleMatchConditionOutput) ToPolicyCustomRuleMatchConditionOutputWithContext(ctx context.Context) PolicyCustomRuleMatchConditionOutput {
 	return o
-}
-
-func (o PolicyCustomRuleMatchConditionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyCustomRuleMatchCondition] {
-	return pulumix.Output[PolicyCustomRuleMatchCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of match values. This is **Required** when the `operator` is not `Any`.
@@ -352,12 +309,6 @@ func (o PolicyCustomRuleMatchConditionArrayOutput) ToPolicyCustomRuleMatchCondit
 
 func (o PolicyCustomRuleMatchConditionArrayOutput) ToPolicyCustomRuleMatchConditionArrayOutputWithContext(ctx context.Context) PolicyCustomRuleMatchConditionArrayOutput {
 	return o
-}
-
-func (o PolicyCustomRuleMatchConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyCustomRuleMatchCondition] {
-	return pulumix.Output[[]PolicyCustomRuleMatchCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleMatchConditionOutput {
@@ -403,12 +354,6 @@ func (i PolicyCustomRuleMatchConditionMatchVariableArgs) ToPolicyCustomRuleMatch
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleMatchConditionMatchVariableOutput)
 }
 
-func (i PolicyCustomRuleMatchConditionMatchVariableArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyCustomRuleMatchConditionMatchVariable] {
-	return pulumix.Output[PolicyCustomRuleMatchConditionMatchVariable]{
-		OutputState: i.ToPolicyCustomRuleMatchConditionMatchVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyCustomRuleMatchConditionMatchVariableArrayInput is an input type that accepts PolicyCustomRuleMatchConditionMatchVariableArray and PolicyCustomRuleMatchConditionMatchVariableArrayOutput values.
 // You can construct a concrete instance of `PolicyCustomRuleMatchConditionMatchVariableArrayInput` via:
 //
@@ -434,12 +379,6 @@ func (i PolicyCustomRuleMatchConditionMatchVariableArray) ToPolicyCustomRuleMatc
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyCustomRuleMatchConditionMatchVariableArrayOutput)
 }
 
-func (i PolicyCustomRuleMatchConditionMatchVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyCustomRuleMatchConditionMatchVariable] {
-	return pulumix.Output[[]PolicyCustomRuleMatchConditionMatchVariable]{
-		OutputState: i.ToPolicyCustomRuleMatchConditionMatchVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyCustomRuleMatchConditionMatchVariableOutput struct{ *pulumi.OutputState }
 
 func (PolicyCustomRuleMatchConditionMatchVariableOutput) ElementType() reflect.Type {
@@ -452,12 +391,6 @@ func (o PolicyCustomRuleMatchConditionMatchVariableOutput) ToPolicyCustomRuleMat
 
 func (o PolicyCustomRuleMatchConditionMatchVariableOutput) ToPolicyCustomRuleMatchConditionMatchVariableOutputWithContext(ctx context.Context) PolicyCustomRuleMatchConditionMatchVariableOutput {
 	return o
-}
-
-func (o PolicyCustomRuleMatchConditionMatchVariableOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyCustomRuleMatchConditionMatchVariable] {
-	return pulumix.Output[PolicyCustomRuleMatchConditionMatchVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Describes field of the matchVariable collection
@@ -482,12 +415,6 @@ func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) ToPolicyCustomRu
 
 func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) ToPolicyCustomRuleMatchConditionMatchVariableArrayOutputWithContext(ctx context.Context) PolicyCustomRuleMatchConditionMatchVariableArrayOutput {
 	return o
-}
-
-func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyCustomRuleMatchConditionMatchVariable] {
-	return pulumix.Output[[]PolicyCustomRuleMatchConditionMatchVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyCustomRuleMatchConditionMatchVariableArrayOutput) Index(i pulumi.IntInput) PolicyCustomRuleMatchConditionMatchVariableOutput {
@@ -533,12 +460,6 @@ func (i PolicyManagedRulesArgs) ToPolicyManagedRulesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesOutput)
 }
 
-func (i PolicyManagedRulesArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRules] {
-	return pulumix.Output[PolicyManagedRules]{
-		OutputState: i.ToPolicyManagedRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyManagedRulesArgs) ToPolicyManagedRulesPtrOutput() PolicyManagedRulesPtrOutput {
 	return i.ToPolicyManagedRulesPtrOutputWithContext(context.Background())
 }
@@ -580,12 +501,6 @@ func (i *policyManagedRulesPtrType) ToPolicyManagedRulesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesPtrOutput)
 }
 
-func (i *policyManagedRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyManagedRules] {
-	return pulumix.Output[*PolicyManagedRules]{
-		OutputState: i.ToPolicyManagedRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesOutput) ElementType() reflect.Type {
@@ -610,12 +525,6 @@ func (o PolicyManagedRulesOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx c
 	}).(PolicyManagedRulesPtrOutput)
 }
 
-func (o PolicyManagedRulesOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRules] {
-	return pulumix.Output[PolicyManagedRules]{
-		OutputState: o.OutputState,
-	}
-}
-
 // One or more `exclusion` block defined below.
 func (o PolicyManagedRulesOutput) Exclusions() PolicyManagedRulesExclusionArrayOutput {
 	return o.ApplyT(func(v PolicyManagedRules) []PolicyManagedRulesExclusion { return v.Exclusions }).(PolicyManagedRulesExclusionArrayOutput)
@@ -638,12 +547,6 @@ func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutput() PolicyManag
 
 func (o PolicyManagedRulesPtrOutput) ToPolicyManagedRulesPtrOutputWithContext(ctx context.Context) PolicyManagedRulesPtrOutput {
 	return o
-}
-
-func (o PolicyManagedRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyManagedRules] {
-	return pulumix.Output[*PolicyManagedRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesPtrOutput) Elem() PolicyManagedRulesOutput {
@@ -721,12 +624,6 @@ func (i PolicyManagedRulesExclusionArgs) ToPolicyManagedRulesExclusionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionOutput)
 }
 
-func (i PolicyManagedRulesExclusionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesExclusion] {
-	return pulumix.Output[PolicyManagedRulesExclusion]{
-		OutputState: i.ToPolicyManagedRulesExclusionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyManagedRulesExclusionArrayInput is an input type that accepts PolicyManagedRulesExclusionArray and PolicyManagedRulesExclusionArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesExclusionArrayInput` via:
 //
@@ -752,12 +649,6 @@ func (i PolicyManagedRulesExclusionArray) ToPolicyManagedRulesExclusionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionArrayOutput)
 }
 
-func (i PolicyManagedRulesExclusionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesExclusion] {
-	return pulumix.Output[[]PolicyManagedRulesExclusion]{
-		OutputState: i.ToPolicyManagedRulesExclusionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesExclusionOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesExclusionOutput) ElementType() reflect.Type {
@@ -770,12 +661,6 @@ func (o PolicyManagedRulesExclusionOutput) ToPolicyManagedRulesExclusionOutput()
 
 func (o PolicyManagedRulesExclusionOutput) ToPolicyManagedRulesExclusionOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionOutput {
 	return o
-}
-
-func (o PolicyManagedRulesExclusionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesExclusion] {
-	return pulumix.Output[PolicyManagedRulesExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `excludedRuleSet` block defined below.
@@ -812,12 +697,6 @@ func (o PolicyManagedRulesExclusionArrayOutput) ToPolicyManagedRulesExclusionArr
 
 func (o PolicyManagedRulesExclusionArrayOutput) ToPolicyManagedRulesExclusionArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionArrayOutput {
 	return o
-}
-
-func (o PolicyManagedRulesExclusionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesExclusion] {
-	return pulumix.Output[[]PolicyManagedRulesExclusion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesExclusionArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExclusionOutput {
@@ -867,12 +746,6 @@ func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToPolicyManagedRulesExcl
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetOutput)
 }
 
-func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSet] {
-	return pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSet]{
-		OutputState: i.ToPolicyManagedRulesExclusionExcludedRuleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutput() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
 	return i.ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(context.Background())
 }
@@ -914,12 +787,6 @@ func (i *policyManagedRulesExclusionExcludedRuleSetPtrType) ToPolicyManagedRules
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetPtrOutput)
 }
 
-func (i *policyManagedRulesExclusionExcludedRuleSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyManagedRulesExclusionExcludedRuleSet] {
-	return pulumix.Output[*PolicyManagedRulesExclusionExcludedRuleSet]{
-		OutputState: i.ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesExclusionExcludedRuleSetOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesExclusionExcludedRuleSetOutput) ElementType() reflect.Type {
@@ -942,12 +809,6 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) ToPolicyManagedRulesEx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyManagedRulesExclusionExcludedRuleSet) *PolicyManagedRulesExclusionExcludedRuleSet {
 		return &v
 	}).(PolicyManagedRulesExclusionExcludedRuleSetPtrOutput)
-}
-
-func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSet] {
-	return pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `ruleGroup` block defined below.
@@ -979,12 +840,6 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) ToPolicyManagedRule
 
 func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
 	return o
-}
-
-func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyManagedRulesExclusionExcludedRuleSet] {
-	return pulumix.Output[*PolicyManagedRulesExclusionExcludedRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Elem() PolicyManagedRulesExclusionExcludedRuleSetOutput {
@@ -1064,12 +919,6 @@ func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs) ToPolicyManaged
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput)
 }
 
-func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSetRuleGroup] {
-	return pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSetRuleGroup]{
-		OutputState: i.ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput is an input type that accepts PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray and PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput` via:
 //
@@ -1095,12 +944,6 @@ func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray) ToPolicyManage
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
 }
 
-func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup] {
-	return pulumix.Output[[]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup]{
-		OutputState: i.ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ElementType() reflect.Type {
@@ -1113,12 +956,6 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ToPolicyManag
 
 func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
 	return o
-}
-
-func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSetRuleGroup] {
-	return pulumix.Output[PolicyManagedRulesExclusionExcludedRuleSetRuleGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more Rule IDs for exclusion.
@@ -1143,12 +980,6 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) ToPolicy
 
 func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
 	return o
-}
-
-func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup] {
-	return pulumix.Output[[]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
@@ -1198,12 +1029,6 @@ func (i PolicyManagedRulesManagedRuleSetArgs) ToPolicyManagedRulesManagedRuleSet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetOutput)
 }
 
-func (i PolicyManagedRulesManagedRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesManagedRuleSet] {
-	return pulumix.Output[PolicyManagedRulesManagedRuleSet]{
-		OutputState: i.ToPolicyManagedRulesManagedRuleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyManagedRulesManagedRuleSetArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetArray and PolicyManagedRulesManagedRuleSetArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetArrayInput` via:
 //
@@ -1229,12 +1054,6 @@ func (i PolicyManagedRulesManagedRuleSetArray) ToPolicyManagedRulesManagedRuleSe
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetArrayOutput)
 }
 
-func (i PolicyManagedRulesManagedRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesManagedRuleSet] {
-	return pulumix.Output[[]PolicyManagedRulesManagedRuleSet]{
-		OutputState: i.ToPolicyManagedRulesManagedRuleSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesManagedRuleSetOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesManagedRuleSetOutput) ElementType() reflect.Type {
@@ -1247,12 +1066,6 @@ func (o PolicyManagedRulesManagedRuleSetOutput) ToPolicyManagedRulesManagedRuleS
 
 func (o PolicyManagedRulesManagedRuleSetOutput) ToPolicyManagedRulesManagedRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetOutput {
 	return o
-}
-
-func (o PolicyManagedRulesManagedRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesManagedRuleSet] {
-	return pulumix.Output[PolicyManagedRulesManagedRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `ruleGroupOverride` block defined below.
@@ -1284,12 +1097,6 @@ func (o PolicyManagedRulesManagedRuleSetArrayOutput) ToPolicyManagedRulesManaged
 
 func (o PolicyManagedRulesManagedRuleSetArrayOutput) ToPolicyManagedRulesManagedRuleSetArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetArrayOutput {
 	return o
-}
-
-func (o PolicyManagedRulesManagedRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesManagedRuleSet] {
-	return pulumix.Output[[]PolicyManagedRulesManagedRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesManagedRuleSetArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesManagedRuleSetOutput {
@@ -1339,12 +1146,6 @@ func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ToPolicyManagedRu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput)
 }
 
-func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverride] {
-	return pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverride]{
-		OutputState: i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray and PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayInput` via:
 //
@@ -1370,12 +1171,6 @@ func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray) ToPolicyManagedR
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput)
 }
 
-func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverride] {
-	return pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverride]{
-		OutputState: i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ElementType() reflect.Type {
@@ -1388,12 +1183,6 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManaged
 
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
 	return o
-}
-
-func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverride] {
-	return pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Deprecated: `disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.
@@ -1425,12 +1214,6 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) ToPolicyMa
 
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput {
 	return o
-}
-
-func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverride] {
-	return pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput {
@@ -1480,12 +1263,6 @@ func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs) ToPolicyManag
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput)
 }
 
-func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule] {
-	return pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule]{
-		OutputState: i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput is an input type that accepts PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray and PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput values.
 // You can construct a concrete instance of `PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayInput` via:
 //
@@ -1511,12 +1288,6 @@ func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray) ToPolicyMana
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput)
 }
 
-func (i PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule] {
-	return pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule]{
-		OutputState: i.ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput struct{ *pulumi.OutputState }
 
 func (PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ElementType() reflect.Type {
@@ -1529,12 +1300,6 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ToPolicyMan
 
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
 	return o
-}
-
-func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule] {
-	return pulumix.Output[PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
@@ -1564,12 +1329,6 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) ToPoli
 
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) ToPolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutputWithContext(ctx context.Context) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput {
 	return o
-}
-
-func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule] {
-	return pulumix.Output[[]PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput {
@@ -1635,12 +1394,6 @@ func (i PolicyPolicySettingsArgs) ToPolicyPolicySettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsOutput)
 }
 
-func (i PolicyPolicySettingsArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPolicySettings] {
-	return pulumix.Output[PolicyPolicySettings]{
-		OutputState: i.ToPolicyPolicySettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyPolicySettingsArgs) ToPolicyPolicySettingsPtrOutput() PolicyPolicySettingsPtrOutput {
 	return i.ToPolicyPolicySettingsPtrOutputWithContext(context.Background())
 }
@@ -1682,12 +1435,6 @@ func (i *policyPolicySettingsPtrType) ToPolicyPolicySettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsPtrOutput)
 }
 
-func (i *policyPolicySettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPolicySettings] {
-	return pulumix.Output[*PolicyPolicySettings]{
-		OutputState: i.ToPolicyPolicySettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyPolicySettingsOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicySettingsOutput) ElementType() reflect.Type {
@@ -1710,12 +1457,6 @@ func (o PolicyPolicySettingsOutput) ToPolicyPolicySettingsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPolicySettings) *PolicyPolicySettings {
 		return &v
 	}).(PolicyPolicySettingsPtrOutput)
-}
-
-func (o PolicyPolicySettingsOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPolicySettings] {
-	return pulumix.Output[PolicyPolicySettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Describes if the policy is in enabled state or disabled state. Defaults to `true`.
@@ -1765,12 +1506,6 @@ func (o PolicyPolicySettingsPtrOutput) ToPolicyPolicySettingsPtrOutput() PolicyP
 
 func (o PolicyPolicySettingsPtrOutput) ToPolicyPolicySettingsPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsPtrOutput {
 	return o
-}
-
-func (o PolicyPolicySettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPolicySettings] {
-	return pulumix.Output[*PolicyPolicySettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyPolicySettingsPtrOutput) Elem() PolicyPolicySettingsOutput {
@@ -1890,12 +1625,6 @@ func (i PolicyPolicySettingsLogScrubbingArgs) ToPolicyPolicySettingsLogScrubbing
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingOutput)
 }
 
-func (i PolicyPolicySettingsLogScrubbingArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPolicySettingsLogScrubbing] {
-	return pulumix.Output[PolicyPolicySettingsLogScrubbing]{
-		OutputState: i.ToPolicyPolicySettingsLogScrubbingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyPolicySettingsLogScrubbingArgs) ToPolicyPolicySettingsLogScrubbingPtrOutput() PolicyPolicySettingsLogScrubbingPtrOutput {
 	return i.ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(context.Background())
 }
@@ -1937,12 +1666,6 @@ func (i *policyPolicySettingsLogScrubbingPtrType) ToPolicyPolicySettingsLogScrub
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingPtrOutput)
 }
 
-func (i *policyPolicySettingsLogScrubbingPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPolicySettingsLogScrubbing] {
-	return pulumix.Output[*PolicyPolicySettingsLogScrubbing]{
-		OutputState: i.ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyPolicySettingsLogScrubbingOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicySettingsLogScrubbingOutput) ElementType() reflect.Type {
@@ -1967,12 +1690,6 @@ func (o PolicyPolicySettingsLogScrubbingOutput) ToPolicyPolicySettingsLogScrubbi
 	}).(PolicyPolicySettingsLogScrubbingPtrOutput)
 }
 
-func (o PolicyPolicySettingsLogScrubbingOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPolicySettingsLogScrubbing] {
-	return pulumix.Output[PolicyPolicySettingsLogScrubbing]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Whether the log scrubbing is enabled or disabled. Defaults to `true`.
 func (o PolicyPolicySettingsLogScrubbingOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbing) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -1995,12 +1712,6 @@ func (o PolicyPolicySettingsLogScrubbingPtrOutput) ToPolicyPolicySettingsLogScru
 
 func (o PolicyPolicySettingsLogScrubbingPtrOutput) ToPolicyPolicySettingsLogScrubbingPtrOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingPtrOutput {
 	return o
-}
-
-func (o PolicyPolicySettingsLogScrubbingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPolicySettingsLogScrubbing] {
-	return pulumix.Output[*PolicyPolicySettingsLogScrubbing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyPolicySettingsLogScrubbingPtrOutput) Elem() PolicyPolicySettingsLogScrubbingOutput {
@@ -2078,12 +1789,6 @@ func (i PolicyPolicySettingsLogScrubbingRuleArgs) ToPolicyPolicySettingsLogScrub
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingRuleOutput)
 }
 
-func (i PolicyPolicySettingsLogScrubbingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPolicySettingsLogScrubbingRule] {
-	return pulumix.Output[PolicyPolicySettingsLogScrubbingRule]{
-		OutputState: i.ToPolicyPolicySettingsLogScrubbingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyPolicySettingsLogScrubbingRuleArrayInput is an input type that accepts PolicyPolicySettingsLogScrubbingRuleArray and PolicyPolicySettingsLogScrubbingRuleArrayOutput values.
 // You can construct a concrete instance of `PolicyPolicySettingsLogScrubbingRuleArrayInput` via:
 //
@@ -2109,12 +1814,6 @@ func (i PolicyPolicySettingsLogScrubbingRuleArray) ToPolicyPolicySettingsLogScru
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicySettingsLogScrubbingRuleArrayOutput)
 }
 
-func (i PolicyPolicySettingsLogScrubbingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPolicySettingsLogScrubbingRule] {
-	return pulumix.Output[[]PolicyPolicySettingsLogScrubbingRule]{
-		OutputState: i.ToPolicyPolicySettingsLogScrubbingRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyPolicySettingsLogScrubbingRuleOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicySettingsLogScrubbingRuleOutput) ElementType() reflect.Type {
@@ -2127,12 +1826,6 @@ func (o PolicyPolicySettingsLogScrubbingRuleOutput) ToPolicyPolicySettingsLogScr
 
 func (o PolicyPolicySettingsLogScrubbingRuleOutput) ToPolicyPolicySettingsLogScrubbingRuleOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingRuleOutput {
 	return o
-}
-
-func (o PolicyPolicySettingsLogScrubbingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPolicySettingsLogScrubbingRule] {
-	return pulumix.Output[PolicyPolicySettingsLogScrubbingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Describes if the managed rule is in enabled state or disabled state.
@@ -2167,12 +1860,6 @@ func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) ToPolicyPolicySettingsL
 
 func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) ToPolicyPolicySettingsLogScrubbingRuleArrayOutputWithContext(ctx context.Context) PolicyPolicySettingsLogScrubbingRuleArrayOutput {
 	return o
-}
-
-func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPolicySettingsLogScrubbingRule] {
-	return pulumix.Output[[]PolicyPolicySettingsLogScrubbingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyPolicySettingsLogScrubbingRuleArrayOutput) Index(i pulumi.IntInput) PolicyPolicySettingsLogScrubbingRuleOutput {

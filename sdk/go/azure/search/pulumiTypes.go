@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ServiceIdentityArgs) ToServiceIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityOutput)
 }
 
-func (i ServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
-	return pulumix.Output[ServiceIdentity]{
-		OutputState: i.ToServiceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceIdentityArgs) ToServiceIdentityPtrOutput() ServiceIdentityPtrOutput {
 	return i.ToServiceIdentityPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *serviceIdentityPtrType) ToServiceIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceIdentityPtrOutput)
 }
 
-func (i *serviceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
-	return pulumix.Output[*ServiceIdentity]{
-		OutputState: i.ToServiceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ServiceIdentityOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceIdentity) *ServiceIdentity {
 		return &v
 	}).(ServiceIdentityPtrOutput)
-}
-
-func (o ServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceIdentity] {
-	return pulumix.Output[ServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -165,12 +146,6 @@ func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutput() ServiceIdentityPt
 
 func (o ServiceIdentityPtrOutput) ToServiceIdentityPtrOutputWithContext(ctx context.Context) ServiceIdentityPtrOutput {
 	return o
-}
-
-func (o ServiceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceIdentity] {
-	return pulumix.Output[*ServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
@@ -250,12 +225,6 @@ func (i ServiceQueryKeyArgs) ToServiceQueryKeyOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQueryKeyOutput)
 }
 
-func (i ServiceQueryKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceQueryKey] {
-	return pulumix.Output[ServiceQueryKey]{
-		OutputState: i.ToServiceQueryKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceQueryKeyArrayInput is an input type that accepts ServiceQueryKeyArray and ServiceQueryKeyArrayOutput values.
 // You can construct a concrete instance of `ServiceQueryKeyArrayInput` via:
 //
@@ -281,12 +250,6 @@ func (i ServiceQueryKeyArray) ToServiceQueryKeyArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQueryKeyArrayOutput)
 }
 
-func (i ServiceQueryKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceQueryKey] {
-	return pulumix.Output[[]ServiceQueryKey]{
-		OutputState: i.ToServiceQueryKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceQueryKeyOutput struct{ *pulumi.OutputState }
 
 func (ServiceQueryKeyOutput) ElementType() reflect.Type {
@@ -299,12 +262,6 @@ func (o ServiceQueryKeyOutput) ToServiceQueryKeyOutput() ServiceQueryKeyOutput {
 
 func (o ServiceQueryKeyOutput) ToServiceQueryKeyOutputWithContext(ctx context.Context) ServiceQueryKeyOutput {
 	return o
-}
-
-func (o ServiceQueryKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceQueryKey] {
-	return pulumix.Output[ServiceQueryKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of this Query Key.
@@ -329,12 +286,6 @@ func (o ServiceQueryKeyArrayOutput) ToServiceQueryKeyArrayOutput() ServiceQueryK
 
 func (o ServiceQueryKeyArrayOutput) ToServiceQueryKeyArrayOutputWithContext(ctx context.Context) ServiceQueryKeyArrayOutput {
 	return o
-}
-
-func (o ServiceQueryKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceQueryKey] {
-	return pulumix.Output[[]ServiceQueryKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) ServiceQueryKeyOutput {
@@ -384,12 +335,6 @@ func (i GetServiceIdentityArgs) ToGetServiceIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityOutput)
 }
 
-func (i GetServiceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceIdentity] {
-	return pulumix.Output[GetServiceIdentity]{
-		OutputState: i.ToGetServiceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceIdentityArrayInput is an input type that accepts GetServiceIdentityArray and GetServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServiceIdentityArrayInput` via:
 //
@@ -415,12 +360,6 @@ func (i GetServiceIdentityArray) ToGetServiceIdentityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceIdentityArrayOutput)
 }
 
-func (i GetServiceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceIdentity] {
-	return pulumix.Output[[]GetServiceIdentity]{
-		OutputState: i.ToGetServiceIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetServiceIdentityOutput) ElementType() reflect.Type {
@@ -433,12 +372,6 @@ func (o GetServiceIdentityOutput) ToGetServiceIdentityOutput() GetServiceIdentit
 
 func (o GetServiceIdentityOutput) ToGetServiceIdentityOutputWithContext(ctx context.Context) GetServiceIdentityOutput {
 	return o
-}
-
-func (o GetServiceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceIdentity] {
-	return pulumix.Output[GetServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The (Client) ID of the Service Principal.
@@ -468,12 +401,6 @@ func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutput() GetServ
 
 func (o GetServiceIdentityArrayOutput) ToGetServiceIdentityArrayOutputWithContext(ctx context.Context) GetServiceIdentityArrayOutput {
 	return o
-}
-
-func (o GetServiceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceIdentity] {
-	return pulumix.Output[[]GetServiceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdentityOutput {
@@ -519,12 +446,6 @@ func (i GetServiceQueryKeyArgs) ToGetServiceQueryKeyOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQueryKeyOutput)
 }
 
-func (i GetServiceQueryKeyArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceQueryKey] {
-	return pulumix.Output[GetServiceQueryKey]{
-		OutputState: i.ToGetServiceQueryKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceQueryKeyArrayInput is an input type that accepts GetServiceQueryKeyArray and GetServiceQueryKeyArrayOutput values.
 // You can construct a concrete instance of `GetServiceQueryKeyArrayInput` via:
 //
@@ -550,12 +471,6 @@ func (i GetServiceQueryKeyArray) ToGetServiceQueryKeyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceQueryKeyArrayOutput)
 }
 
-func (i GetServiceQueryKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceQueryKey] {
-	return pulumix.Output[[]GetServiceQueryKey]{
-		OutputState: i.ToGetServiceQueryKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceQueryKeyOutput struct{ *pulumi.OutputState }
 
 func (GetServiceQueryKeyOutput) ElementType() reflect.Type {
@@ -568,12 +483,6 @@ func (o GetServiceQueryKeyOutput) ToGetServiceQueryKeyOutput() GetServiceQueryKe
 
 func (o GetServiceQueryKeyOutput) ToGetServiceQueryKeyOutputWithContext(ctx context.Context) GetServiceQueryKeyOutput {
 	return o
-}
-
-func (o GetServiceQueryKeyOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceQueryKey] {
-	return pulumix.Output[GetServiceQueryKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of this Query Key.
@@ -598,12 +507,6 @@ func (o GetServiceQueryKeyArrayOutput) ToGetServiceQueryKeyArrayOutput() GetServ
 
 func (o GetServiceQueryKeyArrayOutput) ToGetServiceQueryKeyArrayOutputWithContext(ctx context.Context) GetServiceQueryKeyArrayOutput {
 	return o
-}
-
-func (o GetServiceQueryKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceQueryKey] {
-	return pulumix.Output[[]GetServiceQueryKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceQueryKeyArrayOutput) Index(i pulumi.IntInput) GetServiceQueryKeyOutput {

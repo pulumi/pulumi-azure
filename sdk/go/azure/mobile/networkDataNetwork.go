@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Data Network.
@@ -198,12 +197,6 @@ func (i *NetworkDataNetwork) ToNetworkDataNetworkOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkDataNetworkOutput)
 }
 
-func (i *NetworkDataNetwork) ToOutput(ctx context.Context) pulumix.Output[*NetworkDataNetwork] {
-	return pulumix.Output[*NetworkDataNetwork]{
-		OutputState: i.ToNetworkDataNetworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkDataNetworkArrayInput is an input type that accepts NetworkDataNetworkArray and NetworkDataNetworkArrayOutput values.
 // You can construct a concrete instance of `NetworkDataNetworkArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i NetworkDataNetworkArray) ToNetworkDataNetworkArrayOutput() NetworkDataNe
 
 func (i NetworkDataNetworkArray) ToNetworkDataNetworkArrayOutputWithContext(ctx context.Context) NetworkDataNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkDataNetworkArrayOutput)
-}
-
-func (i NetworkDataNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkDataNetwork] {
-	return pulumix.Output[[]*NetworkDataNetwork]{
-		OutputState: i.ToNetworkDataNetworkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkDataNetworkMapInput is an input type that accepts NetworkDataNetworkMap and NetworkDataNetworkMapOutput values.
@@ -260,12 +247,6 @@ func (i NetworkDataNetworkMap) ToNetworkDataNetworkMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkDataNetworkMapOutput)
 }
 
-func (i NetworkDataNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkDataNetwork] {
-	return pulumix.Output[map[string]*NetworkDataNetwork]{
-		OutputState: i.ToNetworkDataNetworkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkDataNetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkDataNetworkOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o NetworkDataNetworkOutput) ToNetworkDataNetworkOutput() NetworkDataNetwor
 
 func (o NetworkDataNetworkOutput) ToNetworkDataNetworkOutputWithContext(ctx context.Context) NetworkDataNetworkOutput {
 	return o
-}
-
-func (o NetworkDataNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkDataNetwork] {
-	return pulumix.Output[*NetworkDataNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of this Mobile Network Data Network.
@@ -325,12 +300,6 @@ func (o NetworkDataNetworkArrayOutput) ToNetworkDataNetworkArrayOutputWithContex
 	return o
 }
 
-func (o NetworkDataNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkDataNetwork] {
-	return pulumix.Output[[]*NetworkDataNetwork]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkDataNetworkArrayOutput) Index(i pulumi.IntInput) NetworkDataNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkDataNetwork {
 		return vs[0].([]*NetworkDataNetwork)[vs[1].(int)]
@@ -349,12 +318,6 @@ func (o NetworkDataNetworkMapOutput) ToNetworkDataNetworkMapOutput() NetworkData
 
 func (o NetworkDataNetworkMapOutput) ToNetworkDataNetworkMapOutputWithContext(ctx context.Context) NetworkDataNetworkMapOutput {
 	return o
-}
-
-func (o NetworkDataNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkDataNetwork] {
-	return pulumix.Output[map[string]*NetworkDataNetwork]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkDataNetworkMapOutput) MapIndex(k pulumi.StringInput) NetworkDataNetworkOutput {
