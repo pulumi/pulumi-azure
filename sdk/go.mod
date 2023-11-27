@@ -91,3 +91,7 @@ require (
 	pgregory.net/rapid v0.6.1 // indirect
 	sourcegraph.com/sourcegraph/appdash v0.0.0-20211028080628-e2786a622600 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.78.2-0.20231127155757-11466dfa4b8b
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.93.1-0.20231127155757-11466dfa4b8b
