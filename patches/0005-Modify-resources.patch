@@ -52,10 +52,10 @@ index 40c52aa5bd..dab70b9c5c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index 79292d9848..24cdfb37ba 100644
+index b4fc9cea41..68b16f23e4 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
-@@ -1032,10 +1032,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
+@@ -1033,10 +1033,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
  					Description: "The version of .Net. Possible values are `3.1`, `6.0` and `7.0`",
  				},
  
@@ -700,7 +700,7 @@ index f92bb72194..66a9aa1a66 100644
  
  									"install_script_action": {
 diff --git a/internal/services/hdinsight/schema.go b/internal/services/hdinsight/schema.go
-index e5545c1a8e..7dcd3d2a9b 100644
+index b733659da8..1f80b52a38 100644
 --- a/internal/services/hdinsight/schema.go
 +++ b/internal/services/hdinsight/schema.go
 @@ -5,6 +5,8 @@ package hdinsight
@@ -722,7 +722,7 @@ index e5545c1a8e..7dcd3d2a9b 100644
  	}
  }
  
-@@ -1029,10 +1032,11 @@ type HDInsightNodeDefinition struct {
+@@ -1028,10 +1031,11 @@ type HDInsightNodeDefinition struct {
  func SchemaHDInsightNodeDefinition(schemaLocation string, definition HDInsightNodeDefinition, required bool) *pluginsdk.Schema {
  	result := map[string]*pluginsdk.Schema{
  		"vm_size": {
@@ -1056,7 +1056,7 @@ index dbbf9132fb..2e56c94e0e 100644
  			},
  		},
 diff --git a/internal/services/loganalytics/log_analytics_workspace_resource.go b/internal/services/loganalytics/log_analytics_workspace_resource.go
-index 2b9befbe9b..4d0f986bbb 100644
+index 238fc577b0..274d4d09b4 100644
 --- a/internal/services/loganalytics/log_analytics_workspace_resource.go
 +++ b/internal/services/loganalytics/log_analytics_workspace_resource.go
 @@ -6,6 +6,8 @@ package loganalytics
@@ -1068,7 +1068,7 @@ index 2b9befbe9b..4d0f986bbb 100644
  	"log"
  	"strconv"
  	"strings"
-@@ -112,7 +114,8 @@ func resourceLogAnalyticsWorkspace() *pluginsdk.Resource {
+@@ -115,7 +117,8 @@ func resourceLogAnalyticsWorkspace() *pluginsdk.Resource {
  					string(workspaces.WorkspaceSkuNameEnumStandard),
  					string(workspaces.WorkspaceSkuNameEnumCapacityReservation),
  					"Unlimited", // TODO check if this is actually no longer valid, removed in v28.0.0 of the SDK
@@ -1263,7 +1263,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 5f00d7466f..0e7f4ae71b 100644
+index 0a4bac92ea..f43bce0382 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1274,7 +1274,7 @@ index 5f00d7466f..0e7f4ae71b 100644
  	"log"
  	"strings"
  	"time"
-@@ -1382,7 +1383,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1416,7 +1417,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1284,21 +1284,25 @@ index 5f00d7466f..0e7f4ae71b 100644
  						},
  					},
  
-@@ -1393,7 +1395,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
- 						ValidateFunc: validation.StringInSlice([]string{
- 							"Disabled",
- 							"Enabled",
--						}, false),
+@@ -1426,8 +1428,10 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+ 						Type:     pluginsdk.TypeString,
+ 						Optional: true,
+ 						Default:  EmailAccountAdminsStatusDisabled,
+-						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
+-							false),
++						ValidateFunc: validation.StringInSlice([]string{
++							"Disabled",
++							"Enabled",
 +						}, features.CaseInsensitive()),
  					},
  
  					"email_addresses": {
-@@ -1419,7 +1421,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
- 							string(sql.SecurityAlertPolicyStateDisabled),
- 							string(sql.SecurityAlertPolicyStateEnabled),
- 							string(sql.SecurityAlertPolicyStateNew),
--						}, false),
-+						}, features.CaseInsensitive()),
+@@ -1455,7 +1459,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+ 						Optional: true,
+ 						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
+ 						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
+-							false),
++							features.CaseInsensitive()),
  					},
  
  					"storage_account_access_key": {
@@ -1346,7 +1350,7 @@ index b91613028e..aeb5794f82 100644
  					},
  				},
 diff --git a/internal/services/mssql/mssql_server_security_alert_policy_resource.go b/internal/services/mssql/mssql_server_security_alert_policy_resource.go
-index d8d893c2da..75c103e7e5 100644
+index 3721fdf0cc..844099d8d4 100644
 --- a/internal/services/mssql/mssql_server_security_alert_policy_resource.go
 +++ b/internal/services/mssql/mssql_server_security_alert_policy_resource.go
 @@ -5,6 +5,8 @@ package mssql
@@ -1754,19 +1758,19 @@ index 0a66c4b7c8..6a6c2912a2 100644
  
  						"next_hop_in_ip_address": {
 diff --git a/internal/services/network/virtual_network_gateway_connection_resource.go b/internal/services/network/virtual_network_gateway_connection_resource.go
-index e31d500aed..9f21a2f2fa 100644
+index f10b3261ee..f9be1aa7d4 100644
 --- a/internal/services/network/virtual_network_gateway_connection_resource.go
 +++ b/internal/services/network/virtual_network_gateway_connection_resource.go
-@@ -5,6 +5,8 @@ package network
- 
+@@ -6,6 +6,8 @@ package network
  import (
+ 	"context"
  	"fmt"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"log"
  	"time"
  
-@@ -61,7 +63,8 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -62,7 +64,8 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  					string(network.VirtualNetworkGatewayConnectionTypeExpressRoute),
  					string(network.VirtualNetworkGatewayConnectionTypeIPsec),
  					string(network.VirtualNetworkGatewayConnectionTypeVnet2Vnet),
@@ -1776,7 +1780,7 @@ index e31d500aed..9f21a2f2fa 100644
  			},
  
  			"virtual_network_gateway_id": {
-@@ -244,7 +247,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -245,7 +248,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.DhGroupECP256),
  								string(network.DhGroupECP384),
  								string(network.DhGroupNone),
@@ -1785,7 +1789,7 @@ index e31d500aed..9f21a2f2fa 100644
  						},
  
  						"ike_encryption": {
-@@ -258,7 +261,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -259,7 +262,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IkeEncryptionDES3),
  								string(network.IkeEncryptionGCMAES128),
  								string(network.IkeEncryptionGCMAES256),
@@ -1794,7 +1798,7 @@ index e31d500aed..9f21a2f2fa 100644
  						},
  
  						"ike_integrity": {
-@@ -271,7 +274,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -272,7 +275,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IkeIntegritySHA1),
  								string(network.IkeIntegritySHA256),
  								string(network.IkeIntegritySHA384),
@@ -1803,7 +1807,7 @@ index e31d500aed..9f21a2f2fa 100644
  						},
  
  						"ipsec_encryption": {
-@@ -287,7 +290,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -288,7 +291,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IpsecEncryptionGCMAES192),
  								string(network.IpsecEncryptionGCMAES256),
  								string(network.IpsecEncryptionNone),
@@ -1812,7 +1816,7 @@ index e31d500aed..9f21a2f2fa 100644
  						},
  
  						"ipsec_integrity": {
-@@ -300,7 +303,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -301,7 +304,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.IpsecIntegrityMD5),
  								string(network.IpsecIntegritySHA1),
  								string(network.IpsecIntegritySHA256),
@@ -1821,7 +1825,7 @@ index e31d500aed..9f21a2f2fa 100644
  						},
  
  						"pfs_group": {
-@@ -316,7 +319,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
+@@ -317,7 +320,7 @@ func resourceVirtualNetworkGatewayConnection() *pluginsdk.Resource {
  								string(network.PfsGroupPFS2048),
  								string(network.PfsGroupPFS24),
  								string(network.PfsGroupPFSMM),
@@ -2079,7 +2083,7 @@ index 531538f052..614e6bec69 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index 0dffb2b669..eaeb7d328c 100644
+index 146d008911..b1b3a3dde4 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2101,7 +2105,7 @@ index 0dffb2b669..eaeb7d328c 100644
  
  			"minimum_tls_version": {
 diff --git a/internal/services/redis/redis_linked_server_resource.go b/internal/services/redis/redis_linked_server_resource.go
-index c233345e72..2eb8f28106 100644
+index c9bbba507e..124dc084ff 100644
 --- a/internal/services/redis/redis_linked_server_resource.go
 +++ b/internal/services/redis/redis_linked_server_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2112,7 +2116,7 @@ index c233345e72..2eb8f28106 100644
  	"log"
  	"time"
  
-@@ -69,7 +70,7 @@ func resourceRedisLinkedServer() *pluginsdk.Resource {
+@@ -68,7 +69,7 @@ func resourceRedisLinkedServer() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(redis.ReplicationRolePrimary),
  					string(redis.ReplicationRoleSecondary),

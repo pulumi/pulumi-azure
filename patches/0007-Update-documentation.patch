@@ -568,7 +568,7 @@ index bf42433205..f894d24ca5 100644
  
  * `min_tls_version` - (Optional) The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 diff --git a/website/docs/r/app_service_certificate.html.markdown b/website/docs/r/app_service_certificate.html.markdown
-index e6c811ac7f..85f23186f1 100644
+index 716b583a3f..944b7ec8aa 100644
 --- a/website/docs/r/app_service_certificate.html.markdown
 +++ b/website/docs/r/app_service_certificate.html.markdown
 @@ -13,7 +13,7 @@ Manages an App Service certificate.
@@ -589,7 +589,7 @@ index e6c811ac7f..85f23186f1 100644
  }
  ```
  
-@@ -50,7 +50,7 @@ The following arguments are supported:
+@@ -52,7 +52,7 @@ The following arguments are supported:
  
  * `key_vault_secret_id` - (Optional) The ID of the Key Vault secret. Changing this forces a new resource to be created.
  
@@ -634,7 +634,7 @@ index e9013a8f1a..f3f07aa79a 100644
  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g.
  
 diff --git a/website/docs/r/automation_job_schedule.html.markdown b/website/docs/r/automation_job_schedule.html.markdown
-index cd27692bc6..182f5002d9 100644
+index db8146c418..5ede0b01b2 100644
 --- a/website/docs/r/automation_job_schedule.html.markdown
 +++ b/website/docs/r/automation_job_schedule.html.markdown
 @@ -12,7 +12,7 @@ Links an Automation Runbook and Schedule.
@@ -1559,7 +1559,7 @@ index 39b679a016..575b9a8f57 100644
  ~> **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
  
 diff --git a/website/docs/r/hdinsight_hadoop_cluster.html.markdown b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
-index 721814017d..8170f1f94a 100644
+index b1c655dfed..f64bf8e9a2 100644
 --- a/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hadoop_cluster" "example" {
@@ -1572,7 +1572,7 @@ index 721814017d..8170f1f94a 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_hbase_cluster.html.markdown b/website/docs/r/hdinsight_hbase_cluster.html.markdown
-index 8d724e2978..552f272935 100644
+index aecac3a4c4..b5fb8f27f7 100644
 --- a/website/docs/r/hdinsight_hbase_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hbase_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hbase_cluster" "example" {
@@ -1585,7 +1585,7 @@ index 8d724e2978..552f272935 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
-index 3542a4fe79..a594daf780 100644
+index 9da8dcc0b8..245535834d 100644
 --- a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_interactive_query_cluster" "example" {
@@ -1598,7 +1598,7 @@ index 3542a4fe79..a594daf780 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_kafka_cluster.html.markdown b/website/docs/r/hdinsight_kafka_cluster.html.markdown
-index f24b60a687..2a8da1c64b 100644
+index 573256da1d..fdbe962bc6 100644
 --- a/website/docs/r/hdinsight_kafka_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_kafka_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_kafka_cluster" "example" {
@@ -1611,7 +1611,7 @@ index f24b60a687..2a8da1c64b 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_spark_cluster.html.markdown b/website/docs/r/hdinsight_spark_cluster.html.markdown
-index add5c1cfe2..20f82cc13e 100644
+index 42d7dd4c1e..acd6b62db5 100644
 --- a/website/docs/r/hdinsight_spark_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_spark_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_spark_cluster" "example" {
@@ -1683,7 +1683,7 @@ index 024a2288d5..d85113feb7 100644
  
  * `name` - (Required) The name of the route.
 diff --git a/website/docs/r/iothub_consumer_group.html.markdown b/website/docs/r/iothub_consumer_group.html.markdown
-index 055d92342a..3408581bdc 100644
+index d9c71a1023..c1c041691e 100644
 --- a/website/docs/r/iothub_consumer_group.html.markdown
 +++ b/website/docs/r/iothub_consumer_group.html.markdown
 @@ -34,7 +34,7 @@ resource "azurerm_iothub" "example" {
@@ -1795,7 +1795,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 5979de995d..5418448f50 100644
+index e97a5c8f0c..2659438e09 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1824,7 +1824,7 @@ index 5979de995d..5418448f50 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -448,7 +442,7 @@ A `default_node_pool` block supports the following:
+@@ -450,7 +444,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1833,7 +1833,7 @@ index 5979de995d..5418448f50 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -474,7 +468,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -476,7 +470,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1842,7 +1842,7 @@ index 5979de995d..5418448f50 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -699,8 +693,6 @@ A `network_profile` block supports the following:
+@@ -701,8 +695,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1851,7 +1851,7 @@ index 5979de995d..5418448f50 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1033,19 +1025,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1035,19 +1027,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1872,7 +1872,7 @@ index 5979de995d..5418448f50 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index f309f5b684..67995dc8f0 100644
+index 8089d0dac8..e5dcd3b76a 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -1890,7 +1890,7 @@ index f309f5b684..67995dc8f0 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -142,7 +140,7 @@ The following arguments are supported:
+@@ -144,7 +142,7 @@ The following arguments are supported:
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
@@ -1899,7 +1899,7 @@ index f309f5b684..67995dc8f0 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -174,7 +172,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -176,7 +174,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
@@ -1947,14 +1947,14 @@ index a5d030fd37..54fcbc24a1 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index a9f696d115..c7eeb5a18b 100644
+index e04bb382cd..c7eeb5a18b 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -12,15 +12,11 @@ Manages a Linux Virtual Machine Scale Set.
  
  ## Disclaimers
  
---> **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode.
+--> **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use [`azurerm_orchestrated_virtual_machine_scale_set`](orchestrated_virtual_machine_scale_set.html). Flexible orchestration mode is recommended for workloads on Azure.
 -
 --> **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 -
@@ -2222,7 +2222,7 @@ index ffbc02a4aa..6a22cde2d8 100644
  
    test_configuration {
 diff --git a/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown b/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown
-index a8e807f18a..bfc598017f 100644
+index b803e251dd..89d3ba8676 100644
 --- a/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown
 +++ b/website/docs/r/network_interface_application_gateway_backend_address_pool_association.html.markdown
 @@ -145,7 +145,7 @@ The following arguments are supported:
@@ -2234,14 +2234,14 @@ index a8e807f18a..bfc598017f 100644
  
  ## Timeouts
  
-@@ -164,4 +164,4 @@ Associations between Network Interfaces and Application Gateway Backend Address
+@@ -163,4 +163,4 @@ Associations between Network Interfaces and Application Gateway Backend Address
  terraform import azurerm_network_interface_application_gateway_backend_address_pool_association.association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationGateways/gateway1/backendAddressPools/pool1
  ```
  
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{backendAddressPoolId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{backendAddressPoolId}`.
 diff --git a/website/docs/r/network_interface_application_security_group_association.html.markdown b/website/docs/r/network_interface_application_security_group_association.html.markdown
-index fb8dbbbe3c..a4d2d1ffe5 100644
+index efb4beb3d8..be84813b7b 100644
 --- a/website/docs/r/network_interface_application_security_group_association.html.markdown
 +++ b/website/docs/r/network_interface_application_security_group_association.html.markdown
 @@ -69,7 +69,7 @@ The following arguments are supported:
@@ -2253,14 +2253,14 @@ index fb8dbbbe3c..a4d2d1ffe5 100644
  
  ## Timeouts
  
-@@ -88,4 +88,4 @@ Associations between Network Interfaces and Application Security Groups can be i
+@@ -87,4 +87,4 @@ Associations between Network Interfaces and Application Security Groups can be i
  terraform import azurerm_network_interface_application_security_group_association.association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securityGroup1"
  ```
  
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{networkInterfaceId}|{applicationSecurityGroupId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{networkInterfaceId}|{applicationSecurityGroupId}`.
 diff --git a/website/docs/r/network_interface_backend_address_pool_association.html.markdown b/website/docs/r/network_interface_backend_address_pool_association.html.markdown
-index 9d080caee6..1a8cfa880e 100644
+index 4ce806f929..f645dff44e 100644
 --- a/website/docs/r/network_interface_backend_address_pool_association.html.markdown
 +++ b/website/docs/r/network_interface_backend_address_pool_association.html.markdown
 @@ -89,7 +89,7 @@ The following arguments are supported:
@@ -2272,14 +2272,14 @@ index 9d080caee6..1a8cfa880e 100644
  
  ## Timeouts
  
-@@ -108,4 +108,4 @@ Associations between Network Interfaces and Load Balancer Backend Address Pools
+@@ -107,4 +107,4 @@ Associations between Network Interfaces and Load Balancer Backend Address Pools
  terraform import azurerm_network_interface_backend_address_pool_association.association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1"
  ```
  
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{backendAddressPoolId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{backendAddressPoolId}`.
 diff --git a/website/docs/r/network_interface_nat_rule_association.html.markdown b/website/docs/r/network_interface_nat_rule_association.html.markdown
-index c9fa346997..6f43d4a20c 100644
+index 58497cb684..774700d663 100644
 --- a/website/docs/r/network_interface_nat_rule_association.html.markdown
 +++ b/website/docs/r/network_interface_nat_rule_association.html.markdown
 @@ -94,7 +94,7 @@ The following arguments are supported:
@@ -2291,14 +2291,14 @@ index c9fa346997..6f43d4a20c 100644
  
  ## Timeouts
  
-@@ -113,4 +113,4 @@ Associations between Network Interfaces and Load Balancer NAT Rule can be import
+@@ -112,4 +112,4 @@ Associations between Network Interfaces and Load Balancer NAT Rule can be import
  terraform import azurerm_network_interface_nat_rule_association.association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
  ```
  
 --> **NOTE:** This ID is specific to Terraform - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{natRuleId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{networkInterfaceId}/ipConfigurations/{ipConfigurationName}|{natRuleId}`.
 diff --git a/website/docs/r/network_interface_security_group_association.html.markdown b/website/docs/r/network_interface_security_group_association.html.markdown
-index aea63418f8..63057dce4a 100644
+index 7fbe61db63..d7b8920f97 100644
 --- a/website/docs/r/network_interface_security_group_association.html.markdown
 +++ b/website/docs/r/network_interface_security_group_association.html.markdown
 @@ -69,7 +69,7 @@ The following arguments are supported:
@@ -2310,7 +2310,7 @@ index aea63418f8..63057dce4a 100644
  
  ## Timeouts
  
-@@ -88,4 +88,4 @@ Associations between Network Interfaces and Network Security Group can be import
+@@ -87,4 +87,4 @@ Associations between Network Interfaces and Network Security Group can be import
  terraform import azurerm_network_interface_security_group_association.association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkInterfaces/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkSecurityGroups/group1"
  ```
  
@@ -2903,10 +2903,10 @@ index c3ce72277d..2c0cbbeeaf 100644
  ## Timeouts
  
 diff --git a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
-index b5ef30c661..6b8afb87b3 100644
+index a77a466231..a4c7275acf 100644
 --- a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 +++ b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
-@@ -81,4 +81,4 @@ Associations between Virtual Desktop Workspaces and Virtual Desktop Application
+@@ -80,4 +80,4 @@ Associations between Virtual Desktop Workspaces and Virtual Desktop Application
  terraform import azurerm_virtual_desktop_workspace_application_group_association.association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
  ```
  
@@ -3063,14 +3063,14 @@ index f75fa2be26..e8c1cde1e8 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 86e8a30b09..8d314152aa 100644
+index a3c35a96f5..8d314152aa 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,15 @@ Manages a Windows Virtual Machine Scale Set.
  
  ## Disclaimers
  
---> **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode.
+--> **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use [`azurerm_orchestrated_virtual_machine_scale_set`](orchestrated_virtual_machine_scale_set.html). Flexible orchestration mode is recommended for workloads on Azure.
 +~> **NOTE:**: All arguments including the administrator login and password will be stored in the raw state as plain-text.
  
 --> **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
