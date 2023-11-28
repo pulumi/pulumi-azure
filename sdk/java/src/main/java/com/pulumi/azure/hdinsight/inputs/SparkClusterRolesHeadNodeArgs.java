@@ -37,14 +37,14 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
      * 
      */
     @Import(name="scriptActions")
     private @Nullable Output<List<SparkClusterRolesHeadNodeScriptActionArgs>> scriptActions;
 
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
      * 
      */
     public Optional<Output<List<SparkClusterRolesHeadNodeScriptActionArgs>>> scriptActions() {
@@ -186,7 +186,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class SparkClusterRolesHeadNodeArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
+         * @param scriptActions The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
          * 
          * @return builder
          * 

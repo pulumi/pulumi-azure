@@ -3014,6 +3014,10 @@ export namespace appplatform {
          */
         intervalInSeconds?: number;
         /**
+         * Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
+         */
+        path?: string;
+        /**
          * A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          */
         sshAuth?: outputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositorySshAuth;
@@ -10279,7 +10283,7 @@ export namespace appservice {
          */
         dockers?: outputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker[];
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
          */
         dotnetVersion?: string;
         /**
@@ -11257,7 +11261,7 @@ export namespace appservice {
          */
         dockers?: outputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker[];
         /**
-         * The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
          */
         dotnetVersion?: string;
         /**
@@ -15221,7 +15225,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`. Defaults to `v4.0`.
+         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
@@ -16158,7 +16162,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: string;
         /**
@@ -17204,6 +17208,8 @@ export namespace appservice {
          * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          *
          * > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         *
+         * > **NOTE:** Windows Web apps can configure multiple `appStack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
          */
         currentStack: string;
         /**
@@ -23548,6 +23554,10 @@ export namespace compute {
     }
 
     export interface GalleryApplicationVersionTargetRegion {
+        /**
+         * Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+         */
+        excludeFromLatest?: boolean;
         /**
          * The Azure Region in which the Gallery Application Version exists.
          */
@@ -30364,6 +30374,10 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: boolean;
+        /**
+         * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+         */
+        gpuInstance?: string;
         /**
          * Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
          */
@@ -39269,7 +39283,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesHeadNodeScriptAction[];
         /**
@@ -39323,7 +39337,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesWorkerNodeScriptAction[];
         /**
@@ -39412,7 +39426,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.HBaseClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -39721,7 +39735,7 @@ export namespace hdinsight {
          */
         targetInstanceCount: number;
         /**
-         * A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
+         * A `uninstallScriptActions` block as defined below.
          */
         uninstallScriptActions?: outputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction[];
         /**
@@ -39791,7 +39805,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesHeadNodeScriptAction[];
         /**
@@ -39845,7 +39859,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesWorkerNodeScriptAction[];
         /**
@@ -39949,7 +39963,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.HadoopClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -40248,7 +40262,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesHeadNodeScriptAction[];
         /**
@@ -40304,7 +40318,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeScriptAction[];
         /**
@@ -40402,7 +40416,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.InteractiveQueryClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -40720,7 +40734,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesHeadNodeScriptAction[];
         /**
@@ -40770,7 +40784,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesKafkaManagementNodeScriptAction[];
         /**
@@ -40824,7 +40838,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesWorkerNodeScriptAction[];
         /**
@@ -40878,7 +40892,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.KafkaClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -41177,7 +41191,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesHeadNodeScriptAction[];
         /**
@@ -41231,7 +41245,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesWorkerNodeScriptAction[];
         /**
@@ -41335,7 +41349,7 @@ export namespace hdinsight {
          */
         password?: string;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: outputs.hdinsight.SparkClusterRolesZookeeperNodeScriptAction[];
         /**
@@ -51103,7 +51117,7 @@ export namespace mssql {
          */
         disabledAlerts?: string[];
         /**
-         * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+         * Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
          */
         emailAccountAdmins?: string;
         /**
@@ -51115,7 +51129,7 @@ export namespace mssql {
          */
         retentionDays?: number;
         /**
-         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+         * The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
          */
         state?: string;
         /**
@@ -57674,6 +57688,21 @@ export namespace operationalinsights {
          * The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
          */
         publisher: string;
+    }
+
+    export interface AnalyticsWorkspaceIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        /**
+         * Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+         *
+         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+         */
+        type: string;
     }
 
 }

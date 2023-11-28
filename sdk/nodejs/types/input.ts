@@ -2552,6 +2552,10 @@ export namespace appplatform {
          */
         intervalInSeconds?: pulumi.Input<number>;
         /**
+         * Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
+         */
+        path?: pulumi.Input<string>;
+        /**
          * A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
          */
         sshAuth?: pulumi.Input<inputs.appplatform.SpringCloudCustomizedAcceleratorGitRepositorySshAuth>;
@@ -5322,7 +5326,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+         * The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -6300,7 +6304,7 @@ export namespace appservice {
          */
         dockers?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxFunctionAppSlotSiteConfigApplicationStackDocker>[]>;
         /**
-         * The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
+         * The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -10264,7 +10268,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteConfigApplicationStack {
         /**
-         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`. Defaults to `v4.0`.
+         * The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -11201,7 +11205,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotSiteConfigApplicationStack {
         /**
-         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
+         * The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
          */
         dotnetVersion?: pulumi.Input<string>;
         /**
@@ -12247,6 +12251,8 @@ export namespace appservice {
          * The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
          *
          * > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+         *
+         * > **NOTE:** Windows Web apps can configure multiple `appStack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
          */
         currentStack?: pulumi.Input<string>;
         /**
@@ -17589,6 +17595,10 @@ export namespace compute {
 
     export interface GalleryApplicationVersionTargetRegion {
         /**
+         * Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+         */
+        excludeFromLatest?: pulumi.Input<boolean>;
+        /**
          * The Azure Region in which the Gallery Application Version exists.
          */
         name: pulumi.Input<string>;
@@ -22517,6 +22527,10 @@ export namespace containerservice {
          * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
          */
         fipsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+         */
+        gpuInstance?: pulumi.Input<string>;
         /**
          * Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
          */
@@ -30734,7 +30748,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -30788,7 +30802,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -30877,7 +30891,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -31186,7 +31200,7 @@ export namespace hdinsight {
          */
         targetInstanceCount: pulumi.Input<number>;
         /**
-         * A `uninstallScriptActions` block as defined below. Changing this forces a new resource to be created.
+         * A `uninstallScriptActions` block as defined below.
          */
         uninstallScriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesEdgeNodeUninstallScriptAction>[]>;
         /**
@@ -31256,7 +31270,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -31310,7 +31324,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -31414,7 +31428,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -31713,7 +31727,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -31769,7 +31783,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -31867,7 +31881,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -32185,7 +32199,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -32235,7 +32249,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesKafkaManagementNodeScriptAction>[]>;
         /**
@@ -32289,7 +32303,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -32343,7 +32357,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -32642,7 +32656,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesHeadNodeScriptAction>[]>;
         /**
@@ -32696,7 +32710,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeScriptAction>[]>;
         /**
@@ -32800,7 +32814,7 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
-         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above. Changing this forces a new resource to be created.
+         * The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
          */
         scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesZookeeperNodeScriptAction>[]>;
         /**
@@ -40715,7 +40729,7 @@ export namespace mssql {
          */
         disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+         * Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
          */
         emailAccountAdmins?: pulumi.Input<string>;
         /**
@@ -40727,7 +40741,7 @@ export namespace mssql {
          */
         retentionDays?: pulumi.Input<number>;
         /**
-         * The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+         * The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
          */
         state?: pulumi.Input<string>;
         /**
@@ -45274,6 +45288,21 @@ export namespace operationalinsights {
          * The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
          */
         publisher: pulumi.Input<string>;
+    }
+
+    export interface AnalyticsWorkspaceIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+         *
+         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+         */
+        type: pulumi.Input<string>;
     }
 }
 

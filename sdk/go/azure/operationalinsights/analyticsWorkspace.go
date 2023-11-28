@@ -72,6 +72,8 @@ type AnalyticsWorkspace struct {
 	DailyQuotaGb pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
 	// The ID of the Data Collection Rule to use for this workspace.
 	DataCollectionRuleId pulumi.StringPtrOutput `pulumi:"dataCollectionRuleId"`
+	// An `identity` block as defined below.
+	Identity AnalyticsWorkspaceIdentityPtrOutput `pulumi:"identity"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrOutput `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -158,6 +160,8 @@ type analyticsWorkspaceState struct {
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 	// The ID of the Data Collection Rule to use for this workspace.
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
+	// An `identity` block as defined below.
+	Identity *AnalyticsWorkspaceIdentity `pulumi:"identity"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -207,6 +211,8 @@ type AnalyticsWorkspaceState struct {
 	DailyQuotaGb pulumi.Float64PtrInput
 	// The ID of the Data Collection Rule to use for this workspace.
 	DataCollectionRuleId pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity AnalyticsWorkspaceIdentityPtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -260,6 +266,8 @@ type analyticsWorkspaceArgs struct {
 	DailyQuotaGb *float64 `pulumi:"dailyQuotaGb"`
 	// The ID of the Data Collection Rule to use for this workspace.
 	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
+	// An `identity` block as defined below.
+	Identity *AnalyticsWorkspaceIdentity `pulumi:"identity"`
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled *bool `pulumi:"internetIngestionEnabled"`
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -304,6 +312,8 @@ type AnalyticsWorkspaceArgs struct {
 	DailyQuotaGb pulumi.Float64PtrInput
 	// The ID of the Data Collection Rule to use for this workspace.
 	DataCollectionRuleId pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity AnalyticsWorkspaceIdentityPtrInput
 	// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
 	InternetIngestionEnabled pulumi.BoolPtrInput
 	// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -443,6 +453,11 @@ func (o AnalyticsWorkspaceOutput) DailyQuotaGb() pulumi.Float64PtrOutput {
 // The ID of the Data Collection Rule to use for this workspace.
 func (o AnalyticsWorkspaceOutput) DataCollectionRuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringPtrOutput { return v.DataCollectionRuleId }).(pulumi.StringPtrOutput)
+}
+
+// An `identity` block as defined below.
+func (o AnalyticsWorkspaceOutput) Identity() AnalyticsWorkspaceIdentityPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) AnalyticsWorkspaceIdentityPtrOutput { return v.Identity }).(AnalyticsWorkspaceIdentityPtrOutput)
 }
 
 // Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

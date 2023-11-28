@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+        /// &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         /// </summary>
         [Output("confidentialVmEnabled")]
         public Output<bool?> ConfidentialVmEnabled { get; private set; } = null!;
@@ -221,6 +221,12 @@ namespace Pulumi.Azure.Compute
         [Output("trustedLaunchEnabled")]
         public Output<bool?> TrustedLaunchEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("trustedLaunchSupported")]
+        public Output<bool?> TrustedLaunchSupported { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SharedImage resource with the given unique name, arguments, and options.
@@ -282,7 +288,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+        /// &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         /// </summary>
         [Input("confidentialVmEnabled")]
         public Input<bool>? ConfidentialVmEnabled { get; set; }
@@ -433,6 +439,12 @@ namespace Pulumi.Azure.Compute
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
 
+        /// <summary>
+        /// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("trustedLaunchSupported")]
+        public Input<bool>? TrustedLaunchSupported { get; set; }
+
         public SharedImageArgs()
         {
         }
@@ -456,7 +468,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+        /// &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         /// </summary>
         [Input("confidentialVmEnabled")]
         public Input<bool>? ConfidentialVmEnabled { get; set; }
@@ -606,6 +618,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("trustedLaunchEnabled")]
         public Input<bool>? TrustedLaunchEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("trustedLaunchSupported")]
+        public Input<bool>? TrustedLaunchSupported { get; set; }
 
         public SharedImageState()
         {

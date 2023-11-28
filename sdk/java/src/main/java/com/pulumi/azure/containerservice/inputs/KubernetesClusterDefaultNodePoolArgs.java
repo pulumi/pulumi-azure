@@ -130,6 +130,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="gpuInstance")
+    private @Nullable Output<String> gpuInstance;
+
+    /**
+     * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> gpuInstance() {
+        return Optional.ofNullable(this.gpuInstance);
+    }
+
+    /**
      * Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
@@ -650,6 +665,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.enableHostEncryption = $.enableHostEncryption;
         this.enableNodePublicIp = $.enableNodePublicIp;
         this.fipsEnabled = $.fipsEnabled;
+        this.gpuInstance = $.gpuInstance;
         this.hostGroupId = $.hostGroupId;
         this.kubeletConfig = $.kubeletConfig;
         this.kubeletDiskType = $.kubeletDiskType;
@@ -842,6 +858,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
          */
         public Builder fipsEnabled(Boolean fipsEnabled) {
             return fipsEnabled(Output.of(fipsEnabled));
+        }
+
+        /**
+         * @param gpuInstance Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gpuInstance(@Nullable Output<String> gpuInstance) {
+            $.gpuInstance = gpuInstance;
+            return this;
+        }
+
+        /**
+         * @param gpuInstance Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gpuInstance(String gpuInstance) {
+            return gpuInstance(Output.of(gpuInstance));
         }
 
         /**

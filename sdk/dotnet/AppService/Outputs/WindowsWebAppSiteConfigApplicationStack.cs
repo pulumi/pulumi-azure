@@ -17,6 +17,8 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
         /// 
         /// &gt; **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        /// 
+        /// &gt; **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
         /// </summary>
         public readonly string? CurrentStack;
         /// <summary>

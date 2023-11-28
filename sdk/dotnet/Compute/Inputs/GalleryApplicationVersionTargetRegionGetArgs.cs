@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class GalleryApplicationVersionTargetRegionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        /// </summary>
+        [Input("excludeFromLatest")]
+        public Input<bool>? ExcludeFromLatest { get; set; }
+
+        /// <summary>
         /// The Azure Region in which the Gallery Application Version exists.
         /// </summary>
         [Input("name", required: true)]

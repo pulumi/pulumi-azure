@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class WindowsFunctionAppSlotSiteConfigApplicationStack
     {
         /// <summary>
-        /// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
+        /// The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         /// </summary>
         public readonly string? DotnetVersion;
         /// <summary>

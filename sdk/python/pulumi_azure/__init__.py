@@ -825,6 +825,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appconfiguration/licationLoadBalancerSubnetAssociation",
+  "fqn": "pulumi_azure.appconfiguration",
+  "classes": {
+   "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation": "LicationLoadBalancerSubnetAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appinsights/analyticsItem",
   "fqn": "pulumi_azure.appinsights",
   "classes": {

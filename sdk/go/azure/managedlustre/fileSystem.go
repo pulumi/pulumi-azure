@@ -38,6 +38,8 @@ type FileSystem struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow FileSystemMaintenanceWindowOutput `pulumi:"maintenanceWindow"`
+	// IP Address of Managed Lustre File System Services.
+	MgsAddress pulumi.StringOutput `pulumi:"mgsAddress"`
 	// The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -114,6 +116,8 @@ type fileSystemState struct {
 	Location *string `pulumi:"location"`
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow *FileSystemMaintenanceWindow `pulumi:"maintenanceWindow"`
+	// IP Address of Managed Lustre File System Services.
+	MgsAddress *string `pulumi:"mgsAddress"`
 	// The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -143,6 +147,8 @@ type FileSystemState struct {
 	Location pulumi.StringPtrInput
 	// A `maintenanceWindow` block as defined below.
 	MaintenanceWindow FileSystemMaintenanceWindowPtrInput
+	// IP Address of Managed Lustre File System Services.
+	MgsAddress pulumi.StringPtrInput
 	// The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
@@ -334,6 +340,11 @@ func (o FileSystemOutput) Location() pulumi.StringOutput {
 // A `maintenanceWindow` block as defined below.
 func (o FileSystemOutput) MaintenanceWindow() FileSystemMaintenanceWindowOutput {
 	return o.ApplyT(func(v *FileSystem) FileSystemMaintenanceWindowOutput { return v.MaintenanceWindow }).(FileSystemMaintenanceWindowOutput)
+}
+
+// IP Address of Managed Lustre File System Services.
+func (o FileSystemOutput) MgsAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileSystem) pulumi.StringOutput { return v.MgsAddress }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.

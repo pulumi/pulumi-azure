@@ -215,6 +215,20 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.fipsEnabled);
     }
     /**
+     * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="gpuInstance", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> gpuInstance;
+
+    /**
+     * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> gpuInstance() {
+        return Codegen.optional(this.gpuInstance);
+    }
+    /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
      * 
      */

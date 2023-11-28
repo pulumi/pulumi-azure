@@ -80,6 +80,10 @@ export class SpringCloudCustomizedAccelerator extends pulumi.CustomResource {
      */
     public readonly acceleratorTags!: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     */
+    public readonly acceleratorType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class SpringCloudCustomizedAccelerator extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudCustomizedAcceleratorState | undefined;
             resourceInputs["acceleratorTags"] = state ? state.acceleratorTags : undefined;
+            resourceInputs["acceleratorType"] = state ? state.acceleratorType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["gitRepository"] = state ? state.gitRepository : undefined;
@@ -133,6 +138,7 @@ export class SpringCloudCustomizedAccelerator extends pulumi.CustomResource {
                 throw new Error("Missing required property 'springCloudAcceleratorId'");
             }
             resourceInputs["acceleratorTags"] = args ? args.acceleratorTags : undefined;
+            resourceInputs["acceleratorType"] = args ? args.acceleratorType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["gitRepository"] = args ? args.gitRepository : undefined;
@@ -153,6 +159,10 @@ export interface SpringCloudCustomizedAcceleratorState {
      * Specifies a list of accelerator tags.
      */
     acceleratorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     */
+    acceleratorType?: pulumi.Input<string>;
     /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      */
@@ -187,6 +197,10 @@ export interface SpringCloudCustomizedAcceleratorArgs {
      * Specifies a list of accelerator tags.
      */
     acceleratorTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     */
+    acceleratorType?: pulumi.Input<string>;
     /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      */

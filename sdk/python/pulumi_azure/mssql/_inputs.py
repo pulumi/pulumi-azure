@@ -279,10 +279,10 @@ class DatabaseThreatDetectionPolicyArgs:
                  storage_endpoint: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+        :param pulumi.Input[str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] email_addresses: A list of email addresses which alerts should be sent to.
         :param pulumi.Input[int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+        :param pulumi.Input[str] state: The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
@@ -317,7 +317,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[pulumi.Input[str]]:
         """
-        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "email_account_admins")
 
@@ -353,7 +353,7 @@ class DatabaseThreatDetectionPolicyArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
-        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+        The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "state")
 

@@ -1733,6 +1733,10 @@
                 "current": "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend",
                 "majorVersion": 5
             },
+            "azurerm_application_load_balancer_subnet_association": {
+                "current": "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation",
+                "majorVersion": 5
+            },
             "azurerm_application_security_group": {
                 "current": "azure:network/applicationSecurityGroup:ApplicationSecurityGroup",
                 "majorVersion": 5
@@ -11895,7 +11899,19 @@
             },
             "azurerm_log_analytics_workspace": {
                 "current": "azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace",
-                "majorVersion": 5
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_logic_app_action_custom": {
                 "current": "azure:logicapps/actionCustom:ActionCustom",
@@ -18630,6 +18646,9 @@
                 "current": "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment",
                 "majorVersion": 5,
                 "fields": {
+                    "application_performance_monitoring_ids": {
+                        "maxItemsOne": false
+                    },
                     "arguments": {
                         "maxItemsOne": false
                     },
@@ -26963,6 +26982,10 @@
                     }
                 }
             },
+            "azurerm_monitor_workspace": {
+                "current": "azure:monitoring/getWorkspace:getWorkspace",
+                "majorVersion": 5
+            },
             "azurerm_mssql_database": {
                 "current": "azure:mssql/getDatabase:getDatabase",
                 "majorVersion": 5
@@ -29439,6 +29462,7 @@
             "azure:appconfiguration/configurationStore:ConfigurationStore": "azurerm_app_configuration",
             "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer": "azurerm_application_load_balancer",
             "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend": "azurerm_application_load_balancer_frontend",
+            "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation": "azurerm_application_load_balancer_subnet_association",
             "azure:appinsights/analyticsItem:AnalyticsItem": "azurerm_application_insights_analytics_item",
             "azure:appinsights/apiKey:ApiKey": "azurerm_application_insights_api_key",
             "azure:appinsights/insights:Insights": "azurerm_application_insights",
@@ -30667,6 +30691,7 @@
             "azure:monitoring/getLogProfile:getLogProfile": "azurerm_monitor_log_profile",
             "azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert": "azurerm_monitor_scheduled_query_rules_alert",
             "azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog": "azurerm_monitor_scheduled_query_rules_log",
+            "azure:monitoring/getWorkspace:getWorkspace": "azurerm_monitor_workspace",
             "azure:mssql/getDatabase:getDatabase": "azurerm_mssql_database",
             "azure:mssql/getElasticPool:getElasticPool": "azurerm_mssql_elasticpool",
             "azure:mssql/getManagedInstance:getManagedInstance": "azurerm_mssql_managed_instance",
@@ -31776,6 +31801,10 @@
                 "applicationLoadBalancerId": "application_load_balancer_id",
                 "fullyQualifiedDomainName": "fully_qualified_domain_name"
             },
+            "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation": {
+                "applicationLoadBalancerId": "application_load_balancer_id",
+                "subnetId": "subnet_id"
+            },
             "azure:appinsights/StandardWebTestRequest:StandardWebTestRequest": {
                 "followRedirectsEnabled": "follow_redirects_enabled",
                 "headers": "header",
@@ -32155,6 +32184,7 @@
             },
             "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment": {
                 "addonJson": "addon_json",
+                "applicationPerformanceMonitoringIds": "application_performance_monitoring_ids",
                 "environmentVariables": "environment_variables",
                 "instanceCount": "instance_count",
                 "languageFramework": "language_framework",
@@ -32166,6 +32196,7 @@
             },
             "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator": {
                 "acceleratorTags": "accelerator_tags",
+                "acceleratorType": "accelerator_type",
                 "displayName": "display_name",
                 "gitRepository": "git_repository",
                 "iconUrl": "icon_url",
@@ -38877,6 +38908,7 @@
                 "mediaLink": "media_link"
             },
             "azure:compute/GalleryApplicationVersionTargetRegion:GalleryApplicationVersionTargetRegion": {
+                "excludeFromLatest": "exclude_from_latest",
                 "regionalReplicaCount": "regional_replica_count",
                 "storageAccountType": "storage_account_type"
             },
@@ -39552,11 +39584,13 @@
                 "supportedOsType": "supported_os_type"
             },
             "azure:compute/galleryApplicationVersion:GalleryApplicationVersion": {
+                "configFile": "config_file",
                 "enableHealthCheck": "enable_health_check",
                 "endOfLifeDate": "end_of_life_date",
                 "excludeFromLatest": "exclude_from_latest",
                 "galleryApplicationId": "gallery_application_id",
                 "manageAction": "manage_action",
+                "packageFile": "package_file",
                 "targetRegions": "target_region"
             },
             "azure:compute/getAvailabilitySet:getAvailabilitySet": {
@@ -40072,7 +40106,8 @@
                 "purchasePlan": "purchase_plan",
                 "releaseNoteUri": "release_note_uri",
                 "resourceGroupName": "resource_group_name",
-                "trustedLaunchEnabled": "trusted_launch_enabled"
+                "trustedLaunchEnabled": "trusted_launch_enabled",
+                "trustedLaunchSupported": "trusted_launch_supported"
             },
             "azure:compute/sharedImageGallery:SharedImageGallery": {
                 "resourceGroupName": "resource_group_name",
@@ -40913,6 +40948,7 @@
                 "enableHostEncryption": "enable_host_encryption",
                 "enableNodePublicIp": "enable_node_public_ip",
                 "fipsEnabled": "fips_enabled",
+                "gpuInstance": "gpu_instance",
                 "hostGroupId": "host_group_id",
                 "kubeletConfig": "kubelet_config",
                 "kubeletDiskType": "kubelet_disk_type",
@@ -41656,6 +41692,7 @@
                 "enableNodePublicIp": "enable_node_public_ip",
                 "evictionPolicy": "eviction_policy",
                 "fipsEnabled": "fips_enabled",
+                "gpuInstance": "gpu_instance",
                 "hostGroupId": "host_group_id",
                 "kubeletConfig": "kubelet_config",
                 "kubeletDiskType": "kubelet_disk_type",
@@ -47793,6 +47830,7 @@
                 "encryptionKey": "encryption_key",
                 "hsmSetting": "hsm_setting",
                 "maintenanceWindow": "maintenance_window",
+                "mgsAddress": "mgs_address",
                 "resourceGroupName": "resource_group_name",
                 "skuName": "sku_name",
                 "storageCapacityInTb": "storage_capacity_in_tb",
@@ -49540,6 +49578,11 @@
             "azure:monitoring/getScheduledQueryRulesLogCriteria:getScheduledQueryRulesLogCriteria": {
                 "dimensions": "dimension",
                 "metricName": "metric_name"
+            },
+            "azure:monitoring/getWorkspace:getWorkspace": {
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "queryEndpoint": "query_endpoint",
+                "resourceGroupName": "resource_group_name"
             },
             "azure:monitoring/logProfile:LogProfile": {
                 "retentionPolicy": "retention_policy",
@@ -52568,6 +52611,11 @@
             },
             "azure:operationalinsights/AnalyticsSolutionPlan:AnalyticsSolutionPlan": {
                 "promotionCode": "promotion_code"
+            },
+            "azure:operationalinsights/AnalyticsWorkspaceIdentity:AnalyticsWorkspaceIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
             },
             "azure:operationalinsights/analyticsSolution:AnalyticsSolution": {
                 "resourceGroupName": "resource_group_name",

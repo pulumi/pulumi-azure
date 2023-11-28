@@ -6456,6 +6456,8 @@ type KubernetesClusterDefaultNodePool struct {
 	EnableNodePublicIp *bool `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance *string `pulumi:"gpuInstance"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
@@ -6570,6 +6572,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	EnableNodePublicIp pulumi.BoolPtrInput `pulumi:"enableNodePublicIp"`
 	// Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance pulumi.StringPtrInput `pulumi:"gpuInstance"`
 	// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
@@ -6765,6 +6769,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) EnableNodePublicIp() pulumi.Bool
 // Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) GpuInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.GpuInstance }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -7041,6 +7050,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) FipsEnabled() pulumi.BoolPtrO
 		}
 		return v.FipsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) GpuInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GpuInstance
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.

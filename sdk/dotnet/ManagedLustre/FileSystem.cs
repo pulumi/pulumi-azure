@@ -56,6 +56,12 @@ namespace Pulumi.Azure.ManagedLustre
         public Output<Outputs.FileSystemMaintenanceWindow> MaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
+        /// IP Address of Managed Lustre File System Services.
+        /// </summary>
+        [Output("mgsAddress")]
+        public Output<string> MgsAddress { get; private set; } = null!;
+
+        /// <summary>
         /// The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -268,6 +274,12 @@ namespace Pulumi.Azure.ManagedLustre
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.FileSystemMaintenanceWindowGetArgs>? MaintenanceWindow { get; set; }
+
+        /// <summary>
+        /// IP Address of Managed Lustre File System Services.
+        /// </summary>
+        [Input("mgsAddress")]
+        public Input<string>? MgsAddress { get; set; }
 
         /// <summary>
         /// The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.

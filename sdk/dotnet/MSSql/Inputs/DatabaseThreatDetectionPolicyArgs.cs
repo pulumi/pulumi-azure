@@ -25,7 +25,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         }
 
         /// <summary>
-        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         /// </summary>
         [Input("emailAccountAdmins")]
         public Input<string>? EmailAccountAdmins { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<int>? RetentionDays { get; set; }
 
         /// <summary>
-        /// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+        /// The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

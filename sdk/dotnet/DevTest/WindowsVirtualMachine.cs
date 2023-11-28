@@ -172,7 +172,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> Size { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string> Size { get; set; } = null!;
 
         /// <summary>
-        /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageType", required: true)]
         public Input<string> StorageType { get; set; } = null!;
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

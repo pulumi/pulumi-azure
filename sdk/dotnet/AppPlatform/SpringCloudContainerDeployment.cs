@@ -85,6 +85,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> AddonJson { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        [Output("applicationPerformanceMonitoringIds")]
+        public Output<ImmutableArray<string>> ApplicationPerformanceMonitoringIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         /// </summary>
         [Output("arguments")]
@@ -196,6 +202,18 @@ namespace Pulumi.Azure.AppPlatform
         [Input("addonJson")]
         public Input<string>? AddonJson { get; set; }
 
+        [Input("applicationPerformanceMonitoringIds")]
+        private InputList<string>? _applicationPerformanceMonitoringIds;
+
+        /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringIds
+        {
+            get => _applicationPerformanceMonitoringIds ?? (_applicationPerformanceMonitoringIds = new InputList<string>());
+            set => _applicationPerformanceMonitoringIds = value;
+        }
+
         [Input("arguments")]
         private InputList<string>? _arguments;
 
@@ -287,6 +305,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("addonJson")]
         public Input<string>? AddonJson { get; set; }
+
+        [Input("applicationPerformanceMonitoringIds")]
+        private InputList<string>? _applicationPerformanceMonitoringIds;
+
+        /// <summary>
+        /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        /// </summary>
+        public InputList<string> ApplicationPerformanceMonitoringIds
+        {
+            get => _applicationPerformanceMonitoringIds ?? (_applicationPerformanceMonitoringIds = new InputList<string>());
+            set => _applicationPerformanceMonitoringIds = value;
+        }
 
         [Input("arguments")]
         private InputList<string>? _arguments;

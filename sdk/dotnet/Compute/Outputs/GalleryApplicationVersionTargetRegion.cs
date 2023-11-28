@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class GalleryApplicationVersionTargetRegion
     {
         /// <summary>
+        /// Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        /// </summary>
+        public readonly bool? ExcludeFromLatest;
+        /// <summary>
         /// The Azure Region in which the Gallery Application Version exists.
         /// </summary>
         public readonly string Name;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Compute.Outputs
 
         [OutputConstructor]
         private GalleryApplicationVersionTargetRegion(
+            bool? excludeFromLatest,
+
             string name,
 
             int regionalReplicaCount,
 
             string? storageAccountType)
         {
+            ExcludeFromLatest = excludeFromLatest;
             Name = name;
             RegionalReplicaCount = regionalReplicaCount;
             StorageAccountType = storageAccountType;

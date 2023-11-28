@@ -107,6 +107,20 @@ public class SpringCloudCustomizedAccelerator extends com.pulumi.resources.Custo
         return Codegen.optional(this.acceleratorTags);
     }
     /**
+     * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     * 
+     */
+    @Export(name="acceleratorType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> acceleratorType;
+
+    /**
+     * @return Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     * 
+     */
+    public Output<Optional<String>> acceleratorType() {
+        return Codegen.optional(this.acceleratorType);
+    }
+    /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      * 
      */

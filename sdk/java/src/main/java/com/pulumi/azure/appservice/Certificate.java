@@ -246,12 +246,16 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
      * @return The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      * 
      */
     public Output<String> resourceGroupName() {

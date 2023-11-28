@@ -92,6 +92,8 @@ type SpringCloudContainerDeployment struct {
 
 	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 	AddonJson pulumi.StringOutput `pulumi:"addonJson"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayOutput `pulumi:"applicationPerformanceMonitoringIds"`
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments pulumi.StringArrayOutput `pulumi:"arguments"`
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -155,6 +157,8 @@ func GetSpringCloudContainerDeployment(ctx *pulumi.Context,
 type springCloudContainerDeploymentState struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 	AddonJson *string `pulumi:"addonJson"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds []string `pulumi:"applicationPerformanceMonitoringIds"`
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments []string `pulumi:"arguments"`
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -180,6 +184,8 @@ type springCloudContainerDeploymentState struct {
 type SpringCloudContainerDeploymentState struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 	AddonJson pulumi.StringPtrInput
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayInput
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments pulumi.StringArrayInput
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -209,6 +215,8 @@ func (SpringCloudContainerDeploymentState) ElementType() reflect.Type {
 type springCloudContainerDeploymentArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 	AddonJson *string `pulumi:"addonJson"`
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds []string `pulumi:"applicationPerformanceMonitoringIds"`
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments []string `pulumi:"arguments"`
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -235,6 +243,8 @@ type springCloudContainerDeploymentArgs struct {
 type SpringCloudContainerDeploymentArgs struct {
 	// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 	AddonJson pulumi.StringPtrInput
+	// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+	ApplicationPerformanceMonitoringIds pulumi.StringArrayInput
 	// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
 	Arguments pulumi.StringArrayInput
 	// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
@@ -347,6 +357,13 @@ func (o SpringCloudContainerDeploymentOutput) ToSpringCloudContainerDeploymentOu
 // A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
 func (o SpringCloudContainerDeploymentOutput) AddonJson() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.StringOutput { return v.AddonJson }).(pulumi.StringOutput)
+}
+
+// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+func (o SpringCloudContainerDeploymentOutput) ApplicationPerformanceMonitoringIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpringCloudContainerDeployment) pulumi.StringArrayOutput {
+		return v.ApplicationPerformanceMonitoringIds
+	}).(pulumi.StringArrayOutput)
 }
 
 // Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.

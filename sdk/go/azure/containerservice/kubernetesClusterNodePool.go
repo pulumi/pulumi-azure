@@ -107,6 +107,8 @@ type KubernetesClusterNodePool struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance pulumi.StringPtrOutput `pulumi:"gpuInstance"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -255,6 +257,8 @@ type kubernetesClusterNodePoolState struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance *string `pulumi:"gpuInstance"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -368,6 +372,8 @@ type KubernetesClusterNodePoolState struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled pulumi.BoolPtrInput
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance pulumi.StringPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -485,6 +491,8 @@ type kubernetesClusterNodePoolArgs struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance *string `pulumi:"gpuInstance"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -599,6 +607,8 @@ type KubernetesClusterNodePoolArgs struct {
 	//
 	// > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 	FipsEnabled pulumi.BoolPtrInput
+	// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+	GpuInstance pulumi.StringPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below. Changing this forces a new resource to be created.
@@ -817,6 +827,11 @@ func (o KubernetesClusterNodePoolOutput) EvictionPolicy() pulumi.StringPtrOutput
 // > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
 func (o KubernetesClusterNodePoolOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+func (o KubernetesClusterNodePoolOutput) GpuInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.GpuInstance }).(pulumi.StringPtrOutput)
 }
 
 // The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.

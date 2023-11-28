@@ -85,7 +85,7 @@ export class SharedImage extends pulumi.CustomResource {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
-     * > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
+     * > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
     public readonly confidentialVmEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -178,6 +178,10 @@ export class SharedImage extends pulumi.CustomResource {
      * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
     public readonly trustedLaunchEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     */
+    public readonly trustedLaunchSupported!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SharedImage resource with the given unique name, arguments, and options.
@@ -217,6 +221,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["specialized"] = state ? state.specialized : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["trustedLaunchEnabled"] = state ? state.trustedLaunchEnabled : undefined;
+            resourceInputs["trustedLaunchSupported"] = state ? state.trustedLaunchSupported : undefined;
         } else {
             const args = argsOrState as SharedImageArgs | undefined;
             if ((!args || args.galleryName === undefined) && !opts.urn) {
@@ -256,6 +261,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["specialized"] = args ? args.specialized : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustedLaunchEnabled"] = args ? args.trustedLaunchEnabled : undefined;
+            resourceInputs["trustedLaunchSupported"] = args ? args.trustedLaunchSupported : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SharedImage.__pulumiType, name, resourceInputs, opts);
@@ -277,7 +283,7 @@ export interface SharedImageState {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
-     * > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
+     * > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
     confidentialVmEnabled?: pulumi.Input<boolean>;
     /**
@@ -370,6 +376,10 @@ export interface SharedImageState {
      * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     */
+    trustedLaunchSupported?: pulumi.Input<boolean>;
 }
 
 /**
@@ -387,7 +397,7 @@ export interface SharedImageArgs {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      *
-     * > **Note:**: Only one of `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` could only be specified.
+     * > **Note:**: Only one of `trustedLaunchSupported`, `trustedLaunchEnabled`, `confidentialVmSupported` and `confidentialVmEnabled` can be specified.
      */
     confidentialVmEnabled?: pulumi.Input<boolean>;
     /**
@@ -480,4 +490,8 @@ export interface SharedImageArgs {
      * Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
      */
     trustedLaunchEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     */
+    trustedLaunchSupported?: pulumi.Input<boolean>;
 }

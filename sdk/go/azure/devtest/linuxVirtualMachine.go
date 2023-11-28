@@ -143,7 +143,7 @@ type LinuxVirtualMachine struct {
 	//
 	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey pulumi.StringPtrOutput `pulumi:"sshKey"`
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -250,7 +250,7 @@ type linuxVirtualMachineState struct {
 	//
 	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey *string `pulumi:"sshKey"`
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -297,7 +297,7 @@ type LinuxVirtualMachineState struct {
 	//
 	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey pulumi.StringPtrInput
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -346,7 +346,7 @@ type linuxVirtualMachineArgs struct {
 	//
 	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey *string `pulumi:"sshKey"`
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
 	StorageType string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -390,7 +390,7 @@ type LinuxVirtualMachineArgs struct {
 	//
 	// > **NOTE:** One or either `password` or `sshKey` must be specified.
 	SshKey pulumi.StringPtrInput
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
 	StorageType pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -568,7 +568,7 @@ func (o LinuxVirtualMachineOutput) SshKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.SshKey }).(pulumi.StringPtrOutput)
 }
 
-// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
 func (o LinuxVirtualMachineOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }

@@ -38,6 +38,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly int? IntervalInSeconds;
         /// <summary>
+        /// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+        /// </summary>
+        public readonly string? Path;
+        /// <summary>
         /// A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         /// </summary>
         public readonly Outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth? SshAuth;
@@ -60,6 +64,8 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             int? intervalInSeconds,
 
+            string? path,
+
             Outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth? sshAuth,
 
             string url)
@@ -70,6 +76,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
             Commit = commit;
             GitTag = gitTag;
             IntervalInSeconds = intervalInSeconds;
+            Path = path;
             SshAuth = sshAuth;
             Url = url;
         }

@@ -85,6 +85,10 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
      */
     public readonly addonJson!: pulumi.Output<string>;
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    public readonly applicationPerformanceMonitoringIds!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */
     public readonly arguments!: pulumi.Output<string[] | undefined>;
@@ -139,6 +143,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudContainerDeploymentState | undefined;
             resourceInputs["addonJson"] = state ? state.addonJson : undefined;
+            resourceInputs["applicationPerformanceMonitoringIds"] = state ? state.applicationPerformanceMonitoringIds : undefined;
             resourceInputs["arguments"] = state ? state.arguments : undefined;
             resourceInputs["commands"] = state ? state.commands : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
@@ -161,6 +166,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'springCloudAppId'");
             }
             resourceInputs["addonJson"] = args ? args.addonJson : undefined;
+            resourceInputs["applicationPerformanceMonitoringIds"] = args ? args.applicationPerformanceMonitoringIds : undefined;
             resourceInputs["arguments"] = args ? args.arguments : undefined;
             resourceInputs["commands"] = args ? args.commands : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
@@ -185,6 +191,10 @@ export interface SpringCloudContainerDeploymentState {
      * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
      */
     addonJson?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */
@@ -235,6 +245,10 @@ export interface SpringCloudContainerDeploymentArgs {
      * A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
      */
     addonJson?: pulumi.Input<string>;
+    /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     */
+    applicationPerformanceMonitoringIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
      */

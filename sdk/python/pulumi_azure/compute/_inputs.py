@@ -476,14 +476,18 @@ class GalleryApplicationVersionTargetRegionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  regional_replica_count: pulumi.Input[int],
+                 exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Azure Region in which the Gallery Application Version exists.
         :param pulumi.Input[int] regional_replica_count: The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+        :param pulumi.Input[bool] exclude_from_latest: Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] storage_account_type: The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+        if exclude_from_latest is not None:
+            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
 
@@ -510,6 +514,18 @@ class GalleryApplicationVersionTargetRegionArgs:
     @regional_replica_count.setter
     def regional_replica_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "regional_replica_count", value)
+
+    @property
+    @pulumi.getter(name="excludeFromLatest")
+    def exclude_from_latest(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_from_latest")
+
+    @exclude_from_latest.setter
+    def exclude_from_latest(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_from_latest", value)
 
     @property
     @pulumi.getter(name="storageAccountType")

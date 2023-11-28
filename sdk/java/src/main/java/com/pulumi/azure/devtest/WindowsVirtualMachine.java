@@ -310,14 +310,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.size;
     }
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
-     * @return The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * @return The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageType() {

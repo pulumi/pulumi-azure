@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .addressSpaces(&#34;10.254.0.0/16&#34;)
  *             .build());
  * 
- *         var frontend = new Subnet(&#34;frontend&#34;, SubnetArgs.builder()        
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.254.0.0/24&#34;)
@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
  *                 .name(&#34;my-gateway-ip-configuration&#34;)
- *                 .subnetId(frontend.id())
+ *                 .subnetId(exampleSubnet.id())
  *                 .build())
  *             .frontendPorts(ApplicationGatewayFrontendPortArgs.builder()
  *                 .name(frontendPortName)

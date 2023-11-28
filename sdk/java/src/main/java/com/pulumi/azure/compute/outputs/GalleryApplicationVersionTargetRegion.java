@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -12,6 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GalleryApplicationVersionTargetRegion {
+    /**
+     * @return Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean excludeFromLatest;
     /**
      * @return The Azure Region in which the Gallery Application Version exists.
      * 
@@ -29,6 +35,13 @@ public final class GalleryApplicationVersionTargetRegion {
     private @Nullable String storageAccountType;
 
     private GalleryApplicationVersionTargetRegion() {}
+    /**
+     * @return Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> excludeFromLatest() {
+        return Optional.ofNullable(this.excludeFromLatest);
+    }
     /**
      * @return The Azure Region in which the Gallery Application Version exists.
      * 
@@ -60,17 +73,24 @@ public final class GalleryApplicationVersionTargetRegion {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean excludeFromLatest;
         private String name;
         private Integer regionalReplicaCount;
         private @Nullable String storageAccountType;
         public Builder() {}
         public Builder(GalleryApplicationVersionTargetRegion defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.excludeFromLatest = defaults.excludeFromLatest;
     	      this.name = defaults.name;
     	      this.regionalReplicaCount = defaults.regionalReplicaCount;
     	      this.storageAccountType = defaults.storageAccountType;
         }
 
+        @CustomType.Setter
+        public Builder excludeFromLatest(@Nullable Boolean excludeFromLatest) {
+            this.excludeFromLatest = excludeFromLatest;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
@@ -88,6 +108,7 @@ public final class GalleryApplicationVersionTargetRegion {
         }
         public GalleryApplicationVersionTargetRegion build() {
             final var _resultValue = new GalleryApplicationVersionTargetRegion();
+            _resultValue.excludeFromLatest = excludeFromLatest;
             _resultValue.name = name;
             _resultValue.regionalReplicaCount = regionalReplicaCount;
             _resultValue.storageAccountType = storageAccountType;

@@ -6,6 +6,7 @@ package com.pulumi.azure.operationalinsights;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
 import com.pulumi.azure.operationalinsights.inputs.AnalyticsWorkspaceState;
+import com.pulumi.azure.operationalinsights.outputs.AnalyticsWorkspaceIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -131,6 +132,20 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> dataCollectionRuleId() {
         return Codegen.optional(this.dataCollectionRuleId);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={AnalyticsWorkspaceIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ AnalyticsWorkspaceIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<AnalyticsWorkspaceIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

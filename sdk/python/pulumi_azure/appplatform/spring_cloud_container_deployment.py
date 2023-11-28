@@ -20,6 +20,7 @@ class SpringCloudContainerDeploymentArgs:
                  server: pulumi.Input[str],
                  spring_cloud_app_id: pulumi.Input[str],
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,6 +34,7 @@ class SpringCloudContainerDeploymentArgs:
         :param pulumi.Input[str] server: The name of the registry that contains the container image.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -46,6 +48,8 @@ class SpringCloudContainerDeploymentArgs:
         pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
         if addon_json is not None:
             pulumi.set(__self__, "addon_json", addon_json)
+        if application_performance_monitoring_ids is not None:
+            pulumi.set(__self__, "application_performance_monitoring_ids", application_performance_monitoring_ids)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if commands is not None:
@@ -108,6 +112,18 @@ class SpringCloudContainerDeploymentArgs:
     @addon_json.setter
     def addon_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "addon_json", value)
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
+
+    @application_performance_monitoring_ids.setter
+    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @property
     @pulumi.getter
@@ -198,6 +214,7 @@ class SpringCloudContainerDeploymentArgs:
 class _SpringCloudContainerDeploymentState:
     def __init__(__self__, *,
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -211,6 +228,7 @@ class _SpringCloudContainerDeploymentState:
         """
         Input properties used for looking up and filtering SpringCloudContainerDeployment resources.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -224,6 +242,8 @@ class _SpringCloudContainerDeploymentState:
         """
         if addon_json is not None:
             pulumi.set(__self__, "addon_json", addon_json)
+        if application_performance_monitoring_ids is not None:
+            pulumi.set(__self__, "application_performance_monitoring_ids", application_performance_monitoring_ids)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if commands is not None:
@@ -256,6 +276,18 @@ class _SpringCloudContainerDeploymentState:
     @addon_json.setter
     def addon_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "addon_json", value)
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
+
+    @application_performance_monitoring_ids.setter
+    def application_performance_monitoring_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_performance_monitoring_ids", value)
 
     @property
     @pulumi.getter
@@ -384,6 +416,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -441,6 +474,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -517,6 +551,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_json: Optional[pulumi.Input[str]] = None,
+                 application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -537,6 +572,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             __props__ = SpringCloudContainerDeploymentArgs.__new__(SpringCloudContainerDeploymentArgs)
 
             __props__.__dict__["addon_json"] = addon_json
+            __props__.__dict__["application_performance_monitoring_ids"] = application_performance_monitoring_ids
             __props__.__dict__["arguments"] = arguments
             __props__.__dict__["commands"] = commands
             __props__.__dict__["environment_variables"] = environment_variables
@@ -564,6 +600,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             addon_json: Optional[pulumi.Input[str]] = None,
+            application_performance_monitoring_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -582,6 +619,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_performance_monitoring_ids: Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] arguments: Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -598,6 +636,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         __props__ = _SpringCloudContainerDeploymentState.__new__(_SpringCloudContainerDeploymentState)
 
         __props__.__dict__["addon_json"] = addon_json
+        __props__.__dict__["application_performance_monitoring_ids"] = application_performance_monitoring_ids
         __props__.__dict__["arguments"] = arguments
         __props__.__dict__["commands"] = commands
         __props__.__dict__["environment_variables"] = environment_variables
@@ -617,6 +656,14 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
         """
         return pulumi.get(self, "addon_json")
+
+    @property
+    @pulumi.getter(name="applicationPerformanceMonitoringIds")
+    def application_performance_monitoring_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+        """
+        return pulumi.get(self, "application_performance_monitoring_ids")
 
     @property
     @pulumi.getter

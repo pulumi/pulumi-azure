@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.operationalinsights.inputs;
 
+import com.pulumi.azure.operationalinsights.inputs.AnalyticsWorkspaceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -81,6 +82,21 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> dataCollectionRuleId() {
         return Optional.ofNullable(this.dataCollectionRuleId);
+    }
+
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<AnalyticsWorkspaceIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Optional<Output<AnalyticsWorkspaceIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -305,6 +321,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         this.cmkForQueryForced = $.cmkForQueryForced;
         this.dailyQuotaGb = $.dailyQuotaGb;
         this.dataCollectionRuleId = $.dataCollectionRuleId;
+        this.identity = $.identity;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
         this.internetQueryEnabled = $.internetQueryEnabled;
         this.localAuthenticationDisabled = $.localAuthenticationDisabled;
@@ -424,6 +441,27 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
          */
         public Builder dataCollectionRuleId(String dataCollectionRuleId) {
             return dataCollectionRuleId(Output.of(dataCollectionRuleId));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<AnalyticsWorkspaceIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(AnalyticsWorkspaceIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

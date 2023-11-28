@@ -440,7 +440,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     /**
      * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      * 
-     * &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+     * &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      * 
      */
     @Import(name="transparentDataEncryptionEnabled")
@@ -449,7 +449,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      * 
-     * &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+     * &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      * 
      */
     public Optional<Output<Boolean>> transparentDataEncryptionEnabled() {
@@ -1095,7 +1095,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transparentDataEncryptionEnabled If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
          * 
-         * &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+         * &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
          * 
          * @return builder
          * 
@@ -1108,7 +1108,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transparentDataEncryptionEnabled If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
          * 
-         * &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+         * &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
          * 
          * @return builder
          * 

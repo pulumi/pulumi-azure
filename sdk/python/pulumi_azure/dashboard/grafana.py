@@ -39,7 +39,7 @@ class GrafanaArgs:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -179,7 +179,7 @@ class GrafanaArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -244,7 +244,7 @@ class _GrafanaState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ips: List of outbound IPs if deterministicOutboundIP is enabled.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -427,7 +427,7 @@ class _GrafanaState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -521,7 +521,7 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -660,7 +660,7 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ips: List of outbound IPs if deterministicOutboundIP is enabled.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -785,7 +785,7 @@ class Grafana(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
 

@@ -525,6 +525,8 @@ class GalleryApplicationVersionTargetRegion(dict):
         suggest = None
         if key == "regionalReplicaCount":
             suggest = "regional_replica_count"
+        elif key == "excludeFromLatest":
+            suggest = "exclude_from_latest"
         elif key == "storageAccountType":
             suggest = "storage_account_type"
 
@@ -542,14 +544,18 @@ class GalleryApplicationVersionTargetRegion(dict):
     def __init__(__self__, *,
                  name: str,
                  regional_replica_count: int,
+                 exclude_from_latest: Optional[bool] = None,
                  storage_account_type: Optional[str] = None):
         """
         :param str name: The Azure Region in which the Gallery Application Version exists.
         :param int regional_replica_count: The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
+        :param bool exclude_from_latest: Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param str storage_account_type: The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regional_replica_count", regional_replica_count)
+        if exclude_from_latest is not None:
+            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
 
@@ -568,6 +574,14 @@ class GalleryApplicationVersionTargetRegion(dict):
         The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
         """
         return pulumi.get(self, "regional_replica_count")
+
+    @property
+    @pulumi.getter(name="excludeFromLatest")
+    def exclude_from_latest(self) -> Optional[bool]:
+        """
+        Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+        """
+        return pulumi.get(self, "exclude_from_latest")
 
     @property
     @pulumi.getter(name="storageAccountType")

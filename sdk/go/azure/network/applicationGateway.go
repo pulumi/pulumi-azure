@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			frontend, err := network.NewSubnet(ctx, "frontend", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -97,7 +97,7 @@ import (
 //				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
 //					&network.ApplicationGatewayGatewayIpConfigurationArgs{
 //						Name:     pulumi.String("my-gateway-ip-configuration"),
-//						SubnetId: frontend.ID(),
+//						SubnetId: exampleSubnet.ID(),
 //					},
 //				},
 //				FrontendPorts: network.ApplicationGatewayFrontendPortArray{

@@ -76,6 +76,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string?> DataCollectionRuleId { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.AnalyticsWorkspaceIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         /// </summary>
         [Output("internetIngestionEnabled")]
@@ -241,6 +247,12 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? DataCollectionRuleId { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AnalyticsWorkspaceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         /// </summary>
         [Input("internetIngestionEnabled")]
@@ -349,6 +361,12 @@ namespace Pulumi.Azure.OperationalInsights
         /// </summary>
         [Input("dataCollectionRuleId")]
         public Input<string>? DataCollectionRuleId { get; set; }
+
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.AnalyticsWorkspaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.

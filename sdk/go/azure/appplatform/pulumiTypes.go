@@ -2270,6 +2270,8 @@ type SpringCloudCustomizedAcceleratorGitRepository struct {
 	GitTag *string `pulumi:"gitTag"`
 	// Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
+	Path *string `pulumi:"path"`
 	// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 	SshAuth *SpringCloudCustomizedAcceleratorGitRepositorySshAuth `pulumi:"sshAuth"`
 	// Specifies Git repository URL for the accelerator.
@@ -2300,6 +2302,8 @@ type SpringCloudCustomizedAcceleratorGitRepositoryArgs struct {
 	GitTag pulumi.StringPtrInput `pulumi:"gitTag"`
 	// Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
+	Path pulumi.StringPtrInput `pulumi:"path"`
 	// A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 	SshAuth SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrInput `pulumi:"sshAuth"`
 	// Specifies Git repository URL for the accelerator.
@@ -2415,6 +2419,11 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) IntervalInSeconds()
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
+func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
 // A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 func (o SpringCloudCustomizedAcceleratorGitRepositoryOutput) SshAuth() SpringCloudCustomizedAcceleratorGitRepositorySshAuthPtrOutput {
 	return o.ApplyT(func(v SpringCloudCustomizedAcceleratorGitRepository) *SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
@@ -2509,6 +2518,16 @@ func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) IntervalInSecond
 		}
 		return v.IntervalInSeconds
 	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `acceleratorType`).
+func (o SpringCloudCustomizedAcceleratorGitRepositoryPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAcceleratorGitRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
 }
 
 // A `sshAuth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.

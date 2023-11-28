@@ -239,14 +239,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * @return The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -654,7 +654,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+         * @param storageType The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

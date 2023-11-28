@@ -129,7 +129,7 @@ type WindowsVirtualMachine struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size pulumi.StringOutput `pulumi:"size"`
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -235,7 +235,7 @@ type windowsVirtualMachineState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -278,7 +278,7 @@ type WindowsVirtualMachineState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -323,7 +323,7 @@ type windowsVirtualMachineArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size string `pulumi:"size"`
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -363,7 +363,7 @@ type WindowsVirtualMachineArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
 	Size pulumi.StringInput
-	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -536,7 +536,7 @@ func (o WindowsVirtualMachineOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }
 
-// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }

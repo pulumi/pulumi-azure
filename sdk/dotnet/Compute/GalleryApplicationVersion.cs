@@ -100,6 +100,12 @@ namespace Pulumi.Azure.Compute
     public partial class GalleryApplicationVersion : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("configFile")]
+        public Output<string?> ConfigFile { get; private set; } = null!;
+
+        /// <summary>
         /// Should the Gallery Application reports health. Defaults to `false`.
         /// </summary>
         [Output("enableHealthCheck")]
@@ -140,6 +146,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("packageFile")]
+        public Output<string?> PackageFile { get; private set; } = null!;
 
         /// <summary>
         /// A `source` block as defined below.
@@ -206,6 +218,12 @@ namespace Pulumi.Azure.Compute
     public sealed class GalleryApplicationVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("configFile")]
+        public Input<string>? ConfigFile { get; set; }
+
+        /// <summary>
         /// Should the Gallery Application reports health. Defaults to `false`.
         /// </summary>
         [Input("enableHealthCheck")]
@@ -248,6 +266,12 @@ namespace Pulumi.Azure.Compute
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("packageFile")]
+        public Input<string>? PackageFile { get; set; }
+
+        /// <summary>
         /// A `source` block as defined below.
         /// </summary>
         [Input("source", required: true)]
@@ -285,6 +309,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class GalleryApplicationVersionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("configFile")]
+        public Input<string>? ConfigFile { get; set; }
+
         /// <summary>
         /// Should the Gallery Application reports health. Defaults to `false`.
         /// </summary>
@@ -326,6 +356,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("packageFile")]
+        public Input<string>? PackageFile { get; set; }
 
         /// <summary>
         /// A `source` block as defined below.

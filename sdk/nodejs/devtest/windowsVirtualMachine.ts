@@ -148,7 +148,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<string>;
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
     public readonly storageType!: pulumi.Output<string>;
     /**
@@ -315,7 +315,7 @@ export interface WindowsVirtualMachineState {
      */
     size?: pulumi.Input<string>;
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -393,7 +393,7 @@ export interface WindowsVirtualMachineArgs {
      */
     size: pulumi.Input<string>;
     /**
-     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+     * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
      */
     storageType: pulumi.Input<string>;
     /**

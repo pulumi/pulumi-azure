@@ -111,6 +111,20 @@ public class SpringCloudContainerDeployment extends com.pulumi.resources.CustomR
         return this.addonJson;
     }
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    @Export(name="applicationPerformanceMonitoringIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> applicationPerformanceMonitoringIds;
+
+    /**
+     * @return Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    public Output<Optional<List<String>>> applicationPerformanceMonitoringIds() {
+        return Codegen.optional(this.applicationPerformanceMonitoringIds);
+    }
+    /**
      * Specifies the arguments to the entrypoint. The docker image&#39;s `CMD` is used if not specified.
      * 
      */

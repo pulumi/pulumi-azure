@@ -122,7 +122,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+     * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
      * 
      */
     @Export(name="confidentialVmEnabled", refs={Boolean.class}, tree="[0]")
@@ -131,7 +131,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+     * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
      * 
      */
     public Output<Optional<Boolean>> confidentialVmEnabled() {
@@ -448,6 +448,20 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> trustedLaunchEnabled() {
         return Codegen.optional(this.trustedLaunchEnabled);
+    }
+    /**
+     * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="trustedLaunchSupported", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> trustedLaunchSupported;
+
+    /**
+     * @return Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> trustedLaunchSupported() {
+        return Codegen.optional(this.trustedLaunchSupported);
     }
 
     /**

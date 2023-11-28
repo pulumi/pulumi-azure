@@ -125,6 +125,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> FipsEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("gpuInstance")]
+        public Output<string?> GpuInstance { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         /// </summary>
         [Output("hostGroupId")]
@@ -449,6 +455,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
+        /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("gpuInstance")]
+        public Input<string>? GpuInstance { get; set; }
+
+        /// <summary>
         /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hostGroupId")]
@@ -757,6 +769,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("gpuInstance")]
+        public Input<string>? GpuInstance { get; set; }
 
         /// <summary>
         /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.

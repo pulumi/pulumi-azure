@@ -105,6 +105,11 @@ export const getScheduledQueryRulesLog: typeof import("./getScheduledQueryRulesL
 export const getScheduledQueryRulesLogOutput: typeof import("./getScheduledQueryRulesLog").getScheduledQueryRulesLogOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledQueryRulesLog","getScheduledQueryRulesLogOutput"], () => require("./getScheduledQueryRulesLog"));
 
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
 export { LogProfileArgs, LogProfileState } from "./logProfile";
 export type LogProfile = import("./logProfile").LogProfile;
 export const LogProfile: typeof import("./logProfile").LogProfile = null as any;

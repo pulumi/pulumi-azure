@@ -80,7 +80,7 @@ export class CnameRecord extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The Time To Live (TTL) of the DNS record in seconds.
+     * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      */
     public readonly ttl!: pulumi.Output<number>;
     /**
@@ -160,7 +160,7 @@ export interface CnameRecordState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Time To Live (TTL) of the DNS record in seconds.
+     * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      */
     ttl?: pulumi.Input<number>;
     /**
@@ -190,7 +190,7 @@ export interface CnameRecordArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Time To Live (TTL) of the DNS record in seconds.
+     * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      */
     ttl: pulumi.Input<number>;
     /**

@@ -20,11 +20,13 @@ class GalleryApplicationVersionArgs:
                  manage_action: pulumi.Input['GalleryApplicationVersionManageActionArgs'],
                  source: pulumi.Input['GalleryApplicationVersionSourceArgs'],
                  target_regions: pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]],
+                 config_file: Optional[pulumi.Input[str]] = None,
                  enable_health_check: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 package_file: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplicationVersion resource.
@@ -32,17 +34,21 @@ class GalleryApplicationVersionArgs:
         :param pulumi.Input['GalleryApplicationVersionManageActionArgs'] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input['GalleryApplicationVersionSourceArgs'] source: A `source` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as defined below.
+        :param pulumi.Input[str] config_file: Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_health_check: Should the Gallery Application reports health. Defaults to `false`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Gallery Application Version.
         :param pulumi.Input[bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
         """
         pulumi.set(__self__, "gallery_application_id", gallery_application_id)
         pulumi.set(__self__, "manage_action", manage_action)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target_regions", target_regions)
+        if config_file is not None:
+            pulumi.set(__self__, "config_file", config_file)
         if enable_health_check is not None:
             pulumi.set(__self__, "enable_health_check", enable_health_check)
         if end_of_life_date is not None:
@@ -53,6 +59,8 @@ class GalleryApplicationVersionArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if package_file is not None:
+            pulumi.set(__self__, "package_file", package_file)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -103,6 +111,18 @@ class GalleryApplicationVersionArgs:
     @target_regions.setter
     def target_regions(self, value: pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]):
         pulumi.set(self, "target_regions", value)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "config_file")
+
+    @config_file.setter
+    def config_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file", value)
 
     @property
     @pulumi.getter(name="enableHealthCheck")
@@ -165,6 +185,18 @@ class GalleryApplicationVersionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="packageFile")
+    def package_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "package_file")
+
+    @package_file.setter
+    def package_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_file", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -180,6 +212,7 @@ class GalleryApplicationVersionArgs:
 @pulumi.input_type
 class _GalleryApplicationVersionState:
     def __init__(__self__, *,
+                 config_file: Optional[pulumi.Input[str]] = None,
                  enable_health_check: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
@@ -187,11 +220,13 @@ class _GalleryApplicationVersionState:
                  location: Optional[pulumi.Input[str]] = None,
                  manage_action: Optional[pulumi.Input['GalleryApplicationVersionManageActionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 package_file: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None):
         """
         Input properties used for looking up and filtering GalleryApplicationVersion resources.
+        :param pulumi.Input[str] config_file: Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_health_check: Should the Gallery Application reports health. Defaults to `false`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Gallery Application Version.
         :param pulumi.Input[bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
@@ -199,10 +234,13 @@ class _GalleryApplicationVersionState:
         :param pulumi.Input[str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         :param pulumi.Input['GalleryApplicationVersionManageActionArgs'] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input['GalleryApplicationVersionSourceArgs'] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as defined below.
         """
+        if config_file is not None:
+            pulumi.set(__self__, "config_file", config_file)
         if enable_health_check is not None:
             pulumi.set(__self__, "enable_health_check", enable_health_check)
         if end_of_life_date is not None:
@@ -217,12 +255,26 @@ class _GalleryApplicationVersionState:
             pulumi.set(__self__, "manage_action", manage_action)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if package_file is not None:
+            pulumi.set(__self__, "package_file", package_file)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_regions is not None:
             pulumi.set(__self__, "target_regions", target_regions)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "config_file")
+
+    @config_file.setter
+    def config_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "config_file", value)
 
     @property
     @pulumi.getter(name="enableHealthCheck")
@@ -309,6 +361,18 @@ class _GalleryApplicationVersionState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="packageFile")
+    def package_file(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "package_file")
+
+    @package_file.setter
+    def package_file(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_file", value)
+
+    @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']]:
         """
@@ -350,6 +414,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config_file: Optional[pulumi.Input[str]] = None,
                  enable_health_check: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
@@ -357,6 +422,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  manage_action: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 package_file: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]]] = None,
@@ -417,6 +483,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] config_file: Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_health_check: Should the Gallery Application reports health. Defaults to `false`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Gallery Application Version.
         :param pulumi.Input[bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
@@ -424,6 +491,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as defined below.
@@ -503,6 +571,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 config_file: Optional[pulumi.Input[str]] = None,
                  enable_health_check: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
@@ -510,6 +579,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  manage_action: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 package_file: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]]] = None,
@@ -522,6 +592,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GalleryApplicationVersionArgs.__new__(GalleryApplicationVersionArgs)
 
+            __props__.__dict__["config_file"] = config_file
             __props__.__dict__["enable_health_check"] = enable_health_check
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["exclude_from_latest"] = exclude_from_latest
@@ -533,6 +604,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'manage_action'")
             __props__.__dict__["manage_action"] = manage_action
             __props__.__dict__["name"] = name
+            __props__.__dict__["package_file"] = package_file
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -550,6 +622,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            config_file: Optional[pulumi.Input[str]] = None,
             enable_health_check: Optional[pulumi.Input[bool]] = None,
             end_of_life_date: Optional[pulumi.Input[str]] = None,
             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
@@ -557,6 +630,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             manage_action: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            package_file: Optional[pulumi.Input[str]] = None,
             source: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]]] = None) -> 'GalleryApplicationVersion':
@@ -567,6 +641,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] config_file: Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_health_check: Should the Gallery Application reports health. Defaults to `false`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Gallery Application Version.
         :param pulumi.Input[bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
@@ -574,6 +649,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as defined below.
@@ -582,6 +658,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         __props__ = _GalleryApplicationVersionState.__new__(_GalleryApplicationVersionState)
 
+        __props__.__dict__["config_file"] = config_file
         __props__.__dict__["enable_health_check"] = enable_health_check
         __props__.__dict__["end_of_life_date"] = end_of_life_date
         __props__.__dict__["exclude_from_latest"] = exclude_from_latest
@@ -589,10 +666,19 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["manage_action"] = manage_action
         __props__.__dict__["name"] = name
+        __props__.__dict__["package_file"] = package_file
         __props__.__dict__["source"] = source
         __props__.__dict__["tags"] = tags
         __props__.__dict__["target_regions"] = target_regions
         return GalleryApplicationVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="configFile")
+    def config_file(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "config_file")
 
     @property
     @pulumi.getter(name="enableHealthCheck")
@@ -649,6 +735,14 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="packageFile")
+    def package_file(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "package_file")
 
     @property
     @pulumi.getter

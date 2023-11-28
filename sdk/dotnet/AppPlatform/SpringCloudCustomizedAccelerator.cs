@@ -79,6 +79,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<ImmutableArray<string>> AcceleratorTags { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+        /// </summary>
+        [Output("acceleratorType")]
+        public Output<string?> AcceleratorType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the description of the Spring Cloud Customized Accelerator.
         /// </summary>
         [Output("description")]
@@ -173,6 +179,12 @@ namespace Pulumi.Azure.AppPlatform
         }
 
         /// <summary>
+        /// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+        /// </summary>
+        [Input("acceleratorType")]
+        public Input<string>? AcceleratorType { get; set; }
+
+        /// <summary>
         /// Specifies the description of the Spring Cloud Customized Accelerator.
         /// </summary>
         [Input("description")]
@@ -227,6 +239,12 @@ namespace Pulumi.Azure.AppPlatform
             get => _acceleratorTags ?? (_acceleratorTags = new InputList<string>());
             set => _acceleratorTags = value;
         }
+
+        /// <summary>
+        /// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+        /// </summary>
+        [Input("acceleratorType")]
+        public Input<string>? AcceleratorType { get; set; }
 
         /// <summary>
         /// Specifies the description of the Spring Cloud Customized Accelerator.

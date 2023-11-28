@@ -984,6 +984,7 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
                  commit: Optional[str] = None,
                  git_tag: Optional[str] = None,
                  interval_in_seconds: Optional[int] = None,
+                 path: Optional[str] = None,
                  ssh_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth'] = None):
         """
         :param str url: Specifies Git repository URL for the accelerator.
@@ -993,6 +994,7 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
         :param str commit: Specifies the Git repository commit to be used.
         :param str git_tag: Specifies the Git repository tag to be used.
         :param int interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+        :param str path: Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
         :param 'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         pulumi.set(__self__, "url", url)
@@ -1008,6 +1010,8 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
             pulumi.set(__self__, "git_tag", git_tag)
         if interval_in_seconds is not None:
             pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
         if ssh_auth is not None:
             pulumi.set(__self__, "ssh_auth", ssh_auth)
 
@@ -1066,6 +1070,14 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
         Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
         """
         return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+        """
+        return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="sshAuth")

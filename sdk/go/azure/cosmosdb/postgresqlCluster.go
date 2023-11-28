@@ -75,9 +75,9 @@ type PostgresqlCluster struct {
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-	CoordinatorStorageQuotaInMb pulumi.IntOutput `pulumi:"coordinatorStorageQuotaInMb"`
+	CoordinatorStorageQuotaInMb pulumi.IntPtrOutput `pulumi:"coordinatorStorageQuotaInMb"`
 	// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
-	CoordinatorVcoreCount pulumi.IntOutput `pulumi:"coordinatorVcoreCount"`
+	CoordinatorVcoreCount pulumi.IntPtrOutput `pulumi:"coordinatorVcoreCount"`
 	// The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
 	EarliestRestoreTime pulumi.StringOutput `pulumi:"earliestRestoreTime"`
 	// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
@@ -123,12 +123,6 @@ func NewPostgresqlCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CoordinatorStorageQuotaInMb == nil {
-		return nil, errors.New("invalid value for required argument 'CoordinatorStorageQuotaInMb'")
-	}
-	if args.CoordinatorVcoreCount == nil {
-		return nil, errors.New("invalid value for required argument 'CoordinatorVcoreCount'")
-	}
 	if args.NodeCount == nil {
 		return nil, errors.New("invalid value for required argument 'NodeCount'")
 	}
@@ -286,9 +280,9 @@ type postgresqlClusterArgs struct {
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-	CoordinatorStorageQuotaInMb int `pulumi:"coordinatorStorageQuotaInMb"`
+	CoordinatorStorageQuotaInMb *int `pulumi:"coordinatorStorageQuotaInMb"`
 	// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
-	CoordinatorVcoreCount int `pulumi:"coordinatorVcoreCount"`
+	CoordinatorVcoreCount *int `pulumi:"coordinatorVcoreCount"`
 	// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
 	HaEnabled *bool `pulumi:"haEnabled"`
 	// The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
@@ -338,9 +332,9 @@ type PostgresqlClusterArgs struct {
 	// The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 	//
 	// > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-	CoordinatorStorageQuotaInMb pulumi.IntInput
+	CoordinatorStorageQuotaInMb pulumi.IntPtrInput
 	// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
-	CoordinatorVcoreCount pulumi.IntInput
+	CoordinatorVcoreCount pulumi.IntPtrInput
 	// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
 	HaEnabled pulumi.BoolPtrInput
 	// The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
@@ -487,13 +481,13 @@ func (o PostgresqlClusterOutput) CoordinatorServerEdition() pulumi.StringPtrOutp
 // The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 //
 // > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-func (o PostgresqlClusterOutput) CoordinatorStorageQuotaInMb() pulumi.IntOutput {
-	return o.ApplyT(func(v *PostgresqlCluster) pulumi.IntOutput { return v.CoordinatorStorageQuotaInMb }).(pulumi.IntOutput)
+func (o PostgresqlClusterOutput) CoordinatorStorageQuotaInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresqlCluster) pulumi.IntPtrOutput { return v.CoordinatorStorageQuotaInMb }).(pulumi.IntPtrOutput)
 }
 
 // The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
-func (o PostgresqlClusterOutput) CoordinatorVcoreCount() pulumi.IntOutput {
-	return o.ApplyT(func(v *PostgresqlCluster) pulumi.IntOutput { return v.CoordinatorVcoreCount }).(pulumi.IntOutput)
+func (o PostgresqlClusterOutput) CoordinatorVcoreCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PostgresqlCluster) pulumi.IntPtrOutput { return v.CoordinatorVcoreCount }).(pulumi.IntPtrOutput)
 }
 
 // The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
