@@ -1263,7 +1263,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 0a4bac92ea..f43bce0382 100644
+index 0a4bac92ea..02d4e8b299 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1283,21 +1283,17 @@ index 0a4bac92ea..f43bce0382 100644
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  					},
- 
-@@ -1426,8 +1428,10 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
- 						Type:     pluginsdk.TypeString,
+
+@@ -1427,7 +1429,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
--						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
+ 						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
 -							false),
-+						ValidateFunc: validation.StringInSlice([]string{
-+							"Disabled",
-+							"Enabled",
-+						}, features.CaseInsensitive()),
++							features.CaseInsensitive()),
  					},
- 
+
  					"email_addresses": {
-@@ -1455,7 +1459,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1455,7 +1457,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
