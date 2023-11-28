@@ -329,10 +329,10 @@ class DatabaseThreatDetectionPolicy(dict):
                  storage_endpoint: Optional[str] = None):
         """
         :param Sequence[str] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+        :param str email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         :param Sequence[str] email_addresses: A list of email addresses which alerts should be sent to.
         :param int retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
-        :param str state: The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+        :param str state: The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
@@ -363,7 +363,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter(name="emailAccountAdmins")
     def email_account_admins(self) -> Optional[str]:
         """
-        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "email_account_admins")
 
@@ -387,7 +387,7 @@ class DatabaseThreatDetectionPolicy(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+        The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
         """
         return pulumi.get(self, "state")
 

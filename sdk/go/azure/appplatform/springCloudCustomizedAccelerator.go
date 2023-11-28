@@ -87,6 +87,8 @@ type SpringCloudCustomizedAccelerator struct {
 
 	// Specifies a list of accelerator tags.
 	AcceleratorTags pulumi.StringArrayOutput `pulumi:"acceleratorTags"`
+	// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+	AcceleratorType pulumi.StringPtrOutput `pulumi:"acceleratorType"`
 	// Specifies the description of the Spring Cloud Customized Accelerator.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the display name of the Spring Cloud Customized Accelerator..
@@ -139,6 +141,8 @@ func GetSpringCloudCustomizedAccelerator(ctx *pulumi.Context,
 type springCloudCustomizedAcceleratorState struct {
 	// Specifies a list of accelerator tags.
 	AcceleratorTags []string `pulumi:"acceleratorTags"`
+	// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+	AcceleratorType *string `pulumi:"acceleratorType"`
 	// Specifies the description of the Spring Cloud Customized Accelerator.
 	Description *string `pulumi:"description"`
 	// Specifies the display name of the Spring Cloud Customized Accelerator..
@@ -156,6 +160,8 @@ type springCloudCustomizedAcceleratorState struct {
 type SpringCloudCustomizedAcceleratorState struct {
 	// Specifies a list of accelerator tags.
 	AcceleratorTags pulumi.StringArrayInput
+	// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+	AcceleratorType pulumi.StringPtrInput
 	// Specifies the description of the Spring Cloud Customized Accelerator.
 	Description pulumi.StringPtrInput
 	// Specifies the display name of the Spring Cloud Customized Accelerator..
@@ -177,6 +183,8 @@ func (SpringCloudCustomizedAcceleratorState) ElementType() reflect.Type {
 type springCloudCustomizedAcceleratorArgs struct {
 	// Specifies a list of accelerator tags.
 	AcceleratorTags []string `pulumi:"acceleratorTags"`
+	// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+	AcceleratorType *string `pulumi:"acceleratorType"`
 	// Specifies the description of the Spring Cloud Customized Accelerator.
 	Description *string `pulumi:"description"`
 	// Specifies the display name of the Spring Cloud Customized Accelerator..
@@ -195,6 +203,8 @@ type springCloudCustomizedAcceleratorArgs struct {
 type SpringCloudCustomizedAcceleratorArgs struct {
 	// Specifies a list of accelerator tags.
 	AcceleratorTags pulumi.StringArrayInput
+	// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+	AcceleratorType pulumi.StringPtrInput
 	// Specifies the description of the Spring Cloud Customized Accelerator.
 	Description pulumi.StringPtrInput
 	// Specifies the display name of the Spring Cloud Customized Accelerator..
@@ -299,6 +309,11 @@ func (o SpringCloudCustomizedAcceleratorOutput) ToSpringCloudCustomizedAccelerat
 // Specifies a list of accelerator tags.
 func (o SpringCloudCustomizedAcceleratorOutput) AcceleratorTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpringCloudCustomizedAccelerator) pulumi.StringArrayOutput { return v.AcceleratorTags }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+func (o SpringCloudCustomizedAcceleratorOutput) AcceleratorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudCustomizedAccelerator) pulumi.StringPtrOutput { return v.AcceleratorType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the description of the Spring Cloud Customized Accelerator.

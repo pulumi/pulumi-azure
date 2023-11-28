@@ -41,7 +41,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
         :param pulumi.Input[bool] disallow_public_ip_address: Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
@@ -162,7 +162,7 @@ class LinuxVirtualMachineArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[str]:
         """
-        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_type")
 
@@ -342,7 +342,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** One or either `password` or `ssh_key` must be specified.
-        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -576,7 +576,7 @@ class _LinuxVirtualMachineState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_type")
 
@@ -716,7 +716,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** One or either `password` or `ssh_key` must be specified.
-        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
@@ -911,7 +911,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** One or either `password` or `ssh_key` must be specified.
-        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        :param pulumi.Input[str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -1071,7 +1071,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[str]:
         """
-        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
+        The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Chaning this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_type")
 

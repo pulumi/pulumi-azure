@@ -126,6 +126,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/galleryApplicationVersion:GalleryApplicationVersion")
 public class GalleryApplicationVersion extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="configFile", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> configFile;
+
+    /**
+     * @return Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> configFile() {
+        return Codegen.optional(this.configFile);
+    }
+    /**
      * Should the Gallery Application reports health. Defaults to `false`.
      * 
      */
@@ -222,6 +236,20 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="packageFile", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> packageFile;
+
+    /**
+     * @return Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> packageFile() {
+        return Codegen.optional(this.packageFile);
     }
     /**
      * A `source` block as defined below.

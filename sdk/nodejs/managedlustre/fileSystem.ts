@@ -68,6 +68,10 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly maintenanceWindow!: pulumi.Output<outputs.managedlustre.FileSystemMaintenanceWindow>;
     /**
+     * IP Address of Managed Lustre File System Services.
+     */
+    public /*out*/ readonly mgsAddress!: pulumi.Output<string>;
+    /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
+            resourceInputs["mgsAddress"] = state ? state.mgsAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -153,6 +158,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["mgsAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FileSystem.__pulumiType, name, resourceInputs, opts);
@@ -185,6 +191,10 @@ export interface FileSystemState {
      * A `maintenanceWindow` block as defined below.
      */
     maintenanceWindow?: pulumi.Input<inputs.managedlustre.FileSystemMaintenanceWindow>;
+    /**
+     * IP Address of Managed Lustre File System Services.
+     */
+    mgsAddress?: pulumi.Input<string>;
     /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      */

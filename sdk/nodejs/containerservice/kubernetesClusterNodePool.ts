@@ -117,6 +117,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     */
+    public readonly gpuInstance!: pulumi.Output<string | undefined>;
+    /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
      */
     public readonly hostGroupId!: pulumi.Output<string | undefined>;
@@ -295,6 +299,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["enableNodePublicIp"] = state ? state.enableNodePublicIp : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             resourceInputs["fipsEnabled"] = state ? state.fipsEnabled : undefined;
+            resourceInputs["gpuInstance"] = state ? state.gpuInstance : undefined;
             resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
             resourceInputs["kubeletConfig"] = state ? state.kubeletConfig : undefined;
             resourceInputs["kubeletDiskType"] = state ? state.kubeletDiskType : undefined;
@@ -345,6 +350,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["enableNodePublicIp"] = args ? args.enableNodePublicIp : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
+            resourceInputs["gpuInstance"] = args ? args.gpuInstance : undefined;
             resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
             resourceInputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
             resourceInputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
@@ -426,6 +432,10 @@ export interface KubernetesClusterNodePoolState {
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     */
+    gpuInstance?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
      */
@@ -626,6 +636,10 @@ export interface KubernetesClusterNodePoolArgs {
      * > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     */
+    gpuInstance?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
      */

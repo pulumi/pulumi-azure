@@ -9036,7 +9036,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]] dockers: One or more `docker` blocks as defined below.
-        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `8`, `11` & `17`.
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
@@ -9077,7 +9077,7 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .NET to use. Possible values include `3.1`, `6.0` and `7.0`.
+        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -12666,7 +12666,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]] dockers: a `docker` block as detailed below.
-        :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to use. Possible values include `12`, `14`, `16` and `18`
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to use. Possibles values are `7` , and `7.2`.
@@ -12707,7 +12707,7 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net. Possible values are `3.1`, `6.0` and `7.0`.
+        The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -27437,7 +27437,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
                  use_custom_runtime: Optional[pulumi.Input[bool]] = None,
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`. Defaults to `v4.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         :param pulumi.Input[str] java_version: The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         :param pulumi.Input[str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
@@ -27463,7 +27463,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0` and `v7.0`. Defaults to `v4.0`.
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -30915,7 +30915,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
                  use_custom_runtime: Optional[pulumi.Input[bool]] = None,
                  use_dotnet_isolated_runtime: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
+        :param pulumi.Input[str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         :param pulumi.Input[str] java_version: The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
         :param pulumi.Input[str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16` and `~18`.
         :param pulumi.Input[str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, and `7.2`.
@@ -30939,7 +30939,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="dotnetVersion")
     def dotnet_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0` and `v7.0`. Defaults to `v4.0`.
+        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
         """
         return pulumi.get(self, "dotnet_version")
 
@@ -34832,6 +34832,8 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] current_stack: The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
                
                > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+               
+               > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
         :param pulumi.Input[str] docker_container_name: The name of the container to be used. This value is required with `docker_container_tag`.
         :param pulumi.Input[str] docker_container_tag: The tag of the container to be used. This value is required with `docker_container_name`.
         :param pulumi.Input[str] docker_image_name: The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
@@ -34923,6 +34925,8 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
 
         > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+
+        > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
         """
         return pulumi.get(self, "current_stack")
 

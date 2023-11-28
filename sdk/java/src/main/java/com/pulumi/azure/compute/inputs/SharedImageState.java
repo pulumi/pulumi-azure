@@ -54,7 +54,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+     * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
      * 
      */
     @Import(name="confidentialVmEnabled")
@@ -63,7 +63,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+     * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
      * 
      */
     public Optional<Output<Boolean>> confidentialVmEnabled() {
@@ -404,6 +404,21 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.trustedLaunchEnabled);
     }
 
+    /**
+     * Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="trustedLaunchSupported")
+    private @Nullable Output<Boolean> trustedLaunchSupported;
+
+    /**
+     * @return Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> trustedLaunchSupported() {
+        return Optional.ofNullable(this.trustedLaunchSupported);
+    }
+
     private SharedImageState() {}
 
     private SharedImageState(SharedImageState $) {
@@ -432,6 +447,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         this.specialized = $.specialized;
         this.tags = $.tags;
         this.trustedLaunchEnabled = $.trustedLaunchEnabled;
+        this.trustedLaunchSupported = $.trustedLaunchSupported;
     }
 
     public static Builder builder() {
@@ -497,7 +513,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+         * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
          * 
          * @return builder
          * 
@@ -510,7 +526,7 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param confidentialVmEnabled Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+         * &gt; **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
          * 
          * @return builder
          * 
@@ -993,6 +1009,27 @@ public final class SharedImageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder trustedLaunchEnabled(Boolean trustedLaunchEnabled) {
             return trustedLaunchEnabled(Output.of(trustedLaunchEnabled));
+        }
+
+        /**
+         * @param trustedLaunchSupported Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedLaunchSupported(@Nullable Output<Boolean> trustedLaunchSupported) {
+            $.trustedLaunchSupported = trustedLaunchSupported;
+            return this;
+        }
+
+        /**
+         * @param trustedLaunchSupported Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedLaunchSupported(Boolean trustedLaunchSupported) {
+            return trustedLaunchSupported(Output.of(trustedLaunchSupported));
         }
 
         public SharedImageState build() {

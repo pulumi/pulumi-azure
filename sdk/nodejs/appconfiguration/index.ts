@@ -45,6 +45,11 @@ export type LicationLoadBalancerFrontend = import("./licationLoadBalancerFronten
 export const LicationLoadBalancerFrontend: typeof import("./licationLoadBalancerFrontend").LicationLoadBalancerFrontend = null as any;
 utilities.lazyLoad(exports, ["LicationLoadBalancerFrontend"], () => require("./licationLoadBalancerFrontend"));
 
+export { LicationLoadBalancerSubnetAssociationArgs, LicationLoadBalancerSubnetAssociationState } from "./licationLoadBalancerSubnetAssociation";
+export type LicationLoadBalancerSubnetAssociation = import("./licationLoadBalancerSubnetAssociation").LicationLoadBalancerSubnetAssociation;
+export const LicationLoadBalancerSubnetAssociation: typeof import("./licationLoadBalancerSubnetAssociation").LicationLoadBalancerSubnetAssociation = null as any;
+utilities.lazyLoad(exports, ["LicationLoadBalancerSubnetAssociation"], () => require("./licationLoadBalancerSubnetAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -60,6 +65,8 @@ const _module = {
                 return new LicationLoadBalancer(name, <any>undefined, { urn })
             case "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend":
                 return new LicationLoadBalancerFrontend(name, <any>undefined, { urn })
+            case "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation":
+                return new LicationLoadBalancerSubnetAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -70,3 +77,4 @@ pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationKe
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/configurationStore", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancer", _module)
 pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancerFrontend", _module)
+pulumi.runtime.registerResourceModule("azure", "appconfiguration/licationLoadBalancerSubnetAssociation", _module)

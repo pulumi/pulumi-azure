@@ -85,8 +85,8 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
      * &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      * 
      */
-    @Import(name="coordinatorStorageQuotaInMb", required=true)
-    private Output<Integer> coordinatorStorageQuotaInMb;
+    @Import(name="coordinatorStorageQuotaInMb")
+    private @Nullable Output<Integer> coordinatorStorageQuotaInMb;
 
     /**
      * @return The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
@@ -94,23 +94,23 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
      * &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      * 
      */
-    public Output<Integer> coordinatorStorageQuotaInMb() {
-        return this.coordinatorStorageQuotaInMb;
+    public Optional<Output<Integer>> coordinatorStorageQuotaInMb() {
+        return Optional.ofNullable(this.coordinatorStorageQuotaInMb);
     }
 
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      * 
      */
-    @Import(name="coordinatorVcoreCount", required=true)
-    private Output<Integer> coordinatorVcoreCount;
+    @Import(name="coordinatorVcoreCount")
+    private @Nullable Output<Integer> coordinatorVcoreCount;
 
     /**
      * @return The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      * 
      */
-    public Output<Integer> coordinatorVcoreCount() {
-        return this.coordinatorVcoreCount;
+    public Optional<Output<Integer>> coordinatorVcoreCount() {
+        return Optional.ofNullable(this.coordinatorVcoreCount);
     }
 
     /**
@@ -506,7 +506,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder coordinatorStorageQuotaInMb(Output<Integer> coordinatorStorageQuotaInMb) {
+        public Builder coordinatorStorageQuotaInMb(@Nullable Output<Integer> coordinatorStorageQuotaInMb) {
             $.coordinatorStorageQuotaInMb = coordinatorStorageQuotaInMb;
             return this;
         }
@@ -529,7 +529,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder coordinatorVcoreCount(Output<Integer> coordinatorVcoreCount) {
+        public Builder coordinatorVcoreCount(@Nullable Output<Integer> coordinatorVcoreCount) {
             $.coordinatorVcoreCount = coordinatorVcoreCount;
             return this;
         }
@@ -902,8 +902,6 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PostgresqlClusterArgs build() {
-            $.coordinatorStorageQuotaInMb = Objects.requireNonNull($.coordinatorStorageQuotaInMb, "expected parameter 'coordinatorStorageQuotaInMb' to be non-null");
-            $.coordinatorVcoreCount = Objects.requireNonNull($.coordinatorVcoreCount, "expected parameter 'coordinatorVcoreCount' to be non-null");
             $.nodeCount = Objects.requireNonNull($.nodeCount, "expected parameter 'nodeCount' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
             return $;

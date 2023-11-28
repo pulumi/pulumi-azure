@@ -113,6 +113,8 @@ export class Certificate extends pulumi.CustomResource {
     public readonly pfxBlob!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -242,6 +244,8 @@ export interface CertificateState {
     pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -290,6 +294,8 @@ export interface CertificateArgs {
     pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

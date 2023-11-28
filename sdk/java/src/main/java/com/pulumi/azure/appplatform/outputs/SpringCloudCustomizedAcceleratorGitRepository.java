@@ -45,6 +45,11 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
      */
     private @Nullable Integer intervalInSeconds;
     /**
+     * @return Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+     * 
+     */
+    private @Nullable String path;
+    /**
      * @return A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
@@ -99,6 +104,13 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
         return Optional.ofNullable(this.intervalInSeconds);
     }
     /**
+     * @return Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+     * 
+     */
+    public Optional<String> path() {
+        return Optional.ofNullable(this.path);
+    }
+    /**
      * @return A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
@@ -128,6 +140,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
         private @Nullable String commit;
         private @Nullable String gitTag;
         private @Nullable Integer intervalInSeconds;
+        private @Nullable String path;
         private @Nullable SpringCloudCustomizedAcceleratorGitRepositorySshAuth sshAuth;
         private String url;
         public Builder() {}
@@ -139,6 +152,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
     	      this.commit = defaults.commit;
     	      this.gitTag = defaults.gitTag;
     	      this.intervalInSeconds = defaults.intervalInSeconds;
+    	      this.path = defaults.path;
     	      this.sshAuth = defaults.sshAuth;
     	      this.url = defaults.url;
         }
@@ -174,6 +188,11 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
             return this;
         }
         @CustomType.Setter
+        public Builder path(@Nullable String path) {
+            this.path = path;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sshAuth(@Nullable SpringCloudCustomizedAcceleratorGitRepositorySshAuth sshAuth) {
             this.sshAuth = sshAuth;
             return this;
@@ -191,6 +210,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
             _resultValue.commit = commit;
             _resultValue.gitTag = gitTag;
             _resultValue.intervalInSeconds = intervalInSeconds;
+            _resultValue.path = path;
             _resultValue.sshAuth = sshAuth;
             _resultValue.url = url;
             return _resultValue;

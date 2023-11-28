@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AnalyticsWorkspaceArgs', 'AnalyticsWorkspace']
 
@@ -19,6 +21,7 @@ class AnalyticsWorkspaceArgs:
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -37,6 +40,7 @@ class AnalyticsWorkspaceArgs:
                
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
+        :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -66,6 +70,8 @@ class AnalyticsWorkspaceArgs:
             pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
         if data_collection_rule_id is not None:
             pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if internet_ingestion_enabled is not None:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
@@ -146,6 +152,18 @@ class AnalyticsWorkspaceArgs:
     @data_collection_rule_id.setter
     def data_collection_rule_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_collection_rule_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")
@@ -273,6 +291,7 @@ class _AnalyticsWorkspaceState:
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -294,6 +313,7 @@ class _AnalyticsWorkspaceState:
                
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
+        :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -326,6 +346,8 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
         if data_collection_rule_id is not None:
             pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if internet_ingestion_enabled is not None:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
@@ -402,6 +424,18 @@ class _AnalyticsWorkspaceState:
     @data_collection_rule_id.setter
     def data_collection_rule_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_collection_rule_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['AnalyticsWorkspaceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")
@@ -579,6 +613,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -623,6 +658,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
+        :param pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -694,6 +730,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
                  local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -717,6 +754,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__.__dict__["cmk_for_query_forced"] = cmk_for_query_forced
             __props__.__dict__["daily_quota_gb"] = daily_quota_gb
             __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
@@ -748,6 +786,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
             daily_quota_gb: Optional[pulumi.Input[float]] = None,
             data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']]] = None,
             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
@@ -774,6 +813,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                
                > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
+        :param pulumi.Input[pulumi.InputType['AnalyticsWorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[bool] local_authentication_disabled: Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`.
@@ -806,6 +846,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["cmk_for_query_forced"] = cmk_for_query_forced
         __props__.__dict__["daily_quota_gb"] = daily_quota_gb
         __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
@@ -854,6 +895,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         The ID of the Data Collection Rule to use for this workspace.
         """
         return pulumi.get(self, "data_collection_rule_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.AnalyticsWorkspaceIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="internetIngestionEnabled")

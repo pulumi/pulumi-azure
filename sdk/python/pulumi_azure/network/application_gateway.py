@@ -1153,7 +1153,7 @@ class ApplicationGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             address_spaces=["10.254.0.0/16"])
-        frontend = azure.network.Subnet("frontend",
+        example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.254.0.0/24"])
@@ -1178,7 +1178,7 @@ class ApplicationGateway(pulumi.CustomResource):
             ),
             gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
                 name="my-gateway-ip-configuration",
-                subnet_id=frontend.id,
+                subnet_id=example_subnet.id,
             )],
             frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
                 name=frontend_port_name,
@@ -1281,7 +1281,7 @@ class ApplicationGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             address_spaces=["10.254.0.0/16"])
-        frontend = azure.network.Subnet("frontend",
+        example_subnet = azure.network.Subnet("exampleSubnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.254.0.0/24"])
@@ -1306,7 +1306,7 @@ class ApplicationGateway(pulumi.CustomResource):
             ),
             gateway_ip_configurations=[azure.network.ApplicationGatewayGatewayIpConfigurationArgs(
                 name="my-gateway-ip-configuration",
-                subnet_id=frontend.id,
+                subnet_id=example_subnet.id,
             )],
             frontend_ports=[azure.network.ApplicationGatewayFrontendPortArgs(
                 name=frontend_port_name,

@@ -46,6 +46,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly bool? FipsEnabled;
         /// <summary>
+        /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? GpuInstance;
+        /// <summary>
         /// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? HostGroupId;
@@ -204,6 +208,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             bool? fipsEnabled,
 
+            string? gpuInstance,
+
             string? hostGroupId,
 
             Outputs.KubernetesClusterDefaultNodePoolKubeletConfig? kubeletConfig,
@@ -274,6 +280,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EnableHostEncryption = enableHostEncryption;
             EnableNodePublicIp = enableNodePublicIp;
             FipsEnabled = fipsEnabled;
+            GpuInstance = gpuInstance;
             HostGroupId = hostGroupId;
             KubeletConfig = kubeletConfig;
             KubeletDiskType = kubeletDiskType;

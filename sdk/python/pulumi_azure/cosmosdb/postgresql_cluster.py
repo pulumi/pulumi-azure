@@ -16,14 +16,14 @@ __all__ = ['PostgresqlClusterArgs', 'PostgresqlCluster']
 @pulumi.input_type
 class PostgresqlClusterArgs:
     def __init__(__self__, *,
-                 coordinator_storage_quota_in_mb: pulumi.Input[int],
-                 coordinator_vcore_count: pulumi.Input[int],
                  node_count: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  citus_version: Optional[pulumi.Input[str]] = None,
                  coordinator_public_ip_access_enabled: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
+                 coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+                 coordinator_vcore_count: Optional[pulumi.Input[int]] = None,
                  ha_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['PostgresqlClusterMaintenanceWindowArgs']] = None,
@@ -41,16 +41,16 @@ class PostgresqlClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PostgresqlCluster resource.
-        :param pulumi.Input[int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
-               
-               > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-        :param pulumi.Input[int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[int] node_count: The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
+        :param pulumi.Input[int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+               
+               > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+        :param pulumi.Input[int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
         :param pulumi.Input[str] location: The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['PostgresqlClusterMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
@@ -67,8 +67,6 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
-        pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
-        pulumi.set(__self__, "coordinator_vcore_count", coordinator_vcore_count)
         pulumi.set(__self__, "node_count", node_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login_password is not None:
@@ -79,6 +77,10 @@ class PostgresqlClusterArgs:
             pulumi.set(__self__, "coordinator_public_ip_access_enabled", coordinator_public_ip_access_enabled)
         if coordinator_server_edition is not None:
             pulumi.set(__self__, "coordinator_server_edition", coordinator_server_edition)
+        if coordinator_storage_quota_in_mb is not None:
+            pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
+        if coordinator_vcore_count is not None:
+            pulumi.set(__self__, "coordinator_vcore_count", coordinator_vcore_count)
         if ha_enabled is not None:
             pulumi.set(__self__, "ha_enabled", ha_enabled)
         if location is not None:
@@ -109,32 +111,6 @@ class PostgresqlClusterArgs:
             pulumi.set(__self__, "sql_version", sql_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="coordinatorStorageQuotaInMb")
-    def coordinator_storage_quota_in_mb(self) -> pulumi.Input[int]:
-        """
-        The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
-
-        > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
-        """
-        return pulumi.get(self, "coordinator_storage_quota_in_mb")
-
-    @coordinator_storage_quota_in_mb.setter
-    def coordinator_storage_quota_in_mb(self, value: pulumi.Input[int]):
-        pulumi.set(self, "coordinator_storage_quota_in_mb", value)
-
-    @property
-    @pulumi.getter(name="coordinatorVcoreCount")
-    def coordinator_vcore_count(self) -> pulumi.Input[int]:
-        """
-        The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
-        """
-        return pulumi.get(self, "coordinator_vcore_count")
-
-    @coordinator_vcore_count.setter
-    def coordinator_vcore_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "coordinator_vcore_count", value)
 
     @property
     @pulumi.getter(name="nodeCount")
@@ -207,6 +183,32 @@ class PostgresqlClusterArgs:
     @coordinator_server_edition.setter
     def coordinator_server_edition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "coordinator_server_edition", value)
+
+    @property
+    @pulumi.getter(name="coordinatorStorageQuotaInMb")
+    def coordinator_storage_quota_in_mb(self) -> Optional[pulumi.Input[int]]:
+        """
+        The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+
+        > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+        """
+        return pulumi.get(self, "coordinator_storage_quota_in_mb")
+
+    @coordinator_storage_quota_in_mb.setter
+    def coordinator_storage_quota_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "coordinator_storage_quota_in_mb", value)
+
+    @property
+    @pulumi.getter(name="coordinatorVcoreCount")
+    def coordinator_vcore_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
+        """
+        return pulumi.get(self, "coordinator_vcore_count")
+
+    @coordinator_vcore_count.setter
+    def coordinator_vcore_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "coordinator_vcore_count", value)
 
     @property
     @pulumi.getter(name="haEnabled")
@@ -953,11 +955,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             __props__.__dict__["citus_version"] = citus_version
             __props__.__dict__["coordinator_public_ip_access_enabled"] = coordinator_public_ip_access_enabled
             __props__.__dict__["coordinator_server_edition"] = coordinator_server_edition
-            if coordinator_storage_quota_in_mb is None and not opts.urn:
-                raise TypeError("Missing required property 'coordinator_storage_quota_in_mb'")
             __props__.__dict__["coordinator_storage_quota_in_mb"] = coordinator_storage_quota_in_mb
-            if coordinator_vcore_count is None and not opts.urn:
-                raise TypeError("Missing required property 'coordinator_vcore_count'")
             __props__.__dict__["coordinator_vcore_count"] = coordinator_vcore_count
             __props__.__dict__["ha_enabled"] = ha_enabled
             __props__.__dict__["location"] = location
@@ -1115,7 +1113,7 @@ class PostgresqlCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coordinatorStorageQuotaInMb")
-    def coordinator_storage_quota_in_mb(self) -> pulumi.Output[int]:
+    def coordinator_storage_quota_in_mb(self) -> pulumi.Output[Optional[int]]:
         """
         The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 
@@ -1125,7 +1123,7 @@ class PostgresqlCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="coordinatorVcoreCount")
-    def coordinator_vcore_count(self) -> pulumi.Output[int]:
+    def coordinator_vcore_count(self) -> pulumi.Output[Optional[int]]:
         """
         The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         """

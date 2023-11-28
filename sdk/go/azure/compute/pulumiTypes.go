@@ -1042,6 +1042,8 @@ func (o GalleryApplicationVersionSourcePtrOutput) MediaLink() pulumi.StringPtrOu
 }
 
 type GalleryApplicationVersionTargetRegion struct {
+	// Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+	ExcludeFromLatest *bool `pulumi:"excludeFromLatest"`
 	// The Azure Region in which the Gallery Application Version exists.
 	Name string `pulumi:"name"`
 	// The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
@@ -1062,6 +1064,8 @@ type GalleryApplicationVersionTargetRegionInput interface {
 }
 
 type GalleryApplicationVersionTargetRegionArgs struct {
+	// Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+	ExcludeFromLatest pulumi.BoolPtrInput `pulumi:"excludeFromLatest"`
 	// The Azure Region in which the Gallery Application Version exists.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
@@ -1119,6 +1123,11 @@ func (o GalleryApplicationVersionTargetRegionOutput) ToGalleryApplicationVersion
 
 func (o GalleryApplicationVersionTargetRegionOutput) ToGalleryApplicationVersionTargetRegionOutputWithContext(ctx context.Context) GalleryApplicationVersionTargetRegionOutput {
 	return o
+}
+
+// Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
+func (o GalleryApplicationVersionTargetRegionOutput) ExcludeFromLatest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GalleryApplicationVersionTargetRegion) *bool { return v.ExcludeFromLatest }).(pulumi.BoolPtrOutput)
 }
 
 // The Azure Region in which the Gallery Application Version exists.

@@ -28,7 +28,7 @@ public final class SparkClusterRolesWorkerNode {
      */
     private @Nullable String password;
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
      * 
      */
     private @Nullable List<SparkClusterRolesWorkerNodeScriptAction> scriptActions;
@@ -83,7 +83,7 @@ public final class SparkClusterRolesWorkerNode {
         return Optional.ofNullable(this.password);
     }
     /**
-     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
+     * @return The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
      * 
      */
     public List<SparkClusterRolesWorkerNodeScriptAction> scriptActions() {

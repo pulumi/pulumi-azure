@@ -81,13 +81,13 @@ namespace Pulumi.Azure.CosmosDB
         /// &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         /// </summary>
         [Output("coordinatorStorageQuotaInMb")]
-        public Output<int> CoordinatorStorageQuotaInMb { get; private set; } = null!;
+        public Output<int?> CoordinatorStorageQuotaInMb { get; private set; } = null!;
 
         /// <summary>
         /// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         /// </summary>
         [Output("coordinatorVcoreCount")]
-        public Output<int> CoordinatorVcoreCount { get; private set; } = null!;
+        public Output<int?> CoordinatorVcoreCount { get; private set; } = null!;
 
         /// <summary>
         /// The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
@@ -286,14 +286,14 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         /// </summary>
-        [Input("coordinatorStorageQuotaInMb", required: true)]
-        public Input<int> CoordinatorStorageQuotaInMb { get; set; } = null!;
+        [Input("coordinatorStorageQuotaInMb")]
+        public Input<int>? CoordinatorStorageQuotaInMb { get; set; }
 
         /// <summary>
         /// The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         /// </summary>
-        [Input("coordinatorVcoreCount", required: true)]
-        public Input<int> CoordinatorVcoreCount { get; set; } = null!;
+        [Input("coordinatorVcoreCount")]
+        public Input<int>? CoordinatorVcoreCount { get; set; }
 
         /// <summary>
         /// Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.

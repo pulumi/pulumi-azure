@@ -137,7 +137,7 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="coordinatorStorageQuotaInMb", refs={Integer.class}, tree="[0]")
-    private Output<Integer> coordinatorStorageQuotaInMb;
+    private Output</* @Nullable */ Integer> coordinatorStorageQuotaInMb;
 
     /**
      * @return The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
@@ -145,22 +145,22 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      * 
      */
-    public Output<Integer> coordinatorStorageQuotaInMb() {
-        return this.coordinatorStorageQuotaInMb;
+    public Output<Optional<Integer>> coordinatorStorageQuotaInMb() {
+        return Codegen.optional(this.coordinatorStorageQuotaInMb);
     }
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      * 
      */
     @Export(name="coordinatorVcoreCount", refs={Integer.class}, tree="[0]")
-    private Output<Integer> coordinatorVcoreCount;
+    private Output</* @Nullable */ Integer> coordinatorVcoreCount;
 
     /**
      * @return The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      * 
      */
-    public Output<Integer> coordinatorVcoreCount() {
-        return this.coordinatorVcoreCount;
+    public Output<Optional<Integer>> coordinatorVcoreCount() {
+        return Codegen.optional(this.coordinatorVcoreCount);
     }
     /**
      * The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.

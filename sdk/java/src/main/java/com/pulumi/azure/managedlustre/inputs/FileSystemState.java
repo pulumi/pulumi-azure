@@ -102,6 +102,21 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * IP Address of Managed Lustre File System Services.
+     * 
+     */
+    @Import(name="mgsAddress")
+    private @Nullable Output<String> mgsAddress;
+
+    /**
+     * @return IP Address of Managed Lustre File System Services.
+     * 
+     */
+    public Optional<Output<String>> mgsAddress() {
+        return Optional.ofNullable(this.mgsAddress);
+    }
+
+    /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      * 
      */
@@ -214,6 +229,7 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.location = $.location;
         this.maintenanceWindow = $.maintenanceWindow;
+        this.mgsAddress = $.mgsAddress;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
@@ -348,6 +364,27 @@ public final class FileSystemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder maintenanceWindow(FileSystemMaintenanceWindowArgs maintenanceWindow) {
             return maintenanceWindow(Output.of(maintenanceWindow));
+        }
+
+        /**
+         * @param mgsAddress IP Address of Managed Lustre File System Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mgsAddress(@Nullable Output<String> mgsAddress) {
+            $.mgsAddress = mgsAddress;
+            return this;
+        }
+
+        /**
+         * @param mgsAddress IP Address of Managed Lustre File System Services.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mgsAddress(String mgsAddress) {
+            return mgsAddress(Output.of(mgsAddress));
         }
 
         /**

@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class GalleryApplicationVersionTargetRegionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GalleryApplicationVersionTargetRegionArgs Empty = new GalleryApplicationVersionTargetRegionArgs();
+
+    /**
+     * Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
+     * 
+     */
+    @Import(name="excludeFromLatest")
+    private @Nullable Output<Boolean> excludeFromLatest;
+
+    /**
+     * @return Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> excludeFromLatest() {
+        return Optional.ofNullable(this.excludeFromLatest);
+    }
 
     /**
      * The Azure Region in which the Gallery Application Version exists.
@@ -64,6 +80,7 @@ public final class GalleryApplicationVersionTargetRegionArgs extends com.pulumi.
     private GalleryApplicationVersionTargetRegionArgs() {}
 
     private GalleryApplicationVersionTargetRegionArgs(GalleryApplicationVersionTargetRegionArgs $) {
+        this.excludeFromLatest = $.excludeFromLatest;
         this.name = $.name;
         this.regionalReplicaCount = $.regionalReplicaCount;
         this.storageAccountType = $.storageAccountType;
@@ -85,6 +102,27 @@ public final class GalleryApplicationVersionTargetRegionArgs extends com.pulumi.
 
         public Builder(GalleryApplicationVersionTargetRegionArgs defaults) {
             $ = new GalleryApplicationVersionTargetRegionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param excludeFromLatest Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFromLatest(@Nullable Output<Boolean> excludeFromLatest) {
+            $.excludeFromLatest = excludeFromLatest;
+            return this;
+        }
+
+        /**
+         * @param excludeFromLatest Specifies whether this Gallery Application Version should be excluded from the `latest` filter. If set to `true`, this Gallery Application Version won&#39;t be returned for the `latest` version. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeFromLatest(Boolean excludeFromLatest) {
+            return excludeFromLatest(Output.of(excludeFromLatest));
         }
 
         /**

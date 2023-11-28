@@ -102,6 +102,8 @@ type Certificate struct {
 	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob pulumi.StringPtrOutput `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
 	SubjectName pulumi.StringOutput `pulumi:"subjectName"`
@@ -182,6 +184,8 @@ type certificateState struct {
 	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The subject name of the certificate.
 	SubjectName *string `pulumi:"subjectName"`
@@ -219,6 +223,8 @@ type CertificateState struct {
 	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName pulumi.StringPtrInput
 	// The subject name of the certificate.
 	SubjectName pulumi.StringPtrInput
@@ -248,6 +254,8 @@ type certificateArgs struct {
 	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob *string `pulumi:"pfxBlob"`
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -270,6 +278,8 @@ type CertificateArgs struct {
 	// > **NOTE:** Either `pfxBlob` or `keyVaultSecretId` must be set - but not both.
 	PfxBlob pulumi.StringPtrInput
 	// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -425,6 +435,8 @@ func (o CertificateOutput) PfxBlob() pulumi.StringPtrOutput {
 }
 
 // The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+//
+// > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
 func (o CertificateOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }

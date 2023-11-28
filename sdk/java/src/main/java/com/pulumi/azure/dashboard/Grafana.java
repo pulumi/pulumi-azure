@@ -247,14 +247,14 @@ public class Grafana extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * @return The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     public Output<Optional<String>> sku() {

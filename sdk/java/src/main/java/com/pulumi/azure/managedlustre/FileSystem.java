@@ -173,6 +173,20 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindow;
     }
     /**
+     * IP Address of Managed Lustre File System Services.
+     * 
+     */
+    @Export(name="mgsAddress", refs={String.class}, tree="[0]")
+    private Output<String> mgsAddress;
+
+    /**
+     * @return IP Address of Managed Lustre File System Services.
+     * 
+     */
+    public Output<String> mgsAddress() {
+        return this.mgsAddress;
+    }
+    /**
      * The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
      * 
      */

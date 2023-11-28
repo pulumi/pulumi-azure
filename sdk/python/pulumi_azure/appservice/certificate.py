@@ -25,6 +25,8 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -56,6 +58,8 @@ class CertificateArgs:
     def resource_group_name(self) -> pulumi.Input[str]:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+
+        > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -186,6 +190,8 @@ class _CertificateState:
                
                > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
@@ -374,6 +380,8 @@ class _CertificateState:
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+
+        > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -471,6 +479,8 @@ class Certificate(pulumi.CustomResource):
                
                > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -607,6 +617,8 @@ class Certificate(pulumi.CustomResource):
                
                > **NOTE:** Either `pfx_blob` or `key_vault_secret_id` must be set - but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+               
+               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[str] subject_name: The subject name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The thumbprint for the certificate.
@@ -736,6 +748,8 @@ class Certificate(pulumi.CustomResource):
     def resource_group_name(self) -> pulumi.Output[str]:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
+
+        > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         return pulumi.get(self, "resource_group_name")
 

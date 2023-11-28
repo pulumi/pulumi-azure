@@ -33,6 +33,21 @@ public final class SpringCloudCustomizedAcceleratorState extends com.pulumi.reso
     }
 
     /**
+     * Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     * 
+     */
+    @Import(name="acceleratorType")
+    private @Nullable Output<String> acceleratorType;
+
+    /**
+     * @return Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+     * 
+     */
+    public Optional<Output<String>> acceleratorType() {
+        return Optional.ofNullable(this.acceleratorType);
+    }
+
+    /**
      * Specifies the description of the Spring Cloud Customized Accelerator.
      * 
      */
@@ -126,6 +141,7 @@ public final class SpringCloudCustomizedAcceleratorState extends com.pulumi.reso
 
     private SpringCloudCustomizedAcceleratorState(SpringCloudCustomizedAcceleratorState $) {
         this.acceleratorTags = $.acceleratorTags;
+        this.acceleratorType = $.acceleratorType;
         this.description = $.description;
         this.displayName = $.displayName;
         this.gitRepository = $.gitRepository;
@@ -181,6 +197,27 @@ public final class SpringCloudCustomizedAcceleratorState extends com.pulumi.reso
          */
         public Builder acceleratorTags(String... acceleratorTags) {
             return acceleratorTags(List.of(acceleratorTags));
+        }
+
+        /**
+         * @param acceleratorType Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratorType(@Nullable Output<String> acceleratorType) {
+            $.acceleratorType = acceleratorType;
+            return this;
+        }
+
+        /**
+         * @param acceleratorType Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratorType(String acceleratorType) {
+            return acceleratorType(Output.of(acceleratorType));
         }
 
         /**

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -76,6 +78,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      * The ID of the Data Collection Rule to use for this workspace.
      */
     public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
+    /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.operationalinsights.AnalyticsWorkspaceIdentity | undefined>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
@@ -156,6 +162,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["cmkForQueryForced"] = state ? state.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             resourceInputs["dataCollectionRuleId"] = state ? state.dataCollectionRuleId : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = state ? state.localAuthenticationDisabled : undefined;
@@ -178,6 +185,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["cmkForQueryForced"] = args ? args.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
             resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
             resourceInputs["localAuthenticationDisabled"] = args ? args.localAuthenticationDisabled : undefined;
@@ -221,6 +229,10 @@ export interface AnalyticsWorkspaceState {
      * The ID of the Data Collection Rule to use for this workspace.
      */
     dataCollectionRuleId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */
@@ -307,6 +319,10 @@ export interface AnalyticsWorkspaceArgs {
      * The ID of the Data Collection Rule to use for this workspace.
      */
     dataCollectionRuleId?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceIdentity>;
     /**
      * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
      */

@@ -244,7 +244,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+        /// &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
         /// </summary>
         [Output("transparentDataEncryptionEnabled")]
         public Output<bool?> TransparentDataEncryptionEnabled { get; private set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+        /// &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
         /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }
@@ -674,7 +674,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+        /// &gt; **NOTE:** `transparent_data_encryption_enabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
         /// </summary>
         [Input("transparentDataEncryptionEnabled")]
         public Input<bool>? TransparentDataEncryptionEnabled { get; set; }

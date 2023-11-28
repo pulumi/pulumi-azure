@@ -85,7 +85,7 @@ namespace Pulumi.Azure.PrivateDns
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         /// </summary>
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.PrivateDns
         }
 
         /// <summary>
-        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }

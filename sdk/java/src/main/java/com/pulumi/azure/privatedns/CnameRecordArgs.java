@@ -78,14 +78,14 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Time To Live (TTL) of the DNS record in seconds.
+     * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      * 
      */
     @Import(name="ttl", required=true)
     private Output<Integer> ttl;
 
     /**
-     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * @return The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      * 
      */
     public Output<Integer> ttl() {
@@ -221,7 +221,7 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
          * 
          * @return builder
          * 

@@ -146,14 +146,14 @@ public class CnameRecord extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The Time To Live (TTL) of the DNS record in seconds.
+     * The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      * 
      */
     @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output<Integer> ttl;
 
     /**
-     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * @return The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
      * 
      */
     public Output<Integer> ttl() {

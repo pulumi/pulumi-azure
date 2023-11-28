@@ -24,7 +24,7 @@ class CnameRecordArgs:
         The set of arguments for constructing a CnameRecord resource.
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -66,7 +66,7 @@ class CnameRecordArgs:
     @pulumi.getter
     def ttl(self) -> pulumi.Input[int]:
         """
-        The Time To Live (TTL) of the DNS record in seconds.
+        The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         """
         return pulumi.get(self, "ttl")
 
@@ -128,7 +128,7 @@ class _CnameRecordState:
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
@@ -210,7 +210,7 @@ class _CnameRecordState:
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
         """
-        The Time To Live (TTL) of the DNS record in seconds.
+        The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         """
         return pulumi.get(self, "ttl")
 
@@ -275,7 +275,7 @@ class CnameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
@@ -384,7 +384,7 @@ class CnameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         :param pulumi.Input[str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -444,7 +444,7 @@ class CnameRecord(pulumi.CustomResource):
     @pulumi.getter
     def ttl(self) -> pulumi.Output[int]:
         """
-        The Time To Live (TTL) of the DNS record in seconds.
+        The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         """
         return pulumi.get(self, "ttl")
 

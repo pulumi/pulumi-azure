@@ -203,9 +203,207 @@ func (o AnalyticsSolutionPlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type AnalyticsWorkspaceIdentity struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId *string  `pulumi:"principalId"`
+	TenantId    *string  `pulumi:"tenantId"`
+	// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+	//
+	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+	Type string `pulumi:"type"`
+}
+
+// AnalyticsWorkspaceIdentityInput is an input type that accepts AnalyticsWorkspaceIdentityArgs and AnalyticsWorkspaceIdentityOutput values.
+// You can construct a concrete instance of `AnalyticsWorkspaceIdentityInput` via:
+//
+//	AnalyticsWorkspaceIdentityArgs{...}
+type AnalyticsWorkspaceIdentityInput interface {
+	pulumi.Input
+
+	ToAnalyticsWorkspaceIdentityOutput() AnalyticsWorkspaceIdentityOutput
+	ToAnalyticsWorkspaceIdentityOutputWithContext(context.Context) AnalyticsWorkspaceIdentityOutput
+}
+
+type AnalyticsWorkspaceIdentityArgs struct {
+	// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
+	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+	//
+	// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AnalyticsWorkspaceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsWorkspaceIdentity)(nil)).Elem()
+}
+
+func (i AnalyticsWorkspaceIdentityArgs) ToAnalyticsWorkspaceIdentityOutput() AnalyticsWorkspaceIdentityOutput {
+	return i.ToAnalyticsWorkspaceIdentityOutputWithContext(context.Background())
+}
+
+func (i AnalyticsWorkspaceIdentityArgs) ToAnalyticsWorkspaceIdentityOutputWithContext(ctx context.Context) AnalyticsWorkspaceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceIdentityOutput)
+}
+
+func (i AnalyticsWorkspaceIdentityArgs) ToAnalyticsWorkspaceIdentityPtrOutput() AnalyticsWorkspaceIdentityPtrOutput {
+	return i.ToAnalyticsWorkspaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyticsWorkspaceIdentityArgs) ToAnalyticsWorkspaceIdentityPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceIdentityOutput).ToAnalyticsWorkspaceIdentityPtrOutputWithContext(ctx)
+}
+
+// AnalyticsWorkspaceIdentityPtrInput is an input type that accepts AnalyticsWorkspaceIdentityArgs, AnalyticsWorkspaceIdentityPtr and AnalyticsWorkspaceIdentityPtrOutput values.
+// You can construct a concrete instance of `AnalyticsWorkspaceIdentityPtrInput` via:
+//
+//	        AnalyticsWorkspaceIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyticsWorkspaceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToAnalyticsWorkspaceIdentityPtrOutput() AnalyticsWorkspaceIdentityPtrOutput
+	ToAnalyticsWorkspaceIdentityPtrOutputWithContext(context.Context) AnalyticsWorkspaceIdentityPtrOutput
+}
+
+type analyticsWorkspaceIdentityPtrType AnalyticsWorkspaceIdentityArgs
+
+func AnalyticsWorkspaceIdentityPtr(v *AnalyticsWorkspaceIdentityArgs) AnalyticsWorkspaceIdentityPtrInput {
+	return (*analyticsWorkspaceIdentityPtrType)(v)
+}
+
+func (*analyticsWorkspaceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsWorkspaceIdentity)(nil)).Elem()
+}
+
+func (i *analyticsWorkspaceIdentityPtrType) ToAnalyticsWorkspaceIdentityPtrOutput() AnalyticsWorkspaceIdentityPtrOutput {
+	return i.ToAnalyticsWorkspaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *analyticsWorkspaceIdentityPtrType) ToAnalyticsWorkspaceIdentityPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceIdentityPtrOutput)
+}
+
+type AnalyticsWorkspaceIdentityOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsWorkspaceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyticsWorkspaceIdentity)(nil)).Elem()
+}
+
+func (o AnalyticsWorkspaceIdentityOutput) ToAnalyticsWorkspaceIdentityOutput() AnalyticsWorkspaceIdentityOutput {
+	return o
+}
+
+func (o AnalyticsWorkspaceIdentityOutput) ToAnalyticsWorkspaceIdentityOutputWithContext(ctx context.Context) AnalyticsWorkspaceIdentityOutput {
+	return o
+}
+
+func (o AnalyticsWorkspaceIdentityOutput) ToAnalyticsWorkspaceIdentityPtrOutput() AnalyticsWorkspaceIdentityPtrOutput {
+	return o.ToAnalyticsWorkspaceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyticsWorkspaceIdentityOutput) ToAnalyticsWorkspaceIdentityPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsWorkspaceIdentity) *AnalyticsWorkspaceIdentity {
+		return &v
+	}).(AnalyticsWorkspaceIdentityPtrOutput)
+}
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+func (o AnalyticsWorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalyticsWorkspaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o AnalyticsWorkspaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalyticsWorkspaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyticsWorkspaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalyticsWorkspaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+//
+// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+func (o AnalyticsWorkspaceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalyticsWorkspaceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AnalyticsWorkspaceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyticsWorkspaceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyticsWorkspaceIdentity)(nil)).Elem()
+}
+
+func (o AnalyticsWorkspaceIdentityPtrOutput) ToAnalyticsWorkspaceIdentityPtrOutput() AnalyticsWorkspaceIdentityPtrOutput {
+	return o
+}
+
+func (o AnalyticsWorkspaceIdentityPtrOutput) ToAnalyticsWorkspaceIdentityPtrOutputWithContext(ctx context.Context) AnalyticsWorkspaceIdentityPtrOutput {
+	return o
+}
+
+func (o AnalyticsWorkspaceIdentityPtrOutput) Elem() AnalyticsWorkspaceIdentityOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspaceIdentity) AnalyticsWorkspaceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsWorkspaceIdentity
+		return ret
+	}).(AnalyticsWorkspaceIdentityOutput)
+}
+
+// Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+func (o AnalyticsWorkspaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspaceIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AnalyticsWorkspaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AnalyticsWorkspaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+//
+// > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+func (o AnalyticsWorkspaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspaceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPlanInput)(nil)).Elem(), AnalyticsSolutionPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsSolutionPlanPtrInput)(nil)).Elem(), AnalyticsSolutionPlanArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsWorkspaceIdentityInput)(nil)).Elem(), AnalyticsWorkspaceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsWorkspaceIdentityPtrInput)(nil)).Elem(), AnalyticsWorkspaceIdentityArgs{})
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanOutput{})
 	pulumi.RegisterOutputType(AnalyticsSolutionPlanPtrOutput{})
+	pulumi.RegisterOutputType(AnalyticsWorkspaceIdentityOutput{})
+	pulumi.RegisterOutputType(AnalyticsWorkspaceIdentityPtrOutput{})
 }

@@ -49,6 +49,12 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
+        /// Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
         /// A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         /// </summary>
         [Input("sshAuth")]

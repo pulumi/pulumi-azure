@@ -617,13 +617,13 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) RetentionDays() pulumi.IntPtr
 type DatabaseThreatDetectionPolicy struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays *int `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+	// The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 	State *string `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
@@ -645,13 +645,13 @@ type DatabaseThreatDetectionPolicyInput interface {
 type DatabaseThreatDetectionPolicyArgs struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+	// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 	EmailAccountAdmins pulumi.StringPtrInput `pulumi:"emailAccountAdmins"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
 	RetentionDays pulumi.IntPtrInput `pulumi:"retentionDays"`
-	// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+	// The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
 	StorageAccountAccessKey pulumi.StringPtrInput `pulumi:"storageAccountAccessKey"`
@@ -741,7 +741,7 @@ func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArray
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
 }
@@ -756,7 +756,7 @@ func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+// The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -805,7 +805,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {
@@ -835,7 +835,7 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+// The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
 func (o DatabaseThreatDetectionPolicyPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
 		if v == nil {

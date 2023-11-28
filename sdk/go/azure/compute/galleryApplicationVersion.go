@@ -114,6 +114,8 @@ import (
 type GalleryApplicationVersion struct {
 	pulumi.CustomResourceState
 
+	// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+	ConfigFile pulumi.StringPtrOutput `pulumi:"configFile"`
 	// Should the Gallery Application reports health. Defaults to `false`.
 	EnableHealthCheck pulumi.BoolPtrOutput `pulumi:"enableHealthCheck"`
 	// The end of life date in RFC3339 format of the Gallery Application Version.
@@ -128,6 +130,8 @@ type GalleryApplicationVersion struct {
 	ManageAction GalleryApplicationVersionManageActionOutput `pulumi:"manageAction"`
 	// The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+	PackageFile pulumi.StringPtrOutput `pulumi:"packageFile"`
 	// A `source` block as defined below.
 	Source GalleryApplicationVersionSourceOutput `pulumi:"source"`
 	// A mapping of tags to assign to the Gallery Application Version.
@@ -178,6 +182,8 @@ func GetGalleryApplicationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryApplicationVersion resources.
 type galleryApplicationVersionState struct {
+	// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+	ConfigFile *string `pulumi:"configFile"`
 	// Should the Gallery Application reports health. Defaults to `false`.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
 	// The end of life date in RFC3339 format of the Gallery Application Version.
@@ -192,6 +198,8 @@ type galleryApplicationVersionState struct {
 	ManageAction *GalleryApplicationVersionManageAction `pulumi:"manageAction"`
 	// The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+	PackageFile *string `pulumi:"packageFile"`
 	// A `source` block as defined below.
 	Source *GalleryApplicationVersionSource `pulumi:"source"`
 	// A mapping of tags to assign to the Gallery Application Version.
@@ -201,6 +209,8 @@ type galleryApplicationVersionState struct {
 }
 
 type GalleryApplicationVersionState struct {
+	// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+	ConfigFile pulumi.StringPtrInput
 	// Should the Gallery Application reports health. Defaults to `false`.
 	EnableHealthCheck pulumi.BoolPtrInput
 	// The end of life date in RFC3339 format of the Gallery Application Version.
@@ -215,6 +225,8 @@ type GalleryApplicationVersionState struct {
 	ManageAction GalleryApplicationVersionManageActionPtrInput
 	// The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+	PackageFile pulumi.StringPtrInput
 	// A `source` block as defined below.
 	Source GalleryApplicationVersionSourcePtrInput
 	// A mapping of tags to assign to the Gallery Application Version.
@@ -228,6 +240,8 @@ func (GalleryApplicationVersionState) ElementType() reflect.Type {
 }
 
 type galleryApplicationVersionArgs struct {
+	// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+	ConfigFile *string `pulumi:"configFile"`
 	// Should the Gallery Application reports health. Defaults to `false`.
 	EnableHealthCheck *bool `pulumi:"enableHealthCheck"`
 	// The end of life date in RFC3339 format of the Gallery Application Version.
@@ -242,6 +256,8 @@ type galleryApplicationVersionArgs struct {
 	ManageAction GalleryApplicationVersionManageAction `pulumi:"manageAction"`
 	// The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+	PackageFile *string `pulumi:"packageFile"`
 	// A `source` block as defined below.
 	Source GalleryApplicationVersionSource `pulumi:"source"`
 	// A mapping of tags to assign to the Gallery Application Version.
@@ -252,6 +268,8 @@ type galleryApplicationVersionArgs struct {
 
 // The set of arguments for constructing a GalleryApplicationVersion resource.
 type GalleryApplicationVersionArgs struct {
+	// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+	ConfigFile pulumi.StringPtrInput
 	// Should the Gallery Application reports health. Defaults to `false`.
 	EnableHealthCheck pulumi.BoolPtrInput
 	// The end of life date in RFC3339 format of the Gallery Application Version.
@@ -266,6 +284,8 @@ type GalleryApplicationVersionArgs struct {
 	ManageAction GalleryApplicationVersionManageActionInput
 	// The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+	PackageFile pulumi.StringPtrInput
 	// A `source` block as defined below.
 	Source GalleryApplicationVersionSourceInput
 	// A mapping of tags to assign to the Gallery Application Version.
@@ -361,6 +381,11 @@ func (o GalleryApplicationVersionOutput) ToGalleryApplicationVersionOutputWithCo
 	return o
 }
 
+// Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionOutput) ConfigFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringPtrOutput { return v.ConfigFile }).(pulumi.StringPtrOutput)
+}
+
 // Should the Gallery Application reports health. Defaults to `false`.
 func (o GalleryApplicationVersionOutput) EnableHealthCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.BoolPtrOutput { return v.EnableHealthCheck }).(pulumi.BoolPtrOutput)
@@ -394,6 +419,11 @@ func (o GalleryApplicationVersionOutput) ManageAction() GalleryApplicationVersio
 // The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
 func (o GalleryApplicationVersionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+func (o GalleryApplicationVersionOutput) PackageFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringPtrOutput { return v.PackageFile }).(pulumi.StringPtrOutput)
 }
 
 // A `source` block as defined below.

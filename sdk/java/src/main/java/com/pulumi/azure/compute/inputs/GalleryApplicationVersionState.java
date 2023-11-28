@@ -22,6 +22,21 @@ public final class GalleryApplicationVersionState extends com.pulumi.resources.R
     public static final GalleryApplicationVersionState Empty = new GalleryApplicationVersionState();
 
     /**
+     * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="configFile")
+    private @Nullable Output<String> configFile;
+
+    /**
+     * @return Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> configFile() {
+        return Optional.ofNullable(this.configFile);
+    }
+
+    /**
      * Should the Gallery Application reports health. Defaults to `false`.
      * 
      */
@@ -127,6 +142,21 @@ public final class GalleryApplicationVersionState extends com.pulumi.resources.R
     }
 
     /**
+     * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="packageFile")
+    private @Nullable Output<String> packageFile;
+
+    /**
+     * @return Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> packageFile() {
+        return Optional.ofNullable(this.packageFile);
+    }
+
+    /**
      * A `source` block as defined below.
      * 
      */
@@ -174,6 +204,7 @@ public final class GalleryApplicationVersionState extends com.pulumi.resources.R
     private GalleryApplicationVersionState() {}
 
     private GalleryApplicationVersionState(GalleryApplicationVersionState $) {
+        this.configFile = $.configFile;
         this.enableHealthCheck = $.enableHealthCheck;
         this.endOfLifeDate = $.endOfLifeDate;
         this.excludeFromLatest = $.excludeFromLatest;
@@ -181,6 +212,7 @@ public final class GalleryApplicationVersionState extends com.pulumi.resources.R
         this.location = $.location;
         this.manageAction = $.manageAction;
         this.name = $.name;
+        this.packageFile = $.packageFile;
         this.source = $.source;
         this.tags = $.tags;
         this.targetRegions = $.targetRegions;
@@ -202,6 +234,27 @@ public final class GalleryApplicationVersionState extends com.pulumi.resources.R
 
         public Builder(GalleryApplicationVersionState defaults) {
             $ = new GalleryApplicationVersionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param configFile Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configFile(@Nullable Output<String> configFile) {
+            $.configFile = configFile;
+            return this;
+        }
+
+        /**
+         * @param configFile Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configFile(String configFile) {
+            return configFile(Output.of(configFile));
         }
 
         /**
@@ -349,6 +402,27 @@ public final class GalleryApplicationVersionState extends com.pulumi.resources.R
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param packageFile Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder packageFile(@Nullable Output<String> packageFile) {
+            $.packageFile = packageFile;
+            return this;
+        }
+
+        /**
+         * @param packageFile Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder packageFile(String packageFile) {
+            return packageFile(Output.of(packageFile));
         }
 
         /**

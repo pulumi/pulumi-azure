@@ -198,7 +198,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      *
-     * > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+     * > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      */
     public readonly transparentDataEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -409,7 +409,7 @@ export interface DatabaseState {
     /**
      * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      *
-     * > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+     * > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      */
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -541,7 +541,7 @@ export interface DatabaseArgs {
     /**
      * If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
      *
-     * > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+     * > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
      */
     transparentDataEncryptionEnabled?: pulumi.Input<boolean>;
     /**

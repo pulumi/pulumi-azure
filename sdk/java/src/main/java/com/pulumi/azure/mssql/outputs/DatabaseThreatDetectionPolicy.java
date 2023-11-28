@@ -19,7 +19,7 @@ public final class DatabaseThreatDetectionPolicy {
      */
     private @Nullable List<String> disabledAlerts;
     /**
-     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
      * 
      */
     private @Nullable String emailAccountAdmins;
@@ -34,7 +34,7 @@ public final class DatabaseThreatDetectionPolicy {
      */
     private @Nullable Integer retentionDays;
     /**
-     * @return The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+     * @return The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
      * 
      */
     private @Nullable String state;
@@ -58,7 +58,7 @@ public final class DatabaseThreatDetectionPolicy {
         return this.disabledAlerts == null ? List.of() : this.disabledAlerts;
     }
     /**
-     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
      * 
      */
     public Optional<String> emailAccountAdmins() {
@@ -79,7 +79,7 @@ public final class DatabaseThreatDetectionPolicy {
         return Optional.ofNullable(this.retentionDays);
     }
     /**
-     * @return The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+     * @return The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
      * 
      */
     public Optional<String> state() {

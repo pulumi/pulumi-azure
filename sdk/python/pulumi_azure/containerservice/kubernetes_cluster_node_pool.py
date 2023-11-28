@@ -25,6 +25,7 @@ class KubernetesClusterNodePoolArgs:
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 gpu_instance: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -79,6 +80,7 @@ class KubernetesClusterNodePoolArgs:
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -145,6 +147,8 @@ class KubernetesClusterNodePoolArgs:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_instance is not None:
+            pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_group_id is not None:
             pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
@@ -329,6 +333,18 @@ class KubernetesClusterNodePoolArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @property
+    @pulumi.getter(name="gpuInstance")
+    def gpu_instance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gpu_instance")
+
+    @gpu_instance.setter
+    def gpu_instance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gpu_instance", value)
 
     @property
     @pulumi.getter(name="hostGroupId")
@@ -753,6 +769,7 @@ class _KubernetesClusterNodePoolState:
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 gpu_instance: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -805,6 +822,7 @@ class _KubernetesClusterNodePoolState:
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -873,6 +891,8 @@ class _KubernetesClusterNodePoolState:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if gpu_instance is not None:
+            pulumi.set(__self__, "gpu_instance", gpu_instance)
         if host_group_id is not None:
             pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
@@ -1035,6 +1055,18 @@ class _KubernetesClusterNodePoolState:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @property
+    @pulumi.getter(name="gpuInstance")
+    def gpu_instance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gpu_instance")
+
+    @gpu_instance.setter
+    def gpu_instance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gpu_instance", value)
 
     @property
     @pulumi.getter(name="hostGroupId")
@@ -1487,6 +1519,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 gpu_instance: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1584,6 +1617,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -1710,6 +1744,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 gpu_instance: Optional[pulumi.Input[str]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
                  kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1761,6 +1796,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["fips_enabled"] = fips_enabled
+            __props__.__dict__["gpu_instance"] = gpu_instance
             __props__.__dict__["host_group_id"] = host_group_id
             __props__.__dict__["kubelet_config"] = kubelet_config
             __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
@@ -1817,6 +1853,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             fips_enabled: Optional[pulumi.Input[bool]] = None,
+            gpu_instance: Optional[pulumi.Input[str]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
             kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
@@ -1874,6 +1911,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
+        :param pulumi.Input[str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
@@ -1939,6 +1977,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         __props__.__dict__["enable_node_public_ip"] = enable_node_public_ip
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["fips_enabled"] = fips_enabled
+        __props__.__dict__["gpu_instance"] = gpu_instance
         __props__.__dict__["host_group_id"] = host_group_id
         __props__.__dict__["kubelet_config"] = kubelet_config
         __props__.__dict__["kubelet_disk_type"] = kubelet_disk_type
@@ -2039,6 +2078,14 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         """
         return pulumi.get(self, "fips_enabled")
+
+    @property
+    @pulumi.getter(name="gpuInstance")
+    def gpu_instance(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "gpu_instance")
 
     @property
     @pulumi.getter(name="hostGroupId")

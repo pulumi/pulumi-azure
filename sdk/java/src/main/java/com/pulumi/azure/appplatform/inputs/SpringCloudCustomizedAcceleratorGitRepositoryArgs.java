@@ -109,6 +109,21 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
     }
 
     /**
+     * Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+     * 
+     */
+    @Import(name="path")
+    private @Nullable Output<String> path;
+
+    /**
+     * @return Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+     * 
+     */
+    public Optional<Output<String>> path() {
+        return Optional.ofNullable(this.path);
+    }
+
+    /**
      * A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
      * 
      */
@@ -147,6 +162,7 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
         this.commit = $.commit;
         this.gitTag = $.gitTag;
         this.intervalInSeconds = $.intervalInSeconds;
+        this.path = $.path;
         this.sshAuth = $.sshAuth;
         this.url = $.url;
     }
@@ -293,6 +309,27 @@ public final class SpringCloudCustomizedAcceleratorGitRepositoryArgs extends com
          */
         public Builder intervalInSeconds(Integer intervalInSeconds) {
             return intervalInSeconds(Output.of(intervalInSeconds));
+        }
+
+        /**
+         * @param path Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(@Nullable Output<String> path) {
+            $.path = path;
+            return this;
+        }
+
+        /**
+         * @param path Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder path(String path) {
+            return path(Output.of(path));
         }
 
         /**

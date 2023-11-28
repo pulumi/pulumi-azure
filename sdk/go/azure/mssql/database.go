@@ -154,7 +154,7 @@ type Database struct {
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyOutput `pulumi:"threatDetectionPolicy"`
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
-	// > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
@@ -259,7 +259,7 @@ type databaseState struct {
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
-	// > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled *bool `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
@@ -332,7 +332,7 @@ type DatabaseState struct {
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
-	// > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
@@ -409,7 +409,7 @@ type databaseArgs struct {
 	ThreatDetectionPolicy *DatabaseThreatDetectionPolicy `pulumi:"threatDetectionPolicy"`
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
-	// > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled *bool `pulumi:"transparentDataEncryptionEnabled"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
@@ -483,7 +483,7 @@ type DatabaseArgs struct {
 	ThreatDetectionPolicy DatabaseThreatDetectionPolicyPtrInput
 	// If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 	//
-	// > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+	// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 	TransparentDataEncryptionEnabled pulumi.BoolPtrInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones. This property is only settable for Premium and Business Critical databases.
 	ZoneRedundant pulumi.BoolPtrInput
@@ -720,7 +720,7 @@ func (o DatabaseOutput) ThreatDetectionPolicy() DatabaseThreatDetectionPolicyOut
 
 // If set to true, Transparent Data Encryption will be enabled on the database. Defaults to `true`.
 //
-// > **NOTE:** TDE cannot be disabled on servers with SKUs other than ones starting with DW.
+// > **NOTE:** `transparentDataEncryptionEnabled` can only be set to `false` on DW (e.g, DataWarehouse) server SKUs.
 func (o DatabaseOutput) TransparentDataEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.TransparentDataEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }

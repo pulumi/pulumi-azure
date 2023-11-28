@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     addressSpaces: ["10.254.0.0/16"],
  * });
- * const frontend = new azure.network.Subnet("frontend", {
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.254.0.0/24"],
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     },
  *     gatewayIpConfigurations: [{
  *         name: "my-gateway-ip-configuration",
- *         subnetId: frontend.id,
+ *         subnetId: exampleSubnet.id,
  *     }],
  *     frontendPorts: [{
  *         name: frontendPortName,

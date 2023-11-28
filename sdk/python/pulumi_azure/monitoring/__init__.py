@@ -25,6 +25,7 @@ from .get_diagnostic_categories import *
 from .get_log_profile import *
 from .get_scheduled_query_rules_alert import *
 from .get_scheduled_query_rules_log import *
+from .get_workspace import *
 from .log_profile import *
 from .logz_monitor import *
 from .logz_sub_account import *

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var frontend = new Azure.Network.Subnet("frontend", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Network
     ///             new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
     ///             {
     ///                 Name = "my-gateway-ip-configuration",
-    ///                 SubnetId = frontend.Id,
+    ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
     ///         FrontendPorts = new[]

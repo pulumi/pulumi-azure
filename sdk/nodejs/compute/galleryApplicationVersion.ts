@@ -95,6 +95,10 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     */
+    public readonly configFile!: pulumi.Output<string | undefined>;
+    /**
      * Should the Gallery Application reports health. Defaults to `false`.
      */
     public readonly enableHealthCheck!: pulumi.Output<boolean | undefined>;
@@ -123,6 +127,10 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     */
+    public readonly packageFile!: pulumi.Output<string | undefined>;
+    /**
      * A `source` block as defined below.
      */
     public readonly source!: pulumi.Output<outputs.compute.GalleryApplicationVersionSource>;
@@ -148,6 +156,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GalleryApplicationVersionState | undefined;
+            resourceInputs["configFile"] = state ? state.configFile : undefined;
             resourceInputs["enableHealthCheck"] = state ? state.enableHealthCheck : undefined;
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
@@ -155,6 +164,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["manageAction"] = state ? state.manageAction : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["packageFile"] = state ? state.packageFile : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["targetRegions"] = state ? state.targetRegions : undefined;
@@ -172,6 +182,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if ((!args || args.targetRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
+            resourceInputs["configFile"] = args ? args.configFile : undefined;
             resourceInputs["enableHealthCheck"] = args ? args.enableHealthCheck : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
@@ -179,6 +190,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["manageAction"] = args ? args.manageAction : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["packageFile"] = args ? args.packageFile : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
@@ -192,6 +204,10 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GalleryApplicationVersion resources.
  */
 export interface GalleryApplicationVersionState {
+    /**
+     * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     */
+    configFile?: pulumi.Input<string>;
     /**
      * Should the Gallery Application reports health. Defaults to `false`.
      */
@@ -221,6 +237,10 @@ export interface GalleryApplicationVersionState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     */
+    packageFile?: pulumi.Input<string>;
+    /**
      * A `source` block as defined below.
      */
     source?: pulumi.Input<inputs.compute.GalleryApplicationVersionSource>;
@@ -238,6 +258,10 @@ export interface GalleryApplicationVersionState {
  * The set of arguments for constructing a GalleryApplicationVersion resource.
  */
 export interface GalleryApplicationVersionArgs {
+    /**
+     * Specifies the name of the config file on the VM. Changing this forces a new resource to be created.
+     */
+    configFile?: pulumi.Input<string>;
     /**
      * Should the Gallery Application reports health. Defaults to `false`.
      */
@@ -266,6 +290,10 @@ export interface GalleryApplicationVersionArgs {
      * The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
+     */
+    packageFile?: pulumi.Input<string>;
     /**
      * A `source` block as defined below.
      */

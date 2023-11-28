@@ -57,6 +57,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<bool>? FipsEnabled { get; set; }
 
         /// <summary>
+        /// Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("gpuInstance")]
+        public Input<string>? GpuInstance { get; set; }
+
+        /// <summary>
         /// Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("hostGroupId")]

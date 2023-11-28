@@ -219,6 +219,7 @@ class _FileSystemState:
                  identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']] = None,
+                 mgs_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
@@ -235,6 +236,7 @@ class _FileSystemState:
         :param pulumi.Input['FileSystemIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['FileSystemMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[str] mgs_address: IP Address of Managed Lustre File System Services.
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
@@ -253,6 +255,8 @@ class _FileSystemState:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if mgs_address is not None:
+            pulumi.set(__self__, "mgs_address", mgs_address)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -329,6 +333,18 @@ class _FileSystemState:
     @maintenance_window.setter
     def maintenance_window(self, value: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']]):
         pulumi.set(self, "maintenance_window", value)
+
+    @property
+    @pulumi.getter(name="mgsAddress")
+    def mgs_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP Address of Managed Lustre File System Services.
+        """
+        return pulumi.get(self, "mgs_address")
+
+    @mgs_address.setter
+    def mgs_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mgs_address", value)
 
     @property
     @pulumi.getter
@@ -538,6 +554,7 @@ class FileSystem(pulumi.CustomResource):
             if zones is None and not opts.urn:
                 raise TypeError("Missing required property 'zones'")
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["mgs_address"] = None
         super(FileSystem, __self__).__init__(
             'azure:managedlustre/fileSystem:FileSystem',
             resource_name,
@@ -553,6 +570,7 @@ class FileSystem(pulumi.CustomResource):
             identity: Optional[pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']]] = None,
+            mgs_address: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
@@ -574,6 +592,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FileSystemIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['FileSystemMaintenanceWindowArgs']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[str] mgs_address: IP Address of Managed Lustre File System Services.
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
@@ -591,6 +610,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["maintenance_window"] = maintenance_window
+        __props__.__dict__["mgs_address"] = mgs_address
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku_name"] = sku_name
@@ -641,6 +661,14 @@ class FileSystem(pulumi.CustomResource):
         A `maintenance_window` block as defined below.
         """
         return pulumi.get(self, "maintenance_window")
+
+    @property
+    @pulumi.getter(name="mgsAddress")
+    def mgs_address(self) -> pulumi.Output[str]:
+        """
+        IP Address of Managed Lustre File System Services.
+        """
+        return pulumi.get(self, "mgs_address")
 
     @property
     @pulumi.getter

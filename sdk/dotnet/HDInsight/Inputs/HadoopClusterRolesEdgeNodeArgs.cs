@@ -46,7 +46,7 @@ namespace Pulumi.Azure.HDInsight.Inputs
         private InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionArgs>? _uninstallScriptActions;
 
         /// <summary>
-        /// A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
+        /// A `uninstall_script_actions` block as defined below.
         /// </summary>
         public InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionArgs> UninstallScriptActions
         {

@@ -40,7 +40,8 @@ class SharedImageArgs:
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 trusted_launch_supported: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SharedImage resource.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -51,7 +52,7 @@ class SharedImageArgs:
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -72,6 +73,7 @@ class SharedImageArgs:
                !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_supported: Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "identifier", identifier)
@@ -119,6 +121,8 @@ class SharedImageArgs:
             pulumi.set(__self__, "tags", tags)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+        if trusted_launch_supported is not None:
+            pulumi.set(__self__, "trusted_launch_supported", trusted_launch_supported)
 
     @property
     @pulumi.getter(name="galleryName")
@@ -198,7 +202,7 @@ class SharedImageArgs:
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
-        > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+        > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         """
         return pulumi.get(self, "confidential_vm_enabled")
 
@@ -424,6 +428,18 @@ class SharedImageArgs:
     def trusted_launch_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "trusted_launch_enabled", value)
 
+    @property
+    @pulumi.getter(name="trustedLaunchSupported")
+    def trusted_launch_supported(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "trusted_launch_supported")
+
+    @trusted_launch_supported.setter
+    def trusted_launch_supported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_launch_supported", value)
+
 
 @pulumi.input_type
 class _SharedImageState:
@@ -452,14 +468,15 @@ class _SharedImageState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None):
+                 trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 trusted_launch_supported: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SharedImage resources.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -484,6 +501,7 @@ class _SharedImageState:
                !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_supported: Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         """
         if accelerated_network_support_enabled is not None:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
@@ -535,6 +553,8 @@ class _SharedImageState:
             pulumi.set(__self__, "tags", tags)
         if trusted_launch_enabled is not None:
             pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+        if trusted_launch_supported is not None:
+            pulumi.set(__self__, "trusted_launch_supported", trusted_launch_supported)
 
     @property
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
@@ -566,7 +586,7 @@ class _SharedImageState:
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
-        > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+        > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         """
         return pulumi.get(self, "confidential_vm_enabled")
 
@@ -840,6 +860,18 @@ class _SharedImageState:
     def trusted_launch_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "trusted_launch_enabled", value)
 
+    @property
+    @pulumi.getter(name="trustedLaunchSupported")
+    def trusted_launch_supported(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "trusted_launch_supported")
+
+    @trusted_launch_supported.setter
+    def trusted_launch_supported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_launch_supported", value)
+
 
 class SharedImage(pulumi.CustomResource):
     @overload
@@ -871,6 +903,7 @@ class SharedImage(pulumi.CustomResource):
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 trusted_launch_supported: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Manages a Shared Image within a Shared Image Gallery.
@@ -916,7 +949,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -941,6 +974,7 @@ class SharedImage(pulumi.CustomResource):
                !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_supported: Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1026,6 +1060,7 @@ class SharedImage(pulumi.CustomResource):
                  specialized: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+                 trusted_launch_supported: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1068,6 +1103,7 @@ class SharedImage(pulumi.CustomResource):
             __props__.__dict__["specialized"] = specialized
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
+            __props__.__dict__["trusted_launch_supported"] = trusted_launch_supported
         super(SharedImage, __self__).__init__(
             'azure:compute/sharedImage:SharedImage',
             resource_name,
@@ -1102,7 +1138,8 @@ class SharedImage(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             specialized: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trusted_launch_enabled: Optional[pulumi.Input[bool]] = None) -> 'SharedImage':
+            trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+            trusted_launch_supported: Optional[pulumi.Input[bool]] = None) -> 'SharedImage':
         """
         Get an existing SharedImage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1114,7 +1151,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] confidential_vm_enabled: Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
                
-               > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+               > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         :param pulumi.Input[bool] confidential_vm_supported: Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -1139,6 +1176,7 @@ class SharedImage(pulumi.CustomResource):
                !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] trusted_launch_supported: Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1169,6 +1207,7 @@ class SharedImage(pulumi.CustomResource):
         __props__.__dict__["specialized"] = specialized
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trusted_launch_enabled"] = trusted_launch_enabled
+        __props__.__dict__["trusted_launch_supported"] = trusted_launch_supported
         return SharedImage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1193,7 +1232,7 @@ class SharedImage(pulumi.CustomResource):
         """
         Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
 
-        > **Note:**: Only one of `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` could only be specified.
+        > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         """
         return pulumi.get(self, "confidential_vm_enabled")
 
@@ -1374,4 +1413,12 @@ class SharedImage(pulumi.CustomResource):
         Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "trusted_launch_enabled")
+
+    @property
+    @pulumi.getter(name="trustedLaunchSupported")
+    def trusted_launch_supported(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "trusted_launch_supported")
 

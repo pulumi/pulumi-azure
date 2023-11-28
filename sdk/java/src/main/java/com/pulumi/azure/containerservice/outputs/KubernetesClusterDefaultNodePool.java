@@ -58,6 +58,11 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable Boolean fipsEnabled;
     /**
+     * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String gpuInstance;
+    /**
      * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
@@ -284,6 +289,13 @@ public final class KubernetesClusterDefaultNodePool {
      */
     public Optional<Boolean> fipsEnabled() {
         return Optional.ofNullable(this.fipsEnabled);
+    }
+    /**
+     * @return Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> gpuInstance() {
+        return Optional.ofNullable(this.gpuInstance);
     }
     /**
      * @return Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -541,6 +553,7 @@ public final class KubernetesClusterDefaultNodePool {
         private @Nullable Boolean enableHostEncryption;
         private @Nullable Boolean enableNodePublicIp;
         private @Nullable Boolean fipsEnabled;
+        private @Nullable String gpuInstance;
         private @Nullable String hostGroupId;
         private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
         private @Nullable String kubeletDiskType;
@@ -582,6 +595,7 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.enableHostEncryption = defaults.enableHostEncryption;
     	      this.enableNodePublicIp = defaults.enableNodePublicIp;
     	      this.fipsEnabled = defaults.fipsEnabled;
+    	      this.gpuInstance = defaults.gpuInstance;
     	      this.hostGroupId = defaults.hostGroupId;
     	      this.kubeletConfig = defaults.kubeletConfig;
     	      this.kubeletDiskType = defaults.kubeletDiskType;
@@ -644,6 +658,11 @@ public final class KubernetesClusterDefaultNodePool {
         @CustomType.Setter
         public Builder fipsEnabled(@Nullable Boolean fipsEnabled) {
             this.fipsEnabled = fipsEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder gpuInstance(@Nullable String gpuInstance) {
+            this.gpuInstance = gpuInstance;
             return this;
         }
         @CustomType.Setter
@@ -820,6 +839,7 @@ public final class KubernetesClusterDefaultNodePool {
             _resultValue.enableHostEncryption = enableHostEncryption;
             _resultValue.enableNodePublicIp = enableNodePublicIp;
             _resultValue.fipsEnabled = fipsEnabled;
+            _resultValue.gpuInstance = gpuInstance;
             _resultValue.hostGroupId = hostGroupId;
             _resultValue.kubeletConfig = kubeletConfig;
             _resultValue.kubeletDiskType = kubeletDiskType;

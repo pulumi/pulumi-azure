@@ -201,14 +201,14 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * @return The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -556,7 +556,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+         * @param sku The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+         * @param sku The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
          * 
          * @return builder
          * 

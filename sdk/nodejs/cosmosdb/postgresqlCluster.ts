@@ -83,11 +83,11 @@ export class PostgresqlCluster extends pulumi.CustomResource {
      *
      * > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
-    public readonly coordinatorStorageQuotaInMb!: pulumi.Output<number>;
+    public readonly coordinatorStorageQuotaInMb!: pulumi.Output<number | undefined>;
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      */
-    public readonly coordinatorVcoreCount!: pulumi.Output<number>;
+    public readonly coordinatorVcoreCount!: pulumi.Output<number | undefined>;
     /**
      * The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
      */
@@ -200,12 +200,6 @@ export class PostgresqlCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PostgresqlClusterArgs | undefined;
-            if ((!args || args.coordinatorStorageQuotaInMb === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'coordinatorStorageQuotaInMb'");
-            }
-            if ((!args || args.coordinatorVcoreCount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'coordinatorVcoreCount'");
-            }
             if ((!args || args.nodeCount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'nodeCount'");
             }
@@ -373,11 +367,11 @@ export interface PostgresqlClusterArgs {
      *
      * > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
      */
-    coordinatorStorageQuotaInMb: pulumi.Input<number>;
+    coordinatorStorageQuotaInMb?: pulumi.Input<number>;
     /**
      * The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
      */
-    coordinatorVcoreCount: pulumi.Input<number>;
+    coordinatorVcoreCount?: pulumi.Input<number>;
     /**
      * Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
      */

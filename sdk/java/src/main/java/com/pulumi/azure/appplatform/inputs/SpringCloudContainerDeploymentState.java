@@ -35,6 +35,21 @@ public final class SpringCloudContainerDeploymentState extends com.pulumi.resour
     }
 
     /**
+     * Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    @Import(name="applicationPerformanceMonitoringIds")
+    private @Nullable Output<List<String>> applicationPerformanceMonitoringIds;
+
+    /**
+     * @return Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+     * 
+     */
+    public Optional<Output<List<String>>> applicationPerformanceMonitoringIds() {
+        return Optional.ofNullable(this.applicationPerformanceMonitoringIds);
+    }
+
+    /**
      * Specifies the arguments to the entrypoint. The docker image&#39;s `CMD` is used if not specified.
      * 
      */
@@ -188,6 +203,7 @@ public final class SpringCloudContainerDeploymentState extends com.pulumi.resour
 
     private SpringCloudContainerDeploymentState(SpringCloudContainerDeploymentState $) {
         this.addonJson = $.addonJson;
+        this.applicationPerformanceMonitoringIds = $.applicationPerformanceMonitoringIds;
         this.arguments = $.arguments;
         this.commands = $.commands;
         this.environmentVariables = $.environmentVariables;
@@ -237,6 +253,37 @@ public final class SpringCloudContainerDeploymentState extends com.pulumi.resour
          */
         public Builder addonJson(String addonJson) {
             return addonJson(Output.of(addonJson));
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringIds Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringIds(@Nullable Output<List<String>> applicationPerformanceMonitoringIds) {
+            $.applicationPerformanceMonitoringIds = applicationPerformanceMonitoringIds;
+            return this;
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringIds Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringIds(List<String> applicationPerformanceMonitoringIds) {
+            return applicationPerformanceMonitoringIds(Output.of(applicationPerformanceMonitoringIds));
+        }
+
+        /**
+         * @param applicationPerformanceMonitoringIds Specifies a list of Spring Cloud Application Performance Monitoring IDs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationPerformanceMonitoringIds(String... applicationPerformanceMonitoringIds) {
+            return applicationPerformanceMonitoringIds(List.of(applicationPerformanceMonitoringIds));
         }
 
         /**
