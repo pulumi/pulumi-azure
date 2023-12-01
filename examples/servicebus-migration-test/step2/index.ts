@@ -2,9 +2,8 @@
 
 import * as azure from "@pulumi/azure";
 
-const exampleResourceGroup = new azure.core.ResourceGroup("example", {
-    name: "my-servicebus",
-});
+const exampleResourceGroup = new azure.core.ResourceGroup("exampleservicebusmigration");
+
 const exampleNamespace = new azure.servicebus.Namespace("example", {
     resourceGroupName: exampleResourceGroup.name,
     sku: "Standard",
@@ -14,7 +13,7 @@ const exampleNamespace = new azure.servicebus.Namespace("example", {
 });
 const serviceBusQueue = new azure.servicebus.Queue("example", {
     enablePartitioning: true,
-    name: "tfex_servicebus_queue",
+    name: "servicebus-queue",
     namespaceId: exampleNamespace.id,
 });
 
