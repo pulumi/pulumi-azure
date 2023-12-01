@@ -105,7 +105,7 @@ func TestAccServicebusMigration(t *testing.T) {
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:             "step2",
+					Dir:             filepath.Join("servicebus-migration-test", "step2"),
 					Additive:        true,
 					ExpectNoChanges: true,
 				},
@@ -122,7 +122,7 @@ func TestAccMsiRenamed(t *testing.T) {
 			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:             "step2",
+					Dir:             filepath.Join("msi-renamed-to-authorization", "step2"),
 					Additive:        true,
 					ExpectNoChanges: true,
 				},
