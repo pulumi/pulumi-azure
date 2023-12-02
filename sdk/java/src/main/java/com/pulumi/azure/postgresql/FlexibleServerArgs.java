@@ -378,7 +378,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
      * 
      * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
      * 
@@ -387,7 +387,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
+     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
      * 
      * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
      * 
@@ -937,7 +937,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
+         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
          * 
          * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
          * 
@@ -950,7 +950,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
+         * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
          * 
          * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
          * 

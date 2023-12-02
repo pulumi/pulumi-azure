@@ -5680,7 +5680,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
         :param pulumi.Input[str] start_date: The date on which the maintenance window begins to take effect.
         :param pulumi.Input[str] start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
         :param pulumi.Input[str] utc_offset: Used to determine the timezone for cluster maintenance.
-        :param pulumi.Input[str] week_index: The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        :param pulumi.Input[str] week_index: Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
                Required in combination with relative monthly frequency.
         """
         pulumi.set(__self__, "duration", duration)
@@ -5813,7 +5813,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
     @pulumi.getter(name="weekIndex")
     def week_index(self) -> Optional[pulumi.Input[str]]:
         """
-        The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
         Required in combination with relative monthly frequency.
         """
         return pulumi.get(self, "week_index")

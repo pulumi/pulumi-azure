@@ -11505,7 +11505,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgrade struct {
 	StartTime *string `pulumi:"startTime"`
 	// Used to determine the timezone for cluster maintenance.
 	UtcOffset *string `pulumi:"utcOffset"`
-	// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+	// Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
 	// Required in combination with relative monthly frequency.
 	WeekIndex *string `pulumi:"weekIndex"`
 }
@@ -11540,7 +11540,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgradeArgs struct {
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Used to determine the timezone for cluster maintenance.
 	UtcOffset pulumi.StringPtrInput `pulumi:"utcOffset"`
-	// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+	// Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
 	// Required in combination with relative monthly frequency.
 	WeekIndex pulumi.StringPtrInput `pulumi:"weekIndex"`
 }
@@ -11669,7 +11669,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) UtcOffset() pulumi.
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.UtcOffset }).(pulumi.StringPtrOutput)
 }
 
-// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+// Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
 // Required in combination with relative monthly frequency.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) WeekIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.WeekIndex }).(pulumi.StringPtrOutput)
@@ -11789,7 +11789,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) UtcOffset() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+// Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
 // Required in combination with relative monthly frequency.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) WeekIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *string {

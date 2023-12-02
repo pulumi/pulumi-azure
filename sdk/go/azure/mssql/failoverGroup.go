@@ -47,7 +47,7 @@ import (
 //			}
 //			secondary, err := mssql.NewServer(ctx, "secondary", &mssql.ServerArgs{
 //				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//				Location:                   pulumi.String("North Europe"),
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat12"),

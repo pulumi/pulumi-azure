@@ -20,7 +20,7 @@ import (
 //
 // > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 //
-// > **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+// [> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
 //
 // ## Example Usage
 //
@@ -67,12 +67,13 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "exampleWindowsVirtualMachineScaleSet", &compute.WindowsVirtualMachineScaleSetArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Sku:               pulumi.String("Standard_F2"),
-//				Instances:         pulumi.Int(1),
-//				AdminPassword:     pulumi.String("P@55w0rd1234!"),
-//				AdminUsername:     pulumi.String("adminuser"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Location:           exampleResourceGroup.Location,
+//				Sku:                pulumi.String("Standard_F2"),
+//				Instances:          pulumi.Int(1),
+//				AdminPassword:      pulumi.String("P@55w0rd1234!"),
+//				AdminUsername:      pulumi.String("adminuser"),
+//				ComputerNamePrefix: pulumi.String("vm-"),
 //				SourceImageReference: &compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("MicrosoftWindowsServer"),
 //					Offer:     pulumi.String("WindowsServer"),

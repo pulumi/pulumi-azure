@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Redis.Outputs
     public sealed class CacheRedisConfiguration
     {
         /// <summary>
+        /// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+        /// </summary>
+        public readonly bool? ActiveDirectoryAuthenticationEnabled;
+        /// <summary>
         /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         /// 
         /// &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
@@ -102,6 +106,8 @@ namespace Pulumi.Azure.Redis.Outputs
 
         [OutputConstructor]
         private CacheRedisConfiguration(
+            bool? activeDirectoryAuthenticationEnabled,
+
             bool? aofBackupEnabled,
 
             string? aofStorageConnectionString0,
@@ -130,6 +136,7 @@ namespace Pulumi.Azure.Redis.Outputs
 
             string? rdbStorageConnectionString)
         {
+            ActiveDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
             AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;

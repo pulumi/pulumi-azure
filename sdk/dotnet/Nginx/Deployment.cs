@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Nginx
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specify the number of NGINX capacity units for this NGINX deployment.
+        /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
         /// 
         /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
@@ -258,7 +258,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the number of NGINX capacity units for this NGINX deployment.
+        /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
         /// 
         /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
@@ -376,7 +376,7 @@ namespace Pulumi.Azure.Nginx
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specify the number of NGINX capacity units for this NGINX deployment.
+        /// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
         /// 
         /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>

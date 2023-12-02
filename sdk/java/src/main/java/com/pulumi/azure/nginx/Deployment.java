@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:nginx/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
@@ -132,7 +132,7 @@ public class Deployment extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> capacity;
 
     /**
-     * @return Specify the number of NGINX capacity units for this NGINX deployment.
+     * @return Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 

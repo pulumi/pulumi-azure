@@ -210,11 +210,11 @@ export class FlowletDataFlow extends pulumi.CustomResource {
     /**
      * One or more `sink` blocks as defined below.
      */
-    public readonly sinks!: pulumi.Output<outputs.datafactory.FlowletDataFlowSink[]>;
+    public readonly sinks!: pulumi.Output<outputs.datafactory.FlowletDataFlowSink[] | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */
-    public readonly sources!: pulumi.Output<outputs.datafactory.FlowletDataFlowSource[]>;
+    public readonly sources!: pulumi.Output<outputs.datafactory.FlowletDataFlowSource[] | undefined>;
     /**
      * One or more `transformation` blocks as defined below.
      */
@@ -247,12 +247,6 @@ export class FlowletDataFlow extends pulumi.CustomResource {
             const args = argsOrState as FlowletDataFlowArgs | undefined;
             if ((!args || args.dataFactoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFactoryId'");
-            }
-            if ((!args || args.sinks === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sinks'");
-            }
-            if ((!args || args.sources === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'sources'");
             }
             resourceInputs["annotations"] = args ? args.annotations : undefined;
             resourceInputs["dataFactoryId"] = args ? args.dataFactoryId : undefined;
@@ -351,11 +345,11 @@ export interface FlowletDataFlowArgs {
     /**
      * One or more `sink` blocks as defined below.
      */
-    sinks: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSink>[]>;
+    sinks?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSink>[]>;
     /**
      * One or more `source` blocks as defined below.
      */
-    sources: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.datafactory.FlowletDataFlowSource>[]>;
     /**
      * One or more `transformation` blocks as defined below.
      */

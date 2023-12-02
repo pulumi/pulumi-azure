@@ -17,31 +17,29 @@ __all__ = ['FlowletDataFlowArgs', 'FlowletDataFlow']
 class FlowletDataFlowArgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
-                 sinks: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]],
-                 sources: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]],
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]] = None,
                  transformations: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]]] = None):
         """
         The set of arguments for constructing a FlowletDataFlow resource.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] description: The description for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[str] folder: The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]] sources: One or more `source` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowTransformationArgs']]] transformations: One or more `transformation` blocks as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "sinks", sinks)
-        pulumi.set(__self__, "sources", sources)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -54,6 +52,10 @@ class FlowletDataFlowArgs:
             pulumi.set(__self__, "script", script)
         if script_lines is not None:
             pulumi.set(__self__, "script_lines", script_lines)
+        if sinks is not None:
+            pulumi.set(__self__, "sinks", sinks)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
         if transformations is not None:
             pulumi.set(__self__, "transformations", transformations)
 
@@ -68,30 +70,6 @@ class FlowletDataFlowArgs:
     @data_factory_id.setter
     def data_factory_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_factory_id", value)
-
-    @property
-    @pulumi.getter
-    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]:
-        """
-        One or more `sink` blocks as defined below.
-        """
-        return pulumi.get(self, "sinks")
-
-    @sinks.setter
-    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]):
-        pulumi.set(self, "sinks", value)
-
-    @property
-    @pulumi.getter
-    def sources(self) -> pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]:
-        """
-        One or more `source` blocks as defined below.
-        """
-        return pulumi.get(self, "sources")
-
-    @sources.setter
-    def sources(self, value: pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]):
-        pulumi.set(self, "sources", value)
 
     @property
     @pulumi.getter
@@ -164,6 +142,30 @@ class FlowletDataFlowArgs:
     @script_lines.setter
     def script_lines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "script_lines", value)
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]:
+        """
+        One or more `sink` blocks as defined below.
+        """
+        return pulumi.get(self, "sinks")
+
+    @sinks.setter
+    def sinks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSinkArgs']]]]):
+        pulumi.set(self, "sinks", value)
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]:
+        """
+        One or more `source` blocks as defined below.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowletDataFlowSourceArgs']]]]):
+        pulumi.set(self, "sources", value)
 
     @property
     @pulumi.getter
@@ -698,11 +700,7 @@ class FlowletDataFlow(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["script"] = script
             __props__.__dict__["script_lines"] = script_lines
-            if sinks is None and not opts.urn:
-                raise TypeError("Missing required property 'sinks'")
             __props__.__dict__["sinks"] = sinks
-            if sources is None and not opts.urn:
-                raise TypeError("Missing required property 'sources'")
             __props__.__dict__["sources"] = sources
             __props__.__dict__["transformations"] = transformations
         super(FlowletDataFlow, __self__).__init__(
@@ -817,7 +815,7 @@ class FlowletDataFlow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sinks(self) -> pulumi.Output[Sequence['outputs.FlowletDataFlowSink']]:
+    def sinks(self) -> pulumi.Output[Optional[Sequence['outputs.FlowletDataFlowSink']]]:
         """
         One or more `sink` blocks as defined below.
         """
@@ -825,7 +823,7 @@ class FlowletDataFlow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Sequence['outputs.FlowletDataFlowSource']]:
+    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.FlowletDataFlowSource']]]:
         """
         One or more `source` blocks as defined below.
         """

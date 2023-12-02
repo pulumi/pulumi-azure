@@ -3824,6 +3824,9 @@ class TransformOutput(dict):
         """
         A `face_detector_preset` block as defined above.
         """
+        warnings.warn("""`face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""", DeprecationWarning)
+        pulumi.log.warn("""face_detector_preset is deprecated: `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""")
+
         return pulumi.get(self, "face_detector_preset")
 
     @property
@@ -3850,6 +3853,9 @@ class TransformOutput(dict):
 
         > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
         """
+        warnings.warn("""`video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""", DeprecationWarning)
+        pulumi.log.warn("""video_analyzer_preset is deprecated: `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""")
+
         return pulumi.get(self, "video_analyzer_preset")
 
 

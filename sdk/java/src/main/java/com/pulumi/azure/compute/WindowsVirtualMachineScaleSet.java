@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  * 
- * &gt; **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+ * [&gt; **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
  * 
  * ## Example Usage
  * 
@@ -106,6 +106,7 @@ import javax.annotation.Nullable;
  *             .instances(1)
  *             .adminPassword(&#34;P@55w0rd1234!&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
+ *             .computerNamePrefix(&#34;vm-&#34;)
  *             .sourceImageReference(WindowsVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher(&#34;MicrosoftWindowsServer&#34;)
  *                 .offer(&#34;WindowsServer&#34;)

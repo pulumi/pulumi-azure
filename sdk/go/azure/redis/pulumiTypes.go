@@ -329,6 +329,8 @@ func (o CachePatchScheduleArrayOutput) Index(i pulumi.IntInput) CachePatchSchedu
 }
 
 type CacheRedisConfiguration struct {
+	// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+	ActiveDirectoryAuthenticationEnabled *bool `pulumi:"activeDirectoryAuthenticationEnabled"`
 	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 	//
 	// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
@@ -409,6 +411,8 @@ type CacheRedisConfigurationInput interface {
 }
 
 type CacheRedisConfigurationArgs struct {
+	// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+	ActiveDirectoryAuthenticationEnabled pulumi.BoolPtrInput `pulumi:"activeDirectoryAuthenticationEnabled"`
 	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 	//
 	// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
@@ -554,6 +558,11 @@ func (o CacheRedisConfigurationOutput) ToCacheRedisConfigurationPtrOutputWithCon
 	}).(CacheRedisConfigurationPtrOutput)
 }
 
+// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+func (o CacheRedisConfigurationOutput) ActiveDirectoryAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.ActiveDirectoryAuthenticationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 //
 // > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
@@ -690,6 +699,16 @@ func (o CacheRedisConfigurationPtrOutput) Elem() CacheRedisConfigurationOutput {
 		var ret CacheRedisConfiguration
 		return ret
 	}).(CacheRedisConfigurationOutput)
+}
+
+// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+func (o CacheRedisConfigurationPtrOutput) ActiveDirectoryAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryAuthenticationEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.

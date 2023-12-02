@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// &gt; **NOTE:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
     /// 
-    /// &gt; **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+    /// [&gt; **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
     /// 
     /// ## Example Usage
     /// 
@@ -65,6 +65,7 @@ namespace Pulumi.Azure.Compute
     ///         Instances = 1,
     ///         AdminPassword = "P@55w0rd1234!",
     ///         AdminUsername = "adminuser",
+    ///         ComputerNamePrefix = "vm-",
     ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "MicrosoftWindowsServer",

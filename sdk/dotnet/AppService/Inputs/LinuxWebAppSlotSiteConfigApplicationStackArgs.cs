@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? DockerRegistryUsername { get; set; }
 
         /// <summary>
-        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
+        /// The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
         /// </summary>
         [Input("dotnetVersion")]
         public Input<string>? DotnetVersion { get; set; }

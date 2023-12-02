@@ -34,7 +34,11 @@ public final class TransformOutput {
     /**
      * @return A `face_detector_preset` block as defined above.
      * 
+     * @deprecated
+     * `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     private @Nullable TransformOutputFaceDetectorPreset faceDetectorPreset;
     /**
      * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
@@ -51,7 +55,11 @@ public final class TransformOutput {
      * 
      * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
      * 
+     * @deprecated
+     * `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     private @Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset;
 
     private TransformOutput() {}
@@ -79,7 +87,11 @@ public final class TransformOutput {
     /**
      * @return A `face_detector_preset` block as defined above.
      * 
+     * @deprecated
+     * `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     public Optional<TransformOutputFaceDetectorPreset> faceDetectorPreset() {
         return Optional.ofNullable(this.faceDetectorPreset);
     }
@@ -102,7 +114,11 @@ public final class TransformOutput {
      * 
      * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
      * 
+     * @deprecated
+     * `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     public Optional<TransformOutputVideoAnalyzerPreset> videoAnalyzerPreset() {
         return Optional.ofNullable(this.videoAnalyzerPreset);
     }

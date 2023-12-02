@@ -486,7 +486,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
      * 
      * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
      * 
@@ -495,7 +495,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     private Output<String> version;
 
     /**
-     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `create_mode` is `Default`.
+     * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
      * 
      * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
      * 

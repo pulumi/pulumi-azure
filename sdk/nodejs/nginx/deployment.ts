@@ -96,7 +96,7 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      *
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
@@ -226,7 +226,7 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      *
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
@@ -298,7 +298,7 @@ export interface DeploymentState {
  */
 export interface DeploymentArgs {
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      *
      * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */

@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  *
- * > **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
+ * [> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
  *
  * ## Example Usage
  *
@@ -43,6 +43,7 @@ import * as utilities from "../utilities";
  *     instances: 1,
  *     adminPassword: "P@55w0rd1234!",
  *     adminUsername: "adminuser",
+ *     computerNamePrefix: "vm-",
  *     sourceImageReference: {
  *         publisher: "MicrosoftWindowsServer",
  *         offer: "WindowsServer",

@@ -143,6 +143,7 @@ class CachePatchScheduleArgs:
 @pulumi.input_type
 class CacheRedisConfigurationArgs:
     def __init__(__self__, *,
+                 active_directory_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  aof_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
                  aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
@@ -158,6 +159,7 @@ class CacheRedisConfigurationArgs:
                  rdb_backup_max_snapshot_count: Optional[pulumi.Input[int]] = None,
                  rdb_storage_connection_string: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] active_directory_authentication_enabled: Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
         :param pulumi.Input[bool] aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
                
                > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
@@ -191,6 +193,8 @@ class CacheRedisConfigurationArgs:
                
                > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         """
+        if active_directory_authentication_enabled is not None:
+            pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
@@ -219,6 +223,18 @@ class CacheRedisConfigurationArgs:
             pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+
+    @property
+    @pulumi.getter(name="activeDirectoryAuthenticationEnabled")
+    def active_directory_authentication_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+        """
+        return pulumi.get(self, "active_directory_authentication_enabled")
+
+    @active_directory_authentication_enabled.setter
+    def active_directory_authentication_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "active_directory_authentication_enabled", value)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")

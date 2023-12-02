@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? UtcOffset { get; set; }
 
         /// <summary>
-        /// The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+        /// Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
         /// Required in combination with relative monthly frequency.
         /// </summary>
         [Input("weekIndex")]

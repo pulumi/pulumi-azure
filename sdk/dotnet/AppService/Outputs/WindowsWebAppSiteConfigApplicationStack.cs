@@ -53,7 +53,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? DotnetCoreVersion;
         /// <summary>
-        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+        /// The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
         /// 
         /// &gt; **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
         /// Portal Value | API value
@@ -62,6 +62,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// ASP.NET V4.8 | v4.0
         /// .NET 6 (LTS) | v6.0
         /// .NET 7 (STS) | v7.0
+        /// .NET 8 (LTS) | v8.0
         /// </summary>
         public readonly string? DotnetVersion;
         public readonly string? JavaContainer;

@@ -201,7 +201,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */
@@ -399,7 +399,7 @@ export interface FlexibleServerState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */
@@ -512,7 +512,7 @@ export interface FlexibleServerArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14` and `15`. Required when `createMode` is `Default`.
+     * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `createMode` is `Default`.
      *
      * > **Note:** When `createMode` is `Update`, upgrading version wouldn't force a new resource to be created.
      */

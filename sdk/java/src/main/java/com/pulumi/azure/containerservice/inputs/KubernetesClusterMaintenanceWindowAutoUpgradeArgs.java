@@ -154,7 +154,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     }
 
     /**
-     * The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */
@@ -162,7 +162,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
     private @Nullable Output<String> weekIndex;
 
     /**
-     * @return The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * @return Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */
@@ -403,7 +403,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param weekIndex The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         * @param weekIndex Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
          * Required in combination with relative monthly frequency.
          * 
          * @return builder
@@ -415,7 +415,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeArgs extends com
         }
 
         /**
-         * @param weekIndex The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         * @param weekIndex Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
          * Required in combination with relative monthly frequency.
          * 
          * @return builder

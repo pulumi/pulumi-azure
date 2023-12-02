@@ -319,28 +319,28 @@ public class FlowletDataFlow extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sinks", refs={List.class,FlowletDataFlowSink.class}, tree="[0,1]")
-    private Output<List<FlowletDataFlowSink>> sinks;
+    private Output</* @Nullable */ List<FlowletDataFlowSink>> sinks;
 
     /**
      * @return One or more `sink` blocks as defined below.
      * 
      */
-    public Output<List<FlowletDataFlowSink>> sinks() {
-        return this.sinks;
+    public Output<Optional<List<FlowletDataFlowSink>>> sinks() {
+        return Codegen.optional(this.sinks);
     }
     /**
      * One or more `source` blocks as defined below.
      * 
      */
     @Export(name="sources", refs={List.class,FlowletDataFlowSource.class}, tree="[0,1]")
-    private Output<List<FlowletDataFlowSource>> sources;
+    private Output</* @Nullable */ List<FlowletDataFlowSource>> sources;
 
     /**
      * @return One or more `source` blocks as defined below.
      * 
      */
-    public Output<List<FlowletDataFlowSource>> sources() {
-        return this.sources;
+    public Output<Optional<List<FlowletDataFlowSource>>> sources() {
+        return Codegen.optional(this.sources);
     }
     /**
      * One or more `transformation` blocks as defined below.

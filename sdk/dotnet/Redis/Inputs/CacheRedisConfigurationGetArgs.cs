@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Redis.Inputs
     public sealed class CacheRedisConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+        /// </summary>
+        [Input("activeDirectoryAuthenticationEnabled")]
+        public Input<bool>? ActiveDirectoryAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         /// 
         /// &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.

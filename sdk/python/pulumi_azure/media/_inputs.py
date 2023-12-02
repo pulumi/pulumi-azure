@@ -3650,11 +3650,17 @@ class TransformOutputArgs:
         if custom_preset is not None:
             pulumi.set(__self__, "custom_preset", custom_preset)
         if face_detector_preset is not None:
+            warnings.warn("""`face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""", DeprecationWarning)
+            pulumi.log.warn("""face_detector_preset is deprecated: `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""")
+        if face_detector_preset is not None:
             pulumi.set(__self__, "face_detector_preset", face_detector_preset)
         if on_error_action is not None:
             pulumi.set(__self__, "on_error_action", on_error_action)
         if relative_priority is not None:
             pulumi.set(__self__, "relative_priority", relative_priority)
+        if video_analyzer_preset is not None:
+            warnings.warn("""`video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""", DeprecationWarning)
+            pulumi.log.warn("""video_analyzer_preset is deprecated: `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""")
         if video_analyzer_preset is not None:
             pulumi.set(__self__, "video_analyzer_preset", video_analyzer_preset)
 
@@ -3700,6 +3706,9 @@ class TransformOutputArgs:
         """
         A `face_detector_preset` block as defined above.
         """
+        warnings.warn("""`face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""", DeprecationWarning)
+        pulumi.log.warn("""face_detector_preset is deprecated: `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""")
+
         return pulumi.get(self, "face_detector_preset")
 
     @face_detector_preset.setter
@@ -3738,6 +3747,9 @@ class TransformOutputArgs:
 
         > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
         """
+        warnings.warn("""`video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""", DeprecationWarning)
+        pulumi.log.warn("""video_analyzer_preset is deprecated: `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.""")
+
         return pulumi.get(self, "video_analyzer_preset")
 
     @video_analyzer_preset.setter

@@ -12353,7 +12353,7 @@ export namespace appservice {
          */
         dockerRegistryUsername: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
          */
         dotnetVersion?: string;
         /**
@@ -13464,7 +13464,7 @@ export namespace appservice {
          */
         dockerRegistryUsername: string;
         /**
-         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0` and `7.0`.
+         * The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
          */
         dotnetVersion?: string;
         /**
@@ -17247,7 +17247,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
          *
          * > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
          * Portal Value | API value
@@ -17256,6 +17256,7 @@ export namespace appservice {
          * ASP.NET V4.8 | v4.0
          * .NET 6 (LTS) | v6.0
          * .NET 7 (STS) | v7.0
+         * .NET 8 (LTS) | v8.0
          */
         dotnetVersion: string;
         /**
@@ -18440,7 +18441,7 @@ export namespace appservice {
          */
         dotnetCoreVersion?: string;
         /**
-         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0` and `v7.0`.
+         * The version of .NET to use when `currentStack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
          */
         dotnetVersion: string;
         /**
@@ -31042,7 +31043,7 @@ export namespace containerservice {
          */
         utcOffset?: string;
         /**
-         * The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+         * Specifies on which instance of the allowed days specified in `dayOfWeek` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
          * Required in combination with relative monthly frequency.
          */
         weekIndex?: string;
@@ -46323,6 +46324,8 @@ export namespace media {
         customPreset?: outputs.media.TransformOutputCustomPreset;
         /**
          * A `faceDetectorPreset` block as defined above.
+         *
+         * @deprecated `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
          */
         faceDetectorPreset?: outputs.media.TransformOutputFaceDetectorPreset;
         /**
@@ -46337,6 +46340,8 @@ export namespace media {
          * A `videoAnalyzerPreset` block as defined below.
          *
          * > **NOTE:** Each output can only have one type of preset: `builtinPreset`, `audioAnalyzerPreset`, `customPreset`, `faceDetectorPreset` or `videoAnalyzerPreset`. If you need to apply different presets you must create one output for each one.
+         *
+         * @deprecated `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
          */
         videoAnalyzerPreset?: outputs.media.TransformOutputVideoAnalyzerPreset;
     }
@@ -59076,6 +59081,10 @@ export namespace redis {
     }
 
     export interface CacheRedisConfiguration {
+        /**
+         * Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+         */
+        activeDirectoryAuthenticationEnabled?: boolean;
         /**
          * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          *
