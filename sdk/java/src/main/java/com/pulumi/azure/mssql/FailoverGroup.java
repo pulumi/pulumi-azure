@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  *         var secondary = new Server(&#34;secondary&#34;, ServerArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .location(&#34;North Europe&#34;)
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;missadministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsKat12&#34;)

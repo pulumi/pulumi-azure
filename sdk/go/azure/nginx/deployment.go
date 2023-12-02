@@ -119,7 +119,7 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// Specify the number of NGINX capacity units for this NGINX deployment.
+	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
@@ -191,7 +191,7 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// Specify the number of NGINX capacity units for this NGINX deployment.
+	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
@@ -228,7 +228,7 @@ type deploymentState struct {
 }
 
 type DeploymentState struct {
-	// Specify the number of NGINX capacity units for this NGINX deployment.
+	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
@@ -269,7 +269,7 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// Specify the number of NGINX capacity units for this NGINX deployment.
+	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity *int `pulumi:"capacity"`
@@ -303,7 +303,7 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// Specify the number of NGINX capacity units for this NGINX deployment.
+	// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 	//
 	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 	Capacity pulumi.IntPtrInput
@@ -422,7 +422,7 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// Specify the number of NGINX capacity units for this NGINX deployment.
+// Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 //
 // > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
 func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {

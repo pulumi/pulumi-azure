@@ -25,7 +25,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     public static final DeploymentArgs Empty = new DeploymentArgs();
 
     /**
-     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
@@ -34,7 +34,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> capacity;
 
     /**
-     * @return Specify the number of NGINX capacity units for this NGINX deployment.
+     * @return Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
      * 
      * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      * 
@@ -276,7 +276,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
+         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
          * 
          * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
          * 
@@ -289,7 +289,7 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
+         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
          * 
          * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
          * 

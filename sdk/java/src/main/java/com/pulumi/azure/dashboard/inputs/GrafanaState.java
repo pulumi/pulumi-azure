@@ -96,14 +96,29 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Grafana software version.
+     * Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="grafanaMajorVersion")
+    private @Nullable Output<String> grafanaMajorVersion;
+
+    /**
+     * @return Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> grafanaMajorVersion() {
+        return Optional.ofNullable(this.grafanaMajorVersion);
+    }
+
+    /**
+     * The full Grafana software semantic version deployed.
      * 
      */
     @Import(name="grafanaVersion")
     private @Nullable Output<String> grafanaVersion;
 
     /**
-     * @return The Grafana software version.
+     * @return The full Grafana software semantic version deployed.
      * 
      */
     public Optional<Output<String>> grafanaVersion() {
@@ -201,14 +216,14 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * @return The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -253,6 +268,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         this.azureMonitorWorkspaceIntegrations = $.azureMonitorWorkspaceIntegrations;
         this.deterministicOutboundIpEnabled = $.deterministicOutboundIpEnabled;
         this.endpoint = $.endpoint;
+        this.grafanaMajorVersion = $.grafanaMajorVersion;
         this.grafanaVersion = $.grafanaVersion;
         this.identity = $.identity;
         this.location = $.location;
@@ -399,7 +415,28 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaVersion The Grafana software version.
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaMajorVersion(@Nullable Output<String> grafanaMajorVersion) {
+            $.grafanaMajorVersion = grafanaMajorVersion;
+            return this;
+        }
+
+        /**
+         * @param grafanaMajorVersion Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder grafanaMajorVersion(String grafanaMajorVersion) {
+            return grafanaMajorVersion(Output.of(grafanaMajorVersion));
+        }
+
+        /**
+         * @param grafanaVersion The full Grafana software semantic version deployed.
          * 
          * @return builder
          * 
@@ -410,7 +447,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param grafanaVersion The Grafana software version.
+         * @param grafanaVersion The full Grafana software semantic version deployed.
          * 
          * @return builder
          * 
@@ -556,7 +593,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+         * @param sku The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
          * 
          * @return builder
          * 
@@ -567,7 +604,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sku The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+         * @param sku The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
          * 
          * @return builder
          * 

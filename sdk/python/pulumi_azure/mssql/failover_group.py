@@ -281,7 +281,7 @@ class FailoverGroup(pulumi.CustomResource):
             administrator_login_password="thisIsKat11")
         secondary = azure.mssql.Server("secondary",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            location="North Europe",
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat12")
@@ -348,7 +348,7 @@ class FailoverGroup(pulumi.CustomResource):
             administrator_login_password="thisIsKat11")
         secondary = azure.mssql.Server("secondary",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            location="North Europe",
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat12")

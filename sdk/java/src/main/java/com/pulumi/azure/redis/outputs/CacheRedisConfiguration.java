@@ -14,6 +14,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CacheRedisConfiguration {
     /**
+     * @return Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean activeDirectoryAuthenticationEnabled;
+    /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
      * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
@@ -168,6 +173,13 @@ public final class CacheRedisConfiguration {
     private @Nullable String rdbStorageConnectionString;
 
     private CacheRedisConfiguration() {}
+    /**
+     * @return Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> activeDirectoryAuthenticationEnabled() {
+        return Optional.ofNullable(this.activeDirectoryAuthenticationEnabled);
+    }
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
@@ -359,6 +371,7 @@ public final class CacheRedisConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean activeDirectoryAuthenticationEnabled;
         private @Nullable Boolean aofBackupEnabled;
         private @Nullable String aofStorageConnectionString0;
         private @Nullable String aofStorageConnectionString1;
@@ -376,6 +389,7 @@ public final class CacheRedisConfiguration {
         public Builder() {}
         public Builder(CacheRedisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.activeDirectoryAuthenticationEnabled = defaults.activeDirectoryAuthenticationEnabled;
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
     	      this.aofStorageConnectionString0 = defaults.aofStorageConnectionString0;
     	      this.aofStorageConnectionString1 = defaults.aofStorageConnectionString1;
@@ -392,6 +406,11 @@ public final class CacheRedisConfiguration {
     	      this.rdbStorageConnectionString = defaults.rdbStorageConnectionString;
         }
 
+        @CustomType.Setter
+        public Builder activeDirectoryAuthenticationEnabled(@Nullable Boolean activeDirectoryAuthenticationEnabled) {
+            this.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder aofBackupEnabled(@Nullable Boolean aofBackupEnabled) {
             this.aofBackupEnabled = aofBackupEnabled;
@@ -464,6 +483,7 @@ public final class CacheRedisConfiguration {
         }
         public CacheRedisConfiguration build() {
             final var _resultValue = new CacheRedisConfiguration();
+            _resultValue.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
             _resultValue.aofBackupEnabled = aofBackupEnabled;
             _resultValue.aofStorageConnectionString0 = aofStorageConnectionString0;
             _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;

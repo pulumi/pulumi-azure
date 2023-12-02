@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetHciClusterArgs, GetHciClusterResult, GetHciClusterOutputArgs } from "./getHciCluster";
+export const getHciCluster: typeof import("./getHciCluster").getHciCluster = null as any;
+export const getHciClusterOutput: typeof import("./getHciCluster").getHciClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getHciCluster","getHciClusterOutput"], () => require("./getHciCluster"));
+
 export { HciClusterArgs, HciClusterState } from "./hciCluster";
 export type HciCluster = import("./hciCluster").HciCluster;
 export const HciCluster: typeof import("./hciCluster").HciCluster = null as any;

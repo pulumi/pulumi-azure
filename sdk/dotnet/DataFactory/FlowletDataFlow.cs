@@ -376,7 +376,7 @@ namespace Pulumi.Azure.DataFactory
             set => _scriptLines = value;
         }
 
-        [Input("sinks", required: true)]
+        [Input("sinks")]
         private InputList<Inputs.FlowletDataFlowSinkArgs>? _sinks;
 
         /// <summary>
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.DataFactory
             set => _sinks = value;
         }
 
-        [Input("sources", required: true)]
+        [Input("sources")]
         private InputList<Inputs.FlowletDataFlowSourceArgs>? _sources;
 
         /// <summary>

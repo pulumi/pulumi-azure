@@ -79,7 +79,9 @@ type Grafana struct {
 	DeterministicOutboundIpEnabled pulumi.BoolPtrOutput `pulumi:"deterministicOutboundIpEnabled"`
 	// The endpoint of the Grafana instance.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The Grafana software version.
+	// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+	GrafanaMajorVersion pulumi.StringPtrOutput `pulumi:"grafanaMajorVersion"`
+	// The full Grafana software semantic version deployed.
 	GrafanaVersion pulumi.StringOutput `pulumi:"grafanaVersion"`
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity GrafanaIdentityPtrOutput `pulumi:"identity"`
@@ -93,7 +95,7 @@ type Grafana struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -144,7 +146,9 @@ type grafanaState struct {
 	DeterministicOutboundIpEnabled *bool `pulumi:"deterministicOutboundIpEnabled"`
 	// The endpoint of the Grafana instance.
 	Endpoint *string `pulumi:"endpoint"`
-	// The Grafana software version.
+	// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+	GrafanaMajorVersion *string `pulumi:"grafanaMajorVersion"`
+	// The full Grafana software semantic version deployed.
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity *GrafanaIdentity `pulumi:"identity"`
@@ -158,7 +162,7 @@ type grafanaState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags map[string]string `pulumi:"tags"`
@@ -177,7 +181,9 @@ type GrafanaState struct {
 	DeterministicOutboundIpEnabled pulumi.BoolPtrInput
 	// The endpoint of the Grafana instance.
 	Endpoint pulumi.StringPtrInput
-	// The Grafana software version.
+	// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+	GrafanaMajorVersion pulumi.StringPtrInput
+	// The full Grafana software semantic version deployed.
 	GrafanaVersion pulumi.StringPtrInput
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity GrafanaIdentityPtrInput
@@ -191,7 +197,7 @@ type GrafanaState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags pulumi.StringMapInput
@@ -212,6 +218,8 @@ type grafanaArgs struct {
 	AzureMonitorWorkspaceIntegrations []GrafanaAzureMonitorWorkspaceIntegration `pulumi:"azureMonitorWorkspaceIntegrations"`
 	// Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
 	DeterministicOutboundIpEnabled *bool `pulumi:"deterministicOutboundIpEnabled"`
+	// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+	GrafanaMajorVersion *string `pulumi:"grafanaMajorVersion"`
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity *GrafanaIdentity `pulumi:"identity"`
 	// Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
@@ -222,7 +230,7 @@ type grafanaArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags map[string]string `pulumi:"tags"`
@@ -240,6 +248,8 @@ type GrafanaArgs struct {
 	AzureMonitorWorkspaceIntegrations GrafanaAzureMonitorWorkspaceIntegrationArrayInput
 	// Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
 	DeterministicOutboundIpEnabled pulumi.BoolPtrInput
+	// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+	GrafanaMajorVersion pulumi.StringPtrInput
 	// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
 	Identity GrafanaIdentityPtrInput
 	// Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
@@ -250,7 +260,7 @@ type GrafanaArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags pulumi.StringMapInput
@@ -372,7 +382,12 @@ func (o GrafanaOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The Grafana software version.
+// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+func (o GrafanaOutput) GrafanaMajorVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.GrafanaMajorVersion }).(pulumi.StringPtrOutput)
+}
+
+// The full Grafana software semantic version deployed.
 func (o GrafanaOutput) GrafanaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.GrafanaVersion }).(pulumi.StringOutput)
 }
@@ -407,7 +422,7 @@ func (o GrafanaOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 func (o GrafanaOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

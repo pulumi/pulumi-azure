@@ -128,30 +128,30 @@ public final class FlowletDataFlowArgs extends com.pulumi.resources.ResourceArgs
      * One or more `sink` blocks as defined below.
      * 
      */
-    @Import(name="sinks", required=true)
-    private Output<List<FlowletDataFlowSinkArgs>> sinks;
+    @Import(name="sinks")
+    private @Nullable Output<List<FlowletDataFlowSinkArgs>> sinks;
 
     /**
      * @return One or more `sink` blocks as defined below.
      * 
      */
-    public Output<List<FlowletDataFlowSinkArgs>> sinks() {
-        return this.sinks;
+    public Optional<Output<List<FlowletDataFlowSinkArgs>>> sinks() {
+        return Optional.ofNullable(this.sinks);
     }
 
     /**
      * One or more `source` blocks as defined below.
      * 
      */
-    @Import(name="sources", required=true)
-    private Output<List<FlowletDataFlowSourceArgs>> sources;
+    @Import(name="sources")
+    private @Nullable Output<List<FlowletDataFlowSourceArgs>> sources;
 
     /**
      * @return One or more `source` blocks as defined below.
      * 
      */
-    public Output<List<FlowletDataFlowSourceArgs>> sources() {
-        return this.sources;
+    public Optional<Output<List<FlowletDataFlowSourceArgs>>> sources() {
+        return Optional.ofNullable(this.sources);
     }
 
     /**
@@ -375,7 +375,7 @@ public final class FlowletDataFlowArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder sinks(Output<List<FlowletDataFlowSinkArgs>> sinks) {
+        public Builder sinks(@Nullable Output<List<FlowletDataFlowSinkArgs>> sinks) {
             $.sinks = sinks;
             return this;
         }
@@ -406,7 +406,7 @@ public final class FlowletDataFlowArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder sources(Output<List<FlowletDataFlowSourceArgs>> sources) {
+        public Builder sources(@Nullable Output<List<FlowletDataFlowSourceArgs>> sources) {
             $.sources = sources;
             return this;
         }
@@ -464,8 +464,6 @@ public final class FlowletDataFlowArgs extends com.pulumi.resources.ResourceArgs
 
         public FlowletDataFlowArgs build() {
             $.dataFactoryId = Objects.requireNonNull($.dataFactoryId, "expected parameter 'dataFactoryId' to be non-null");
-            $.sinks = Objects.requireNonNull($.sinks, "expected parameter 'sinks' to be non-null");
-            $.sources = Objects.requireNonNull($.sources, "expected parameter 'sources' to be non-null");
             return $;
         }
     }

@@ -68,14 +68,22 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
     /**
      * A `face_detector_preset` block as defined above.
      * 
+     * @deprecated
+     * `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     @Import(name="faceDetectorPreset")
     private @Nullable Output<TransformOutputFaceDetectorPresetArgs> faceDetectorPreset;
 
     /**
      * @return A `face_detector_preset` block as defined above.
      * 
+     * @deprecated
+     * `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     public Optional<Output<TransformOutputFaceDetectorPresetArgs>> faceDetectorPreset() {
         return Optional.ofNullable(this.faceDetectorPreset);
     }
@@ -115,7 +123,11 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
      * 
+     * @deprecated
+     * `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     @Import(name="videoAnalyzerPreset")
     private @Nullable Output<TransformOutputVideoAnalyzerPresetArgs> videoAnalyzerPreset;
 
@@ -124,7 +136,11 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
      * 
+     * @deprecated
+     * `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+     * 
      */
+    @Deprecated /* `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
     public Optional<Output<TransformOutputVideoAnalyzerPresetArgs>> videoAnalyzerPreset() {
         return Optional.ofNullable(this.videoAnalyzerPreset);
     }
@@ -227,7 +243,11 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+         * 
          */
+        @Deprecated /* `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
         public Builder faceDetectorPreset(@Nullable Output<TransformOutputFaceDetectorPresetArgs> faceDetectorPreset) {
             $.faceDetectorPreset = faceDetectorPreset;
             return this;
@@ -238,7 +258,11 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+         * 
          */
+        @Deprecated /* `face_detector_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
         public Builder faceDetectorPreset(TransformOutputFaceDetectorPresetArgs faceDetectorPreset) {
             return faceDetectorPreset(Output.of(faceDetectorPreset));
         }
@@ -292,7 +316,11 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+         * 
          */
+        @Deprecated /* `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
         public Builder videoAnalyzerPreset(@Nullable Output<TransformOutputVideoAnalyzerPresetArgs> videoAnalyzerPreset) {
             $.videoAnalyzerPreset = videoAnalyzerPreset;
             return this;
@@ -305,7 +333,11 @@ public final class TransformOutputArgs extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
+         * @deprecated
+         * `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired.
+         * 
          */
+        @Deprecated /* `video_analyzer_preset` will be removed in version 4.0 of the AzureRM Provider as it has been retired. */
         public Builder videoAnalyzerPreset(TransformOutputVideoAnalyzerPresetArgs videoAnalyzerPreset) {
             return videoAnalyzerPreset(Output.of(videoAnalyzerPreset));
         }

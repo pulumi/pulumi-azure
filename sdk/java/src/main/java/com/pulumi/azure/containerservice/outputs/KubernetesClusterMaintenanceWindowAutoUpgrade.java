@@ -60,7 +60,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
      */
     private @Nullable String utcOffset;
     /**
-     * @return The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * @return Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */
@@ -131,7 +131,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         return Optional.ofNullable(this.utcOffset);
     }
     /**
-     * @return The week in the month used for the maintenance run. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
+     * @return Specifies on which instance of the allowed days specified in `day_of_week` the maintenance occurs. Options are `First`, `Second`, `Third`, `Fourth`, and `Last`.
      * Required in combination with relative monthly frequency.
      * 
      */

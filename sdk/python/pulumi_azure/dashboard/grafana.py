@@ -21,6 +21,7 @@ class GrafanaArgs:
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
                  azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 grafana_major_version: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['GrafanaIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,11 +36,12 @@ class GrafanaArgs:
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
         :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
+        :param pulumi.Input[str] grafana_major_version: Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
         :param pulumi.Input['GrafanaIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -52,6 +54,8 @@ class GrafanaArgs:
             pulumi.set(__self__, "azure_monitor_workspace_integrations", azure_monitor_workspace_integrations)
         if deterministic_outbound_ip_enabled is not None:
             pulumi.set(__self__, "deterministic_outbound_ip_enabled", deterministic_outbound_ip_enabled)
+        if grafana_major_version is not None:
+            pulumi.set(__self__, "grafana_major_version", grafana_major_version)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -128,6 +132,18 @@ class GrafanaArgs:
         pulumi.set(self, "deterministic_outbound_ip_enabled", value)
 
     @property
+    @pulumi.getter(name="grafanaMajorVersion")
+    def grafana_major_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "grafana_major_version")
+
+    @grafana_major_version.setter
+    def grafana_major_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana_major_version", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['GrafanaIdentityArgs']]:
         """
@@ -179,7 +195,7 @@ class GrafanaArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -220,6 +236,7 @@ class _GrafanaState:
                  azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 grafana_major_version: Optional[pulumi.Input[str]] = None,
                  grafana_version: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['GrafanaIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -237,14 +254,15 @@ class _GrafanaState:
         :param pulumi.Input[Sequence[pulumi.Input['GrafanaAzureMonitorWorkspaceIntegrationArgs']]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana instance.
-        :param pulumi.Input[str] grafana_version: The Grafana software version.
+        :param pulumi.Input[str] grafana_major_version: Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] grafana_version: The full Grafana software semantic version deployed.
         :param pulumi.Input['GrafanaIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ips: List of outbound IPs if deterministicOutboundIP is enabled.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -258,6 +276,8 @@ class _GrafanaState:
             pulumi.set(__self__, "deterministic_outbound_ip_enabled", deterministic_outbound_ip_enabled)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if grafana_major_version is not None:
+            pulumi.set(__self__, "grafana_major_version", grafana_major_version)
         if grafana_version is not None:
             pulumi.set(__self__, "grafana_version", grafana_version)
         if identity is not None:
@@ -340,10 +360,22 @@ class _GrafanaState:
         pulumi.set(self, "endpoint", value)
 
     @property
+    @pulumi.getter(name="grafanaMajorVersion")
+    def grafana_major_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "grafana_major_version")
+
+    @grafana_major_version.setter
+    def grafana_major_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grafana_major_version", value)
+
+    @property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Grafana software version.
+        The full Grafana software semantic version deployed.
         """
         return pulumi.get(self, "grafana_version")
 
@@ -427,7 +459,7 @@ class _GrafanaState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -469,6 +501,7 @@ class Grafana(pulumi.CustomResource):
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
                  azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 grafana_major_version: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -516,12 +549,13 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.Input[str] auto_generated_domain_name_label_scope: Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
+        :param pulumi.Input[str] grafana_major_version: Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -582,6 +616,7 @@ class Grafana(pulumi.CustomResource):
                  auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
                  azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]] = None,
                  deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
+                 grafana_major_version: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -603,6 +638,7 @@ class Grafana(pulumi.CustomResource):
             __props__.__dict__["auto_generated_domain_name_label_scope"] = auto_generated_domain_name_label_scope
             __props__.__dict__["azure_monitor_workspace_integrations"] = azure_monitor_workspace_integrations
             __props__.__dict__["deterministic_outbound_ip_enabled"] = deterministic_outbound_ip_enabled
+            __props__.__dict__["grafana_major_version"] = grafana_major_version
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -631,6 +667,7 @@ class Grafana(pulumi.CustomResource):
             azure_monitor_workspace_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]]] = None,
             deterministic_outbound_ip_enabled: Optional[pulumi.Input[bool]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            grafana_major_version: Optional[pulumi.Input[str]] = None,
             grafana_version: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -653,14 +690,15 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrafanaAzureMonitorWorkspaceIntegrationArgs']]]] azure_monitor_workspace_integrations: A `azure_monitor_workspace_integrations` block as defined below.
         :param pulumi.Input[bool] deterministic_outbound_ip_enabled: Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
         :param pulumi.Input[str] endpoint: The endpoint of the Grafana instance.
-        :param pulumi.Input[str] grafana_version: The Grafana software version.
+        :param pulumi.Input[str] grafana_major_version: Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] grafana_version: The full Grafana software semantic version deployed.
         :param pulumi.Input[pulumi.InputType['GrafanaIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ips: List of outbound IPs if deterministicOutboundIP is enabled.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
-        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[str] sku: The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         """
@@ -673,6 +711,7 @@ class Grafana(pulumi.CustomResource):
         __props__.__dict__["azure_monitor_workspace_integrations"] = azure_monitor_workspace_integrations
         __props__.__dict__["deterministic_outbound_ip_enabled"] = deterministic_outbound_ip_enabled
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["grafana_major_version"] = grafana_major_version
         __props__.__dict__["grafana_version"] = grafana_version
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -726,10 +765,18 @@ class Grafana(pulumi.CustomResource):
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter(name="grafanaMajorVersion")
+    def grafana_major_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "grafana_major_version")
+
+    @property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> pulumi.Output[str]:
         """
-        The Grafana software version.
+        The full Grafana software semantic version deployed.
         """
         return pulumi.get(self, "grafana_version")
 
@@ -785,7 +832,7 @@ class Grafana(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
 

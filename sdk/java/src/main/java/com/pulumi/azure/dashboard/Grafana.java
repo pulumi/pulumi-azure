@@ -149,14 +149,28 @@ public class Grafana extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * The Grafana software version.
+     * Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="grafanaMajorVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> grafanaMajorVersion;
+
+    /**
+     * @return Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> grafanaMajorVersion() {
+        return Codegen.optional(this.grafanaMajorVersion);
+    }
+    /**
+     * The full Grafana software semantic version deployed.
      * 
      */
     @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaVersion;
 
     /**
-     * @return The Grafana software version.
+     * @return The full Grafana software semantic version deployed.
      * 
      */
     public Output<String> grafanaVersion() {
@@ -247,14 +261,14 @@ public class Grafana extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+     * @return The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      * 
      */
     public Output<Optional<String>> sku() {

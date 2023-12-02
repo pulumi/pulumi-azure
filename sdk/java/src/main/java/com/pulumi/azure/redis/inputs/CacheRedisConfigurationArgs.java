@@ -18,6 +18,21 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     public static final CacheRedisConfigurationArgs Empty = new CacheRedisConfigurationArgs();
 
     /**
+     * Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+     * 
+     */
+    @Import(name="activeDirectoryAuthenticationEnabled")
+    private @Nullable Output<Boolean> activeDirectoryAuthenticationEnabled;
+
+    /**
+     * @return Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> activeDirectoryAuthenticationEnabled() {
+        return Optional.ofNullable(this.activeDirectoryAuthenticationEnabled);
+    }
+
+    /**
      * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
      * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
@@ -396,6 +411,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     private CacheRedisConfigurationArgs() {}
 
     private CacheRedisConfigurationArgs(CacheRedisConfigurationArgs $) {
+        this.activeDirectoryAuthenticationEnabled = $.activeDirectoryAuthenticationEnabled;
         this.aofBackupEnabled = $.aofBackupEnabled;
         this.aofStorageConnectionString0 = $.aofStorageConnectionString0;
         this.aofStorageConnectionString1 = $.aofStorageConnectionString1;
@@ -428,6 +444,27 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         public Builder(CacheRedisConfigurationArgs defaults) {
             $ = new CacheRedisConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param activeDirectoryAuthenticationEnabled Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder activeDirectoryAuthenticationEnabled(@Nullable Output<Boolean> activeDirectoryAuthenticationEnabled) {
+            $.activeDirectoryAuthenticationEnabled = activeDirectoryAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param activeDirectoryAuthenticationEnabled Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder activeDirectoryAuthenticationEnabled(Boolean activeDirectoryAuthenticationEnabled) {
+            return activeDirectoryAuthenticationEnabled(Output.of(activeDirectoryAuthenticationEnabled));
         }
 
         /**

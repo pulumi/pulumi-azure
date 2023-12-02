@@ -2091,7 +2091,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
-        > **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+        [> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
 
         ## Example Usage
 
@@ -2117,6 +2117,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             instances=1,
             admin_password="P@55w0rd1234!",
             admin_username="adminuser",
+            computer_name_prefix="vm-",
             source_image_reference=azure.compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="MicrosoftWindowsServer",
                 offer="WindowsServer",
@@ -2247,7 +2248,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 
-        > **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
+        [> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
 
         ## Example Usage
 
@@ -2273,6 +2274,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             instances=1,
             admin_password="P@55w0rd1234!",
             admin_username="adminuser",
+            computer_name_prefix="vm-",
             source_image_reference=azure.compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="MicrosoftWindowsServer",
                 offer="WindowsServer",

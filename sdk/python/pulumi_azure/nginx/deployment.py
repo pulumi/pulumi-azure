@@ -34,7 +34,7 @@ class DeploymentArgs:
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
@@ -104,7 +104,7 @@ class DeploymentArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specify the number of NGINX capacity units for this NGINX deployment.
+        Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
@@ -268,7 +268,7 @@ class _DeploymentState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
@@ -324,7 +324,7 @@ class _DeploymentState:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Specify the number of NGINX capacity units for this NGINX deployment.
+        Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """
@@ -594,7 +594,7 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
@@ -765,7 +765,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
@@ -810,7 +810,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        Specify the number of NGINX capacity units for this NGINX deployment.
+        Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
 
         > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         """

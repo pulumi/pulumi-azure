@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * });
  * const secondary = new azure.mssql.Server("secondary", {
  *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     location: "North Europe",
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat12",

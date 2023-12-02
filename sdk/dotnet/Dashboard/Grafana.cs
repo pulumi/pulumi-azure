@@ -89,7 +89,13 @@ namespace Pulumi.Azure.Dashboard
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The Grafana software version.
+        /// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("grafanaMajorVersion")]
+        public Output<string?> GrafanaMajorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The full Grafana software semantic version deployed.
         /// </summary>
         [Output("grafanaVersion")]
         public Output<string> GrafanaVersion { get; private set; } = null!;
@@ -131,7 +137,7 @@ namespace Pulumi.Azure.Dashboard
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        /// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -225,6 +231,12 @@ namespace Pulumi.Azure.Dashboard
         public Input<bool>? DeterministicOutboundIpEnabled { get; set; }
 
         /// <summary>
+        /// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("grafanaMajorVersion")]
+        public Input<string>? GrafanaMajorVersion { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         /// </summary>
         [Input("identity")]
@@ -255,7 +267,7 @@ namespace Pulumi.Azure.Dashboard
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        /// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -323,7 +335,13 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The Grafana software version.
+        /// Which major version of Grafana to deploy. Defaults to `9`. Possible values are `9`, `10`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("grafanaMajorVersion")]
+        public Input<string>? GrafanaMajorVersion { get; set; }
+
+        /// <summary>
+        /// The full Grafana software semantic version deployed.
         /// </summary>
         [Input("grafanaVersion")]
         public Input<string>? GrafanaVersion { get; set; }
@@ -371,7 +389,7 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The name of the SKU used for the Grafana instance. Possible value are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        /// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

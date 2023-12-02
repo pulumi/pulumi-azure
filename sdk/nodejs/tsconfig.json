@@ -1442,6 +1442,7 @@
         "sql/managedInstanceFailoverGroup.ts",
         "sql/sqlServer.ts",
         "sql/virtualNetworkRule.ts",
+        "stack/getHciCluster.ts",
         "stack/hciCluster.ts",
         "stack/index.ts",
         "storage/account.ts",
