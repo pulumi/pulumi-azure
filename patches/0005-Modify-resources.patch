@@ -104,7 +104,7 @@ index e79b7af93d..5007dd743e 100644
  		},
  		data.ImportStep(),
 diff --git a/internal/services/automation/automation_runbook_resource.go b/internal/services/automation/automation_runbook_resource.go
-index 5f4be4fda1..c3192c3534 100644
+index 96c9b1457f..4389d6623d 100644
 --- a/internal/services/automation/automation_runbook_resource.go
 +++ b/internal/services/automation/automation_runbook_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -126,7 +126,7 @@ index 5f4be4fda1..c3192c3534 100644
  
  			"log_progress": {
 diff --git a/internal/services/automation/automation_schedule_resource.go b/internal/services/automation/automation_schedule_resource.go
-index ee91d677ed..752a5838cc 100644
+index 1de7c1b4e8..e65fb4dcb2 100644
 --- a/internal/services/automation/automation_schedule_resource.go
 +++ b/internal/services/automation/automation_schedule_resource.go
 @@ -6,6 +6,7 @@ package automation
@@ -457,10 +457,10 @@ index 12b8af4999..f83e49383a 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index e64009a4d1..f6c0a5249d 100644
+index 6f97e6d3b4..fdea3b5850 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1130,7 +1130,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1129,7 +1129,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -488,7 +488,7 @@ index b141d14cfd..0e3d2fd1b2 100644
  						string(documentdb.IndexingModeConsistent),
  						string(documentdb.IndexingModeNone),
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index f24fbbd52b..059d5ec745 100644
+index afc749ddda..bd89df88d5 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -7,6 +7,7 @@ import (
@@ -644,7 +644,7 @@ index b3cb1e5f84..7cb1c42d70 100644
  						"interval_in_seconds": {
  							Type:         pluginsdk.TypeInt,
 diff --git a/internal/services/firewall/firewall_policy_resource.go b/internal/services/firewall/firewall_policy_resource.go
-index 102a0874e1..9f30c6075f 100644
+index 31a7e5d33f..e3cef43845 100644
 --- a/internal/services/firewall/firewall_policy_resource.go
 +++ b/internal/services/firewall/firewall_policy_resource.go
 @@ -8,6 +8,8 @@ import (
@@ -783,7 +783,7 @@ index fb8b7d1541..b39f1f7391 100644
  								string(devices.EncodingAvro),
  								string(devices.EncodingAvroDeflate),
 diff --git a/internal/services/keyvault/key_vault_certificate_resource.go b/internal/services/keyvault/key_vault_certificate_resource.go
-index 840abaa824..cfb3a0b5a7 100644
+index aacbc3d280..797af5e1f3 100644
 --- a/internal/services/keyvault/key_vault_certificate_resource.go
 +++ b/internal/services/keyvault/key_vault_certificate_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -1263,7 +1263,7 @@ index 2766565528..b7af892e01 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index 0a4bac92ea..02d4e8b299 100644
+index c5ccff259e..36072681a6 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -6,6 +6,7 @@ package mssql
@@ -1274,7 +1274,7 @@ index 0a4bac92ea..02d4e8b299 100644
  	"log"
  	"strings"
  	"time"
-@@ -1416,7 +1417,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1405,7 +1406,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1283,17 +1283,17 @@ index 0a4bac92ea..02d4e8b299 100644
 +							DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  						},
  					},
-
-@@ -1427,7 +1429,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+ 
+@@ -1416,7 +1418,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
  						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
 -							false),
 +							features.CaseInsensitive()),
  					},
-
+ 
  					"email_addresses": {
-@@ -1455,7 +1457,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1444,7 +1446,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
@@ -1346,7 +1346,7 @@ index b91613028e..aeb5794f82 100644
  					},
  				},
 diff --git a/internal/services/mssql/mssql_server_security_alert_policy_resource.go b/internal/services/mssql/mssql_server_security_alert_policy_resource.go
-index 3721fdf0cc..844099d8d4 100644
+index 95a9635019..6cf10653d9 100644
 --- a/internal/services/mssql/mssql_server_security_alert_policy_resource.go
 +++ b/internal/services/mssql/mssql_server_security_alert_policy_resource.go
 @@ -5,6 +5,8 @@ package mssql
@@ -1369,7 +1369,7 @@ index 3721fdf0cc..844099d8d4 100644
  
  			"storage_account_access_key": {
 diff --git a/internal/services/mysql/mysql_server_resource.go b/internal/services/mysql/mysql_server_resource.go
-index bbde139d1a..3e246bebd3 100644
+index 99b9550833..80cfadc5d3 100644
 --- a/internal/services/mysql/mysql_server_resource.go
 +++ b/internal/services/mysql/mysql_server_resource.go
 @@ -6,6 +6,8 @@ package mysql
@@ -2005,7 +2005,7 @@ index f5a509fd86..03b6351a59 100644
  
  func (PortalDashboardResource) hiddenTitle(data acceptance.TestData) string {
 diff --git a/internal/services/postgres/postgresql_server_resource.go b/internal/services/postgres/postgresql_server_resource.go
-index e138d3b137..8977222901 100644
+index d68d5963fa..5da4ee2bdc 100644
 --- a/internal/services/postgres/postgresql_server_resource.go
 +++ b/internal/services/postgres/postgresql_server_resource.go
 @@ -6,6 +6,8 @@ package postgres
@@ -2079,7 +2079,7 @@ index 531538f052..614e6bec69 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index 146d008911..b1b3a3dde4 100644
+index 594f325888..fb78d561f6 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2525,7 +2525,7 @@ index d95e1d0bc9..9a853ede4b 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 247f846e54..8f470d665e 100644
+index 423b0dc3c9..ed33b92c78 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -6,6 +6,8 @@ package storage

@@ -245,7 +245,7 @@ index 4cc96679d7..510129c9ff 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index c72b307358..30e46ba6b5 100644
+index 8c6820ff59..6a4850690a 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -1795,7 +1795,7 @@ index c6387f8e37..10ac1d0ad4 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index e97a5c8f0c..2659438e09 100644
+index 06705f0efa..299ac83d56 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1922,14 +1922,14 @@ index 656e81119f..b9a4cae44f 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index a5d030fd37..54fcbc24a1 100644
+index c6e638189d..54fcbc24a1 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Linux Virtual Machine.
  
  ## Disclaimers
  
---> **Note** Terraform will automatically remove the OS Disk by default - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#features).
+--> **Note** Terraform will automatically remove the OS Disk by default - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).
 +-> **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
  
 -~> **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
@@ -1947,7 +1947,7 @@ index a5d030fd37..54fcbc24a1 100644
  ```hcl
  resource "azurerm_resource_group" "example" {
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index e04bb382cd..c7eeb5a18b 100644
+index 8d4115f936..c7eeb5a18b 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -12,15 +12,11 @@ Manages a Linux Virtual Machine Scale Set.
@@ -1958,7 +1958,7 @@ index e04bb382cd..c7eeb5a18b 100644
 -
 --> **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 -
---> **NOTE:** Terraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#features).
+--> **NOTE:** Terraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).
 +-> **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  
  ## Example Usage
@@ -2403,7 +2403,7 @@ index 0cea957b79..afd6bbc42f 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index d08cf04e42..3cca951edc 100644
+index 7dd1cc421b..8862c65667 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -2415,7 +2415,7 @@ index d08cf04e42..3cca951edc 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -154,7 +154,7 @@ redis_configuration {
+@@ -156,7 +156,7 @@ redis_configuration {
  * `rdb_backup_max_snapshot_count` - (Optional) The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
  * `rdb_storage_connection_string` - (Optional) The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
  
@@ -3038,14 +3038,14 @@ index 3efa150d43..2029b1f009 100644
  
  ## Example Usage
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index f75fa2be26..e8c1cde1e8 100644
+index d7465ead24..e8c1cde1e8 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,9 +12,9 @@ Manages a Windows Virtual Machine.
  
  ## Disclaimers
  
---> **Note** Terraform will automatically remove the OS Disk by default - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#features).
+--> **Note** Terraform will automatically remove the OS Disk by default - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).
 +-> **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` setting within the Provider block.
  
 -~> **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
@@ -3063,7 +3063,7 @@ index f75fa2be26..e8c1cde1e8 100644
  ```hcl
  provider "azurerm" {
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index a3c35a96f5..8d314152aa 100644
+index 62bcb654c6..ae15668114 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,15 @@ Manages a Windows Virtual Machine Scale Set.
@@ -3076,10 +3076,10 @@ index a3c35a96f5..8d314152aa 100644
 --> **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 +-> **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  
---> **NOTE:** Terraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#features).
+--> **NOTE:** Terraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).
 -
 --> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use [the `azurerm_virtual_machine_scale_set` resource](virtual_machine_scale_set.html) instead
-+~> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azurerm_virtual_machine_scale_set` resource instead
++[~> **NOTE:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azurerm_virtual_machine_scale_set` resource instead
  
  ## Example Usage
  
@@ -3088,7 +3088,7 @@ index a3c35a96f5..8d314152aa 100644
  
  ```hcl
  provider "azurerm" {
-@@ -96,7 +94,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "example" {
+@@ -97,7 +95,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "example" {
  
  * `instances` - (Required) The number of Virtual Machines in the Scale Set.
  
@@ -3097,7 +3097,7 @@ index a3c35a96f5..8d314152aa 100644
  
  * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
  
-@@ -338,20 +336,12 @@ An `extension` block supports the following:
+@@ -339,20 +337,12 @@ An `extension` block supports the following:
  
  -> **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
  
