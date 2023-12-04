@@ -191,7 +191,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/subscriptionRule:SubscriptionRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/subscriptionRule:SubscriptionRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

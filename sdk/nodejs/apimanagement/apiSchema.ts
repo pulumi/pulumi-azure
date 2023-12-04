@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
  *     schemaId: "example-schema",
  *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
- *     value: fs.readFileSync("api_management_api_schema.xml"),
+ *     value: fs.readFileSync("api_management_api_schema.xml", "utf8"),
  * });
  * ```
  *

@@ -176,7 +176,7 @@ namespace Pulumi.Azure.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule" },
                 },
                 AdditionalSecretOutputs =
                 {

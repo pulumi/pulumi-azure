@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:trafficmanager/profile:Profile"},
+                    new global::Pulumi.Alias { Type = "azure:trafficmanager/profile:Profile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
