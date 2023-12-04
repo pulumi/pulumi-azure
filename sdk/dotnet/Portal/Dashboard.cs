@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Portal
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:dashboard/dashboard:Dashboard"},
+                    new global::Pulumi.Alias { Type = "azure:dashboard/dashboard:Dashboard" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

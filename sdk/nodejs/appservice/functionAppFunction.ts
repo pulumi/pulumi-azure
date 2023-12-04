@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *     language: "CSharp",
  *     files: [{
  *         name: "run.csx",
- *         content: fs.readFileSync("exampledata/run.csx"),
+ *         content: fs.readFileSync("exampledata/run.csx", "utf8"),
  *     }],
  *     testData: JSON.stringify({
  *         name: "Azure",

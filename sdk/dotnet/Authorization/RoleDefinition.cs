@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:role/definition:Definition"},
+                    new global::Pulumi.Alias { Type = "azure:role/definition:Definition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

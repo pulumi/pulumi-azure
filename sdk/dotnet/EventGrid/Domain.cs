@@ -172,7 +172,7 @@ namespace Pulumi.Azure.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/domain:Domain"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/domain:Domain" },
                 },
                 AdditionalSecretOutputs =
                 {

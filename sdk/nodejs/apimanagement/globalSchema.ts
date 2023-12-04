@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     type: "xml",
- *     value: fs.readFileSync("api_management_api_schema.xml"),
+ *     value: fs.readFileSync("api_management_api_schema.xml", "utf8"),
  * });
  * ```
  *

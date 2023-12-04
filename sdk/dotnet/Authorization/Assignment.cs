@@ -287,7 +287,7 @@ namespace Pulumi.Azure.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:role/assignment:Assignment"},
+                    new global::Pulumi.Alias { Type = "azure:role/assignment:Assignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

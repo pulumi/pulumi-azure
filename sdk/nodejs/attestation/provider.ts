@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const exampleProvider = new azure.attestation.Provider("exampleProvider", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     policySigningCertificateData: fs.readFileSync("./example/cert.pem"),
+ *     policySigningCertificateData: fs.readFileSync("./example/cert.pem", "utf8"),
  * });
  * ```
  *

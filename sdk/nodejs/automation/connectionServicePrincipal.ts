@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     applicationId: "00000000-0000-0000-0000-000000000000",
  *     tenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
  *     subscriptionId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.subscriptionId),
- *     certificateThumbprint: fs.readFileSync("automation_certificate_test.thumb"),
+ *     certificateThumbprint: fs.readFileSync("automation_certificate_test.thumb", "utf8"),
  * });
  * ```
  *

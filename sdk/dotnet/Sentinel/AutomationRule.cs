@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Sentinel
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:sentinel/authomationRule:AuthomationRule"},
+                    new global::Pulumi.Alias { Type = "azure:sentinel/authomationRule:AuthomationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

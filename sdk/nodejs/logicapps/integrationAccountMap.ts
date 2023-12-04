@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     mapType: "Xslt",
- *     content: fs.readFileSync("testdata/integration_account_map_content.xsd"),
+ *     content: fs.readFileSync("testdata/integration_account_map_content.xsd", "utf8"),
  * });
  * ```
  *
