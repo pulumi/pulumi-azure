@@ -148,7 +148,7 @@ namespace Pulumi.Azure.Media
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:mediaservices/account:Account"},
+                    new global::Pulumi.Alias { Type = "azure:mediaservices/account:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

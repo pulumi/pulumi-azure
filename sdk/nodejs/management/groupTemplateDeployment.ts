@@ -78,8 +78,8 @@ import * as utilities from "../utilities";
  * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment", {
  *     location: "West Europe",
  *     managementGroupId: exampleGroup.then(exampleGroup => exampleGroup.id),
- *     templateContent: fs.readFileSync("templates/example-deploy-template.json"),
- *     parametersContent: fs.readFileSync("templates/example-deploy-params.json"),
+ *     templateContent: fs.readFileSync("templates/example-deploy-template.json", "utf8"),
+ *     parametersContent: fs.readFileSync("templates/example-deploy-params.json", "utf8"),
  * });
  * ```
  *

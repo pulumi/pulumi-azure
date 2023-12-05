@@ -52,7 +52,7 @@ namespace Pulumi.Azure.MySql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

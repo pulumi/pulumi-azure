@@ -152,7 +152,7 @@ namespace Pulumi.Azure.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:containerservice/registryWebook:RegistryWebook"},
+                    new global::Pulumi.Alias { Type = "azure:containerservice/registryWebook:RegistryWebook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -186,7 +186,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/namespace:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/namespace:Namespace" },
                 },
                 AdditionalSecretOutputs =
                 {

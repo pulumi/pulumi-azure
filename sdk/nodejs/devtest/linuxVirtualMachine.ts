@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     size: "Standard_DS2",
  *     username: "exampleuser99",
- *     sshKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     sshKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
  *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
  *     storageType: "Premium",

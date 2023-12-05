@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = new azure.compute.SshPublicKey("example", {
  *     resourceGroupName: "example",
  *     location: "West Europe",
- *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
  * });
  * ```
  *
