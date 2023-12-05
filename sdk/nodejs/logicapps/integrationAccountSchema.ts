@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const exampleIntegrationAccountSchema = new azure.logicapps.IntegrationAccountSchema("exampleIntegrationAccountSchema", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
- *     content: fs.readFileSync("testdata/integration_account_schema_content.xsd"),
+ *     content: fs.readFileSync("testdata/integration_account_schema_content.xsd", "utf8"),
  * });
  * ```
  *

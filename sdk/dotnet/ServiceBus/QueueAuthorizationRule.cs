@@ -159,7 +159,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule" },
                 },
                 AdditionalSecretOutputs =
                 {

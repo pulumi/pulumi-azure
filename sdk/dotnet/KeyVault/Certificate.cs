@@ -390,7 +390,7 @@ namespace Pulumi.Azure.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:keyvault/certifiate:Certifiate"},
+                    new global::Pulumi.Alias { Type = "azure:keyvault/certifiate:Certifiate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

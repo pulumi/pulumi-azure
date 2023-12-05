@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePolicy = new azure.apimanagement.Policy("examplePolicy", {
  *     apiManagementId: exampleService.id,
- *     xmlContent: fs.readFileSync("example.xml"),
+ *     xmlContent: fs.readFileSync("example.xml", "utf8"),
  * });
  * ```
  *

@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     adminUsername: "adminuser",
  *     adminSshKeys: [{
  *         username: "adminuser",
- *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
  *     }],
  *     sourceImageReference: {
  *         publisher: "Canonical",

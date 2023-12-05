@@ -158,7 +158,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule" },
                 },
                 AdditionalSecretOutputs =
                 {

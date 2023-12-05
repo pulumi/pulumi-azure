@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     adminSshKeys: [{
  *         username: "adminuser",
- *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub"),
+ *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
  *     }],
  *     osDisk: {
  *         caching: "ReadWrite",

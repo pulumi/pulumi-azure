@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: true,
  *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
- *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub", "utf8"),
  *         }],
  *     },
  *     networkProfiles: [{
@@ -171,7 +171,7 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: true,
  *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
- *             keyData: fs.readFileSync("~/.ssh/demo_key.pub"),
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub", "utf8"),
  *         }],
  *     },
  *     networkProfiles: [{

@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

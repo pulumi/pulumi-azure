@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     agreementType: "AS2",
  *     hostPartnerName: host.name,
  *     guestPartnerName: guest.name,
- *     content: fs.readFileSync("testdata/integration_account_agreement_content_as2.json"),
+ *     content: fs.readFileSync("testdata/integration_account_agreement_content_as2.json", "utf8"),
  *     hostIdentity: {
  *         qualifier: "AS2Identity",
  *         value: "FabrikamNY",

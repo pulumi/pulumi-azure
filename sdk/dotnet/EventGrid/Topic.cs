@@ -162,7 +162,7 @@ namespace Pulumi.Azure.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/eventGridTopic:EventGridTopic"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/eventGridTopic:EventGridTopic" },
                 },
                 AdditionalSecretOutputs =
                 {

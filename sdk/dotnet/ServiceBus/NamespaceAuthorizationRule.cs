@@ -153,7 +153,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule" },
                 },
                 AdditionalSecretOutputs =
                 {
