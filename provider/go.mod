@@ -8,7 +8,7 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.29.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.67.0
-	github.com/pulumi/pulumi/sdk/v3 v3.95.0
+	github.com/pulumi/pulumi/sdk/v3 v3.96.2
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -80,6 +80,7 @@ require (
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.4 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/deckarep/golang-set/v2 v2.5.0 // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
@@ -252,3 +253,7 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 	software.sslmate.com/src/go-pkcs12 v0.2.1 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.78.2-0.20231210214017-879fcac73164
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.96.3-0.20231210214017-879fcac73164
