@@ -19,6 +19,7 @@ namespace Pulumi.Azure.Core
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

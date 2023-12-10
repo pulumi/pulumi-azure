@@ -73,6 +73,7 @@ namespace Pulumi.Azure.Synapse
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Automation
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Local = Pulumi.Local;
+    /// using Local = Pulumi.%[1]s;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {

@@ -20,8 +20,9 @@ namespace Pulumi.Azure.Cdn
     /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using AzureAD = Pulumi.%[1]s;
     /// 
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(File.ReadAllText(path)));

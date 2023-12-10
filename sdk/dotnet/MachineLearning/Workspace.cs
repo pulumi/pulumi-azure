@@ -16,6 +16,7 @@ namespace Pulumi.Azure.MachineLearning
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -73,6 +74,7 @@ namespace Pulumi.Azure.MachineLearning
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -174,8 +176,9 @@ namespace Pulumi.Azure.MachineLearning
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using AzureAD = Pulumi.%[1]s;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {

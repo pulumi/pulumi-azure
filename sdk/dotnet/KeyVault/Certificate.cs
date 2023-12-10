@@ -28,6 +28,7 @@ namespace Pulumi.Azure.KeyVault
     /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// 	private static string ReadFileBase64(string path) {
@@ -122,6 +123,7 @@ namespace Pulumi.Azure.KeyVault
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
