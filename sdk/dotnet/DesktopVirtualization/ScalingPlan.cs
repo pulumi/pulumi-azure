@@ -25,7 +25,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using AzureAD = Pulumi.%[1]s;
     /// using Random = Pulumi.Random;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

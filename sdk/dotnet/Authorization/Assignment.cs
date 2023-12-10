@@ -19,6 +19,7 @@ namespace Pulumi.Azure.Authorization
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -42,6 +43,7 @@ namespace Pulumi.Azure.Authorization
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -87,6 +89,7 @@ namespace Pulumi.Azure.Authorization
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -132,6 +135,7 @@ namespace Pulumi.Azure.Authorization
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 

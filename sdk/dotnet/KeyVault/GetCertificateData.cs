@@ -24,7 +24,7 @@ namespace Pulumi.Azure.KeyVault
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
+        /// using Azure = Pulumi.%[1]s;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.KeyVault
         /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
-        /// using Azure = Pulumi.Azure;
+        /// using Azure = Pulumi.%[1]s;
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {

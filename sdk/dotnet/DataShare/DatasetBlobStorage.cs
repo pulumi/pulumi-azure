@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DataShare
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using AzureAD = Pulumi.%[1]s;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {

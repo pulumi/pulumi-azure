@@ -19,6 +19,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// using Time = Pulumiverse.Time;
     /// 
@@ -69,6 +70,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
+    /// using Azure = Pulumi.%[1]s;
     /// using Azure = Pulumi.Azure;
     /// using Time = Pulumiverse.Time;
     /// 
