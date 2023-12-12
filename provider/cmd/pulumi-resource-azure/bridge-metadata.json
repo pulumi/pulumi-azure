@@ -15031,7 +15031,7 @@
                 }
             },
             "azurerm_mysql_flexible_server_active_directory_administrator": {
-                "current": "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator",
+                "current": "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory",
                 "past": [
                     {
                         "name": "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator",
@@ -29407,6 +29407,60 @@
                     "storage_account": {
                         "maxItemsOne": false
                     }
+                }
+            }
+        }
+    },
+    "auto-settings": {
+        "resources": {
+            "azurerm_automation_software_update_configuration": {
+                "maxItemsOneOverrides": {
+                    "linux": false,
+                    "post_task": false,
+                    "pre_task": false,
+                    "schedule": false,
+                    "schedule.$.monthly_occurrence": false
+                }
+            },
+            "azurerm_linux_web_app": {
+                "maxItemsOneOverrides": {
+                    "site_config.$.auto_heal_setting.$.trigger.$.slow_request": false
+                }
+            },
+            "azurerm_linux_web_app_slot": {
+                "maxItemsOneOverrides": {
+                    "site_config.$.auto_heal_setting.$.trigger.$.slow_request": false
+                }
+            },
+            "azurerm_monitor_activity_log_alert": {
+                "maxItemsOneOverrides": {
+                    "criteria.$.resource_health": false,
+                    "criteria.$.service_health": false
+                }
+            },
+            "azurerm_mysql_flexible_server_active_directory_administrator": {
+                "aliases": [
+                    "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"
+                ]
+            },
+            "azurerm_point_to_site_vpn_gateway": {
+                "maxItemsOneOverrides": {
+                    "connection_configuration": true
+                }
+            },
+            "azurerm_subnet_service_endpoint_storage_policy": {
+                "maxItemsOneOverrides": {
+                    "definition": true
+                }
+            },
+            "azurerm_windows_web_app": {
+                "maxItemsOneOverrides": {
+                    "site_config.$.auto_heal_setting.$.trigger.$.slow_request": false
+                }
+            },
+            "azurerm_windows_web_app_slot": {
+                "maxItemsOneOverrides": {
+                    "site_config.$.auto_heal_setting.$.trigger.$.slow_request": false
                 }
             }
         }
